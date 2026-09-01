@@ -18,6 +18,7 @@ import pytest
 
 from backend.services import translate
 from backend.services.seeder import review_translations as rt
+from backend.tests.fakes import FakeTransaction
 
 
 class _Block:
@@ -134,6 +135,8 @@ class TestDevMock:
 
 class _Conn:
     """Enough asyncpg surface for the pass, with the calls recorded."""
+    def transaction(self):
+        return FakeTransaction()
 
     def __init__(self, rows=()):
         self.rows = list(rows)

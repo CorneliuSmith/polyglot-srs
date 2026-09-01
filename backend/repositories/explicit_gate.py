@@ -29,6 +29,8 @@ from __future__ import annotations
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
 _EXPLICIT_SQL = (
     " AND (NOT {alias}is_explicit"
     "      OR EXISTS (SELECT 1 FROM user_profiles up"
@@ -47,8 +49,9 @@ async def fetch_explicit_gated(conn, sql: str, *args, alias: str = ""):
     the unfiltered form when migration 20260910 hasn't been applied —
     content stays reachable, the gate simply has nothing to gate yet."""
     try:
-        return await conn.fetch(
-            sql.replace("{explicit}", explicit_clause(alias)), *args
-        )
+        async with savepoint(conn):
+            return await conn.fetch(
+                sql.replace("{explicit}", explicit_clause(alias)), *args
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         return await conn.fetch(sql.replace("{explicit}", ""), *args)

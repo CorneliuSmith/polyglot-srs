@@ -21,6 +21,7 @@ from backend.services.tutor import (
     merge_remembered,
     sanitize_history,
 )
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -62,7 +63,7 @@ def _auth_headers() -> dict:
 
 @asynccontextmanager
 async def _fake_rls_connection(user_id: str):
-    yield AsyncMock()
+    yield mock_conn()
 
 
 # Fake Anthropic content blocks ------------------------------------------------
@@ -1312,7 +1313,7 @@ class TestMasteryRepository:
     async def test_create_matches_titles_and_skips_unmatched(self):
         from backend.repositories.tutor import create_mastery_suggestions
 
-        conn = AsyncMock()
+        conn = mock_conn()
         # First star resolves to a card; second finds no card; third has an
         # invalid kind and never reaches the DB.
         conn.fetchval = AsyncMock(side_effect=["card-1", None])
@@ -1336,7 +1337,7 @@ class TestMasteryRepository:
     async def test_accept_advances_to_the_seasoned_floor(self):
         from backend.repositories.tutor import resolve_mastery_suggestion
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value="card-1")
         conn.execute = AsyncMock(return_value="UPDATE 1")
         result = await resolve_mastery_suggestion(conn, "u-1", "s-1", "accept")
@@ -1349,7 +1350,7 @@ class TestMasteryRepository:
     async def test_dismiss_never_touches_the_card(self):
         from backend.repositories.tutor import resolve_mastery_suggestion
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value="card-1")
         conn.execute = AsyncMock()
         result = await resolve_mastery_suggestion(conn, "u-1", "s-1", "dismiss")
@@ -1360,7 +1361,7 @@ class TestMasteryRepository:
     async def test_resolve_returns_none_when_not_pending_or_not_owned(self):
         from backend.repositories.tutor import resolve_mastery_suggestion
 
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=None)
         assert await resolve_mastery_suggestion(conn, "u-1", "s-1", "accept") is None
 

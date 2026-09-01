@@ -85,3 +85,42 @@ async def rls_connection(user_id: str) -> AsyncIterator[asyncpg.Connection]:
                 "SELECT set_config('role', 'authenticated', true)",
             )
             yield conn
+
+
+@asynccontextmanager
+async def savepoint(conn: asyncpg.Connection) -> AsyncIterator[None]:
+    """Run a statement that MAY fail on a schema this deploy is ahead of,
+    without poisoning the rest of the transaction.
+
+    Both connection helpers above wrap everything in one transaction, and
+    Postgres aborts a transaction at the first failed statement: every
+    later statement raises `InFailedSQLTransactionError` until rollback.
+    So the pattern
+
+        try:
+            await conn.fetch(<wide SELECT>)
+        except UndefinedColumnError:
+            await conn.fetch(<narrow SELECT>)     # <- raises anyway
+
+    reads as a fallback and is not one — the retry is the second statement
+    on a dead transaction. Thirty-six sites had that shape; the readiness
+    endpoint 500ed through one of them on the deployed app.
+
+    A savepoint scopes the failure: asyncpg's nested `transaction()` emits
+    SAVEPOINT / RELEASE, and on an exception ROLLBACK TO SAVEPOINT, which
+    puts the outer transaction back where it was. Outside any transaction
+    this is simply a transaction, so the same code works on a bare pooled
+    connection too.
+
+        try:
+            async with savepoint(conn):
+                rows = await conn.fetch(<wide SELECT>)
+        except UndefinedColumnError:
+            rows = await conn.fetch(<narrow SELECT>)  # a live transaction
+
+    Prefer asking first (`to_regclass`, information_schema — see
+    docs/decisions/0001) when the probe is cheap and the answer is reused;
+    use this when the attempt IS the cheapest probe.
+    """
+    async with conn.transaction():
+        yield

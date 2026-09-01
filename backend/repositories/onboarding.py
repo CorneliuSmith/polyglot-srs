@@ -13,6 +13,7 @@ import re
 import asyncpg
 
 from backend.repositories.level import set_chosen_level
+from backend.repositories.pool import savepoint
 from backend.services.extract import ANSWER_MARKER
 
 # CEFR ladder, easiest first.
@@ -161,23 +162,24 @@ async def placement_history(
     the same questions over again.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT estimated_level, items_asked, created_at
-            FROM placement_attempts
-            WHERE user_id = $1 AND language_id = $2
-            ORDER BY created_at DESC
-            LIMIT 10
-            """,
-            user_id, language_id,
-        )
-        total = await conn.fetchval(
-            """
-            SELECT count(*) FROM placement_attempts
-            WHERE user_id = $1 AND language_id = $2
-            """,
-            user_id, language_id,
-        ) or 0
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT estimated_level, items_asked, created_at
+                FROM placement_attempts
+                WHERE user_id = $1 AND language_id = $2
+                ORDER BY created_at DESC
+                LIMIT 10
+                """,
+                user_id, language_id,
+            )
+            total = await conn.fetchval(
+                """
+                SELECT count(*) FROM placement_attempts
+                WHERE user_id = $1 AND language_id = $2
+                """,
+                user_id, language_id,
+            ) or 0
     except asyncpg.exceptions.UndefinedTableError:
         # Migration 20260902 not applied yet. Every placement endpoint reads
         # this first, so a 500 here takes the whole feature down — the test
@@ -287,27 +289,28 @@ async def get_placement_insight(
     shown.
     """
     try:
-        row = await conn.fetchrow(
-            """
-            SELECT id, estimated_level, items_asked, per_level, created_at
-            FROM placement_attempts
-            WHERE user_id = $1 AND language_id = $2
-            ORDER BY created_at DESC
-            LIMIT 1
-            """,
-            user_id, language_id,
-        )
-        if row is None:
-            return None
-        previous = await conn.fetchval(
-            """
-            SELECT estimated_level FROM placement_attempts
-            WHERE user_id = $1 AND language_id = $2
-            ORDER BY created_at DESC
-            OFFSET 1 LIMIT 1
-            """,
-            user_id, language_id,
-        )
+        async with savepoint(conn):
+            row = await conn.fetchrow(
+                """
+                SELECT id, estimated_level, items_asked, per_level, created_at
+                FROM placement_attempts
+                WHERE user_id = $1 AND language_id = $2
+                ORDER BY created_at DESC
+                LIMIT 1
+                """,
+                user_id, language_id,
+            )
+            if row is None:
+                return None
+            previous = await conn.fetchval(
+                """
+                SELECT estimated_level FROM placement_attempts
+                WHERE user_id = $1 AND language_id = $2
+                ORDER BY created_at DESC
+                OFFSET 1 LIMIT 1
+                """,
+                user_id, language_id,
+            )
     except asyncpg.exceptions.UndefinedTableError:
         # Migration 20260902/20260904 not applied. The AI surfaces treat a
         # missing insight as "never placed" already, so degrade rather than
@@ -388,19 +391,20 @@ async def get_placement_form_misses(
     # tells the generator which form to aim at. An indexed join on
     # grammar_point_id — the array version could only do an unindexed scan.
     try:
-        rows = await conn.fetch(
-            """
-            SELECT DISTINCT ON (i.grammar_point_id)
-                   i.grammar_point_id::text AS point_id, i.cell
-            FROM placement_attempt_items i
-            JOIN placement_attempts pa ON pa.id = i.attempt_id
-            WHERE pa.user_id = $1
-              AND i.grammar_point_id = ANY($2::uuid[])
-              AND i.cell IS NOT NULL
-            ORDER BY i.grammar_point_id, pa.created_at DESC
-            """,
-            user_id, point_ids,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT DISTINCT ON (i.grammar_point_id)
+                       i.grammar_point_id::text AS point_id, i.cell
+                FROM placement_attempt_items i
+                JOIN placement_attempts pa ON pa.id = i.attempt_id
+                WHERE pa.user_id = $1
+                  AND i.grammar_point_id = ANY($2::uuid[])
+                  AND i.cell IS NOT NULL
+                ORDER BY i.grammar_point_id, pa.created_at DESC
+                """,
+                user_id, point_ids,
+            )
     except asyncpg.exceptions.UndefinedTableError:
         # Migration 20260904 not applied. This only ever ADDS a cold-start
         # hint for the Gym, so its absence costs nothing — but raising here

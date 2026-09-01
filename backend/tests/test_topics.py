@@ -35,6 +35,7 @@ from backend.services.topic_taxonomy import (
     VISIBLE_TOPICS,
     valid_topic,
 )
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -145,7 +146,7 @@ class TestTopicDraw:
         """The hot path unchanged: no topic requested → the query cannot
         reference v.topic (it would fail planning pre-migration) and adds
         no parameters."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(return_value=[])
         await _select_vocab_candidate_ids(conn, TEST_USER_ID, LANG, 5, None)
         sql = conn.fetch.await_args.args[0]
@@ -154,7 +155,7 @@ class TestTopicDraw:
 
     @pytest.mark.asyncio
     async def test_topic_draw_partitions_by_word_type_and_overfetches(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(return_value=[
             {"id": "w1", "part_of_speech": "noun"},
             {"id": "w2", "part_of_speech": "verb"},
@@ -177,7 +178,7 @@ class TestTopicDraw:
     async def test_missing_topic_column_serves_a_normal_draw(self):
         """A topic link on a deploy ahead of migration 20261009: the learner
         pressed Learn, so they learn — plain draw, no error."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(side_effect=[
             asyncpg.exceptions.UndefinedColumnError("no v.topic"),
             [{"id": "w9"}],
@@ -193,7 +194,7 @@ class TestTopicDraw:
     async def test_both_columns_missing_still_serves(self):
         """Topic column AND the explicit-content column absent (a truly old
         schema): third try serves, filters off."""
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetch = AsyncMock(side_effect=[
             asyncpg.exceptions.UndefinedColumnError("no v.topic"),
             asyncpg.exceptions.UndefinedColumnError("no allow_explicit"),
@@ -213,14 +214,14 @@ class TestTopicDraw:
 class TestTopicSummary:
     @pytest.mark.asyncio
     async def test_pre_migration_reads_empty_without_running_the_query(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=False)   # column probe misses
         assert await get_topic_summary(conn, TEST_USER_ID, LANG) == []
         conn.fetch.assert_not_awaited()
 
     @pytest.mark.asyncio
     async def test_hidden_buckets_are_excluded_in_sql_not_client(self):
-        conn = AsyncMock()
+        conn = mock_conn()
         conn.fetchval = AsyncMock(return_value=True)
         conn.fetch = AsyncMock(return_value=[
             {"topic": "food_drink", "total": 40, "learned": 3},
@@ -250,7 +251,7 @@ def _fake_conn(batch_size=5):
     """Every fetchrow answers with a row whose only real key is batch_size
     — the same shape test_review_endpoints uses, so the profile lookups the
     handler makes along the way (support locale etc.) read as unset."""
-    conn = AsyncMock()
+    conn = mock_conn()
     row = MagicMock()
     row.__getitem__ = MagicMock(
         side_effect=lambda key: batch_size if key == "batch_size" else None

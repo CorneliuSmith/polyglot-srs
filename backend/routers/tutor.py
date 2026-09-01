@@ -32,7 +32,7 @@ from pydantic import BaseModel, Field
 from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.assessment import get_assessment_summary
-from backend.repositories.pool import rls_connection
+from backend.repositories.pool import rls_connection, savepoint
 from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import (
     create_mastery_suggestions,
@@ -235,10 +235,11 @@ async def chat(
         # chat next to them shouldn't teach one. False when migration
         # 20260910 hasn't landed — the gate has nothing to gate yet.
         try:
-            allow_explicit = bool(await conn.fetchval(
-                "SELECT allow_explicit_content FROM user_profiles "
-                "WHERE id = $1", user["id"]
-            ))
+            async with savepoint(conn):
+                allow_explicit = bool(await conn.fetchval(
+                    "SELECT allow_explicit_content FROM user_profiles "
+                    "WHERE id = $1", user["id"]
+                ))
         except asyncpg.exceptions.UndefinedColumnError:
             allow_explicit = False
         support_language = await _support_language(conn, user["id"])
@@ -369,10 +370,11 @@ async def chat_stream(
         # chat next to them shouldn't teach one. False when migration
         # 20260910 hasn't landed — the gate has nothing to gate yet.
         try:
-            allow_explicit = bool(await conn.fetchval(
-                "SELECT allow_explicit_content FROM user_profiles "
-                "WHERE id = $1", user["id"]
-            ))
+            async with savepoint(conn):
+                allow_explicit = bool(await conn.fetchval(
+                    "SELECT allow_explicit_content FROM user_profiles "
+                    "WHERE id = $1", user["id"]
+                ))
         except asyncpg.exceptions.UndefinedColumnError:
             allow_explicit = False
         support_language = await _support_language(conn, user["id"])

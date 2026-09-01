@@ -137,6 +137,51 @@ If you add a per-account setting: add the column to
 `_OPTIONAL_PROFILE_FIELDS` with its SQL default and to the matching
 defaults dict, and both the read and the write handle a database without it.
 
+### When you must catch instead: `savepoint(conn)`
+
+The probe is the right shape for the profile endpoint, but the codebase
+had thirty-six other places with the try/catch-and-retry shape — readiness,
+the dashboard, the tutor, the seeders — and one of them is what 500ed
+`/api/review/readiness` on the deployed app. Rewriting every one as a probe
+was not worth it; what they needed was for the retry to run on a live
+transaction. `backend/repositories/pool.py` now has `savepoint(conn)`:
+
+```python
+try:
+    async with savepoint(conn):
+        rows = await conn.fetch(<wide SELECT>)
+except UndefinedColumnError:
+    rows = await conn.fetch(<narrow SELECT>)   # the transaction is still alive
+```
+
+asyncpg's nested `transaction()` emits `SAVEPOINT` / `RELEASE`, and on an
+exception `ROLLBACK TO SAVEPOINT`, which returns the outer transaction to
+the state it was in before the failed statement — RLS claims included.
+Outside a transaction it is just a transaction, so the same code is safe on
+a bare pooled connection. `backend/tests/integration/test_savepoint_integration.py`
+pins all three facts: the privileged path commits, the RLS path still sees
+`auth.uid()` after the rollback, and the retry *without* the savepoint
+raises `InFailedSQLTransactionError` (so nobody can quietly remove it).
+
+Two rules that go with it. Ask first when you can (`to_regclass`,
+`information_schema`) — a probe costs one cheap statement and reads as what
+it is. And in unit tests, a mocked connection needs `transaction()` to
+return an async context manager: use `mock_conn()` / `FakeTransaction` from
+`backend/tests/fakes.py` rather than `AsyncMock()`, whose `transaction()`
+returns a coroutine and fails at `async with`.
+
+### Endpoints on the page-load path never 500
+
+Two endpoints are called on every app load: `/api/review/readiness` and
+`/api/contribute/notifications` (the staff bell). Both now degrade instead
+of erroring. Readiness returns `_readiness_open()` — every lane open,
+`degraded: true` — if anything in the gate calculation raises, because the
+worst case of a wrong "open" is an English card, while the worst case of a
+500 is a learner who cannot start. The bell catches `_BELL_DEGRADES`, which
+includes builtin `TimeoutError`: the pool's `command_timeout` (30 s)
+surfaces as `asyncio.TimeoutError`, not as a `PostgresError`, so a catch
+written for Postgres errors alone let the roll-up timeout straight through.
+
 ### AI integration: maker-checker, everywhere
 
 Every place the app uses Claude to produce learner-facing content follows
@@ -262,6 +307,42 @@ Two conventions built on top of it:
   can act, and what each action *does*). It exists because "Resolve" reads
   as "mark it done" while in several panels the underlying action deletes
   the row, and nothing on screen said which.
+
+### The first-session gate ("trailblazer" wait), and the live swap
+
+A learner whose support locale isn't English may arrive before the course's
+cards have been translated into it (the `auto_translate_loop` fills them
+progressively). `session_readiness` in `backend/repositories/cards.py` is
+what decides whether to show the waiting room (`TrailblazerWait.tsx`, with
+its match game and trivia) or start the session. The rule, after the owner
+found the original version stalling people:
+
+- **Only a learner who is new to the course waits.** `new_here` is "no
+  `user_cards` row for this language that is unsuspended or has ever been
+  reviewed" (learn cards are inserted suspended until the batch is
+  confirmed, so a half-finished first lesson still counts as new). A
+  returning learner's lanes are always `ready_enough`, whatever the
+  translation percentage.
+- **The gate opens on the first ready card** (`START_CARDS = 1`), not on a
+  percentage of the batch. Example sentences are the bulk of the text and
+  are translated last, so a batch percentage kept people waiting long after
+  something playable existed.
+- **The rest arrives while they study.** Each lane still reports `pct`, and
+  while it is below 1 the frontend re-fetches the *upcoming* cards on every
+  advance — `POST /api/review/lessons/refresh` for learn,
+  `POST /api/review/due/refresh` (ids of the cards after the current one,
+  ≤ 50) for review — and swaps in whichever have gained a translation. The
+  current card is never replaced under someone's fingers. Both are
+  best-effort: a failed refresh leaves the English card.
+- **The readiness call itself does the priming.** Whenever either lane is
+  below 1 it queues `pretranslate_upcoming`, `kick()`s the loop, and runs
+  `fill_start_batch` inline, so a learner who declined the wait still gets
+  the translations they would have waited for.
+
+English (or no) support locale short-circuits all of this: `new_here` is
+false and both lanes are open. The waiting room shows the count of cards
+needed when the gate needs more than one; with a one-card gate it falls
+back to the batch percentage so the bar visibly moves.
 
 ## Frontend
 
@@ -391,6 +472,27 @@ review reminders), `digest_loop` (1 hour, weekly digest + admin ops digest),
 `_check_schema` (once at boot — logs loudly if the code is ahead of the
 applied migrations, which is your early warning that a `supabase db push` is
 overdue).
+
+### Knowing what the server is running
+
+`/api/health` returns `{"status": "ok", "build": {...}}` — `sha`,
+`built_at`, `latest_migration` — from `backend/services/build_info.py`.
+`built_at` is written by the image build (`/app/BUILD_TIME`), not at boot,
+so a restart of an old image cannot look like a deploy. `sha` is the
+`BUILD_SHA` env (Dockerfile `ARG GIT_SHA`) or `.git` when running from a
+checkout; DigitalOcean passes no commit by default, so on production it is
+usually null and `built_at` is the identifying fact. `latest_migration` is
+the newest file in the image's `supabase/migrations` — the migration files
+now ship in the image precisely so `/api/health/schema` has something to
+diff against the live database (it used to report `ok: true`
+unconditionally because `.dockerignore` excluded them; it now returns an
+error when it has no expectations, rather than a hollow ok).
+
+The same three facts plus the schema diff are in the app: **Settings →
+Admin → Deployment** (`DeploymentPanel.tsx`). When "I don't see the
+setting" comes up, read that panel first — it distinguishes "not deployed
+yet" from "deployed, migration not applied" from "a real bug" without a
+terminal.
 
 See `docs/database.md` for exactly how portable this all is if you ever
 wanted to leave Supabase — short version: the schema and RLS are portable

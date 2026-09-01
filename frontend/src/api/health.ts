@@ -38,3 +38,29 @@ export function pendingMigrationNote(health: SchemaHealth | null): string | null
   const rest = missing.length > 1 ? ` (and ${missing.length - 1} more)` : ''
   return `The database is behind this build — ${first}${rest} hasn’t been applied yet.`
 }
+
+export interface BuildInfo {
+  /** Git commit, when the platform passed one at build time; null otherwise. */
+  sha: string | null
+  /** When the image was built (ISO), null outside a Docker image. */
+  built_at: string | null
+  /** The newest migration file this build ships — the newest it expects
+   *  the database to have. */
+  latest_migration: string | null
+  /** 0 means the image carries no migration files and the schema check is
+   *  blind. */
+  migrations_shipped: number
+}
+
+/** What the API is running — the answer to "is X deployed yet?" that used
+ *  to be a guess. Never throws. */
+export async function getBuildInfo(): Promise<BuildInfo | null> {
+  try {
+    const response = await apiClient.get<{ status: string; build?: BuildInfo }>(
+      '/api/health',
+    )
+    return response.data.build ?? null
+  } catch {
+    return null
+  }
+}

@@ -11,6 +11,8 @@ import json
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
 CATEGORIES = ("bug", "confusing", "content", "idea", "other")
 
 # Deployments that have not applied 20260906000000 yet: every feedback call
@@ -42,16 +44,17 @@ async def submit_feedback(
     """
     try:
         try:
-            row = await conn.fetchrow(
-                """
-                INSERT INTO app_feedback
-                    (user_id, language_id, category, message, page, variants)
-                VALUES ($1, $2::uuid, $3, $4, $5, $6::jsonb)
-                RETURNING id
-                """,
-                user_id, language_id, category, message.strip(), page,
-                json.dumps(variants or {}),
-            )
+            async with savepoint(conn):
+                row = await conn.fetchrow(
+                    """
+                    INSERT INTO app_feedback
+                        (user_id, language_id, category, message, page, variants)
+                    VALUES ($1, $2::uuid, $3, $4, $5, $6::jsonb)
+                    RETURNING id
+                    """,
+                    user_id, language_id, category, message.strip(), page,
+                    json.dumps(variants or {}),
+                )
         except asyncpg.exceptions.UndefinedColumnError:
             row = await conn.fetchrow(
                 """
@@ -72,16 +75,17 @@ async def list_my_feedback(
     """What this user has already sent — so the app can say "we got it"
     rather than swallowing the message without trace."""
     try:
-        rows = await conn.fetch(
-            """
-            SELECT id, category, message, page, status, admin_note, created_at
-            FROM app_feedback
-            WHERE user_id = $1
-            ORDER BY created_at DESC
-            LIMIT $2
-            """,
-            user_id, limit,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT id, category, message, page, status, admin_note, created_at
+                FROM app_feedback
+                WHERE user_id = $1
+                ORDER BY created_at DESC
+                LIMIT $2
+                """,
+                user_id, limit,
+            )
     except _MISSING:
         return []
     return [dict(r) | {"id": str(r["id"])} for r in rows]
@@ -105,10 +109,11 @@ async def list_feedback(
     than an accident of whatever course the sender had open.
     """
     try:
-        rows = await conn.fetch(
-            _TRIAGE_SQL.format(variants="f.variants,"),
-            status, language_id, limit, unassigned,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                _TRIAGE_SQL.format(variants="f.variants,"),
+                status, language_id, limit, unassigned,
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         # 20260930 not applied: triage without the variant label rather than
         # no triage at all.
@@ -157,9 +162,10 @@ def _loads(value):
 
 async def count_open_feedback(conn: asyncpg.Connection) -> int:
     try:
-        return await conn.fetchval(
-            "SELECT count(*) FROM app_feedback WHERE status = 'open'"
-        ) or 0
+        async with savepoint(conn):
+            return await conn.fetchval(
+                "SELECT count(*) FROM app_feedback WHERE status = 'open'"
+            ) or 0
     except _MISSING:
         return 0
 
@@ -175,11 +181,12 @@ async def feedback_summary(conn: asyncpg.Connection) -> dict:
     here" without storing read state server-side.
     """
     try:
-        row = await conn.fetchrow(
-            "SELECT count(*) FILTER (WHERE status = 'open') AS open_count, "
-            "       max(created_at) AS latest_at "
-            "FROM app_feedback"
-        )
+        async with savepoint(conn):
+            row = await conn.fetchrow(
+                "SELECT count(*) FILTER (WHERE status = 'open') AS open_count, "
+                "       max(created_at) AS latest_at "
+                "FROM app_feedback"
+            )
     except _MISSING:
         # Migration 20260906 not applied — no feedback table, nothing waiting.
         return {"open_count": 0, "latest_at": None}
@@ -199,15 +206,16 @@ async def set_feedback_status(
     """Triage one item. A None note leaves any existing note alone rather
     than wiping it — closing something should not erase why."""
     try:
-        result = await conn.execute(
-            """
-            UPDATE app_feedback
-            SET status = $2,
-                admin_note = COALESCE($3, admin_note)
-            WHERE id = $1::uuid
-            """,
-            feedback_id, status, admin_note,
-        )
+        async with savepoint(conn):
+            result = await conn.execute(
+                """
+                UPDATE app_feedback
+                SET status = $2,
+                    admin_note = COALESCE($3, admin_note)
+                WHERE id = $1::uuid
+                """,
+                feedback_id, status, admin_note,
+            )
     except _MISSING:
         return False
     return result.endswith("1")
@@ -228,15 +236,16 @@ async def open_feedback_by_language(conn: asyncpg.Connection) -> list[dict]:
     would never see them at all.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT f.language_id, l.name AS language_name, count(*) AS n
-              FROM app_feedback f
-              LEFT JOIN languages l ON l.id = f.language_id
-             WHERE f.status = 'open'
-             GROUP BY f.language_id, l.name
-            """
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT f.language_id, l.name AS language_name, count(*) AS n
+                  FROM app_feedback f
+                  LEFT JOIN languages l ON l.id = f.language_id
+                 WHERE f.status = 'open'
+                 GROUP BY f.language_id, l.name
+                """
+            )
     except _MISSING:
         return []
     out = [

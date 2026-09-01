@@ -15,6 +15,7 @@ from fastapi.testclient import TestClient
 
 from backend.main import create_app
 from backend.services import billing
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -130,7 +131,7 @@ class TestConstructEvent:
 
 @asynccontextmanager
 async def _fake_priv():
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @pytest.fixture()

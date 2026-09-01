@@ -6,6 +6,7 @@ from pathlib import Path
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
 from backend.services.content_filter import is_explicit_gloss
 
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
@@ -262,11 +263,12 @@ class BaseSeeder(ABC):
                     ]
                     if explicit_ids:
                         try:
-                            await conn.execute(
-                                "UPDATE vocabulary SET is_explicit = true "
-                                "WHERE id = ANY($1::uuid[])",
-                                list(set(explicit_ids)),
-                            )
+                            async with savepoint(conn):
+                                await conn.execute(
+                                    "UPDATE vocabulary SET is_explicit = true "
+                                    "WHERE id = ANY($1::uuid[])",
+                                    list(set(explicit_ids)),
+                                )
                         except asyncpg.exceptions.UndefinedColumnError:
                             # Migration 20260910 not applied yet — seeding
                             # still succeeds; the backfill will catch these.

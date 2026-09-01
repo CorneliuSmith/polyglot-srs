@@ -79,7 +79,12 @@ export default function TrailblazerWait({
   // watching "5 %" with no idea they were one card from being let in — and
   // that number climbs slowest precisely because example sentences, which
   // are the bulk of it, are translated last.
-  const needed = lane?.start_cards ?? 0
+  //
+  // Since the gate opens on the FIRST ready card, `start_cards` is usually
+  // 1 — and "0 of 1" is a bar that never moves and then vanishes. A
+  // one-card gate falls back to the batch percentage, which at least
+  // climbs, and the wait it describes is short.
+  const needed = (lane?.start_cards ?? 0) > 1 ? lane!.start_cards : 0
   const have = Math.min(lane?.cards_ready ?? 0, needed)
   const pct = needed > 0
     ? Math.round((have / needed) * 100)

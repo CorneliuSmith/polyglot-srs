@@ -17,6 +17,8 @@ import json
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
 _MISSING = (
     asyncpg.exceptions.UndefinedTableError,
     asyncpg.exceptions.UndefinedColumnError,
@@ -39,14 +41,15 @@ async def list_experiments(conn: asyncpg.Connection) -> list[dict]:
     """Every experiment definition, oldest first. [] when the table isn't
     there — the caller must treat that as "no experiments", not an error."""
     try:
-        rows = await conn.fetch(
-            """
-            SELECT key, name, description, variants, default_variant,
-                   rollout, enabled, learner_choice, created_at, updated_at
-              FROM experiments
-             ORDER BY created_at, key
-            """
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT key, name, description, variants, default_variant,
+                       rollout, enabled, learner_choice, created_at, updated_at
+                  FROM experiments
+                 ORDER BY created_at, key
+                """
+            )
     except _MISSING:
         return []
     return [_row(r) for r in rows]
@@ -54,14 +57,15 @@ async def list_experiments(conn: asyncpg.Connection) -> list[dict]:
 
 async def get_experiment(conn: asyncpg.Connection, key: str) -> dict | None:
     try:
-        row = await conn.fetchrow(
-            """
-            SELECT key, name, description, variants, default_variant,
-                   rollout, enabled, learner_choice, created_at, updated_at
-              FROM experiments WHERE key = $1
-            """,
-            key,
-        )
+        async with savepoint(conn):
+            row = await conn.fetchrow(
+                """
+                SELECT key, name, description, variants, default_variant,
+                       rollout, enabled, learner_choice, created_at, updated_at
+                  FROM experiments WHERE key = $1
+                """,
+                key,
+            )
     except _MISSING:
         return None
     return _row(row) if row else None
@@ -76,14 +80,15 @@ async def get_assignments(
     an admin reading "42 on flat" needs to know how many chose it.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT experiment_key, variant, source
-              FROM experiment_assignments
-             WHERE user_id = $1
-            """,
-            user_id,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT experiment_key, variant, source
+                  FROM experiment_assignments
+                 WHERE user_id = $1
+                """,
+                user_id,
+            )
     except _MISSING:
         return {}
     return {
@@ -108,19 +113,20 @@ async def assign_variant(
     say so.
     """
     try:
-        await conn.execute(
-            """
-            INSERT INTO experiment_assignments
-                (user_id, experiment_key, variant, source, note)
-            VALUES ($1, $2, $3, $4, $5)
-            ON CONFLICT (user_id, experiment_key) DO UPDATE
-               SET variant = EXCLUDED.variant,
-                   source = EXCLUDED.source,
-                   note = EXCLUDED.note,
-                   assigned_at = now()
-            """,
-            user_id, key, variant, source, note,
-        )
+        async with savepoint(conn):
+            await conn.execute(
+                """
+                INSERT INTO experiment_assignments
+                    (user_id, experiment_key, variant, source, note)
+                VALUES ($1, $2, $3, $4, $5)
+                ON CONFLICT (user_id, experiment_key) DO UPDATE
+                   SET variant = EXCLUDED.variant,
+                       source = EXCLUDED.source,
+                       note = EXCLUDED.note,
+                       assigned_at = now()
+                """,
+                user_id, key, variant, source, note,
+            )
     except _MISSING:
         return False
     return True
@@ -131,11 +137,12 @@ async def clear_assignment(
 ) -> bool:
     """Drop the pin, putting this user back under the rollout rule."""
     try:
-        await conn.execute(
-            "DELETE FROM experiment_assignments "
-            " WHERE user_id = $1 AND experiment_key = $2",
-            user_id, key,
-        )
+        async with savepoint(conn):
+            await conn.execute(
+                "DELETE FROM experiment_assignments "
+                " WHERE user_id = $1 AND experiment_key = $2",
+                user_id, key,
+            )
     except _MISSING:
         return False
     return True
@@ -169,11 +176,12 @@ async def update_experiment(
         return True
     args.append(key)
     try:
-        result = await conn.execute(
-            f"UPDATE experiments SET {', '.join(sets)}, updated_at = now() "
-            f" WHERE key = ${len(args)}",
-            *args,
-        )
+        async with savepoint(conn):
+            result = await conn.execute(
+                f"UPDATE experiments SET {', '.join(sets)}, updated_at = now() "
+                f" WHERE key = ${len(args)}",
+                *args,
+            )
     except _MISSING:
         return False
     return result.endswith("1")
@@ -187,16 +195,17 @@ async def assignment_counts(conn: asyncpg.Connection, key: str) -> list[dict]:
     the rollout percentages alongside these.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT variant, source, count(*) AS n
-              FROM experiment_assignments
-             WHERE experiment_key = $1
-             GROUP BY variant, source
-             ORDER BY variant, source
-            """,
-            key,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT variant, source, count(*) AS n
+                  FROM experiment_assignments
+                 WHERE experiment_key = $1
+                 GROUP BY variant, source
+                 ORDER BY variant, source
+                """,
+                key,
+            )
     except _MISSING:
         return []
     return [
@@ -214,18 +223,19 @@ async def assigned_users(
     admin can go and ask about the new look.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT a.user_id, a.variant, a.source, a.note, a.assigned_at,
-                   u.email
-              FROM experiment_assignments a
-              JOIN auth.users u ON u.id = a.user_id
-             WHERE a.experiment_key = $1
-             ORDER BY a.assigned_at DESC
-             LIMIT $2
-            """,
-            key, limit,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT a.user_id, a.variant, a.source, a.note, a.assigned_at,
+                       u.email
+                  FROM experiment_assignments a
+                  JOIN auth.users u ON u.id = a.user_id
+                 WHERE a.experiment_key = $1
+                 ORDER BY a.assigned_at DESC
+                 LIMIT $2
+                """,
+                key, limit,
+            )
     except _MISSING:
         return []
     return [

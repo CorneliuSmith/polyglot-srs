@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 
 from backend.config import get_settings
 from backend.dependencies import get_current_user
-from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.pool import privileged_connection, rls_connection, savepoint
 from backend.repositories.recordings import approved_recording
 from backend.repositories.speech import record_speech_event
 from backend.services.rate_limit import tts_limiter
@@ -48,6 +48,25 @@ class TTSRequest(BaseModel):
     text: str = Field(min_length=1, max_length=MAX_TTS_CHARS)
 
 
+def _case_variants(text: str) -> list[str]:
+    """The sentence as sent, plus the same with its first letter flipped.
+
+    A vocabulary card clozes the word case-insensitively, and the UI speaks
+    the sentence by putting `correct_answer` back into the blank — so
+    "Gato come." comes back as "gato come.", which no row equals, and every
+    sentence-initial word 404ed on every card. Matching the flipped form
+    keeps the index usable (no `lower()` over the whole table) and covers
+    the one place case routinely differs.
+    """
+    variants = [text]
+    if text and text[0].isalpha():
+        first = text[0]
+        flipped = (first.lower() if first.isupper() else first.upper()) + text[1:]
+        if flipped != text:
+            variants.append(flipped)
+    return variants
+
+
 async def _text_is_ours(conn, language_code: str, text: str) -> bool:
     """Only synthesize content the learner legitimately sees: drill and
     example sentences, vocabulary words/readings, grammar point titles,
@@ -69,7 +88,7 @@ async def _text_is_ours(conn, language_code: str, text: str) -> bool:
             SELECT 1
             FROM example_sentences es
             JOIN languages l ON es.language_id = l.id
-            WHERE l.code = $1 AND es.sentence = $2
+            WHERE l.code = $1 AND es.sentence = ANY($3::text[])
         ) OR EXISTS(
             SELECT 1
             FROM vocabulary v
@@ -98,7 +117,7 @@ async def _text_is_ours(conn, language_code: str, text: str) -> bool:
             WHERE l.code = $1 AND s->>'text' = $2
         )
         """,
-        language_code, text,
+        language_code, text, _case_variants(text),
     ))
 
 
@@ -246,11 +265,12 @@ async def tts(
     # unmigrated database still gets the storage_path behaviour it had.
     async with privileged_connection() as conn:
         try:
-            cached = await conn.fetchrow(
-                "SELECT storage_path, audio FROM tts_audio "
-                "WHERE voice = $1 AND text_hash = $2",
-                voice, key,
-            )
+            async with savepoint(conn):
+                cached = await conn.fetchrow(
+                    "SELECT storage_path, audio FROM tts_audio "
+                    "WHERE voice = $1 AND text_hash = $2",
+                    voice, key,
+                )
         except asyncpg.exceptions.UndefinedColumnError:
             path = await conn.fetchval(
                 "SELECT storage_path FROM tts_audio "

@@ -80,6 +80,7 @@ from pathlib import Path
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
 from backend.services.translate import review_source_translations, translations_available
 
 logger = logging.getLogger("review_translations")
@@ -216,10 +217,11 @@ async def _flag(conn, table: str, item: dict, note: str) -> None:
     nobody opens. Both tables carry the same pair of columns.
     """
     try:
-        await conn.execute(
-            f"UPDATE {table} SET flagged = true, flag_reason = $2 WHERE id = $1",
-            item["id"], f"English translation needs review: {note}"[:500],
-        )
+        async with savepoint(conn):
+            await conn.execute(
+                f"UPDATE {table} SET flagged = true, flag_reason = $2 WHERE id = $1",
+                item["id"], f"English translation needs review: {note}"[:500],
+            )
     except (asyncpg.UndefinedColumnError, asyncpg.UndefinedTableError):
         # Pre-migration deploy: the queue columns aren't there yet. Losing
         # the flag is survivable; failing the whole run is not.

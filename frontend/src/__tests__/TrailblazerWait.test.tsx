@@ -24,15 +24,20 @@ vi.mock('react-i18next', () => ({
 const mocked = vi.mocked(getSessionReadiness)
 const mockTrivia = vi.mocked(getTrivia)
 
-/** Five cards, three of them needed to start — the shape the gate sees. */
-function lane(pct: number, ready_enough: boolean, cards_ready = 0) {
+/** Five cards, the first ready one enough to start — the shape the gate sees. */
+function lane(
+  pct: number,
+  ready_enough: boolean,
+  cards_ready = 0,
+  start_cards = 1,
+) {
   return {
     total: 10,
     ready: Math.round(pct * 10),
     pct,
     cards: 5,
     cards_ready,
-    start_cards: 3,
+    start_cards,
     ready_enough,
   }
 }
@@ -42,12 +47,13 @@ function readiness(
   ready_enough: boolean,
   pairs: string[] = [],
   cardsReady = 0,
+  startCards = 1,
 ) {
   return {
     locale: 'es',
-    threshold: 0.6,
-    learn: lane(pct, ready_enough, cardsReady),
-    review: lane(pct, ready_enough, cardsReady),
+    new_here: true,
+    learn: lane(pct, ready_enough, cardsReady, startCards),
+    review: lane(pct, ready_enough, cardsReady, startCards),
     pairs: pairs.map((w) => ({ word: w, gloss: `${w}-gloss` })),
   }
 }
@@ -91,7 +97,7 @@ describe('TrailblazerWait', () => {
     expect(onStart).toHaveBeenCalled()
   })
 
-  it('starts the session itself once the lane crosses the threshold', async () => {
+  it('starts the session itself once the first card is ready', async () => {
     mocked.mockResolvedValue(readiness(0.8, true))
     const onStart = renderWait()
     await waitFor(() => expect(onStart).toHaveBeenCalled())
@@ -155,11 +161,21 @@ describe('TrailblazerWait', () => {
     // different, much slower number — example sentences are the bulk of it
     // and are translated last — so showing that left someone watching "5 %"
     // with no way to tell they were one card from being let in.
-    mocked.mockResolvedValue(readiness(0.05, false, [], 2))
+    mocked.mockResolvedValue(readiness(0.05, false, [], 2, 3))
     renderWait()
     await screen.findByText('trailblazer.cardsReady:2/3')
     // Two of the three cards needed.
     expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '67')
+  })
+
+  it('shows the batch percentage when a single card opens the gate', async () => {
+    // The gate opens on the first ready card, so "0 of 1 cards ready" would
+    // be a bar that never moves and then disappears. The batch percentage
+    // at least climbs while the learner watches.
+    mocked.mockResolvedValue(readiness(0.3, false, [], 0, 1))
+    renderWait()
+    await screen.findByText('trailblazer.progress:30')
+    expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '30')
   })
 
   it('plays trivia when this session has nothing to play with yet', async () => {
@@ -262,7 +278,7 @@ describe('TrailblazerWait', () => {
     // A later poll reports more rows ready. That is movement, and it must
     // reset the clock rather than being ignored because a stall was
     // already showing.
-    mocked.mockResolvedValue(readiness(0.5, false, [], 1))
+    mocked.mockResolvedValue(readiness(0.5, false, [], 1, 3))
     await waitFor(
       () => expect(screen.getByText('trailblazer.cardsReady:1/3')).toBeInTheDocument(),
       { timeout: 8000 },

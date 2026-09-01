@@ -12,7 +12,7 @@ import logging
 
 import asyncpg
 
-from backend.repositories.pool import privileged_connection
+from backend.repositories.pool import privileged_connection, savepoint
 
 logger = logging.getLogger("speech")
 
@@ -34,15 +34,16 @@ async def log_speech_usage(
     provider, or a transcription. A cache hit is not one — it costs
     nothing, so it writes nothing."""
     try:
-        await conn.execute(
-            """
-            INSERT INTO speech_usage
-                (user_id, language_code, kind, feature, chars, audio_ms)
-            VALUES ($1, $2, $3, $4, $5, $6)
-            """,
-            user_id, language_code, kind, feature,
-            max(0, chars), max(0, audio_ms),
-        )
+        async with savepoint(conn):
+            await conn.execute(
+                """
+                INSERT INTO speech_usage
+                    (user_id, language_code, kind, feature, chars, audio_ms)
+                VALUES ($1, $2, $3, $4, $5, $6)
+                """,
+                user_id, language_code, kind, feature,
+                max(0, chars), max(0, audio_ms),
+            )
     except asyncpg.exceptions.UndefinedTableError:
         # Migration not applied yet. The learner heard their audio; the
         # cost view is simply blind to it until the table lands.
@@ -89,22 +90,23 @@ async def aggregate_speech_usage(conn: asyncpg.Connection, since) -> list[dict]:
     an empty speech section rather than a 500.
     """
     try:
-        rows = await conn.fetch(
-            """
-            SELECT
-                su.language_code,
-                su.kind,
-                su.feature,
-                count(*)::int                         AS events,
-                COALESCE(sum(su.chars), 0)::bigint    AS chars,
-                COALESCE(sum(su.audio_ms), 0)::bigint AS audio_ms
-            FROM speech_usage su
-            WHERE su.created_at >= $1
-            GROUP BY su.language_code, su.kind, su.feature
-            ORDER BY su.kind, su.feature, su.language_code NULLS LAST
-            """,
-            since,
-        )
+        async with savepoint(conn):
+            rows = await conn.fetch(
+                """
+                SELECT
+                    su.language_code,
+                    su.kind,
+                    su.feature,
+                    count(*)::int                         AS events,
+                    COALESCE(sum(su.chars), 0)::bigint    AS chars,
+                    COALESCE(sum(su.audio_ms), 0)::bigint AS audio_ms
+                FROM speech_usage su
+                WHERE su.created_at >= $1
+                GROUP BY su.language_code, su.kind, su.feature
+                ORDER BY su.kind, su.feature, su.language_code NULLS LAST
+                """,
+                since,
+            )
     except asyncpg.exceptions.UndefinedTableError:
         return []
     return [dict(r) for r in rows]

@@ -16,6 +16,7 @@ from fastapi.testclient import TestClient
 
 from backend.main import create_app
 from backend.repositories.cards import _form_key
+from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
 TEST_USER_ID = "550e8400-e29b-41d4-a716-446655440000"
@@ -44,7 +45,7 @@ def _auth_headers() -> dict:
 
 @asynccontextmanager
 async def _fake_rls(user_id: str):
-    yield AsyncMock()
+    yield mock_conn()
 
 
 @pytest.fixture()
@@ -135,7 +136,7 @@ _GEN_DRILLS = [
 
 @asynccontextmanager
 async def _fake_privileged():
-    yield AsyncMock()
+    yield mock_conn()
 
 
 def _patch_gym_gen(*, contexts=None, allowance=None, struggles=None,

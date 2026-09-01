@@ -5,6 +5,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from datetime import UTC, datetime
+from uuid import UUID
 
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel, Field
@@ -189,6 +190,19 @@ async def get_due(
     return cards
 
 
+# What /readiness answers when it cannot answer: both lanes open, nothing
+# to play. The wait screen treats an error as "just start" too, but a 500
+# also lands in the console of every session start — and this endpoint
+# crossed the whole card schema, so it was the first thing to break after
+# a deploy that outran its migrations. It never has anything to say that is
+# worth a session not starting.
+def _readiness_open(locale: str | None = None) -> dict:
+    lane = {"total": 0, "ready": 0, "pct": 1.0, "cards": 0, "cards_ready": 0,
+            "start_cards": 0, "ready_enough": True}
+    return {"locale": locale, "new_here": False, "degraded": True,
+            "learn": dict(lane), "review": dict(lane), "pairs": []}
+
+
 @router.get("/readiness")
 async def readiness(
     language_id: str,
@@ -198,53 +212,105 @@ async def readiness(
     """How much of the learner's next session already reads in their own
     language — what the "you're first here" screen is built on.
 
-    Returns learn and review separately, each with a `ready_enough` flag:
-    the session is worth starting once most of it has landed, because the
-    rest fills while they work through the early cards. Nothing here blocks
-    anything; the session is always startable in English.
+    Returns learn and review separately, each with a `ready_enough` flag.
+    Only a learner new to the course with nothing ready yet is asked to
+    wait, and only until the first card lands; everyone else starts at once
+    and the rest fills in while they work (see session_readiness). Nothing
+    here blocks anything; the session is always startable in English.
     """
-    async with rls_connection(user["id"]) as conn:
-        state = await session_readiness(
-            conn, user["id"], language_id, batch_size=max(1, min(limit, 100)),
-        )
-        # Checking readiness IS demand: prime the queue for the batch being
-        # waited on and wake the loop, so the wait screen fills itself
-        # instead of hoping a sweep comes around. pretranslate never raises.
-        if not state["learn"]["ready_enough"] or not state["review"]["ready_enough"]:
-            await pretranslate_upcoming(
-                conn, user["id"], language_id, batch_size=max(1, min(limit, 100))
+    batch = max(1, min(limit, 100))
+    try:
+        async with rls_connection(user["id"]) as conn:
+            state = await session_readiness(
+                conn, user["id"], language_id, batch_size=batch,
             )
-            kick()
-            # ...but the kick is an in-process event, and in the deployed
-            # topology the process that sweeps is routinely NOT the process
-            # serving this request — the owner watched "0 of 3" for minutes
-            # while the fill landed "eventually" (the next timer sweep).
-            # So the start batch is filled HERE, by this worker, bounded
-            # and cooldown-guarded: the wait screen's promise must not
-            # depend on reaching a loop somewhere else.
-            #
-            # Fill the half that is actually stuck. Learn and review are
-            # scored separately above and gated separately by their pages,
-            # but this used to fill the learn batch either way — so a
-            # review session waiting on French glosses paid for the
-            # translation of words it wasn't waiting on, and its own gate
-            # never moved. The inline fill is cooldown-guarded per (user,
-            # language), so the wrong half didn't merely miss: it held the
-            # lock the right half needed.
-            batch = max(1, min(limit, 100))
+            # Checking readiness IS demand: prime the queue for the batch
+            # being started and wake the loop. Keyed on "anything still in
+            # English", not on the gate — a returning learner is let in at
+            # once, and their session is exactly the one whose remaining
+            # sentences must keep landing while they work. Gating the fill
+            # on the gate meant the learners who never waited never got
+            # filled either. pretranslate never raises.
+            learn_short = state["learn"]["pct"] < 1
+            review_short = state["review"]["pct"] < 1
             vocab_ids, grammar_ids = [], []
-            if not state["learn"]["ready_enough"]:
-                vocab_ids, grammar_ids = await start_batch_ids(
+            if learn_short or review_short:
+                await pretranslate_upcoming(
                     conn, user["id"], language_id, batch_size=batch)
-            if not state["review"]["ready_enough"]:
-                due_v, due_g = await due_batch_ids(
-                    conn, user["id"], language_id, batch_size=batch)
-                vocab_ids = list(dict.fromkeys([*vocab_ids, *due_v]))
-                grammar_ids = list(dict.fromkeys([*grammar_ids, *due_g]))
-    if not state["learn"]["ready_enough"] or not state["review"]["ready_enough"]:
+                kick()
+                # ...but the kick is an in-process event, and in the
+                # deployed topology the process that sweeps is routinely
+                # NOT the process serving this request — the owner watched
+                # "0 of 3" for minutes while the fill landed "eventually"
+                # (the next timer sweep). So the start batch is filled HERE,
+                # by this worker, bounded and cooldown-guarded: the wait
+                # screen's promise must not depend on reaching a loop
+                # somewhere else.
+                #
+                # Fill the half that is actually short. Learn and review
+                # are scored separately and their pages gate separately;
+                # filling the learn batch on behalf of a review session
+                # translated words the learner wasn't waiting on, and the
+                # inline fill's per-(user, language) cooldown meant the
+                # wrong half held the lock the right half needed.
+                if learn_short:
+                    vocab_ids, grammar_ids = await start_batch_ids(
+                        conn, user["id"], language_id, batch_size=batch)
+                if review_short:
+                    due_v, due_g = await due_batch_ids(
+                        conn, user["id"], language_id, batch_size=batch)
+                    vocab_ids = list(dict.fromkeys([*vocab_ids, *due_v]))
+                    grammar_ids = list(dict.fromkeys([*grammar_ids, *due_g]))
+    except Exception:  # noqa: BLE001 — a diagnostic must not fail the session
+        logger.exception(
+            "session readiness unavailable for user=%s language=%s; "
+            "opening the session", user["id"], language_id)
+        return _readiness_open()
+    if vocab_ids or grammar_ids:
         asyncio.create_task(fill_start_batch(
             user["id"], language_id, vocab_ids, grammar_ids))
     return state
+
+
+class RefreshDueRequest(BaseModel):
+    language_id: str
+    ids: list[str] = Field(max_length=50)
+
+
+@router.post("/due/refresh")
+async def refresh_due(
+    body: RefreshDueRequest,
+    user: dict = Depends(get_current_user),
+):
+    """Re-serve due-card payloads for cards already in a review session —
+    the review side of the live swap (/lessons/refresh is the learn side).
+
+    A returning learner's session starts at once, so it can begin with
+    example sentences still in English; on every card advance the page
+    asks for its upcoming cards again and swaps in whatever the loop has
+    translated since. Ids are the session's user_card ids; anything not
+    returned (a personal card, an id that isn't theirs) is simply kept as
+    it was. Best-effort by design: a failed refresh leaves the English
+    already on screen, so a bad id is dropped rather than raised.
+    """
+    ids = [i for i in body.ids if _is_uuid(i)]
+    if not ids:
+        return {"cards": []}
+    async with rls_connection(user["id"]) as conn:
+        support = await _support_locale(conn, user["id"])
+        cards = await get_due_cards(
+            conn, body.language_id, limit=len(ids), support_locale=support,
+            only_ids=ids,
+        )
+    return {"cards": cards}
+
+
+def _is_uuid(value: str) -> bool:
+    try:
+        UUID(value)
+    except (ValueError, TypeError, AttributeError):
+        return False
+    return True
 
 
 class RefreshLessonsRequest(BaseModel):

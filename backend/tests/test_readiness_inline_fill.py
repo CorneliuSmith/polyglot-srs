@@ -61,14 +61,14 @@ def client():
 def _not_ready():
     lane = {"total": 6, "ready": 0, "pct": 0.0, "cards": 3, "cards_ready": 0,
             "start_cards": 3, "ready_enough": False}
-    return {"locale": "es", "threshold": 0.6,
+    return {"locale": "es", "new_here": True,
             "learn": dict(lane), "review": dict(lane), "pairs": []}
 
 
 def _ready():
     lane = {"total": 6, "ready": 6, "pct": 1.0, "cards": 3, "cards_ready": 3,
             "start_cards": 3, "ready_enough": True}
-    return {"locale": "es", "threshold": 0.6,
+    return {"locale": "es", "new_here": False,
             "learn": dict(lane), "review": dict(lane), "pairs": []}
 
 
@@ -155,6 +155,99 @@ def test_a_ready_session_spends_nothing(client):
     assert resp.status_code == 200
     filled.assert_not_called()
     pre.assert_not_awaited()
+
+
+def test_a_returning_learner_is_let_in_and_still_filled(client):
+    """The gate and the fill are different questions.
+
+    A returning learner is never asked to wait (ready_enough is true for
+    them whatever the count says), but their session is exactly the one
+    whose remaining sentences must keep landing while they work. Keying
+    the fill on the gate meant the learners who never waited never got
+    filled either: the same half-English deck, session after session,
+    until some other process's timer sweep got round to it.
+    """
+    state = _ready()
+    state["review"] = {"total": 6, "ready": 2, "pct": 0.333, "cards": 3,
+                       "cards_ready": 2, "start_cards": 1,
+                       "ready_enough": True}
+    conn = AsyncMock()
+    filled = MagicMock(side_effect=lambda *a: asyncio.sleep(0))
+    with _rls(conn), \
+        patch("backend.routers.review.session_readiness",
+              new=AsyncMock(return_value=state)), \
+        patch("backend.routers.review.pretranslate_upcoming", new=AsyncMock()) as pre, \
+        patch("backend.routers.review.start_batch_ids",
+              new=AsyncMock(return_value=(["learn-1"], []))) as learn, \
+        patch("backend.routers.review.due_batch_ids",
+              new=AsyncMock(return_value=(["due-1"], ["due-g"]))), \
+        patch("backend.routers.review.kick"), \
+        patch("backend.routers.review.fill_start_batch", filled):
+        resp = client.get(
+            "/api/review/readiness?language_id=lang-1", headers=_auth_headers())
+
+    assert resp.status_code == 200
+    assert resp.json()["review"]["ready_enough"] is True
+    pre.assert_awaited_once()
+    learn.assert_not_awaited()
+    filled.assert_called_once_with(TEST_USER_ID, "lang-1", ["due-1"], ["due-g"])
+
+
+def test_readiness_never_fails_a_session(client):
+    """This endpoint crosses the whole card schema, so it was the first
+    thing to 500 after a deploy that outran its migrations — on every
+    session start, in every learner's console. It is a diagnostic; when it
+    cannot answer, the answer is "start"."""
+    conn = AsyncMock()
+    filled = MagicMock()
+    with _rls(conn), \
+        patch("backend.routers.review.session_readiness",
+              new=AsyncMock(side_effect=RuntimeError("column does not exist"))), \
+        patch("backend.routers.review.fill_start_batch", filled):
+        resp = client.get(
+            "/api/review/readiness?language_id=lang-1", headers=_auth_headers())
+
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["degraded"] is True
+    assert body["learn"]["ready_enough"] is True
+    assert body["review"]["ready_enough"] is True
+    assert body["pairs"] == []
+    filled.assert_not_called()
+
+
+def test_due_refresh_reserves_the_sessions_own_cards(client):
+    """The review live swap: the page hands back the user_card ids it is
+    about to reach and gets those cards re-served in the learner's
+    language. Selection is by id, not by due date, and anything that is
+    not a uuid is dropped rather than raised — a swap is best-effort."""
+    conn = AsyncMock()
+    served = [{"id": "11111111-1111-4111-8111-111111111111", "sentence": "hola"}]
+    with _rls(conn), \
+        patch("backend.routers.review._support_locale",
+              new=AsyncMock(return_value="es")), \
+        patch("backend.routers.review.get_due_cards",
+              new=AsyncMock(return_value=served)) as due:
+        resp = client.post(
+            "/api/review/due/refresh", headers=_auth_headers(),
+            json={"language_id": "lang-1",
+                  "ids": ["11111111-1111-4111-8111-111111111111", "not-a-uuid"]})
+
+    assert resp.status_code == 200
+    assert resp.json() == {"cards": served}
+    due.assert_awaited_once_with(
+        conn, "lang-1", limit=1, support_locale="es",
+        only_ids=["11111111-1111-4111-8111-111111111111"])
+
+
+def test_due_refresh_with_nothing_usable_touches_nothing(client):
+    with patch("backend.routers.review.get_due_cards", new=AsyncMock()) as due:
+        resp = client.post(
+            "/api/review/due/refresh", headers=_auth_headers(),
+            json={"language_id": "lang-1", "ids": ["nope"]})
+    assert resp.status_code == 200
+    assert resp.json() == {"cards": []}
+    due.assert_not_awaited()
 
 
 @pytest.mark.asyncio

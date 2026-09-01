@@ -17,6 +17,7 @@ from unittest.mock import AsyncMock, patch
 import pytest
 
 from backend.services.allowance import effective_plan_limits, get_allowance
+from backend.tests.fakes import mock_conn
 
 
 class FakeSettings:
@@ -29,7 +30,7 @@ class FakeSettings:
 
 @asynccontextmanager
 async def _fake_rls(user_id: str):
-    yield AsyncMock()
+    yield mock_conn()
 
 
 DEFAULT_ACCESS = {"access": "default", "daily_cap": None, "plan_scope": None}

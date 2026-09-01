@@ -204,7 +204,13 @@ export interface ReadinessLane {
 
 export interface SessionReadiness {
   locale: string | null
-  threshold: number
+  /** New to this course: no active card, nothing ever answered. Only a new
+   * learner is ever asked to wait — and only until the first card lands.
+   * Everyone else starts at once and the rest fills in while they work. */
+  new_here: boolean
+  /** The server could not score the session and answered "just start".
+   * Never a reason to hold anyone; surfaced so a stuck fill has a name. */
+  degraded?: boolean
   learn: ReadinessLane
   review: ReadinessLane
   /** Already-translated words of the upcoming batch — the wait game's pool. */

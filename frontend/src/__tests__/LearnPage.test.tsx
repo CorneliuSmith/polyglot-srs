@@ -19,7 +19,7 @@ vi.mock('../api/review', () => ({
   getSessionReadiness: vi.fn(() =>
     Promise.resolve({
       locale: null,
-      threshold: 0.6,
+      new_here: true,
       learn: { total: 0, ready: 0, pct: 1, ready_enough: true },
       review: { total: 0, ready: 0, pct: 1, ready_enough: true },
       pairs: [],
@@ -58,7 +58,7 @@ const mockRefresh = refreshLessons as ReturnType<typeof vi.fn>
 
 function readiness(pct: number, ready_enough: boolean) {
   const lane = { total: 10, ready: Math.round(pct * 10), pct, ready_enough }
-  return { locale: 'pt', threshold: 0.6, learn: lane, review: lane, pairs: [] }
+  return { locale: 'pt', new_here: true, learn: lane, review: lane, pairs: [] }
 }
 
 const grammarLesson = {

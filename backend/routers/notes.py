@@ -21,7 +21,7 @@ from backend.repositories.notes import (
     list_notes,
 )
 from backend.repositories.personal_decks import get_or_create_deck
-from backend.repositories.pool import rls_connection
+from backend.repositories.pool import rls_connection, savepoint
 from backend.services.drills import validate_drill
 from backend.services.extract import classify_words, make_cloze, split_sentences, tokenize
 from backend.services.nlp import get_nlp
@@ -152,9 +152,10 @@ async def create_card(body: PersonalCardCreate, user: dict = Depends(get_current
         # losing the folder must not fail the save the learner just made.
         deck_id: str | None = None
         try:
-            deck_id = await get_or_create_deck(
-                conn, user["id"], body.language_id, deck_name
-            )
+            async with savepoint(conn):
+                deck_id = await get_or_create_deck(
+                    conn, user["id"], body.language_id, deck_name
+                )
         except (UndefinedTableError, UndefinedColumnError):
             # personal_decks migration hasn't landed — save, don't crash.
             logger.warning("personal_decks unavailable; filing skipped")

@@ -15,6 +15,7 @@ import asyncpg
 from backend.repositories.curriculum import get_read_ref_keys, resolve_related
 from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.repositories.gym import get_gym_progress
+from backend.repositories.pool import savepoint
 from backend.services.auto_translate import (
     note_missing_content,
     table_present,
@@ -102,6 +103,7 @@ async def get_due_cards(
     limit: int = 20,
     support_locale: str | None = None,
     card_type: str | None = None,
+    only_ids: list[str] | None = None,
 ) -> list[dict]:
     """Return due cards for the authenticated user with full card content.
 
@@ -126,11 +128,29 @@ async def get_due_cards(
     *card_type* scopes the session ("Grammar Only" / "Vocab Only" reviews):
     'grammar' returns grammar drills alone; 'vocabulary' returns vocabulary
     plus personal cloze cards (the learner's own words live with vocab).
+
+    *only_ids* is the live swap (refresh_due): re-serve cards ALREADY in a
+    session, by user_card id, so whatever the translation loop has landed
+    since the deck was pulled renders mid-session. Selected by id rather
+    than by due date because the deck is the session's, not the queue's —
+    a card the learner is about to reach is being refreshed whatever its
+    `next_review` says now. Personal cards are skipped: nothing translates
+    them mid-session, and the caller keeps what it has for any id not
+    returned.
     """
     eff_locale = await _effective_locale(conn, language_id, support_locale)
     gpt = _gpt_sql(await _table_exists(conn, "grammar_point_translations"), "$3")
     want_vocab = card_type in (None, "vocabulary")
     want_grammar = card_type in (None, "grammar")
+    # One clause, two modes. Spelled as a placeholder rather than patched
+    # into the finished string: SQL surgery breaks silently the moment the
+    # query is reformatted.
+    if only_ids is not None:
+        due_clause = "uc.id = ANY($4::uuid[])"
+        due_args: tuple = (list(only_ids),)
+    else:
+        due_clause = "uc.next_review <= now()"
+        due_args = ()
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
     # out (cloze), with its translation as a hint. All of the word's sentences
@@ -139,7 +159,7 @@ async def get_due_cards(
     # the word, not one memorized string. Falls back to the plain
     # definition -> type-the-word prompt when no sentence works.
     vocab_rows = [] if not want_vocab else await conn.fetch(
-        """
+        f"""
         SELECT
             uc.id,
             uc.user_id,
@@ -235,7 +255,7 @@ async def get_due_cards(
         ) lp ON true
         WHERE uc.language_id = $1
           AND uc.card_type = 'vocabulary'
-          AND uc.next_review <= now()
+          AND {due_clause}
           AND uc.is_suspended = false
         ORDER BY uc.next_review ASC
         LIMIT $2
@@ -243,6 +263,7 @@ async def get_due_cards(
         language_id,
         limit,
         eff_locale,
+        *due_args,
     )
 
     # -- Grammar cards -------------------------------------------------------
@@ -306,7 +327,7 @@ async def get_due_cards(
         ) lp ON true
         WHERE uc.language_id = $1
           AND uc.card_type = 'grammar'
-          AND uc.next_review <= now()
+          AND {due_clause}
           AND uc.is_suspended = false
         ORDER BY uc.next_review ASC
         LIMIT $2
@@ -314,6 +335,7 @@ async def get_due_cards(
         language_id,
         limit,
         eff_locale,
+        *due_args,
     )
 
     # -- Personal cloze cards (learner's own text) --------------------------
@@ -386,7 +408,7 @@ async def get_due_cards(
         LIMIT $2
     """
     personal_rows = []
-    if want_vocab:
+    if want_vocab and only_ids is None:
         # PROBED, never caught. A query naming a missing table doesn't just
         # fail itself — the pooled connection runs one transaction, so the
         # throw aborts it and every later query in the request dies with it,
@@ -687,11 +709,17 @@ async def _select_vocab_candidate_ids(
     every learn-batch variant gets the filter without threading a flag
     through five signatures — and no future caller can forget it.
     """
+    # Each attempt runs under a savepoint: this is called inside the
+    # request's single transaction, and without one the first failed
+    # statement aborted it, so every "fallback" below raised
+    # InFailedSQLTransactionError instead — which is what the readiness
+    # endpoint 500ed with on a database behind on migrations.
     try:
-        return await _vocab_candidates(
-            conn, user_id, language_id, batch_size, level,
-            explicit_filter=True, topic=topic,
-        )
+        async with savepoint(conn):
+            return await _vocab_candidates(
+                conn, user_id, language_id, batch_size, level,
+                explicit_filter=True, topic=topic,
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         if topic is not None:
             # Migration 20261009 (vocabulary.topic) hasn't landed but a
@@ -699,10 +727,11 @@ async def _select_vocab_candidate_ids(
             # schema. Serve a normal draw rather than fail the session; the
             # toggle that mints topic links doesn't render pre-migration.
             try:
-                return await _vocab_candidates(
-                    conn, user_id, language_id, batch_size, level,
-                    explicit_filter=True, topic=None,
-                )
+                async with savepoint(conn):
+                    return await _vocab_candidates(
+                        conn, user_id, language_id, batch_size, level,
+                        explicit_filter=True, topic=None,
+                    )
             except asyncpg.exceptions.UndefinedColumnError:
                 return await _vocab_candidates(
                     conn, user_id, language_id, batch_size, level,
@@ -1144,23 +1173,20 @@ async def pretranslate_upcoming(
         logger.debug("pretranslate lookahead skipped: %s", exc)
 
 
-# How much of a session must already read in the learner's language before
-# it's worth starting. Not 100%: the rest fills while they work through the
-# early cards, so holding out for a perfect session wastes their time.
-READY_ENOUGH = 0.6
-
-# ...but the percentage is not the only way in, and on its own it was the
-# wrong gate. It measures the WHOLE batch, glosses and example sentences
-# together, so a learner could sit at 5% with three perfectly good cards
-# already waiting for them and no way to begin. A session only needs enough
-# cards to start on; the rest lands while they work, and the learn loop
-# re-serves its lessons on every advance so it appears without a restart.
+# The wait screen (the trailblazer game) is for a learner who is NEW to a
+# course and has NOTHING ready yet. It opens on the first usable card, not
+# on a percentage of the batch: the rest of the session fills while they
+# work, and the learn/review loops re-serve their cards on every advance so
+# what lands mid-session appears without a restart. The old gate held out
+# for 60% of the batch, which measured example sentences — most of what a
+# vocabulary card shows, and translated last — so learners sat on a bar
+# that crawled while cards they could have been working on were ready.
 #
 # A card counts here when the thing you read FIRST is in your language — a
-# word's gloss, a grammar point's explanation. Example sentences are most
-# of what a vocabulary card shows and they still drive the percentage, but
-# they must never be what keeps someone out of a session.
-START_CARDS = 3
+# word's gloss, a grammar point's explanation. Example sentences still
+# drive the percentage (`pct`, what the live swap keys on) but never keep
+# anyone out.
+START_CARDS = 1
 
 
 async def session_readiness(
@@ -1173,17 +1199,41 @@ async def session_readiness(
     Reports the next LEARN batch and the due REVIEW queue separately, since
     a learner can be ready for one and not the other. `ready_enough` is the
     signal the UI actually acts on: start now, or offer to wait.
+
+    Only a learner NEW to the course is ever asked to wait — one with no
+    card in the review queue and nothing ever answered here. Anyone else
+    has already been studying this course, in whatever mix of languages it
+    had at the time; holding them at a wait screen on every visit until the
+    rest of the batch rendered is what made "study and play the game" not
+    work in terms of time. Their sessions start at once and the remaining
+    translations land while they work, via the live swap. `new_here` is
+    reported so the UI can explain the difference.
     """
     locale = await conn.fetchval(
         "SELECT COALESCE(support_locale, NULLIF(ui_language, 'en')) "
             "FROM user_profiles WHERE id = $1", user_id
     )
-    out: dict = {"locale": locale, "threshold": READY_ENOUGH}
+    out: dict = {"locale": locale}
     if not locale or locale == "en":
         # Nothing to translate: English IS the content.
+        out["new_here"] = False
         for key in ("learn", "review"):
             out[key] = {"total": 0, "ready": 0, "pct": 1.0, "ready_enough": True}
         return out
+
+    # New to the course: no active card and nothing ever answered. Learn
+    # sessions insert their cards SUSPENDED until the walkthrough is
+    # confirmed, so a learner who opened a lesson and left is still new;
+    # one who finished it, or has any review history, is not. Deliberately
+    # not `learned_at` — that column arrives with a later migration, and
+    # this runs on every session start.
+    new_here = not await conn.fetchval(
+        """SELECT EXISTS (
+               SELECT 1 FROM user_cards
+                WHERE user_id = $1 AND language_id = $2
+                  AND (NOT is_suspended OR repetitions > 0))""",
+        user_id, language_id)
+    out["new_here"] = new_here
 
     # Learning a language THROUGH itself: the loop deliberately never
     # renders example sentences, because doing so reproduces the drill
@@ -1250,16 +1300,17 @@ async def session_readiness(
             cards_ready += explained
         pct = 1.0 if total == 0 else ready / total
         cards = len(vocab_ids) + len(grammar_ids)
-        # Either way in: a few cards ready to work through, or a batch far
-        # enough along overall. The card count is what rescues someone from
-        # a low percentage they can do nothing about — glosses land before
-        # sentences, so three usable cards routinely exist at 20%.
+        # The gate is one usable card — for a learner new here. Anyone
+        # else is let straight in whatever the count says: the review
+        # queue only exists for cards that are active, so a due queue is
+        # itself proof the learner is not new, and the learn batch of a
+        # returning learner fills while they work like everything else.
         enough_cards = cards > 0 and cards_ready >= min(START_CARDS, cards)
         out[key] = {
             "total": total, "ready": ready, "pct": round(pct, 3),
             "cards": cards, "cards_ready": cards_ready,
             "start_cards": min(START_CARDS, cards),
-            "ready_enough": total == 0 or enough_cards or pct >= READY_ENOUGH,
+            "ready_enough": total == 0 or not new_here or enough_cards,
         }
 
     # The wait-screen game plays the words of the SESSION being waited for —
@@ -1386,18 +1437,19 @@ async def confirm_learn_batch(
     if not card_ids:
         return 0
     try:
-        result = await conn.execute(
-            """
-            UPDATE user_cards
-            SET is_suspended = false, next_review = now(), learned_at = now()
-            WHERE id = ANY($1::uuid[])
-              AND user_id = $2
-              AND is_suspended
-              AND repetitions = 0
-            """,
-            card_ids,
-            user_id,
-        )
+        async with savepoint(conn):
+            result = await conn.execute(
+                """
+                UPDATE user_cards
+                SET is_suspended = false, next_review = now(), learned_at = now()
+                WHERE id = ANY($1::uuid[])
+                  AND user_id = $2
+                  AND is_suspended
+                  AND repetitions = 0
+                """,
+                card_ids,
+                user_id,
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         # Migration 20260928 hasn't landed. Activate the cards anyway — the
         # daily counter falls back to created_at (see get_dashboard_stats),

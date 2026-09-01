@@ -3491,6 +3491,36 @@ async def assign_experiment_endpoint(
     return {"user_id": target_id, "email": body.email, "variant": body.variant}
 
 
+# What the staff bell survives. It asks on EVERY page load for every staff
+# account, so any failure here is a console full of 500s on every navigation
+# — that is how the "notifications 500" showed up on the deployed app twice.
+# An empty bell for one load beats that; the next load asks again.
+#   UndefinedTable/Column — this deploy is ahead of the database (migrations
+#     are owner-applied).
+#   QueryCanceledError — the database's statement_timeout fired. Before the
+#     roll-up was rewritten to grouped scans this fired constantly.
+#   TimeoutError — the POOL's command_timeout (30 s, pool.py) fired first.
+#     asyncpg raises asyncio.TimeoutError for that, which is the builtin
+#     TimeoutError since 3.11 and is NOT a PostgresError, so the list above
+#     never caught it. Same cause as QueryCanceledError, different exception.
+#   PostgresError — anything else the database says no to (a lock, a
+#     permission, a bad plan). Logged so it is not invisible, but not a 500.
+_BELL_DEGRADES = (
+    asyncpg.exceptions.UndefinedTableError,
+    asyncpg.exceptions.UndefinedColumnError,
+    asyncpg.exceptions.QueryCanceledError,
+    TimeoutError,
+    asyncpg.PostgresError,
+)
+
+
+def _bell_degraded(what: str, exc: BaseException) -> None:
+    logger.warning(
+        "staff bell: %s unavailable this load (%s: %s)",
+        what, type(exc).__name__, exc,
+    )
+
+
 @router.get("/notifications")
 async def review_notifications(user: dict = Depends(get_current_user)):
     """What is waiting for this reviewer, in every language at once.
@@ -3531,16 +3561,8 @@ async def review_notifications(user: dict = Depends(get_current_user)):
     try:
         async with privileged_connection() as conn:
             languages = await review_inbox_by_language(conn, include_empty=True)
-    except (
-        asyncpg.exceptions.UndefinedTableError,
-        asyncpg.exceptions.UndefinedColumnError,
-        # A statement the database cancelled (statement_timeout). The bell
-        # asks on EVERY staff page load — before the roll-up was rewritten
-        # to grouped scans this fired constantly in production, and a 500
-        # here broke the console on every navigation. An empty bell for one
-        # load beats that; the next load asks again.
-        asyncpg.exceptions.QueryCanceledError,
-    ):
+    except _BELL_DEGRADES as exc:
+        _bell_degraded("review counts", exc)
         languages = []
 
     # Only the ones this person may review. can_review already folds in
@@ -3559,11 +3581,8 @@ async def review_notifications(user: dict = Depends(get_current_user)):
         try:
             async with privileged_connection() as conn:
                 feedback = await open_feedback_by_language(conn)
-        except (
-            asyncpg.exceptions.UndefinedTableError,
-            asyncpg.exceptions.UndefinedColumnError,
-            asyncpg.exceptions.QueryCanceledError,
-        ):
+        except _BELL_DEGRADES as exc:
+            _bell_degraded("feedback counts", exc)
             feedback = []
         # Per-language feedback now rides inside each language row's counts
         # (the app_feedback queue), so this list carries ONLY the rows that
@@ -3583,11 +3602,8 @@ async def review_notifications(user: dict = Depends(get_current_user)):
         try:
             async with privileged_connection() as conn:
                 trial_pending = await count_pending_trial_requests(conn)
-        except (
-            asyncpg.exceptions.UndefinedTableError,
-            asyncpg.exceptions.UndefinedColumnError,
-            asyncpg.exceptions.QueryCanceledError,
-        ):
+        except _BELL_DEGRADES as exc:
+            _bell_degraded("trial requests", exc)
             trial_pending = 0
 
     return {

@@ -80,6 +80,21 @@ X," find out which one they mean before debugging — see
 
 ---
 
+### The first-session wait only holds new learners, and only for one card
+
+If the waiting room (`TrailblazerWait`) looks like it "isn't gating any
+more", that is the design as of this change, not a regression: `new_here`
+false → lanes open regardless of `pct`; new learner → the gate opens at the
+first ready card (`START_CARDS = 1`, the old 60 % `READY_ENOUGH` is gone);
+translations that are still missing swap in while the session runs. The
+owner asked for exactly this — the game stays for new learners, nobody
+else waits, and the app fills in around them. LEARN.md → *The first-session
+gate*. What is still true and easy to misread: `review.pct` can sit below 1
+for a returning learner for a long time — that is the live swap's signal,
+not a stuck fill.
+
+---
+
 ## Real gotchas — already hit once, will bite again if forgotten
 
 ### RateLimiter's cached Redis client can point at a dead event loop
@@ -117,25 +132,82 @@ attaching optional context: it must never be the reason a board fails to
 render. Worth remembering that a partial mock is a *latent* failure — it
 passes until someone reads a field the fixture never had.
 
-### A "graceful degradation" that degraded nothing (fixed)
+### `try/except` a SQL error inside a transaction is a no-op (fixed, 36 sites)
 
 The profile endpoint's fallback for a not-yet-applied migration was a
 ladder: try the widest SELECT, catch `UndefinedColumnError`, retry a
-narrower one. It could never have worked. `rls_connection` runs inside one
-explicit transaction, so the first failure aborted it and the retry raised
-`InFailedSQLTransactionError` — uncaught — on the endpoint that renders
-every page. It read as defensive for four migrations and was decorative;
-nobody noticed because each migration was applied before the code that
-needed it shipped. Replaced with a probe of `information_schema.columns`
-(`docs/decisions/0001`). Kept here as a *pattern* warning: `try/except` a
-SQL error and continue on the same connection is a no-op wherever the
-connection is inside a transaction, which is everywhere `rls_connection` is
-used.
+narrower one. It could never have worked. `rls_connection` and
+`privileged_connection` each run inside one explicit transaction, so the
+first failure aborted it and the retry raised `InFailedSQLTransactionError`
+— uncaught — on the endpoint that renders every page. The profile endpoint
+was replaced with a probe of `information_schema.columns`
+(`docs/decisions/0001`), and that was called fixed.
 
-The same ladder also only dropped column groups from the right, so
+It was not. The same shape existed at **thirty-six other sites** —
+`session_readiness`, the dashboard, the tutor, recommendations, feedback,
+experiments, speak, the seeders — and `/api/review/readiness` 500ed
+through one of them on the deployed app the moment a migration was behind.
+Those are now wrapped in `savepoint(conn)` from
+`backend/repositories/pool.py` (LEARN.md → *When you must catch instead*),
+which makes the retry run on a live transaction, and the integration test
+`test_savepoint_integration.py` pins that the un-wrapped version really
+does raise. Kept here as a *pattern* warning for new code: a `try/except`
+around a statement, continuing on the same connection, needs either a probe
+before it or a savepoint around it. Reviewers should grep for
+`except asyncpg.exceptions.Undefined` and expect to see one of the two.
+
+The original ladder also only dropped column groups from the right, so
 "newest migration applied, an older one not" — a real state when migrations
 are owner-applied and independent — had no attempt that fitted it. The
-replacement plans per column.
+profile replacement plans per column.
+
+### Admin overview still reads `languages.is_visible` unguarded
+
+`backend/repositories/contributor.py`'s admin overview query
+(`SELECT l.id, l.code, l.name, l.is_visible, ...` around line 940) reads
+the column directly, while the inbox roll-up in the same file probes for it
+(`_INBOX_COLUMNS + ("languages.is_visible",)`). Deliberately left: it is an
+admin-only panel, the migration that adds the column (`20260831`) is
+applied on production, and it degrades to one panel's error rather than a
+page-load failure. It becomes a real problem only if the schema is ever
+rebuilt from an older point; if that happens, fold it into the same probe.
+
+### Migrations the deployed database may not have yet
+
+Applied by the owner, never by an agent (`CLAUDE.md`). At the time of
+writing the newest is `20261012000000_show_glosses.sql` (the Learner-tab
+"Show glosses" setting). The code is safe without it — the profile probe
+returns the default and the toggle still renders — but the *value* will
+not persist until it is applied. `/api/health/schema`, or Settings → Admin
+→ Deployment, lists exactly which files the live database is missing;
+trust that over this paragraph, which will drift.
+
+### The Docker image usually has no commit SHA
+
+`/api/health` reports `build.sha` null on DigitalOcean: `.git` is outside
+the build context and DO does not pass a commit as a build arg. The
+Dockerfile accepts `ARG GIT_SHA` for platforms that do. Left as-is because
+`built_at` (written by the build, not the boot) plus `latest_migration`
+already answer "what is running" — if the SHA is ever wanted, set the build
+arg in the App Platform spec rather than adding a runtime lookup.
+
+### `SpeakButton` is deliberately not gated on `TTS_LANGUAGES`
+
+`frontend/src/api/audio.ts` has `TTS_LANGUAGES`, a mirror of the backend
+`VOICES` table, and the *prefetch* paths check it so a language with no
+voice never prefetches. The on-tap `SpeakButton` does not — on purpose.
+Jamaican Patois (`jam`) has no synthetic voice but serves human recordings
+through the same `/api/audio/tts` endpoint, so gating the button on "has a
+voice" would silence exactly the language the recordings were sourced
+for. The cost is one 404 per clip for a voiceless, recording-less language,
+memoised per clip in `misses` so it never repeats. If a `has_tts` flag per
+language is ever added, it must mean "voice *or* recordings", not `VOICES`.
+
+The flood of TTS 404s seen on the deployed app was a different bug and is
+fixed: the cloze matched case-insensitively and the UI rebuilt the sentence
+with the answer in its dictionary case (`"Gato come."` → `"gato come."`),
+so `_text_is_ours` found no row. `_case_variants` in
+`backend/routers/audio.py` matches the first-letter-flipped form.
 
 ### Integration tests skip silently, and it has hidden ~79 tests before
 
