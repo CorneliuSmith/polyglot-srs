@@ -1194,7 +1194,8 @@
     "glosses": {
       "title": "Decomposições palavra por palavra",
       "desc": "Acrescenta a decomposição palavra por palavra às pistas durante a revisão. Desativado por predefinição: a notação exige alguma prática, por isso ative-a se quiser ver como as frases são construídas."
-    }
+    },
+    "needsMigration": "Ainda não está disponível neste servidor — precisa de uma atualização da base de dados."
   },
   "feedback": {
     "open": "Algo quebrado ou confuso? Conte para a gente",

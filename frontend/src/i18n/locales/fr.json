@@ -1194,7 +1194,8 @@
     "glosses": {
       "title": "Décompositions mot à mot",
       "desc": "Ajoute la décomposition mot à mot aux indices pendant la révision. Désactivé par défaut : la notation demande un peu d'habitude, activez-la si vous voulez voir comment les phrases sont construites."
-    }
+    },
+    "needsMigration": "Pas encore disponible sur ce serveur : une mise à jour de la base de données est nécessaire."
   },
   "feedback": {
     "open": "Quelque chose de cassé ou de déroutant ? Dites-le-nous",
