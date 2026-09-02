@@ -4,9 +4,9 @@ import {
   resolveChangeRequest,
   voteChangeRequest,
   type ChangeRequest,
-  type ReviewedCard,
 } from '../../api/contribute'
 import QueueStatus from './QueueStatus'
+import ReviewedCardView from './ReviewedCardView'
 import QueueHelp, { QUEUE_HELP } from './QueueHelp'
 import { useFocusList } from './useFocusList'
 
@@ -19,68 +19,6 @@ const FIELD_LABEL: Record<string, string> = {
   other: 'Other',
 }
 
-
-/**
- * The item the request is about, shown in full.
- *
- * The board used to carry a bare label ("abbreviation of doctor") and the
- * complaint ("gives the answer away"), which is not enough to decide
- * anything: whether a hint gives the answer away is a question about the
- * hint AND the sentence AND the answer, and only one of the three was on
- * screen. The FIELD the request names is highlighted, because the next
- * question after "what is this card" is always "which part of it".
- */
-function CardContext({
-  card,
-  field,
-}: {
-  card: ReviewedCard
-  field: string
-}) {
-  const rows: [string, string, string | null][] = [
-    ['sentence', 'Sentence', card.sentence],
-    ['answer', 'Answer', card.answer],
-    ['hint', 'Hint', card.hint],
-    ['translation', 'Translation', card.translation],
-  ]
-  return (
-    <div
-      className="rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-2"
-      data-testid="change-request-card"
-    >
-      {(card.context || card.level) && (
-        <p className="mb-1 text-[10px] uppercase tracking-wide text-gray-500">
-          {card.context}
-          {card.context && card.level && ' · '}
-          {card.level}
-        </p>
-      )}
-      <dl className="space-y-0.5">
-        {rows.map(([key, label, value]) =>
-          value ? (
-            <div
-              key={key}
-              className={`flex gap-2 rounded px-1 text-sm ${
-                key === field ? 'bg-amber-100' : ''
-              }`}
-            >
-              <dt className="w-20 shrink-0 text-[11px] uppercase tracking-wide text-gray-500">
-                {label}
-              </dt>
-              <dd className="min-w-0 flex-1 text-gray-800">
-                {/* The blank is what the learner sees; filling it in is the
-                    only way to tell whether the hint gives it away. */}
-                {key === 'sentence' && card.answer
-                  ? value.replace('{{answer}}', `【${card.answer}】`)
-                  : value}
-              </dd>
-            </div>
-          ) : null,
-        )}
-      </dl>
-    </div>
-  )
-}
 
 /**
  * The change-request review board (owner request): staff suggestions raised
@@ -123,6 +61,9 @@ export default function ChangeRequestsPanel({
   // Testers may raise and read, never vote — the server 403s their vote
   // deliberately, so the buttons are hidden rather than left to fail.
   const canVote = data?.can_vote ?? false
+  // Judging a complaint usually ends in "yes, and here is the fix", and
+  // that used to mean leaving the board for the content editor.
+  const canEdit = data?.can_edit ?? false
   const { shown, nav } = useFocusList(requests, focus, 'change request')
 
   return (
@@ -226,7 +167,17 @@ export default function ChangeRequestsPanel({
                 “{r.target_label}”
               </p>
             )}
-            {r.card && <CardContext card={r.card} field={r.field} />}
+            {r.card && (
+              <ReviewedCardView
+                card={r.card}
+                field={r.field}
+                targetType={r.target_type}
+                targetId={r.target_id}
+                canEdit={canEdit}
+                onSaved={invalidate}
+                testId="change-request-card"
+              />
+            )}
             {/* A request outlives the row it was raised against. Say the
                 card is gone rather than showing a complaint about nothing. */}
             {!r.card && r.target_id && r.target_type !== 'tutor_message' &&

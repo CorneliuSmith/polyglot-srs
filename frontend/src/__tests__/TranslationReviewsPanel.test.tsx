@@ -7,6 +7,8 @@ vi.mock('../api/contribute', () => ({
   getTranslationReviews: vi.fn(),
   approveTranslationReview: vi.fn(),
   rejectTranslationReview: vi.fn(),
+  // The rows carry their card now, and the card can be corrected here.
+  editReviewedCard: vi.fn(),
 }))
 import {
   approveTranslationReview,
@@ -101,10 +103,36 @@ describe('TranslationReviewsPanel — reviewability', () => {
     mockReject.mockResolvedValue(undefined)
     renderPanel()
     const row = await screen.findByTestId('translation-reviews')
-    expect(row.textContent).toMatch(/no replacement proposed/i)
+    // And it says WHY it has one: the owner read the missing button as a
+    // bug ("on some i only get the option to dismiss and not understand
+    // why"), because the old copy described the cause and left the
+    // consequence to be inferred.
+    expect(row.textContent).toMatch(/nothing to approve/i)
+    expect(screen.getByTestId('no-proposal-r2').textContent).toMatch(
+      /dismiss is the only action/i,
+    )
     expect(screen.queryByRole('button', { name: 'Approve' })).toBeNull()
     const dismiss = screen.getByRole('button', { name: 'Dismiss' })
     fireEvent.click(dismiss)
     await waitFor(() => expect(mockReject.mock.calls[0]?.[0]).toBe('r2'))
+  })
+  it('carries the word itself, so a dead-end row has a way out', async () => {
+    // A row with nothing to approve hands the reviewer a problem and, until
+    // now, no means to fix it: the checker's objection is usually to the
+    // ENGLISH definition, which every locale is translated from.
+    mockGet.mockResolvedValue([
+      { id: 'r3', locale: 'ar', word: 'nuestras', proposed: null,
+        reason: 'no accurate single-word Arabic gloss',
+        current_definition: 'feminine plural of nuestro', created_at: null,
+        target_type: 'vocabulary', target_id: 'v9',
+        card: { sentence: 'nuestras', answer: null, hint: null,
+                translation: 'feminine plural of nuestro',
+                context: 'det', level: 'A1' } },
+    ])
+    renderPanel()
+    await screen.findByTestId('translation-reviews')
+    expect(screen.getByTestId('translation-card-r3')).toBeDefined()
+    fireEvent.click(screen.getByTestId('translation-card-r3-edit'))
+    expect(screen.getByLabelText('Definition (English)')).toBeDefined()
   })
 })

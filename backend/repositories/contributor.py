@@ -2558,6 +2558,12 @@ async def approve_explanation(
     return True
 
 
+# card_feedback stores the learner-facing kind ("grammar"); the card loader
+# is keyed by the table ("grammar_point"). One map rather than the string
+# munging that would otherwise appear in three places.
+_FEEDBACK_TARGET = {"grammar": "grammar_point", "vocabulary": "vocabulary"}
+
+
 async def list_feedback(
     conn: asyncpg.Connection, language_id: str, status_filter: str = "open"
 ) -> list[dict]:
@@ -2586,6 +2592,12 @@ async def list_feedback(
             "message": r["message"],
             "status": r["status"],
             "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+            # Named the way the change-request board names the same thing, so
+            # `load_cards` can attach the card here too and one component can
+            # render (and edit) it in either queue. `card_type` stays as it
+            # was — it is what the learner's report was filed under.
+            "target_type": _FEEDBACK_TARGET.get(r["card_type"]),
+            "target_id": str(r["content_id"]),
         }
         for r in rows
     ]
@@ -3705,7 +3717,7 @@ async def list_translation_reviews(
     rows = await conn.fetch(
         """
         SELECT r.id, r.locale, r.proposed, r.reason, r.status, r.created_at,
-               v.word,
+               r.vocabulary_id, v.word,
                (SELECT definition FROM translations t
                  WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
                    AS current_definition
@@ -3723,6 +3735,11 @@ async def list_translation_reviews(
             "id": str(r["id"]), "locale": r["locale"], "word": r["word"],
             "proposed": r["proposed"], "reason": r["reason"],
             "current_definition": r["current_definition"],
+            # The word behind the gloss, for the card view — and for the
+            # editor, which is the only way out of a row the checker
+            # rejected without proposing anything.
+            "target_type": "vocabulary",
+            "target_id": str(r["vocabulary_id"]),
             "created_at": r["created_at"].isoformat() if r["created_at"] else None,
         }
         for r in rows
@@ -4148,3 +4165,227 @@ async def list_unchecked_vocab_ids(
         language_id, limit, level,
     )
     return [str(r["id"]) for r in rows]
+
+
+# ── The card under review: read one, edit one ─────────────────────────────
+#
+# Every review queue shows a card and asks for a judgement on it. Judging
+# "the definition doesn't match the sentence" needs the card, and ACTING on
+# that judgement needs somewhere to fix it — the owner kept reaching the
+# second half and finding nothing there: "I need to be able to view and edit
+# the cards referenced easily to actually decide if the student is right or
+# wrong about their feedback."
+#
+# The read side is `_CARD_SQL` in repositories/change_requests.py (one query
+# per kind, six columns under fixed names). This is its write side, and the
+# two must stay in step: a field the queue shows is a field the queue should
+# be able to correct.
+#
+# Each kind routes into the editor that already owns its semantics — a drill
+# edit de-certifies its point, an example edit stamps provenance and clears
+# the quality flag, an explanation edit goes back into the review pool — so
+# an edit made from a queue is indistinguishable from one made in the content
+# editor, audit row included.
+#
+# Deliberately NOT editable here:
+#   * a vocabulary word's own text. The word is the card's identity: user
+#     cards, audio clips and every example sentence point at that row, and
+#     rewriting it in place would silently re-target all of them. A wrong
+#     word is retired and replaced, not renamed.
+#   * `context` and `level`, which describe the parent (the grammar point a
+#     drill belongs to, the word an example illustrates) rather than the card
+#     in front of the reviewer.
+CARD_EDIT_FIELDS: dict[str, tuple[str, ...]] = {
+    "drill": ("sentence", "answer", "hint", "translation"),
+    "example_sentence": ("sentence", "translation"),
+    # hint → the word's reading; translation → its English definition.
+    "vocabulary": ("hint", "translation"),
+    # sentence → the point's title; translation → its explanation.
+    "grammar_point": ("sentence", "translation"),
+}
+
+_CARD_LANGUAGE_SQL: dict[str, str] = {
+    "drill": """
+        SELECT gp.language_id FROM drill_sentences d
+          JOIN grammar_points gp ON gp.id = d.grammar_point_id
+         WHERE d.id = $1
+    """,
+    "example_sentence": "SELECT language_id FROM example_sentences WHERE id = $1",
+    "vocabulary": "SELECT language_id FROM vocabulary WHERE id = $1",
+    "grammar_point": "SELECT language_id FROM grammar_points WHERE id = $1",
+}
+
+
+async def card_language_id(
+    conn: asyncpg.Connection, target_type: str, target_id: str
+) -> str | None:
+    """The language a reviewable card belongs to — what the router's role
+    check needs before allowing an edit. None for an unknown kind or a row
+    that has since been deleted."""
+    sql = _CARD_LANGUAGE_SQL.get(target_type)
+    if not sql:
+        return None
+    try:
+        lid = await conn.fetchval(sql, target_id)
+    except asyncpg.DataError:
+        # A malformed id is a 404, not a 500: these ids come off a queue row
+        # that may be older than the card it names.
+        return None
+    return str(lid) if lid else None
+
+
+async def _edit_vocab_card(
+    conn: asyncpg.Connection, vocabulary_id: str, fields: dict, editor_id: str
+) -> str:
+    """A word's reading and its ENGLISH definition.
+
+    English is the source every support locale is translated from, so a
+    correction here is the one that propagates: fixing only the Russian gloss
+    leaves the next locale to inherit the same wrong sentence. The locale
+    renderings are not touched — the translator re-derives them, and the
+    stale ones are what the AI-translations queue exists to catch.
+    """
+    prev = await conn.fetchrow(
+        """
+        SELECT v.language_id, v.reading,
+               (SELECT definition FROM translations t
+                 WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
+                   AS definition
+          FROM vocabulary v WHERE v.id = $1
+        """,
+        vocabulary_id,
+    )
+    if prev is None:
+        return "not_found"
+    language_id = str(prev["language_id"])
+
+    if "hint" in fields:
+        reading = (fields["hint"] or "").strip() or None
+        if reading != prev["reading"]:
+            await conn.execute(
+                "UPDATE vocabulary SET reading = $2 WHERE id = $1",
+                vocabulary_id, reading,
+            )
+            await log_change(
+                conn, entity_type="vocabulary", entity_id=vocabulary_id,
+                actor_id=editor_id, action="edited", field="reading",
+                language_id=language_id,
+                before={"reading": prev["reading"]}, after={"reading": reading},
+            )
+
+    if "translation" in fields:
+        definition = (fields["translation"] or "").strip()
+        if definition and definition != prev["definition"]:
+            await conn.execute(
+                """
+                INSERT INTO translations (vocabulary_id, locale, definition)
+                VALUES ($1, 'en', $2)
+                ON CONFLICT (vocabulary_id, locale)
+                    DO UPDATE SET definition = EXCLUDED.definition
+                """,
+                vocabulary_id, definition,
+            )
+            await log_change(
+                conn, entity_type="vocabulary", entity_id=vocabulary_id,
+                actor_id=editor_id, action="edited", field="definition",
+                language_id=language_id,
+                before={"definition": prev["definition"]},
+                after={"definition": definition},
+            )
+    return "ok"
+
+
+async def _edit_grammar_card(
+    conn: asyncpg.Connection, point_id: str, fields: dict, editor_id: str
+) -> str:
+    """A point's title and/or explanation. The explanation goes through
+    `save_explanation`, so it re-enters the review pool exactly as an edit
+    from the grammar editor does; the title is a straight update (nothing
+    downstream keys on it) with its own audit row."""
+    prev = await conn.fetchrow(
+        "SELECT language_id, title, explanation, culture_note, reference_links "
+        "FROM grammar_points WHERE id = $1",
+        point_id,
+    )
+    if prev is None:
+        return "not_found"
+
+    if "sentence" in fields:
+        title = (fields["sentence"] or "").strip()
+        if title and title != prev["title"]:
+            await conn.execute(
+                "UPDATE grammar_points SET title = $2 WHERE id = $1",
+                point_id, title,
+            )
+            await log_change(
+                conn, entity_type="grammar_point", entity_id=point_id,
+                actor_id=editor_id, action="edited", field="title",
+                language_id=str(prev["language_id"]),
+                before={"title": prev["title"]}, after={"title": title},
+            )
+
+    if "translation" in fields:
+        explanation = (fields["translation"] or "").strip()
+        if explanation and explanation != prev["explanation"]:
+            await save_explanation(
+                conn, point_id, explanation, prev["culture_note"] or "",
+                editor_id, references=_loads_json(prev["reference_links"]),
+            )
+    return "ok"
+
+
+async def edit_reviewed_card(
+    conn: asyncpg.Connection,
+    target_type: str,
+    target_id: str,
+    fields: dict,
+    editor_id: str,
+) -> str:
+    """Apply a reviewer's correction to the card a queue row is about.
+
+    *fields* carries only the keys the reviewer actually changed, named as
+    the queue shows them (sentence / answer / hint / translation). Returns
+    'ok' | 'not_found' | 'unsupported'.
+    """
+    allowed = CARD_EDIT_FIELDS.get(target_type)
+    if allowed is None:
+        return "unsupported"
+    fields = {k: v for k, v in fields.items() if k in allowed}
+    if not fields:
+        return "ok"  # nothing asked for is not a failure
+
+    if target_type == "vocabulary":
+        return await _edit_vocab_card(conn, target_id, fields, editor_id)
+    if target_type == "grammar_point":
+        return await _edit_grammar_card(conn, target_id, fields, editor_id)
+
+    if target_type == "example_sentence":
+        prev = await conn.fetchrow(
+            "SELECT sentence, translation FROM example_sentences WHERE id = $1",
+            target_id,
+        )
+        if prev is None:
+            return "not_found"
+        changed = await edit_example_sentence(
+            conn, target_id,
+            (fields.get("sentence", prev["sentence"]) or "").strip(),
+            fields.get("translation", prev["translation"]),
+            editor_id,
+        )
+        return "ok" if changed else "not_found"
+
+    # drill
+    prev = await conn.fetchrow(
+        "SELECT grammar_point_id, sentence, answer, hint, translation "
+        "FROM drill_sentences WHERE id = $1",
+        target_id,
+    )
+    if prev is None:
+        return "not_found"
+    merged = {f: fields.get(f, prev[f]) for f in CARD_EDIT_FIELDS["drill"]}
+    changed = await update_drill(
+        conn, target_id, str(prev["grammar_point_id"]),
+        (merged["sentence"] or "").strip(), (merged["answer"] or "").strip(),
+        merged["translation"], merged["hint"], modified_by=editor_id,
+    )
+    return "ok" if changed else "not_found"

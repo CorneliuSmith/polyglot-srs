@@ -372,6 +372,11 @@ export interface TranslationReview {
   reason: string | null
   current_definition: string | null
   created_at: string | null
+  /** The word this gloss belongs to, so the queue can show the card and —
+   *  on the rows with nothing to approve — be the place it gets fixed. */
+  target_type?: string | null
+  target_id?: string | null
+  card?: ReviewedCard | null
 }
 
 export async function getTranslationReviews(
@@ -610,6 +615,11 @@ export interface CardFeedbackItem {
   message: string
   status: string
   created_at: string | null
+  /** Named as the change-request board names the same thing, so one card
+   *  component serves both queues. Absent for a card since deleted. */
+  target_type?: string | null
+  target_id?: string | null
+  card?: ReviewedCard | null
 }
 
 export async function getFeedback(languageId: string): Promise<CardFeedbackItem[]> {
@@ -872,6 +882,28 @@ export interface ReviewedCard {
   level: string | null
 }
 
+/** Fields a reviewer may correct, named as the queues show them. Which
+ *  ones a given kind accepts is the server's call (CARD_EDIT_FIELDS); this
+ *  sends only what the editor offered. */
+export interface ReviewedCardEdit {
+  sentence?: string
+  answer?: string
+  hint?: string
+  translation?: string
+}
+
+/** Fix the card a queue row is about, from inside the queue. */
+export async function editReviewedCard(
+  targetType: string,
+  targetId: string,
+  fields: ReviewedCardEdit,
+): Promise<void> {
+  await apiClient.put(
+    `/api/contribute/review/card/${targetType}/${targetId}`,
+    fields,
+  )
+}
+
 export interface NewChangeRequest {
   language_id: string
   target_type?: string
@@ -899,6 +931,9 @@ export async function getChangeRequests(
    * the roles that publish. Testers read and raise; the server 403s their
    * vote, so the buttons are hidden rather than left to fail. */
   can_vote?: boolean
+  /** Whether the viewer may CORRECT the card a request is about, not just
+   * accept or reject the request. Contributor role for the language. */
+  can_edit?: boolean
 }> {
   const response = await apiClient.get('/api/contribute/change-requests', {
     params: { language_id: languageId, status },

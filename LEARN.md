@@ -302,6 +302,32 @@ Two conventions built on top of it:
   captured at flag time IS the record — and they degrade to that quote
   rather than erroring. A card deleted since the request was raised also
   resolves to nothing, which the board says out loud.
+
+  The learner-feedback and AI-translation queues carry the same `card` now,
+  under the same `target_type` / `target_id` names — `list_feedback` maps
+  its learner-facing kind (`grammar`) to the loader's (`grammar_point`),
+  and a translation review names the word its gloss belongs to. One
+  component renders all three.
+- **Editing the card from the queue** — `ReviewedCardView.tsx` shows the
+  card and, for anyone with a contributor role, edits it in place:
+  `PUT /api/contribute/review/card/{target_type}/{target_id}`, dispatched by
+  `edit_reviewed_card` in `repositories/contributor.py`. The verdict on a
+  learner report is usually "yes, and here is the correction", and that used
+  to mean leaving the queue for the content editor and finding the same card
+  again by search.
+
+  The write side mirrors `_CARD_SQL`'s read side and routes each kind into
+  the editor that already owns its semantics — a drill edit de-certifies its
+  point, an example edit stamps provenance, an explanation edit re-enters
+  the review pool — so an edit made from a queue is indistinguishable from
+  one made in the content editor, audit row included. Two deliberate holes:
+  a word's own text is never rewritten in place (every `user_cards` row,
+  clip and example points at that row, so a rename would silently re-target
+  all of them), and only the fields the editor actually offered are sent
+  (`exclude_unset`), so a two-box editor cannot blank the other two. What a
+  vocabulary edit writes is the **English** definition — the source every
+  support locale is translated from, so a correction there propagates
+  instead of fixing one locale and leaving the next to inherit the fault.
 - **`QueueHelp` / `QUEUE_HELP`** — the "what does this button actually do"
   hover for each queue, written to three beats (what these items are, who
   can act, and what each action *does*). It exists because "Resolve" reads

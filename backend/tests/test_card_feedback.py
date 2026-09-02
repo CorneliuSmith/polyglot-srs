@@ -6,6 +6,7 @@ import time
 from contextlib import asynccontextmanager
 from unittest.mock import AsyncMock, patch
 
+import asyncpg
 import jwt as pyjwt
 import pytest
 from fastapi.testclient import TestClient
@@ -143,3 +144,103 @@ class TestFeedbackQueue:
         assert resp.status_code == 200
         assert resp.json() == {"resolved": True}
         mock_res.assert_awaited_once()
+
+
+class TestQueueCarriesTheCard:
+    """The queue used to hand a reviewer a complaint and a word.
+
+    "Too much info" and "the definition doesn't match the sentence" are
+    judgements about text that was nowhere on the screen — deciding either
+    one meant leaving for the content editor and finding the card by search.
+    """
+
+    def test_the_queue_carries_the_card_the_report_is_about(self, client):
+        items = [{"id": FB, "card_type": "vocabulary", "card_title": "pequeña",
+                  "message": "Too much info", "status": "open",
+                  "target_type": "vocabulary", "target_id": CARD}]
+
+        async def _load(conn, rows):
+            for r in rows:
+                r["card"] = {"sentence": "pequeña", "answer": None,
+                             "hint": "peh-KEH-nya", "translation": "small",
+                             "context": "adj", "level": "A1"}
+
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.list_feedback",
+                   new=AsyncMock(return_value=items)), \
+             patch("backend.routers.contribute.load_cards", new=_load):
+            resp = client.get(
+                "/api/contribute/feedback", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        row = resp.json()["feedback"][0]
+        assert row["card"]["translation"] == "small"
+        # Named as the change-request board names it, so one component in
+        # the frontend renders (and edits) the card in either queue.
+        assert row["target_type"] == "vocabulary"
+
+    def test_a_failed_card_lookup_still_returns_the_queue(self, client):
+        """A queue that 500s is strictly worse than one without context —
+        the same rule the change-request board already follows."""
+        items = [{"id": FB, "card_type": "vocabulary", "card_title": "ya",
+                  "message": "Confusion", "status": "open",
+                  "target_type": "vocabulary", "target_id": CARD}]
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.list_feedback",
+                   new=AsyncMock(return_value=items)), \
+             patch("backend.routers.contribute.load_cards",
+                   new=AsyncMock(side_effect=asyncpg.PostgresError("boom"))):
+            resp = client.get(
+                "/api/contribute/feedback", params={"language_id": LANG},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert resp.json()["feedback"][0]["message"] == "Confusion"
+
+
+class TestEditCardUnderReview:
+    """The write side of the queues' card view."""
+
+    def test_requires_a_contributor_role_for_that_language(self, client):
+        with _roles([{"language_id": "other-language", "role": "contributor"}]), \
+             patch("backend.routers.contribute.card_language_id",
+                   new=AsyncMock(return_value=LANG)):
+            resp = client.put(
+                f"/api/contribute/review/card/vocabulary/{CARD}",
+                json={"translation": "small"}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 403
+
+    def test_sends_only_the_fields_the_editor_offered(self, client):
+        """exclude_unset, not exclude_none: a box the reviewer cleared means
+        null, a box their editor never drew must not be written at all."""
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.card_language_id",
+                   new=AsyncMock(return_value=LANG)), \
+             patch("backend.routers.contribute.edit_reviewed_card",
+                   new=AsyncMock(return_value="ok")) as mock_edit:
+            resp = client.put(
+                f"/api/contribute/review/card/vocabulary/{CARD}",
+                json={"translation": "small"}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 200
+        assert mock_edit.await_args.args[3] == {"translation": "small"}
+
+    def test_a_deleted_card_is_a_404(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]), \
+             patch("backend.routers.contribute.card_language_id",
+                   new=AsyncMock(return_value=None)):
+            resp = client.put(
+                f"/api/contribute/review/card/vocabulary/{CARD}",
+                json={"translation": "x"}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 404
+
+    def test_a_kind_with_no_card_is_refused_before_any_lookup(self, client):
+        with _roles([{"language_id": LANG, "role": "contributor"}]):
+            resp = client.put(
+                f"/api/contribute/review/card/tutor_message/{CARD}",
+                json={"translation": "x"}, headers=_auth_headers(),
+            )
+        assert resp.status_code == 422

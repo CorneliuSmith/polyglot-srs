@@ -36,6 +36,7 @@ from backend.repositories.change_requests import (
     resolve_request,
 )
 from backend.repositories.contributor import (
+    CARD_EDIT_FIELDS,
     accept_example_translation,
     add_drill,
     add_recommendation,
@@ -55,6 +56,7 @@ from backend.repositories.contributor import (
     can_contribute,
     can_review,
     can_trial_review,
+    card_language_id,
     confirm_vocab_level,
     confirm_vocab_topic,
     count_ai_topic_vocab,
@@ -67,6 +69,7 @@ from backend.repositories.contributor import (
     delete_example_sentence,
     dismiss_example_translation,
     edit_example_sentence,
+    edit_reviewed_card,
     entity_language,
     extraction_suggestion_metrics,
     find_user_by_email,
@@ -2538,7 +2541,75 @@ async def get_change_requests(
         # Raising is open to testers; voting is not (a vote is a judgement on
         # someone else's judgement — that stays with the roles that publish).
         "can_vote": can_contribute(roles, language_id),
+        # Same bar as voting today, but said separately: editing a card is
+        # not a vote, and the day one of the two moves the board should not
+        # have to be re-read to find out which.
+        "can_edit": can_contribute(roles, language_id),
     }
+
+
+class CardEdit(BaseModel):
+    """A reviewer's correction to the card a queue row is about.
+
+    The four names are the ones every queue already SHOWS (see `_CARD_SQL`
+    in repositories/change_requests.py), not the column names underneath —
+    what a reviewer edits is the card in front of them, and which table it
+    lands in is the repository's problem. Only the keys sent are written, so
+    an editor that offers two fields cannot blank the other two.
+    """
+    sentence: str | None = Field(default=None, max_length=2000)
+    answer: str | None = Field(default=None, max_length=500)
+    hint: str | None = Field(default=None, max_length=2000)
+    translation: str | None = Field(default=None, max_length=4000)
+
+
+@router.put("/review/card/{target_type}/{target_id}")
+async def edit_card_under_review(
+    target_type: str,
+    target_id: str,
+    body: CardEdit,
+    user: dict = Depends(get_current_user),
+):
+    """Fix the card a review queue row is about, without leaving the queue.
+
+    Every queue that shows a card asks for a judgement on it, and the answer
+    to "is this learner right?" is usually "yes, and here is the correction"
+    (owner: "I need to be able to view and edit the cards referenced easily
+    to actually decide if the student is right or wrong"). Before this the
+    reviewer had to find the same card in the content editor — a different
+    workspace, reached by search, with the complaint left behind.
+
+    Contributor role for the card's own language, the same bar as editing it
+    anywhere else. A card that has since been deleted is a 404: the queue row
+    outlives it, and the panel already says so.
+    """
+    if target_type not in CARD_EDIT_FIELDS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="That kind of item has no editable card",
+        )
+    async with privileged_connection() as conn:
+        language_id = await card_language_id(conn, target_type, target_id)
+    if language_id is None:
+        raise HTTPException(status_code=404, detail="That card no longer exists")
+    async with rls_connection(user["id"]) as conn:
+        roles = await get_roles(conn, user["id"])
+    if not can_contribute(roles, language_id):
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="You don't have a contributor role for this language",
+        )
+    # exclude_unset, not exclude_none: a field the reviewer cleared is sent
+    # as null and MEANS null, while a field their editor never offered must
+    # not be written at all.
+    fields = body.model_dump(exclude_unset=True)
+    async with privileged_connection() as conn:
+        outcome = await edit_reviewed_card(
+            conn, target_type, target_id, fields, user["id"]
+        )
+    if outcome == "not_found":
+        raise HTTPException(status_code=404, detail="That card no longer exists")
+    return {"saved": True}
 
 
 @router.post("/change-requests/{request_id}/vote")
@@ -2728,6 +2799,14 @@ async def feedback_queue(
         )
     async with privileged_connection() as conn:
         items = await list_feedback(conn, language_id)
+        # The card each report is about, so "too much info" can be judged
+        # against the definition it is about. Best-effort for the same
+        # reason as the change-request board: a queue that 500s is strictly
+        # worse than one without the context.
+        try:
+            await load_cards(conn, items)
+        except asyncpg.PostgresError:
+            logger.exception("feedback card lookup failed")
     return {"feedback": items}
 
 
@@ -2883,8 +2962,12 @@ async def translation_reviews_queue(
     the working language's pile alongside the other review queues."""
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
-        return {"reviews": await list_translation_reviews(
-            conn, language_id=language_id)}
+        reviews = await list_translation_reviews(conn, language_id=language_id)
+        try:
+            await load_cards(conn, reviews)
+        except asyncpg.PostgresError:
+            logger.exception("translation-review card lookup failed")
+        return {"reviews": reviews}
 
 
 async def _resolve_review(review_id: str, user: dict, approve: bool) -> dict:
