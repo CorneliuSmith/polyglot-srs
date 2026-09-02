@@ -355,3 +355,27 @@ describe('SettingsPage danger zone', () => {
     confirmSpy.mockRestore()
   })
 })
+
+describe('SettingsPage — accents description', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockPrefsActiveLanguageId = 'lang-es'
+    mockGetProfile.mockResolvedValue({
+      id: 'u1', batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
+      support_locale: null, created_at: '', updated_at: '',
+    })
+    mockStats.mockResolvedValue({ due_count: 0, streak_days: 0, cefr_progress: {} })
+  })
+
+  it('quotes the example words inside the sentence, not on lines of their own', async () => {
+    // The quoted pair went through LanguageWrapper, which is a block. Inside
+    // a paragraph that put “mes” and “més” on their own lines with the quote
+    // marks stranded above and below (owner screenshot). A quoted word is
+    // inline text; the wrapper has to be too.
+    renderPage()
+    const card = await screen.findByTestId('accents-optional')
+    const desc = card.querySelector('p') as HTMLElement
+    expect(desc.querySelector('div')).toBeNull()
+    expect(desc.textContent).toMatch(/missing — “\S+” passes for “\S+” \(\w+\)\. The right spelling/)
+  })
+})

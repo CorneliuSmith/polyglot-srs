@@ -49,14 +49,17 @@ walls, so a heavy study day just draws down the month.
 | Tier | Price | SRS | AI tutor (monthly pool) |
 |---|---|---|---|
 | **Free** (every sign-up) | $0 | everything, forever | **20 messages / month** — a real trial |
-| **Single-language plan** | flat | everything | **100 / month** included |
+| **Single-language plan** | flat | everything | **0** — the price includes no AI; the Tutor+ add-on or a top-up puts some in |
 | **All-languages plan** | flat | everything | **300 / month** included |
-| **Tutor+ add-on** | flat | everything | **1,000 / month** fair-use pool (power users) |
+| **Tutor+ add-on** | flat | everything | **+200 / month** added to the plan's base, per language |
 | Operator mode (`TUTOR_FREE_ACCESS=true`) | — | — | unlimited (demos/dev; default until Stripe is live) |
 
 Limits are counted in **messages** (the unit people understand), configured
 via `TUTOR_FREE_MONTHLY_MESSAGES` / `TUTOR_SINGLE_MONTHLY_MESSAGES` /
-`TUTOR_ALL_MONTHLY_MESSAGES` / `TUTOR_PLUS_MONTHLY_MESSAGES`. Every answered
+`TUTOR_ALL_MONTHLY_MESSAGES` / `TUTOR_PLUS_MONTHLY_MESSAGES` (or edited at
+runtime in Settings → Admin → Plan limits). Recommendations and the weekly
+digest are *entitled* on any tier but free whose pool is above zero — they
+spend from the same pool, so a plan that includes AI includes them. Every answered
 message is logged to `tutor_usage` (per-user, RLS-protected), which doubles as
 the operator's cost-monitoring feed. Hitting a pool returns a structured `402`
 with the tier, the limit, and the exact reset time — the UI turns that into

@@ -147,9 +147,12 @@ function AccentWord({
   code: string
   children?: React.ReactNode
 }) {
+  // Inline, because this sits mid-sentence inside the description: as a
+  // block it put “mes” and “més” on lines of their own, with the quote
+  // marks stranded on either side (owner screenshot).
   return (
-    <LanguageWrapper languageCode={code}>
-      <span>{children}</span>
+    <LanguageWrapper languageCode={code} inline>
+      {children}
     </LanguageWrapper>
   )
 }

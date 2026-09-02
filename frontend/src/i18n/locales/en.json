@@ -1231,7 +1231,7 @@
   "recoSettings": {
     "title": "Recommendations",
     "desc": "Get the occasional book, film, series, or podcast in your target language — picked for your level and interests, about once a week.",
-    "needsPlus": "Receiving picks needs a Plus subscription for this language — you can still set up your profile now.",
+    "needsPlus": "Receiving picks needs a plan with AI messages for this language — All languages, the Plus add-on, or a top-up. You can still set up your profile now.",
     "aboutLabel": "About you",
     "aboutPlaceholder": "What do you like to read and watch? Hobbies, favourite authors or shows, topics you love…",
     "aboutHint": "The more you share, the better the picks.",

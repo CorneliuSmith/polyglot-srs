@@ -1231,7 +1231,7 @@
   "recoSettings": {
     "title": "Recomendaciones",
     "desc": "Recibe de vez en cuando un libro, una película, una serie o un pódcast en tu idioma de estudio — elegidos según tu nivel e intereses, más o menos una vez por semana.",
-    "needsPlus": "Recibir sugerencias requiere una suscripción Plus para este idioma — aun así puedes configurar tu perfil ahora.",
+    "needsPlus": "Recibir sugerencias requiere un plan con mensajes de IA para este idioma — Todos los idiomas, el complemento Plus o una recarga. Aun así puedes configurar tu perfil ahora.",
     "aboutLabel": "Sobre ti",
     "aboutPlaceholder": "¿Qué te gusta leer y ver? Aficiones, autores o series favoritas, temas que te encantan…",
     "aboutHint": "Cuanto más compartas, mejores serán las sugerencias.",

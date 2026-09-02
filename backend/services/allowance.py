@@ -52,7 +52,12 @@ async def get_allowance(user_id: str, language_id: str) -> dict:
 
     The admin's per-account override is resolved first: 'blocked' zeroes
     everything (even in operator free-access mode); 'granted' gives a capped
-    daily allowance without a billing entitlement.
+    monthly allowance without a billing entitlement.
+
+    `entitled` is whether the month's pool holds paid-for AI — every tier
+    but free, provided its limit is above zero — and is what the perks that
+    spend from the pool without being the tutor (recommendations, digest)
+    check before drafting.
     """
     settings = get_settings()
     now = datetime.now(UTC)
@@ -107,8 +112,19 @@ async def get_allowance(user_id: str, language_id: str) -> dict:
         # same window — so the accounting stays one SUM, no credit ledger.
         limit += await count_topup_messages(conn, user_id, window_start)
         used = await count_tutor_messages(conn, user_id, window_start)
+    # `entitled` gates the perks that spend from this pool but are not the
+    # tutor itself (recommendations, the weekly digest). It used to mean
+    # "tier is plus or granted", which refused the all-languages plan — a
+    # plan whose 300 messages a month are exactly the pool those perks draw
+    # on. A trial reviewer on it read the amber "needs a Plus subscription"
+    # as being blocked. The rule is now the one the pricing page states:
+    # entitled when the plan puts paid-for AI in this month's pool. The
+    # free tier's twenty is a taster, not a pool, and single's base is 0 —
+    # unless a top-up or the add-on has been bought, which is the point of
+    # reading the limit rather than the tier.
     return {
-        "tier": tier, "unlimited": False, "entitled": tier in ("plus", "granted"),
+        "tier": tier, "unlimited": False,
+        "entitled": tier != "free" and limit > 0,
         "limit": limit, "used": used, "remaining": max(0, limit - used),
         "resets_at": resets_at.isoformat(),
     }
