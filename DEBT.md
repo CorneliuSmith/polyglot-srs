@@ -112,6 +112,33 @@ that as `fill.status`, and the wait screen says so
 problem, not a code one. Before this change the same situation was a bar
 sitting at 0 % with no explanation.
 
+### The queue card editor writes English, and cannot touch three things
+
+`PUT /api/contribute/review/card/{type}/{id}` (LEARN.md → *Editing the card
+from the queue*) is deliberately narrower than "edit this card":
+
+- **A vocabulary edit writes the ENGLISH definition**, never the support
+  locale the reviewer happens to be reading in. English is the source every
+  locale is translated from, so fixing only the Russian gloss leaves the
+  next locale to inherit the same fault — but it does mean the locale
+  renderings stay stale until the translator re-derives them, and the
+  AI-translations queue is what catches those. A reviewer who edits a word
+  and expects the Spanish gloss to change on the spot is not seeing a bug.
+- **A word's own text is not editable at all.** `user_cards`, audio clips
+  and every example sentence point at that row; renaming it in place would
+  silently re-target all of them. A wrong word is retired and replaced. The
+  editor simply does not draw the box, and the server drops the field.
+- **`context` and `level` are not editable** — they belong to the parent
+  (the grammar point a drill sits under, the word an example illustrates),
+  and editing them from a child card is how two cards end up disagreeing
+  about the same point.
+
+If a fifth reviewable kind appears, it needs an entry in BOTH `_CARD_SQL`
+(`repositories/change_requests.py`, the read) and `CARD_EDIT_FIELDS`
+(`repositories/contributor.py`, the write). Only the read is required for
+the queue to render, so the failure mode is a card that displays and
+quietly offers no Edit button.
+
 ---
 
 ## Real gotchas — already hit once, will bite again if forgotten

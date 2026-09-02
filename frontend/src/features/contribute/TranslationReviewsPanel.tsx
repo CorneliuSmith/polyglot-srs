@@ -14,6 +14,7 @@ import QueueStatus from './QueueStatus'
  * 'en-hint' rows are flagged English definitions; other locales are
  * English-course L1 glosses. */
 import QueueHelp, { QUEUE_HELP } from './QueueHelp'
+import ReviewedCardView from './ReviewedCardView'
 import { useFocusList } from './useFocusList'
 
 export default function TranslationReviewsPanel({
@@ -83,8 +84,8 @@ export default function TranslationReviewsPanel({
         The maker–checker wasn’t confident enough to apply these. Approve
         puts the proposed text on the card. Reject or Dismiss clears the row
         — the card keeps what it shows now, nothing else changes. Rows where
-        the checker saw a problem but had no fix offer only Dismiss; if the
-        current text really is wrong, fix the card itself in the editor.
+        the checker saw a problem but had no fix offer only Dismiss; each
+        one says so, and carries the card so you can correct it here.
       </p>
       {nav}
       <ul className="divide-y divide-gray-50">
@@ -111,12 +112,38 @@ export default function TranslationReviewsPanel({
                   <b className="text-gray-900">{r.proposed}</b>
                 </div>
               ) : (
-                <div className="text-xs text-gray-500 italic">
-                  no replacement proposed — the checker rejected it outright
+                /* Why this row has one button and its neighbour has two.
+                   The old copy said what had happened ("rejected it
+                   outright") and left the consequence to be inferred from
+                   the missing button — the owner read the result as a bug:
+                   "on some i only get the option to dismiss and not
+                   understand why". Say the consequence first, then the
+                   cause, then the way out. */
+                <div
+                  className="text-xs text-gray-500 italic"
+                  data-testid={`no-proposal-${r.id}`}
+                >
+                  Nothing to approve: the checker rejected this gloss without
+                  offering a replacement, so Dismiss is the only action. If
+                  the current text is wrong, edit the card below.
                 </div>
               )}
               {r.reason && (
                 <div className="text-[11px] text-amber-700">{r.reason}</div>
+              )}
+              {/* The word itself, and the way to correct it: a row with no
+                  proposal is otherwise a dead end that hands the reviewer a
+                  problem and no means to fix it. */}
+              {r.card && (
+                <div className="mt-1.5">
+                  <ReviewedCardView
+                    card={r.card}
+                    targetType={r.target_type}
+                    targetId={r.target_id}
+                    canEdit
+                    testId={`translation-card-${r.id}`}
+                  />
+                </div>
               )}
             </div>
             <div className="flex gap-1 shrink-0">

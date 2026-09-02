@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getFeedback, resolveFeedback } from '../../api/contribute'
 import QueueStatus from './QueueStatus'
+import ReviewedCardView from './ReviewedCardView'
 
 /**
  * Open learner feedback for the active language, for contributors to triage.
@@ -59,20 +60,42 @@ export default function FeedbackPanel({
       </h2>
       {nav}
       {shown.map((f) => (
-        <div key={f.id} className="flex items-start justify-between gap-3 text-sm border-t border-gray-100 pt-2">
-          <div>
-            <span className="font-medium text-gray-700">{f.card_title ?? f.content_id}</span>
-            <span className="text-xs text-gray-500"> · {f.card_type}</span>
-            <p className="text-gray-600">{f.message}</p>
+        <div key={f.id} className="space-y-1.5 border-t border-gray-100 pt-2 text-sm">
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <span className="font-medium text-gray-700">{f.card_title ?? f.content_id}</span>
+              <span className="text-xs text-gray-500"> · {f.card_type}</span>
+              <p className="text-gray-600">{f.message}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => resolveMutation.mutate(f.id)}
+              disabled={resolveMutation.isPending}
+              className="text-xs text-lang hover:underline shrink-0"
+            >
+              Resolve
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={() => resolveMutation.mutate(f.id)}
-            disabled={resolveMutation.isPending}
-            className="text-xs text-lang hover:underline shrink-0"
-          >
-            Resolve
-          </button>
+          {/* "Too much info" and "definition doesn't match the sentence" are
+              judgements about text that used to be nowhere on this screen —
+              the reviewer had the complaint and the word, and had to go
+              looking for the card in another workspace to weigh either one.
+              Anyone who can open this queue holds a contributor role for the
+              language, which is exactly the bar the server sets on the edit. */}
+          {f.card ? (
+            <ReviewedCardView
+              card={f.card}
+              targetType={f.target_type}
+              targetId={f.target_id}
+              canEdit
+              testId={`feedback-card-${f.id}`}
+            />
+          ) : (
+            <p className="text-[11px] text-gray-400" data-testid="feedback-card-gone">
+              This card no longer exists — it may have been deleted since the
+              report was sent.
+            </p>
+          )}
         </div>
       ))}
     </div>

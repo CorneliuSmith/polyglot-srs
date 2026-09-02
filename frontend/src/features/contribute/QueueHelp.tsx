@@ -121,8 +121,15 @@ export const QUEUE_HELP: Record<string, QueueHelpText> = {
         action: 'Accept',
         means:
           'agrees the content is wrong and closes the request. It records ' +
-          'the decision — it does NOT edit the card for you. Fix the card ' +
-          'itself in its own panel.',
+          'the decision — it does NOT edit the card for you. Use "Edit ' +
+          'card" first if the card needs changing, then accept.',
+      },
+      {
+        action: 'Edit card',
+        means:
+          'changes the content itself, here, and logs the change so it can ' +
+          'be rolled back. This is the only action on this board that ' +
+          'touches what learners see.',
       },
       {
         action: 'Reject',
@@ -147,8 +154,14 @@ export const QUEUE_HELP: Record<string, QueueHelpText> = {
         action: 'Resolve',
         means:
           'marks the report as dealt with and removes it from this queue. ' +
-          'It does not change the card — fix the card first if it needs it, ' +
-          'then resolve the report.',
+          'It does not change the card — use "Edit card" first if it needs ' +
+          'it, then resolve the report.',
+      },
+      {
+        action: 'Edit card',
+        means:
+          'changes the card the learner is complaining about, here. The ' +
+          'edit is logged and can be rolled back.',
       },
     ],
   },
@@ -262,6 +275,21 @@ export const QUEUE_HELP: Record<string, QueueHelpText> = {
         means:
           'discards it. The field falls back to English and will be offered ' +
           'for translation again on a later sweep.',
+      },
+      {
+        action: 'Dismiss (rows with no Approve)',
+        means:
+          'the checker rejected the AI gloss without proposing a ' +
+          'replacement, so there is nothing to publish — clearing the row ' +
+          'is the only action it has. If the ENGLISH text is what is wrong, ' +
+          'use "Edit card" on the row instead; every locale is translated ' +
+          'from it.',
+      },
+      {
+        action: 'Edit card',
+        means:
+          'changes the word\'s English definition or reading, here. Logged ' +
+          'and revertible.',
       },
     ],
   },
