@@ -251,6 +251,27 @@ switch on yet (see `DEBT.md` for the reason). `services/flags.py`'s
 checks, and it fails safe (`default=False`) even if the flag row's own
 migration hasn't landed.
 
+### The AI allowance, and what "entitled" means
+
+`services/allowance.py`'s `get_allowance(user, language)` is the one place
+the tutor's monthly pool is computed: an admin override first (`blocked`
+zeroes everything, `enabled` grants a capped pool), then operator free
+access (`TUTOR_FREE_ACCESS`, unlimited), then the plan's base (free 20,
+single 0, all 300 — editable at runtime in Settings → Admin → Plan
+limits), plus the Tutor+ add-on and any one-time top-ups, all in one
+calendar-month window. The tutor itself only asks "is there anything
+left" (`reject_if_unavailable`).
+
+`entitled` is a separate answer for the perks that spend from the pool
+without being the tutor — recommendations and the weekly digest. It means
+*the month's pool holds paid-for AI*: any tier but free, with a limit above
+zero. It used to mean "tier is plus or granted", which refused the
+all-languages plan — the plan whose 300 messages are exactly what those
+perks draw on — and a reviewer on that plan read the amber "needs a Plus
+subscription" note as being blocked. The free tier's twenty is a taster,
+not a pool; single's base is 0 until a top-up or the add-on is bought,
+which is why the rule reads the limit and not the tier name.
+
 ### Rate limiting
 
 In-process by default; becomes cross-instance via `redis` when `REDIS_URL`

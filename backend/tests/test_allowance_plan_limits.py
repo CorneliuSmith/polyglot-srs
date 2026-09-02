@@ -194,3 +194,43 @@ def test_effective_plan_limits_with_no_overrides_is_pure_settings():
     with patch("backend.services.allowance.get_settings", return_value=FakeSettings()):
         limits = effective_plan_limits(None)
     assert limits == {"free": 20, "single": 0, "all": 300, "plus": 200}
+
+
+# ── entitled: the pool, not the tier name ─────────────────────────────────
+#
+# A trial reviewer on the all-languages plan was told recommendations "need
+# a Plus subscription" — the plan whose 300 messages are exactly the pool
+# recommendations draw on. `entitled` gated on the tier NAME (plus/granted)
+# instead of on whether the month holds paid-for AI.
+
+
+@pytest.mark.asyncio
+async def test_the_all_languages_plan_is_entitled_to_the_perks_its_pool_pays_for():
+    allowance = await _allowance(
+        plan_limits=None,
+        access={"access": "default", "daily_cap": None, "plan_scope": "all"},
+    )
+    assert allowance["tier"] == "all"
+    assert allowance["entitled"] is True
+
+
+@pytest.mark.asyncio
+async def test_the_free_taster_is_not_a_pool():
+    allowance = await _allowance(plan_limits=None)
+    assert allowance["tier"] == "free"
+    assert allowance["limit"] == 20
+    assert allowance["entitled"] is False
+
+
+@pytest.mark.asyncio
+async def test_a_single_plan_is_entitled_only_once_it_has_bought_ai():
+    bare = await _allowance(
+        plan_limits=None,
+        access={"access": "default", "daily_cap": None, "plan_scope": "single"},
+    )
+    assert bare["limit"] == 0 and bare["entitled"] is False
+    topped = await _allowance(
+        plan_limits=None, topup_messages=200,
+        access={"access": "default", "daily_cap": None, "plan_scope": "single"},
+    )
+    assert topped["limit"] == 200 and topped["entitled"] is True

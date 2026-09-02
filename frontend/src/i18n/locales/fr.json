@@ -1231,7 +1231,7 @@
   "recoSettings": {
     "title": "Recommandations",
     "desc": "Recevez de temps en temps un livre, un film, une série ou un podcast dans votre langue cible — choisis pour votre niveau et vos centres d’intérêt, environ une fois par semaine.",
-    "needsPlus": "Recevoir des suggestions nécessite un abonnement Plus pour cette langue — vous pouvez tout de même configurer votre profil dès maintenant.",
+    "needsPlus": "Recevoir des suggestions nécessite un forfait avec des messages IA pour cette langue — Toutes les langues, l’option Plus ou une recharge. Vous pouvez tout de même configurer votre profil dès maintenant.",
     "aboutLabel": "À propos de vous",
     "aboutPlaceholder": "Qu’aimez-vous lire et regarder ? Loisirs, auteurs ou séries préférés, sujets qui vous passionnent…",
     "aboutHint": "Plus vous en dites, meilleures sont les suggestions.",
