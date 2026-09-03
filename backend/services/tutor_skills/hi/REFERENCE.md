@@ -15,6 +15,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Questions: क्या and the question words — Ask yes/no questions and information questions
 - Commands and requests: करो, कीजिए — Tell, ask, and politely request
 - Having things: के पास, का, को — Hindi has no verb 'to have' — here is what it uses instead
+
 ## A2
 - The oblique case: कमरे में, लड़के को — Nouns change shape before postpositions
 - Past 'to be': था, थी, थे, थीं — Say how things were
@@ -26,6 +27,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Can and could: सकना — Say what you are able to do
 - Comparisons: से बड़ा, सबसे अच्छा — Compare things without 'more' or '-er'
 - Let's and may I: the subjunctive — Suggest, offer, and ask permission
+
 ## B1
 - Compound verbs: ले जाना, खा लेना — Add nuance — completion, suddenness, direction — with a light second verb
 - The perfect tenses: चुका है, गया था — Say what has happened and what had happened
@@ -35,6 +37,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - The passive: खाया जाता है — Say something is done without naming the doer
 - Adverbs and manner: से, कर के, तरह — Say how, and chain actions together
 - Experiencer subjects: मुझे लगता है, पसंद है — Feelings, opinions, and liking — the subject takes को
+
 ## B2
 - Causatives: करना → कराना, बनना → बनाना — Say you got something done — by someone else
 - Presumptive: होगा, रहा होगा — Make educated guesses about now and the past
@@ -42,11 +45,13 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reported speech and कि-clauses — Report what people said and thought
 - Participial phrases: आते हुए, बैठे-बैठे — Add rich 'while/-ing' description
 - Numbers, ordinals, and fractions — Handle Hindi's notoriously irregular counting
+
 ## C1
 - Register: तत्सम Sanskrit vs Perso-Arabic vocabulary — Read the room — शुद्ध हिंदी, everyday Hindustani, or Urdu-leaning speech
 - Honorific concord and pronoun avoidance — Show respect through grammar, not just word choice
 - Idiomatic body-and-mind expressions — Speak like a native — feelings that live in the liver, not the heart
 - Discourse particles: तो, ही, भी, न, वाला — Master the little words that carry all the attitude
+
 ## C2
 - Ne-construction edge cases and split ergativity — Handle the ergative's genuine exceptions like a native
 - Literary and poetic syntax: inversion, ellipsis, Urdu izafat — Read ग़ज़ल, film lyrics, and high literature

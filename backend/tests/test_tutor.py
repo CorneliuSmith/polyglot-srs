@@ -249,7 +249,10 @@ class TestTutorSkills:
             assert len(skill) < 2500, f"{code}: SKILL.md too large"
             for topic in ("reference", "errors"):
                 text = load_reference(code, topic)
-                assert text and len(text) < 12000, f"{code}/{topic}"
+                # 20k: Korean's regenerated map (brief item 6) is 18k —
+                # the course has 100+ points and the tool loads this on
+                # demand, once, not per turn.
+                assert text and len(text) < 20000, f"{code}/{topic}"
 
     def test_reference_uses_curriculum_point_titles(self):
         import json

@@ -15,6 +15,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Adjectives: the -e rule — One little e, one famous exception
 - Possessives: mijn, jouw, zijn, haar… — Say whose it is
 - Er is / er zijn — There is, there are
+
 ## A2
 - The perfect: heb gewerkt, ben gegaan — The everyday past — Dutch talks about yesterday in the perfect
 - Imperfect: werkte, speelde — The story-telling past
@@ -26,6 +27,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Diminutives: -je, -tje, -pje — The most Dutch thing there is
 - Om te + infinitive — In order to — purpose and after adjectives
 - The imperative — Tell people what to do — with the bare stem
+
 ## B1
 - Er — the five jobs of one little word — Location, existence, quantity, prepositions, passive — er does it all
 - Relative clauses: die, dat, waar — Who, which, that — chosen by the noun's gender
@@ -35,6 +37,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Te + infinitive: proberen te, hoeven te — Which verbs take te — and which don't
 - Zou: would, could you, apparently — Politeness, hypotheticals, and hearsay in one verb
 - Indirect speech: dat and of — Report statements with dat, questions with of
+
 ## B2
 - Modal particles: wel, toch, maar, even, eens — The seasoning that makes Dutch sound Dutch
 - Past perfect and tense sequencing — What had happened before something else happened
@@ -42,11 +45,13 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Progressive: aan het + infinitive, zitten te — Right now, in the middle of it
 - Waar-compounds: waarover, erop, daarmee — Preposition + it/what/that fuse into one word
 - Conditionals: als … zou, had gedaan — If-worlds, real and missed
+
 ## C1
 - Register: u-space, je-space, and writing — Choose the right distance
 - Nominalization: het + infinitive, -heid, ge- — Turn actions into things
 - The tang: brackets around the sentence — Dutch sentences close like pincers — master the frame
 - Posture verbs as 'to be': staan, liggen, zitten — Where English says 'is', Dutch says stands, lies, or sits
+
 ## C2
 - Netherlands vs Flanders: one language, two flavours — Read both sides of the border
 - Fossils: der, des, te allen tijde — Read the case endings Dutch officially buried

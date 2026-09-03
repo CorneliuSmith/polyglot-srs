@@ -22,7 +22,7 @@ contributor would hand-author.
 | `sentences[]` — example sentences per word | `data/sentences/{code}_sentences.tsv` | `backend/services/seeder/seed_sentences.py` |
 | grammar `gym` — form-category picker entries | `data/gym/{code}.json` | `backend/routers/gym.py` (read live) |
 | vocabulary at level `A0` — alphabet letters | `data/alphabet/{code}.json` | `backend/services/seeder/seed_alphabet.py` |
-| grammar `pitfalls` — common learner errors | `backend/services/tutor_skills/{code}/ERRORS.extracted.md` | review artifact (fold into `ERRORS.md` by hand) |
+| grammar `pitfalls` — common learner errors | `backend/services/tutor_skills/{code}/ERRORS.extracted.md` | review artifact (fold into `ERRORS.md` by hand; `scripts/tutor_skill_digest.py` regenerates it from the quality standard and review notes) |
 
 Once the files are in place, seeding is the usual path — no new tooling:
 
@@ -34,7 +34,11 @@ python -m backend.services.seeder.seed_alphabet  --language {code} --db-url "$DA
 ```
 
 The Gym reads `data/gym/{code}.json` at request time (no seeding step). `ERRORS.extracted.md`
-is a **review artifact**, not seeded — a human folds it into the tutor's `ERRORS.md`.
+is a **review artifact**, not seeded — a human folds it into the tutor's `ERRORS.md`, carrying
+the stamp line across; `scripts/tutor_skill_digest.py {code}` produces it, and
+`tests/test_tutor_skill_digest.py` fails when the standard changes after the last fold. The
+tutor's `REFERENCE.md` needs no hand at all: `python -m backend.services.tutor_reference`
+regenerates it from the grammar file, and a test fails when it is stale.
 
 Because these seeders **upsert by natural key**, re-running them is idempotent —
 loading the same file twice updates in place rather than duplicating. The

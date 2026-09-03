@@ -60,6 +60,8 @@ class Settings(BaseSettings):
     # the master flag stays on; words-per-cycle caps the hourly API cost
     # (50 words / 15 min ≈ 200 words/hour worst case, on the summary model).
     auto_translate_loop_enabled: bool = True
+    # Daily prune of tutor_sessions / tutor_usage (services/retention.py).
+    retention_sweep_enabled: bool = True
     auto_translate_words_per_cycle: int = 50
     # Optional Apertium-APy server (public https://apertium.org/apy or self-
     # hosted). When set, the generation checker uses it to verify that a

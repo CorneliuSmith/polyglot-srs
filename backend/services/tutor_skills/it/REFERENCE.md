@@ -27,6 +27,8 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reflexive verbs (lavarsi) — Say the subject acts on itself
 - Articulated prepositions (del, al, nel, sul…) — Combine a preposition with the article
 - Possessives & demonstratives (il mio, questo…) — Say 'my / this' and agree with the noun
+- Key irregular presents (vado, faccio, posso, voglio) — Use the everyday irregular verbs
+- Stare + gerundio (sto mangiando) — Say what's happening right now
 
 ## B1
 - The subjunctive (il congiuntivo) — Express opinion, doubt, wish, and emotion

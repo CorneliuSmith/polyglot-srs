@@ -27,6 +27,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reflexive verbs (se laver) — Say the subject acts on itself
 - Partitive articles (du, de la, des) — Say 'some' of an uncountable thing
 - Possessive & demonstrative adjectives (mon, ce…) — Say 'my / this' and agree with the noun
+- Key irregular presents (vais, fais, peux, veux) — Use the everyday irregular verbs
 
 ## B1
 - The subjunctive (le subjonctif) — Express necessity, wish, emotion, and doubt
@@ -36,6 +37,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Near future & recent past (aller / venir de) — Say what's about to happen or just happened
 - The pluperfect (le plus-que-parfait) — Set one past action before another
 - Reported speech (le discours indirect) — Report what someone said or asked
+- The imperative (parle ! / ne parle pas !) — Tell or ask someone to do something
 
 ## B2
 - The passive voice (la voix passive) — Say an action is done, and by whom

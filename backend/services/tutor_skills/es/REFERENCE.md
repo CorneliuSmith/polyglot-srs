@@ -15,6 +15,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Hay — there is / there are — Say what exists or is available
 - Question words (qué, dónde, cómo…) — Ask about things, places, people, and time
 - Adjective agreement — Describe people and things correctly
+- Possessives (mi, tu, su) — Say whose something is
 
 ## A2
 - Reflexive verbs (levantarse) — Talk about your daily routine
@@ -27,6 +28,9 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Direct object pronouns (lo, la, los, las) — Avoid repeating what you already mentioned
 - Indirect object pronouns (le, les) — Say to whom or for whom
 - Comparatives (más… que, tan… como) — Compare people and things
+- Stem-changing verbs (quiero, puedo) — Use the everyday irregular presents
+- Demonstratives (este, ese, aquel) — Point at things — near me, near you, far away
+- Personal a (veo a Juan) — Mark people as objects
 
 ## B1
 - Present perfect (he hablado) — Connect the past to now

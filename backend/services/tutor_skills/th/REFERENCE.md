@@ -15,6 +15,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Adjectives are verbs: บ้านใหญ่ — No 'is' before adjectives — they carry the sentence alone
 - จะ — the future marker — Will and going to, one syllable
 - ของ — of and mine — Possession — with a word you can often drop
+
 ## A2
 - แล้ว — already, and then — Mark completion — Thai's 'past tense'
 - กำลัง … อยู่ — happening right now — The progressive sandwich
@@ -26,6 +27,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - เคย — ever and used to — Experience: have you ever…?
 - Requests: ขอ…หน่อย, ช่วย…หน่อย — Ask for things and favours the soft way
 - ก็ — so, then, too — The little linker in half of all Thai sentences
+
 ## B1
 - ที่ — relative clauses — The person who…, the thing that…
 - ว่า — the that-clause — Say, think, know that…
@@ -35,6 +37,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - ทำให้ — make it happen — Cause states and feelings
 - ยัง — still and not yet — The continuing and the pending
 - เพราะ — because, and เลย — so — Cause and consequence, spoken Thai style
+
 ## B2
 - Final particles: นะ, สิ, ล่ะ, หรอก — The emotional temperature at the end of the sentence
 - กัน — together and each other — The reciprocal-collective tail
@@ -42,9 +45,11 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - การ- and ความ- — making nouns — Actions become การ-nouns, qualities become ความ-nouns
 - Reduplication and ๆ — Double for plural-ish, softer, or more
 - Register: กิน, ทาน, รับประทาน — One meaning, a ladder of politeness
+
 ## C1
 - The pronoun landscape: พี่, น้อง, ลุง, หนู — Thai replaces pronouns with relationships
 - Four-syllable elegance: สะดวกสบาย — The rhythm of polished Thai
+
 ## C2
 - ราชาศัพท์ — royal vocabulary — Recognize the language of palace and news
 - Written Thai: no spaces, ฯลฯ, and reading flow — Read real Thai text with its own conventions

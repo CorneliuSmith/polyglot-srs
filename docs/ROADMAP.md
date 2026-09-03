@@ -757,8 +757,9 @@ with next deploy)**: every language with a grammar path has a tutor (17/17;
 pt/el/ro added). Per-language knowledge lives in skill bundles at
 `backend/services/tutor_skills/{code}/` — SKILL.md (core brief, always in
 the prompt, <2.5KB), REFERENCE.md (the app's actual grammar path with the
-learner's card titles, generated from data/grammar — regenerate when paths
-change), ERRORS.md (interference errors + coaching moves). The deep files
+learner's card titles, generated from data/grammar by
+`python -m backend.services.tutor_reference`; a test fails when it is
+stale), ERRORS.md (interference errors + coaching moves). The deep files
 load on demand through the tutor's `consult_reference` tool (progressive
 disclosure — deep knowledge never bloats the per-turn context), and the
 regression suite bounds every file's size. Content is derived expertise:

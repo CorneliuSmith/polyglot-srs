@@ -27,6 +27,8 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reflexive verbs (rentar-se) — Say the subject acts on itself
 - Contractions (al, del, pel) — Combine a preposition with the article
 - Possessives & demonstratives (el meu, aquest…) — Say 'my / this' and agree with the noun
+- Key irregular presents (faig, puc, vull) — Use the everyday irregular verbs
+- Estar — states and location (estic cansat) — Say how and where things are right now
 
 ## B1
 - The subjunctive (el subjuntiu) — Express opinion, wish, doubt, and emotion

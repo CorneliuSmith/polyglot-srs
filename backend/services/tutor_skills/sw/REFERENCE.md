@@ -13,6 +13,9 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Future tense -ta- — Say what will happen
 - Question words (nini, nani, wapi) — Ask what, who, and where
 - Adjective agreement — Describe people and things
+- Greetings with habari and the possessive concord — Greet somebody by asking after them with habari, choosing the right possessive or -a form.
+- Introducing yourself: naitwa and jina langu — Give your own name and ask somebody else's, using either the verb or the noun construction.
+- Politeness formulas: asante, tafadhali, samahani, pole, karibu — Thank, request, apologise, sympathise and welcome using the fixed courtesy words.
 
 ## A2
 - Perfect -me- — Say what has (just) happened
@@ -23,6 +26,14 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - The -a of association (wa, ya, cha…) — Link two nouns ('of')
 - To have: kuwa na — Say what people have
 - Imperatives and polite requests — Tell and ask people to do things
+- Asking about time, manner and kind: lini, vipi, gani, mbona — Ask when, how, what kind and how come, using the interrogatives that follow the verb or the noun.
+- Asking for and giving directions — Ask where a place is and give directions using the locative copula and the direction words.
+- Numbers 11 to 100, and talking about prices — Build the numbers above ten with na, and use them to state and ask prices.
+- Telling the time: the Swahili saa system — Read and say clock times in Swahili, allowing for the six-hour offset from the international clock.
+- Talking about illness: ninaumwa na and inaniuma — Say which part of the body hurts, using either the passive or the active construction.
+- Ordinal numbers: wa kwanza, ya pili, cha tatu — Say first, second, third and so on, with the linker agreeing with the noun's class.
+- Dates, months and birthdays — Give a date, name a month, and say when a birthday falls.
+- States expressed with nina: njaa, kiu, wasiwasi, huzuni — Say how you feel using the have-construction, where English uses the verb to be.
 
 ## B1
 - Subjunctive -e — Express wants, purposes, and suggestions
@@ -48,6 +59,8 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reported speech (kwamba, kuwa, eti) — Pass on what someone said
 - Compound tenses (alikuwa akisoma / amesoma) — Set one action inside another time
 - Reversive -ua / -oa (funga → fungua) — Undo a verb with one suffix
+- The -enye construction: possessing a quality — Describe a noun by what it has, using the class-agreeing -enye.
+- Impersonal verbs: inabidi, inafaa, inawezekana — Express obligation, suitability and possibility with a verb that has no real subject.
 
 ## C1
 - Conditional -ki- (if/when) — Make real conditions
@@ -57,6 +70,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Emphatic ndi- (ndiye, ndipo, ndivyo) — Say 'that's exactly the one / when / how'
 - Negative conditional -sipo- (unless) — Warn about what happens if not
 - Purpose clauses: ili + subjunctive — Say what something is FOR
+- Negative infinitives with -to-: kutojua, kutokuwa — Negate an infinitive by inserting -to- between ku- and the stem.
 
 ## C2
 - Participial -ki- (waliondoka wakiimba) — Paint two actions in one stroke

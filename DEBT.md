@@ -120,6 +120,24 @@ makers' missing language brief, the unbounded tutor memory, and the edit
 history being mounted only for example sentences). The entry stays as a
 pointer to the brief, which tracks what is still open per item.
 
+Two things that pass the tests but are not finished:
+
+- **No tutor has been through the skill digest yet.** All 27 languages sit
+  in `NEVER_DIGESTED` (`services/tutor_skill_digest.py`), which is what
+  lets `test_every_standard_has_a_current_digest_or_a_listed_exemption`
+  pass. The digest calls the summary model once per language; that is the
+  owner's spend to authorise. To turn the check on for a language: run
+  `scripts/tutor_skill_digest.py <code> [--db-url …]`, fold the bullets you
+  accept into `ERRORS.md` together with the stamp line it prints, and
+  remove the code from `NEVER_DIGESTED` — the test then fails whenever
+  `docs/quality/<code>.md` changes again without a re-digest.
+- **Korean's regenerated REFERENCE.md is 18k chars**, three times its old
+  hand-written size, because the course has 156 points and the old file
+  listed a third of them. The on-demand bound in `test_tutor` went from
+  12k to 20k for it. If the tutor's `consult_reference` answers for Korean
+  start reading as padded, split the map by level rather than trimming
+  points — the whole point of generating it is that it lists them all.
+
 
 ### The four plan options lean on three Stripe facts nobody enforces
 

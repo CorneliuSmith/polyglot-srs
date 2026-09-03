@@ -138,6 +138,12 @@ def create_app() -> FastAPI:
         if getattr(settings, "auto_translate_loop_enabled", False):
             from backend.services.auto_translate import auto_translate_loop
             translate_task = asyncio.create_task(auto_translate_loop())
+        # Daily prune of the append-only AI tables. Same getattr-default-
+        # False trick, so test FakeSettings never start it.
+        retention_task = None
+        if getattr(settings, "retention_sweep_enabled", False):
+            from backend.services.retention import retention_loop
+            retention_task = asyncio.create_task(retention_loop())
         yield
         nlp_task.cancel()
         schema_task.cancel()
@@ -147,6 +153,8 @@ def create_app() -> FastAPI:
             digest_task.cancel()
         if translate_task is not None:
             translate_task.cancel()
+        if retention_task is not None:
+            retention_task.cancel()
         await close_pool()
 
     _app = FastAPI(title="PolyglotSRS", lifespan=lifespan)

@@ -27,6 +27,9 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Comparative & superlative (größer als, am größten) — Compare things
 - Possessive articles (mein, dein, sein…) — Say 'my / your' and match case & gender
 - Subordinate clauses (weil, dass) — Give reasons and report — verb goes to the end
+- Stem-changing presents (du fährst, er spricht) — Conjugate the common vowel-changing verbs
+- Personal pronouns: accusative & dative (mich, dir) — Say me, you, him, her as objects
+- The imperative (Geh! Nehmen Sie!) — Tell or ask someone to do something
 
 ## B1
 - The genitive case (des, der) — Show possession — 'of the'
