@@ -48,7 +48,14 @@ export default function TranslationReviewsPanel({
     onSuccess: refresh,
   })
 
-  const { shown, nav } = useFocusList(reviews ?? [], focus, 'translation')
+  const { shown, nav } = useFocusList(reviews ?? [], focus, 'translation', (r) => [
+    ...(r.proposed
+      ? [{ key: 'a', label: 'Approve', run: () => approve.mutate(r.id),
+           disabled: approve.isPending || reject.isPending }]
+      : []),
+    { key: 'r', label: r.proposed ? 'Reject' : 'Dismiss', run: () => reject.mutate(r.id),
+      disabled: approve.isPending || reject.isPending },
+  ])
 
   if (!reviews || reviews.length === 0) {
     if (awaiting === undefined) return null

@@ -124,6 +124,38 @@ describe('focus mode: one review item at a time', () => {
     input.remove()
   })
 
+  it('the letter keys act: a accepts, r rejects, and the keycaps say so', async () => {
+    // Arrows moved through the queue but every verdict was a mouse click.
+    // A queue of 67 is now cleared without leaving the keyboard.
+    renderWith(<ChangeRequestsPanel languageId="lang-1" focus />)
+    await screen.findByText('Gives answer away')
+    const keys = screen.getByTestId('focus-hotkeys')
+    expect(keys.textContent).toMatch(/Accept/)
+    expect(keys.textContent).toMatch(/Reject/)
+    fireEvent.keyDown(window, { key: 'a' })
+    await waitFor(() =>
+      expect(mockResolve).toHaveBeenCalledWith('a', 'accepted'),
+    )
+    fireEvent.keyDown(window, { key: 'r' })
+    await waitFor(() =>
+      expect(mockResolve).toHaveBeenCalledWith(expect.any(String), 'rejected'),
+    )
+  })
+
+  it('a letter typed into a text field is text, not a verdict', async () => {
+    renderWith(
+      <>
+        <textarea aria-label="note" />
+        <ChangeRequestsPanel languageId="lang-1" focus />
+      </>,
+    )
+    await screen.findByText('Gives answer away')
+    fireEvent.keyDown(screen.getByLabelText('note'), { key: 'a' })
+    // And a modifier means the browser was being asked, not the queue.
+    fireEvent.keyDown(window, { key: 'a', metaKey: true })
+    expect(mockResolve).not.toHaveBeenCalled()
+  })
+
   it('acting on an item lands you on the next one — the queue clears itself', async () => {
     renderWith(<ChangeRequestsPanel languageId="lang-1" focus />)
     await screen.findByText('Gives answer away')

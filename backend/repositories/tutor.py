@@ -547,6 +547,9 @@ async def upsert_language_profile(
     the `remember` tool (which updates `profile` mid-session) doesn't clobber
     the summary the post-session summarizer wrote.
     """
+    if session_summary is not None:
+        from backend.services.tutor import truncate_summary
+        session_summary = truncate_summary(session_summary)
     await conn.execute(
         """
         INSERT INTO tutor_language_profile
@@ -595,7 +598,7 @@ async def list_tutor_memory(conn: asyncpg.Connection, user_id: str) -> dict:
     global_profile = await get_user_profile(conn, user_id)
     rows = await conn.fetch(
         """
-        SELECT tlp.language_id, l.name, l.code, tlp.profile
+        SELECT tlp.language_id, l.name, l.code, tlp.profile, tlp.session_summary
         FROM tutor_language_profile tlp
         JOIN languages l ON l.id = tlp.language_id
         WHERE tlp.user_id = $1
@@ -605,15 +608,55 @@ async def list_tutor_memory(conn: asyncpg.Connection, user_id: str) -> dict:
     )
     languages = []
     for r in rows:
-        facts = profile_facts(_load_jsonb(r["profile"]))
-        if facts:
+        profile = _load_jsonb(r["profile"])
+        facts = profile_facts(profile)
+        summary = (r["session_summary"] or "").strip()
+        # The focus list and the rolling summary are the largest free text
+        # the tutor writes about a learner, and the panel used to show
+        # neither — a window that hid the biggest pane.
+        focus = [
+            f.get("structure") for f in (profile.get("_active_focus") or [])
+            if isinstance(f, dict) and f.get("structure")
+        ]
+        if facts or summary or focus:
             languages.append({
                 "language_id": str(r["language_id"]),
                 "name": r["name"],
                 "code": r["code"],
                 "facts": facts,
+                "session_summary": summary or None,
+                "focus": focus,
             })
     return {"global": profile_facts(global_profile), "languages": languages}
+
+
+async def forget_tutor_memory(
+    conn: asyncpg.Connection, user_id: str, language_id: str | None
+) -> None:
+    """Clear what the tutor remembers — one language's profile, focus list
+    and rolling summary, or (language_id None) every language plus the
+    global profile. The session log (tutor_sessions) is usage history and
+    stays; the panel's copy says so."""
+    if language_id:
+        await conn.execute(
+            """
+            UPDATE tutor_language_profile
+               SET profile = '{}'::jsonb, session_summary = '', updated_at = now()
+             WHERE user_id = $1 AND language_id = $2
+            """,
+            user_id, language_id,
+        )
+        return
+    await conn.execute(
+        "UPDATE tutor_language_profile SET profile = '{}'::jsonb, "
+        "session_summary = '', updated_at = now() WHERE user_id = $1",
+        user_id,
+    )
+    await conn.execute(
+        "UPDATE tutor_user_profile SET profile = '{}'::jsonb, updated_at = now() "
+        "WHERE user_id = $1",
+        user_id,
+    )
 
 
 async def delete_tutor_memory_fact(

@@ -240,6 +240,8 @@ be the same team in every lane.
 
 ## 6. Tutor: are personas updated with language insights, and what phases out?
 
+**Memory bounds and "forget everything" shipped 3 Sep 2026** (steps 1–3 of the memory work). Open: the persona fold-in script and REFERENCE generator, and the retention sweep (step 4).
+
 **Effort: two days** — one for bounding memory, one for the fold-in tooling.
 
 **Personas.** Each language's tutor is `backend/services/tutor_skills/<code>/`:
@@ -314,6 +316,8 @@ There is **no pre-flight estimate** of the assembled prompt. Work:
    older than 13 months in the existing nightly sweep.
 
 ## 7. Working through feedback: popup, sliding window, and markdown cards
+
+**7c phase 1 (the editor preview) and 7a (card in every card-bearing queue, `a`/`r`/`u`/`d` hotkeys in focus mode, edit history behind a toggle) shipped 3 Sep 2026.** Open: 7b (the popup, only if asked for on the phone), the optional cross-queue stream, and 7c phase 2 (markdown) which waits on the backtick guard.
 
 **Effort: three to four days**, in three separable pieces. Recommendation:
 build on what shipped this week rather than a new modal.

@@ -3,6 +3,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Trash2 } from 'lucide-react'
 import {
   deleteTutorMemoryFact,
+  forgetTutorMemory,
   getTutorMemory,
 } from '../../api/tutor'
 import type { TutorMemoryFact } from '../../api/tutor'
@@ -84,6 +85,19 @@ export default function TutorMemoryPanel() {
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ['tutor-memory'] }),
   })
+  // Forget everything: a learner could delete facts one at a time but had
+  // no way to see or clear the rolling summary or the focus list, the
+  // largest things the AI had written about them.
+  const forgetAll = useMutation({
+    mutationFn: (languageId?: string) => forgetTutorMemory(languageId),
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ['tutor-memory'] }),
+  })
+  const confirmForgetAll = (languageId?: string, name?: string) => {
+    if (window.confirm(t('settings.memory.forgetAllConfirm', { name: name ?? t('settings.memory.global') }))) {
+      forgetAll.mutate(languageId)
+    }
+  }
 
   // A learner who has never used the tutor has nothing here; hide the
   // section rather than explain an empty feature. Errors hide it too —
@@ -104,6 +118,20 @@ export default function TutorMemoryPanel() {
 
       {empty && (
         <p className="text-sm text-gray-500">{t('settings.memory.empty')}</p>
+      )}
+      {!empty && (
+        <div className="flex flex-wrap items-center gap-3">
+          <button
+            type="button"
+            onClick={() => confirmForgetAll(undefined, undefined)}
+            disabled={forgetAll.isPending}
+            data-testid="memory-forget-everything"
+            className="text-xs font-medium text-red-600 hover:underline disabled:opacity-50"
+          >
+            {t('settings.memory.forgetEverything')}
+          </button>
+          <span className="text-[11px] text-gray-400">{t('settings.memory.sessionsStay')}</span>
+        </div>
       )}
 
       {memory.global.length > 0 && (
@@ -128,9 +156,34 @@ export default function TutorMemoryPanel() {
 
       {memory.languages.map((lang) => (
         <div key={lang.language_id}>
-          <h3 className="text-xs font-medium uppercase tracking-wide text-gray-500">
-            {lang.name}
-          </h3>
+          <div className="flex items-center justify-between gap-2">
+            <h3 className="text-xs font-medium uppercase tracking-wide text-gray-500">
+              {lang.name}
+            </h3>
+            <button
+              type="button"
+              onClick={() => confirmForgetAll(lang.language_id, lang.name)}
+              disabled={forgetAll.isPending}
+              data-testid={`memory-forget-all-${lang.code}`}
+              className="text-xs text-gray-500 hover:text-red-600 hover:underline disabled:opacity-50"
+            >
+              {t('settings.memory.forgetAll')}
+            </button>
+          </div>
+          {lang.session_summary && (
+            <div className="mt-1 rounded-lg bg-gray-50 px-3 py-2" data-testid={`memory-summary-${lang.code}`}>
+              <p className="text-[11px] uppercase tracking-wide text-gray-400">
+                {t('settings.memory.summary')}
+              </p>
+              <p className="whitespace-pre-wrap text-sm text-gray-700">{lang.session_summary}</p>
+            </div>
+          )}
+          {lang.focus && lang.focus.length > 0 && (
+            <p className="mt-1 text-xs text-gray-600" data-testid={`memory-focus-${lang.code}`}>
+              <span className="font-medium">{t('settings.memory.focus')}:</span>{' '}
+              {lang.focus.join(' · ')}
+            </p>
+          )}
           <ul className="divide-y divide-gray-100">
             {lang.facts.map((fact) => (
               <FactRow

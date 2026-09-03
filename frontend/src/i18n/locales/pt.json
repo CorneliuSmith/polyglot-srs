@@ -1129,7 +1129,13 @@
       "inferred": "Palpite do tutor",
       "empty": "Nada ainda — o tutor vai lembrando das coisas conforme vocês conversam.",
       "forget": "Esquecer “{{fact}}”",
-      "forgetError": "Não foi possível apagar — tente de novo."
+      "forgetError": "Não foi possível apagar — tente de novo.",
+      "summary": "Resumo das últimas sessões",
+      "focus": "Trabalhando em",
+      "forgetAll": "Esquecer este idioma",
+      "forgetEverything": "Esquecer tudo",
+      "forgetAllConfirm": "Esquecer tudo o que o tutor lembra de {{name}}? Suas sessões passadas são mantidas.",
+      "sessionsStay": "As sessões passadas ficam no seu histórico; só o que o tutor leva adiante é apagado."
     },
     "email": {
       "title": "E-mail",

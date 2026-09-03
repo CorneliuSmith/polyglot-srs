@@ -114,16 +114,12 @@ sitting at 0 % with no explanation.
 
 ### Findings from the 3 September notes review (brief: docs/plans/owner-notes-2026-09-03.md)
 
-What the exploration behind that brief established and nothing yet fixes
-(three more — the translation checker tier, the Speak summary model and
-the makers' missing language brief — were fixed the same day):
+Every finding the exploration behind that brief established was fixed
+the same day (the translation checker tier, the Speak summary model, the
+makers' missing language brief, the unbounded tutor memory, and the edit
+history being mounted only for example sentences). The entry stays as a
+pointer to the brief, which tracks what is still open per item.
 
-- **Tutor memory has no ceiling.** Profile facts are uncapped, list values
-  grow forever (`merge_remembered`), the whole profile rides in every
-  turn's prompt, and nothing estimates prompt size. Fine at beta scale;
-  a per-turn cost that only rises. Brief item 6.
-- **`CardHistory` is mounted only for example sentences**; no review queue
-  shows a card's edit history or roll-back. Brief item 7a.
 
 ### The four plan options lean on three Stripe facts nobody enforces
 

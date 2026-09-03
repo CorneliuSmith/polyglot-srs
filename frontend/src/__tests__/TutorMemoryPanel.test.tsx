@@ -7,9 +7,11 @@ vi.mock('../api/tutor', async (orig) => ({
   ...(await orig()),
   getTutorMemory: vi.fn(),
   deleteTutorMemoryFact: vi.fn(),
+  forgetTutorMemory: vi.fn(),
 }))
 
-import { getTutorMemory, deleteTutorMemoryFact } from '../api/tutor'
+import { getTutorMemory, deleteTutorMemoryFact, forgetTutorMemory } from '../api/tutor'
+const mockForgetAll = forgetTutorMemory as ReturnType<typeof vi.fn>
 
 const mockGet = getTutorMemory as ReturnType<typeof vi.fn>
 const mockDelete = deleteTutorMemoryFact as ReturnType<typeof vi.fn>
@@ -90,5 +92,27 @@ describe('TutorMemoryPanel', () => {
     mockGet.mockResolvedValue({ global: [], languages: [] })
     renderPanel()
     expect(await screen.findByText(/nothing yet/i)).toBeInTheDocument()
+  })
+
+  it('shows the summary and focus list, and can forget a whole language', async () => {
+    // The panel showed facts but hid the rolling summary and the focus
+    // list — the largest things the AI writes about a learner — and had
+    // no way to clear them.
+    mockGet.mockResolvedValue({
+      global: [],
+      languages: [{
+        language_id: 'lang-es', name: 'Spanish', code: 'es',
+        facts: [{ key: 'goal', value: 'B2', source: 'stated' }],
+        session_summary: 'Practised ser vs estar; struggled with estar for location.',
+        focus: ['ser vs estar', 'preterite'],
+      }],
+    })
+    mockForgetAll.mockResolvedValue(undefined)
+    vi.spyOn(window, 'confirm').mockReturnValue(true)
+    renderPanel()
+    expect(await screen.findByTestId('memory-summary-es')).toHaveTextContent(/ser vs estar/)
+    expect(screen.getByTestId('memory-focus-es')).toHaveTextContent('ser vs estar · preterite')
+    fireEvent.click(screen.getByTestId('memory-forget-all-es'))
+    await waitFor(() => expect(mockForgetAll).toHaveBeenCalledWith('lang-es'))
   })
 })

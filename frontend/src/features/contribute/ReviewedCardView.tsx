@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { editReviewedCard, type ReviewedCard } from '../../api/contribute'
+import ExplanationView from '../../components/ExplanationView'
+import CardHistory from './CardHistory'
 
 /**
  * The card a review queue row is about — shown in full, and fixable in
@@ -41,6 +43,9 @@ const EDITABLE: Record<string, Partial<Record<CardField, string>>> = {
 
 type CardField = 'sentence' | 'answer' | 'hint' | 'translation'
 
+/** The kinds `GET /review/history/{type}/{id}` serves. */
+const HISTORY_TYPES = new Set(['grammar_point', 'vocabulary', 'drill', 'example_sentence'])
+
 const ROWS: [CardField, string][] = [
   ['sentence', 'Sentence'],
   ['answer', 'Answer'],
@@ -70,6 +75,10 @@ export default function ReviewedCardView({
 }) {
   const queryClient = useQueryClient()
   const [editing, setEditing] = useState(false)
+  // The edit timeline (with roll-back) existed for example sentences only;
+  // every kind the history endpoint knows gets it here. CardHistory carries
+  // its own collapsed "History" toggle and fetches only when opened.
+  const historyType = targetType && HISTORY_TYPES.has(targetType) ? targetType : null
   const [draft, setDraft] = useState<Record<string, string>>({})
   const boxes = (targetType && EDITABLE[targetType]) || null
   const editable = canEdit && !!boxes && !!targetId
@@ -120,6 +129,20 @@ export default function ReviewedCardView({
               aria-label={label}
               className="mt-0.5 w-full rounded border border-gray-300 px-2 py-1 text-sm"
             />
+            {/* A grammar explanation is typeset for the learner; show the
+                reviewer the same rendering while they edit it. */}
+            {key === 'translation' && targetType === 'grammar_point' &&
+              (draft[key] ?? '').trim() && (
+                <div
+                  className="mt-1 rounded border border-dashed border-gray-200 bg-gray-50 px-2 py-1.5"
+                  data-testid={`${testId}-preview`}
+                >
+                  <p className="mb-1 text-[10px] uppercase tracking-wide text-gray-400">
+                    Preview — as the learner sees it
+                  </p>
+                  <ExplanationView text={draft[key] ?? ''} className="text-sm text-gray-800" />
+                </div>
+              )}
           </label>
         ))}
         {/* The blank is part of a drill's text, and deleting it breaks the
@@ -208,6 +231,11 @@ export default function ReviewedCardView({
           ) : null,
         )}
       </dl>
+      {historyType && targetId && (
+        <div className="mt-1.5" data-testid={`${testId}-history`}>
+          <CardHistory entityType={historyType} entityId={targetId} />
+        </div>
+      )}
     </div>
   )
 }

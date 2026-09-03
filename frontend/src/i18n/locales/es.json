@@ -1129,7 +1129,13 @@
       "inferred": "Suposición del tutor",
       "empty": "Nada todavía — el tutor recuerda cosas a medida que conversáis.",
       "forget": "Olvidar «{{fact}}»",
-      "forgetError": "No se pudo borrar — inténtalo de nuevo."
+      "forgetError": "No se pudo borrar — inténtalo de nuevo.",
+      "summary": "Resumen de las últimas sesiones",
+      "focus": "Trabajando en",
+      "forgetAll": "Olvidar este idioma",
+      "forgetEverything": "Olvidarlo todo",
+      "forgetAllConfirm": "¿Olvidar todo lo que el tutor recuerda de {{name}}? Tus sesiones pasadas se conservan.",
+      "sessionsStay": "Las sesiones pasadas quedan en tu historial; solo se borra lo que el tutor arrastra entre sesiones."
     },
     "email": {
       "title": "Correo",

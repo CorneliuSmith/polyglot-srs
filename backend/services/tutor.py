@@ -24,6 +24,8 @@ Prompt structure (ordered for prompt caching — stable prefix first):
 from __future__ import annotations
 
 import json
+import logging
+from datetime import UTC, datetime
 from functools import cache, lru_cache
 from pathlib import Path
 from typing import Any
@@ -35,6 +37,8 @@ from backend.services.models import (  # noqa: F401  (LOW_RESOURCE_LANGUAGES re-
     LOW_RESOURCE_LANGUAGES,
     resolve_model,
 )
+
+logger = logging.getLogger(__name__)
 
 MAX_HISTORY_MESSAGES = 40
 MAX_MESSAGE_CHARS = 4000
@@ -329,6 +333,20 @@ IDENTITY_KEYS = frozenset({"native_language"})
 # the safe default, since it makes the tutor confirm rather than assert.
 SOURCES_KEY = "_sources"
 
+# Reserved key: {fact_key: ISO timestamp of the last write}. What eviction
+# reads. A key with no entry predates the map and counts as oldest.
+TOUCHED_KEY = "_touched"
+
+# Bounds on what a profile can hold. Nothing capped these before: facts
+# were never dropped, and a key written twice became a list that grew for
+# ever — a mistake from March rode in every prompt in September, and the
+# whole profile is JSON-dumped into every turn (docs/plans/
+# owner-notes-2026-09-03.md, item 6).
+MAX_FACT_VALUES = 5        # a list-valued fact keeps its newest five
+MAX_PROFILE_FACTS = 40     # per scope; the oldest INFERRED fact goes first
+MAX_SESSION_SUMMARY_CHARS = 2000
+MEMORY_CHAR_BUDGET = 12_000  # block 1 (memory + SRS), before trimming
+
 
 def _annotate_profile(profile: dict) -> dict:
     """Rewrite a profile dict for the prompt: each plain fact becomes
@@ -338,7 +356,7 @@ def _annotate_profile(profile: dict) -> dict:
     sources = profile.get(SOURCES_KEY) or {}
     out: dict[str, Any] = {}
     for key, value in profile.items():
-        if key == SOURCES_KEY:
+        if key in (SOURCES_KEY, TOUCHED_KEY):
             continue
         if key.startswith("_"):
             out[key] = value
@@ -493,6 +511,19 @@ def build_system_blocks(
     if brief is None:
         raise ValueError(f"No tutor available for language code '{language_code}'")
 
+    # Copies: bound_memory trims in place, and the caller's dicts are what
+    # gets diffed and persisted after the turn.
+    user_profile, language_profile, session_summary, cut = bound_memory(
+        dict(user_profile) if user_profile else user_profile,
+        dict(language_profile) if language_profile else language_profile,
+        session_summary,
+    )
+    if cut:
+        logger.warning(
+            "tutor memory block over budget for %s: trimmed %d chars",
+            language_code, cut,
+        )
+
     return [
         {
             "type": "text",
@@ -572,6 +603,7 @@ def merge_remembered(
     """
     user = dict(user_profile)
     lang = dict(language_profile)
+    stamp = datetime.now(UTC).isoformat(timespec="seconds")
     for note in remembered:
         scope = note.get("scope")
         key = note.get("key")
@@ -603,6 +635,7 @@ def merge_remembered(
         existing = target.get(key)
         source = note.get("source") or "inferred"
         if existing is None:
+            _make_room(target)
             target[key] = value
         elif source == "stated" or key in IDENTITY_KEYS:
             # A learner's own words REPLACE what was there — a correction
@@ -613,15 +646,111 @@ def merge_remembered(
         elif isinstance(existing, list):
             if value not in existing:
                 # Copy-on-write: the caller diffs new vs old profile to
-                # decide whether to persist, so never mutate the shared list.
-                target[key] = [*existing, value]
+                # decide whether to persist, so never mutate the shared
+                # list. Newest wins: the list keeps its last few, so an
+                # error pattern from months ago drops off as new ones land.
+                target[key] = [*existing, value][-MAX_FACT_VALUES:]
         elif existing != value:
             target[key] = [existing, value]
         target[SOURCES_KEY] = {
             **(target.get(SOURCES_KEY) or {}),
             key: source,
         }
+        target[TOUCHED_KEY] = {
+            **(target.get(TOUCHED_KEY) or {}),
+            key: stamp,
+        }
     return user, lang
+
+
+def _fact_keys(profile: dict) -> list[str]:
+    return [k for k in profile if not k.startswith("_")]
+
+
+def _make_room(profile: dict) -> None:
+    """Evict until one more fact fits under MAX_PROFILE_FACTS.
+
+    The oldest INFERRED fact goes first (by _touched; a key with no stamp
+    counts as oldest). Facts the learner stated, and identity keys, are
+    never evicted — a cap must not be how a learner's own words get lost.
+    If every fact is stated the profile simply grows; that is the
+    learner's list to prune from Settings, not the tutor's.
+    """
+    keys = _fact_keys(profile)
+    if len(keys) < MAX_PROFILE_FACTS:
+        return
+    sources = profile.get(SOURCES_KEY) or {}
+    touched = profile.get(TOUCHED_KEY) or {}
+    evictable = [
+        k for k in keys
+        if sources.get(k, "inferred") != "stated" and k not in IDENTITY_KEYS
+    ]
+    evictable.sort(key=lambda k: touched.get(k, ""))
+    for k in evictable[: len(keys) - MAX_PROFILE_FACTS + 1]:
+        profile.pop(k, None)
+        for meta in (SOURCES_KEY, TOUCHED_KEY):
+            m = dict(profile.get(meta) or {})
+            m.pop(k, None)
+            profile[meta] = m
+
+
+def truncate_summary(text: str | None) -> str:
+    """Cap the rolling session summary at MAX_SESSION_SUMMARY_CHARS, cut at
+    a sentence boundary when one is near. The summarizer's output cap is a
+    token count on one call, not a bound on the stored column."""
+    text = (text or "").strip()
+    if len(text) <= MAX_SESSION_SUMMARY_CHARS:
+        return text
+    cut = text[:MAX_SESSION_SUMMARY_CHARS]
+    last = max(cut.rfind(". "), cut.rfind("! "), cut.rfind("? "))
+    return cut[: last + 1] if last > MAX_SESSION_SUMMARY_CHARS // 2 else cut
+
+
+def bound_memory(
+    user_profile: dict | None,
+    language_profile: dict | None,
+    session_summary: str | None,
+    budget: int = MEMORY_CHAR_BUDGET,
+) -> tuple[dict | None, dict | None, str | None, int]:
+    """Trim what the memory block carries until it fits *budget* chars.
+
+    Order, cheapest loss first: the summary's tail, then the oldest
+    inferred facts (same order eviction uses, so the model sees a
+    consistent picture), then list tails. Stated facts are never dropped
+    here. Returns the (possibly) trimmed inputs and how many characters
+    were cut, for the caller to log — that number is how the constants
+    get tuned in production.
+    """
+    def size() -> int:
+        return len(_format_memory(user_profile, language_profile,
+                                  session_summary, []))
+
+    before = size()
+    if before <= budget:
+        return user_profile, language_profile, session_summary, 0
+    if session_summary and len(session_summary) > 600:
+        session_summary = truncate_summary(session_summary[:600])
+    for scope in (language_profile, user_profile):
+        if size() <= budget or not scope:
+            continue
+        sources = scope.get(SOURCES_KEY) or {}
+        touched = scope.get(TOUCHED_KEY) or {}
+        inferred = sorted(
+            (k for k in _fact_keys(scope)
+             if sources.get(k, "inferred") != "stated"),
+            key=lambda k: touched.get(k, ""),
+        )
+        for k in inferred:
+            if size() <= budget:
+                break
+            scope.pop(k, None)
+    for scope in (language_profile, user_profile):
+        if size() <= budget or not scope:
+            continue
+        for k in _fact_keys(scope):
+            if isinstance(scope.get(k), list) and len(scope[k]) > 1:
+                scope[k] = scope[k][-1:]
+    return user_profile, language_profile, session_summary, before - size()
 
 
 def _empty_usage() -> dict[str, int]:

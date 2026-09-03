@@ -131,6 +131,10 @@ export interface ReviewNote {
   status: 'open' | 'resolved'
   author_email: string
   created_at: string | null
+  /** The card the note is about, as the change-request board names it. */
+  target_type?: string | null
+  target_id?: string | null
+  card?: ReviewedCard | null
 }
 
 export async function flagPointIssue(pointId: string, note: string): Promise<void> {
@@ -775,6 +779,9 @@ export interface Suggestion {
   source: SuggestionSource
   origin: string | null
   created_at: string | null
+  target_type?: string | null
+  target_id?: string | null
+  card?: ReviewedCard | null
 }
 
 /** Acceptance stats for doc-sourced (extraction) AI vocab recommendations. */
@@ -1434,6 +1441,8 @@ export interface TesterRecommendation {
   /** Grammar-point title (drills) or the word (examples). */
   context: string | null
   created_at: string
+  /** The drill or example itself, for the read-only card view. */
+  card?: ReviewedCard | null
 }
 
 /** Tester recommendations on items still awaiting review, rejections first

@@ -5,6 +5,7 @@ import {
 } from '../../api/contribute'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import QueueStatus from './QueueStatus'
+import ReviewedCardView from './ReviewedCardView'
 
 /**
  * What the testers actually said — the advisory approve/reject calls they
@@ -127,6 +128,19 @@ export default function TesterRecommendationsPanel({
               <p className="mt-1 whitespace-pre-wrap rounded bg-gray-50 px-2 py-1 text-xs text-gray-700">
                 {r.note}
               </p>
+            )}
+            {/* The full item — sentence, answer, hint, translation — so
+                "needs work" can be weighed without opening the editor.
+                Read-only: this is the tester channel. */}
+            {r.card && (
+              <div className="mt-1.5">
+                <ReviewedCardView
+                  card={r.card}
+                  targetType={r.target_type === 'example' ? 'example_sentence' : r.target_type}
+                  targetId={r.target_id}
+                  testId={`reco-card-${r.id}`}
+                />
+              </div>
             )}
             <p className="mt-0.5 text-[11px] text-gray-500">
               {r.recommender_email ?? 'a tester'}

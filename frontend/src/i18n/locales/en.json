@@ -1129,7 +1129,13 @@
       "inferred": "Tutor’s guess",
       "empty": "Nothing yet — the tutor remembers things as you chat.",
       "forget": "Forget “{{fact}}”",
-      "forgetError": "Couldn’t delete that — try again."
+      "forgetError": "Couldn’t delete that — try again.",
+      "summary": "Summary of recent sessions",
+      "focus": "Working on",
+      "forgetAll": "Forget this language",
+      "forgetEverything": "Forget everything",
+      "forgetAllConfirm": "Forget everything the tutor remembers for {{name}}? Your past session records stay.",
+      "sessionsStay": "Past sessions stay in your history; only what the tutor carries forward is cleared."
     },
     "email": {
       "title": "Email",

@@ -307,6 +307,28 @@ under Settings → Plan ("Change plan").
   is still honoured by the allowance so nothing bought earlier loses its
   pool; nothing new writes it.
 
+### The tutor's memory, and its bounds
+
+Between sessions the tutor keeps a global profile and a per-language
+profile (JSONB, every fact tagged `stated` or `inferred` in `_sources`), a
+rolling `session_summary` the post-session summarizer *rewrites*, and an
+append-only `tutor_sessions` log; it re-queries the 12 weakest SRS items
+every turn. In-session history is the last 40 messages, truncated.
+
+Since 3 Sep 2026 the profile is bounded (`services/tutor.py`): a
+list-valued fact keeps its newest five (`MAX_FACT_VALUES`); a scope holds
+at most 40 facts (`MAX_PROFILE_FACTS`), the oldest *inferred* one evicted
+first by the `_touched` clock — a fact the learner stated, or an identity
+key, is never evicted; the summary is capped on write
+(`truncate_summary`, at a sentence boundary); and `build_system_blocks`
+runs `bound_memory` over block 1 with a character budget
+(`MEMORY_CHAR_BUDGET`), trimming the summary's tail, then old inferred
+facts, then list tails, and logging how much it cut — that log is how the
+constants get tuned. Settings → "What your tutor remembers" now shows the
+summary and the focus list and offers *Forget this language* / *Forget
+everything* (`DELETE /api/tutor/memory/all`); past session records are
+history and stay.
+
 ### The AI allowance, and what "entitled" means
 
 `services/allowance.py`'s `get_allowance(user, language)` is the one place
@@ -368,6 +390,13 @@ Two conventions built on top of it:
   wrapping the panel, so each panel keeps rendering its own card, actions
   and all — focus mode is the same card one at a time, never a second
   rendering that can drift from the list one.
+- **Focus mode has verbs as well as arrows.** `useFocusList` takes an
+  optional `actions(item)` list — `a` accept/approve, `r` reject/resolve
+  /dismiss, `u`/`d` vote — rendered as keycaps in the nav and bound on
+  the same listener as the arrows (ignored while typing). Acting removes
+  the item and the next slides in, so a queue is cleared from the
+  keyboard. `ReviewedCardView` carries a History toggle (`CardHistory`,
+  roll-back included) for every kind the history endpoint serves.
 - **Card context on a review item** — a change request stores only
   `target_type` + a nullable `target_id`, so `load_cards` in
   `repositories/change_requests.py` resolves those into the live row
@@ -380,11 +409,12 @@ Two conventions built on top of it:
   rather than erroring. A card deleted since the request was raised also
   resolves to nothing, which the board says out loud.
 
-  The learner-feedback and AI-translation queues carry the same `card` now,
-  under the same `target_type` / `target_id` names — `list_feedback` maps
-  its learner-facing kind (`grammar`) to the loader's (`grammar_point`),
-  and a translation review names the word its gloss belongs to. One
-  component renders all three.
+  Every queue that names a card carries it now, under the same
+  `target_type` / `target_id` names: learner feedback, AI translations,
+  review notes, suggestions and tester recommendations each map their own
+  kind to the loader's (`grammar` → `grammar_point`, `example` →
+  `example_sentence`) and get the same best-effort `load_cards` pass. One
+  component renders all of them.
 - **Editing the card from the queue** — `ReviewedCardView.tsx` shows the
   card and, for anyone with a contributor role, edits it in place:
   `PUT /api/contribute/review/card/{target_type}/{target_id}`, dispatched by

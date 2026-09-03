@@ -64,7 +64,26 @@ export default function ChangeRequestsPanel({
   // Judging a complaint usually ends in "yes, and here is the fix", and
   // that used to mean leaving the board for the content editor.
   const canEdit = data?.can_edit ?? false
-  const { shown, nav } = useFocusList(requests, focus, 'change request')
+  const { shown, nav } = useFocusList(requests, focus, 'change request', (r) => [
+    ...(canResolve
+      ? [
+          { key: 'a', label: 'Accept',
+            run: () => resolveMutation.mutate({ id: r.id, status: 'accepted' }),
+            disabled: resolveMutation.isPending },
+          { key: 'r', label: 'Reject',
+            run: () => resolveMutation.mutate({ id: r.id, status: 'rejected' }),
+            disabled: resolveMutation.isPending },
+        ]
+      : []),
+    ...(canVote
+      ? [
+          { key: 'u', label: 'Upvote',
+            run: () => voteMutation.mutate({ id: r.id, vote: r.my_vote === 1 ? 0 : 1 }) },
+          { key: 'd', label: 'Downvote',
+            run: () => voteMutation.mutate({ id: r.id, vote: r.my_vote === -1 ? 0 : -1 }) },
+        ]
+      : []),
+  ])
 
   return (
     <section className="space-y-3" data-testid="change-requests">
