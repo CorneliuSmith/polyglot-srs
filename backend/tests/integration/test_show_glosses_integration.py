@@ -203,6 +203,7 @@ async def test_a_setting_this_server_cannot_store_is_named(pool):
     assert sorted(missing) == sorted(
         [
             "allow_explicit_content",
+            "plan_ai",
             "sentence_audio_on_correct",
             "show_glosses",
             "weekly_digest_dow",

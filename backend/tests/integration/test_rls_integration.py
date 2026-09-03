@@ -2066,13 +2066,16 @@ async def test_tutor_access_override_round_trip(pool):
         # No profile row yet -> default.
         assert await get_tutor_access(conn, user) == {
             "access": "default", "daily_cap": None, "plan_scope": None,
+            "plan_ai": False, "plan_backed": False,
         }
         # Enable with a cap (creates the profile row), then block. A fresh
         # profile row takes plan_scope's column default 'all' (the
         # grandfathering default from the plans migration).
         await set_tutor_access(conn, user, "enabled", 10)
+        # …and nothing stands behind that default: no subscription, no AI.
         assert await get_tutor_access(conn, user) == {
             "access": "enabled", "daily_cap": 10, "plan_scope": "all",
+            "plan_ai": False, "plan_backed": False,
         }
         await set_tutor_access(conn, user, "blocked", 10)
         assert (await get_tutor_access(conn, user))["access"] == "blocked"

@@ -30,9 +30,29 @@ export interface TopupPrice {
   messages: number
 }
 
+/** A plan option: which languages, and whether the monthly AI pool is
+ *  included. The four options are the four combinations. */
+export interface PlanOption {
+  scope: 'single' | 'all'
+  ai: boolean
+}
+
+/** Messages a month per tier, as the admin has them set — what an option
+ *  INCLUDES. An option with AI gets its scope's pool plus `plus`. */
+export interface PlanPools {
+  free: number
+  single: number
+  all: number
+  plus: number
+}
+
 export interface PlanPrices {
   single: PlanPrice | null
   all: PlanPrice | null
+  /** The AI add-on's monthly price. An option with AI costs its scope's
+   * price plus this; null until the add-on is priced on the server. */
+  ai_addon?: PlanPrice | null
+  pools?: PlanPools | null
   /** Admin-set monthly charge for THIS account. When present the server
    * already mirrors it onto both scopes, so price displays need no special
    * casing — this field just names the fact for UIs that want to. */
@@ -51,16 +71,54 @@ export async function getPlanPrices(): Promise<PlanPrices> {
   return response.data
 }
 
-/** Start a plan subscription (also the single → all upgrade path). */
+/** Start a subscription to one of the four plan options — also every
+ *  upgrade path: a different option replaces the current plan on webhook
+ *  completion, and the server cancels the subscription it replaced. */
 export async function startPlanCheckout(
   planScope: 'single' | 'all',
   planLanguageId?: string | null,
+  ai = false,
 ): Promise<CheckoutResponse> {
   const response = await apiClient.post<CheckoutResponse>(
     '/api/billing/plan/checkout',
-    { plan_scope: planScope, plan_language_id: planLanguageId ?? null },
+    { plan_scope: planScope, plan_language_id: planLanguageId ?? null, ai },
   )
   return response.data
+}
+
+/** The monthly price of an option: its scope's price plus the AI add-on's
+ *  when AI is included. Null when either half is unpriced, so the UI shows
+ *  its unpriced copy rather than half a number. */
+export function optionPrice(
+  prices: PlanPrices | undefined,
+  option: PlanOption,
+): PlanPrice | null {
+  const base = prices?.[option.scope] ?? null
+  if (!base || base.amount_cents == null) return null
+  if (!option.ai) return base
+  // An admin-set charge is the whole price of whichever option the account
+  // picks — the server mirrors it onto both scopes and sends no add-on.
+  if (prices?.custom) return base
+  const addon = prices?.ai_addon ?? null
+  if (!addon || addon.amount_cents == null) return null
+  if (addon.currency !== base.currency) return null
+  return {
+    amount_cents: base.amount_cents + addon.amount_cents,
+    currency: base.currency,
+    interval: base.interval,
+  }
+}
+
+/** Whether an option can be bought right now: no-AI options need the plan
+ *  priced, AI options need the add-on priced too (or an admin charge). */
+export function optionPurchasable(
+  prices: PlanPrices | undefined,
+  option: PlanOption,
+): boolean {
+  if (!prices?.monetization) return false
+  if (prices.custom) return true
+  if (!prices[option.scope]) return false
+  return !option.ai || !!prices.ai_addon
 }
 
 /** Buy a one-time AI top-up — messages added to the CURRENT month's pool. */

@@ -251,6 +251,44 @@ switch on yet (see `DEBT.md` for the reason). `services/flags.py`'s
 checks, and it fails safe (`default=False`) even if the flag row's own
 migration hasn't landed.
 
+### Plans: four options, one subscription
+
+A plan is two decisions — **which languages** (`plan_scope`: single / all)
+and **whether AI is included** (`plan_ai`) — and the four combinations are
+the four options the app sells (owner: "Make the 4 options … Single
+language with AI should be the default but provide options to upgrade").
+`PlanPicker.tsx` renders them, Single + AI preselected, in onboarding and
+under Settings → Plan ("Change plan").
+
+- **One Stripe subscription per option.** `create_plan_checkout_session`
+  builds a Checkout with the scope's Price and, for an AI option, the
+  add-on's Price as a second line item; Stripe makes them one subscription
+  with one charge. Both Prices must bill monthly. The session and the
+  subscription carry `metadata.ai = "1" | "0"`, so the webhook records both
+  halves: `set_plan_subscription(..., ai=…)` writes `plan_scope` and
+  `plan_ai` (+ `plan_ai_subscription_id`) on the profile.
+- **Prices and pools are never hardcoded.** `/api/billing/plan/prices`
+  returns the three Stripe prices (`single`, `all`, `ai_addon`) and the
+  admin-set message pools; the picker adds the two halves up
+  (`optionPrice`) and says what each option includes.
+- **Upgrades are new subscriptions.** Checkout only creates, so a change of
+  option is a fresh subscription, and the webhook — after the new plan has
+  landed — cancels the one it replaced (`cancel_subscription`, prorated).
+  "Add AI" on a plan bought without it is the stand-alone add-on
+  (`/api/billing/checkout`, `metadata.kind='ai'`), its own subscription,
+  which sets `plan_ai` and is the only thing that can clear it.
+- **Once money is on, a plan tier must be backed.** `user_profiles.plan_scope`
+  defaults to `'all'`, so `get_tutor_access` also reports `plan_backed`
+  (an active `plan_subscriptions` row — paid, dev-mock, admin-free, or the
+  admin's plan override), and `get_allowance` ignores an unbacked scope
+  while `monetization` is on. While it is off, the column is honoured as it
+  always was: beta accounts chose a scope with no way to pay and keep it.
+  Onboarding stops writing the scope once plans are priced — the choice
+  goes through Checkout and only the webhook records what was bought.
+- **Legacy per-language AI** (`tutor_entitlements`, one row per language)
+  is still honoured by the allowance so nothing bought earlier loses its
+  pool; nothing new writes it.
+
 ### The AI allowance, and what "entitled" means
 
 `services/allowance.py`'s `get_allowance(user, language)` is the one place

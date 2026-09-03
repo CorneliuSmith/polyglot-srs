@@ -22,6 +22,7 @@ from backend.repositories.tutor import (
     get_tutor_access,
     has_tutor_entitlement,
 )
+from backend.services.flags import monetization_enabled
 
 _SETTINGS_FALLBACK = {
     "free": "tutor_free_monthly_messages",
@@ -89,23 +90,38 @@ async def get_allowance(user_id: str, language_id: str) -> dict:
             limit = override["daily_cap"] or _plan_limit(plan_limits, settings, "plus")
             tier = "granted"
         else:
+            # Once money is real, a plan tier has to be PAID FOR (or granted
+            # by an admin, or dev-mocked) — an active plan_subscriptions row.
+            # user_profiles.plan_scope defaults to 'all', so without this a
+            # signup that never checked out, or abandoned Checkout, held the
+            # all-languages pool for free. While monetization is off the
+            # column is honoured as it always was: beta accounts chose a
+            # scope with no way to pay and were promised they keep it.
+            scope = override.get("plan_scope")
+            if (scope and not override.get("plan_backed")
+                    and await monetization_enabled()):
+                scope = None
             # The plan's base pool. The single plan sells WITHOUT AI (owner:
             # the base $ price includes no AI) — its default base is 0.
-            if override.get("plan_scope") == "all":
+            if scope == "all":
                 limit = _plan_limit(plan_limits, settings, "all")
                 tier = "all"
-            elif override.get("plan_scope") == "single":
+            elif scope == "single":
                 limit = _plan_limit(plan_limits, settings, "single")
                 tier = "single"
             else:
                 limit = _plan_limit(plan_limits, settings, "free")
                 tier = "free"
-            # The AI add-on ('plus' tier) is a flat monthly pool ADDED to
-            # the plan's base, per language — the recurring way to put AI on
-            # a plan that doesn't include it, and extra headroom on one that
-            # does. It used to REPLACE the base, which under a 0-base single
+            # The AI half of the four options: a flat monthly pool ADDED to
+            # the plan's base — bought with the plan ("Single + AI", "All +
+            # AI") or added later, either way recorded as plan_ai on the
+            # profile. The older per-language tutor_entitlements rows are
+            # still honoured so nothing bought before plan_ai loses its
+            # pool. It used to REPLACE the base, which under a 0-base single
             # plan would have made "all + add-on" smaller than "all".
-            if await has_tutor_entitlement(conn, user_id, language_id):
+            if override.get("plan_ai") or await has_tutor_entitlement(
+                conn, user_id, language_id
+            ):
                 limit += _plan_limit(plan_limits, settings, "plus")
                 tier = "plus"
         # One-time top-ups land in the CURRENT calendar month's pool — the

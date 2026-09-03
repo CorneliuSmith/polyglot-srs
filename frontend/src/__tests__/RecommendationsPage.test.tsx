@@ -79,10 +79,10 @@ describe('RecommendationsPage', () => {
     expect(mockRefresh).not.toHaveBeenCalled()
   })
 
-  it('shows a Plus upsell when enabled but not entitled', async () => {
+  it('shows the AI upsell when enabled but not entitled', async () => {
     mockGet.mockResolvedValue({ enabled: true, entitled: false, stale: true, batches: [] })
     renderPage()
-    expect(await screen.findByText(/Plus feature/i)).toBeDefined()
+    expect(await screen.findByText(/An AI feature/i)).toBeDefined()
     // Never auto-generates without entitlement.
     expect(mockRefresh).not.toHaveBeenCalled()
   })
@@ -95,7 +95,7 @@ describe('RecommendationsPage', () => {
     mockGet.mockResolvedValue({ enabled: true, entitled: false, stale: true, batches: [] })
     renderPage()
     expect(await screen.findByText(/aren’t available on your account yet/i)).toBeDefined()
-    expect(screen.queryByText(/Plus feature/i)).toBeNull()
+    expect(screen.queryByText(/An AI feature/i)).toBeNull()
     expect(mockRefresh).not.toHaveBeenCalled()
   })
 
@@ -174,7 +174,7 @@ describe('RecommendationsPage', () => {
       enabled: true, entitled: false, stale: false, batches: [],
     })
     renderPage()
-    await screen.findByText(/Plus feature/i)
+    await screen.findByText(/An AI feature/i)
     expect(screen.queryByTestId('reco-refresh-now')).toBeNull()
   })
 

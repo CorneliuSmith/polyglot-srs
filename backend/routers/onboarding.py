@@ -32,6 +32,8 @@ from backend.repositories.tutor import (
     log_tutor_usage,
     upsert_language_profile,
 )
+from backend.services.billing import plans_configured
+from backend.services.flags import monetization_enabled
 from backend.services.models import resolve_model
 from backend.services.nlp import validate_answer_async
 from backend.services.nlp.base import AnswerResult
@@ -542,7 +544,15 @@ async def complete(
         result = await complete_onboarding(
             conn, user["id"], body.language_id, body.level, batch_size=body.batch_size
         )
-        if body.plan_scope:
+        # The scope chosen at signup is recorded here only while the app
+        # cannot sell it: beta accounts keep what they picked, free. Once
+        # monetization is on and the plans are priced, the choice goes
+        # through Checkout and the webhook records what was actually
+        # bought — otherwise abandoning Checkout would leave the chosen
+        # plan on the profile for nothing.
+        if body.plan_scope and not (
+            await monetization_enabled() and plans_configured()
+        ):
             await conn.execute(
                 """
                 UPDATE user_profiles

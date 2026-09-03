@@ -301,6 +301,10 @@ export interface UserProfile {
   plan_scope: 'single' | 'all'
   /** the licensed language when plan_scope is 'single' */
   plan_language_id: string | null
+  /** The plan includes the monthly AI pool (the "+ AI" half of the four
+   * options). Written by billing, never by a settings save; absent on a
+   * server whose migration hasn't landed, which reads as false. */
+  plan_ai?: boolean
   /** opt-in daily email when reviews are due */
   reminder_opt_in: boolean
   /** hour of the daily reminder, in UTC (client converts to local) */

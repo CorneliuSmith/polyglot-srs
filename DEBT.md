@@ -112,6 +112,44 @@ that as `fill.status`, and the wait screen says so
 problem, not a code one. Before this change the same situation was a bar
 sitting at 0 % with no explanation.
 
+### The four plan options lean on three Stripe facts nobody enforces
+
+LEARN.md → *Plans: four options, one subscription*. Three assumptions the
+code cannot check for you:
+
+- **The plan Prices and the AI add-on Price must bill on the same
+  interval** (monthly). Stripe refuses a subscription Checkout whose line
+  items recur differently, and the error surfaces as a 500 from
+  `/plan/checkout`, not as a message. If annual plans are ever added, they
+  need an annual add-on Price beside them.
+- **The Billing Portal's configuration** (Stripe dashboard → Settings →
+  Billing → Customer portal) decides what "Manage billing" can do. Cancel
+  and update-payment-method work by default; switching between the plan
+  Prices there only works if the portal is configured with those products.
+  The in-app "Change plan" path does not depend on it.
+- **`Subscription.cancel(prorate=True)`** on upgrade credits the unused
+  period to the customer's balance; it does not refund a card. Fine for
+  monthly, worth a look if annual plans arrive.
+
+Also deliberate: cancelling a plan clears `plan_ai` (the pool was what the
+subscription paid for) but leaves `plan_scope` alone — what a lapsed
+account keeps of its CONTENT is still the pending owner decision (ROADMAP
+WP16e). With the profile default being `'all'`, an unpaid account today
+sees all languages' content and the free AI tier. Decide before launch
+whether lapsed and never-paid accounts should be narrowed to one language.
+
+### `docs/pricing-and-launch.md` is superseded twice over
+
+That memo (17 August 2026) proposes a $8/$14/$24 tiered ladder with
+weighted-unit metering. Monetization v2 replaced the ladder with a
+single-language plan (no AI) + AI add-on + top-up, and the four-option
+picker now sells the combinations as one subscription. The memo's cost
+arithmetic (per-action Claude costs, the Reader-text-is-30×-a-tutor-message
+problem) is still the best in the repository; its prices are not. Its one
+engineering recommendation that has NOT been done — **weighting the
+allowance draw** so a Reader text costs 3 units and a Gym set 2 — is the
+open margin risk: every kind in `ALLOWANCE_KINDS` still draws one message.
+
 ### The queue card editor writes English, and cannot touch three things
 
 `PUT /api/contribute/review/card/{type}/{id}` (LEARN.md → *Editing the card
@@ -278,18 +316,6 @@ seeder's language list) and schedules with **FSRS**, not SM-2 (see
 stale — worth a pass the next time you touch it, and worth treating as a
 reminder that headline numbers in prose docs rot fast in a codebase that
 ships this often.
-
-### `docs/pricing-and-launch.md` predates Monetization v2
-
-That memo (17 August 2026) proposes a $8/$14/$24 tiered-plan structure with
-weighted-unit metering. What actually shipped, three weeks later, is
-Monetization v2: a `$7` single-language plan with *no* AI included, a
-separate `$5/mo` AI add-on, and a `$5` top-up — a different shape, not a
-refinement of the memo's numbers. The memo is still useful for its cost
-arithmetic (per-action Claude costs, the Reader-text-is-30x-a-tutor-message
-problem) but its top-line prices are superseded. Worth a "superseded by"
-note at the top of the file, or a fold into a single current pricing
-doc, the next time pricing changes again.
 
 ### `ARCHITECTURE.md`'s testing command was wrong (fixed in this pass)
 

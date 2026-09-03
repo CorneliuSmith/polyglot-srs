@@ -885,10 +885,10 @@
     "whyFits": "Why this fits you: ",
     "turnOn": "Turn on recommendations to get the occasional book, film, series, or podcast in your target language — picked for your level and your interests.",
     "setUpSettings": "Set it up in Settings →",
-    "plusFeature": "A Plus feature",
-    "plusUpsell": "Personalized recommendations are part of Plus. Upgrade for this language to get a fresh, level-matched pick list every week.",
+    "plusFeature": "An AI feature",
+    "plusUpsell": "Weekly picks are part of the AI options. Add AI to your plan — or choose a plan with AI in Settings — to get a fresh, level-matched pick list every week.",
     "drafting": "Putting together this week’s picks for you…",
-    "needPlus": "Recommendations need a Plus subscription for this language.",
+    "needPlus": "Recommendations need a plan with AI for this language — add it in Settings.",
     "getMyPicks": "Get my picks",
     "getNewPicks": "Get new picks",
     "matchedNow": "Matched to where you are right now.",
@@ -1068,7 +1068,16 @@
       "upgradeWithPrice": "Upgrade to All languages — {{price}}",
       "upgrade": "Upgrade to All languages",
       "manageBilling": "Manage billing",
-      "billingUnavailable": "Billing hasn't launched yet — early accounts keep their chosen plan for free, and keep their price when it goes live."
+      "billingUnavailable": "Billing hasn't launched yet — early accounts keep their chosen plan for free, and keep their price when it goes live.",
+      "withAi": "{{name}} + AI",
+      "aiOn": "AI included — {{count}} messages a month.",
+      "aiOff": "No AI in this plan.",
+      "addAi": "Add AI — {{price}}",
+      "addAiUnpriced": "Add AI",
+      "change": "Change plan",
+      "cancelChange": "Keep my plan",
+      "topup": "Buy a one-off top-up: +{{messages}} messages this month, {{price}}",
+      "topupNote": "Top-ups don’t roll over — they’re for this month."
     },
     "dailyGoal": {
       "title": "Daily learn goal",
@@ -1661,5 +1670,25 @@
     "legalNote": "Lessons can include AI-generated material reviewed by people; mistakes are possible. Nothing here is professional advice.",
     "terms": "Terms of Service",
     "privacy": "Privacy Policy"
+  },
+  "plans": {
+    "title": "Choose your plan",
+    "help": "Every plan includes all reviews and lessons, forever. The AI options add a monthly pool for the tutor, the reader, speaking practice and weekly picks.",
+    "recommended": "Recommended",
+    "current": "Your plan",
+    "singleAi": "{{language}} + AI",
+    "single": "{{language}} only",
+    "allAi": "All languages + AI",
+    "all": "All languages",
+    "scopeSingle": "Study {{language}}",
+    "scopeAll": "Study every language we offer",
+    "aiIncluded": "{{count}} AI messages a month",
+    "aiNone": "No AI included — add it any time, or buy a one-off top-up when you need it",
+    "perMonth": "{{price}}",
+    "unpriced": "Price coming soon",
+    "aiUnavailable": "The AI options aren’t available on this server yet",
+    "choose": "Continue with {{name}}",
+    "opening": "Opening checkout…",
+    "changeHint": "You can change plans any time in Settings."
   }
 }

@@ -130,7 +130,9 @@ describe('OnboardingPage', () => {
     ])
 
     fireEvent.click(screen.getByRole('button', { name: /continue/i }))
-    fireEvent.click(await screen.findByRole('button', { name: /all languages/i }))
+    // Four options now; /all languages/ would match two of them. The
+    // no-AI one is what this test's expectation names.
+    fireEvent.click(await screen.findByTestId('plan-option-all'))
     fireEvent.click(screen.getByRole('button', { name: /start learning/i }))
     await waitFor(() => {
       expect(mockComplete).toHaveBeenCalledWith({

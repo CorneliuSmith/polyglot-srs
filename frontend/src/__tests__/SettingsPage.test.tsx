@@ -73,6 +73,8 @@ vi.mock('../api/billing', async (orig) => ({
   getPlanPrices: vi.fn(() =>
     Promise.resolve({ single: null, all: null, monetization: true })),
   startPlanCheckout: vi.fn(() => Promise.resolve({ granted: true, url: null })),
+  createCheckout: vi.fn(() => Promise.resolve({ granted: true, url: null })),
+  createTopupCheckout: vi.fn(() => Promise.resolve({ granted: true, url: null })),
   openBillingPortal: vi.fn(() => Promise.resolve('https://stripe.example/portal')),
 }))
 
@@ -206,28 +208,74 @@ describe('SettingsPage', () => {
     )
   })
 
-  it('shows the plan and upgrades single → all (WP16)', async () => {
+  it('names the plan option and changes it through the four-option picker', async () => {
+    // The plan is one of four options (scope × AI). Changing it is one
+    // choice from the same picker onboarding uses, priced live: an option
+    // with AI is its scope's price plus the add-on's.
     const { getPlanPrices, startPlanCheckout } = await import('../api/billing')
     ;(getPlanPrices as ReturnType<typeof vi.fn>).mockResolvedValue({
       single: { amount_cents: 500, currency: 'usd', interval: 'month' },
       all: { amount_cents: 900, currency: 'usd', interval: 'month' },
+      ai_addon: { amount_cents: 500, currency: 'usd', interval: 'month' },
+      pools: { free: 20, single: 0, all: 300, plus: 200 },
       monetization: true,
     })
     mockGetProfile.mockResolvedValue({
       batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
       support_locale: null, plan_scope: 'single', plan_language_id: 'lang-es',
+      plan_ai: false,
     })
     renderPage()
 
-    expect(await screen.findByText(/single language — spanish/i)).toBeDefined()
-    // Stripe-sourced price on the button, never hardcoded.
-    const upgrade = await screen.findByRole('button', {
-      name: /upgrade to all languages — \$9\.00\/month/i,
-    })
-    fireEvent.click(upgrade)
+    expect(await screen.findByText('Spanish only')).toBeDefined()
+    expect(screen.getByText('No AI in this plan.')).toBeDefined()
+    fireEvent.click(screen.getByTestId('plan-change'))
+    const allAi = await screen.findByTestId('plan-option-all_ai')
+    // Stripe-sourced prices, added up, never hardcoded: $9 + $5.
+    expect(allAi.textContent).toContain('$14.00/month')
+    expect(allAi.textContent).toContain('500 AI messages a month')
+    fireEvent.click(allAi)
+    fireEvent.click(screen.getByTestId('plan-confirm'))
     await waitFor(() =>
-      expect(startPlanCheckout).toHaveBeenCalledWith('all'),
+      expect(startPlanCheckout).toHaveBeenCalledWith('all', null, true),
     )
+  })
+
+  it('offers AI on its own to a plan bought without it', async () => {
+    const { getPlanPrices, createCheckout } = await import('../api/billing')
+    ;(getPlanPrices as ReturnType<typeof vi.fn>).mockResolvedValue({
+      single: { amount_cents: 500, currency: 'usd', interval: 'month' },
+      all: { amount_cents: 900, currency: 'usd', interval: 'month' },
+      ai_addon: { amount_cents: 500, currency: 'usd', interval: 'month' },
+      pools: { free: 20, single: 0, all: 300, plus: 200 },
+      monetization: true,
+    })
+    mockGetProfile.mockResolvedValue({
+      batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
+      support_locale: null, plan_scope: 'all', plan_language_id: null,
+      plan_ai: false,
+    })
+    renderPage()
+    const addAi = await screen.findByRole('button', { name: /add ai — \$5\.00\/month/i })
+    fireEvent.click(addAi)
+    await waitFor(() => expect(createCheckout).toHaveBeenCalledWith('lang-es'))
+  })
+
+  it('a plan with AI says so, and does not offer to add it again', async () => {
+    const { getPlanPrices } = await import('../api/billing')
+    ;(getPlanPrices as ReturnType<typeof vi.fn>).mockResolvedValue({
+      single: null, all: null, ai_addon: null,
+      pools: { free: 20, single: 0, all: 300, plus: 200 }, monetization: true,
+    })
+    mockGetProfile.mockResolvedValue({
+      batch_size: 5, ui_language: 'en', active_language_id: 'lang-es',
+      support_locale: null, plan_scope: 'single', plan_language_id: 'lang-es',
+      plan_ai: true,
+    })
+    renderPage()
+    expect(await screen.findByText('Spanish + AI')).toBeDefined()
+    expect(screen.getByText('AI included — 200 messages a month.')).toBeDefined()
+    expect(screen.queryByTestId('plan-add-ai')).toBeNull()
   })
 
   it('all-languages accounts see no upgrade button', async () => {

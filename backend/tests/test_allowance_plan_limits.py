@@ -37,8 +37,10 @@ DEFAULT_ACCESS = {"access": "default", "daily_cap": None, "plan_scope": None}
 
 
 def _patches(plan_limits, access=DEFAULT_ACCESS, entitled=False,
-             messages_used=0, topup_messages=0):
+             messages_used=0, topup_messages=0, monetization=False):
     return [
+        patch("backend.services.allowance.monetization_enabled",
+              new=AsyncMock(return_value=monetization)),
         patch("backend.services.allowance.get_settings", return_value=FakeSettings()),
         patch("backend.services.allowance.rls_connection", _fake_rls),
         patch("backend.services.allowance.get_tutor_access",
@@ -234,3 +236,60 @@ async def test_a_single_plan_is_entitled_only_once_it_has_bought_ai():
         access={"access": "default", "daily_cap": None, "plan_scope": "single"},
     )
     assert topped["limit"] == 200 and topped["entitled"] is True
+
+
+# ── the four options: the AI half, and what "having a plan" means ─────────
+
+
+@pytest.mark.asyncio
+async def test_a_plan_with_ai_adds_the_pool_on_top_of_the_base():
+    # "All languages + AI": 300 from the plan, 200 from the add-on, one
+    # subscription. Recorded as plan_ai, not a per-language row.
+    allowance = await _allowance(
+        plan_limits=None,
+        access={"access": "default", "daily_cap": None, "plan_scope": "all",
+                "plan_ai": True, "plan_backed": True},
+    )
+    assert allowance["tier"] == "plus"
+    assert allowance["limit"] == 500
+    assert allowance["entitled"] is True
+
+
+@pytest.mark.asyncio
+async def test_single_with_ai_is_the_add_on_pool_alone():
+    allowance = await _allowance(
+        plan_limits=None,
+        access={"access": "default", "daily_cap": None, "plan_scope": "single",
+                "plan_ai": True, "plan_backed": True},
+    )
+    assert allowance["tier"] == "plus" and allowance["limit"] == 200
+
+
+@pytest.mark.asyncio
+async def test_once_money_is_on_a_plan_tier_needs_something_behind_it():
+    # user_profiles.plan_scope defaults to 'all'. Without this, every signup
+    # that never checked out held the all-languages pool for free.
+    unbacked = await _allowance(
+        plan_limits=None, monetization=True,
+        access={"access": "default", "daily_cap": None, "plan_scope": "all",
+                "plan_ai": False, "plan_backed": False},
+    )
+    assert unbacked["tier"] == "free" and unbacked["limit"] == 20
+    backed = await _allowance(
+        plan_limits=None, monetization=True,
+        access={"access": "default", "daily_cap": None, "plan_scope": "all",
+                "plan_ai": False, "plan_backed": True},
+    )
+    assert backed["tier"] == "all" and backed["limit"] == 300
+
+
+@pytest.mark.asyncio
+async def test_while_money_is_off_a_chosen_scope_is_honoured_as_promised():
+    # Beta accounts picked a scope with no way to pay and were told they
+    # keep it — the column is the record, and nothing stands behind it.
+    allowance = await _allowance(
+        plan_limits=None, monetization=False,
+        access={"access": "default", "daily_cap": None, "plan_scope": "all",
+                "plan_ai": False, "plan_backed": False},
+    )
+    assert allowance["tier"] == "all"

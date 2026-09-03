@@ -885,10 +885,10 @@
     "whyFits": "Por qué encaja contigo: ",
     "turnOn": "Activa las recomendaciones para recibir de vez en cuando un libro, una película, una serie o un pódcast en tu idioma de estudio — elegidos según tu nivel y tus intereses.",
     "setUpSettings": "Configúralo en Ajustes →",
-    "plusFeature": "Una función Plus",
-    "plusUpsell": "Las recomendaciones personalizadas son parte de Plus. Mejora tu plan para este idioma y recibe cada semana una lista fresca de sugerencias ajustadas a tu nivel.",
+    "plusFeature": "Una función con IA",
+    "plusUpsell": "Las sugerencias semanales forman parte de las opciones con IA. Añade IA a tu plan — o elige un plan con IA en Ajustes — para recibir cada semana una lista adaptada a tu nivel.",
     "drafting": "Preparando las sugerencias de esta semana para ti…",
-    "needPlus": "Las recomendaciones requieren una suscripción Plus para este idioma.",
+    "needPlus": "Las recomendaciones requieren un plan con IA para este idioma — añádela en Ajustes.",
     "getMyPicks": "Obtener mis sugerencias",
     "getNewPicks": "Obtener sugerencias nuevas",
     "matchedNow": "Ajustadas a tu punto actual.",
@@ -1068,7 +1068,16 @@
       "upgradeWithPrice": "Mejorar a Todos los idiomas — {{price}}",
       "upgrade": "Mejorar a Todos los idiomas",
       "manageBilling": "Gestionar facturación",
-      "billingUnavailable": "La facturación aún no se ha lanzado — las cuentas tempranas conservan gratis su plan elegido, y mantienen su precio cuando entre en vigor."
+      "billingUnavailable": "La facturación aún no se ha lanzado — las cuentas tempranas conservan gratis su plan elegido, y mantienen su precio cuando entre en vigor.",
+      "withAi": "{{name}} + IA",
+      "aiOn": "IA incluida — {{count}} mensajes al mes.",
+      "aiOff": "Este plan no incluye IA.",
+      "addAi": "Añadir IA — {{price}}",
+      "addAiUnpriced": "Añadir IA",
+      "change": "Cambiar de plan",
+      "cancelChange": "Mantener mi plan",
+      "topup": "Comprar una recarga puntual: +{{messages}} mensajes este mes, {{price}}",
+      "topupNote": "Las recargas no se acumulan: son para este mes."
     },
     "dailyGoal": {
       "title": "Meta diaria de aprendizaje",
@@ -1661,5 +1670,25 @@
     "legalNote": "Las lecciones pueden incluir material generado por IA y revisado por personas; puede haber errores. Nada aquí es asesoramiento profesional.",
     "terms": "Términos del servicio",
     "privacy": "Política de privacidad"
+  },
+  "plans": {
+    "title": "Elige tu plan",
+    "help": "Todos los planes incluyen todos los repasos y lecciones, para siempre. Las opciones con IA añaden una reserva mensual para el tutor, el lector, la práctica oral y las recomendaciones semanales.",
+    "recommended": "Recomendado",
+    "current": "Tu plan",
+    "singleAi": "{{language}} + IA",
+    "single": "Solo {{language}}",
+    "allAi": "Todos los idiomas + IA",
+    "all": "Todos los idiomas",
+    "scopeSingle": "Estudia {{language}}",
+    "scopeAll": "Estudia todos los idiomas que ofrecemos",
+    "aiIncluded": "{{count}} mensajes de IA al mes",
+    "aiNone": "Sin IA — añádela cuando quieras o compra una recarga puntual cuando la necesites",
+    "perMonth": "{{price}}",
+    "unpriced": "Precio próximamente",
+    "aiUnavailable": "Las opciones con IA aún no están disponibles en este servidor",
+    "choose": "Continuar con {{name}}",
+    "opening": "Abriendo el pago…",
+    "changeHint": "Puedes cambiar de plan cuando quieras en Ajustes."
   }
 }

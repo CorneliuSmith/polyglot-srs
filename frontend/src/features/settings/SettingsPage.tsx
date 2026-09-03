@@ -9,11 +9,16 @@ import { getLearnDecks, resetProgress } from '../../api/review'
 import { getPlacementHistory, setLearnerLevel } from '../../api/onboarding'
 import PlacementTest from '../onboarding/PlacementTest'
 import {
+  createCheckout,
+  createTopupCheckout,
   formatPrice,
   getPlanPrices,
+  optionPurchasable,
   openBillingPortal,
   startPlanCheckout,
+  type PlanOption,
 } from '../../api/billing'
+import PlanPicker, { DEFAULT_OPTION, sameOption, useOptionName } from '../billing/PlanPicker'
 import { getDashboardStats } from '../../api/dashboard'
 import { getTutorStatus } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
@@ -243,7 +248,17 @@ export default function SettingsPage() {
     enabled: !!activeLanguageId && !!activeLanguageCode,
     retry: false,
   })
-  const allPrice = formatPrice(planPrices?.all ?? null)
+  // The four options: which the account is on, and which it is picking.
+  const currentOption: PlanOption | null = profile
+    ? { scope: profile.plan_scope ?? 'all', ai: profile.plan_ai === true }
+    : null
+  const [changingPlan, setChangingPlan] = useState(false)
+  const [pickedOption, setPickedOption] = useState<PlanOption>(DEFAULT_OPTION)
+  const optionName = useOptionName()
+  const planLanguageName =
+    languages.find((l) => l.id === profile?.plan_language_id)?.name ??
+    languages.find((l) => l.id === activeLanguageId)?.name ?? ''
+  const addAiPrice = formatPrice(planPrices?.ai_addon ?? null)
   // The monetization master switch: off (or unknown) hides every money
   // control here — the upgrade button and the billing link. The plan
   // NAME still shows; what you're on isn't a payment mention.
@@ -271,11 +286,47 @@ export default function SettingsPage() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['profile'] }),
   })
 
-  const upgradeMutation = useMutation({
-    mutationFn: () => startPlanCheckout('all'),
+  // One mutation for every plan change: a different option is a new
+  // subscription, and the server cancels the one it replaces on webhook.
+  const changePlanMutation = useMutation({
+    mutationFn: (o: PlanOption) =>
+      startPlanCheckout(
+        o.scope,
+        o.scope === 'single'
+          ? (profile?.plan_language_id ?? activeLanguageId)
+          : null,
+        o.ai,
+      ),
+    onSuccess: (res) => {
+      if (res.granted) {
+        setChangingPlan(false)
+        queryClient.invalidateQueries({ queryKey: ['profile'] })
+        queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
+      } else if (res.url) {
+        window.location.assign(res.url)
+      }
+    },
+    onError: () => setBillingUnavailable(true),
+  })
+  // "Add AI" keeps the plan and adds the pool — its own subscription.
+  const addAiMutation = useMutation({
+    mutationFn: () =>
+      createCheckout(profile?.plan_language_id ?? activeLanguageId!),
     onSuccess: (res) => {
       if (res.granted) {
         queryClient.invalidateQueries({ queryKey: ['profile'] })
+        queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
+      } else if (res.url) {
+        window.location.assign(res.url)
+      }
+    },
+    onError: () => setBillingUnavailable(true),
+  })
+  const topupMutation = useMutation({
+    mutationFn: createTopupCheckout,
+    onSuccess: (res) => {
+      if (res.granted) {
+        queryClient.invalidateQueries({ queryKey: ['tutor-status'] })
       } else if (res.url) {
         window.location.assign(res.url)
       }
@@ -643,29 +694,108 @@ export default function SettingsPage() {
 
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
             <h2 className="font-semibold text-gray-800">{t('settings.plan.title')}</h2>
-            <p className="text-sm text-gray-600">
-              {profile?.plan_scope === 'single'
-                ? languages.find((l) => l.id === profile?.plan_language_id)?.name
-                  ? t('settings.plan.singleWithLanguage', {
-                      name: languages.find(
-                        (l) => l.id === profile?.plan_language_id,
-                      )!.name,
-                    })
-                  : t('settings.plan.single')
-                : t('settings.plan.all')}
+            {/* The option by name — "Spanish + AI", "All languages" — and
+                what the AI half means in messages, so "do I have AI?" is
+                answered here and not by hitting a wall in the tutor. */}
+            <p className="text-sm text-gray-600" data-testid="plan-current">
+              {currentOption ? optionName(currentOption, planLanguageName) : ''}
             </p>
-            {monetization && profile?.plan_scope === 'single' && (
+            {currentOption && planPrices?.pools && (
+              <p className="text-xs text-gray-500">
+                {currentOption.ai
+                  ? t('settings.plan.aiOn', {
+                      count:
+                        (currentOption.scope === 'all'
+                          ? planPrices.pools.all
+                          : planPrices.pools.single) + planPrices.pools.plus,
+                    })
+                  : t('settings.plan.aiOff')}
+              </p>
+            )}
+            {monetization && !changingPlan && (
+              <div className="flex flex-wrap items-center gap-2">
+                {currentOption && !currentOption.ai && (
+                  <button
+                    type="button"
+                    onClick={() => addAiMutation.mutate()}
+                    disabled={addAiMutation.isPending || !planPrices?.ai_addon}
+                    data-testid="plan-add-ai"
+                    className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
+                  >
+                    {addAiMutation.isPending
+                      ? t('settings.plan.opening')
+                      : addAiPrice
+                        ? t('settings.plan.addAi', { price: addAiPrice })
+                        : t('settings.plan.addAiUnpriced')}
+                  </button>
+                )}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPickedOption(currentOption ?? DEFAULT_OPTION)
+                    setChangingPlan(true)
+                  }}
+                  data-testid="plan-change"
+                  className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                >
+                  {t('settings.plan.change')}
+                </button>
+              </div>
+            )}
+            {monetization && changingPlan && (
+              <div className="space-y-2" data-testid="plan-change-panel">
+                <PlanPicker
+                  languageName={planLanguageName}
+                  prices={planPrices}
+                  value={pickedOption}
+                  onChange={setPickedOption}
+                  current={currentOption}
+                />
+                <div className="flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => changePlanMutation.mutate(pickedOption)}
+                    disabled={
+                      changePlanMutation.isPending ||
+                      !optionPurchasable(planPrices, pickedOption) ||
+                      (!!currentOption && sameOption(pickedOption, currentOption))
+                    }
+                    data-testid="plan-confirm"
+                    className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
+                  >
+                    {changePlanMutation.isPending
+                      ? t('plans.opening')
+                      : t('plans.choose', {
+                          name: optionName(pickedOption, planLanguageName),
+                        })}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setChangingPlan(false)}
+                    className="text-xs text-gray-500 hover:underline"
+                  >
+                    {t('settings.plan.cancelChange')}
+                  </button>
+                </div>
+              </div>
+            )}
+            {monetization && planPrices?.topup && (
               <button
                 type="button"
-                onClick={() => upgradeMutation.mutate()}
-                disabled={upgradeMutation.isPending}
-                className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on px-4 py-2 text-sm font-semibold disabled:opacity-50"
+                onClick={() => topupMutation.mutate()}
+                disabled={topupMutation.isPending}
+                data-testid="plan-topup"
+                className="block text-xs text-lang hover:underline disabled:opacity-50"
+                title={t('settings.plan.topupNote')}
               >
-                {upgradeMutation.isPending
-                  ? t('settings.plan.opening')
-                  : allPrice
-                    ? t('settings.plan.upgradeWithPrice', { price: allPrice })
-                    : t('settings.plan.upgrade')}
+                {t('settings.plan.topup', {
+                  messages: planPrices.topup.messages,
+                  price: formatPrice({
+                    amount_cents: planPrices.topup.amount_cents,
+                    currency: planPrices.topup.currency,
+                    interval: null,
+                  }),
+                })}
               </button>
             )}
             {tutorStatus?.available && (

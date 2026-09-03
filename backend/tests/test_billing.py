@@ -43,6 +43,8 @@ class FakeSettings:
 
 
 TOPUP_PRICE = {"amount_cents": 500, "currency": "usd", "messages": 200}
+# What each option includes, as /plan/prices reports it (admin-editable).
+POOLS = {"free": 20, "single": 0, "all": 300, "plus": 200}
 
 
 def _auth_headers() -> dict:
@@ -240,6 +242,9 @@ class TestExtractPlanChange:
             "action": "grant", "user_id": TEST_USER_ID, "plan_scope": "single",
             "plan_language_id": LANG, "subscription_id": "sub_p1",
             "customer_id": "cus_1",
+            # Minted before the AI flag existed: None, so the repository
+            # leaves plan_ai alone rather than switching it off.
+            "ai": None,
         }
 
     def test_all_plan_needs_no_language(self):
@@ -323,11 +328,18 @@ class TestPlanEndpoints:
 
     def test_prices_null_until_configured(self, client):
         # Plan prices need Stripe Price ids; the top-up is priced inline
-        # from Settings so dev-mock alone already quotes it.
-        resp = client.get("/api/billing/plan/prices", headers=_auth_headers())
+        # from Settings so dev-mock alone already quotes it. The pools ride
+        # along either way — what an option includes is known before it
+        # is priced.
+        with patch("backend.routers.billing.get_plan_message_limits",
+                   new=AsyncMock(return_value=None)), \
+             patch("backend.routers.billing.effective_plan_limits",
+                   return_value=POOLS):
+            resp = client.get("/api/billing/plan/prices", headers=_auth_headers())
         assert resp.status_code == 200
-        assert resp.json() == {"single": None, "all": None, "custom": None,
-                               "topup": TOPUP_PRICE, "monetization": True}
+        assert resp.json() == {"single": None, "all": None, "ai_addon": None,
+                               "custom": None, "topup": TOPUP_PRICE,
+                               "pools": POOLS, "monetization": True}
 
     def test_portal_503_when_not_configured(self, client):
         resp = client.post("/api/billing/portal", headers=_auth_headers())
@@ -367,7 +379,11 @@ class TestCustomPricing:
         with patch("backend.routers.billing.get_custom_price",
                    new=AsyncMock(return_value={
                        "monthly_cents": 1234, "currency": "usd",
-                       "note": None})):
+                       "note": None})), \
+             patch("backend.routers.billing.get_plan_message_limits",
+                   new=AsyncMock(return_value=None)), \
+             patch("backend.routers.billing.effective_plan_limits",
+                   return_value=POOLS):
             resp = client.get("/api/billing/plan/prices",
                               headers=_auth_headers())
         assert resp.status_code == 200
@@ -375,9 +391,11 @@ class TestCustomPricing:
                   "interval": "month"}
         # Mirrored onto both scopes: the charge is per ACCOUNT, whichever
         # plan shape they pick, so existing price displays need no changes.
-        assert resp.json() == {"single": priced, "all": priced,
+        # No separate add-on amount: the charge is the whole price of
+        # whichever of the four options the account picks.
+        assert resp.json() == {"single": priced, "all": priced, "ai_addon": None,
                                "custom": priced, "topup": TOPUP_PRICE,
-                               "monetization": True}
+                               "pools": POOLS, "monetization": True}
 
     def test_zero_priced_account_subscribes_free_without_stripe(self):
         """0 cents = free. No key, no dev-mock, no Stripe round trip — the
@@ -519,7 +537,7 @@ class TestMonetizationSwitch:
             resp = client.get("/api/billing/plan/prices",
                               headers=_auth_headers())
         assert resp.status_code == 200
-        assert resp.json() == {"single": None, "all": None, "custom": None,
+        assert resp.json() == {"single": None, "all": None, "ai_addon": None, "custom": None,
                                "topup": None, "monetization": False}
 
     def test_every_purchase_path_is_closed(self, client):
@@ -713,3 +731,259 @@ class TestFlagsRepo:
         conn.fetchval = AsyncMock(return_value=None)
         assert await set_flag(conn, "monetization", True, TEST_USER_ID) is False
         conn.execute.assert_not_awaited()
+
+
+# ── the four options: scope × AI, one subscription ──────────────────────────
+#
+# Owner: "Make the 4 options … Single language with AI should be the default
+# but provide options to upgrade." An option with AI is the plan's Price plus
+# the add-on's Price in ONE Checkout session, so Stripe makes one
+# subscription with one charge; the webhook records both halves.
+
+
+class _FakeStripe:
+    """Records the Checkout session Stripe would have been asked for."""
+    created: list[dict] = []
+    cancelled: list[tuple] = []
+
+    class checkout:  # noqa: N801 — mirrors stripe.checkout
+        class Session:
+            @staticmethod
+            def create(**kw):
+                _FakeStripe.created.append(kw)
+                return {"url": "https://checkout.stripe/opt", "id": "cs_opt"}
+
+    class Subscription:
+        @staticmethod
+        def cancel(sub_id, **kw):
+            _FakeStripe.cancelled.append((sub_id, kw))
+            return {"id": sub_id, "status": "canceled"}
+
+    class Price:
+        @staticmethod
+        def retrieve(price_id):
+            return {"unit_amount": {"price_single": 700, "price_all": 1200,
+                                    "price_tutor": 500}[price_id],
+                    "currency": "usd", "recurring": {"interval": "month"}}
+
+
+class TestFourOptions:
+    def setup_method(self):
+        _FakeStripe.created.clear()
+        _FakeStripe.cancelled.clear()
+
+    def test_an_option_with_ai_is_one_session_with_two_line_items(self):
+        class RealSettings(FakeSettings):
+            stripe_secret_key = "sk_test_x"
+            stripe_dev_mock = False
+        with patch("backend.services.billing.get_settings", return_value=RealSettings()), \
+             patch("backend.services.billing._stripe", return_value=_FakeStripe):
+            billing.create_plan_checkout_session(
+                user_id=TEST_USER_ID, plan_scope="single", plan_language_id=LANG,
+                customer_id="cus_1", success_url="s", cancel_url="c", ai=True,
+            )
+        [kw] = _FakeStripe.created
+        assert [li["price"] for li in kw["line_items"]] == ["price_single", "price_tutor"]
+        assert kw["mode"] == "subscription"
+        # Both the session and the subscription say which option this is,
+        # so lifecycle events months later can still tell.
+        assert kw["metadata"]["ai"] == "1"
+        assert kw["subscription_data"]["metadata"]["ai"] == "1"
+        assert kw["metadata"]["plan_scope"] == "single"
+
+    def test_an_option_without_ai_says_so_rather_than_saying_nothing(self):
+        class RealSettings(FakeSettings):
+            stripe_secret_key = "sk_test_x"
+            stripe_dev_mock = False
+        with patch("backend.services.billing.get_settings", return_value=RealSettings()), \
+             patch("backend.services.billing._stripe", return_value=_FakeStripe):
+            billing.create_plan_checkout_session(
+                user_id=TEST_USER_ID, plan_scope="all", plan_language_id=None,
+                customer_id="cus_1", success_url="s", cancel_url="c",
+            )
+        [kw] = _FakeStripe.created
+        assert [li["price"] for li in kw["line_items"]] == ["price_all"]
+        assert kw["metadata"]["ai"] == "0"
+
+    def test_the_webhook_reads_the_ai_half_of_the_option(self):
+        ev = {"type": "checkout.session.completed", "data": {"object": {
+            "metadata": {"kind": "plan", "user_id": TEST_USER_ID,
+                         "plan_scope": "all", "plan_language_id": "", "ai": "1"},
+            "subscription": "sub_p2", "customer": "cus_1",
+        }}}
+        assert billing.extract_plan_change(ev)["ai"] is True
+        ev["data"]["object"]["metadata"]["ai"] = "0"
+        assert billing.extract_plan_change(ev)["ai"] is False
+
+    def test_prices_carry_the_add_on_so_the_ui_can_add_the_two_up(self):
+        class RealSettings(FakeSettings):
+            stripe_secret_key = "sk_test_x"
+            stripe_dev_mock = False
+        with patch("backend.services.billing.get_settings", return_value=RealSettings()), \
+             patch("backend.services.billing._stripe", return_value=_FakeStripe):
+            prices = billing.list_plan_prices()
+        assert prices["single"]["amount_cents"] == 700
+        assert prices["ai_addon"]["amount_cents"] == 500
+        assert prices["ai_addon"]["interval"] == "month"
+
+    def test_an_option_with_ai_is_refused_until_the_add_on_is_priced(self):
+        """A deploy that priced the plans but not the add-on still sells the
+        two no-AI options; the two with AI say why they cannot be bought."""
+        class HalfConfigured(FakeSettings):
+            stripe_secret_key = "sk_test_x"
+            stripe_dev_mock = False
+            stripe_price_id = ""
+        with patch("backend.main.init_pool", new=AsyncMock()), \
+             patch("backend.main.close_pool", new=AsyncMock()), \
+             patch("backend.main.get_settings", return_value=HalfConfigured()), \
+             patch("backend.dependencies.get_settings", return_value=HalfConfigured()), \
+             patch("backend.routers.billing.get_settings", return_value=HalfConfigured()), \
+             patch("backend.services.billing.get_settings", return_value=HalfConfigured()), \
+             patch("backend.routers.billing.privileged_connection", _fake_priv), \
+             patch("backend.routers.billing.monetization_enabled",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.billing.get_custom_price",
+                   new=AsyncMock(return_value=None)):
+            app = create_app()
+            with TestClient(app, raise_server_exceptions=True) as c:
+                resp = c.post(
+                    "/api/billing/plan/checkout",
+                    json={"plan_scope": "all", "ai": True},
+                    headers=_auth_headers(),
+                )
+        assert resp.status_code == 503
+        assert "add-on" in resp.json()["detail"]
+
+    def test_dev_mock_records_both_halves(self, client):
+        with patch("backend.routers.billing.monetization_enabled",
+                   new=AsyncMock(return_value=True)), \
+             patch("backend.routers.billing.get_custom_price",
+                   new=AsyncMock(return_value=None)), \
+             patch("backend.routers.billing.set_plan_subscription",
+                   new=AsyncMock()) as mock_set:
+            resp = client.post(
+                "/api/billing/plan/checkout",
+                json={"plan_scope": "single", "plan_language_id": LANG, "ai": True},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200 and resp.json()["granted"] is True
+        assert mock_set.await_args.kwargs["ai"] is True
+
+    def test_an_upgrade_cancels_the_subscription_it_replaces(self, client):
+        """Checkout only creates. Without this, single → all left the single
+        plan billing beside the new one, every month, until someone noticed."""
+        payload = json.dumps({
+            "type": "checkout.session.completed",
+            "data": {"object": {
+                "metadata": {"kind": "plan", "user_id": TEST_USER_ID,
+                             "plan_scope": "all", "plan_language_id": "", "ai": "1"},
+                "subscription": "sub_new", "customer": "cus_9",
+            }},
+        }).encode()
+        with patch("backend.services.billing.construct_event",
+                   return_value=json.loads(payload)), \
+             patch("backend.routers.billing.previous_plan_subscription",
+                   new=AsyncMock(return_value="sub_old")), \
+             patch("backend.routers.billing.set_plan_subscription",
+                   new=AsyncMock()) as mock_set, \
+             patch("backend.services.billing.cancel_subscription") as mock_cancel:
+            resp = client.post(
+                "/api/billing/webhook", content=payload,
+                headers={"Stripe-Signature": "sig"},
+            )
+        assert resp.status_code == 200
+        assert mock_set.await_args.kwargs["ai"] is True
+        # The old plan is ended AFTER the new one has landed, and only when
+        # it is a different subscription — a redelivered event for the same
+        # one must not cancel it.
+        mock_cancel.assert_called_once_with("sub_old")
+
+    def test_a_redelivered_grant_does_not_cancel_the_new_plan(self, client):
+        payload = json.dumps({
+            "type": "checkout.session.completed",
+            "data": {"object": {
+                "metadata": {"kind": "plan", "user_id": TEST_USER_ID,
+                             "plan_scope": "all", "plan_language_id": "", "ai": "0"},
+                "subscription": "sub_new", "customer": "cus_9",
+            }},
+        }).encode()
+        with patch("backend.services.billing.construct_event",
+                   return_value=json.loads(payload)), \
+             patch("backend.routers.billing.previous_plan_subscription",
+                   new=AsyncMock(return_value="sub_new")), \
+             patch("backend.routers.billing.set_plan_subscription", new=AsyncMock()), \
+             patch("backend.services.billing.cancel_subscription") as mock_cancel:
+            client.post("/api/billing/webhook", content=payload,
+                        headers={"Stripe-Signature": "sig"})
+        mock_cancel.assert_not_called()
+
+    def test_cancel_credits_the_unused_period_and_skips_pretend_ids(self):
+        class RealSettings(FakeSettings):
+            stripe_secret_key = "sk_test_x"
+        with patch("backend.services.billing.get_settings", return_value=RealSettings()), \
+             patch("backend.services.billing._stripe", return_value=_FakeStripe):
+            assert billing.cancel_subscription("sub_old") is True
+            assert billing.cancel_subscription("mock-plan") is False
+            assert billing.cancel_subscription("admin-free") is False
+        assert _FakeStripe.cancelled == [("sub_old", {"prorate": True})]
+
+
+class TestAiAddOn:
+    """'Add AI' on a plan bought without it: its own subscription, the
+    plan-level pool, revoked only by its own id."""
+
+    def _completed(self, meta):
+        return {"type": "checkout.session.completed", "data": {"object": {
+            "metadata": meta, "subscription": "sub_ai", "customer": "cus_1",
+        }}}
+
+    def test_add_on_checkout_grants_the_plan_pool(self):
+        change = billing.extract_ai_change(self._completed(
+            {"kind": "ai", "user_id": TEST_USER_ID, "language_id": LANG}))
+        assert change == {"action": "grant", "user_id": TEST_USER_ID,
+                          "subscription_id": "sub_ai", "customer_id": "cus_1"}
+
+    def test_the_legacy_per_language_extractor_leaves_it_alone(self):
+        # Both extractors run on every event. A kind='ai' session must not
+        # ALSO write a per-language row — one purchase, one record.
+        assert billing.extract_entitlement_change(self._completed(
+            {"kind": "ai", "user_id": TEST_USER_ID, "language_id": LANG})) is None
+        # …while a session minted before 'kind' existed still does.
+        assert billing.extract_entitlement_change(self._completed(
+            {"user_id": TEST_USER_ID, "language_id": LANG}))["action"] == "grant"
+
+    def test_plan_events_never_touch_the_add_on(self):
+        assert billing.extract_ai_change(self._completed(
+            {"kind": "plan", "user_id": TEST_USER_ID, "plan_scope": "all",
+             "plan_language_id": "", "ai": "1"})) is None
+
+    def test_cancelling_the_add_on_revokes_by_its_id(self):
+        ev = {"type": "customer.subscription.deleted",
+              "data": {"object": {"id": "sub_ai"}}}
+        assert billing.extract_ai_change(ev) == {"action": "revoke",
+                                                 "subscription_id": "sub_ai"}
+
+    def test_webhook_switches_the_pool_on_and_off(self, client):
+        on = json.dumps(self._completed(
+            {"kind": "ai", "user_id": TEST_USER_ID, "language_id": LANG})).encode()
+        with patch("backend.services.billing.construct_event",
+                   return_value=json.loads(on)), \
+             patch("backend.routers.billing.set_plan_ai", new=AsyncMock()) as mock_on:
+            client.post("/api/billing/webhook", content=on,
+                        headers={"Stripe-Signature": "sig"})
+        assert mock_on.await_args.args[1:] == (TEST_USER_ID, True, "sub_ai")
+        off = json.dumps({"type": "customer.subscription.deleted",
+                          "data": {"object": {"id": "sub_ai"}}}).encode()
+        # A deletion is id-scoped and every extractor sees it; the plan and
+        # legacy revokes run too and must find nothing — stubbed here.
+        with patch("backend.services.billing.construct_event",
+                   return_value=json.loads(off)), \
+             patch("backend.routers.billing.deactivate_plan_by_subscription",
+                   new=AsyncMock(return_value=0)), \
+             patch("backend.routers.billing.revoke_by_subscription",
+                   new=AsyncMock(return_value=0)), \
+             patch("backend.routers.billing.clear_plan_ai_by_subscription",
+                   new=AsyncMock()) as mock_off:
+            client.post("/api/billing/webhook", content=off,
+                        headers={"Stripe-Signature": "sig"})
+        assert mock_off.await_args.args[1] == "sub_ai"
