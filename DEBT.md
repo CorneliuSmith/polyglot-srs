@@ -268,12 +268,18 @@ rebuilt from an older point; if that happens, fold it into the same probe.
 ### Migrations the deployed database may not have yet
 
 Applied by the owner, never by an agent (`CLAUDE.md`). At the time of
-writing the newest is `20261012000000_show_glosses.sql` (the Learner-tab
-"Show glosses" setting). The code is safe without it — the profile probe
-returns the default and the toggle still renders — but the *value* will
-not persist until it is applied. `/api/health/schema`, or Settings → Admin
-→ Deployment, lists exactly which files the live database is missing;
-trust that over this paragraph, which will drift.
+writing the newest are `20261012000000_show_glosses.sql` (the Learner-tab
+"Show glosses" setting) and `20261014000000_translation_review_items.sql`
+(the reject queue for non-vocabulary translations). The code is safe
+without either — the profile probe returns the default and the toggle
+still renders; the translation writers probe for the table and skip the
+queue, the list endpoint returns no items and the inbox counts none — but
+the glosses *value* will not persist, and a rejected drill line,
+explanation, grammar title or example meaning stays invisible (the
+pre-September behaviour: unwritten, retried on the backoff), until they
+are applied. `/api/health/schema`, or Settings → Admin → Deployment, lists
+exactly which files the live database is missing; trust that over this
+paragraph, which will drift.
 
 ### The Docker image usually has no commit SHA
 

@@ -173,7 +173,7 @@ Work:
 
 ## 5. Translation: is a specialist-agent taxonomy worthwhile?
 
-**Checker tier (5.1) shipped 3 Sep 2026; the non-vocab review queue (5.2) is open.**
+**Checker tier (5.1) and the non-vocabulary review queue (5.2) both shipped 3 Sep 2026.**
 
 **Effort: a day** for the two real gaps. Recommendation: **no new agent
 layer; fix the tier gap and give every kind a review queue.**
@@ -225,13 +225,20 @@ the exploration found:
    admin dial can weaken the floor. Pin it with a test that maker and
    checker resolve to different settings fields. Cost: the checker sees
    only what the maker produced, ~25 rows per call — cents per session.
-2. **Only vocabulary rejects have a queue.** A rejected drill, explanation,
-   grammar title or example sentence is simply not written and waits for
-   the backoff — nobody sees it. Extend `translation_reviews` with a
-   `kind` + `target_id` (migration) or add a parallel table, write the
-   reject and its reason from `_apply()`'s siblings, and list them in the
-   same panel grouped by kind. The panel already carries the card editor,
-   so the reviewer can fix the English source on the spot.
+2. **Only vocabulary rejects had a queue.** A rejected drill, explanation,
+   grammar title or example sentence was simply not written and waited for
+   the backoff — nobody saw it. **Shipped:** a parallel table,
+   `translation_review_items` (migration `20261014`, owner-applied; keyed
+   by kind, target, locale and field), written by `_apply()`'s siblings
+   with the reject's reason AND the maker's proposal — the sentence and
+   text lanes now return `proposed` the way `maker_check_batch` does, so
+   the rows can be approved, not only dismissed. Listed in the same
+   "AI translations" panel grouped by kind, counted in the same inbox
+   tile, carrying the card editor. Approve writes the row's own layer
+   (`drill_hint_translations`, `explanation_translations`,
+   `grammar_point_translations`, or a locale row in `example_sentences`)
+   with `reviewed = true`. Without the migration the writers skip the
+   queue and everything behaves as before.
 
 Then the taxonomy is: **maker (Sonnet, with the language brief from item
 4) → checker (Opus, own charter) → mechanical gate → review queue for

@@ -219,6 +219,22 @@ locale-translation lane has its own `translate_checker` task for the same
 reason — until 3 Sep 2026 it shared `translate` with the maker and checked
 Sonnet with Sonnet.
 
+Every rejected rendering has a review row, whatever layer it belongs to.
+Word glosses go to `translation_reviews`; drill lines and hints, grammar
+explanations, grammar titles and notes, and example-sentence meanings go
+to `translation_review_items` (keyed by kind, target, locale and field),
+written by the same functions in `services/auto_translate.py` that would
+have stored a pass. Both carry the maker's proposal even when the checker
+refused it — a queue with nothing to approve is a bin, not a review — and
+both surface in one admin panel ("AI translations", grouped by kind) and
+one inbox count: the item count is folded into the `ai_translations` key
+on the way out (`fold_counts` in `repositories/contributor.py`), so the
+client sees one number for one panel. Approving writes the row's own layer
+with `reviewed = true`; rejecting clears the row and the layer keeps its
+English fallback until a later sweep tries again. The writers probe for
+the table and skip the queue without it, so a deploy ahead of the owner's
+migration behaves exactly as it did before.
+
 ### SRS: FSRS, not SM-2
 
 The scheduler is **FSRS** (Free Spaced Repetition Scheduler) —

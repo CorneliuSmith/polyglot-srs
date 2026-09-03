@@ -101,6 +101,7 @@ from backend.repositories.contributor import (
     list_review_notes,
     list_suggestions,
     list_tester_recommendations,
+    list_translation_review_items,
     list_translation_reviews,
     list_unchecked_point_ids,
     list_unchecked_vocab_ids,
@@ -114,6 +115,7 @@ from backend.repositories.contributor import (
     resolve_overlap,
     resolve_review_note,
     resolve_translation_review,
+    resolve_translation_review_item,
     review_drill,
     review_example,
     review_examples_bulk,
@@ -3001,11 +3003,16 @@ async def translation_reviews_queue(
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
         reviews = await list_translation_reviews(conn, language_id=language_id)
+        # The other layers' rejects (drill lines, explanations, grammar
+        # titles and notes, example meanings) — the same panel, grouped by
+        # kind. Empty until the owner applies migration 20261014.
+        items = await list_translation_review_items(conn, language_id=language_id)
         try:
             await load_cards(conn, reviews)
+            await load_cards(conn, items)
         except asyncpg.PostgresError:
             logger.exception("translation-review card lookup failed")
-        return {"reviews": reviews}
+        return {"reviews": reviews, "items": items}
 
 
 async def _resolve_review(review_id: str, user: dict, approve: bool) -> dict:
@@ -3037,6 +3044,43 @@ async def reject_translation_review(
     review_id: str, user: dict = Depends(get_current_user),
 ):
     return await _resolve_review(review_id, user, approve=False)
+
+
+async def _resolve_item(item_id: str, user: dict, approve: bool) -> dict:
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        outcome = await resolve_translation_review_item(conn, item_id, approve)
+    if outcome == "not_found":
+        raise HTTPException(status_code=404, detail="Review item not found")
+    if outcome == "not_pending":
+        raise HTTPException(status_code=409, detail="Already resolved")
+    if outcome == "gone":
+        raise HTTPException(
+            status_code=409,
+            detail="The card this was about has been deleted; dismiss the row.",
+        )
+    if outcome == "empty":
+        raise HTTPException(
+            status_code=422,
+            detail="Nothing to apply — this item has no proposed text; dismiss "
+                   "it or fix the card directly.",
+        )
+    return {"approved" if approve else "rejected": True}
+
+
+@router.post("/translation-reviews/items/{item_id}/approve")
+async def approve_translation_review_item(
+    item_id: str, user: dict = Depends(get_current_user),
+):
+    """Write a rejected non-vocabulary rendering to its layer (admin)."""
+    return await _resolve_item(item_id, user, approve=True)
+
+
+@router.post("/translation-reviews/items/{item_id}/reject")
+async def reject_translation_review_item(
+    item_id: str, user: dict = Depends(get_current_user),
+):
+    return await _resolve_item(item_id, user, approve=False)
 
 
 class NewAccount(BaseModel):

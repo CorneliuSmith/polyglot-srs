@@ -989,6 +989,34 @@ def self_pair(pair) -> bool:
     return pair["locale"] == pair["language_code"]
 
 
+async def _queue_review_item(
+    conn, pair: dict, kind: str, field: str, target_id, source_text: str,
+    res: dict,
+) -> None:
+    """A rejected rendering of a non-vocabulary layer, kept for a human.
+
+    Mirrors what `_apply` does for glosses. The maker's proposal rides
+    along even when the checker rejected it, so the row can be approved,
+    corrected or dismissed rather than only dismissed. Probes for the
+    table (migration 20261014, owner-applied) and does nothing without it,
+    so an unmigrated deploy behaves exactly as before: the row stays
+    unwritten and the ledger paces a retry.
+    """
+    if res.get("verdict") in ("ok", "fixed") and res.get("translation"):
+        return
+    if not await table_present(conn, "translation_review_items"):
+        return
+    await conn.execute(
+        """INSERT INTO translation_review_items
+               (kind, field, target_id, language_id, locale, source_text,
+                proposed, reason)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+           ON CONFLICT (kind, target_id, locale, field) DO NOTHING""",
+        kind, field, target_id, pair["language_id"], pair["locale"],
+        source_text, res.get("proposed") or None, res.get("note") or None,
+    )
+
+
 async def _translate_drills(conn, pair, rows) -> int:
     """English drill translation + hint → the locale, one maker–checker pass
     per field. Approved renderings are stored as draft rows (reviewed=false —
@@ -1021,8 +1049,13 @@ async def _translate_drills(conn, pair, rows) -> int:
             pair["locale_name"], items, locale=pair["locale"])
         for res in results:
             row = safe_row(rows, res["i"])
-            if res["translation"] and row is not None:
+            if row is None:
+                continue
+            if res["translation"]:
                 out[str(row["id"])][field] = res["translation"]
+            else:
+                await _queue_review_item(
+                    conn, pair, "drill", field, row["id"], row[field], res)
     applied = 0
     for r in rows:
         vals = out[str(r["id"])]
@@ -1056,7 +1089,12 @@ async def _translate_explanations(conn, pair, rows) -> int:
     applied = 0
     for res in results:
         row = safe_row(rows, res["i"])
-        if not res["translation"] or row is None:
+        if row is None:
+            continue
+        if not res["translation"]:
+            await _queue_review_item(
+                conn, pair, "explanation", "explanation", row["id"],
+                row["explanation"], res)
             continue
         await conn.execute(
             """INSERT INTO explanation_translations
@@ -1087,8 +1125,14 @@ async def _translate_grammar_meta(conn, pair, rows) -> int:
                                                    locale=pair["locale"])
         for res in results:
             row = safe_row(rows, res["i"])
-            if res["translation"] and row is not None:
+            if row is None:
+                continue
+            if res["translation"]:
                 out[str(row["id"])][field] = res["translation"]
+            else:
+                await _queue_review_item(
+                    conn, pair, "grammar_meta", field, row["id"], row[field],
+                    res)
     applied = 0
     for r in rows:
         vals = out[str(r["id"])]
@@ -1173,7 +1217,12 @@ async def _translate_examples(conn, pair, rows) -> int:
     applied = 0
     for res in results:
         r = safe_row(rows, res["i"])
-        if not res["translation"] or r is None:
+        if r is None:
+            continue
+        if not res["translation"]:
+            await _queue_review_item(
+                conn, pair, "example", "translation", r["id"],
+                r["translation"], res)
             continue
         row_id = await add_example_sentence(
             conn, r["vocabulary_id"], r["language_id"], r["sentence"],

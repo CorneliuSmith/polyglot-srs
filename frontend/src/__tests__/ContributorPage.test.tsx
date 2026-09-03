@@ -30,7 +30,7 @@ vi.mock('../api/contribute', () => ({
   ),
   approveTrialRequest: vi.fn(),
   rejectTrialRequest: vi.fn(),
-  getTranslationReviews: vi.fn(() => Promise.resolve([])),
+  getTranslationReviews: vi.fn(() => Promise.resolve({ reviews: [], items: [] })),
   getTranslationStatus: vi.fn(() =>
     Promise.resolve({
       provider_ready: true,

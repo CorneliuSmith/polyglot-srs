@@ -8,6 +8,7 @@ connection AFTER the router has checked the caller's role in the app layer.
 from __future__ import annotations
 
 import json
+from collections.abc import Mapping
 
 import asyncpg
 
@@ -728,6 +729,15 @@ _INBOX_QUEUES: tuple[tuple[str, str, str, tuple[str, ...]], ...] = (
         JOIN vocabulary v ON r.vocabulary_id = v.id
         WHERE r.status = 'pending'
      """, ("translation_reviews",)),
+    # Rejected renderings of the OTHER layers (drill lines, explanations,
+    # grammar titles and notes, example meanings) — same panel, same tile.
+    # Counted separately so a database without the 20261014 migration still
+    # shows the gloss pile; folded into `ai_translations` on the way out
+    # (FOLDED_QUEUES) so the client sees one number for one panel.
+    ("ai_translation_items", "i.language_id", """
+        FROM translation_review_items i
+        WHERE i.status = 'pending'
+     """, ("translation_review_items",)),
     # A tester's advisory ✓/✗ counts as a queue in its own right: it is the
     # only output most trial reviewers produce, and until now it appeared
     # nowhere the admin looks. Scoped to targets that are STILL PENDING —
@@ -768,10 +778,27 @@ _INBOX_COLUMNS = tuple(sorted({
     n for _, _, _, needs in _INBOX_QUEUES for n in needs if "." in n
 }))
 
+# Queues counted on their own (their table may be missing independently)
+# but reported under another key: the client renders one tile per key and
+# one panel per tile, and these act in the same panel as their target.
+FOLDED_QUEUES = {"ai_translation_items": "ai_translations"}
+
 # Queues that add up to "this language needs attention" in the cross-language
 # strip. Deliberately every queue: an admin whose selector sits on Arabic must
 # see that Hebrew has traffic, whatever KIND of traffic it is.
-INBOX_QUEUE_KEYS = tuple(k for k, _, _, _ in _INBOX_QUEUES)
+INBOX_QUEUE_KEYS = tuple(
+    k for k, _, _, _ in _INBOX_QUEUES if k not in FOLDED_QUEUES
+)
+
+
+def fold_counts(raw: Mapping[str, int]) -> dict[str, int]:
+    """The per-language counts as the client sees them: every queue key,
+    with the folded queues added into their targets and dropped."""
+    counts = {k: int(raw[k]) for k in INBOX_QUEUE_KEYS}
+    for src, dst in FOLDED_QUEUES.items():
+        if src in raw:
+            counts[dst] += int(raw[src])
+    return counts
 
 
 def strip_admin_queues(languages: list[dict]) -> list[dict]:
@@ -848,7 +875,7 @@ async def review_inbox_counts(
         """,
         language_id,
     )
-    return {k: int(row[k]) for k in row.keys()}
+    return fold_counts(row)
 
 
 async def review_inbox_by_language(
@@ -886,7 +913,7 @@ async def review_inbox_by_language(
     )
     out = []
     for r in rows:
-        counts = {k: int(r[k]) for k in INBOX_QUEUE_KEYS}
+        counts = fold_counts(r)
         total = sum(counts.values())
         if total == 0 and not include_empty:
             continue
@@ -3810,6 +3837,137 @@ async def resolve_translation_review(
     await conn.execute(
         "UPDATE translation_reviews SET status = $2 WHERE id = $1",
         review_id, "approved" if approve else "rejected",
+    )
+    return "ok"
+
+
+# The non-vocabulary review queue (translation_review_items, migration
+# 20261014). Which layer each kind writes back to on approve, and which
+# fields of that layer a row may name — the field is interpolated into SQL,
+# so it is checked against this table first, never trusted from the row.
+_ITEM_TARGETS = {
+    "drill": ("drill", ("translation", "hint")),
+    "explanation": ("grammar_point", ("explanation",)),
+    "grammar_meta": ("grammar_point", ("title", "culture_note", "function_note")),
+    "example": ("example_sentence", ("translation",)),
+}
+
+
+async def list_translation_review_items(
+    conn: asyncpg.Connection, status_filter: str = "pending",
+    language_id: str | None = None,
+) -> list[dict]:
+    """Pending rejects of the non-vocabulary layers, with the card each one
+    belongs to named (`label`: the drill's sentence, the point's title, the
+    example's sentence) and typed for load_cards. Grouped by kind, so the
+    panel can show 'drills', 'explanations', … as sections. Empty — not an
+    error — before the owner applies the migration."""
+    if not await _present(conn, ("translation_review_items",)):
+        return []
+    rows = await conn.fetch(
+        """
+        SELECT i.id, i.kind, i.field, i.target_id, i.locale, i.source_text,
+               i.proposed, i.reason, i.status, i.created_at,
+               CASE i.kind
+                 WHEN 'drill' THEN ds.sentence
+                 WHEN 'example' THEN es.sentence
+                 ELSE gp.title
+               END AS label
+        FROM translation_review_items i
+        LEFT JOIN drill_sentences ds
+               ON i.kind = 'drill' AND ds.id = i.target_id
+        LEFT JOIN grammar_points gp
+               ON i.kind IN ('explanation', 'grammar_meta') AND gp.id = i.target_id
+        LEFT JOIN example_sentences es
+               ON i.kind = 'example' AND es.id = i.target_id
+        WHERE i.status = $1
+          AND ($2::uuid IS NULL OR i.language_id = $2)
+        ORDER BY i.kind, i.locale, i.created_at
+        LIMIT 200
+        """,
+        status_filter, language_id,
+    )
+    return [
+        {
+            "id": str(r["id"]), "kind": r["kind"], "field": r["field"],
+            "locale": r["locale"], "label": r["label"],
+            "source_text": r["source_text"], "proposed": r["proposed"],
+            "reason": r["reason"],
+            "target_type": _ITEM_TARGETS.get(r["kind"], (None,))[0],
+            "target_id": str(r["target_id"]),
+            "created_at": r["created_at"].isoformat() if r["created_at"] else None,
+        }
+        for r in rows
+    ]
+
+
+async def resolve_translation_review_item(
+    conn: asyncpg.Connection, item_id: str, approve: bool
+) -> str:
+    """Approve (write the proposal to the row's layer, reviewed=true — a
+    human signed it) or reject (clear the row; the layer keeps its English
+    fallback and a later sweep may try again). Returns
+    'ok' | 'not_found' | 'not_pending' | 'empty' | 'gone' — 'gone' when the
+    card the row was about has since been deleted."""
+    if not await _present(conn, ("translation_review_items",)):
+        return "not_found"
+    r = await conn.fetchrow(
+        "SELECT id, kind, field, target_id, locale, proposed, status "
+        "FROM translation_review_items WHERE id = $1",
+        item_id,
+    )
+    if not r:
+        return "not_found"
+    if r["status"] != "pending":
+        return "not_pending"
+    if approve:
+        proposed = (r["proposed"] or "").strip()
+        if not proposed:
+            return "empty"
+        kind, field = r["kind"], r["field"]
+        _, allowed = _ITEM_TARGETS.get(kind, (None, ()))
+        if field not in allowed:
+            return "empty"
+        if kind == "drill":
+            await conn.execute(
+                f"""INSERT INTO drill_hint_translations
+                        (drill_id, locale, {field}, reviewed)
+                    VALUES ($1, $2, $3, true)
+                    ON CONFLICT (drill_id, locale) DO UPDATE SET
+                        {field} = EXCLUDED.{field}, reviewed = true""",
+                r["target_id"], r["locale"], proposed)
+        elif kind == "explanation":
+            await conn.execute(
+                """INSERT INTO explanation_translations
+                       (grammar_point_id, locale, explanation, reviewed)
+                   VALUES ($1, $2, $3, true)
+                   ON CONFLICT (grammar_point_id, locale) DO UPDATE SET
+                       explanation = EXCLUDED.explanation, reviewed = true""",
+                r["target_id"], r["locale"], proposed)
+        elif kind == "grammar_meta":
+            await conn.execute(
+                f"""INSERT INTO grammar_point_translations
+                        (grammar_point_id, locale, {field}, reviewed)
+                    VALUES ($1, $2, $3, true)
+                    ON CONFLICT (grammar_point_id, locale) DO UPDATE SET
+                        {field} = EXCLUDED.{field}, reviewed = true""",
+                r["target_id"], r["locale"], proposed)
+        elif kind == "example":
+            src = await conn.fetchrow(
+                "SELECT vocabulary_id, language_id, sentence "
+                "FROM example_sentences WHERE id = $1", r["target_id"])
+            if not src:
+                return "gone"
+            await add_example_sentence(
+                conn, src["vocabulary_id"], src["language_id"],
+                src["sentence"], proposed, source="ai",
+                origin_detail=f"review:{r['locale']}",
+                translation_locale=r["locale"],
+                reviewed=True,  # a human approved this rendering
+            )
+    await conn.execute(
+        "UPDATE translation_review_items SET status = $2 WHERE id = $1",
+        item_id, "approved" if approve else "rejected",
     )
     return "ok"
 
