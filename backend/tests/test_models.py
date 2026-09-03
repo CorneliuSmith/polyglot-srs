@@ -46,6 +46,7 @@ def test_override_is_ignored_for_checker_and_summary_fields():
         assert resolve_model("sentence_checker", "es", override="weaker-model") == "opus"
         assert resolve_model("tutor_summary", "es", override="weaker-model") == "summary"
         assert resolve_model("translate", "es", override="weaker-model") == "summary"
+        assert resolve_model("translate_checker", "es", override="weaker-model") == "opus"
         assert resolve_model("semantic_check", "es", override="weaker-model") == "summary"
         # Maker-tier tasks (field=tutor_model) DO honor it.
         assert resolve_model("grammar_maker", "es", override="custom") == "custom"
@@ -78,3 +79,13 @@ def test_registry_covers_the_generation_tasks():
     # the Part C/D seam: maker + checker for both content types are named here.
     for t in ("grammar_maker", "grammar_checker", "sentence_maker", "sentence_checker"):
         assert t in TASK_MODELS
+
+
+def test_the_translation_checker_is_one_tier_up_from_its_maker():
+    # The one lane where "never self-certify" did not hold: the sweep, the
+    # demand lane and the inline fill checked Sonnet with Sonnet because
+    # both halves resolved "translate". The checker has its own task now.
+    with patch("backend.services.models.get_settings", return_value=_settings()):
+        assert resolve_model("translate") == "summary"
+        assert resolve_model("translate_checker") == "opus"
+        assert TASK_MODELS["translate"] != TASK_MODELS["translate_checker"]

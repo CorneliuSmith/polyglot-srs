@@ -946,8 +946,11 @@ export default function ContributorPage() {
               {(
                 [
                   // Drafting surface — contributors and admins only. A pure
-                  // trial reviewer has no Contribute tab (nothing to draft).
-                  ['contribute', 'Contribute', (data.can_contribute ?? false) || data.is_admin],
+                  // trial reviewer has no Workshop tab (nothing to draft).
+                  // Labelled "Workshop" (owner: "Contribute should become
+                  // just Workshop"); the key and the ?tab= value stay
+                  // 'contribute' so old links keep working.
+                  ['contribute', 'Workshop', (data.can_contribute ?? false) || data.is_admin],
                   // Contributors have all reviewer permissions on the
                   // change-request board, so they get the Review tab too.
                   ['review', 'Review',

@@ -34,7 +34,7 @@ interface Guide {
 
 const GUIDES: Record<GuideRole, Guide> = {
   contribute: {
-    title: 'How contributing works',
+    title: 'How the Workshop works',
     lede:
       'You draft; a reviewer publishes. Nothing you write reaches a learner ' +
       'until a reviewer approves it, so you can never accidentally push a ' +

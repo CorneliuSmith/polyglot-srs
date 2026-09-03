@@ -31,7 +31,7 @@ export type QueueAudience = 'all' | 'publish' | 'admin'
 
 /** The Review-tab panel that acts on a queue, for the tile that scopes the
  * page to it. Only queues acted on IN the Review tab have one: a tile
- * pointing at the Contribute tab or Settings cannot be focused here, and
+ * pointing at the Workshop tab or Settings cannot be focused here, and
  * says so rather than scoping to an empty page. */
 export type PanelId =
   | 'tester-recommendations'
@@ -100,7 +100,7 @@ export const QUEUE_META: QueueMeta[] = [
   { key: 'flagged_drills', label: 'Flagged drills', origin: 'ai',
     audience: 'all', hint: 'Point drills · flagged' },
   { key: 'pending_examples', label: 'Generated examples', origin: 'ai',
-    audience: 'all', hint: 'Word examples · Contribute tab' },
+    audience: 'all', hint: 'Word examples · Workshop tab' },
   { key: 'flagged_examples', label: 'Flagged examples', origin: 'ai',
     audience: 'all', hint: 'Vocab · needs attention' },
   { key: 'translation_suggestions', label: 'Translation fixes', origin: 'ai',
@@ -122,7 +122,7 @@ export const QUEUE_META: QueueMeta[] = [
 
   // ── Human contributions ──────────────────────────────────────────────
   { key: 'grammar_pending', label: 'Grammar points', origin: 'contributions',
-    audience: 'all', hint: 'Contribute tab · pending review' },
+    audience: 'all', hint: 'Workshop tab · pending review' },
   { key: 'suggestions', label: 'Content suggestions', origin: 'contributions',
     audience: 'publish', hint: 'Suggestions panel · Review tab',
     panel: 'suggestions', limit: 100 },

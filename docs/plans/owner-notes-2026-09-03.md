@@ -14,6 +14,8 @@ is labels only (the `/contribute` route stays so old links keep working).
 
 ## 1. Rename "Contribute" to "Workshop" — labels only
 
+**Shipped 3 Sep 2026.**
+
 **Effort: an hour.** Six locales, a handful of hardcoded strings, two tests.
 
 What exists: the workspace header already reads "Workspace · Spanish"
@@ -37,6 +39,8 @@ tests and the two docs lines (`DEBT.md`, `LEARN.md`) that say "Contribute
 tab".
 
 ## 2. Speak corrects a little too much
+
+**Shipped 3 Sep 2026** (prompt rule and summary-model fix; the optional flag is still open).
 
 **Effort: half a day** for the prompt fix; a day with the setting.
 
@@ -107,6 +111,8 @@ use), and no analytics vendor.
 
 ## 4. Are the quality agents using the skills, and updating them?
 
+**Steps 1 and 2 shipped 3 Sep 2026** (`services/quality_rules.py`; brief on the drill and example makers). Step 3 is a practice, recorded in `docs/quality/CHECKS.md` → "Prompt ↔ rule parity". Note: the translation lane's target is the support locale, so the course brief does not apply there.
+
 **Effort: a day** to close the two gaps that matter; the third is a
 practice, not code.
 
@@ -166,6 +172,8 @@ Work:
    same habit, one line per rule.
 
 ## 5. Translation: is a specialist-agent taxonomy worthwhile?
+
+**Checker tier (5.1) shipped 3 Sep 2026; the non-vocab review queue (5.2) is open.**
 
 **Effort: a day** for the two real gaps. Recommendation: **no new agent
 layer; fix the tier gap and give every kind a review queue.**

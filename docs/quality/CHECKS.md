@@ -1041,3 +1041,21 @@ sentence onto a word that may already hold fragments.
 defect. Ask what the writing system treats as optional — Arabic short vowels,
 Russian ё, Hebrew niqqud are all omissible — and judge only what remains.
 89% of this sweep was the writing system doing what it normally does.
+
+## Prompt ↔ rule parity
+
+Which runtime prompt encodes which rule, so drift is reviewable. The rules
+in this file govern the *sessions* that clean data; a generator gets a rule
+only when it is short enough to be a mechanical statement, and then it
+lives in `backend/services/quality_rules.py`, never as an inline string.
+
+| Rule | Where the generator gets it |
+|---|---|
+| Set variety (no paradigm-row sets) | `quality_rules.DIVERSITY_RULES` → drill and example makers |
+| CEFR complexity bar | `quality_rules.level_bar` → `maker_complexity_rule` (makers) and `auditor_level_rule` (auditors) — one sentence, quoted by both |
+| Per-language register / dialect / common errors | `quality_rules.language_brief` (`tutor_skills/<code>/SKILL.md`) → drill and example makers; `semantic_check.py` and the seeders load the same file |
+| Answer leaks, blank integrity, identity renderings, locale punctuation | mechanical, `translate_checks.py` and `generate.py`'s `check_drill` / `check_example` |
+| Checker one tier up | `models.py TASK_MODELS` (`*_checker`, `translate_checker`) |
+
+The translation lane's target is the learner's *support locale*, not the
+course, so the course brief does not apply there.

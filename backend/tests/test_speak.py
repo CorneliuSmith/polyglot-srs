@@ -98,6 +98,23 @@ class TestSystemPrompt:
         prompt = _system_prompt("Spanish", "B1", None, "Russian")
         assert "Write the notes in Russian" in prompt
 
+    def test_the_reply_never_recasts_what_the_learner_said(self):
+        # Owner: "the model aims to correct people a little bit". The errors
+        # list was told to hold back; the reply never was, and a partner
+        # that echoes the fixed form is correcting whatever the list does.
+        prompt = _system_prompt("Spanish", "A2", None, None)
+        assert "Never correct, recast or repeat back" in prompt
+        assert "Respond to the MEANING" in prompt
+        assert "Do not comment on their Spanish" in prompt
+
+    def test_coach_mode_points_the_correcting_at_the_list(self):
+        flow = _system_prompt("Spanish", "A2", None, None, mode="flow")
+        coach = _system_prompt("Spanish", "A2", None, None, mode="coach")
+        assert "ONE correction beside their line" not in flow
+        assert "ONE correction beside their line" in coach
+        # The no-recast rule holds in both modes.
+        assert "Never correct, recast or repeat back" in coach
+
     def test_notes_default_to_english_with_no_support_language(self):
         assert "Write the notes in English" in _system_prompt(
             "Spanish", "B1", None, None

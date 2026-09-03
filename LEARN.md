@@ -201,6 +201,24 @@ measurably better on them), with an admin-settable per-language override.
 If you're ever tempted to hardcode a model string in a new feature, this
 function is why you shouldn't.
 
+The rules the generation prompts share live in `services/quality_rules.py`:
+the set-variety charter, the CEFR bar (`level_bar`) that the makers write
+to and the auditors judge by — one sentence, quoted by both, so the two
+cannot drift — and `language_brief`, the per-language tutor brief
+(`tutor_skills/<code>/SKILL.md`) appended to the drill and example makers
+the way the semantic reviewer and the seeders already had it. The 42-rule
+digest in `.claude/skills/quality-rules/` is deliberately NOT read at
+runtime: it governs the sessions that clean data; rules move from it into
+`quality_rules.py` one at a time, as short mechanical statements.
+
+The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
+on the configured chat model, its `*_checker` verifies one tier up
+(`tutor_model_low_resource`), and `resolve_model` refuses per-language
+overrides on checker fields so no admin dial can lower the floor. The
+locale-translation lane has its own `translate_checker` task for the same
+reason — until 3 Sep 2026 it shared `translate` with the maker and checked
+Sonnet with Sonnet.
+
 ### SRS: FSRS, not SM-2
 
 The scheduler is **FSRS** (Free Spaced Repetition Scheduler) —

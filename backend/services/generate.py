@@ -32,6 +32,12 @@ from backend.services.apertium import analyze_lemmas, apertium_available
 from backend.services.drills import validate_drill
 from backend.services.models import resolve_model
 from backend.services.nlp import get_nlp
+from backend.services.quality_rules import (
+    DIVERSITY_RULES,
+    auditor_level_rule,
+    language_brief,
+    maker_complexity_rule,
+)
 
 _DRILL_SCHEMA = {
     "type": "object",
@@ -102,35 +108,11 @@ def _add_usage(usage_out: dict | None, resp) -> None:
             usage_out[key] = (usage_out.get(key) or 0) + n
 
 
-# Set-level variety charter, shared by the drill and example makers. The
-# owner's screenshot made the failure concrete: six subject-pronoun drills,
-# every one "pronoun + ser + noun" — technically correct, reads like a
-# paradigm row, teaches one frame. Per-sentence checks can't catch this
-# (each sentence alone is fine); the maker has to be told the SET must vary.
-_DIVERSITY_RULES = (
-    " Across the set, maximize variety: use a DIFFERENT main verb in each "
-    "sentence (unless the point itself drills one specific verb), different "
-    "topics (work, travel, food, family, plans, opinions, past events — not "
-    "six variations of one situation), and different shapes — mix plain "
-    "statements with at least one question and one negation, and vary how "
-    "sentences open. Never produce a set where every sentence follows the "
-    "same frame."
-)
-
-
-def _complexity_rule(level: str | None) -> str:
-    """Sentence complexity scaled to CEFR level: A-level stays short and
-    concrete, B1+ must read like real speech, not a textbook pattern row."""
-    lvl = (level or "").strip().upper()
-    if lvl in ("A1", "A2"):
-        return (" Keep sentences short and concrete for this level, but still"
-                " varied — simple does not mean identical.")
-    if lvl:
-        return (f" Pitch complexity at CEFR {lvl}: use connectors, "
-                "subordinate clauses and natural time/place detail where the "
-                "level supports them — as rich as the level allows, never "
-                "simpler.")
-    return ""
+# The set-level variety charter and the CEFR complexity bar live in
+# services/quality_rules.py, shared with the auditors so the bar a sentence
+# is written to is the bar it is judged by. Aliases keep the call sites.
+_DIVERSITY_RULES = DIVERSITY_RULES
+_complexity_rule = maker_complexity_rule
 
 
 def _mock_drills(point: dict, n: int) -> list[dict]:
@@ -157,6 +139,7 @@ def _mock_drills(point: dict, n: int) -> list[dict]:
 
 async def make_drills(
     point: dict, n: int, language: str, model: str | None = None,
+    language_code: str | None = None,
     cell: str | None = None, usage_out: dict | None = None,
 ) -> list[dict]:
     """Draft N candidate drills for a grammar point.
@@ -192,6 +175,7 @@ async def make_drills(
             f"{language}; give a natural English translation. "
             f"Do not repeat the example sentences."
             + _DIVERSITY_RULES + _complexity_rule(point.get("level"))
+            + language_brief(language_code)
         ),
         messages=[{
             "role": "user",
@@ -265,7 +249,7 @@ async def generate_drills(
     when given, accumulates the maker call's token usage (the checker is
     offline) so the caller can log real cost."""
     made = await make_drills(point, n, language, maker_model, cell=cell,
-                             usage_out=usage_out)
+                             usage_out=usage_out, language_code=language_code)
     checked = await check_drills(language_code, made)
     return [c for c in checked if c["accepted"]]
 
@@ -383,6 +367,7 @@ async def make_examples(
             f"line; vary the context; {_translation_rule(language_code)}. Do not "
             f"repeat the existing examples."
             + _DIVERSITY_RULES + _complexity_rule(word.get("level"))
+            + language_brief(language_code)
         ),
         messages=[{
             "role": "user",
@@ -617,11 +602,7 @@ async def audit_examples(
         if _is_english(language_code)
         else "a natural English translation"
     )
-    level_rule = (
-        f" The word's level is CEFR {level}; judge 'too simple' relative to it "
-        f"(a bare label like \"It is 7:45.\" or a stilted line like \"It is I.\" "
-        f"teaches little even to a beginner)." if (level or "").strip() else ""
-    )
+    level_rule = auditor_level_rule(level)
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     resp = await client.messages.create(
         model=model or resolve_model("sentence_checker", language),
@@ -753,10 +734,7 @@ async def audit_drills(
         f"    translation: {d.get('translation') or '(none)'}"
         for i, d in enumerate(drills)
     )
-    level_rule = (
-        f" The point's level is CEFR {level}; judge 'too simple' relative to it."
-        if (level or "").strip() else ""
-    )
+    level_rule = auditor_level_rule(level)
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     resp = await client.messages.create(
         model=model or resolve_model("sentence_checker", language),

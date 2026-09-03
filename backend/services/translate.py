@@ -209,7 +209,10 @@ async def check_glosses(target_language: str, items: list[dict],
         for it in items
     )
     resp = await _client().messages.create(
-        model=model or resolve_model("translate"),
+        # One tier up from the maker (models.py: never self-certify). Every
+        # caller that reuses this checker — the sentence and UI-text lanes
+        # pass their own `system` — inherits the floor.
+        model=model or resolve_model("translate_checker"),
         max_tokens=4096,
         system=system or checker_system(target_language, source_language),
         messages=[{"role": "user", "content": lines}],

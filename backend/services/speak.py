@@ -232,6 +232,7 @@ def _system_prompt(
     topic: str | None,
     support_language: str | None,
     opened_with: str | None = None,
+    mode: str = "flow",
 ) -> str:
     """The partner's brief.
 
@@ -240,6 +241,15 @@ def _system_prompt(
     listening test they fail — so the ceiling is stated as a rule about
     sentence length and tense range, not as a CEFR label the model is left
     to interpret.
+
+    The no-recast line is the other one that has to be said. The errors
+    list and the reply are two channels, and only the list was ever told
+    to hold back: a partner that answers "Ah, *fuiste* al mercado…" is
+    correcting, whatever the list says, and that teacherly echo is what the
+    owner reported as "the model aims to correct people a little bit".
+    *mode* is the session's correction mode: in coach mode the app shows
+    the first listed error beside the learner's line, so the reply still
+    answers the meaning and leaves the correcting to the list.
     """
     explain_in = support_language or "English"
     topic_line = (
@@ -277,6 +287,17 @@ def _system_prompt(
         "attempt.\n"
         "- React to what they actually said. Never say 'good job' — you are "
         "a person having a conversation, not a teacher marking them.\n"
+        "- Never correct, recast or repeat back a fixed version of what they "
+        "said. Respond to the MEANING. If you understood them, treat them as "
+        "understood; the mistake goes in the notes list, never in your "
+        "reply. Do not comment on their " + language_name + " — not its "
+        "quality, not their level, not their progress.\n"
+        + (
+            "- The app shows them ONE correction beside their line, taken "
+            "from your notes list — so the list is where correcting "
+            "happens, and your reply stays a reply.\n"
+            if mode == "coach" else ""
+        ) +
         "- If you cannot understand them, say so naturally and ask again in "
         "simpler words. Do not guess wildly.\n\n"
         "What you record:\n"
@@ -318,6 +339,7 @@ async def speak_turn(
     support_language: str | None = None,
     model: str | None = None,
     opened_with: str | None = None,
+    mode: str = "flow",
 ) -> tuple[dict, dict[str, int]]:
     """One conversational turn.
 
@@ -344,8 +366,7 @@ async def speak_turn(
         model=model,
         max_tokens=1024,
         system=_system_prompt(
-            language_name, level, topic, support_language, opened_with
-        ),
+            language_name, level, topic, support_language, opened_with, mode=mode),
         messages=messages,
         tools=[_TURN_TOOL],
         tool_choice={"type": "tool", "name": "emit_turn"},

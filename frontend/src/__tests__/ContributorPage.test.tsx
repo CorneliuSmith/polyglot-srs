@@ -151,7 +151,7 @@ const basePoint = {
   ai_check_status: null, ai_check_notes: null, reviewed_by: null, reviewed_at: null,
 }
 
-async function openTab(name: 'Contribute' | 'Review' | 'Admin') {
+async function openTab(name: 'Workshop' | 'Review' | 'Admin') {
   fireEvent.click(await screen.findByRole('tab', { name }))
 }
 
@@ -302,8 +302,8 @@ describe('ContributorPage', () => {
 
     // Not forbidden — the point loads for a trial reviewer.
     expect(await screen.findByText('Locative case')).toBeDefined()
-    // No Contribute tab (nothing to draft); the Review tab is present.
-    expect(screen.queryByRole('tab', { name: 'Contribute' })).toBeNull()
+    // No Workshop tab (nothing to draft); the Review tab is present.
+    expect(screen.queryByRole('tab', { name: 'Workshop' })).toBeNull()
     expect(screen.getByRole('tab', { name: 'Review' })).toBeDefined()
 
     // They can file an advisory review note.

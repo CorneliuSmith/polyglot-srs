@@ -7,7 +7,7 @@ describe('RoleGuide', () => {
 
   it('is open the first time a volunteer lands on the tab', () => {
     render(<RoleGuide role="contribute" />)
-    expect(screen.getByText(/How contributing works/)).toBeDefined()
+    expect(screen.getByText(/How the Workshop works/)).toBeDefined()
     // The lede is visible, not hidden behind a click.
     expect(screen.getByText(/until a reviewer approves it/)).toBeDefined()
   })
