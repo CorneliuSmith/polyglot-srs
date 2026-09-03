@@ -27,6 +27,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Prepositions (σε, από, με, για…) — Say where, from, with, and for
 - Possessives (το βιβλίο μου…) — Say whose something is
 - 'want / can / must' + να — Say what you want, can, or must do
+- Demonstratives (αυτός ο…, εκείνος) — Point at things — this and that
 
 ## B1
 - The subjunctive with να — aspect — Choose one-off vs repeated with να

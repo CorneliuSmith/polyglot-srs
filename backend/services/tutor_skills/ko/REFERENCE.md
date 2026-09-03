@@ -15,6 +15,36 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - 있어요/없어요: existing and having (시간이 있어요) — One pair covers 'there is / I have' and 'there isn't / I don't have'
 - Counters: 개, 명, 마리 with native numbers (사과 두 개) — Count things as NOUN + number + counter, with the native numbers
 - Linking nouns: 하고 (and/with) and 도 (also) — 하고 joins nouns or means 'together with'; 도 replaces 은/는/이/가 to say 'too'
+- Topic particle ~는/은 — Mark the subject (main person/thing) of a sentence.
+- Object particle ~를/을 — Mark the object that the verb acts on.
+- Particle ~에 (place or time) — Show at/to what time or place something happens.
+- 이다: to be — Say that one noun is another noun (am/is/are/was/were).
+- Demonstratives 이, 그, 저 — Say 'this ~' or 'that ~' before a noun.
+- 이것, 그것, 저것 (pronouns) — Say 'this (one)' / 'that (one)' as a noun on its own.
+- 있다 with ~이/가: to have, to be at a location — Say that you have something, or that something is at a place.
+- 나 vs 저: two words for 'I' — Choose the informal or formal word for 'I/me'.
+- Present Tense Conjugation of 이다 / 아니다 — Say 'X is Y' or 'X is not Y' at three politeness levels.
+- Past Tense Conjugation of 이다 / 아니다 — Say 'X was Y' or 'X was not Y'.
+- Sino-Korean Numbers — Count and read numbers built from the Chinese-derived set.
+- Pure Korean Numbers and Counters — Count things, people and actions with pure Korean numbers plus a counter.
+- Counters with numbers (개, 명, 대, 잔) — Count nouns in a sentence using a number plus a counter.
+- 번 – counter for times (how many times) — Say how many times an action is done.
+- Telling time: 시 and 분 — Tell the time on a clock and say when something happens.
+- Age with 살 — State and ask someone's age.
+- 동안 – 'for' a period of time — Say how long an action lasts.
+- Month names (1월 – 12월) — Name the months of the calendar.
+- Turning adjectives into verbs with ~아/어하다 (좋아하다, 싫어하다) — Change an adjective describing a feeling into a verb that can take an object.
+- Asking yes/no questions with intonation — Turn any statement into a question without changing its structure.
+- Why (왜) — Ask 'why' by inserting the adverb 왜 into a statement.
+- When (언제) — Ask 'when' something happens or 'when' something is.
+- Where (어디) — Ask 'where' an action happens or where something/someone is.
+- Who (누구 / 누가) — Ask 'who' by putting the pronoun in the slot the unknown person would fill.
+- How (어떻게) — Ask in what manner an action is/was/will be done.
+- What (뭐 / 무엇) — Ask 'what' with a pronoun standing in for the unknown thing.
+- What (무슨) before a noun — Ask 'what + noun' when you have no idea what the answer might be.
+- 얼마: asking how much something costs — Ask the price or amount of something.
+- ~에 vs ~에서 with places — Choose the right place particle depending on the verb.
+
 ## A2
 - Future with (으)ㄹ 거예요 (갈 거예요) — Plans and predictions: stem + ㄹ/을 거예요
 - Wanting: 고 싶어요 (가고 싶어요) — stem + 고 싶어요 = want to; third person uses 고 싶어해요
@@ -26,6 +56,65 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - But and and: 지만, 고 (춥지만, 먹고) — 지만 = but; 고 = and (between clauses); both attach straight to the stem
 - Going somewhere to do: (으)러 가요 (먹으러 가요) — stem + (으)러 + a motion verb = go/come in order to
 - Comparing: 보다 and 제일/가장 (더 커요) — X보다 (더) = more than X; 제일/가장 = the most
+- Future Tense with ~ㄹ/을 것이다 — Express 'will do / will be' — the most common Korean future conjugation.
+- Irregular Stems + ~ㄹ/을 — Attach the future/modifier ending ~ㄹ/을 correctly to irregular verbs and adjectives.
+- Future with 되다 (to become) vs 이다 — Say that something 'will become' something, and negate it.
+- Saying zero: 영 and 공 — Choose the right word for the number zero.
+- 번째: ordinal numbers — Say first, second, third, fourth… before a noun.
+- Shortened ordinals: 첫째, 둘째, 셋째, 넷째 — Use the short ordinal forms for one's children and for listing points.
+- 마지막 (final) vs 지난 (previous) — Distinguish the two Korean equivalents of English 'last'.
+- 처음 – at first / for the first time — Talk about the beginning of something or about doing something for the first time.
+- Counting hours: 시간 vs 시 — Distinguish the hour on the clock from an amount of hours.
+- Counting seconds: 초 — Count seconds of time.
+- 지난/다음 + time words (last time / next time) — Refer to the previous or the following week, month, class or occasion.
+- Korean days: 일, 날, 하루 — Count days, name a date, and refer to a specific day.
+- Korean weeks: 주 and 주일 — Count weeks and talk about last/next week.
+- Korean months: 달 vs 개월 — Count months of duration with the right number system.
+- Pure Korean vs Sino-Korean numbers with time counters — Decide which number system a time word takes.
+- Passive verbs with ~아/어 있다 (describing a state) — Say that something is currently in a resulting state (on, off, open, closed, locked) rather than that an event happened.
+- Passive/active pairs with 나다 and 내다 — Pair up verbs where 나다 gives the passive meaning and 내다 the active meaning.
+- Subject – Object – Adjective form: ~이/가 with adjectives and passive verbs — Express 'I like / miss / remember X' when the predicate is an adjective or a passive verb.
+- Korean compound verbs (verb stem + ~아/어 + verb) — Build and recognise two-verb compounds like 들어가다, 나오다, 가져오다, 돌려주다.
+- 가져오다 vs 가져가다 (bring vs take) — Choose the right 'bring/take' verb according to the point of reference.
+- Comparing with 다르다/비슷하다/같다 and the particle ~와/과/랑/이랑/하고 — Say that something is different from, similar to, or the same as something else.
+- Describing nouns with adjective phrases (다른/같은/비슷한) — Put an adjective — or a whole comparison phrase — in front of a noun to describe it.
+- 걸리다: one word, many meanings — Recognize and use the four common meanings of 걸리다.
+- Talking about pain and sickness: 아프다 and ~에 걸리다 — Say that a body part hurts, that you were sick, or that you caught a cold/flu.
+- Sequential ~아/어서 — Link two actions where the first is intrinsically connected to the second ('go and then …', 'sit and then …').
+- I want to: ~고 싶다 — Say that you want to do an action.
+- Present Progressive: ~고 있다 — Say that someone is currently in the middle of doing an action ('I am ~ing').
+- 가지고 있다: to have / to possess — Say that you have (own) an object.
+- 알고 있다 and 알았어 / 알겠습니다 — Say that you know something, and say 'okay / got it' in reply.
+- 더: 'more' in Korean sentences — Say that something is more ___ or that an action happens more.
+- 동안: 'for' a time and 'during' a noun — Express a duration ('for ten years') or a period ('during class').
+- Comparatives with ~보다 and 더 — Say that something is/does more than something else.
+- 덜 – Less — Say that something happens/is the case to a lesser degree.
+- Superlatives with 가장/제일 — Say 'the most / the -est' without changing the adjective.
+- 잘하다: to do something well — Say that someone is generally good at something.
+- 못하다: to do something poorly — Say that someone is generally bad at something.
+- Formal questions ~ㅂ/습니까? — Ask a question in the formal high-respect speech level.
+- Korean Questions ~니 — Ask an informal question by ending the sentence with ~니 instead of ~아/어.
+- Solid ㄴ additions and the ㄹ irregular — Know which grammatical endings begin with a fixed ㄴ and therefore make a ㄹ-final stem drop its ㄹ.
+- 어때? – asking for an opinion — Ask 'how is/was …?' or 'what do you think about …?'
+- Which (어떤 / 어느) — Ask 'which + noun', choosing from options or asking about characteristics.
+- 무슨, 어떤 and 어느: asking 'what' and 'which' before nouns — Choose the right determiner when asking 'what ___?' or 'which ___?' about a noun.
+- 몇 + counter: asking 'how many' — Ask how many of something there are, what time it is, or how old someone is.
+- 얼마나: asking 'how (much)' — Ask to what extent something is or happens, or how much of something uncountable.
+- Using question words on their own — React to what someone said with a one-word question asking for more information.
+- ~기 전에 (before doing) — Say 'before [verb]-ing' by attaching ~기 전에 to a verb stem.
+- ~ㄴ/은 후에 (after doing) — Say 'after [verb]-ing' by attaching ~ㄴ/은 후에 to a verb stem.
+- Time expression + 후에 (later / from now) — Say how far in the future something will happen: 'in ___ / ___ from now'.
+- ~ㄴ/은 다음에 (after doing) — 다음 for 후 — An alternative to ~ㄴ/은 후에 with exactly the same meaning.
+- 모든 + noun (every / all ___) — Say 'every ___' or 'all ___' before a noun.
+- 다 (all — adverb of completion) — Say that an action was done completely / that all members of a group do something.
+- 모두 (all / everybody, everything) — Say 'all' as an adverb or 'everybody/everything' as a pronoun.
+- Question word + ~나 (everywhere / every time / everyone) — Turn 어디, 언제, 누구 into 'everywhere', 'every time/always', 'everyone'.
+- Question word + ~ㄴ가 (something / somewhere / sometime / somebody) — Turn 뭐, 어디, 언제, 누구 into 'something', 'somewhere', 'sometime', 'somebody'.
+- 아무나 / 아무도 (anybody / nobody) — Say 'anybody' in positive sentences and 'nobody' in negative sentences.
+- 아무 + 거/데/때 + ~나 (anything / anywhere / anytime) — Say 'anything', 'anywhere', 'anytime' by putting 아무 before a general noun.
+- 아무 + ~나 / ~도 (any… / none…) — Say 'any(one/thing/where)' or, with a negative verb, 'nobody/nothing/nowhere'.
+- ~마다 (each / every) — Attach to a noun to say 'each' or 'every' one of it.
+
 ## B1
 - Formal style ㅂ니다/습니다 (감사합니다) — News-and-business polite: ㅂ니다 after vowels, 습니다 after consonants
 - Irregular verbs: ㅂ, ㄷ, 르 (추워요, 들어요, 몰라요) — Three stem families that transform before vowel endings
@@ -35,6 +124,34 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Describing nouns: 는/(으)ㄴ/(으)ㄹ (읽는 책) — Whole clauses become noun modifiers — Korean's relative clauses, always BEFORE the noun
 - Ongoing and resulting: 고 있어요 / 아·어 있어요 (자고 있어요) — 고 있어요 = in the middle of doing; 아/어 있어요 = in the state that resulted
 - When: (으)ㄹ 때 (먹을 때, 어렸을 때) — stem + ㄹ/을 때 = at the time of doing/being
+- ~ㄹ/을 것이다 for Guessing (probably) — Guess about a present situation: 'is probably/most likely …'.
+- 나다 with nouns (기억이 나다, 화가 나다, 땀이 나다…) — Express that a memory, idea, smell, feeling or event 'comes up'.
+- Making normal verbs passive with ~아/어지다 — Turn an ordinary verb (not a 하다/되다/받다 verb, not a 나다/내다 verb) into a passive verb.
+- The many uses of 들다 — Understand 들다 through its two overarching meanings instead of one fixed translation.
+- 또 다르다 = another (vs. 다르다 = other) — Point out one more item of a kind that has already been discussed.
+- Korean suffix: ~적/~적으로/~적이다 — Turn certain Chinese-origin nouns into descriptive words, adverbs and adjectives.
+- Korean suffix: ~스럽다 — Make an adjective meaning 'having the properties of' a noun.
+- 실망하다 vs. 실망스럽다 (with ~에게/한테 and ~에) — Say you are disappointed, or that something is disappointing, with the right particles.
+- Adjectives with ~스럽다 — Turn a noun into an adjective meaning 'having the properties of that noun'.
+- Adverbs with ~스럽게 — Make an adverb ('in a … way') from a ~스럽다 adjective.
+- ~이/가 and ~는/은 Revisited — Choose between the topic and subject particle: general fact vs. newly noticed specific situation.
+- ~는/은 vs ~이/가: general statements and immediate experience — Choose the topic particle or the subject particle according to the nuance you want.
+- ~아/어 있다: being in a state — Express the resulting state of an action (sitting, standing, switched on, alive) rather than the action in progress.
+- Adjective + ~아/어지다: to become (adjective) — Change an adjective from 'to be ___' into 'to get/become ___'.
+- Tenses of ~아/어지다 (example: 추워지다) — Conjugate a 'become + adjective' verb across the tenses.
+- 낫다 – to be better — Say that one thing is better than another, or that an illness has gotten better.
+- 잘: well (adverb) — Say that an action is done well in a particular situation.
+- 못: poorly / couldn't — Say that an action was done poorly or could not be done because something prevented it.
+- ~지 못하다 — A longer form with the same meaning as 못 + verb.
+- 잘못 vs 잘 못 — Distinguish the noun 'mistake' from the adverb phrase 'not well'.
+- Korean Questions ~ㄴ/은가(요) — Ask a softer question about a present state, mostly with adjectives and 이다.
+- Korean Questions ~나(요) — Ask a softer question with verbs, 있다 and 없다.
+- 어떤 to mean 'some / a certain' — Refer to a noun the speaker is aware of but cannot specify.
+- ~는/은 and ~이/가 revisited: nuance and form — Choose between the topic particle and the subject particle according to nuance.
+- 직전에 / 직후에 (right before / right after) — Stress that something happened immediately before or immediately after something else.
+- 안 / 이내 (within a period of time) — Say that something will happen within a certain amount of time.
+- 어느 + noun (some / an ambiguous ___) — Refer to a vague, unspecified time or place, as in storytelling.
+
 ## B2
 - Intention and guessing with 겠 (하겠습니다, 맛있겠다) — First person: I will (resolve); elsewhere: must be / looks like
 - Reported speech: 다고/라고 해요 (온다고 해요) — Fold what someone said into your sentence with 다고 (verbs) / 라고 (nouns)
@@ -42,9 +159,13 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Background and contrast: (으)ㄴ/는데 (바쁜데, 가는데) — Sets the scene, contrasts, or softens — Korean's favourite clause glue
 - Seems like: 것 같아요 (비가 올 것 같아요) — Hedge anything: modifier form + 것 같아요 = it seems / I think
 - Because, formally: 기 때문에 (일 때문에) — Noun/stem + 때문에 pins the cause; heavier than 아서 or 으니까
+- 뭐 / 어디 / 누구 as 'something / somewhere / somebody' — Use bare question words to refer to an unspecified thing, place or person.
+
 ## C1
 - Honorific machinery: 께서, 드리다, 뵙다 (선생님께서 말씀하셨어요) — Raising the subject (께서 + 시) and lowering yourself (humble verbs)
 - Plain written style: 한다/는다 (신문체) — The narration register of books, news, and diaries — no 요, no audience
+- ~ㄴ/은 이래로 (since) — Express 'since (doing something)' in a formal, literary way.
+
 ## C2
 - Quote contractions: 대요, 래요, 냬요, 재요 (온대요) — Squeezed reported speech: statements 대요, commands 래요, questions 냬요, suggestions 재요
 - Formal written connectives: (으)며, (으)나, 므로 (있으며, 크나) — The connectives of reports and essays: 며 = and, 나 = but, 므로 = therefore

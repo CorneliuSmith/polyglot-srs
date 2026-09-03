@@ -15,8 +15,11 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - There is / there are — Say what exists or is available
 - Question words (what, where, when…) — Ask about things, places, people, and time
 - Possessives (my, your, 's) — Say whose something is
+- Object pronouns (me, him, them) — Say who receives the action
+- Imperatives (Open…, Don't…) — Tell or ask someone to do something
 
 ## A2
+- Past simple — regular verbs (-ed) — Say what happened, with -ed verbs
 - Past simple — irregular verbs — Say what happened, with the verbs that break the rules
 - Present continuous vs present simple — Right now vs in general
 - Comparatives and superlatives — Compare two things — or crown the winner

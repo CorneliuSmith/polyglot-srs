@@ -31,6 +31,7 @@ from backend.repositories.profile import effective_support_locale
 from backend.repositories.speak import (
     SpeakUnavailableError,
     append_turn,
+    corrections_column_present,
     end_session,
     get_session,
     list_recent_sessions,
@@ -77,6 +78,9 @@ class StartRequest(BaseModel):
     language_code: str = Field(min_length=2, max_length=8)
     mode: str = Field(default="flow", pattern=_MODES)
     topic: str | None = Field(default=None, max_length=MAX_TOPIC_CHARS)
+    # False = "no corrections — I just want to talk": nothing recorded per
+    # turn, nothing to go over at the end. Orthogonal to mode.
+    corrections: bool = True
 
 
 class TurnRequest(BaseModel):
@@ -378,13 +382,21 @@ async def start(
     try:
         async with rls_connection(user["id"]) as conn:
             session_id = await start_session(
-                conn, user["id"], body.language_id, body.mode, topic
+                conn, user["id"], body.language_id, body.mode, topic,
+                corrections=body.corrections,
+            )
+            # What the session IS, not what was asked: a database without
+            # the column (migration 20261015) records corrections whatever
+            # the box said, and the client shows that rather than a promise.
+            corrections = (
+                body.corrections or not await corrections_column_present(conn)
             )
     except SpeakUnavailableError as exc:
         raise _UNAVAILABLE from exc
 
     if topic:
         return {"session_id": session_id, "mode": body.mode,
+                "corrections": corrections,
                 "topic": topic, "opening": None,
                 "opening_translation": None}
 
@@ -425,6 +437,7 @@ async def start(
         opening_translation = None
 
     return {"session_id": session_id, "mode": body.mode,
+            "corrections": corrections,
             "topic": topic, "opening": opening,
             "opening_translation": opening_translation or None}
 
@@ -497,6 +510,7 @@ async def turn(
             model=model,
             opened_with=opener,
             mode=session["mode"],
+            corrections=session.get("corrections", True),
         )
     except ValueError as exc:
         logger.error("Speak turn came back malformed: %s", exc)
@@ -516,17 +530,21 @@ async def turn(
             detail="Speak is temporarily unavailable",
         ) from exc
 
+    # "No corrections": whatever the model noted is dropped here, so a
+    # session that promised none can never show one — not now, not in the
+    # summary, not in an old session read back.
+    corrections = session.get("corrections", True)
+    errors = result["errors"] if corrections else []
     async with rls_connection(user["id"]) as conn:
         await log_tutor_usage(
             conn, user["id"], language_id, model, usage=usage, kind="speak",
         )
         await append_turn(
             conn, body.session_id, len(history), text,
-            result["reply"], result["errors"], audio_ms=body.audio_ms,
+            result["reply"], errors, audio_ms=body.audio_ms,
             partner_translation=result.get("reply_translation") or None,
         )
 
-    errors = result["errors"]
     used_after = None if allowance["unlimited"] else (allowance["used"] or 0) + 1
     return {
         "reply": result["reply"],
@@ -537,7 +555,7 @@ async def turn(
         # Present (possibly null) only in coach mode. Flow sends no key at
         # all, so a client cannot render what it was never given.
         **({"correction": errors[0] if errors else None}
-           if session["mode"] == "coach" else {}),
+           if session["mode"] == "coach" and corrections else {}),
         "allowance": {
             **allowance,
             "used": used_after,
@@ -578,7 +596,10 @@ async def end(
     except SpeakUnavailableError as exc:
         raise _UNAVAILABLE from exc
 
-    errors = [e for t in turns for e in (t["errors"] or [])]
+    corrections = session.get("corrections", True)
+    errors = (
+        [e for t in turns for e in (t["errors"] or [])] if corrections else []
+    )
     # The breakdown is a fixed-rubric job, like the tutor's own summarizer:
     # the summary tier, not the chat model this used to be pinned to.
     model = resolve_model("tutor_summary")
@@ -590,6 +611,10 @@ async def end(
         support_language=support_language,
         model=model,
     )
+    if not corrections:
+        # Stored with the summary, so an old session read back says why it
+        # has no breakdown rather than looking like a flawless one.
+        summary = {**summary, "corrections_off": True}
 
     async with rls_connection(user["id"]) as conn:
         if usage:

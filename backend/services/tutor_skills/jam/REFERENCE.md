@@ -13,6 +13,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Negation: no and duon — Say what isn't and what doesn't happen
 - Questions: intonation, we, uu, wa — Ask without flipping any words
 - Articles: di, wan, and none — The, a, and when to use nothing
+
 ## A2
 - Past with did: Mi did si im — Mark the past when context isn't enough
 - Future: wi and a go: Mi ago kom — Say what will and is going to happen
@@ -22,6 +23,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Fi + verb: Mi waan fi go — To-infinitives and what you're supposed to do
 - Neva: past negation — Say what didn't happen
 - Modals: kyan, hafi, mos, shuda — Can, must, have to, should
+
 ## B1
 - Serial verbs: ron go bring it kom — Chain verbs the West African way
 - Predicate cleft: A tiif im tiif it — Emphasize the action by doubling it
@@ -29,14 +31,17 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reduplication: likl-likl, was-was — Double a word to change its meaning
 - Continuous past: Im did a ron — Was doing — stack the markers
 - Prepositions: ina, pan, outa — In, on, and out with Patois's own flavour
+
 ## B2
 - Conditionals: ef … wuda — Ifs, woulds, and would-haves
 - Focus fronting: A we yu a go? — Point the spotlight with a
 - Question tags: no chuu? iihn? no? — Pull the listener in
 - Existentials and weather: it av, wan … de — There is, there are, and what the sky is doing
+
 ## C1
 - The continuum: Patwa to Jamaican English — Slide the register like a local
 - Proverbs: Wanti wanti kyaan getti — Carry an argument in one inherited sentence
+
 ## C2
 - Iyaric: I-an-I and Rasta wordcraft — Understand Rastafari's deliberate remaking of the language
 - Written Patwa: Cassidy spelling and dialect literature — Read Miss Lou, dub poetry, and the JLU Bible

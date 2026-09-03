@@ -50,6 +50,9 @@ export interface SpeakSummary {
   groups: SpeakGroup[]
   vocabulary: SpeakVocabulary[]
   stats: SpeakStats
+  /** The learner asked for no corrections, so an empty breakdown is the
+   * promise kept, not a flawless session. Absent on older summaries. */
+  corrections_off?: boolean
 }
 
 export interface SpeakSessionRow {
@@ -94,9 +97,13 @@ export async function startSpeakSession(
   languageCode: string,
   topic?: string,
   mode: SpeakMode = 'flow',
+  corrections = true,
 ): Promise<{
   session_id: string
   mode: SpeakMode
+  /** What the session IS: false only when the server could honour "no
+   * corrections" (the column exists). Absent from an older server. */
+  corrections?: boolean
   topic: string | null
   /** The partner's first line when the learner left the topic blank and
    * asked it to start. Null when they named a topic, or when the opener
@@ -111,6 +118,7 @@ export async function startSpeakSession(
     language_code: languageCode,
     mode,
     topic: topic || null,
+    corrections,
   })
   return response.data
 }

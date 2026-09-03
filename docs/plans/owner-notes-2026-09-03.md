@@ -40,7 +40,7 @@ tab".
 
 ## 2. Speak corrects a little too much
 
-**Shipped 3 Sep 2026** (prompt rule and summary-model fix; the optional flag is still open).
+**Shipped 3 Sep 2026** — the prompt rule, the summary-model fix, and the optional flag: a per-session `corrections` column (migration `20261015`, owner-applied; probed, so an unmigrated deploy reports "corrections on" in the start response), the "No corrections — I just want to talk" box under the mode cards in six locales, a prompt that keeps no notes, a turn that stores none, and an end that skips the breakdown and says why.
 
 **Effort: half a day** for the prompt fix; a day with the setting.
 
@@ -247,7 +247,7 @@ be the same team in every lane.
 
 ## 6. Tutor: are personas updated with language insights, and what phases out?
 
-**Memory bounds and "forget everything" shipped 3 Sep 2026** (steps 1–3 of the memory work). Open: the persona fold-in script and REFERENCE generator, and the retention sweep (step 4).
+**All shipped 3 Sep 2026:** memory bounds and "forget everything" (memory steps 1–3), the retention sweep (step 4, `services/retention.py`), the REFERENCE generator (`services/tutor_reference.py` — 22 of 27 files had drifted; all regenerated), and the skill digest (`scripts/tutor_skill_digest.py` + the "have they been updated" test). What remains is the owner's: run the digest per language and fold the results in (`DEBT.md`).
 
 **Effort: two days** — one for bounding memory, one for the fold-in tooling.
 

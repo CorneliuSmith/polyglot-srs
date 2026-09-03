@@ -27,6 +27,8 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Prepositions (în, la, cu, pe, pentru) — Say where, with, for — and mark a personal object
 - Possessives (meu, mea, tău…) — Say whose something is
 - Reflexive verbs (a se spăla) — Say the subject acts on itself
+- Demonstratives (acest, această, acel) — Point at things — this and that
+- Key irregular presents (vreau, pot, știu) — Use the everyday irregular verbs
 
 ## B1
 - The subjunctive (conjunctivul cu să) — Say what you want, must, or can do

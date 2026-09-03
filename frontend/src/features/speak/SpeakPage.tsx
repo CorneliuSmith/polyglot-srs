@@ -105,6 +105,9 @@ export default function SpeakPage() {
 
   const [topic, setTopic] = useState('')
   const [mode, setMode] = useState<SpeakMode>('flow')
+  // "No corrections — I just want to talk": nothing noted per turn,
+  // nothing to go over at the end. Orthogonal to the mode.
+  const [corrections, setCorrections] = useState(true)
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [exchanges, setExchanges] = useState<Exchange[]>([])
   const [draft, setDraft] = useState('')
@@ -178,7 +181,9 @@ export default function SpeakPage() {
 
   const start = useMutation({
     mutationFn: () =>
-      startSpeakSession(activeLanguageId!, language!.code, topic.trim(), mode),
+      startSpeakSession(
+        activeLanguageId!, language!.code, topic.trim(), mode, corrections,
+      ),
     onSuccess: (data) => {
       setSessionId(data.session_id)
       // "Leave it blank and your partner will start" — so when it did, the
@@ -506,6 +511,28 @@ export default function SpeakPage() {
             ))}
           </div>
         </fieldset>
+
+        <label
+          data-testid="speak-no-corrections"
+          className={`mt-3 flex items-start gap-3 rounded-xl border p-3 cursor-pointer ${
+            corrections ? 'border-gray-200 bg-white' : 'border-lang bg-lang-soft/40'
+          }`}
+        >
+          <input
+            type="checkbox"
+            checked={!corrections}
+            onChange={(e) => setCorrections(!e.target.checked)}
+            className="mt-0.5 accent-[color:var(--lang)]"
+          />
+          <span>
+            <span className="block text-sm font-bold text-gray-900">
+              {t('speak.noCorrections')}
+            </span>
+            <span className="block text-xs text-gray-500">
+              {t('speak.noCorrectionsSub')}
+            </span>
+          </span>
+        </label>
 
         <label
           htmlFor="speak-topic"
@@ -1044,7 +1071,7 @@ function SummaryView({
 
       {summary.groups.length === 0 ? (
         <p className="mt-4 rounded-xl border border-gray-200 bg-white p-4 text-sm text-gray-700">
-          {t('speak.nothingCameUp')}
+          {t(summary.corrections_off ? 'speak.noCorrectionsSummary' : 'speak.nothingCameUp')}
         </p>
       ) : (
         <>

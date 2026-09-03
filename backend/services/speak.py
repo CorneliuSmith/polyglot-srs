@@ -233,6 +233,7 @@ def _system_prompt(
     support_language: str | None,
     opened_with: str | None = None,
     mode: str = "flow",
+    corrections: bool = True,
 ) -> str:
     """The partner's brief.
 
@@ -250,6 +251,9 @@ def _system_prompt(
     *mode* is the session's correction mode: in coach mode the app shows
     the first listed error beside the learner's line, so the reply still
     answers the meaning and leaves the correcting to the list.
+    *corrections* False is "I just want to talk": the notes block is
+    replaced by an instruction to keep none, so nothing is recorded and
+    nothing waits at the end.
     """
     explain_in = support_language or "English"
     topic_line = (
@@ -300,14 +304,22 @@ def _system_prompt(
         ) +
         "- If you cannot understand them, say so naturally and ask again in "
         "simpler words. Do not guess wildly.\n\n"
-        "What you record:\n"
-        "- Alongside your reply, list what they got wrong. The learner does "
-        "NOT see this now; it is collected for the end of the session.\n"
-        "- Only real mistakes. Informal, clipped, or regional-but-correct "
-        "speech is not an error. An empty list is a good answer.\n"
-        f"- Write the notes in {explain_in}.\n"
-        "- Judge only what they wrote. Never flag spelling of a word they "
-        "typed on a keyboard they may not have."
+        + (
+            "What you record:\n"
+            "- Nothing. The learner asked for a conversation with no "
+            "corrections at all. Return an empty notes list every turn and "
+            "never mention a mistake, however clear."
+            if not corrections else
+            "What you record:\n"
+            "- Alongside your reply, list what they got wrong. The learner "
+            "does NOT see this now; it is collected for the end of the "
+            "session.\n"
+            "- Only real mistakes. Informal, clipped, or regional-but-correct "
+            "speech is not an error. An empty list is a good answer.\n"
+            f"- Write the notes in {explain_in}.\n"
+            "- Judge only what they wrote. Never flag spelling of a word they "
+            "typed on a keyboard they may not have."
+        )
     )
 
 
@@ -340,6 +352,7 @@ async def speak_turn(
     model: str | None = None,
     opened_with: str | None = None,
     mode: str = "flow",
+    corrections: bool = True,
 ) -> tuple[dict, dict[str, int]]:
     """One conversational turn.
 
@@ -366,7 +379,8 @@ async def speak_turn(
         model=model,
         max_tokens=1024,
         system=_system_prompt(
-            language_name, level, topic, support_language, opened_with, mode=mode),
+            language_name, level, topic, support_language, opened_with,
+            mode=mode, corrections=corrections),
         messages=messages,
         tools=[_TURN_TOOL],
         tool_choice={"type": "tool", "name": "emit_turn"},

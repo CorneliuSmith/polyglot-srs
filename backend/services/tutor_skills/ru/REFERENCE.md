@@ -11,6 +11,9 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Possessive pronouns (мой, моя, моё) — Say whose something is
 - Past tense (-л) — Talk about what happened
 - Genitive of absence (у меня нет …) — Say what you have and don't have
+- Adjective agreement (новый, новая, новое) — Describe things — matching the noun's gender
+- Question words (кто, что, где) — Ask about people, things, places, and reasons
+- Conjunctions и, а, но — Join ideas — and contrast them the Russian way
 
 ## A2
 - Dative case (indirect object) — Say to whom or for whom something is done
@@ -25,6 +28,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Reflexive verbs (-ся) — Talk about study, daily routines, and events
 - Animate accusative (вижу брата) — Talk about people as objects of an action
 - Time expressions (в понедельник, утром) — Say when something happens
+- Genitive case (possession: книга брата) — Link two nouns — of / 's
 
 ## B1
 - Comparatives (интереснее, лучше) — Compare people and things

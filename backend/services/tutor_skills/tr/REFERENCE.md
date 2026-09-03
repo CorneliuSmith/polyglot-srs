@@ -13,6 +13,8 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Present continuous (-iyor) — Talk about what is happening now
 - Negative present continuous (-miyor) — Say what is not happening
 - Accusative case (-ı / -i / -u / -ü) — Mark a specific, definite object
+- Question words (ne, kim, nerede) — Ask about things, people, places, and reasons
+- Negation with değil (doktor değilim) — Say what something is NOT
 
 ## A2
 - Past tense (-di) — Say what happened

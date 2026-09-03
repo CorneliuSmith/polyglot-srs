@@ -27,6 +27,8 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Possessives (meu, sua, dele…) — Say whose something is — without ambiguity
 - Demonstratives (este, esse, aquele) — Point at things near me, near you, and far away
 - Right now: estar + -ndo (estou falando) — Say what is happening at this moment
+- Key irregular presents (vou, faço, posso, quero) — Use the everyday irregular verbs
+- Pretérito perfeito — irregulares (fui, fiz, tive) — Tell what happened — the irregular pasts
 
 ## B1
 - Presente do subjuntivo (que eu fale) — Express wish, doubt, and emotion

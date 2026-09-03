@@ -211,6 +211,28 @@ digest in `.claude/skills/quality-rules/` is deliberately NOT read at
 runtime: it governs the sessions that clean data; rules move from it into
 `quality_rules.py` one at a time, as short mechanical statements.
 
+The tutor's per-language knowledge is a skill bundle,
+`tutor_skills/<code>/`: `SKILL.md` rides in every prompt (kept under 2,500
+chars by test), `REFERENCE.md` and `ERRORS.md` load on demand through the
+`consult_reference` tool. Two of the three are now maintained by code.
+`REFERENCE.md` is **generated** from `data/grammar/<code>_grammar.json` by
+`services/tutor_reference.py` (`python -m backend.services.tutor_reference`;
+`--check` in CI via `tests/test_tutor_reference.py`), so the tutor's map of
+the course cannot drift from the deck — it had, for 22 of 27 languages.
+`ERRORS.md` stays a human's document, but `scripts/tutor_skill_digest.py
+<code>` digests the language's quality standard (`docs/quality/<code>.md`)
+and open review notes into `ERRORS.extracted.md` for folding in, and stamps
+it with the standard's content hash; `tests/test_tutor_skill_digest.py`
+fails when a standard changes after its tutor's last digest, or lists the
+language in `NEVER_DIGESTED` until its first one. That test is the answer
+to "are the personas being updated with the language insights", made
+mechanical.
+
+The append-only AI tables are pruned daily by `services/retention.py`
+(`tutor_sessions` after 180 days, `tutor_usage` after 13 months — above
+every window a reader uses), a lifespan task like the reminder and digest
+loops, switched by `retention_sweep_enabled`.
+
 The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
 on the configured chat model, its `*_checker` verifies one tier up
 (`tutor_model_low_resource`), and `resolve_model` refuses per-language
