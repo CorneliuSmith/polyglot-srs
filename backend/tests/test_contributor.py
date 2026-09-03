@@ -1395,25 +1395,35 @@ class TestTranslationReviews:
         items = [{"id": "r1", "locale": "nl", "word": "cat", "proposed": "kat",
                   "reason": "unsure", "current_definition": "small feline",
                   "created_at": None}]
+        # The other layers' rejects ride along, grouped by kind client-side.
+        others = [{"id": "i1", "kind": "drill", "field": "hint", "locale": "nl",
+                   "label": "Ik {{answer}} hier.", "source_text": "a verb",
+                   "proposed": "een werkwoord", "reason": "unsure",
+                   "target_type": "drill", "target_id": "d1", "created_at": None}]
         with _roles([{"language_id": None, "role": "admin"}]), \
              patch("backend.routers.contribute.list_translation_reviews",
-                   new=AsyncMock(return_value=items)):
+                   new=AsyncMock(return_value=items)), \
+             patch("backend.routers.contribute.list_translation_review_items",
+                   new=AsyncMock(return_value=others)):
             resp = client.get("/api/contribute/translation-reviews",
                               headers=_auth_headers())
         assert resp.status_code == 200
-        assert resp.json() == {"reviews": items}
+        assert resp.json() == {"reviews": items, "items": others}
 
     def test_queue_scopes_to_the_working_language(self, client):
         """The Review workspace lists ONE language's pile — language_id is
         passed through to the repo filter."""
         with _roles([{"language_id": None, "role": "admin"}]), \
              patch("backend.routers.contribute.list_translation_reviews",
-                   new=AsyncMock(return_value=[])) as mock_list:
+                   new=AsyncMock(return_value=[])) as mock_list, \
+             patch("backend.routers.contribute.list_translation_review_items",
+                   new=AsyncMock(return_value=[])) as mock_items:
             resp = client.get(
                 f"/api/contribute/translation-reviews?language_id={LANG}",
                 headers=_auth_headers())
         assert resp.status_code == 200
         assert mock_list.await_args.kwargs["language_id"] == LANG
+        assert mock_items.await_args.kwargs["language_id"] == LANG
 
     def test_approve_applies(self, client):
         with _roles([{"language_id": None, "role": "admin"}]), \
@@ -1440,6 +1450,49 @@ class TestTranslationReviews:
             resp = client.post("/api/contribute/translation-reviews/r1/reject",
                                headers=_auth_headers())
         assert resp.status_code == 409
+
+    # The non-vocabulary rows (brief item 5.2) resolve through their own
+    # endpoints: the writer differs per kind, the admin gate does not.
+    def test_item_approve_requires_admin(self, client):
+        with _roles([{"language_id": LANG, "role": "reviewer"}]):
+            resp = client.post(
+                "/api/contribute/translation-reviews/items/i1/approve",
+                headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_item_approve_applies(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_translation_review_item",
+                   new=AsyncMock(return_value="ok")) as mock_resolve:
+            resp = client.post(
+                "/api/contribute/translation-reviews/items/i1/approve",
+                headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"approved": True}
+        assert mock_resolve.await_args.args[1:] == ("i1", True)
+
+    def test_item_reject_clears(self, client):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_translation_review_item",
+                   new=AsyncMock(return_value="ok")) as mock_resolve:
+            resp = client.post(
+                "/api/contribute/translation-reviews/items/i1/reject",
+                headers=_auth_headers())
+        assert resp.status_code == 200
+        assert resp.json() == {"rejected": True}
+        assert mock_resolve.await_args.args[1:] == ("i1", False)
+
+    @pytest.mark.parametrize("outcome,status", [
+        ("not_found", 404), ("not_pending", 409), ("gone", 409), ("empty", 422),
+    ])
+    def test_item_outcomes_map_to_statuses(self, client, outcome, status):
+        with _roles([{"language_id": None, "role": "admin"}]), \
+             patch("backend.routers.contribute.resolve_translation_review_item",
+                   new=AsyncMock(return_value=outcome)):
+            resp = client.post(
+                "/api/contribute/translation-reviews/items/i1/approve",
+                headers=_auth_headers())
+        assert resp.status_code == status
 
 
 class TestAccountAdmin:

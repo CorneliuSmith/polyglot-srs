@@ -261,14 +261,18 @@ export const QUEUE_HELP: Record<string, QueueHelpText> = {
   },
   'translation-reviews': {
     what:
-      'Glosses the AI translated into a support locale that the automatic ' +
-      'checker would not pass on its own. Learners studying in that locale ' +
-      'see English until one of these is approved.',
+      'Text the AI translated into a support locale that the automatic ' +
+      'checker would not pass on its own — word glosses, and since ' +
+      'September also drill lines and hints, grammar explanations, titles ' +
+      'and notes, and example-sentence meanings, grouped by kind. Learners ' +
+      'studying in that locale see English until one of these is approved.',
     who: 'Admins only.',
     does: [
       {
         action: 'Approve',
-        means: 'publishes the translation to learners using that support locale.',
+        means:
+          'publishes the proposed text to learners using that support ' +
+          'locale, marked reviewed.',
       },
       {
         action: 'Reject',

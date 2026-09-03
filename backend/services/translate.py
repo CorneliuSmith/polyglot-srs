@@ -340,8 +340,11 @@ async def generate_sentence_translations(
 ) -> list[dict]:
     """Maker then checker then MECHANICAL GATES: translate English sentences
     into a support locale. items: {i, sentence, answer?}. Returns
-    {i, sentence, translation, verdict, note}; translation is the final to
-    store (empty when rejected).
+    {i, sentence, translation, proposed, verdict, note}; translation is the
+    final to store (empty when rejected). `proposed` is the rendering a human
+    would judge — the checker's correction if it offered one, else the
+    maker's own — kept on a reject so the review queue has something to
+    approve (the same lesson maker_check_batch learned for glosses).
 
     The gates (translate_checks.gate) run on every rendering, mock mode
     included, so the tests exercise them without a model: a rendering that
@@ -374,6 +377,7 @@ async def generate_sentence_translations(
         results.append({
             "i": it["i"], "sentence": it["sentence"],
             "translation": store if verdict in ("ok", "fixed") else "",
+            "proposed": (v.get("final") or "").strip() or it["gloss"],
             "verdict": verdict, "note": note,
         })
     return results
@@ -469,6 +473,7 @@ async def generate_text_translations(
         results.append({
             "i": it["i"], "sentence": it["sentence"],
             "translation": store if verdict in ("ok", "fixed") else "",
+            "proposed": (v.get("final") or "").strip() or it["gloss"],
             "verdict": verdict, "note": note,
         })
     return results

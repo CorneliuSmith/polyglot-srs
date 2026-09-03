@@ -383,14 +383,52 @@ export interface TranslationReview {
   card?: ReviewedCard | null
 }
 
+/** The layer a non-vocabulary reject belongs to. Word glosses are the
+ * `TranslationReview` rows above; these are everything else the
+ * maker–checker renders into a support locale. */
+export type TranslationReviewItemKind =
+  | 'drill'
+  | 'explanation'
+  | 'grammar_meta'
+  | 'example'
+
+/** A rejected rendering of a drill line, explanation, grammar title or
+ * note, or example meaning — the same queue as glosses, since 3 Sep 2026.
+ * `field` names which text of the target it is (a drill has a translation
+ * and a hint; a grammar point a title and two notes). `source_text` is the
+ * English that was being rendered; `label` names the card. */
+export interface TranslationReviewItem {
+  id: string
+  kind: TranslationReviewItemKind
+  field: string
+  locale: string
+  label: string | null
+  source_text: string
+  proposed: string | null
+  reason: string | null
+  created_at: string | null
+  target_type?: string | null
+  target_id?: string | null
+  card?: ReviewedCard | null
+}
+
+export interface TranslationReviewQueue {
+  reviews: TranslationReview[]
+  /** Absent from a server older than the item queue — read as empty. */
+  items: TranslationReviewItem[]
+}
+
 export async function getTranslationReviews(
   languageId?: string,
-): Promise<TranslationReview[]> {
-  const response = await apiClient.get<{ reviews: TranslationReview[] }>(
+): Promise<TranslationReviewQueue> {
+  const response = await apiClient.get<Partial<TranslationReviewQueue>>(
     '/api/contribute/translation-reviews',
     { params: languageId ? { language_id: languageId } : {} },
   )
-  return response.data.reviews
+  return {
+    reviews: response.data.reviews ?? [],
+    items: response.data.items ?? [],
+  }
 }
 
 export async function approveTranslationReview(id: string): Promise<void> {
@@ -399,6 +437,14 @@ export async function approveTranslationReview(id: string): Promise<void> {
 
 export async function rejectTranslationReview(id: string): Promise<void> {
   await apiClient.post(`/api/contribute/translation-reviews/${id}/reject`)
+}
+
+export async function approveTranslationReviewItem(id: string): Promise<void> {
+  await apiClient.post(`/api/contribute/translation-reviews/items/${id}/approve`)
+}
+
+export async function rejectTranslationReviewItem(id: string): Promise<void> {
+  await apiClient.post(`/api/contribute/translation-reviews/items/${id}/reject`)
 }
 
 export async function getEngagement(days = 30): Promise<Engagement> {
