@@ -46,6 +46,23 @@ reviews, learning, all content — is **never** paywalled.
 Every tier is a **per-calendar-month pool** — one mental model, no daily
 walls, so a heavy study day just draws down the month.
 
+The app sells **four options** — a scope, with or without AI — as one
+subscription each, plus a one-off top-up. Single language + AI is the
+recommended default; the others are one tap away in onboarding and under
+Settings → Plan.
+
+| Option | What you can study | AI pool / month | Price |
+|---|---|---|---|
+| **Single language + AI** (default) | one language | single base (0) + add-on (200) = **200** | single + add-on |
+| Single language | one language | **0** — top-ups or "Add AI" later | single |
+| All languages + AI | every language | all base (300) + add-on (200) = **500** | all + add-on |
+| All languages | every language | **300** | all |
+| Top-up (any option) | — | **+200 this month**, never rolls over | one-off |
+
+Pools are admin-editable (Settings → Admin → Plan limits) and prices come
+from Stripe; nothing above is hardcoded in the app. The tiers behind those
+options:
+
 | Tier | Price | SRS | AI tutor (monthly pool) |
 |---|---|---|---|
 | **Free** (every sign-up) | $0 | everything, forever | **20 messages / month** — a real trial |

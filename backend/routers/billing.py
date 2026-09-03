@@ -11,17 +11,22 @@ from pydantic import BaseModel, Field
 from backend.config import get_settings
 from backend.dependencies import get_current_user
 from backend.repositories.billing import (
+    clear_plan_ai_by_subscription,
     deactivate_plan_by_subscription,
     get_custom_price,
     get_customer_id,
     grant_entitlement,
     grant_topup,
+    previous_plan_subscription,
     revoke_by_subscription,
     save_customer_id,
+    set_plan_ai,
     set_plan_subscription,
 )
 from backend.repositories.pool import privileged_connection
+from backend.repositories.tutor import get_plan_message_limits
 from backend.services import billing
+from backend.services.allowance import effective_plan_limits
 from backend.services.flags import monetization_enabled
 
 logger = logging.getLogger("billing")
@@ -33,8 +38,10 @@ class CheckoutRequest(BaseModel):
 
 
 class PlanCheckoutRequest(BaseModel):
+    """One of the four options: a scope, with or without AI."""
     plan_scope: str = Field(pattern="^(single|all)$")
     plan_language_id: str | None = None
+    ai: bool = False
 
 
 async def _require_monetization() -> None:
@@ -69,10 +76,15 @@ async def checkout(
 
     if settings.stripe_dev_mock:
         async with privileged_connection() as conn:
-            await grant_entitlement(
-                conn, user["id"], body.language_id,
-                subscription_id="mock", customer_id="mock",
-            )
+            ok = await set_plan_ai(conn, user["id"], True, "mock-ai")
+            if not ok:
+                # Column not migrated yet: fall back to the per-language
+                # row the allowance still honours, so dev-mock keeps working
+                # on a database that is behind.
+                await grant_entitlement(
+                    conn, user["id"], body.language_id,
+                    subscription_id="mock", customer_id="mock",
+                )
         return {"granted": True, "url": None}
 
     async with privileged_connection() as conn:
@@ -108,9 +120,14 @@ async def plan_prices(user: dict = Depends(get_current_user)):
     jar anywhere — one flag, every surface.
     """
     if not await monetization_enabled():
-        return {"single": None, "all": None, "custom": None,
+        return {"single": None, "all": None, "ai_addon": None, "custom": None,
                 "topup": None, "monetization": False}
     settings = get_settings()
+    # What each option includes, in messages a month — admin-editable
+    # (Settings → Admin → Plan limits), so read, never hardcoded, like the
+    # prices. The picker adds `plus` to a scope's base for the AI options.
+    async with privileged_connection() as conn:
+        pools = effective_plan_limits(await get_plan_message_limits(conn))
     # The one-time top-up is priced from Settings (inline price_data), so
     # its price is known without a Stripe read.
     topup = (
@@ -126,13 +143,16 @@ async def plan_prices(user: dict = Depends(get_current_user)):
         if custom else None
     )
     if custom_price:
-        return {"single": custom_price, "all": custom_price,
-                "custom": custom_price, "topup": topup, "monetization": True}
+        # The admin's charge is the whole price of whichever option the
+        # account picks, so there is no separate add-on amount to show.
+        return {"single": custom_price, "all": custom_price, "ai_addon": None,
+                "custom": custom_price, "topup": topup, "pools": pools,
+                "monetization": True}
     if not settings.stripe_secret_key:
-        return {"single": None, "all": None, "custom": None,
-                "topup": topup, "monetization": True}
+        return {"single": None, "all": None, "ai_addon": None, "custom": None,
+                "topup": topup, "pools": pools, "monetization": True}
     return {**billing.list_plan_prices(), "custom": None,
-            "topup": topup, "monetization": True}
+            "topup": topup, "pools": pools, "monetization": True}
 
 
 @router.post("/plan/checkout")
@@ -140,10 +160,12 @@ async def plan_checkout(
     body: PlanCheckoutRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Start (or in dev-mock, immediately grant) a language-plan subscription.
+    """Start (or in dev-mock, immediately grant) one of the four plan
+    options: single or all languages, with or without AI.
 
-    Also the upgrade path: checking out 'all' from a single plan replaces
-    the recorded plan on webhook completion.
+    Also the upgrade path: checking out a different option replaces the
+    recorded plan on webhook completion, and the webhook then cancels the
+    subscription it replaced (Checkout only creates).
     """
     await _require_monetization()
     if body.plan_scope == "single" and not body.plan_language_id:
@@ -152,6 +174,11 @@ async def plan_checkout(
             detail="A single-language plan needs plan_language_id",
         )
     settings = get_settings()
+    if body.ai and not billing.ai_configured():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="The AI add-on is not priced on this server yet",
+        )
 
     # An admin-set monthly charge outranks the fixed plan prices: it's the
     # generalized lane — any amount, no dashboard Price object.
@@ -164,7 +191,7 @@ async def plan_checkout(
         async with privileged_connection() as conn:
             await set_plan_subscription(
                 conn, user["id"], body.plan_scope, body.plan_language_id,
-                subscription_id="admin-free", customer_id=None,
+                subscription_id="admin-free", customer_id=None, ai=body.ai,
             )
         return {"granted": True, "url": None}
 
@@ -185,7 +212,7 @@ async def plan_checkout(
         async with privileged_connection() as conn:
             await set_plan_subscription(
                 conn, user["id"], body.plan_scope, body.plan_language_id,
-                subscription_id="mock-plan", customer_id="mock",
+                subscription_id="mock-plan", customer_id="mock", ai=body.ai,
             )
         return {"granted": True, "url": None}
 
@@ -206,6 +233,7 @@ async def plan_checkout(
             customer_id=customer_id,
             success_url=f"{base}/settings",
             cancel_url=f"{base}/settings",
+            ai=body.ai,
         )
     else:
         session = billing.create_plan_checkout_session(
@@ -215,6 +243,7 @@ async def plan_checkout(
             customer_id=customer_id,
             success_url=f"{base}/settings",
             cancel_url=f"{base}/settings",
+            ai=body.ai,
         )
     return {"granted": False, "url": session["url"]}
 
@@ -324,13 +353,21 @@ async def webhook(request: Request):
     # can't match a plan_subscriptions row and vice versa.
     plan_change = billing.extract_plan_change(event)
     if plan_change:
+        superseded = None
         async with privileged_connection() as conn:
             if plan_change["action"] == "grant":
+                new_sub = plan_change.get("subscription_id")
+                prev = await previous_plan_subscription(
+                    conn, plan_change["user_id"]
+                )
+                if prev and new_sub and prev != new_sub:
+                    superseded = prev
                 await set_plan_subscription(
                     conn, plan_change["user_id"], plan_change["plan_scope"],
                     plan_change["plan_language_id"],
-                    subscription_id=plan_change.get("subscription_id"),
+                    subscription_id=new_sub,
                     customer_id=plan_change.get("customer_id"),
+                    ai=plan_change.get("ai"),
                 )
             elif plan_change["action"] == "revoke":
                 await deactivate_plan_by_subscription(
@@ -338,6 +375,29 @@ async def webhook(request: Request):
                 )
         logger.info(
             "billing webhook %s -> plan %s", event["type"], plan_change["action"]
+        )
+        # An upgrade is a NEW subscription (Checkout cannot change one), so
+        # the plan it replaces has to be ended here, after the new one has
+        # landed. Its own deletion event will follow and find nothing to
+        # revoke: the profile now points at the new subscription.
+        if superseded:
+            billing.cancel_subscription(superseded)
+
+    # The stand-alone AI add-on: plan-level pool, its own subscription.
+    ai_change = billing.extract_ai_change(event)
+    if ai_change:
+        async with privileged_connection() as conn:
+            if ai_change["action"] == "grant":
+                await set_plan_ai(
+                    conn, ai_change["user_id"], True,
+                    ai_change.get("subscription_id"),
+                )
+            elif ai_change["action"] == "revoke":
+                await clear_plan_ai_by_subscription(
+                    conn, ai_change["subscription_id"]
+                )
+        logger.info(
+            "billing webhook %s -> ai %s", event["type"], ai_change["action"]
         )
 
     # One-time top-ups: kind='topup' sessions only ever complete. The

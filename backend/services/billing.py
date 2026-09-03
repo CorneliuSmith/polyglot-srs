@@ -12,6 +12,8 @@ Two modes:
 """
 from __future__ import annotations
 
+import logging
+
 from backend.config import get_settings
 
 # Subscription statuses that should keep the entitlement on / off.
@@ -48,20 +50,44 @@ def create_checkout_session(
     success_url: str,
     cancel_url: str,
 ) -> dict:
-    """Create a Stripe Checkout session for the tutor subscription."""
+    """Checkout for the AI add-on on its own — "Add AI" to a plan bought
+    without it.
+
+    metadata.kind='ai' marks it as the plan-level pool (plan_ai on the
+    profile), which is what the four options sell. Sessions minted before
+    this carried only user_id + language_id and granted a per-language
+    tutor_entitlements row; `extract_entitlement_change` still serves those
+    subscriptions' lifecycle events, and skips these.
+    """
     settings = get_settings()
+    meta = {"kind": "ai", "user_id": user_id, "language_id": language_id}
     session = _stripe().checkout.Session.create(
         mode="subscription",
         customer=customer_id,
         line_items=[{"price": settings.stripe_price_id, "quantity": 1}],
         client_reference_id=user_id,
-        metadata={"user_id": user_id, "language_id": language_id},
+        metadata=meta,
         # Mirror onto the subscription so lifecycle webhooks can reconcile.
-        subscription_data={"metadata": {"user_id": user_id, "language_id": language_id}},
+        subscription_data={"metadata": meta},
         success_url=success_url,
         cancel_url=cancel_url,
     )
     return {"url": session["url"], "session_id": session["id"]}
+
+
+def _plan_meta(user_id: str, plan_scope: str, plan_language_id: str | None,
+               ai: bool) -> dict:
+    """The metadata every plan session and its subscription carry. `ai` is
+    a string because Stripe metadata is strings: '1' or '0', never absent,
+    so a webhook can tell "bought without AI" from "minted before AI
+    existed"."""
+    return {
+        "kind": "plan",
+        "user_id": user_id,
+        "plan_scope": plan_scope,
+        "plan_language_id": plan_language_id or "",
+        "ai": "1" if ai else "0",
+    }
 
 
 def create_plan_checkout_session(
@@ -72,11 +98,19 @@ def create_plan_checkout_session(
     customer_id: str,
     success_url: str,
     cancel_url: str,
+    ai: bool = False,
 ) -> dict:
-    """Create a Stripe Checkout session for a language plan (WP16).
+    """Create a Stripe Checkout session for one of the four plan options.
 
-    metadata.kind='plan' is what separates plan webhooks from tutor
-    webhooks — both products share the /webhook endpoint.
+    An option is a scope (single / all) with or without AI. With AI, the
+    session carries TWO recurring line items — the plan's Price and the AI
+    add-on's Price — and Stripe makes them one subscription with one
+    charge, which is the whole point: "Single language + AI" is a thing a
+    learner buys, not two things they assemble. Both Prices must bill on
+    the same interval (monthly) or Stripe refuses the session.
+
+    metadata.kind='plan' is what separates plan webhooks from add-on
+    webhooks — every product shares the /webhook endpoint.
     """
     settings = get_settings()
     price = (
@@ -84,16 +118,14 @@ def create_plan_checkout_session(
         if plan_scope == "single"
         else settings.stripe_price_all
     )
-    meta = {
-        "kind": "plan",
-        "user_id": user_id,
-        "plan_scope": plan_scope,
-        "plan_language_id": plan_language_id or "",
-    }
+    line_items = [{"price": price, "quantity": 1}]
+    if ai:
+        line_items.append({"price": settings.stripe_price_id, "quantity": 1})
+    meta = _plan_meta(user_id, plan_scope, plan_language_id, ai)
     session = _stripe().checkout.Session.create(
         mode="subscription",
         customer=customer_id,
-        line_items=[{"price": price, "quantity": 1}],
+        line_items=line_items,
         client_reference_id=user_id,
         metadata=meta,
         subscription_data={"metadata": meta},
@@ -113,6 +145,7 @@ def create_priced_plan_checkout_session(
     customer_id: str,
     success_url: str,
     cancel_url: str,
+    ai: bool = False,
 ) -> dict:
     """Checkout for an ADMIN-PRICED subscription (the generalized charge).
 
@@ -120,14 +153,11 @@ def create_priced_plan_checkout_session(
     as the fixed plans, but the amount comes from price_data: an inline
     price minted at checkout time. No dashboard Price object exists or is
     needed, which is what lets the admin set any monthly charge per account
-    from the panel instead of managing Stripe products.
+    from the panel instead of managing Stripe products. The admin's amount
+    is the whole price, AI included or not — `ai` only records which of
+    the four options the charge is for.
     """
-    meta = {
-        "kind": "plan",
-        "user_id": user_id,
-        "plan_scope": plan_scope,
-        "plan_language_id": plan_language_id or "",
-    }
+    meta = _plan_meta(user_id, plan_scope, plan_language_id, ai)
     session = _stripe().checkout.Session.create(
         mode="subscription",
         customer=customer_id,
@@ -188,6 +218,29 @@ def create_topup_checkout_session(
     return {"url": session["url"], "session_id": session["id"]}
 
 
+def cancel_subscription(subscription_id: str) -> bool:
+    """End a subscription now, crediting the unused part of the period.
+
+    Checkout only ever CREATES subscriptions, so an upgrade (single → all,
+    or adding AI by re-buying the plan) leaves the old one billing beside
+    the new one unless something ends it. This is that something, run from
+    the webhook once the new plan has landed — never before, so a failed
+    payment cannot leave the learner with nothing. Best-effort: a Stripe
+    error is logged and returns False; the admin panel shows the customer's
+    subscriptions for the manual fix.
+    """
+    if not subscription_id or not subscription_id.startswith("sub_"):
+        return False  # 'mock-plan', 'admin-free': nothing at Stripe to end
+    try:
+        _stripe().Subscription.cancel(subscription_id, prorate=True)
+        return True
+    except Exception:  # noqa: BLE001 — logged; never fails the webhook
+        logging.getLogger("billing").exception(
+            "could not cancel superseded subscription %s", subscription_id
+        )
+        return False
+
+
 def create_portal_session(*, customer_id: str, return_url: str) -> str:
     """A Stripe Billing Portal URL — upgrades/downgrades prorate there."""
     session = _stripe().billing_portal.Session.create(
@@ -208,21 +261,34 @@ def plans_configured() -> bool:
     )
 
 
-def list_plan_prices() -> dict[str, dict | None]:
-    """The two plans' live prices, from Stripe — never hardcoded (WP16d).
+def ai_configured() -> bool:
+    """True when an option WITH AI can be sold: the add-on Price is set (or
+    dev-mock). Separate from plans_configured so a deploy that has priced
+    the plans but not the add-on still sells the two no-AI options."""
+    settings = get_settings()
+    if settings.stripe_dev_mock:
+        return True
+    return bool(settings.stripe_secret_key and settings.stripe_price_id)
 
-    Returns {"single": {...}|None, "all": {...}|None} where each price is
-    {"amount_cents", "currency", "interval"}. Unconfigured (or dev-mock)
-    scopes return None and the UI shows its free-beta copy instead.
+
+def list_plan_prices() -> dict[str, dict | None]:
+    """The plans' and the AI add-on's live prices, from Stripe — never
+    hardcoded (WP16d).
+
+    Returns {"single", "all", "ai_addon"} → {"amount_cents", "currency",
+    "interval"} | None. The four options are priced from these three: an
+    option with AI costs its scope's price plus the add-on's. Unconfigured
+    (or dev-mock) ids return None and the UI shows its unpriced copy.
     """
     settings = get_settings()
-    out: dict[str, dict | None] = {"single": None, "all": None}
+    out: dict[str, dict | None] = {"single": None, "all": None, "ai_addon": None}
     if not settings.stripe_secret_key:
         return out
     stripe = _stripe()
     for scope, price_id in (
         ("single", settings.stripe_price_single),
         ("all", settings.stripe_price_all),
+        ("ai_addon", settings.stripe_price_id),
     ):
         if not price_id:
             continue
@@ -255,6 +321,10 @@ def extract_entitlement_change(event) -> dict | None:
 
     if event_type == "checkout.session.completed":
         meta = obj.get("metadata") or {}
+        # kind='ai' sessions are the plan-level pool (extract_ai_change);
+        # this path is for subscriptions minted before that existed.
+        if meta.get("kind"):
+            return None
         user_id = obj.get("client_reference_id") or meta.get("user_id")
         language_id = meta.get("language_id")
         if not (user_id and language_id):
@@ -276,6 +346,8 @@ def extract_entitlement_change(event) -> dict | None:
             return {"action": "revoke", "subscription_id": obj.get("id")}
         if status in _ACTIVE_STATUSES:
             meta = obj.get("metadata") or {}
+            if meta.get("kind"):
+                return None
             user_id, language_id = meta.get("user_id"), meta.get("language_id")
             if not (user_id and language_id):
                 return None
@@ -286,6 +358,51 @@ def extract_entitlement_change(event) -> dict | None:
                 "subscription_id": obj.get("id"),
                 "customer_id": obj.get("customer"),
             }
+
+    return None
+
+
+def extract_ai_change(event) -> dict | None:
+    """Map a Stripe event to a change of the plan-level AI pool, or None.
+
+    The stand-alone add-on ("Add AI" on a plan bought without it) is its own
+    subscription with metadata.kind='ai'. Grants set plan_ai on the profile
+    and remember this subscription as what pays for it; revokes are keyed on
+    the subscription id, so the deletion of a plan or a legacy per-language
+    subscription cannot switch off a pool it never paid for.
+
+    Returns one of:
+      {"action": "grant", "user_id", "subscription_id", "customer_id"}
+      {"action": "revoke", "subscription_id"}
+    """
+    event_type = event["type"]
+    obj = event["data"]["object"]
+
+    def _grant(meta, subscription_id):
+        if meta.get("kind") != "ai":
+            return None
+        user_id = obj.get("client_reference_id") or meta.get("user_id")
+        if not user_id:
+            return None
+        return {
+            "action": "grant",
+            "user_id": user_id,
+            "subscription_id": subscription_id,
+            "customer_id": obj.get("customer"),
+        }
+
+    if event_type == "checkout.session.completed":
+        return _grant(obj.get("metadata") or {}, obj.get("subscription"))
+
+    if event_type == "customer.subscription.deleted":
+        return {"action": "revoke", "subscription_id": obj.get("id")}
+
+    if event_type == "customer.subscription.updated":
+        status = obj.get("status")
+        if status in _INACTIVE_STATUSES:
+            return {"action": "revoke", "subscription_id": obj.get("id")}
+        if status in _ACTIVE_STATUSES:
+            return _grant(obj.get("metadata") or {}, obj.get("id"))
 
     return None
 
@@ -315,6 +432,10 @@ def extract_plan_change(event) -> dict | None:
         language_id = meta.get("plan_language_id") or None
         if scope == "single" and not language_id:
             return None
+        # 'ai' is one of the four options' halves. A subscription minted
+        # before the flag existed carries no 'ai' key at all: None, so the
+        # repository leaves plan_ai as it is rather than switching it off.
+        ai_flag = meta.get("ai")
         return {
             "action": "grant",
             "user_id": user_id,
@@ -322,6 +443,7 @@ def extract_plan_change(event) -> dict | None:
             "plan_language_id": language_id,
             "subscription_id": subscription_id,
             "customer_id": obj.get("customer"),
+            "ai": None if ai_flag is None else ai_flag == "1",
         }
 
     if event_type == "checkout.session.completed":

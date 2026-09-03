@@ -99,7 +99,12 @@ Variables; mark the secrets as *encrypted*):
 | `TUTOR_FREE_ACCESS` | `false` (see pre-flight step 3) |
 | `TUTOR_DEV_MOCK` | `false` |
 | `ANTHROPIC_API_KEY` | your key, or empty to disable the tutor |
-| `STRIPE_DEV_MOCK` | `true` for the test phase (fake "subscribe" grants Plus) |
+| `STRIPE_DEV_MOCK` | `true` for the test phase (fake "subscribe" grants the plan and AI) — **`false` to take money** |
+| `STRIPE_SECRET_KEY` | live secret key, once charging |
+| `STRIPE_WEBHOOK_SECRET` | the signing secret of a webhook endpoint pointed at `https://<backend-url>/api/billing/webhook` for `checkout.session.completed`, `customer.subscription.updated`, `customer.subscription.deleted` |
+| `STRIPE_PRICE_SINGLE` | Price id of the single-language plan (monthly) |
+| `STRIPE_PRICE_ALL` | Price id of the all-languages plan (monthly) |
+| `STRIPE_PRICE_ID` | Price id of the AI add-on (monthly) — without it the two "+ AI" options show as unavailable |
 | `APP_BASE_URL` | the frontend URL (used for post-checkout redirects) |
 
 First build takes ~5–10 minutes (the NLP wheels are heavy). When it's up,
@@ -292,3 +297,29 @@ free-beta copy):
 
 Apply migration `20260721000000_plan_subscriptions.sql` with the deploy.
 Never enable `STRIPE_DEV_MOCK` in production.
+
+## Go-live checklist for charging (the four plan options)
+
+Everything below is configuration; the code is in place. Do them in this
+order — each step is safe on its own, and the last one is the switch.
+
+1. **Apply pending migrations** — `supabase db push`. The plan options need
+   `20261013000000_plan_ai.sql`; `/api/health/schema` lists whatever else
+   the database is still waiting on.
+2. **Create three monthly Prices in Stripe** (single plan, all-languages
+   plan, AI add-on) and set `STRIPE_PRICE_SINGLE`, `STRIPE_PRICE_ALL`,
+   `STRIPE_PRICE_ID`. Same billing interval on all three — an option with
+   AI is sold as one subscription with two line items.
+3. **Point a Stripe webhook** at `/api/billing/webhook` and set
+   `STRIPE_WEBHOOK_SECRET`. Without it nothing a customer buys is recorded.
+4. **`STRIPE_DEV_MOCK=false`, `TUTOR_FREE_ACCESS=false`.** With free access
+   on, every account is unlimited and entitled and the plan options are
+   decorative.
+5. **Set the message pools** you actually mean to sell in Settings → Admin
+   → Plan limits (defaults: free 20, single 0, all 300, add-on 200).
+6. **Honour the beta promise** for accounts that chose a plan before
+   launch: the Accounts panel's plan override records a backing row, so an
+   account you set there keeps its tier once money is on. Anyone not set
+   falls to the free tier's AI — their content scope is unchanged.
+7. **Flip `monetization`** in Settings → Admin. Prices, the picker, "Add AI",
+   top-ups and the tip jar all appear at once; off, none of them render.

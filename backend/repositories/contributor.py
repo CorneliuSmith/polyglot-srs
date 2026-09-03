@@ -2889,7 +2889,15 @@ async def set_account_plan(
     plan_scope: str,
     plan_language_id: str | None,
 ) -> bool:
-    """Admin plan override: switch an account between Single and All."""
+    """Admin plan override: switch an account between Single and All.
+
+    Also records a plan_subscriptions row ('admin-override'), because once
+    money is on a plan tier counts only when something stands behind it
+    (services/allowance.py) — and an admin granting a reviewer the
+    all-languages plan is exactly such a thing. Cancelling a real Stripe
+    subscription later cannot touch this row: revokes are keyed on the
+    subscription id.
+    """
     result = await conn.execute(
         """
         UPDATE user_profiles
@@ -2900,7 +2908,28 @@ async def set_account_plan(
         """,
         user_id, plan_scope, plan_language_id,
     )
-    return result.endswith("1")
+    if not result.endswith("1"):
+        return False
+    present = await conn.fetchval(
+        "SELECT to_regclass('public.plan_subscriptions') IS NOT NULL"
+    )
+    if present:
+        await conn.execute(
+            """
+            INSERT INTO plan_subscriptions
+                (user_id, plan_scope, plan_language_id, stripe_subscription_id,
+                 stripe_customer_id, is_active, updated_at)
+            VALUES ($1, $2, $3, 'admin-override', NULL, true, now())
+            ON CONFLICT (user_id) DO UPDATE SET
+                plan_scope = EXCLUDED.plan_scope,
+                plan_language_id = EXCLUDED.plan_language_id,
+                stripe_subscription_id = EXCLUDED.stripe_subscription_id,
+                is_active = true,
+                updated_at = now()
+            """,
+            user_id, plan_scope, plan_language_id,
+        )
+    return True
 
 
 async def create_auth_user(

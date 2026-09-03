@@ -157,14 +157,30 @@ async def get_tutor_access(conn: asyncpg.Connection, user_id: str) -> dict:
     """The admin's per-account tutor override (WP15b).
 
     Returns {"access": 'default'|'blocked'|'enabled', "daily_cap": int|None,
-    "plan_scope": 'single'|'all'|None} (the plan drives the monthly
-    allowance tier).
+    "plan_scope": 'single'|'all'|None, "plan_ai": bool, "plan_backed": bool}.
+    The plan drives the monthly allowance tier; `plan_ai` is whether the
+    plan includes the AI pool (the four options: scope × AI); `plan_backed`
+    is whether an active plan_subscriptions row stands behind the scope —
+    a paid, admin-granted or dev-mock subscription, as opposed to the
+    column default or a choice recorded free during the beta.
+
     Anything unexpected (no profile row yet, unmigrated column) normalizes
-    to 'default' so the tier system decides — the override only ever acts
-    when an admin explicitly set it.
+    to 'default' / False so the tier system decides — the override only
+    ever acts when an admin explicitly set it. Columns are probed, not
+    caught: a raised UndefinedColumnError aborts the whole pooled
+    transaction (docs/decisions/0001), and this runs on the tutor's hot
+    path.
     """
+    has_ai_col = await conn.fetchval(
+        """
+        SELECT count(*) FROM information_schema.columns
+         WHERE table_schema = 'public' AND table_name = 'user_profiles'
+           AND column_name = 'plan_ai'
+        """
+    )
+    ai_col = ", plan_ai" if isinstance(has_ai_col, int) and has_ai_col > 0 else ""
     row = await conn.fetchrow(
-        "SELECT tutor_access, tutor_daily_cap, plan_scope "
+        f"SELECT tutor_access, tutor_daily_cap, plan_scope{ai_col} "
         "FROM user_profiles WHERE id = $1",
         user_id,
     )
@@ -175,10 +191,25 @@ async def get_tutor_access(conn: asyncpg.Connection, user_id: str) -> dict:
     plan = row["plan_scope"] if row else None
     if plan not in ("single", "all"):
         plan = None
+    # Strict comparisons, like `isinstance(cap, int)` above: these feed a
+    # money decision, and anything that is not literally what the column
+    # holds (a missing row, a stub connection) must read as "no".
+    plan_ai = (row["plan_ai"] is True) if (row and ai_col) else False
+    backed = await conn.fetchval(
+        "SELECT to_regclass('public.plan_subscriptions') IS NOT NULL"
+    )
+    plan_backed = False
+    if backed is True and plan:
+        plan_backed = await conn.fetchval(
+            "SELECT 1 FROM plan_subscriptions WHERE user_id = $1 AND is_active",
+            user_id,
+        ) == 1
     return {
         "access": access,
         "daily_cap": cap if isinstance(cap, int) else None,
         "plan_scope": plan,
+        "plan_ai": plan_ai,
+        "plan_backed": plan_backed,
     }
 
 

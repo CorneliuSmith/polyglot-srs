@@ -73,6 +73,73 @@ async def revoke_by_subscription(
     return int(result.split()[-1])
 
 
+async def plan_ai_columns_present(conn: asyncpg.Connection) -> bool:
+    """Whether migration 20261013 (plan_ai) has been applied.
+
+    Probed, never caught: every pooled connection runs one transaction, and
+    an UndefinedColumnError aborts it for every later statement — see
+    docs/decisions/0001. A webhook that 500s on an unmigrated column would
+    make Stripe retry a payment it has already taken.
+    """
+    n = await conn.fetchval(
+        """
+        SELECT count(*) FROM information_schema.columns
+         WHERE table_schema = 'public' AND table_name = 'user_profiles'
+           AND column_name IN ('plan_ai', 'plan_ai_subscription_id')
+        """
+    )
+    return int(n or 0) == 2
+
+
+async def previous_plan_subscription(
+    conn: asyncpg.Connection, user_id: str
+) -> str | None:
+    """The Stripe subscription currently backing this user's plan, if any —
+    what an upgrade has to cancel, since Checkout only ever creates."""
+    return await conn.fetchval(
+        "SELECT stripe_subscription_id FROM plan_subscriptions "
+        "WHERE user_id = $1 AND is_active",
+        user_id,
+    )
+
+
+async def set_plan_ai(
+    conn: asyncpg.Connection, user_id: str, on: bool,
+    subscription_id: str | None,
+) -> bool:
+    """Turn the plan's AI pool on or off, remembering which subscription
+    pays for it. Returns False (and writes nothing) when the column has not
+    been migrated yet, so the caller can say so instead of failing."""
+    if not await plan_ai_columns_present(conn):
+        return False
+    await conn.execute(
+        """
+        INSERT INTO user_profiles (id, plan_ai, plan_ai_subscription_id)
+        VALUES ($1, $2, $3)
+        ON CONFLICT (id) DO UPDATE SET
+            plan_ai = EXCLUDED.plan_ai,
+            plan_ai_subscription_id = EXCLUDED.plan_ai_subscription_id
+        """,
+        user_id, on, subscription_id if on else None,
+    )
+    return True
+
+
+async def clear_plan_ai_by_subscription(
+    conn: asyncpg.Connection, subscription_id: str
+) -> int:
+    """The subscription that paid for the AI pool has ended: switch the pool
+    off, and only the pool — the plan's scope is a separate decision."""
+    if not await plan_ai_columns_present(conn):
+        return 0
+    result = await conn.execute(
+        "UPDATE user_profiles SET plan_ai = false, plan_ai_subscription_id = NULL "
+        "WHERE plan_ai_subscription_id = $1",
+        subscription_id,
+    )
+    return int(result.split()[-1])
+
+
 async def set_plan_subscription(
     conn: asyncpg.Connection,
     user_id: str,
@@ -81,11 +148,15 @@ async def set_plan_subscription(
     *,
     subscription_id: str | None = None,
     customer_id: str | None = None,
+    ai: bool | None = None,
 ) -> None:
     """Record the Stripe subscription behind a plan AND enforce it (WP16).
 
     The profile's plan_scope/plan_language_id are what the app checks, so
-    the paid plan lands there in the same call.
+    the paid plan lands there in the same call. *ai* is the other half of
+    the four options: True/False sets whether this plan includes the AI
+    pool (paid for by the same subscription); None leaves it alone, for
+    callers that only know the scope.
     """
     await conn.execute(
         """
@@ -113,6 +184,8 @@ async def set_plan_subscription(
         """,
         user_id, plan_scope, plan_language_id,
     )
+    if ai is not None:
+        await set_plan_ai(conn, user_id, ai, subscription_id)
 
 
 async def _custom_prices_present(conn: asyncpg.Connection) -> bool:
@@ -226,13 +299,16 @@ async def deactivate_plan_by_subscription(
 ) -> int:
     """Mark a plan subscription inactive. Returns rows affected.
 
-    Deliberately does NOT touch user_profiles: what a canceled account
-    keeps is the owner's free-tier decision (ROADMAP WP16e), and beta
-    accounts were promised their access.
+    Deliberately does NOT touch the profile's plan SCOPE: what a canceled
+    account keeps of its content is the owner's free-tier decision (ROADMAP
+    WP16e), and beta accounts were promised their access. The AI pool is
+    different — it is what the subscription was paying for — so if this
+    subscription carried it, it goes.
     """
     result = await conn.execute(
         "UPDATE plan_subscriptions SET is_active = false, updated_at = now() "
         "WHERE stripe_subscription_id = $1",
         subscription_id,
     )
+    await clear_plan_ai_by_subscription(conn, subscription_id)
     return int(result.split()[-1])

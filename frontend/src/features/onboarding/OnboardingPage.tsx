@@ -16,7 +16,13 @@ import { usePrefsStore } from '../../stores/prefsStore'
 import AiDisclaimer from '../../components/AiDisclaimer'
 import DirArrow from '../../components/DirArrow'
 import LanguageWrapper from '../../components/LanguageWrapper'
-import { formatPrice, getPlanPrices } from '../../api/billing'
+import {
+  getPlanPrices,
+  optionPurchasable,
+  startPlanCheckout,
+  type PlanOption,
+} from '../../api/billing'
+import PlanPicker, { DEFAULT_OPTION } from '../billing/PlanPicker'
 import { languageDisplayName, visibleLanguages } from '../../lib/languages'
 import { convertTranslit, finalizeInput, isTranslitEnabled } from '../keyboards/translit'
 import type { Language } from '../../api/types'
@@ -51,7 +57,9 @@ export default function OnboardingPage() {
   const [curInput, setCurInput] = useState('')
   const [maxItems, setMaxItems] = useState(12)
   const [level, setLevel] = useState('A1')
-  const [planScope, setPlanScope] = useState<'single' | 'all'>('single')
+  // The four options, recommended one preselected (owner: "Single language
+  // with AI should be the default").
+  const [option, setOption] = useState<PlanOption>(DEFAULT_OPTION)
   // Optional writing baseline (owner request): write a sentence or two "to
   // the best of your ability" and one small model call suggests the level.
   // Offered only when the server says so (entitled accounts / testing).
@@ -74,8 +82,6 @@ export default function OnboardingPage() {
     queryFn: getPlanPrices,
     staleTime: Infinity,
   })
-  const singlePrice = formatPrice(planPrices?.single ?? null)
-  const allPrice = formatPrice(planPrices?.all ?? null)
   // Monetization off: the step is a pure SCOPE choice (which languages you
   // want) — prices already come back null, and the billing note is hidden
   // so nothing on the screen mentions payment.
@@ -138,14 +144,30 @@ export default function OnboardingPage() {
   }
 
   const finishMutation = useMutation({
-    mutationFn: () =>
-      completeOnboarding({ languageId: language!.id, level, planScope }),
-    onSuccess: () => {
+    mutationFn: async () => {
+      await completeOnboarding({
+        languageId: language!.id, level, planScope: option.scope,
+      })
+      // Money on and this option priced: the plan is BOUGHT, not declared.
+      // The server records only what the webhook confirms (an abandoned
+      // Checkout leaves nothing behind); dev-mock grants at once and
+      // returns no URL, so the flow continues into the app.
+      if (optionPurchasable(planPrices, option)) {
+        const res = await startPlanCheckout(option.scope, language!.id, option.ai)
+        if (res.url) return res.url
+      }
+      return null
+    },
+    onSuccess: (checkoutUrl) => {
       // completeOnboarding already wrote the course to the account; this
       // sets the device AND opens the grace window, so a profile read that
       // started before the write can't bounce an existing user who just
       // onboarded a second course back to their old one.
       chooseActiveLanguage(language!.id)
+      if (checkoutUrl) {
+        window.location.assign(checkoutUrl)
+        return
+      }
       // Land on the toolkit walkthrough, not the bare dashboard — new
       // accounts had no idea the tutor/reader/letters existed.
       navigate('/welcome', { replace: true })
@@ -448,51 +470,16 @@ export default function OnboardingPage() {
 
         {step === 'plan' && language && (
           <section className="space-y-4">
-            <h2 className="font-semibold text-gray-800">{t('onboarding.choosePlan')}</h2>
-            <p className="text-sm text-gray-500">
-              {t('onboarding.planHelp', { language: languageDisplayName(language.code, language.name, i18n.language) })}
-            </p>
-            <button
-              type="button"
-              onClick={() => setPlanScope('single')}
-              aria-pressed={planScope === 'single'}
-              className={
-                'w-full min-h-12 rounded-xl border px-4 py-3 text-start active:bg-lang-soft ' +
-                (planScope === 'single'
-                  ? 'border-lang bg-lang-soft'
-                  : 'border-gray-200 bg-white hover:border-lang/50')
-              }
-            >
-              <span className="block text-sm font-semibold text-gray-800">
-                {t('onboarding.singleOnly', { language: languageDisplayName(language.code, language.name, i18n.language) })}
-              </span>
-              <span className="block text-xs text-gray-500">
-                {singlePrice
-                  ? t('onboarding.singlePriced', { price: singlePrice })
-                  : t('onboarding.singleUnpriced')}
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setPlanScope('all')}
-              aria-pressed={planScope === 'all'}
-              className={
-                'w-full min-h-12 rounded-xl border px-4 py-3 text-start active:bg-lang-soft ' +
-                (planScope === 'all'
-                  ? 'border-lang bg-lang-soft'
-                  : 'border-gray-200 bg-white hover:border-lang/50')
-              }
-            >
-              <span className="block text-sm font-semibold text-gray-800">
-                {t('onboarding.allLanguages')}
-              </span>
-              <span className="block text-xs text-gray-500">
-                {allPrice
-                  ? t('onboarding.allPriced', { price: allPrice })
-                  : t('onboarding.allUnpriced')}
-              </span>
-            </button>
-            {monetization && (
+            <h2 className="font-semibold text-gray-800">{t('plans.title')}</h2>
+            <p className="text-sm text-gray-500">{t('plans.help')}</p>
+            <PlanPicker
+              languageName={languageDisplayName(language.code, language.name, i18n.language)}
+              prices={planPrices}
+              value={option}
+              onChange={setOption}
+            />
+            <p className="text-xs text-gray-500">{t('plans.changeHint')}</p>
+            {monetization && !optionPurchasable(planPrices, option) && (
               <p className="text-xs text-gray-500">
                 {t('onboarding.billingNote')}
               </p>

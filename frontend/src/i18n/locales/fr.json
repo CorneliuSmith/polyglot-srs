@@ -885,10 +885,10 @@
     "whyFits": "Pourquoi c’est fait pour vous : ",
     "turnOn": "Activez les recommandations pour recevoir de temps en temps un livre, un film, une série ou un podcast dans votre langue cible — choisis pour votre niveau et vos centres d’intérêt.",
     "setUpSettings": "À configurer dans les réglages →",
-    "plusFeature": "Une fonctionnalité Plus",
-    "plusUpsell": "Les recommandations personnalisées font partie de Plus. Passez à Plus pour cette langue et recevez chaque semaine une sélection fraîche, adaptée à votre niveau.",
+    "plusFeature": "Une fonction IA",
+    "plusUpsell": "Les suggestions hebdomadaires font partie des options IA. Ajoutez l’IA à votre formule — ou choisissez une formule avec IA dans les Réglages — pour recevoir chaque semaine une sélection adaptée à votre niveau.",
     "drafting": "Préparation de vos suggestions de la semaine…",
-    "needPlus": "Les recommandations nécessitent un abonnement Plus pour cette langue.",
+    "needPlus": "Les recommandations nécessitent une formule avec IA pour cette langue — ajoutez-la dans les Réglages.",
     "getMyPicks": "Obtenir mes suggestions",
     "getNewPicks": "Obtenir de nouvelles suggestions",
     "matchedNow": "Calées sur là où vous en êtes en ce moment.",
@@ -1068,7 +1068,16 @@
       "upgradeWithPrice": "Passer à Toutes les langues — {{price}}",
       "upgrade": "Passer à Toutes les langues",
       "manageBilling": "Gérer la facturation",
-      "billingUnavailable": "La facturation n’a pas encore été lancée — les premiers comptes gardent gratuitement le forfait choisi, et conservent leur prix au lancement."
+      "billingUnavailable": "La facturation n’a pas encore été lancée — les premiers comptes gardent gratuitement le forfait choisi, et conservent leur prix au lancement.",
+      "withAi": "{{name}} + IA",
+      "aiOn": "IA incluse — {{count}} messages par mois.",
+      "aiOff": "Cette formule n’inclut pas l’IA.",
+      "addAi": "Ajouter l’IA — {{price}}",
+      "addAiUnpriced": "Ajouter l’IA",
+      "change": "Changer de formule",
+      "cancelChange": "Garder ma formule",
+      "topup": "Acheter une recharge ponctuelle : +{{messages}} messages ce mois-ci, {{price}}",
+      "topupNote": "Les recharges ne se reportent pas : elles valent pour ce mois."
     },
     "dailyGoal": {
       "title": "Objectif d’apprentissage quotidien",
@@ -1661,5 +1670,25 @@
     "legalNote": "Les leçons peuvent contenir du contenu généré par IA et relu par des personnes ; des erreurs sont possibles. Rien ici ne constitue un conseil professionnel.",
     "terms": "Conditions d'utilisation",
     "privacy": "Politique de confidentialité"
+  },
+  "plans": {
+    "title": "Choisissez votre formule",
+    "help": "Toutes les formules incluent toutes les révisions et leçons, pour toujours. Les options IA ajoutent une réserve mensuelle pour le tuteur, le lecteur, l’entraînement oral et les suggestions hebdomadaires.",
+    "recommended": "Recommandé",
+    "current": "Votre formule",
+    "singleAi": "{{language}} + IA",
+    "single": "{{language}} uniquement",
+    "allAi": "Toutes les langues + IA",
+    "all": "Toutes les langues",
+    "scopeSingle": "Étudiez {{language}}",
+    "scopeAll": "Étudiez toutes les langues proposées",
+    "aiIncluded": "{{count}} messages IA par mois",
+    "aiNone": "Sans IA — ajoutez-la à tout moment, ou achetez une recharge ponctuelle si besoin",
+    "perMonth": "{{price}}",
+    "unpriced": "Prix à venir",
+    "aiUnavailable": "Les options IA ne sont pas encore disponibles sur ce serveur",
+    "choose": "Continuer avec {{name}}",
+    "opening": "Ouverture du paiement…",
+    "changeHint": "Vous pouvez changer de formule à tout moment dans les Réglages."
   }
 }

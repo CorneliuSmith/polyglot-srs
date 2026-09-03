@@ -146,6 +146,9 @@ _AUDIO_DEFAULTS = {"sentence_audio_on_correct": True}
 # learners reported as confusing. Anyone who wants it turns it on, where
 # the Settings toggle also explains what it is.
 _GLOSS_DEFAULTS = {"show_glosses": False}
+# Read-only on the profile: written by billing (a paid or admin-granted
+# plan option that includes AI), never by a settings save.
+_PLAN_AI_DEFAULTS = {"plan_ai": False}
 
 #: Optional column groups, widest first. Each entry is
 #: (select fragment, defaults to substitute when the columns are absent).
@@ -156,6 +159,7 @@ _OPTIONAL_PROFILE_COLUMNS = (
     (", allow_explicit_content", _EXPLICIT_DEFAULTS),
     (", sentence_audio_on_correct", _AUDIO_DEFAULTS),
     (", show_glosses", _GLOSS_DEFAULTS),
+    (", plan_ai", _PLAN_AI_DEFAULTS),
 )
 
 
@@ -171,7 +175,7 @@ _OPTIONAL_PROFILE_FIELDS = (
 
 _ALL_OPTIONAL_DEFAULTS = {
     **_DIGEST_DEFAULTS, **_EXPLICIT_DEFAULTS, **_AUDIO_DEFAULTS,
-    **_GLOSS_DEFAULTS,
+    **_GLOSS_DEFAULTS, **_PLAN_AI_DEFAULTS,
 }
 
 
