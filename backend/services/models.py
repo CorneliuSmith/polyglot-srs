@@ -30,6 +30,11 @@ TASK_MODELS: dict[str, str] = {
     "tutor_summary": "tutor_summary_model",
     "semantic_check": "tutor_summary_model",
     "translate": "tutor_summary_model",
+    # The locale-translation checker. It used to share "translate" with the
+    # maker, so the sweep, the demand lane and the inline fill all checked
+    # Sonnet with Sonnet — the one lane where the never-self-certify rule
+    # above did not hold (docs/plans/owner-notes-2026-09-03.md, item 5).
+    "translate_checker": "tutor_model_low_resource",
     # Weekly immersion recommendations: reasoning + real-world knowledge matter,
     # so it rides the stronger chat model.
     "recommend": "tutor_model",

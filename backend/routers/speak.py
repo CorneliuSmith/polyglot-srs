@@ -42,6 +42,7 @@ from backend.repositories.speech import record_speech_event
 from backend.repositories.tutor import log_tutor_usage
 from backend.routers.tutor import _get_allowance, _reject_if_unavailable
 from backend.services.generate import generation_available
+from backend.services.models import resolve_model
 from backend.services.rate_limit import (
     stt_limiter,
     tts_limiter,
@@ -495,6 +496,7 @@ async def turn(
             support_language=support_language,
             model=model,
             opened_with=opener,
+            mode=session["mode"],
         )
     except ValueError as exc:
         logger.error("Speak turn came back malformed: %s", exc)
@@ -577,7 +579,9 @@ async def end(
         raise _UNAVAILABLE from exc
 
     errors = [e for t in turns for e in (t["errors"] or [])]
-    model = resolve_tutor_model(code, override_model)
+    # The breakdown is a fixed-rubric job, like the tutor's own summarizer:
+    # the summary tier, not the chat model this used to be pinned to.
+    model = resolve_model("tutor_summary")
     summary, usage = await summarize_speak_session(
         language_name,
         [{"learner_text": t["learner_text"], "partner_text": t["partner_text"]}

@@ -114,22 +114,14 @@ sitting at 0 % with no explanation.
 
 ### Findings from the 3 September notes review (brief: docs/plans/owner-notes-2026-09-03.md)
 
-Five things the exploration behind that brief established, none yet fixed:
+What the exploration behind that brief established and nothing yet fixes
+(three more — the translation checker tier, the Speak summary model and
+the makers' missing language brief — were fixed the same day):
 
-- **The locale-translation checker runs on the maker's model.** `models.py`
-  says a checker verifies one tier up and the generation lane does that;
-  `auto_translate.py` never passes `checker_model`, so the sweep, demand
-  lane and inline fill check Sonnet with Sonnet. Brief item 5.
 - **Tutor memory has no ceiling.** Profile facts are uncapped, list values
   grow forever (`merge_remembered`), the whole profile rides in every
   turn's prompt, and nothing estimates prompt size. Fine at beta scale;
   a per-turn cost that only rises. Brief item 6.
-- **The Speak end-of-session summary runs on the chat model**
-  (`routers/speak.py:580` overrides the summary tier the service defaults
-  to). Brief item 2.
-- **The drill/example makers and the translation lane get no per-language
-  brief**; only the semantic reviewer and the seeders append
-  `tutor_skills/<code>/SKILL.md`. Brief item 4.
 - **`CardHistory` is mounted only for example sentences**; no review queue
   shows a card's edit history or roll-back. Brief item 7a.
 

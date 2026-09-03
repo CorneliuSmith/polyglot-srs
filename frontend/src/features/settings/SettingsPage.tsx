@@ -493,7 +493,7 @@ export default function SettingsPage() {
           <>
           <RoleGuide role="contribute" />
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-            <h2 className="font-semibold text-gray-800">Contribute</h2>
+            <h2 className="font-semibold text-gray-800">Workshop</h2>
             {/* "Open the workspace", not "Open grammar editor": the door
                 leads to the whole staff console (drafting, review queues,
                 admin), and naming it after one tab inside was exactly the

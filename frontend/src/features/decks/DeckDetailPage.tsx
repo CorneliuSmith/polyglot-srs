@@ -201,7 +201,7 @@ function GrammarRow({
                   onClick={() => navigate(`/contribute?point=${item.id}`)}
                   className="text-lang hover:underline"
                 >
-                  Edit in Contribute
+                  Edit in the Workshop
                 </button>
                 <FlagBox pointId={item.id} />
               </>
