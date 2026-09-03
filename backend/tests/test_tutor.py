@@ -314,6 +314,10 @@ class TestMergeRemembered:
                 {"scope": "language", "key": "level", "value": "A2"},
             ],
         )
+        # _touched (the eviction clock) is bookkeeping, not what this test
+        # is about.
+        user.pop("_touched")
+        lang.pop("_touched")
         assert user == {
             "native_language": "English",
             "_sources": {"native_language": "inferred"},
@@ -347,6 +351,86 @@ class TestMergeRemembered:
             {}, {}, [{"scope": "global", "key": None, "value": "x"}]
         )
         assert user == {} and lang == {}
+
+
+class TestForgetEverything:
+    def test_forget_all_for_one_language(self, client):
+        with patch("backend.routers.tutor.forget_tutor_memory",
+                   new=AsyncMock()) as mock_forget:
+            resp = client.delete(
+                "/api/tutor/memory/all",
+                params={"language_id": TEST_LANGUAGE_ID},
+                headers=_auth_headers(),
+            )
+        assert resp.status_code == 200 and resp.json() == {"forgotten": True}
+        assert mock_forget.await_args.args[1:] == (TEST_USER_ID, TEST_LANGUAGE_ID)
+
+    def test_forget_all_everywhere(self, client):
+        with patch("backend.routers.tutor.forget_tutor_memory",
+                   new=AsyncMock()) as mock_forget:
+            resp = client.delete("/api/tutor/memory/all", headers=_auth_headers())
+        assert resp.status_code == 200
+        assert mock_forget.await_args.args[1:] == (TEST_USER_ID, None)
+
+
+class TestMemoryBounds:
+    """Nothing capped the profile before (docs/plans/owner-notes-2026-09-03.md,
+    item 6): facts were never dropped, list values grew for ever, and the
+    whole profile rides in every turn's prompt."""
+
+    def test_a_list_valued_fact_keeps_its_newest_five(self):
+        lang = {"error_pattern": ["e1", "e2", "e3", "e4", "e5"]}
+        _, lang = merge_remembered(
+            {}, lang,
+            [{"scope": "language", "key": "error_pattern", "value": "e6"}],
+        )
+        assert lang["error_pattern"] == ["e2", "e3", "e4", "e5", "e6"]
+
+    def test_the_oldest_inferred_fact_makes_room_never_a_stated_one(self):
+        from backend.services.tutor import MAX_PROFILE_FACTS
+        profile = {f"k{i}": "v" for i in range(MAX_PROFILE_FACTS)}
+        profile["_sources"] = {"k0": "stated"}
+        profile["_touched"] = {f"k{i}": f"2026-01-{i + 1:02d}T00:00:00"
+                               for i in range(MAX_PROFILE_FACTS)}
+        user, _ = merge_remembered(
+            profile, {}, [{"scope": "global", "key": "new", "value": "x"}],
+        )
+        facts = [k for k in user if not k.startswith("_")]
+        assert len(facts) == MAX_PROFILE_FACTS
+        assert "new" in user
+        # k0 is the oldest but the learner STATED it: it stays. k1, the
+        # oldest inferred fact, is the one that went.
+        assert "k0" in user and "k1" not in user
+        assert "k1" not in user["_touched"] and "k1" not in user["_sources"]
+
+    def test_the_summary_is_capped_at_a_sentence_boundary(self):
+        from backend.services.tutor import (
+            MAX_SESSION_SUMMARY_CHARS,
+            truncate_summary,
+        )
+        long = ("The learner practised the past tense. " * 200).strip()
+        out = truncate_summary(long)
+        assert len(out) <= MAX_SESSION_SUMMARY_CHARS
+        assert out.endswith(".")
+        assert truncate_summary("short") == "short"
+
+    def test_the_memory_block_is_trimmed_to_budget_summary_first(self):
+        from backend.services.tutor import bound_memory
+        user = {"stated_goal": "pass B2", "_sources": {"stated_goal": "stated"},
+                **{f"guess{i}": "x" * 40 for i in range(30)}}
+        lang = {"error_pattern": [f"pattern {i}" for i in range(5)]}
+        summary = "S. " * 2000
+        u, lg, sm, cut = bound_memory(dict(user), dict(lang), summary, budget=3000)
+        assert cut > 0
+        # The summary's tail went first…
+        assert len(sm) < len(summary)
+        # …the learner's own words never do.
+        assert u["stated_goal"] == "pass B2"
+
+    def test_nothing_is_trimmed_under_budget(self):
+        from backend.services.tutor import bound_memory
+        u, lg, sm, cut = bound_memory({"a": "b"}, {"c": "d"}, "ok", budget=100_000)
+        assert cut == 0 and u == {"a": "b"} and sm == "ok"
 
 
 class TestActiveFocus:
@@ -1397,6 +1481,7 @@ class TestMasteryEndpoints:
         # …and the language profile only received the real note (tagged
         # with its provenance — no source claimed means inferred).
         saved_profile = mock_lang.await_args.args[3]
+        saved_profile.pop("_touched", None)  # eviction clock, not a fact
         assert saved_profile == {
             "topic": "travel", "_sources": {"topic": "inferred"},
         }

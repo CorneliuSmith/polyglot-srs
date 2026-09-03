@@ -1,9 +1,13 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
+import { render, screen, fireEvent, waitFor, within } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import ReviewedCardView from '../features/contribute/ReviewedCardView'
 
-vi.mock('../api/contribute', () => ({ editReviewedCard: vi.fn() }))
+vi.mock('../api/contribute', () => ({
+  editReviewedCard: vi.fn(),
+  getContentHistory: vi.fn(() => Promise.resolve({ changes: [], can_revert: false })),
+  revertContentChange: vi.fn(),
+}))
 import { editReviewedCard } from '../api/contribute'
 const mockEdit = editReviewedCard as ReturnType<typeof vi.fn>
 
@@ -46,6 +50,18 @@ describe('ReviewedCardView', () => {
     )
   })
 
+  it('opens the edit history behind a toggle, for kinds the history serves', async () => {
+    // The timeline with roll-back existed only under example sentences;
+    // now every card the queues show has it one click away.
+    renderCard()
+    const box = screen.getByTestId('reviewed-card-history')
+    fireEvent.click(within(box).getByRole('button', { name: 'History' }))
+    const { getContentHistory } = await import('../api/contribute')
+    await waitFor(() =>
+      expect(getContentHistory).toHaveBeenCalledWith('drill', 'd1'),
+    )
+  })
+
   it('offers no editor to someone who cannot edit', () => {
     renderCard()
     expect(screen.queryByTestId('reviewed-card-edit')).toBeNull()
@@ -84,6 +100,31 @@ describe('ReviewedCardView', () => {
       target: { value: 'Casi no queda vino.' },
     })
     expect(screen.getByTestId('drill-blank-warning')).toBeDefined()
+  })
+
+  it('shows a grammar explanation typeset while it is being edited', () => {
+    // Contributors edited raw text and learners saw ExplanationView's
+    // typesetting; the person writing a table shape never saw the table.
+    render(
+      <QueryClientProvider
+        client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}
+      >
+        <ReviewedCardView
+          card={{
+            sentence: 'Ser vs estar', answer: null, hint: null,
+            translation: 'ser (permanent) → estar (temporary)',
+            context: null, level: 'A2',
+          }}
+          targetType="grammar_point"
+          targetId="g1"
+          canEdit
+        />
+      </QueryClientProvider>,
+    )
+    fireEvent.click(screen.getByTestId('reviewed-card-edit'))
+    const preview = screen.getByTestId('reviewed-card-preview')
+    expect(preview.textContent).toContain('as the learner sees it')
+    expect(preview.querySelector('[data-testid="explanation"]')).not.toBeNull()
   })
 
   it('never offers to rewrite a word itself, only what it means', () => {

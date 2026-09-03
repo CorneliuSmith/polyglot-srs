@@ -30,13 +30,16 @@ export default function FeedbackPanel({
     retry: false,
   })
 
-  const { shown, nav } = useFocusList(items, focus, 'report')
-
   const resolveMutation = useMutation({
     mutationFn: (id: string) => resolveFeedback(id),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ['feedback', languageId] }),
   })
+
+  const { shown, nav } = useFocusList(items, focus, 'report', (f) => [
+    { key: 'r', label: 'Resolve', run: () => resolveMutation.mutate(f.id),
+      disabled: resolveMutation.isPending },
+  ])
 
   if (items.length === 0)
     return (

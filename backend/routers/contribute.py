@@ -1490,6 +1490,23 @@ async def tester_recommendations(
     limit = max(1, min(limit, 500))
     async with privileged_connection() as conn:
         items = await list_tester_recommendations(conn, language_id, limit)
+        # The drill or example each note is about. The loader's kind for an
+        # example is 'example_sentence'; the row keeps its own 'example'.
+        for r in items:
+            r["target_kind"] = (
+                "example_sentence" if r.get("target_type") == "example"
+                else r.get("target_type")
+            )
+        try:
+            # load_cards keys on target_type; lend it the loader's name and
+            # copy the card back onto the row.
+            shadow = [{"target_type": r["target_kind"], "target_id": r.get("target_id")}
+                      for r in items]
+            await load_cards(conn, shadow)
+            for r, sh in zip(items, shadow, strict=True):
+                r["card"] = sh.get("card")
+        except asyncpg.PostgresError:
+            logger.exception("tester-recommendation card lookup failed")
     return {
         "recommendations": items,
         "limit": limit,
@@ -2723,6 +2740,17 @@ async def review_notes(
         notes = await list_review_notes(
             conn, language_id, include_resolved=include_resolved
         )
+        # The card each note is about, named the way the change-request
+        # board names it, so one component renders and edits it here too.
+        for n in notes:
+            if n.get("grammar_point_id"):
+                n["target_type"], n["target_id"] = "grammar_point", n["grammar_point_id"]
+            elif n.get("vocabulary_id"):
+                n["target_type"], n["target_id"] = "vocabulary", n["vocabulary_id"]
+        try:
+            await load_cards(conn, notes)
+        except asyncpg.PostgresError:
+            logger.exception("review-note card lookup failed")
     return {"notes": notes}
 
 
@@ -2889,6 +2917,16 @@ async def suggestions_queue(
         )
     async with privileged_connection() as conn:
         items = await list_suggestions(conn, language_id, source=source)
+        # The whole card behind the current → proposed diff.
+        for it in items:
+            it["target_type"] = (
+                "grammar_point" if it.get("entity_type") == "grammar" else "vocabulary"
+            )
+            it["target_id"] = it.get("entity_id")
+        try:
+            await load_cards(conn, items)
+        except asyncpg.PostgresError:
+            logger.exception("suggestion card lookup failed")
     return {"suggestions": items}
 
 

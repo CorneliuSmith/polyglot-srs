@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getReviewNotes, resolveReviewNote } from '../../api/contribute'
 import QueueStatus from './QueueStatus'
+import ReviewedCardView from './ReviewedCardView'
 
 /**
  * Open reviewer notes for the language — the audit trail between "fixed it
@@ -30,13 +31,19 @@ export default function IssuesPanel({
     retry: false,
   })
 
-  const { shown, nav } = useFocusList(notes, focus, 'note')
 
   const resolveMutation = useMutation({
     mutationFn: (noteId: string) => resolveReviewNote(noteId),
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ['review-notes', languageId] }),
   })
+
+  const { shown, nav } = useFocusList(notes, focus, 'note', (n) =>
+    canResolve
+      ? [{ key: 'r', label: 'Resolve', run: () => resolveMutation.mutate(n.id),
+          disabled: resolveMutation.isPending }]
+      : [],
+  )
 
   if (notes.length === 0)
     return (
@@ -78,6 +85,20 @@ export default function IssuesPanel({
                 )}
                 <p className="text-gray-700 whitespace-pre-wrap">{n.note}</p>
                 <p className="text-xs text-gray-500">{n.author_email}</p>
+                {/* The card the note is about — "the B1 level looks high"
+                    is a judgement about a card that used to be nowhere on
+                    this screen. Reviewers (who can resolve) can fix it. */}
+                {n.card && (
+                  <div className="mt-1.5">
+                    <ReviewedCardView
+                      card={n.card}
+                      targetType={n.target_type}
+                      targetId={n.target_id}
+                      canEdit={canResolve}
+                      testId={`issue-card-${n.id}`}
+                    />
+                  </div>
+                )}
               </div>
               {canResolve && (
                 <button

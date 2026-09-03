@@ -11,6 +11,7 @@ import type { Suggestion, SuggestionFields, SuggestionSource } from '../../api/c
  * and admin tracks how often they land. */
 import QueueHelp, { QUEUE_HELP } from './QueueHelp'
 import { useFocusList } from './useFocusList'
+import ReviewedCardView from './ReviewedCardView'
 
 export default function SuggestionsPanel({
   languageId,
@@ -47,7 +48,10 @@ export default function SuggestionsPanel({
   // Above the early return: a hook after one runs conditionally, which
   // React counts as a changed hook order and throws on the render where
   // the list first goes empty.
-  const { shown: stepped, nav } = useFocusList(filtered, focus, 'suggestion')
+  const { shown: stepped, nav } = useFocusList(filtered, focus, 'suggestion', (s) => [
+    { key: 'a', label: 'Approve', run: () => approve.mutate(s.id), disabled: approve.isPending },
+    { key: 'r', label: 'Decline', run: () => reject.mutate(s.id), disabled: reject.isPending },
+  ])
 
   if (items.length === 0) return null
 
@@ -123,6 +127,19 @@ export default function SuggestionsPanel({
             ))}
           </div>
           {s.note && <p className="mt-1 text-xs italic text-gray-500">“{s.note}”</p>}
+          {/* The whole card behind the diff: a proposed definition is
+              judged against the word's examples and reading, not alone. */}
+          {s.card && (
+            <div className="mt-1.5">
+              <ReviewedCardView
+                card={s.card}
+                targetType={s.target_type}
+                targetId={s.target_id}
+                canEdit
+                testId={`suggestion-card-${s.id}`}
+              />
+            </div>
+          )}
           <div className="mt-2 flex gap-3">
             <button
               type="button"

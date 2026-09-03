@@ -278,7 +278,20 @@ export interface TutorMemory {
     name: string
     code: string
     facts: TutorMemoryFact[]
+    /** The rolling summary the post-session summarizer rewrites — the
+     * largest free text the tutor keeps about a learner. */
+    session_summary?: string | null
+    /** The tutor-managed Active Focus list (structures under work). */
+    focus?: string[]
   }[]
+}
+
+/** Forget everything for one language, or with no id every language and
+ * the global profile. Past session records stay — they are history. */
+export async function forgetTutorMemory(languageId?: string): Promise<void> {
+  await apiClient.delete('/api/tutor/memory/all', {
+    params: languageId ? { language_id: languageId } : {},
+  })
 }
 
 /** Everything the tutor remembers about the caller — the Settings panel's

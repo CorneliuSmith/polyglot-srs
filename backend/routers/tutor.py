@@ -37,6 +37,7 @@ from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import (
     create_mastery_suggestions,
     delete_tutor_memory_fact,
+    forget_tutor_memory,
     get_language_profile,
     get_user_profile,
     list_mastery_suggestions,
@@ -614,6 +615,22 @@ async def delete_memory_fact(
             detail="No such remembered fact",
         )
     return {"deleted": True}
+
+
+@router.delete("/memory/all")
+async def forget_memory(
+    language_id: str | None = None,
+    user: dict = Depends(get_current_user),
+):
+    """Forget everything the tutor remembers — for one language, or with no
+    language_id for every language and the global profile. The learner
+    could delete facts one at a time but could not see or clear the
+    rolling summary or the focus list, which are the largest things the
+    AI has written about them. Past session records stay (they are usage
+    history, not memory); the panel says so."""
+    async with rls_connection(user["id"]) as conn:
+        await forget_tutor_memory(conn, user["id"], language_id)
+    return {"forgotten": True}
 
 
 class ResolveSuggestionRequest(BaseModel):

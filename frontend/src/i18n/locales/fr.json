@@ -1129,7 +1129,13 @@
       "inferred": "Supposition du tuteur",
       "empty": "Rien pour l’instant — le tuteur retient des choses au fil de vos échanges.",
       "forget": "Oublier « {{fact}} »",
-      "forgetError": "Suppression impossible — réessayez."
+      "forgetError": "Suppression impossible — réessayez.",
+      "summary": "Résumé des dernières sessions",
+      "focus": "En cours",
+      "forgetAll": "Oublier cette langue",
+      "forgetEverything": "Tout oublier",
+      "forgetAllConfirm": "Oublier tout ce que le tuteur retient pour {{name}} ? Vos sessions passées sont conservées.",
+      "sessionsStay": "Les sessions passées restent dans votre historique ; seul ce que le tuteur garde d’une session à l’autre est effacé."
     },
     "email": {
       "title": "E-mail",

@@ -35,6 +35,7 @@ import EngagementPanel from './EngagementPanel'
 import FeaturePopularityPanel from './FeaturePopularityPanel'
 import LanguageVisibilityPanel from './LanguageVisibilityPanel'
 import LanguageScopePicker from '../../components/LanguageScopePicker'
+import ExplanationView from '../../components/ExplanationView'
 import ExperimentsPanel from './ExperimentsPanel'
 import FeedbackQueuePanel from './FeedbackQueuePanel'
 import GeneratedDrillsPanel from './GeneratedDrillsPanel'
@@ -557,6 +558,23 @@ function PointEditor({
         rows={4}
         className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-lang"
       />
+      {/* What the learner will see. Explanations are plain text that
+          ExplanationView typesets — term/gloss tables, arrow derivations,
+          "label: forms" chips — and until now the person writing one
+          never saw the typeset result, only the raw box. Most of the
+          "cards render confusingly" reports were shapes the author could
+          not see (docs/plans/owner-notes-2026-09-03.md, item 7c). */}
+      {explanation.trim() && (
+        <div
+          className="rounded-lg border border-dashed border-gray-200 bg-gray-50 px-3 py-2"
+          data-testid="explanation-preview"
+        >
+          <p className="mb-1 text-[10px] uppercase tracking-wide text-gray-400">
+            Preview — as the learner sees it
+          </p>
+          <ExplanationView text={explanation} className="text-sm text-gray-800" />
+        </div>
+      )}
 
       <label className="block text-xs font-medium text-gray-500">Culture note (optional)</label>
       <textarea
