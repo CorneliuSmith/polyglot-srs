@@ -374,7 +374,7 @@ describe('Speak — conversation options', () => {
     fireEvent.click(screen.getByTestId('speak-start'))
     await waitFor(() =>
       expect(mockStart).toHaveBeenCalledWith(
-        'lang-es', 'es', 'Explaining a symptom to a doctor', 'flow',
+        'lang-es', 'es', 'Explaining a symptom to a doctor', 'flow', true,
       ),
     )
   })

@@ -287,15 +287,18 @@ rebuilt from an older point; if that happens, fold it into the same probe.
 
 Applied by the owner, never by an agent (`CLAUDE.md`). At the time of
 writing the newest are `20261012000000_show_glosses.sql` (the Learner-tab
-"Show glosses" setting) and `20261014000000_translation_review_items.sql`
-(the reject queue for non-vocabulary translations). The code is safe
-without either — the profile probe returns the default and the toggle
-still renders; the translation writers probe for the table and skip the
-queue, the list endpoint returns no items and the inbox counts none — but
-the glosses *value* will not persist, and a rejected drill line,
-explanation, grammar title or example meaning stays invisible (the
-pre-September behaviour: unwritten, retried on the backoff), until they
-are applied. `/api/health/schema`, or Settings → Admin → Deployment, lists
+"Show glosses" setting), `20261014000000_translation_review_items.sql`
+(the reject queue for non-vocabulary translations) and
+`20261015000000_speak_corrections.sql` (Speak's "no corrections" flag).
+The code is safe without any of them — the profile probe returns the
+default and the toggle still renders; the translation writers probe for
+the table and skip the queue, the list endpoint returns no items and the
+inbox counts none; Speak probes for the column and records corrections
+whatever the box said, telling the client so in the start response — but
+the glosses *value* will not persist, a rejected drill line, explanation,
+grammar title or example meaning stays invisible (the pre-September
+behaviour: unwritten, retried on the backoff), and a learner who unticks
+the box still gets a breakdown, until they are applied. `/api/health/schema`, or Settings → Admin → Deployment, lists
 exactly which files the live database is missing; trust that over this
 paragraph, which will drift.
 

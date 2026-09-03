@@ -40,7 +40,7 @@ tab".
 
 ## 2. Speak corrects a little too much
 
-**Shipped 3 Sep 2026** (prompt rule and summary-model fix; the optional flag is still open).
+**Shipped 3 Sep 2026** — the prompt rule, the summary-model fix, and the optional flag: a per-session `corrections` column (migration `20261015`, owner-applied; probed, so an unmigrated deploy reports "corrections on" in the start response), the "No corrections — I just want to talk" box under the mode cards in six locales, a prompt that keeps no notes, a turn that stores none, and an end that skips the breakdown and says why.
 
 **Effort: half a day** for the prompt fix; a day with the setting.
 

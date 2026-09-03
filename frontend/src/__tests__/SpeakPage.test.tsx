@@ -699,3 +699,51 @@ describe('SpeakPage — speech', () => {
     expect(screen.queryByTestId('speak-play-0')).not.toBeInTheDocument()
   })
 })
+
+describe('SpeakPage — no corrections', () => {
+  beforeEach(() => {
+    vi.clearAllMocks()
+  })
+
+  // Brief item 2, the optional flag: "no corrections — I just want to
+  // talk". A checkbox under the mode cards, orthogonal to the mode.
+  it('records corrections unless the box is ticked', async () => {
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
+    mockStart.mockResolvedValue({ session_id: 's1', mode: 'flow', topic: null })
+    renderPage()
+    await screen.findByTestId('speak-start')
+    expect(screen.getByText(/I just want to talk/i)).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('speak-start'))
+    await waitFor(() => expect(mockStart).toHaveBeenCalled())
+    expect(mockStart.mock.calls[0][4]).toBe(true)
+  })
+
+  it('passes the choice through when ticked', async () => {
+    mockStatus.mockResolvedValue({
+      available: true, allowance, sessions: [], speech: NO_SPEECH,
+    })
+    mockStart.mockResolvedValue({
+      session_id: 's1', mode: 'flow', topic: null, corrections: false,
+    })
+    renderPage()
+    await screen.findByTestId('speak-start')
+    fireEvent.click(screen.getByTestId('speak-no-corrections').querySelector('input')!)
+    fireEvent.click(screen.getByTestId('speak-start'))
+    await waitFor(() => expect(mockStart).toHaveBeenCalled())
+    expect(mockStart.mock.calls[0][4]).toBe(false)
+  })
+
+  it('says why the breakdown is empty, rather than calling the session flawless', async () => {
+    await startTalking()
+    mockEnd.mockResolvedValue({
+      already_ended: false,
+      summary: { ...fullSummary(), groups: [], corrections_off: true },
+    })
+    fireEvent.click(screen.getByTestId('speak-done'))
+    await screen.findByTestId('speak-summary')
+    expect(screen.getByText(/asked for no corrections/i)).toBeInTheDocument()
+    expect(screen.queryByText(/Nothing came up worth fixing/i)).toBeNull()
+  })
+})

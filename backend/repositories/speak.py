@@ -29,14 +29,51 @@ async def tables_ready(conn: asyncpg.Connection) -> bool:
     return await conn.fetchval("SELECT to_regclass('public.speak_sessions')") is not None
 
 
+# Whether speak_sessions.corrections (migration 20261015, owner-applied)
+# exists. Probed, never caught — a failed statement inside the request's
+# transaction poisons everything after it. A column that has been seen once
+# stays seen: migrations are not undone, and the probe then costs nothing.
+_CORRECTIONS_COLUMN_SEEN = False
+
+
+async def corrections_column_present(conn: asyncpg.Connection) -> bool:
+    global _CORRECTIONS_COLUMN_SEEN
+    if _CORRECTIONS_COLUMN_SEEN:
+        return True
+    found = await conn.fetchval(
+        """
+        SELECT 1 FROM information_schema.columns
+         WHERE table_schema = 'public' AND table_name = 'speak_sessions'
+           AND column_name = 'corrections'
+        """
+    )
+    if found:
+        _CORRECTIONS_COLUMN_SEEN = True
+    return bool(found)
+
+
 async def start_session(
     conn: asyncpg.Connection,
     user_id: str,
     language_id: str,
     mode: str,
     topic: str | None,
+    corrections: bool = True,
 ) -> str:
+    """Open a session. *corrections* False ("I just want to talk") is only
+    stored when the column exists; the caller checks
+    corrections_column_present to report what the session actually is."""
     try:
+        if not corrections and await corrections_column_present(conn):
+            return str(await conn.fetchval(
+                """
+                INSERT INTO speak_sessions
+                    (user_id, language_id, mode, topic, corrections)
+                VALUES ($1, $2, $3, $4, false)
+                RETURNING id
+                """,
+                user_id, language_id, mode, topic,
+            ))
         return str(await conn.fetchval(
             """
             INSERT INTO speak_sessions (user_id, language_id, mode, topic)
@@ -59,10 +96,14 @@ async def get_session(
     else's URL should read as "not found" either way.
     """
     try:
+        # `corrections` reads true on a database without the column: every
+        # session before it recorded corrections.
+        has_flag = await corrections_column_present(conn)
+        flag_col = "corrections" if has_flag else "true AS corrections"
         row = await conn.fetchrow(
-            """
+            f"""
             SELECT id, language_id, mode, topic, started_at, ended_at,
-                   turn_count, summary
+                   turn_count, summary, {flag_col}
               FROM speak_sessions
              WHERE id = $1 AND user_id = $2
             """,
@@ -73,6 +114,7 @@ async def get_session(
     if not row:
         return None
     data = dict(row)
+    data["corrections"] = bool(data.get("corrections", True))
     data["id"] = str(data["id"])
     data["language_id"] = str(data["language_id"]) if data["language_id"] else None
     if isinstance(data.get("summary"), str):

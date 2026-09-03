@@ -115,6 +115,19 @@ class TestSystemPrompt:
         # The no-recast rule holds in both modes.
         assert "Never correct, recast or repeat back" in coach
 
+    def test_no_corrections_keeps_no_notes(self):
+        # "No corrections — I just want to talk" (brief item 2, the optional
+        # flag): the notes block is replaced, not merely softened, so there
+        # is nothing to record per turn and nothing to go over at the end.
+        off = _system_prompt("Spanish", "A2", None, None, corrections=False)
+        assert "Only real mistakes" not in off
+        assert "empty notes list" in off
+        assert "never mention a mistake" in off
+        # The partner still answers the meaning and never recasts.
+        assert "Never correct, recast or repeat back" in off
+        on = _system_prompt("Spanish", "A2", None, None, corrections=True)
+        assert "Only real mistakes" in on
+
     def test_notes_default_to_english_with_no_support_language(self):
         assert "Write the notes in English" in _system_prompt(
             "Spanish", "B1", None, None
@@ -637,6 +650,103 @@ class TestCoachMode:
             })
         assert resp.status_code == 200
         assert resp.json()["mode"] == "coach"
+
+
+class TestNoCorrections:
+    """The per-session flag: nothing recorded, nothing shown, nothing to
+    go over — and a database without the column says so at the start."""
+
+    def _off(self, **over):
+        return _live_session(corrections=False, **over)
+
+    def test_start_stores_the_flag_and_echoes_it(self, client):
+        with patch("backend.routers.speak.start_session",
+                   new=AsyncMock(return_value=TEST_SESSION_ID)) as started, \
+             patch("backend.routers.speak.corrections_column_present",
+                   new=AsyncMock(return_value=True)):
+            resp = client.post("/api/speak/start", headers=_auth_headers(), json={
+                "language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                "topic": "Coffee", "corrections": False,
+            })
+        assert resp.status_code == 200
+        assert resp.json()["corrections"] is False
+        assert started.await_args.kwargs["corrections"] is False
+
+    def test_start_without_the_column_reports_corrections_on(self, client):
+        # Owner-applied migration: an unmigrated deploy cannot honour the
+        # box, and the client is told what the session IS.
+        with patch("backend.routers.speak.start_session",
+                   new=AsyncMock(return_value=TEST_SESSION_ID)), \
+             patch("backend.routers.speak.corrections_column_present",
+                   new=AsyncMock(return_value=False)):
+            resp = client.post("/api/speak/start", headers=_auth_headers(), json={
+                "language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                "topic": "Coffee", "corrections": False,
+            })
+        assert resp.json()["corrections"] is True
+
+    def test_start_defaults_to_corrections_on(self, client):
+        with patch("backend.routers.speak.start_session",
+                   new=AsyncMock(return_value=TEST_SESSION_ID)) as started:
+            resp = client.post("/api/speak/start", headers=_auth_headers(), json={
+                "language_id": TEST_LANGUAGE_ID, "language_code": "es",
+                "topic": "Coffee",
+            })
+        assert resp.json()["corrections"] is True
+        assert started.await_args.kwargs["corrections"] is True
+
+    def test_a_turn_stores_no_errors_and_shows_none_even_in_coach(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=self._off(mode="coach"))), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn",
+                   new=AsyncMock()) as appended:
+            resp = client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Yo quiero un café",
+            })
+        assert resp.status_code == 200
+        assert "correction" not in resp.json()
+        assert appended.await_args.args[5] == []  # the mock noted one; dropped
+
+    def test_the_prompt_is_told(self, client):
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=self._off())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=[])), \
+             patch("backend.routers.speak.append_turn", new=AsyncMock()), \
+             patch("backend.routers.speak.speak_turn",
+                   new=AsyncMock(return_value=(
+                       {"reply": "Claro.", "reply_translation": "", "errors": []},
+                       None))) as turn:
+            client.post("/api/speak/turn", headers=_auth_headers(), json={
+                "session_id": TEST_SESSION_ID, "text": "Hola",
+            })
+        assert turn.await_args.kwargs["corrections"] is False
+
+    def test_end_skips_the_breakdown_and_says_why(self, client):
+        # Even if errors somehow reached the store, the summary ignores
+        # them: no grouping, no model call, and the stored summary carries
+        # the reason so an old session read back is not a flawless one.
+        turns = [{"idx": 0, "learner_text": "Yo quiero café",
+                  "partner_text": "Claro.", "audio_ms": None,
+                  "errors": _errors("pronoun")}]
+        with patch("backend.routers.speak.get_session",
+                   new=AsyncMock(return_value=self._off())), \
+             patch("backend.routers.speak.list_turns",
+                   new=AsyncMock(return_value=turns)), \
+             patch("backend.routers.speak.end_session",
+                   new=AsyncMock()) as ended, \
+             patch("backend.routers.speak.log_tutor_usage",
+                   new=AsyncMock()) as logged:
+            resp = client.post("/api/speak/end", headers=_auth_headers(),
+                               json={"session_id": TEST_SESSION_ID})
+        body = resp.json()["summary"]
+        assert body["groups"] == []
+        assert body["corrections_off"] is True
+        assert body["stats"]["error_count"] == 0
+        logged.assert_not_awaited()  # no model call, nothing to bill
+        assert ended.await_args.args[2]["corrections_off"] is True
 
 
 class TestSpeech:
