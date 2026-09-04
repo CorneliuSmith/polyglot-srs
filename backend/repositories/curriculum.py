@@ -297,6 +297,14 @@ async def get_curriculum_point(
         "learned": gp["learned"],
         "learnable": len(drills) > 0,
         "references": references,
+        # The Gym entry for this point, when the manifest has one. The lesson
+        # teaches the rule; the Gym drills the FORMS, and a conjugation or
+        # declension is too broad to enumerate on a lesson page — le futur
+        # simple lists five irregular stems and has thirty-odd. Pointing at
+        # the drill set is the honest way to cover breadth: the manifest is
+        # already the curated enumeration, it was just never surfaced here
+        # (the same no-route-to-the-reader class as CHECKS §12 and §17).
+        "gym": _gym_entry(gp["language_code"], gp["title"], len(drills)),
         "read_refs": read_refs,
         "related": related,
         "examples": [
@@ -310,6 +318,35 @@ async def get_curriculum_point(
             for d in drills
         ],
     }
+
+
+def _gym_entry(code: str, title: str, drill_count: int) -> dict | None:
+    """This point's Gym manifest entry, or None when it has none.
+
+    `label` and `usage` are the picker's own words for the form, so the
+    lesson and the Gym name it identically rather than inventing a second
+    vocabulary for the same thing. `drills` is what the point actually has,
+    so the link can say how much practice is behind it instead of promising
+    a set that turns out to be empty.
+    """
+    from backend.services.gym_manifest import load_manifest
+
+    manifest = load_manifest(code)
+    if not manifest:
+        return None
+    wanted = (title or "").strip()
+    for column in manifest.get("columns", []):
+        for entry in column.get("entries", []):
+            if (entry.get("point") or "").strip() != wanted:
+                continue
+            return {
+                "label": entry.get("label"),
+                "usage": entry.get("usage"),
+                "example": entry.get("example"),
+                "column": column.get("title") or column.get("label"),
+                "drills": drill_count,
+            }
+    return None
 
 
 async def learn_point(

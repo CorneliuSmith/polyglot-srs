@@ -30,6 +30,16 @@ export interface CurriculumPointDetail {
     translation: string | null
     hint: string | null
   }[]
+  /** This point's Gym entry, when the manifest has one. The lesson teaches
+   *  the rule; the Gym drills the forms, which a lesson cannot enumerate —
+   *  le futur simple shows five irregular stems and has thirty-odd. */
+  gym?: {
+    label: string | null
+    usage: string | null
+    example: string | null
+    column: string | null
+    drills: number
+  } | null
 }
 
 export async function getCurriculum(languageId: string): Promise<CurriculumPoint[]> {

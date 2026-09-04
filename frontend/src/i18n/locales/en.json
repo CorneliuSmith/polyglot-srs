@@ -872,7 +872,9 @@
     "addToReviews": "Add to my reviews",
     "adding": "Adding…",
     "alreadyInReviews": "Already in your reviews — it will keep coming back on its FSRS schedule.",
-    "otherLevel": "Other"
+    "otherLevel": "Other",
+    "practiseForms": "Practise {{label}} in the Gym",
+    "drillCount": "{{count}} drills"
   },
   "recos": {
     "mediaTypes": {
