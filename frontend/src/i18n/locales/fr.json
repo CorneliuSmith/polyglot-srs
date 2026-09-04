@@ -1034,10 +1034,8 @@
     "tabs": {
       "aria": "Sections du compte",
       "learner": "Apprenant",
-      "contribute": "Atelier",
-      "review": "Relecture",
       "invite": "Inviter",
-      "admin": "Admin"
+      "workspace": "Espace de travail"
     },
     "activeLanguage": "Langue active",
     "level": {
@@ -1699,5 +1697,32 @@
     "choose": "Continuer avec {{name}}",
     "opening": "Ouverture du paiement…",
     "changeHint": "Vous pouvez changer de formule à tout moment dans les Réglages."
+  },
+  "workspace": {
+    "title": "Espace de travail",
+    "dashboard": "Tableau de bord",
+    "loading": "Chargement…",
+    "thisLanguage": "cette langue",
+    "noRole": "Vous n’avez pas de rôle de contributeur pour {{language}}. Demandez l’accès à un administrateur.",
+    "tabs": {
+      "aria": "Espace de travail",
+      "workshop": "Atelier",
+      "review": "Relecture",
+      "admin": "Administration"
+    },
+    "admin": {
+      "aria": "Sections d’administration",
+      "insights": "Statistiques",
+      "languages": "Langues",
+      "content": "Contenu",
+      "people": "Personnes",
+      "rollouts": "Déploiements",
+      "costs": "Coûts"
+    },
+    "content": {
+      "aria": "Type de contenu",
+      "grammar": "grammaire",
+      "vocab": "vocabulaire"
+    }
   }
 }

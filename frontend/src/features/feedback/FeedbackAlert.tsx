@@ -63,7 +63,7 @@ export default function FeedbackAlert({ canSeeQueue }: { canSeeQueue: boolean })
         type="button"
         onClick={() => {
           markFeedbackSeen(data.latest_at)
-          navigate('/feedback')
+          navigate('/contribute?tab=review&queue=feedback-queue')
         }}
         className="bg-lang hover:bg-lang-dark text-lang-on text-sm font-semibold rounded-lg px-3 py-1.5 shrink-0"
       >

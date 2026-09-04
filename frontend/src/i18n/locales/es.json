@@ -1034,10 +1034,8 @@
     "tabs": {
       "aria": "Secciones de la cuenta",
       "learner": "Estudiante",
-      "contribute": "Taller",
-      "review": "Revisión",
       "invite": "Invitar",
-      "admin": "Admin"
+      "workspace": "Espacio de trabajo"
     },
     "activeLanguage": "Idioma activo",
     "level": {
@@ -1699,5 +1697,32 @@
     "choose": "Continuar con {{name}}",
     "opening": "Abriendo el pago…",
     "changeHint": "Puedes cambiar de plan cuando quieras en Ajustes."
+  },
+  "workspace": {
+    "title": "Espacio de trabajo",
+    "dashboard": "Panel",
+    "loading": "Cargando…",
+    "thisLanguage": "este idioma",
+    "noRole": "No tienes un rol de colaborador para {{language}}. Pide acceso a un administrador.",
+    "tabs": {
+      "aria": "Espacio de trabajo",
+      "workshop": "Taller",
+      "review": "Revisión",
+      "admin": "Administración"
+    },
+    "admin": {
+      "aria": "Secciones de administración",
+      "insights": "Datos",
+      "languages": "Idiomas",
+      "content": "Contenido",
+      "people": "Personas",
+      "rollouts": "Despliegues",
+      "costs": "Costes"
+    },
+    "content": {
+      "aria": "Tipo de contenido",
+      "grammar": "gramática",
+      "vocab": "vocabulario"
+    }
   }
 }

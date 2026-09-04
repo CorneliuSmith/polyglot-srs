@@ -397,6 +397,9 @@ class TestAdminDigestBody:
         assert "Learning Twi" in html          # their own words come along
         # Deep-linked at the panel, not the workspace's front page.
         assert f"{APP}/contribute?tab=admin&amp;section=people" in html
+        # The feedback link lands on the queue it names — it used to point
+        # at the Admin tab, which never held it.
+        assert f"{APP}/contribute?tab=review&amp;queue=feedback-queue" in html
         # People come before queues: they are the only ones waiting on a human.
         assert html.index("waiting for access") < html.index("waiting for review")
 

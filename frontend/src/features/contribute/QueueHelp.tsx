@@ -297,6 +297,32 @@ export const QUEUE_HELP: Record<string, QueueHelpText> = {
       },
     ],
   },
+  overlaps: {
+    what:
+      'Pairs of grammar points the overlap audit thinks teach substantially ' +
+      'the same thing. Nothing is merged for you: you edit the points, then ' +
+      'record what you decided.',
+    who: 'Reviewers and admins record a decision; anyone with a role can read the list.',
+    does: [
+      {
+        action: 'Merged the content',
+        means:
+          'records that you folded one point into the other by editing them. ' +
+          'The pair leaves the queue; the points themselves are whatever you ' +
+          'left them as.',
+      },
+      {
+        action: 'Keep both',
+        means:
+          'records that the overlap is real but deliberate — two points on ' +
+          'purpose. The pair leaves the queue and is not raised again.',
+      },
+      {
+        action: 'Dismiss',
+        means: 'records that the audit was wrong. The pair leaves the queue.',
+      },
+    ],
+  },
   suggestions: {
     what:
       'Proposed edits to a definition or usage note, written by a ' +

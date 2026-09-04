@@ -59,3 +59,10 @@ items are built on request, in a session.
 - [ ] **10. Retest recommendations on a single-language account** now
   that entitlement follows the pool rather than the tier name (#387).
   *Owner / a reviewer.*
+
+## Found on the way
+
+- [x] **11. One staff console** (4 Sep 2026) — the Account page's
+  Workshop / Review / Admin tabs are gone; everything they alone carried
+  lives in the Workspace, which is now wide and framed in the UI language
+  (`staff-console-consolidation.md`). *Agent.*

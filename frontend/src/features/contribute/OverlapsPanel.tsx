@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getOverlaps, resolveOverlap } from '../../api/contribute'
 import type { OverlapPair } from '../../api/contribute'
+import QueueHelp, { QUEUE_HELP } from './QueueHelp'
 
 const VERDICT_LABEL: Record<OverlapPair['verdict'], string> = {
   duplicate: 'Duplicate',
@@ -49,6 +50,11 @@ export default function OverlapsPanel({
       <div>
         <h2 className="font-semibold text-gray-800">
           Overlapping grammar points ({overlaps.length})
+          <QueueHelp
+            title="Overlapping grammar points"
+            help={QUEUE_HELP.overlaps}
+            testId="help-overlaps"
+          />
         </h2>
         <p className="text-xs text-gray-500">
           The audit thinks each pair teaches substantially the same thing.

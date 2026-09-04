@@ -31,7 +31,7 @@ import TutorMemoryPanel from './TutorMemoryPanel'
 import { supabase } from '../../lib/supabase'
 import LanguagePicker from '../../components/LanguagePicker'
 import LanguageWrapper from '../../components/LanguageWrapper'
-import { getGrammarForLanguage, getMyRoles } from '../../api/contribute'
+import { getMyRoles } from '../../api/contribute'
 import {
   canContributeWith,
   canReviewWith,
@@ -40,28 +40,12 @@ import {
 import { accentExampleFor } from '../../lib/accentExamples'
 import { languageDisplayName } from '../../lib/languages'
 import { useViewAsKey } from '../../stores/viewAsStore'
-import AccountsPanel from '../contribute/AccountsPanel'
-import PlanLimitsPanel from '../contribute/PlanLimitsPanel'
 import RoleGuide from '../contribute/RoleGuide'
-import FeedbackQueuePanel from '../contribute/FeedbackQueuePanel'
 import InvitePanel from '../contribute/InvitePanel'
 import MyFeedback from '../feedback/MyFeedback'
-import GenerationPanel from '../contribute/GenerationPanel'
-import LanguageVisibilityPanel from '../contribute/LanguageVisibilityPanel'
-import RolesPanel from '../contribute/RolesPanel'
-import ReviewQueue from '../contribute/ReviewQueue'
-import AnalyticsPanel from '../contribute/AnalyticsPanel'
-import DeploymentPanel from './DeploymentPanel'
-import EngagementPanel from '../contribute/EngagementPanel'
-import {
-  ReviewPolicyControl,
-  TutorModelControl,
-  TutorCostsPanel,
-} from '../contribute/ContributorPage'
-import { useAuthStore } from '../../stores/authStore'
 import { CARD_COLUMNS, PAGE_WIDE } from '../../lib/layout'
 
-type AccountTab = 'learner' | 'contribute' | 'review' | 'invite' | 'admin'
+export type AccountTab = 'learner' | 'invite' | 'workspace'
 
 // Tab labels live in the catalog as settings.tabs.<key>. Ambassadors get
 // their own "Invite" tab rather than a cut-down "Admin" one: calling it
@@ -70,18 +54,14 @@ type AccountTab = 'learner' | 'contribute' | 'review' | 'invite' | 'admin'
 
 /** The tabs an account can actually reach.
  *
- * One question per tab, because the roles are not a ladder (see lib/viewAs.ts):
- *
- *   Contribute — canContribute. NOT admin-only; gating it on
- *     `canReview || isAdmin` once hid it from every plain contributor and left
- *     them no route to their own panel.
- *   Review — canReview OR canTrialReview. Asking only canReview left trial
- *     reviewers with nothing but the Learner tab, so the queue they exist to
- *     work was unreachable and their guide panel rendered in a tab they could
- *     not open. Publishing stays gated separately: ReviewQueue takes
- *     canReview, so a trial reviewer sees the queue and recommends on it
- *     without being able to publish.
- *   Admin — isAdmin. */
+ * Learner is the page. Invite is the ambassador's one power — a learner
+ * who can recruit, not staff, and must never see the account roster.
+ * Workspace is a DOOR, not a panel: since 4 Sep 2026 the staff console
+ * lives in one place (`/contribute`), and this page no longer carries a
+ * second copy of the review queues and admin panels that drifted apart
+ * from it (docs/plans/staff-console-consolidation.md). Any staff role —
+ * contributor, reviewer, trial reviewer, admin — gets the door; the
+ * Workspace decides its own tabs from the same roles. */
 export function accountTabsFor(flags: {
   canContribute: boolean
   canReview: boolean
@@ -89,16 +69,14 @@ export function accountTabsFor(flags: {
   canAddAccounts?: boolean
   isAdmin: boolean
 }): AccountTab[] {
+  const staff =
+    flags.canContribute || flags.canReview || !!flags.canTrialReview || flags.isAdmin
   return [
     'learner' as const,
-    ...(flags.canContribute ? (['contribute'] as const) : []),
-    ...(flags.canReview || flags.canTrialReview
-      ? (['review'] as const)
-      : []),
-    // Admins reach account creation through Admin, which has the full
-    // panel; Invite is for the ambassador who has only this one power.
+    // Admins reach account creation through the Workspace, which has the
+    // full panel; Invite is for the ambassador who has only this one power.
     ...(flags.canAddAccounts && !flags.isAdmin ? (['invite'] as const) : []),
-    ...(flags.isAdmin ? (['admin'] as const) : []),
+    ...(staff ? (['workspace'] as const) : []),
   ]
 }
 
@@ -185,24 +163,16 @@ export default function SettingsPage() {
 
   const { data: profile } = useQuery({ queryKey: ['profile'], queryFn: getProfile })
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
-  const selfId = useAuthStore((s) => s.session?.user?.id ?? null)
 
   // Account is a role-tabbed hub (beta request): Learner settings are the
   // default; Contribute/Review/Admin appear for accounts that hold those
   // roles, so the panels sit here instead of on a separate page to scroll.
   const [tab, setTab] = useState<AccountTab>('learner')
   const viewAsKey = useViewAsKey()
-  const { data: workspace } = useQuery({
-    queryKey: ['contribute-grammar', activeLanguageId, viewAsKey],
-    queryFn: () => getGrammarForLanguage(activeLanguageId!),
-    enabled: !!activeLanguageId,
-    retry: false,
-  })
-  // Which TABS exist comes from the roles payload, not the workspace above:
-  // roles are tiny, cached app-wide, and already loaded by the time Account
-  // renders. Deriving the bar from the workspace meant a slow or failed
-  // grammar fetch silently hid Contribute/Review/Admin — which is how
-  // "view as Contributor" ended up showing a learner's page.
+  // Which TABS exist comes from the roles payload: roles are tiny, cached
+  // app-wide, and already loaded by the time Account renders. (This page
+  // used to also fetch the grammar workspace payload on every visit, to
+  // feed two admin controls that now live only in the Workspace.)
   const { data: roleInfo } = useQuery({
     queryKey: ['my-roles', viewAsKey],
     queryFn: getMyRoles,
@@ -224,8 +194,6 @@ export default function SettingsPage() {
   // Resolved during render, not in an effect, so the page is never blank for
   // even one frame while a preview is switching.
   const activeTab = resolveTab(tab, availableTabs)
-  const workspaceRefresh = () =>
-    queryClient.invalidateQueries({ queryKey: ['contribute-grammar', activeLanguageId] })
   const { data: stats } = useQuery({
     queryKey: ['dashboard', activeLanguageId],
     queryFn: () => getDashboardStats(activeLanguageId!),
@@ -476,7 +444,9 @@ export default function SettingsPage() {
                 type="button"
                 role="tab"
                 aria-selected={activeTab === key}
-                onClick={() => setTab(key)}
+                // Workspace is a door: the staff console is one page, and
+                // this tab takes you there rather than growing a copy.
+                onClick={() => (key === 'workspace' ? navigate('/contribute') : setTab(key))}
                 className={`flex-1 px-4 py-2 font-semibold transition-colors ${
                   activeTab === key
                     ? 'bg-lang text-lang-on'
@@ -489,86 +459,10 @@ export default function SettingsPage() {
           </div>
         )}
 
-        {activeTab === 'contribute' && activeLanguageId && (
-          <>
-          <RoleGuide role="contribute" />
-          <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">
-            <h2 className="font-semibold text-gray-800">Workshop</h2>
-            {/* "Open the workspace", not "Open grammar editor": the door
-                leads to the whole staff console (drafting, review queues,
-                admin), and naming it after one tab inside was exactly the
-                flow the owner said they didn't understand. */}
-            <p className="text-xs text-gray-500">
-              Draft grammar and vocabulary, and work the review queues, in
-              the staff workspace.
-            </p>
-            <button
-              type="button"
-              onClick={() => navigate('/contribute')}
-              className="rounded-lg bg-lang hover:bg-lang-dark text-lang-on font-semibold px-4 py-2 text-sm"
-            >
-              Open the workspace
-            </button>
-          </section>
-          </>
-        )}
-
-        {activeTab === 'review' && activeLanguageId && (
-          <>
-            {/* A trial reviewer sees the queue but cannot publish — say so
-                up front rather than letting them find out by pressing. */}
-            <RoleGuide role={canReview ? 'review' : 'trial_review'} />
-            {/* User feedback sits WITH the content queue, not off in Admin:
-                most of what arrives is a content complaint, and the people
-                who can act on those are reviewers. */}
-            <FeedbackQueuePanel canTriage={isAdmin} />
-            <ReviewQueue languageId={activeLanguageId} canReview={canReview} />
-          </>
-        )}
-
         {activeTab === 'invite' && canAddAccounts && !isAdmin && (
           <>
             <RoleGuide role="ambassador" />
             <InvitePanel />
-          </>
-        )}
-
-        {activeTab === 'admin' && activeLanguageId && isAdmin && (
-          <>
-            <RoleGuide role="admin" />
-            {/* First, because it answers the question every other admin
-                report gets asked through: is what I am looking at the
-                build I think it is, on a database that has caught up. */}
-            <DeploymentPanel />
-            <AnalyticsPanel />
-            <EngagementPanel />
-            <LanguageVisibilityPanel />
-            {/* The content "feeds" — generate, recheck, overlap scan, chart
-                backfill — live here too, not just on /contribute, so they're
-                findable from either admin surface. */}
-            <GenerationPanel />
-            {/* AI translation reviews are NOT here. Review work belongs in
-                the Review section with the other queues (owner, twice) —
-                this page kept a second copy, which is the one the owner
-                kept finding. Contribute → Review is the single home. */}
-            <AccountsPanel languages={languages} selfId={selfId} />
-            <PlanLimitsPanel />
-            <RolesPanel languages={languages} />
-            <ReviewPolicyControl
-              languageId={activeLanguageId}
-              languageName={activeLanguage?.name}
-              policy={workspace?.review_policy ?? 'strict'}
-              uncheckedPoints={workspace?.unchecked_points ?? 0}
-              onChanged={workspaceRefresh}
-            />
-            <TutorModelControl
-              languageId={activeLanguageId}
-              languageName={activeLanguage?.name}
-              current={workspace?.tutor_model ?? null}
-              defaultModel={workspace?.default_tutor_model}
-              onChanged={workspaceRefresh}
-            />
-            <TutorCostsPanel />
           </>
         )}
 

@@ -146,6 +146,20 @@ Two things that pass the tests but are not finished:
   points — the whole point of generating it is that it lists them all.
 
 
+### The Workspace chrome is translated; its 42 panels are not
+
+Since 4 Sep 2026 the Workspace (`/contribute`) is the only staff console
+(`docs/plans/staff-console-consolidation.md`), and its heading, tab and
+section labels, content switch and no-role copy follow the UI language
+(`workspace.*` in the six catalogs). Every panel under
+`features/contribute/` is still hardcoded English — 42 files, zero `t()`
+calls — as is `settings/DeploymentPanel.tsx`. That is a scope decision,
+not an oversight: the panels are staff tooling used by a handful of
+people who all read English, and a full pass is a multi-day translation
+job that should be done once, panel by panel, when a non-English-reading
+reviewer actually joins. Until then a French reviewer sees a French frame
+around English tools.
+
 ### The four plan options lean on three Stripe facts nobody enforces
 
 LEARN.md → *Plans: four options, one subscription*. Three assumptions the
@@ -401,20 +415,6 @@ association files not yet served from the API host. Full list:
 `docs/native-apps.md`. None of this is surprising or hidden — it's just work
 that genuinely needs a macOS machine and developer accounts, not something
 an agent session can close out.
-
----
-
-## Small, real, and already known
-
-### The `overlaps` tile pointed at a panel that isn't on that tab
-
-`OverlapsPanel` is mounted by `ReviewQueue`, which renders in **Settings** —
-not on the Workspace Review tab, where the Review Inbox tile said to look
-("Overlaps panel · Review tab"). The hint is corrected and the tile is
-deliberately not clickable in focus mode, since focusing it could only
-scope the page to nothing. The panel itself is fine; only the signpost was
-wrong. Worth deciding whether that queue should move onto the Review tab
-with the others rather than staying the one exception.
 
 ---
 

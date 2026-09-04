@@ -54,8 +54,11 @@ describe('role flags', () => {
 })
 
 describe('the Account tabs an admin sees while previewing', () => {
-  // The bug: "view as Contributor" rendered a learner's page with no tab bar
-  // at all, while "view as Reviewer" showed all three tabs.
+  // The bug this once caught: "view as Contributor" rendered a learner's
+  // page with no tab bar at all. Since the consolidation (4 Sep 2026) the
+  // Account page holds no staff panels, so what a preview must show is
+  // simpler and still worth pinning: the Workspace door for every staff
+  // level, and NOT for a learner.
   const adminRoles = [{ language_id: null, role: 'admin' }]
 
   const tabsFor = (
@@ -71,48 +74,26 @@ describe('the Account tabs an admin sees while previewing', () => {
     })
   }
 
-  it('as themselves: everything', () => {
-    expect(tabsFor(null)).toEqual(['learner', 'contribute', 'review', 'admin'])
+  it('as themselves: the door', () => {
+    expect(tabsFor(null)).toEqual(['learner', 'workspace'])
   })
 
-  it('as a contributor: Learner and Contribute — not nothing', () => {
-    expect(tabsFor('contributor')).toEqual(['learner', 'contribute'])
+  it('as a contributor: the door — not nothing', () => {
+    expect(tabsFor('contributor')).toEqual(['learner', 'workspace'])
   })
 
-  it('as a reviewer: Learner, Contribute and Review', () => {
-    expect(tabsFor('reviewer')).toEqual(['learner', 'contribute', 'review'])
+  it('as a reviewer: the door', () => {
+    expect(tabsFor('reviewer')).toEqual(['learner', 'workspace'])
   })
 
   it('as a learner: just Learner', () => {
     expect(tabsFor('learner')).toEqual(['learner'])
   })
 
-  it('as a trial reviewer: Learner and Review — the queue they exist to work', () => {
-    // Regression: accountTabsFor only asked canReview, so a trial reviewer got
-    // nothing but Learner. The queue was unreachable and their guide panel
-    // rendered inside a tab they could not open. Caught from a screenshot of
-    // the live preview, not from a test.
-    expect(tabsFor('trial_reviewer')).toEqual(['learner', 'review'])
-  })
-
-  it('a trial reviewer reaches Review WITHOUT Contribute', () => {
-    // The disjointness, at the tab layer: queue access must not imply the
-    // ability to draft content.
-    const tabs = tabsFor('trial_reviewer')
-    expect(tabs).toContain('review')
-    expect(tabs).not.toContain('contribute')
-  })
-
-  it('a contributor reaches Contribute WITHOUT Review', () => {
-    const tabs = tabsFor('contributor')
-    expect(tabs).toContain('contribute')
-    expect(tabs).not.toContain('review')
-  })
-
-  it('no preview ever reaches Admin', () => {
-    for (const level of ['learner', 'contributor', 'trial_reviewer', 'reviewer'] as const) {
-      expect(tabsFor(level)).not.toContain('admin')
-    }
+  it('as a trial reviewer: the door — the queue they exist to work is behind it', () => {
+    // Regression: the old tab set asked only canReview, so a trial reviewer
+    // got a page with nothing to do on it.
+    expect(tabsFor('trial_reviewer')).toEqual(['learner', 'workspace'])
   })
 })
 
@@ -189,9 +170,9 @@ describe('the ambassador', () => {
     expect(canTrialReviewWith(ambassador, false, ES)).toBe(false)
   })
 
-  it('an admin keeps the full Admin tab instead of a second Invite one', () => {
-    // Admins already reach account creation through Admin; two doors to the
-    // same room is just clutter.
+  it('an admin gets the Workspace door instead of a second Invite tab', () => {
+    // Admins already reach account creation through the Workspace; two
+    // doors to the same room is just clutter.
     const tabs = accountTabsFor({
       canContribute: true,
       canReview: true,
@@ -199,7 +180,7 @@ describe('the ambassador', () => {
       canAddAccounts: true,
       isAdmin: true,
     })
-    expect(tabs).toContain('admin')
+    expect(tabs).toContain('workspace')
     expect(tabs).not.toContain('invite')
   })
 

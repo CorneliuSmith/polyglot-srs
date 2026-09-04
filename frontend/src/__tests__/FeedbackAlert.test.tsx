@@ -56,7 +56,9 @@ describe('the staff nudge when feedback arrives', () => {
     renderAlert()
     fireEvent.click(await screen.findByRole('button', { name: /read it/i }))
 
-    expect(mockNavigate).toHaveBeenCalledWith('/feedback')
+    // Straight at the queue on the Workspace's Review tab — the one home
+    // the app-feedback queue has since 4 Sep 2026.
+    expect(mockNavigate).toHaveBeenCalledWith('/contribute?tab=review&queue=feedback-queue')
     expect(usePrefsStore.getState().feedbackSeenAt).toBe('2026-08-01T10:00:00Z')
   })
 

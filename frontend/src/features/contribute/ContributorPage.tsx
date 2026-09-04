@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import {
@@ -52,6 +53,11 @@ import AiTopicsPanel from './AiTopicsPanel'
 import GenerationPanel from './GenerationPanel'
 import TranslationReviewsPanel from './TranslationReviewsPanel'
 import RecordingsPanel, { RecordingsReviewQueue } from './RecordingsPanel'
+import OverlapsPanel from './OverlapsPanel'
+import PlanLimitsPanel from './PlanLimitsPanel'
+import RoleGuide from './RoleGuide'
+import DeploymentPanel from '../settings/DeploymentPanel'
+import { CARD_COLUMNS, PAGE_WIDE } from '../../lib/layout'
 import { useAuthStore } from '../../stores/authStore'
 import {
   flagPointIssue,
@@ -832,6 +838,7 @@ function paramPanel(value: string | null): PanelId | null {
 }
 
 export default function ContributorPage() {
+  const { t } = useTranslation()
   const [searchParams] = useSearchParams()
   const focusPointId = searchParams.get('point')
   const linkedTab = paramTab(searchParams.get('tab'))
@@ -914,7 +921,11 @@ export default function ContributorPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-2xl mx-auto px-4 py-8 space-y-4">
+      {/* The shared width ramp: since 4 Sep 2026 this is the ONLY staff
+          console (docs/plans/staff-console-consolidation.md), and it
+          inherited thirteen admin panels and ten review queues that used
+          to sit in a 576-pixel column on a monitor. */}
+      <div className={`${PAGE_WIDE} mx-auto px-4 py-8 space-y-4`}>
         <div className="flex items-center justify-between gap-3">
           <h1 className="flex min-w-0 items-center gap-2 text-2xl font-bold text-gray-900">
             {/* "Workspace", not "Contribute": this page is the whole staff
@@ -922,7 +933,7 @@ export default function ContributorPage() {
                 promised only the first of those (owner: "I don't understand
                 that flow then for contributor. Change the name."). The
                 /contribute route stays put so old links keep working. */}
-            <span className="shrink-0">Workspace ·</span>
+            <span className="shrink-0">{t('workspace.title')} ·</span>
             {/* The whole workspace — every tab, queue, and setting below —
                 is scoped to ONE language. The picker carries each language's
                 waiting count and arrows to step between them, so working
@@ -941,16 +952,17 @@ export default function ContributorPage() {
             onClick={() => navigate('/')}
             className="shrink-0 text-sm text-lang hover:underline"
           >
-            Dashboard
+            {t('workspace.dashboard')}
           </button>
         </div>
 
-        {isLoading && <p className="text-gray-500">Loading…</p>}
+        {isLoading && <p className="text-gray-500">{t('workspace.loading')}</p>}
 
         {forbidden && (
           <div className="bg-white rounded-2xl border border-gray-100 p-6 text-gray-600">
-            You don’t have a contributor role for {language?.name ?? 'this language'}.
-            Ask an admin for access.
+            {t('workspace.noRole', {
+              language: language?.name ?? t('workspace.thisLanguage'),
+            })}
           </div>
         )}
 
@@ -963,7 +975,7 @@ export default function ContributorPage() {
             <div
               className="flex rounded-xl border border-gray-200 bg-white overflow-hidden text-sm"
               role="tablist"
-              aria-label="Workspace"
+              aria-label={t('workspace.tabs.aria')}
             >
               {(
                 [
@@ -972,14 +984,14 @@ export default function ContributorPage() {
                   // Labelled "Workshop" (owner: "Contribute should become
                   // just Workshop"); the key and the ?tab= value stay
                   // 'contribute' so old links keep working.
-                  ['contribute', 'Workshop', (data.can_contribute ?? false) || data.is_admin],
+                  ['contribute', t('workspace.tabs.workshop'), (data.can_contribute ?? false) || data.is_admin],
                   // Contributors have all reviewer permissions on the
                   // change-request board, so they get the Review tab too.
-                  ['review', 'Review',
+                  ['review', t('workspace.tabs.review'),
                     (data.can_review ?? data.is_admin) ||
                     (data.can_contribute ?? false) ||
                     (data.can_trial_review ?? false)],
-                  ['admin', 'Admin', data.is_admin],
+                  ['admin', t('workspace.tabs.admin'), data.is_admin],
                 ] as [WorkspaceTab, string, boolean][]
               )
                 .filter(([, , show]) => show)
@@ -1001,6 +1013,20 @@ export default function ContributorPage() {
                 ))}
             </div>
 
+            {/* "What am I supposed to do here?" — the per-role directions,
+                at the top of the tab they describe. They used to open the
+                Account page's staff tabs; those tabs are gone, and the
+                Workspace is where the roles are exercised. */}
+            <RoleGuide
+              role={
+                tab === 'admin'
+                  ? 'admin'
+                  : tab === 'review'
+                    ? (data.can_review ?? data.is_admin) ? 'review' : 'trial_review'
+                    : 'contribute'
+              }
+            />
+
             {/* Content switch: grammar points vs vocabulary. Grammar keeps its
                 full authoring/approval surface; vocab is browse + votable
                 suggestions. Hidden on the Admin tab (controls, not content). */}
@@ -1008,7 +1034,7 @@ export default function ContributorPage() {
               <div
                 className="flex rounded-lg border border-gray-200 bg-white overflow-hidden text-sm w-fit"
                 role="tablist"
-                aria-label="Content type"
+                aria-label={t('workspace.content.aria')}
               >
                 {(['grammar', 'vocab'] as const).map((k) => (
                   <button
@@ -1023,7 +1049,7 @@ export default function ContributorPage() {
                         : 'text-gray-500 hover:bg-gray-50'
                     }`}
                   >
-                    {k}
+                    {t(`workspace.content.${k}`)}
                   </button>
                 ))}
               </div>
@@ -1034,9 +1060,9 @@ export default function ContributorPage() {
                 <div
                   className="flex flex-wrap gap-1 rounded-xl border border-gray-200 bg-white p-1 text-sm"
                   role="tablist"
-                  aria-label="Admin sections"
+                  aria-label={t('workspace.admin.aria')}
                 >
-                  {ADMIN_SECTIONS.map(([key, label]) => (
+                  {ADMIN_SECTIONS.map(([key]) => (
                     <button
                       key={key}
                       type="button"
@@ -1049,16 +1075,19 @@ export default function ContributorPage() {
                           : 'text-gray-500 hover:bg-gray-50'
                       }`}
                     >
-                      {label}
+                      {t(`workspace.admin.${key}`)}
                     </button>
                   ))}
                 </div>
+                {/* Independent cards pair up on a wide screen; the Languages,
+                    Content and People sections stay single-column — their
+                    panels are controls and rosters read top to bottom. */}
                 {adminSection === 'insights' && (
-                  <>
+                  <div className={CARD_COLUMNS}>
                     <AnalyticsPanel />
                     <FeaturePopularityPanel />
                     <EngagementPanel />
-                  </>
+                  </div>
                 )}
                 {adminSection === 'languages' && (
                   <>
@@ -1093,12 +1122,23 @@ export default function ContributorPage() {
                     <RolesPanel languages={languages} />
                   </>
                 )}
-                {adminSection === 'rollouts' && <ExperimentsPanel />}
+                {adminSection === 'rollouts' && (
+                  <div className={CARD_COLUMNS}>
+                    {/* First, because it answers the question every other
+                        admin report gets asked through: is this the build I
+                        think it is, on a database that has caught up. */}
+                    <DeploymentPanel />
+                    <ExperimentsPanel />
+                  </div>
+                )}
                 {adminSection === 'costs' && (
-                  <>
+                  <div className={CARD_COLUMNS}>
                     <TutorCostsPanel />
+                    {/* Per-tier allotments and the monetization switch: what
+                        the costs are set against. */}
+                    <PlanLimitsPanel />
                     <SuggestionMetricsPanel />
-                  </>
+                  </div>
                 )}
               </>
             )}
@@ -1232,15 +1272,33 @@ export default function ContributorPage() {
                         focus={focusPanel === 'feedback'}
                       />
                     )}
+                    {/* Overlapping grammar points — the audit the Content
+                        section runs ("for review (Review tab, Overlaps)")
+                        finally has its queue on this tab. Until 4 Sep 2026
+                        it was mounted only on the Account page, so an admin
+                        could start the audit here and finish it nowhere. */}
+                    {shows('overlaps') && (
+                      <OverlapsPanel
+                        languageId={activeLanguageId}
+                        canResolve={data.can_review ?? data.is_admin}
+                      />
+                    )}
                   </>
                 )}
                 {/* General app feedback — the fourth stream, finally
                     triageable where the other three live, scoped by the
                     same picker (docs/plans/review-visibility.md C4). The
                     bell's "Open the feedback queue" lands here. */}
-                {data.is_admin && shows('feedback-queue') && (
+                {/* Readable by any staff role — the people who can fix a
+                    content complaint are contributors, not only admins (the
+                    old /feedback page's rule) — triage stays admin-only. */}
+                {(data.is_admin ||
+                  (data.can_review ?? false) ||
+                  (data.can_contribute ?? false) ||
+                  (data.can_trial_review ?? false)) &&
+                  shows('feedback-queue') && (
                   <FeedbackQueuePanel
-                    canTriage
+                    canTriage={data.is_admin}
                     languageId={activeLanguageId}
                     languageName={language?.name}
                     focus={focusPanel === 'feedback-queue'}

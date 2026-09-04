@@ -97,6 +97,15 @@ vi.mock('../api/contribute', () => ({
   reviewDrill: vi.fn(),
   TUTOR_MODELS: ['claude-opus-4-8', 'claude-sonnet-5'],
   getLanguageReadiness: vi.fn(() => Promise.resolve([])),
+  // The panels that moved in from the Account page on 4 Sep 2026, and the
+  // app-feedback queue every staff role can now read here.
+  getOverlaps: vi.fn(() => Promise.resolve([])),
+  resolveOverlap: vi.fn(),
+  getPlanLimits: vi.fn(() => Promise.resolve([])),
+  setPlanLimit: vi.fn(),
+  getMonetization: vi.fn(() => Promise.resolve({ enabled: false })),
+  setMonetization: vi.fn(),
+  PLAN_TIER_LABELS: { free: 'Free', single: 'Single', all: 'All', plus: 'AI add-on' },
   getTutorUsage: vi.fn(() =>
     Promise.resolve({
       days: 30, rows: [], speech_rows: [], feature_totals: [],
@@ -105,6 +114,14 @@ vi.mock('../api/contribute', () => ({
       speech_free_tier: { tts_chars: 500_000, stt_hours: 5 },
     }),
   ),
+}))
+vi.mock('../api/feedback', async (orig) => ({
+  ...(await orig<typeof import('../api/feedback')>()),
+  getFeedbackQueue: vi.fn(() => Promise.resolve({ items: [], open: 0 })),
+}))
+vi.mock('../api/health', () => ({
+  getBuildInfo: vi.fn(() => Promise.resolve({ sha: 'abc', built_at: null })),
+  getSchemaHealth: vi.fn(() => Promise.resolve({ missing: [], applied: [] })),
 }))
 // DrillsEditor is its own tested unit; stub it here to keep this test focused.
 vi.mock('../features/contribute/DrillsEditor', () => ({ default: () => null }))
@@ -133,7 +150,11 @@ import {
   flagPointIssue,
   getReviewNotes,
   resolveReviewNote,
+  getOverlaps,
+  getPlanLimits,
 } from '../api/contribute'
+import { getFeedbackQueue } from '../api/feedback'
+import { getBuildInfo } from '../api/health'
 
 const mockGetLanguages = getLanguages as ReturnType<typeof vi.fn>
 const mockGetGrammar = getGrammarForLanguage as ReturnType<typeof vi.fn>
@@ -658,5 +679,58 @@ describe('ContributorPage', () => {
 
     fireEvent.click(screen.getByRole('button', { name: /resolve/i }))
     await waitFor(() => expect(mockResolveNote).toHaveBeenCalledWith('n1'))
+  })
+})
+
+describe('ContributorPage — the one staff console', () => {
+  // 4 Sep 2026: the Account page's staff tabs are gone, and everything
+  // they alone carried lives here (docs/plans/staff-console-consolidation.md).
+  beforeEach(() => {
+    vi.clearAllMocks()
+    mockGetLanguages.mockResolvedValue([{ id: 'lang-tr', code: 'tr', name: 'Turkish', rtl: false }])
+  })
+
+  it('each tab opens with its role guide', async () => {
+    mockGetGrammar.mockResolvedValue({
+      points: [basePoint], is_admin: true, can_review: true,
+      can_contribute: true, review_policy: 'strict',
+    })
+    renderPage()
+    expect(await screen.findByText(/How the Workshop works/)).toBeInTheDocument()
+    await openTab('Review')
+    expect(await screen.findByText(/How reviewing works/i)).toBeInTheDocument()
+  })
+
+  it('the Review tab carries the overlaps queue', async () => {
+    mockGetGrammar.mockResolvedValue({
+      points: [basePoint], is_admin: true, can_review: true,
+      can_contribute: true, review_policy: 'strict',
+    })
+    renderPage()
+    await openTab('Review')
+    await waitFor(() =>
+      expect(getOverlaps as ReturnType<typeof vi.fn>).toHaveBeenCalledWith('lang-tr'))
+  })
+
+  it('Rollouts carries the deployment panel; Costs the plan limits', async () => {
+    mockGetGrammar.mockResolvedValue({
+      points: [basePoint], is_admin: true, can_review: true,
+      can_contribute: true, review_policy: 'strict',
+    })
+    renderPage()
+    await openAdminSection('Rollouts')
+    await waitFor(() => expect(getBuildInfo as ReturnType<typeof vi.fn>).toHaveBeenCalled())
+    await openAdminSection('Costs')
+    await waitFor(() => expect(getPlanLimits as ReturnType<typeof vi.fn>).toHaveBeenCalled())
+  })
+
+  it('a reviewer can read the app-feedback queue here, as on the old page', async () => {
+    mockGetGrammar.mockResolvedValue({
+      points: [basePoint], is_admin: false, can_review: true,
+      can_contribute: true, review_policy: 'strict',
+    })
+    renderPage()
+    await openTab('Review')
+    await waitFor(() => expect(getFeedbackQueue as ReturnType<typeof vi.fn>).toHaveBeenCalled())
   })
 })
