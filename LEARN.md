@@ -228,6 +228,22 @@ language in `NEVER_DIGESTED` until its first one. That test is the answer
 to "are the personas being updated with the language insights", made
 mechanical.
 
+Card text (grammar explanations, culture and function notes) is plain text
+typeset by `components/ExplanationView.tsx` — term/gloss tables, arrow
+derivations, label:forms chips — and, since 4 Sep 2026, **markdown when a
+block carries markdown syntax**: `hasMarkdown` routes a blank-line block
+with bold (`**`), a list, a table, inline code or a link to
+`components/CardMarkdown.tsx`, which is react-markdown + remark-gfm +
+rehype-sanitize on a small allow-list (no raw HTML, no images, no
+headings). Plain blocks are untouched, so nothing in the existing corpus
+moved; `backend/tests/test_content_markdown_guard.py` pins the seed at
+zero markers so a marker in data/ is a deliberate entry in its `ALLOWED`
+set. The server cleans the same column on the way in
+(`services/markdown.py`: raw tags out, unsafe link schemes out) at every
+writer — the editor, the seeder, the AI — because the renderer is the last
+line, not the only one. Underscores are never a signal: "___" is how the
+cards write a blank.
+
 The append-only AI tables are pruned daily by `services/retention.py`
 (`tutor_sessions` after 180 days, `tutor_usage` after 13 months — above
 every window a reader uses), a lifespan task like the reminder and digest

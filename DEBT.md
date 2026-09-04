@@ -131,6 +131,13 @@ Two things that pass the tests but are not finished:
   accept into `ERRORS.md` together with the stamp line it prints, and
   remove the code from `NEVER_DIGESTED` — the test then fails whenever
   `docs/quality/<code>.md` changes again without a re-digest.
+- **Markdown cards have no colour or Anki-style classes yet.** The
+  brief's phase 2 pictured "a small set of allowed classes"; that needs
+  raw HTML (`<span class="…">`) parsed by rehype-raw before the
+  sanitiser, and today raw HTML is refused on both sides on purpose. Add
+  rehype-raw plus a `span` + `className` allow-list in
+  `components/CardMarkdown.tsx` and the same classes in
+  `services/markdown.py` if the owner wants colour; nothing else changes.
 - **Korean's regenerated REFERENCE.md is 18k chars**, three times its old
   hand-written size, because the course has 156 points and the old file
   listed a third of them. The on-demand bound in `test_tutor` went from

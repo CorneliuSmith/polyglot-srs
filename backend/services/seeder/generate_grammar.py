@@ -45,6 +45,7 @@ import logging
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.markdown import clean_markdown
 from backend.services.semantic_check import ai_available, semantic_check_point
 from backend.services.tutor import _load_skill
 
@@ -166,7 +167,8 @@ async def import_grammar_notes(db_url: str, language_code: str, path: str) -> in
                     reviewed = true
                 WHERE language_id = $1 AND title = $2
                 """,
-                language_id, note["title"], note["explanation"], note["culture_note"],
+                language_id, note["title"], clean_markdown(note["explanation"]),
+                clean_markdown(note["culture_note"]),
             )
             if result.endswith("1"):
                 count += 1
@@ -220,7 +222,8 @@ async def generate_for_language(db_url: str, language_code: str) -> int:
                     explanation_source = 'ai'
                 WHERE id = $1
                 """,
-                p["id"], content["explanation"], content["culture_note"],
+                p["id"], clean_markdown(content["explanation"]),
+                clean_markdown(content["culture_note"]),
             )
             count += 1
         logger.info("Generated %d AI grammar explanations for %s", count, language_code)

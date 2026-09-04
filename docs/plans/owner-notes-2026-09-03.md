@@ -324,7 +324,7 @@ There is **no pre-flight estimate** of the assembled prompt. Work:
 
 ## 7. Working through feedback: popup, sliding window, and markdown cards
 
-**7c phase 1 (the editor preview) and 7a (card in every card-bearing queue, `a`/`r`/`u`/`d` hotkeys in focus mode, edit history behind a toggle) shipped 3 Sep 2026.** Open: 7b (the popup, only if asked for on the phone), the optional cross-queue stream, and 7c phase 2 (markdown) which waits on the backtick guard.
+**7c phase 1 (the editor preview) and 7a (card in every card-bearing queue, `a`/`r`/`u`/`d` hotkeys in focus mode, edit history behind a toggle) shipped 3 Sep 2026; 7c phase 2 (markdown cards) shipped 4 Sep 2026** — a block with markdown syntax renders through react-markdown + rehype-sanitize (`components/CardMarkdown.tsx`), plain blocks keep the typesetter, the seed is pinned at zero markers (`test_content_markdown_guard.py`), and `services/markdown.py` cleans every writer. Colour classes are not in (DEBT.md). Open: 7b (the popup, only if asked for on the phone) and the optional cross-queue stream.
 
 **Effort: three to four days**, in three separable pieces. Recommendation:
 build on what shipped this week rather than a new modal.
