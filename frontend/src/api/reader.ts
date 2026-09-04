@@ -53,6 +53,7 @@ export interface ReadingOptions {
     | 'native'
     | 'academic'
     | 'literary'
+    | 'professional'
 }
 
 export interface GeneratedReading {

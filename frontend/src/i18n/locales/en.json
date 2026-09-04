@@ -156,6 +156,8 @@
     "subtitle": "A text written at exactly your level — with a few new words to figure out",
     "pickLanguageFirst": "Pick a language on the dashboard first.",
     "newWordTitle": "New word — tap to guess it",
+    "addWord": "Add",
+    "addPhrase": "Add “{{phrase}}”",
     "generateError": "Couldn't write that one — try again, or a different topic.",
     "shelfNewWords_one": "{{count}} new word",
     "shelfNewWords_other": "{{count}} new words",
@@ -202,6 +204,7 @@
     "registerNative": "Native",
     "registerAcademic": "Academic",
     "registerLiterary": "Literary",
+    "registerProfessional": "Professional",
     "registerHint": "Above C2 there are no levels left — these are kinds of writing, pitched beyond the ladder."
   },
   "tutor": {

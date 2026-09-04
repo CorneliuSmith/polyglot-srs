@@ -160,6 +160,18 @@ job that should be done once, panel by panel, when a non-English-reading
 reviewer actually joins. Until then a French reviewer sees a French frame
 around English tools.
 
+### A phrase card from the Reader carries no gloss
+
+Since 4 Sep 2026 a learner can highlight a run of words in a reading and
+add it as a card. The Reader glosses tokens one at a time, so the phrase
+itself has no gloss: the card is built from the sentence, the phrase as
+the answer and the sentence's translation, and `gloss` is sent empty.
+The server builds a cloze (the phrase was selected from the sentence, so
+it is found verbatim); the fallback "type the word" prompt for an
+inflected answer never applies here. If phrase glosses turn out to
+matter, gloss them at add time with one small maker call — not by
+joining the token glosses, which reads as word salad.
+
 ### The four plan options lean on three Stripe facts nobody enforces
 
 LEARN.md → *Plans: four options, one subscription*. Three assumptions the

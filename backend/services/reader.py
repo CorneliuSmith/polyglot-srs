@@ -121,19 +121,24 @@ _COMPLEXITY_SHIFT = {"easier": -1, "level": 0, "stretch": +1}
 # would be a lie the model would happily perform. What "harder than C2"
 # actually means is a REGISTER: the same ceilingless language, written for a
 # particular kind of adult reader. The owner asked for "a level higher than
-# C2 — like university-level or academic", and these are the three that
+# C2 — like university-level or academic", and these are the four that
 # differ in kind rather than degree:
 #
-#   native    — the unsimplified article an educated native reads
-#   academic  — the journal paper or lecture handout
-#   literary  — the novel or personal essay
+#   native       — the unsimplified article an educated native reads
+#   academic     — the journal paper or lecture handout
+#   literary     — the novel or personal essay
+#   professional — the workplace: the memo, the client email, the report
+#                  (owner, 4 Sep 2026: "add professional as a reading level
+#                  if not covered" — academic does not cover it: a journal
+#                  argues, an office instructs, asks and confirms)
 #
-# All three pin the pitch above C2 and open the cage, because every one of
+# All four pin the pitch above C2 and open the cage, because every one of
 # them is by definition beyond the learner's cards.
 _REGISTER_LABEL = {
     "native": "C2+ (unsimplified native prose)",
     "academic": "C2+ (academic / university register)",
     "literary": "C2+ (literary prose)",
+    "professional": "C2+ (professional / workplace register)",
 }
 
 _REGISTER_RULE = {
@@ -157,6 +162,15 @@ everything about reading.""",
 language, varied sentence rhythm (a very short sentence after three long \
 ones), concrete sensory detail, and something left implied rather than \
 stated. Style is the point here; the information may arrive obliquely.""",
+    "professional": """
+- REGISTER: professional workplace prose — an internal memo, a client \
+email, a project report, meeting minutes, a contract clause, a job \
+advertisement. Formal but plain: the conventional openings and sign-offs, \
+hedged requests ("would it be possible to", "we would be grateful if"), \
+deadlines, deliverables and responsibilities named precisely, and the \
+field's fixed phrases (with reference to, please find attached, as \
+discussed, as per). Precision over style: nothing literary, nothing \
+argued for its own sake — someone has to act on this text.""",
 }
 
 #: Modes that sit above the CEFR ladder. Exported for the router's validation
@@ -174,7 +188,7 @@ def resolve_dial(level: str, mode: str) -> tuple[str, bool]:
     they asked for harder, and glosses absorb the cost. A2 chosen by a B2
     learner stays caged at A2.
 
-    A register (native/academic/literary) sits above the whole ladder: the
+    A register (native/academic/literary/professional) sits above the whole ladder: the
     target becomes that register's label and the cage is always open, because
     no register above C2 can be written inside a learner's card list.
     """

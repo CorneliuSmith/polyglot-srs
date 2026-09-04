@@ -662,6 +662,8 @@ export interface CardFeedbackItem {
   card_type: 'grammar' | 'vocabulary'
   content_id: string
   card_title: string | null
+  /** Who sent it. Anyone who can open this queue holds a staff role. */
+  reporter_email?: string | null
   message: string
   status: string
   created_at: string | null
@@ -933,6 +935,10 @@ export interface ReviewedCard {
    * example illustrates, a word's part of speech. */
   context: string | null
   level: string | null
+  /** A word's reviewed example sentences ("sentence — translation"), so a
+   * complaint about a definition can be weighed against the sentences it
+   * is meant to fit. Absent on every other kind. */
+  examples?: string[] | null
 }
 
 /** Fields a reviewer may correct, named as the queues show them. Which

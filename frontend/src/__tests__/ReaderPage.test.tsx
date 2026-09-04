@@ -383,6 +383,56 @@ describe('ReaderPage (WP21)', () => {
     expect(await screen.findByTestId('word-added')).toBeDefined()
   })
 
+  it('any word can be added from its peek, not only the flagged ones', async () => {
+    // Owner: "words of their choice from the text". In the assisted stage
+    // every word peeks its gloss; the peek now carries an Add that makes
+    // the same card the new-words list makes.
+    mockAddCard.mockResolvedValue({ id: 'c-2', sentence: 'x' })
+    await generate()
+    fireEvent.click(
+      screen.getByRole('button', { name: /unlock translations/i }),
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'gato' }))
+    fireEvent.click(await screen.findByTestId('add-word-0-1'))
+    await waitFor(() =>
+      expect(mockAddCard).toHaveBeenCalledWith(
+        expect.objectContaining({
+          answer: 'gato',
+          sentence: 'El gato duerme en la ventana.',
+          translation: 'The cat sleeps in the window.',
+          gloss: 'cat',
+          source: 'reading',
+        }),
+      ),
+    )
+  })
+
+  it('a highlighted phrase inside a sentence can be added as one card', async () => {
+    mockAddCard.mockResolvedValue({ id: 'c-3', sentence: 'x' })
+    await generate()
+    fireEvent.click(
+      screen.getByRole('button', { name: /unlock translations/i }),
+    )
+    // jsdom has no real selection; the page reads window.getSelection().
+    const getSelection = vi.spyOn(window, 'getSelection').mockReturnValue({
+      toString: () => 'duerme en',
+    } as unknown as Selection)
+    const sentence = document.querySelector('[data-s="0"]')!
+    fireEvent.mouseUp(sentence)
+    fireEvent.click(
+      await screen.findByRole('button', { name: /duerme en/ }),
+    )
+    await waitFor(() =>
+      expect(mockAddCard).toHaveBeenCalledWith(
+        expect.objectContaining({
+          answer: 'duerme en',
+          sentence: 'El gato duerme en la ventana.',
+        }),
+      ),
+    )
+    getSelection.mockRestore()
+  })
+
   it('a failed add surfaces an error and offers a retry (no silent 422)', async () => {
     mockAddCard.mockRejectedValue(new Error('422'))
     await generate()

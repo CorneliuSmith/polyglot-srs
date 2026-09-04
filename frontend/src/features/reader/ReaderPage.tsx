@@ -70,6 +70,10 @@ export default function ReaderPage() {
   const [revealed, setRevealed] = useState<Set<string>>(new Set())
   // Assisted stage: tapped word gloss + shown translations/explanations.
   const [peeked, setPeeked] = useState<{ s: number; t: number } | null>(null)
+  // A phrase the learner highlighted inside one sentence (owner: "hover/
+  // highlight over a word/phrase to add it"). Single words go through the
+  // peek instead; this is for the multi-word selection.
+  const [phraseSel, setPhraseSel] = useState<{ s: number; text: string } | null>(null)
   const [openTranslations, setOpenTranslations] = useState<Set<number>>(new Set())
   // Fetched once (it costs allowance), then freely shown/hidden.
   // Warm every sentence's audio as soon as the reading arrives. A reading is
@@ -315,10 +319,48 @@ export default function ReaderPage() {
           {token.t}
         </button>
         {isPeeked && (
-          <span className="text-xs text-lang"> ({token.gloss})</span>
+          <span className="text-xs text-lang">
+            {' '}({token.gloss})
+            {/* Any word, not only the flagged ones — the learner picks what
+                they want to keep (owner: "words of their choice from the
+                text"). The same card the new-words list below makes. */}
+            {addedWords.has(token.t) ? (
+              <span className="ms-1 font-semibold text-green-700">{t('reader.added')}</span>
+            ) : (
+              <button
+                type="button"
+                onClick={() =>
+                  addWordMutation.mutate({
+                    word: token.t,
+                    sentence: sentence.text,
+                    translation: sentence.translation ?? '',
+                    gloss: token.gloss ?? '',
+                  })
+                }
+                disabled={addWordMutation.isPending}
+                data-testid={`add-word-${sIdx}-${tIdx}`}
+                className="ms-1 rounded bg-lang px-1.5 py-0.5 text-[10px] font-semibold text-lang-on disabled:opacity-50"
+              >
+                {t('reader.addWord')}
+              </button>
+            )}
+          </span>
         )}{' '}
       </span>
     )
+  }
+
+  /** A highlighted run of words inside one sentence becomes an offer to
+   * add it as a phrase card. Only in the assisted stage, only multi-word
+   * (single words have the peek), and only a sensible length. */
+  const captureSelection = (sIdx: number) => {
+    if (stage !== 'assisted') return
+    const text = window.getSelection()?.toString().trim() ?? ''
+    if (!text || !/\s/.test(text) || text.length > 80) {
+      setPhraseSel(null)
+      return
+    }
+    setPhraseSel({ s: sIdx, text })
   }
 
   if (!language) {
@@ -424,6 +466,7 @@ export default function ReaderPage() {
                         ['native', t('reader.registerNative')],
                         ['academic', t('reader.registerAcademic')],
                         ['literary', t('reader.registerLiterary')],
+                        ['professional', t('reader.registerProfessional')],
                       ],
                     },
                   ]
@@ -453,7 +496,7 @@ export default function ReaderPage() {
                 ))}
                 {/* Said once, where the choice is made: the three chips at
                     the end of the challenge row are not levels. */}
-                {['native', 'academic', 'literary'].includes(
+                {['native', 'academic', 'literary', 'professional'].includes(
                   textOptions.complexity,
                 ) && (
                   <p
@@ -646,7 +689,12 @@ export default function ReaderPage() {
                   className="text-lg leading-loose text-gray-900 space-y-3"
                 >
                   {reading.sentences.map((sentence, sIdx) => (
-                    <div key={sIdx}>
+                    <div
+                      key={sIdx}
+                      data-s={sIdx}
+                      onMouseUp={() => captureSelection(sIdx)}
+                      onTouchEnd={() => captureSelection(sIdx)}
+                    >
                       <span>
                         {sentence.tokens.map((_tok, tIdx) =>
                           renderToken(sentence, sIdx, tIdx),
@@ -656,6 +704,31 @@ export default function ReaderPage() {
                           languageCode={language.code}
                         />
                       </span>
+                      {phraseSel?.s === sIdx && (
+                        <div className="mt-1" data-testid="phrase-add">
+                          {addedWords.has(phraseSel.text) ? (
+                            <span className="text-xs font-semibold text-green-700">
+                              {t('reader.added')}
+                            </span>
+                          ) : (
+                            <button
+                              type="button"
+                              onClick={() =>
+                                addWordMutation.mutate({
+                                  word: phraseSel.text,
+                                  sentence: sentence.text,
+                                  translation: sentence.translation ?? '',
+                                  gloss: '',
+                                })
+                              }
+                              disabled={addWordMutation.isPending}
+                              className="rounded-lg bg-lang px-2.5 py-1 text-xs font-semibold text-lang-on disabled:opacity-50"
+                            >
+                              {t('reader.addPhrase', { phrase: phraseSel.text })}
+                            </button>
+                          )}
+                        </div>
+                      )}
                       {/* Per-sentence help: two stable toggle pills, and ONE
                           combined panel underneath — labelled sections instead
                           of loose links and scattered boxes. */}

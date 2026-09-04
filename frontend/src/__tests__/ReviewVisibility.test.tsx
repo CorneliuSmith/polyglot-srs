@@ -164,6 +164,26 @@ describe('review panels say "broken", not "empty", when a fetch fails', () => {
     expect(screen.queryByTestId('change-requests-status')).toBeNull()
   })
 
+  it('learner feedback: names the reporter and shows the word in its sentences', async () => {
+    // Owner: "I need to see the full card if they flagged something … and
+    // I would like the user that sent in the request".
+    mockFeedback.mockResolvedValue([{
+      id: 'f1', card_type: 'vocabulary', content_id: 'v1', card_title: 'cama',
+      reporter_email: 'learner@example.com', message: 'Looks wrong',
+      status: 'open', created_at: null, target_type: 'vocabulary', target_id: 'v1',
+      card: { sentence: 'cama', answer: null, hint: null, translation: 'bed',
+              context: 'noun', level: 'A2',
+              examples: ['Duermo en la cama. — I sleep in the bed.'] },
+    }])
+    wrap(<FeedbackPanel languageId="lang-ar" />)
+    expect((await screen.findByTestId('feedback-reporter-f1')).textContent).toContain(
+      'learner@example.com',
+    )
+    expect(screen.getByTestId('feedback-card-f1-examples').textContent).toContain(
+      'Duermo en la cama.',
+    )
+  })
+
   it('learner feedback: an error instead of an absent panel', async () => {
     mockFeedback.mockRejectedValue(new Error('boom'))
     wrap(<FeedbackPanel languageId="lang-ar" />)

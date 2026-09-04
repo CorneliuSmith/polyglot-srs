@@ -156,6 +156,8 @@
     "subtitle": "Un texte écrit exactement à votre niveau — avec quelques mots nouveaux à deviner",
     "pickLanguageFirst": "Choisissez d’abord une langue sur le tableau de bord.",
     "newWordTitle": "Mot nouveau — touchez pour le deviner",
+    "addWord": "Ajouter",
+    "addPhrase": "Ajouter « {{phrase}} »",
     "generateError": "Impossible d’écrire ce texte — réessayez, ou changez de sujet.",
     "shelfNewWords_one": "{{count}} mot nouveau",
     "shelfNewWords_other": "{{count}} mots nouveaux",
@@ -202,6 +204,7 @@
     "registerNative": "Natif",
     "registerAcademic": "Universitaire",
     "registerLiterary": "Littéraire",
+    "registerProfessional": "Professionnel",
     "registerHint": "Au-delà du C2 il n’y a plus de niveaux : ce sont des types d’écriture, au-dessus de l’échelle."
   },
   "tutor": {

@@ -235,6 +235,18 @@ export default function ReviewedCardView({
           ) : null,
         )}
       </dl>
+      {/* The word is not the whole card: the learner met it in a sentence,
+          and "looks wrong" is usually about the fit between the two. */}
+      {card.examples && card.examples.length > 0 && (
+        <div className="mt-1.5" data-testid={`${testId}-examples`}>
+          <p className="text-[11px] uppercase tracking-wide text-gray-500">Examples</p>
+          <ul className="ms-4 list-disc text-sm text-gray-700">
+            {card.examples.map((e, i) => (
+              <li key={i}>{e}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       {historyType && targetId && (
         <div className="mt-1.5" data-testid={`${testId}-history`}>
           <CardHistory entityType={historyType} entityId={targetId} />

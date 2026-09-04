@@ -83,9 +83,11 @@ export default function TesterRecommendationsPanel({
         </span>
       </div>
       <p className="text-xs text-gray-500">
-        Advisory only — testers can’t publish. Read these before approving the
-        item they’re about: approving deletes the pending row, and this note
-        with it.
+        Each row is a tester’s verdict on a drill or example still awaiting
+        review — approve or reject — with any note they wrote. Advisory only:
+        testers can’t publish, so you decide on the item in its own queue
+        (Generated drills, Generated examples). Read these first — approving
+        there deletes the pending row, and this note with it.
       </p>
       {nav}
       <ul className="space-y-1.5">
@@ -96,6 +98,19 @@ export default function TesterRecommendationsPanel({
           >
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0">
+                {/* The verdict IS the recommendation. It used to be only a
+                    badge in the corner, and the owner read the row as a
+                    card with no recommendation on it. */}
+                <p
+                  className={`text-sm font-semibold ${
+                    r.recommendation === 'reject' ? 'text-red-700' : 'text-green-700'
+                  }`}
+                  data-testid={`reco-verdict-${r.id}`}
+                >
+                  {r.recommendation === 'reject'
+                    ? 'Recommends: reject this item'
+                    : 'Recommends: approve this item'}
+                </p>
                 {r.context && (
                   <div className="text-[11px] uppercase tracking-wide text-gray-500">
                     {r.target_type === 'drill' ? 'Drill' : 'Example'} · {r.context}
@@ -124,9 +139,13 @@ export default function TesterRecommendationsPanel({
             </div>
             {/* The note is the whole point of the channel: visible text, not
                 a tooltip nobody hovers. */}
-            {r.note && (
+            {r.note ? (
               <p className="mt-1 whitespace-pre-wrap rounded bg-gray-50 px-2 py-1 text-xs text-gray-700">
                 {r.note}
+              </p>
+            ) : (
+              <p className="mt-1 text-[11px] italic text-gray-400" data-testid={`reco-no-note-${r.id}`}>
+                No note — the verdict above is the whole recommendation.
               </p>
             )}
             {/* The full item — sentence, answer, hint, translation — so

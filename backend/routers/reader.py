@@ -56,7 +56,7 @@ class GenerateRequest(BaseModel):
     complexity: str = Field(
         default="level",
         pattern="^(easier|level|stretch|A1|A2|B1|B2|C1|C2"
-                "|native|academic|literary)$",
+                "|native|academic|literary|professional)$",
     )
 
 

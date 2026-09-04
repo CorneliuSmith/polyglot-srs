@@ -2603,12 +2603,17 @@ async def list_feedback(
     rows = await conn.fetch(
         """
         SELECT f.id, f.card_type, f.content_id, f.message, f.status, f.created_at,
-               COALESCE(gp.title, v.word) AS card_title
+               COALESCE(gp.title, v.word) AS card_title,
+               u.email AS reporter_email
         FROM card_feedback f
         LEFT JOIN grammar_points gp
                ON f.card_type = 'grammar' AND gp.id = f.content_id
         LEFT JOIN vocabulary v
                ON f.card_type = 'vocabulary' AND v.id = f.content_id
+        -- Who sent it (owner: "I would like the user that sent in the
+        -- request"). Same join the tester-recommendations queue makes;
+        -- anyone who can open this queue holds a staff role.
+        LEFT JOIN auth.users u ON u.id = f.user_id
         WHERE f.language_id = $1 AND f.status = $2
         ORDER BY f.created_at DESC
         LIMIT 100
@@ -2621,6 +2626,7 @@ async def list_feedback(
             "card_type": r["card_type"],
             "content_id": str(r["content_id"]),
             "card_title": r["card_title"],
+            "reporter_email": r["reporter_email"],
             "message": r["message"],
             "status": r["status"],
             "created_at": r["created_at"].isoformat() if r["created_at"] else None,

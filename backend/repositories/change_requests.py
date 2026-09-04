@@ -145,14 +145,15 @@ async def list_requests(
 _CARD_SQL: dict[str, str] = {
     "drill": """
         SELECT d.id, d.sentence, d.answer, d.hint, d.translation,
-               gp.title AS context, gp.level
+               gp.title AS context, gp.level, NULL::text[] AS examples
           FROM drill_sentences d
           JOIN grammar_points gp ON gp.id = d.grammar_point_id
          WHERE d.id = ANY($1::uuid[])
     """,
     "example_sentence": """
         SELECT e.id, e.sentence, NULL::text AS answer, NULL::text AS hint,
-               e.translation, v.word AS context, v.level
+               e.translation, v.word AS context, v.level,
+               NULL::text[] AS examples
           FROM example_sentences e
           JOIN vocabulary v ON v.id = e.vocabulary_id
          WHERE e.id = ANY($1::uuid[])
@@ -163,20 +164,35 @@ _CARD_SQL: dict[str, str] = {
                (SELECT t.definition FROM translations t
                  WHERE t.vocabulary_id = v.id
                  ORDER BY (t.locale = 'en') DESC LIMIT 1) AS translation,
-               v.part_of_speech AS context, v.level
+               v.part_of_speech AS context, v.level,
+               -- The word is not the whole card: the learner met it in a
+               -- sentence, and a complaint about the definition is weighed
+               -- against the sentences it is supposed to fit (owner: "I need
+               -- to see the full card if they flagged something").
+               (SELECT array_agg(x.line ORDER BY x.ord)
+                  FROM (SELECT es.sentence || ' — ' || COALESCE(es.translation, '')
+                               AS line,
+                               row_number() OVER (ORDER BY es.created_at, es.id) AS ord
+                          FROM example_sentences es
+                         WHERE es.vocabulary_id = v.id
+                           AND es.translation_locale = 'en'
+                           AND es.reviewed = true
+                         ORDER BY es.created_at, es.id
+                         LIMIT 3) x) AS examples
           FROM vocabulary v
          WHERE v.id = ANY($1::uuid[])
     """,
     "grammar_point": """
         SELECT gp.id, gp.title AS sentence, NULL::text AS answer,
                NULL::text AS hint, gp.explanation AS translation,
-               NULL::text AS context, gp.level
+               NULL::text AS context, gp.level, NULL::text[] AS examples
           FROM grammar_points gp
          WHERE gp.id = ANY($1::uuid[])
     """,
 }
 
-_CARD_FIELDS = ("sentence", "answer", "hint", "translation", "context", "level")
+_CARD_FIELDS = ("sentence", "answer", "hint", "translation", "context", "level",
+                "examples")
 
 
 async def load_cards(conn: asyncpg.Connection, requests: list[dict]) -> None:

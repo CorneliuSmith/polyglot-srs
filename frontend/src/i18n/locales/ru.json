@@ -160,6 +160,8 @@
     "subtitle": "Текст ровно вашего уровня — с несколькими новыми словами",
     "pickLanguageFirst": "Сначала выберите язык на главной.",
     "newWordTitle": "Новое слово — нажмите, чтобы угадать его",
+    "addWord": "Добавить",
+    "addPhrase": "Добавить «{{phrase}}»",
     "generateError": "Не получилось написать этот текст — попробуйте ещё раз или выберите другую тему.",
     "shelfNewWords_one": "{{count}} новое слово",
     "shelfNewWords_few": "{{count}} новых слова",
@@ -208,6 +210,7 @@
     "registerNative": "Как для носителей",
     "registerAcademic": "Академический",
     "registerLiterary": "Художественный",
+    "registerProfessional": "Деловой",
     "registerHint": "Выше C2 уровней уже нет — это виды текста, за пределами шкалы."
   },
   "tutor": {
