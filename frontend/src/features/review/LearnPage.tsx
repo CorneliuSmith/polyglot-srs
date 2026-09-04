@@ -18,6 +18,7 @@ import InfoDot from '../../components/InfoDot'
 import FormsPanel from '../../components/FormsPanel'
 import ExplanationView from '../../components/ExplanationView'
 import SpeakButton from '../../components/SpeakButton'
+import { spokenTitle } from '../../lib/spokenTitle'
 import DrillCard from './DrillCard'
 import TrailblazerWait from './TrailblazerWait'
 import SuggestChange from '../contribute/SuggestChange'
@@ -576,9 +577,15 @@ function LearnInner() {
                   <p className="text-xs text-gray-500 mt-0.5">{lesson.part_of_speech}</p>
                 )}
               </div>
-              {lesson.title && (
-                <SpeakButton text={lesson.title} languageCode={languageCode} />
-              )}
+              {/* A grammar title mixes the course language with English
+                  ("Il y a — there is / there are"); speak only the course-
+                  language part, and nothing when there is none. A word's
+                  title IS the word. */}
+              {lesson.title && (lesson.card_type === 'grammar'
+                ? spokenTitle(lesson.title) && (
+                    <SpeakButton text={spokenTitle(lesson.title)!} languageCode={languageCode} />
+                  )
+                : <SpeakButton text={lesson.title} languageCode={languageCode} />)}
             </div>
 
             {lesson.definition && (
