@@ -1,6 +1,5 @@
 word	sentence	translation	difficulty_rank	gloss
 qonda	Ndiyaqonda ngoku.	I understand now.	443	1SG.PRES.understand · now
-ngoku	Ndiyaqonda ngoku.	I understand now.	443	1SG.PRES.understand · now
 ucango	Vula ucango.	Open the door.	479	open.IMP · CL11.door
 vula	Vula ucango.	Open the door.	479	open.IMP · CL11.door
 baleka	Uyabaleka.	He is running.	653	CL1.PRES.run
@@ -8,161 +7,52 @@ cima	Cima isibane.	Turn off the light.	771	extinguish.IMP · CL7.lamp
 isibane	Cima isibane.	Turn off the light.	771	extinguish.IMP · CL7.lamp
 ndiyakuthanda	Ndiyakuthanda!	I love you.	801	1SG.PRES.2SG.OBJ.love
 enkosi	Enkosi!	Thank you!	1218	thanks
-uxolo	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222	CL11.pardon · COP.who · CL5.time
-ixesha	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222	CL11.pardon · COP.who · CL5.time
 ngubani	Uxolo, ngubani ixesha?	Excuse me, what time is it?	1222	CL11.pardon · COP.who · CL5.time
-ixesha	Ngubani ixesha?	What is the time?	1222	COP.who · CL5.time
 ngubani	Ngubani ixesha?	What is the time?	1222	COP.who · CL5.time
-uxolo	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999	CL11.pardon · 1SG.POT.open · CL9.window · Q
-na	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999	CL11.pardon · 1SG.POT.open · CL9.window · Q
 ifestile	Uxolo! Ndingavula ifestile na?	Excuse me! May I open the window?	19999	CL11.pardon · 1SG.POT.open · CL9.window · Q
-igama	Ngubani igama lakho?	What is your name?	19999	COP.who · CL5.name · CL5.POSS.2SG
 ngubani	Ngubani igama lakho?	What is your name?	19999	COP.who · CL5.name · CL5.POSS.2SG
-ngoku	Kufuneka ndiye ngoku.	I must go now.	19999	CL17.PRES.be_necessary · 1SG.go.SBJV · now
 kufuneka	Kufuneka ndiye ngoku.	I must go now.	19999	CL17.PRES.be_necessary · 1SG.go.SBJV · now
 vuya	Ndiyavuya ukukwazi.	I'm pleased to meet you.	19999	1SG.PRES.glad · INF.2SG.OBJ.know
-umsebenzi	Ndifuna umsebenzi.	I'm looking for work.	19999	1SG.PRES.want · CL3.work
 njani	Uziva njani namhlanje?	How do you feel today?	19999	2SG.PRES.REFL.feel · how · today
 namhlanje	Uziva njani namhlanje?	How do you feel today?	19999	2SG.PRES.REFL.feel · how · today
 kufuneka	Kufuneka uhambe.	You must leave.	19999	CL17.PRES.be_necessary · 2SG.go.SBJV
-ixesha	"""Ngubani ixesha?"" ""Ngu 10.30."""	"""What time is it?"" ""It is ten-thirty."""	19999	COP.who · CL5.time · COP · ten_thirty
-ngoku	"""Ngubani ixesha ngoku?"" ""Ngu 10."""	"""What time is it now?"" ""It's ten o'clock."""	19999	COP.who · CL5.time · now · COP · ten
 ifestile	Nceda uvale ifestile.	Please close the window.	19999	help.IMP · 2SG.close.SBJV · CL9.window
 nceda	Nceda uvale ifestile.	Please close the window.	19999	help.IMP · 2SG.close.SBJV · CL9.window
 ifestile	Khawuvale ifestile.	Please close the window.	19999	HORT.2SG.close.SBJV · CL9.window
-incwadi	Ndithatha incwadi.	I'm taking a book.	19999	1SG.PRES.take · CL9.book
-abantwana	Abantwana balele.	The kids are asleep.	19999	CL2.child · CL2.sleep.PERF
-umsebenzi	Ukhangela umsebenzi.	He is looking for a job.	19999	CL1.PRES.look_for · CL3.work
-umlomo	Vula umlomo wakho!	Open your mouth!	19999	open.IMP · CL3.mouth · CL3.POSS.2SG
 vula	Vula umlomo wakho!	Open your mouth!	19999	open.IMP · CL3.mouth · CL3.POSS.2SG
 imvula	Imvula iyekile.	The rain has stopped.	19999	CL9.rain · CL9.stop.PERF
 ndicela	Ndicela enye ikofu.	More coffee, please.	19999	1SG.PRES.request · CL9.another · CL9.coffee
 ikofu	Ndicela enye ikofu.	More coffee, please.	19999	1SG.PRES.request · CL9.another · CL9.coffee
-lo	Ayingomqholo lo.	This is not a sentence.	19999	NEG.COP.CL3.sentence · CL3.this
-ukuthetha	Andifuni ukuthetha.	I don't want to talk.	19999	NEG.1SG.PRES.want · INF.speak
-hayi	Hayi, andifuni.	No, I don't want to.	19999	no · NEG.1SG.PRES.want
 imali	Ndifuna imali	I want money.	19999	1SG.PRES.want · CL9.money
 hlala	Hlala ekhaya.	Stay home.	19999	stay.IMP · LOC.CL5.home
-ngomso	Sobonana ngomso.	See you tomorrow.	19999	1PL.FUT.see.RECIP · tomorrow
 kufuneka	Kufuneka ndihambe.	I have to go.	19999	CL17.PRES.necessary · 1SG.go.SBJV
 khona	Masidibane khona.	Let's meet there.	19999	HORT.1PL.meet.SBJV · there
 izihlangu	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999	CL2.that_over_there · CL2.young_man · CL2.PRES.sell · CL8.shoe
-abaya	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999	CL2.that_over_there · CL2.young_man · CL2.PRES.sell · CL8.shoe
 bafana	Abaya bafana bathengisa izihlangu.	Those guys over there sell shoes.	19999	CL2.that_over_there · CL2.young_man · CL2.PRES.sell · CL8.shoe
-ixesha	Ixesha liyabaleka.	Time flies.	19999	CL5.time · CL5.PRES.run
-ngoku	Uphi ngoku?	Where is it now?	19999	CL1.where · now
 uthixo	Kwiintsomi zakudala, uthixo ngamnye unegama lakhe.	In old folktales, each god has his own name.	2	LOC.CL10.folktale · CL10.POSS.long_ago · CL1a.god · CL1.each · CL1.have.CL5.name · CL5.POSS.3SG
-unyana	Unyana wam ufunda esikolweni.	My son studies at school.	3	CL1a.son · CL1.POSS.1SG · CL1.PRES.study · LOC.CL7.school
-phakathi	Ndihleli phakathi kwabahlobo bam.	I am sitting among my friends.	4	1SG.sit.PERF · among · CL17.POSS.CL2.friend · CL2.POSS.1SG
 abantu	Abantu abaninzi bahlala kule dolophu.	Many people live in this town.	5	CL2.person · CL2.many · CL2.PRES.live · LOC.CL9.this · CL9.town
 yena	Yena uhlala eKapa, mna ndihlala eGoli.	He lives in Cape Town, I live in Johannesburg.	6	CL1.PERS · CL1.PRES.live · LOC.Cape_Town · 1SG.PERS · 1SG.PRES.live · LOC.Johannesburg
-phezu	Beka incwadi phezu kwetafile.	Put the book on the table.	7	put.IMP · CL9.book · above · CL17.POSS.CL9.table
-mna	Mna ndifundisa isiXhosa esikolweni.	I teach isiXhosa at school.	8	1SG · 1SG.PRES.teach · CL7.Xhosa · LOC.school
 wena	Wena uhamba ngemoto okanye ngebhasi?	Do you travel by car or by bus?	9	2SG · 2SG.PRES.go · by.CL9.car · or · by.CL9.bus
 lowo	Umfana lowo udlala ibhola kakuhle.	That boy plays soccer well.	10	CL1.boy · CL1.that · CL1.PRES.play · CL9.ball · well
-kaloku	Andiyi, kaloku ndiyagula namhlanje.	I am not going, because I am ill today.	11	NEG.1SG.PRES.go · because · 1SG.PRES.be_ill · today
 oko	Ukusebenza oko kuthatha ixesha elide.	That work takes a long time.	12	CL15.work · CL15.that · CL15.PRES.take · CL5.time · CL5.REL.long
-abo	Abafundi abo bafunda isiXhosa.	Those students are learning isiXhosa.	13	CL2.student · CL2.that · CL2.PRES.study · CL7.Xhosa
-xa	Ndiyavuya xa ubuya ekhaya.	I am happy when you come home.	14	1SG.PRES.be_glad · when · 2SG.PTCP.return · LOC.home
-bona	Bona bahlala kufuphi nesikolo.	They live near the school.	16	CL2 · CL2.PRES.live · near · with.CL7.school
 ngoko	Imvula iyana, ngoko ke masihlale ekhaya.	It is raining, so let us stay at home.	17	CL9.rain · CL9.PRES.rain · therefore · then · HORT.1PL.stay.SBJV · LOC.home
-ilizwi	Ilizwi lakhe livakala kakuhle.	Her voice can be heard clearly.	18	CL5.voice · CL5.POSS.3SG · CL5.PRES.be_audible · well
-inkosi	Inkosi ithetha nabantu belali.	The chief is speaking with the people of the village.	19	CL9.chief · CL9.PRES.speak · with.CL2.person · CL2.POSS.CL9.village
-into	Ndifuna into yokutya ngoku.	I want something to eat now.	20	1SG.PRES.want · CL9.thing · CL9.POSS.CL15.food · now
 le	Le mithi ineziqhamo ezimnandi kakhulu.	These trees have very sweet fruit.	21	CL4.this · CL4.tree · CL4.with.CL8.fruit · CL8.REL.sweet · greatly
-nina	Nina nihlala phi ngoku?	Where do you all live now?	24	2PL · 2PL.PRES.live · where · now
 umthetho	Wonke umntu kufuneka alandele umthetho.	Everyone must follow the law.	25	CL1.every · CL1.person · CL17.PRES.be_needed · CL1.follow.SBJV · CL3.law
-amadoda	Amadoda amathathu asebenza efama.	Three men work on the farm.	26	CL6.man · CL6.three · CL6.PRES.work · LOC.farm
-apho	Ibhasi ima apho ekoneni.	The bus stops there at the corner.	27	CL9.bus · CL9.PRES.stop · there · LOC.corner
-umntu	Umntu omnye usalinde ibhasi.	One person is still waiting for the bus.	28	CL1.person · CL1.one · CL1.still.wait.PERF · CL9.bus
-nje	Ndibuza nje, andifuni kukhathaza.	I am just asking, I do not want to be a nuisance.	29	1SG.PRES.ask · just · NEG.1SG.PRES.want · INF.trouble
-phantsi	Hlala phantsi, ukutya sekulungile.	Sit down, the food is ready.	30	sit.IMP · down · CL15.food · already.CL15.be_ready.PERF
-indlu	Indlu yethu inegadi enkulu.	Our house has a big garden.	31	CL9.house · CL9.POSS.1PL · CL9.with.CL9.garden · CL9.REL.big
-leyo	Imilambo leyo yomile ehlotyeni.	Those rivers are dry in summer.	32	CL4.river · CL4.that · CL4.be_dry.PERF · LOC.summer
-ilizwe	Ilizwe lethu linemilambo emininzi.	Our country has many rivers.	33	CL5.country · CL5.POSS.1PL · CL5.with.CL4.river · CL4.REL.many
-loo	Loo mntwana ulila kakhulu.	That child is crying a lot.	34	CL1.that · CL1.child · CL1.PRES.cry · greatly
-umphefumlo	Thatha umphefumlo omde uzole.	Take a deep breath and relax.	35	take.IMP · CL3.breath · CL3.REL.long · 2SG.be_calm.SBJV
-ezo	Izihlangu ezo zibiza kakhulu.	Those shoes are expensive.	36	CL8.shoe · CL8.that · CL8.PRES.cost · greatly
-indoda	Indoda ithengisa imifuno emarikeni.	The man sells vegetables at the market.	37	CL9.man · CL9.PRES.sell · CL4.vegetable · LOC.market
-isandla	Isandla sakhe sibuhlungu namhlanje.	His hand is sore today.	38	CL7.hand · CL7.POSS.3SG · CL7.COP.sore · today
-intliziyo	Intliziyo yakhe ibetha ngokukhawuleza.	Her heart is beating fast.	39	CL9.heart · CL9.POSS.3SG · CL9.PRES.beat · by.CL15.hurry
-umoya	Umoya ubetha kakhulu namhlanje.	The wind is blowing hard today.	41	CL3.wind · CL3.PRES.beat · greatly · today
-elo	Ihashe elo libaleka ngokukhawuleza.	That horse runs fast.	42	CL5.horse · CL5.that · CL5.PRES.run · INS.CL15.hurry
-uyise	Uyise womfana usebenza esibhedlele.	The boy's father works at the hospital.	43	CL1a.father · CL1.POSS.CL1.boy · CL1.PRES.work · LOC.hospital
-musa	Musa ukukhathazeka, ndiza kunceda.	Do not worry, I will help.	44	NEG.IMP.2SG · INF.worry · 1SG.FUT · INF.help
-amehlo	Vala amehlo akho umzuzwana.	Close your eyes for a moment.	45	close.IMP · CL6.eye · CL6.POSS.2SG · CL3.moment
-emva	Ndiza kufika emva kwemini.	I will arrive in the afternoon.	46	1SG.FUT · INF.arrive · LOC.after · CL17.POSS.CL9.daytime
 amanzi	Sela amanzi amaninzi yonke imihla.	Drink plenty of water every day.	47	drink.IMP · CL6.water · CL6.many · CL4.all · CL4.day
 yona	Imibuzo yona ilula, iimpendulo zinzima.	The questions themselves are easy; the answers are hard.	48	CL4.question · CL4 · CL4.easy · CL10.answer · CL10.hard
-thina	Thina siya elwandle ngempelaveki.	We are going to the sea at the weekend.	49	1PL · 1PL.PRES.go · LOC.sea · INS.CL9.weekend
-kakhulu	Ndiyabulela kakhulu ngoncedo lwakho.	Thank you very much for your help.	50	1SG.PRES.thank · very.much · INS.CL11.help · CL11.POSS.2SG
-ezi	Ezi zitya zicocekile ngoku.	These dishes are clean now.	51	CL8.this · CL8.dish · CL8.clean.PERF · now
-apha	Hlala apha ecaleni kwam.	Sit here next to me.	52	sit.IMP · here · LOC.side · CL17.POSS.1SG
-umkhonzi	Umkhonzi wenkosi uthembekile kakhulu.	The chief's servant is very loyal.	53	CL1.servant · CL1.POSS.CL9.chief · CL1.trustworthy.PERF · very.much
-umzi	Umzi wethu ukufuphi nomlambo.	Our homestead is near the river.	56	CL3.homestead · CL3.POSS.1PL · CL3.near · with.CL3.river
 ubuso	Sula ubuso bakho ngetawuli ecocekileyo.	Wipe your face with a clean towel.	57	wipe.IMP · CL14.face · CL14.POSS.2SG · INS.CL9.towel · CL9.REL.clean.PERF
-musani	Musani ukungxola, abantwana balele.	Do not make a noise, the children are asleep.	58	NEG.IMP.2PL · INF.make_noise · CL2.child · CL2.sleep.PERF
-ububi	Ububi bemozulu busikhathazile kakhulu.	The bad weather has bothered us a lot.	59	CL14.badness · CL14.POSS.CL9.weather · CL14.1PL.OBJ.bother.PERF · very.much
-eli	Eli qanda lidala, ungalityi.	This egg is old, do not eat it.	61	CL5.this · CL5.egg · CL5.old · 2SG.NEG.CL5.OBJ.eat
-lawo	Amagumbi lawo mancinci kakhulu.	Those rooms are very small.	62	CL6.room · CL6.that · CL6.small · very.much
-intombi	Intombi encinci idlala egadini.	The little girl is playing in the garden.	63	CL9.girl · CL9.REL.small · CL9.PRES.play · LOC.garden
-la	La maphepha afuneka ngomso.	These papers are needed tomorrow.	64	CL6.this · CL6.paper · CL6.PRES.be_needed · tomorrow
 wona	Umsebenzi wona ulula, ixesha lifutshane.	The work itself is easy; it is the time that is short.	65	CL3.work · CL3 · CL3.easy · CL5.time · CL5.short
-oku	Oku kutya kumnandi kakhulu.	This food is very tasty.	66	CL15.this · CL15.food · CL15.delicious · very.much
 inceba	Utitshala ubonise inceba kubafundi bakhe.	The teacher showed mercy to his students.	67	CL1a.teacher · CL1.show.PERF · CL9.mercy · LOC.CL2.student · CL2.POSS.3SG
 indlela	Indlela eya emlanjeni inde kakhulu.	The path to the river is very long.	69	CL9.path · CL9.REL.go · LOC.river · CL9.long · very.much
 ilifa	Utata ushiye ilifa elikhulu kubantwana.	Father left a large inheritance to the children.	70	CL1a.father · CL1.leave.PERF · CL5.inheritance · CL5.REL.big · LOC.CL2.child
 izandla	Hlamba izandla zakho ngaphambi kokutya.	Wash your hands before eating.	71	wash.IMP · CL8.hand · CL8.POSS.2SG · before · CL17.POSS.CL15.food
-ntoni	Ubhala ntoni encwadini yakho?	What are you writing in your book?	72	2SG.PRES.write · what · LOC.book · CL9.POSS.2SG
-igazi	Ugqirha uhlola igazi lomguli.	The doctor is testing the patient's blood.	73	CL1a.doctor · CL1.PRES.examine · CL5.blood · CL5.POSS.CL1.patient
 umfazi	Umfazi omdala uthengisa iintyatyambo esitratweni.	The old woman sells flowers in the street.	74	CL1.woman · CL1.REL.old · CL1.PRES.sell · CL10.flower · LOC.street
-ubukumkani	Ubukumkani obudala bunembali ende.	The old kingdom has a long history.	76	CL14.kingdom · CL14.REL.old · CL14.with.CL9.history · CL9.REL.long
-ngaphandle	Izinja zilala ngaphandle ebusuku.	The dogs sleep outside at night.	78	CL10.dog · CL10.PRES.sleep · outside · LOC.CL14.night
 hleze	Hamba ngoku hleze ushiywe yibhasi.	Go now, lest you be left behind by the bus.	79	go.IMP · now · lest · 2SG.leave.PASS.SBJV · COP.CL9.bus
-inyama	Inyama yenkukhu imnandi kakhulu.	Chicken meat is very tasty.	80	CL9.meat · CL9.POSS.CL9.chicken · CL9.COP.nice · very
-umsindo	Umsindo awusombululi iingxaki zakho.	Anger does not solve your problems.	81	CL3.anger · NEG.CL3.PRES.solve · CL10.problem · CL10.POSS.2SG
-imini	Imini ishushu, ubusuku buyabanda.	The day is hot, the night is cold.	82	CL9.daytime · CL9.COP.hot · CL14.night · CL14.PRES.be_cold
-ikrele	Ikrele elidala ligcinwe kwimyuziyam.	The old sword is kept in the museum.	84	CL5.sword · CL5.old · CL5.keep.PASS.PERF · LOC.CL9.museum
-isithunywa	Isithunywa sifike nencwadi kusasa.	The messenger arrived with a letter this morning.	85	CL7.messenger · CL7.arrive.PERF · with.CL9.letter · early.morning
-amandla	Ukutya okulungileyo kunika amandla.	Good food gives strength.	86	CL15.food · CL15.REL.good · CL15.PRES.give · CL6.strength
-lona	Ilanga lona liyashisa namhlanje.	The sun itself is scorching today.	87	CL5.sun · CL5.PERS · CL5.PRES.burn · today
 ubawo	Ubawo usebenza edolophini yonke iveki.	My father works in town all week.	88	CL1a.father · CL1.PRES.work · LOC.town · CL9.all · CL9.week
-isonka	Ndithenge isonka esitsha evenkileni.	I bought fresh bread at the shop.	89	1SG.buy.PERF · CL7.bread · CL7.fresh → CL7.new · LOC.shop
-umkhosi	Umkhosi uqeqeshwa rhoqo ekuseni.	The army trains regularly in the morning.	90	CL3.army · CL3.PRES.train.PASS · often · LOC.morning
-kanye	Ndiya edolophini kanye ngeveki.	I go to town once a week.	91	1SG.PRES.go · LOC.town · once · in.CL9.week
-inkunzi	Inkunzi yenkomo idla engceni.	The bull is grazing on the grass.	92	CL9.male · CL9.POSS.CL9.cow · CL9.PRES.eat · LOC.grass
-ibandla	Ibandla lihlangana ngoMgqibelo emini.	The assembly meets on Saturday at midday.	93	CL5.assembly · CL5.PRES.meet · in.Saturday · LOC.daytime
-eso	Eso sitya sikhulu kakhulu.	That dish is very big.	94	CL7.that · CL7.dish · CL7.COP.big · very
-umlilo	Utata ubasa umlilo ngaphandle.	Dad is making a fire outside.	95	CL1a.father · CL1.PRES.kindle · CL3.fire · outside
-umhlaba	Umhlaba umanzi emva kwemvula.	The ground is wet after the rain.	96	CL3.ground · CL3.COP.wet · LOC.back · CL17.POSS.CL9.rain
-ubulungisa	Bonke abantu bafuna ubulungisa.	All people want justice.	97	CL2.all · CL2.person · CL2.PRES.want · CL14.justice
-inyaniso	Abantwana bafunda ukuthetha inyaniso.	Children learn to tell the truth.	98	CL2.child · CL2.PRES.learn · INF.speak · CL9.truth
-uhlanga	Uhlanga ngalunye lunezithethe zalo.	Every nation has its own customs.	99	CL11.nation · CL11.each · CL11.have.CL8.custom · CL8.POSS.CL11
-intloko	Intloko yam ibuhlungu namhlanje.	My head hurts today.	100	CL9.head · CL9.POSS.1SG · CL9.COP.painful · today
-impahla	Ndihlamba impahla yam ngoMvulo.	I wash my clothes on Monday.	101	1SG.PRES.wash · CL9.clothing · CL9.POSS.1SG · in.Monday
-iindaba	Iindaba zanamhlanje zimnandi kakhulu.	Today's news is very good.	103	CL10.news · CL10.POSS.today · CL10.COP.nice · very
-imbewu	Umama utyala imbewu egadini.	Mum is planting seeds in the garden.	104	CL1a.mother · CL1.PRES.plant · CL9.seed · LOC.garden
-hamba	Hamba kakuhle, sobonana ngomso.	Go well, we will see each other tomorrow.	105	go.IMP · well · 1PL.FUT.see.RECIP · tomorrow
-indlebe	Ugqirha ujonga indlebe yomntwana.	The doctor is looking at the child's ear.	106	CL1a.doctor · CL1.PRES.look · CL9.ear · CL9.POSS.CL1.child
-njalo	Musa ukuthetha njalo kubantu.	Don't talk like that to people.	108	NEG.IMP · INF.speak · thus · LOC.CL2.person
 ngexesha	Ndifika esikolweni ngexesha yonke imihla.	I get to school on time every day.	109	1SG.PRES.arrive · LOC.CL7.school · in.CL5.time · CL4.all · CL4.day
 ubulumko	Umama wam undifundisa ubulumko yonke imihla.	My mother teaches me wisdom every day.	110	CL1a.mother · CL1.POSS.1SG · CL1.PRES.1SG.OBJ.teach · CL14.wisdom · CL4.all · CL4.day
-phezulu	Iintaka zibhabha phezulu esibhakabhakeni.	The birds fly high in the sky.	111	CL10.bird · CL10.PRES.fly · high · LOC.CL7.sky
-abafazi	Abafazi bathenga imifuno emarikeni.	The women are buying vegetables at the market.	112	CL2.woman · CL2.PRES.buy · CL4.vegetable · LOC.CL9.market
-ewe	Ewe, ndivuma ukuza ngomso.	Yes, I agree to come tomorrow.	113	yes · 1SG.PRES.agree · INF.come · tomorrow
-zona	Izitya zona ndizihlambile kakade.	As for the dishes, I have already washed them.	114	CL8.dish · CL8.PRON · 1SG.CL8.OBJ.wash.PERF · already
 isono	Abantwana abaqondi ukuba yintoni isono.	Children do not understand what a sin is.	115	CL2.child · NEG.CL2.PRES.understand · COMP · COP.what · CL7.sin
-izulu	Izulu limnyama, liza kuna.	The sky is dark, it is going to rain.	116	CL5.sky · CL5.COP.dark · CL5.FUT · INF.rain
-idini	Usapho lwenza idini ngoMgqibelo.	The family is holding a ceremonial offering on Saturday.	119	CL11.family · CL11.PRES.do · CL5.sacrifice · at.CL3.Saturday
-thetha	Thetha kancinci, ulele umntwana.	Speak softly, the child is asleep.	120	speak.IMP · a_little · CL1.sleep.PERF · CL1.child
-umyalelo	Utitshala usinike umyalelo omtsha.	The teacher gave us a new instruction.	121	CL1a.teacher · CL1.1PL.OBJ.give.PERF · CL3.instruction · CL3.REL.new
-uyihlo	Uyihlo usebenza phi ngoku?	Where does your father work now?	122	CL1a.father.POSS.2SG · CL1.PRES.work · where · now
-ityala	Ndihlawule ityala lam lonke.	I have paid off all my debt.	123	1SG.pay.PERF · CL5.debt · CL5.POSS.1SG · CL5.all
 ingubo	Ingubo yam ifudumele kakhulu ebusika.	My blanket is very warm in winter.	124	CL9.blanket · CL9.POSS.1SG · CL9.be_warm.PERF · greatly · LOC.CL14.winter
-umda	Umda wegadi wenziwe ngamatye.	The border of the garden is made of stones.	125	CL3.border · CL3.POSS.CL9.garden · CL3.make.PASS.PERF · INS.CL6.stone
-ukufa	Ukufa kuyoyikeka kubantu abaninzi.	Death is frightening to many people.	127	CL15.death · CL15.PRES.be_frightening · LOC.CL2.person · CL2.many
-ilanga	Ilanga liphuma ngentsimbi yesithandathu.	The sun rises at six o'clock.	129	CL5.sun · CL5.PRES.come_out · at.CL9.bell · CL9.POSS.CL7.six
-umphathi	Umphathi wevenkile ubuya ngomso.	The shop manager comes back tomorrow.	130	CL1.manager · CL1.POSS.CL9.shop · CL1.PRES.return · tomorrow
 umntwana	Umntwana udlala ebaleni nabahlobo bakhe.	The child is playing on the field with his friends.	133	CL1.child · CL1.PRES.play · LOC.CL5.field · with.CL2.friend · CL2.POSS.3SG
 umzimba	Umzimba ufuna ukuphumla emva komsebenzi.	The body needs rest after work.	134	CL3.body · CL3.PRES.want · INF.rest · after · CL17.POSS.CL3.work
 iwayini	Utata usela iwayini elibomvu.	Dad is drinking red wine.	135	CL1a.father · CL1.PRES.drink · CL9.wine · CL9.REL.red
@@ -172,24 +62,10 @@ esi	Esi sikolo sikhulu kakhulu.	This school is very big.	138	CL7.this · CL7.sch
 mhlawumbi	Mhlawumbi liza kuna ngokuhlwa.	Maybe it will rain this evening.	139	perhaps · CL5.FUT · INF.rain · at.CL15.evening
 ilitye	Ilitye elikhulu livale indlela.	A big stone is blocking the road.	140	CL5.stone · CL5.REL.big · CL5.close.PERF · CL9.road
 ubuqaqawuli	Ubuqaqawuli beenkwenkwezi buyabonakala ebusuku.	The splendour of the stars is visible at night.	141	CL14.splendour · CL14.POSS.CL10.star · CL14.PRES.be_visible · LOC.CL14.night
-izindlu	Izindlu ezintsha zakhiwa apha.	New houses are being built here.	142	CL10.house · CL10.REL.new · CL10.PRES.build.PASS · here
-ubani	Ubani onokusinceda ngoku?	Who can help us now?	143	CL1a.who · CL1.REL.POT.1PL.OBJ.help · now
 usindiso	Usindiso lwabahambi lwathatha iiyure ezimbini.	The rescue of the travellers took two hours.	145	CL11.rescue · CL11.POSS.CL2.traveller · CL11.PST.take · CL10.hour · CL10.two
 ukholo	Ukholo lwam kubahlobo bam lukhulu.	My faith in my friends is great.	146	CL11.faith · CL11.POSS.1SG · LOC.CL2.friend · CL2.POSS.1SG · CL11.COP.big
 umfo	Umfo lo uthetha isiXhosa esihle.	This fellow speaks beautiful Xhosa.	147	CL1.man · CL1.this · CL1.PRES.speak · CL7.Xhosa · CL7.REL.beautiful
-sona	Isikolo sona sivaliwe namhlanje.	The school itself is closed today.	148	CL7.school · CL7.PERS · CL7.close.PASS.PERF · today
-buya	Buya kwakamsinya, siyakulinda ekhaya.	Come back soon, we are waiting for you at home.	149	return.IMP · soon · 1PL.PRES.2SG.OBJ.wait · LOC.CL5.home
-izono	Sonke sinazo izono zethu.	We all have our sins.	150	1PL.all · 1PL.have.CL8.OBJ · CL8.sin · CL8.POSS.1PL
-unina	Unina womntwana usebenza esibhedlele.	The child's mother works at the hospital.	151	CL1a.mother · CL1.POSS.CL1.child · CL1.PRES.work · LOC.CL7.hospital
-isilivere	Isilivere sikhazimla emva kokucocwa.	Silver shines after it is cleaned.	153	CL7.silver · CL7.PRES.shine · after · CL17.POSS.INF.clean.PASS
-phandle	Abantwana badlala phandle namhlanje.	The children are playing outside today.	154	CL2.child · CL2.PRES.play · outside · today
-iliso	Iliso lam libomvu namhlanje.	My eye is red today.	155	CL5.eye · CL5.POSS.1SG · CL5.COP.red · today
-inkulu	Indlu yethu inkulu kakhulu.	Our house is very big.	156	CL9.house · CL9.POSS.1PL · CL9.COP.big · greatly
-ubunzima	Ubunzima bebhokisi bukhulu kakhulu.	The weight of the box is very great.	157	CL14.heaviness · CL14.POSS.CL9.box · CL14.COP.big · greatly
-ummelwane	Ummelwane wethu unenja enkulu.	Our neighbour has a big dog.	158	CL1.neighbour · CL1.POSS.1PL · CL1.have.CL9.dog · CL9.big
 lishumi	Ixabiso lale ncwadi lishumi leerandi.	The price of this book is ten rand.	159	CL5.price · CL5.POSS.CL9.this · CL9.book · CL5.COP.ten · CL5.POSS.CL10.rand
-imithi	Imithi emikhulu imile egadini.	Big trees stand in the garden.	160	CL4.tree · CL4.big · CL4.stand.PERF · LOC.CL9.garden
-cwaka	Kwathi cwaka egumbini lonke.	The whole room fell dead silent.	161	CL17.PST.say · dead_silent · LOC.CL5.room · CL5.all
 umhla	Umhla wentlanganiso yethu utshintshile.	The date of our meeting has changed.	162	CL3.day · CL3.POSS.CL9.meeting · CL9.POSS.1PL · CL3.change.PERF
 umvuzo	Umvuzo wokusebenza nzima ubonakala kamva.	The reward of hard work shows later.	163	CL3.reward · CL3.POSS.INF.work · hard · CL3.PRES.be_visible · later
 ubushushu	Ubushushu belanga bukhulu emini.	The heat of the sun is intense at midday.	164	CL14.heat · CL14.POSS.CL5.sun · CL14.COP.big · LOC.CL9.daytime
@@ -200,25 +76,8 @@ ingoma	Abantwana bacula ingoma entsha.	The children are singing a new song.	168	
 igolide	Igolide libiza kakhulu kule mihla.	Gold is very expensive these days.	169	CL5.gold · CL5.PRES.cost · greatly · LOC.CL4.this · CL4.day
 umninawa	Umninawa wam ufunda ibanga lesibhozo.	My younger brother is in grade eight.	170	CL1.younger_brother · CL1.POSS.1SG · CL1.PRES.study · CL5.grade · CL5.POSS.CL7.eight
 vuka	Vuka kusasa ngomso, siyahamba.	Wake up early tomorrow, we are leaving.	171	wake.IMP · in_the_morning · tomorrow · 1PL.PRES.go
-izonka	Ndithenge izonka ezibini evenkileni.	I bought two loaves of bread at the shop.	172	1SG.buy.PERF · CL8.bread · CL8.two · LOC.CL9.shop
 umhobe	Umhobe wesikolo uculwa rhoqo kusasa.	The school anthem is sung every morning.	173	CL3.anthem · CL3.POSS.CL7.school · CL3.PRES.sing.PASS · often · in_the_morning
-imfazwe	Imfazwe ayizisombululi iingxaki zabantu.	War does not solve people's problems.	174	CL9.war · NEG.CL9.PRES.CL10.OBJ.solve · CL10.problem · CL10.POSS.CL2.person
-icala	Icala lam lasekhohlo libuhlungu.	My left side hurts.	175	CL5.side · CL5.POSS.1SG · CL5.POSS.LOC.left · CL5.COP.painful
-amathambo	Ubisi lomeleza amathambo abantwana.	Milk strengthens children's bones.	176	CL11.milk · CL11.PRES.strengthen · CL6.bone · CL6.POSS.CL2.child
-icebo	Icebo lakho lindincedile kakhulu.	Your advice helped me a lot.	177	CL5.advice · CL5.POSS.2SG · CL5.1SG.OBJ.help.PERF · greatly
-intetho	Intetho yakho ibicacile kakhulu.	Your speech was very clear.	179	CL9.speech · CL9.POSS.2SG · CL9.PST.clear.PERF · greatly
-esiya	Esiya sikolo sikude kakhulu.	That school over there is very far.	180	CL7.that_yonder · CL7.school · CL7.COP.far · very
-ithole	Ithole lisela ubisi lukanina.	The calf is drinking its mother's milk.	181	CL5.calf · CL5.PRES.drink · CL11.milk · CL11.POSS.CL1a.mother.3SG
-obo	Obo busuku bebubanda kakhulu.	That night was very cold.	182	CL14.that · CL14.night · PST.CL14.be_cold · very
-ulwimi	Ulwimi lwam lokuqala sisiXhosa.	My first language is Xhosa.	183	CL11.language · CL11.POSS.1SG · CL11.POSS.CL15.begin · COP.CL7.Xhosa
-izenzo	Izenzo zibaluleke ngaphezu kwamazwi.	Actions count for more than words.	184	CL8.action · CL8.be_important.PERF · above · CL17.POSS.CL6.word
-zoba	Zoba umfanekiso wendlu yakho.	Draw a picture of your house.	186	draw.IMP · CL3.picture · CL3.POSS.CL9.house · CL9.POSS.2SG
-udonga	Udonga lwendlu yethu lumhlophe.	The wall of our house is white.	187	CL11.wall · CL11.POSS.CL9.house · CL9.POSS.1PL · CL11.COP.white
 amagama	Ndifunda amagama amatsha yonke imihla.	I learn new words every day.	188	1SG.PRES.learn · CL6.word · CL6.new · CL4.every · CL4.day
-umqondiso	Umqondiso ubonisa indlela yesibhedlele.	The sign shows the way to the hospital.	189	CL3.sign · CL3.PRES.show · CL9.way · CL9.POSS.CL7.hospital
-intaba	Intaba le iphakamile kakhulu.	This mountain is very high.	190	CL9.mountain · CL9.this · CL9.be_high.PERF · very
-ingqolowa	Ingqolowa ikhula kakuhle apha.	Wheat grows well here.	191	CL9.wheat · CL9.PRES.grow · well · here
-impi	Impi ibuyile ekhaya izolo.	The regiment came home yesterday.	192	CL9.regiment · CL9.return.PERF · LOC.CL5.home · yesterday
 izihlwele	Izihlwele zigcwele esitalatweni ngoMgqibelo.	The crowds fill the street on Saturday.	193	CL8.crowd · CL8.be_full.PERF · LOC.CL7.street · on.CL1a.Saturday
 ubusuku	Ubusuku bubanda kakhulu ebusika.	The night is very cold in winter.	194	CL14.night · CL14.PRES.be_cold · very · LOC.CL14.winter
 olu	Olu luhlu lude kakhulu.	This list is very long.	195	CL11.this · CL11.list · CL11.COP.long · very
@@ -562,3 +421,513 @@ ubugorha	Wabonisa ubugorha xa esindisa umntwana emlanjeni.	He showed bravery whe
 umfundisi	Bonke abafundi bayamthanda umfundisi wesiXhosa.	All the pupils like the isiXhosa teacher.	20431	CL2.all · CL2.pupil · CL2.PRES.CL1.OBJ.like · CL1.teacher · CL1.POSS.CL7.Xhosa
 zela	Zela mna kule ntlanganiso, ndiyagula namhlanje.	Stand in for me at this meeting, I am ill today.	20432	represent.IMP · 1SG.PERS · LOC.CL9.this · CL9.meeting · 1SG.PRES.be_sick · today
 ithokazi	Utata uthenge ithokazi elitsha izolo.	Dad bought a new heifer yesterday.	20434	CL1a.father · CL1.buy.PERF · CL5.heifer · CL5.new · yesterday
+na	Tata, ndingakhupha inja phandle phambi kokuba ifike imvula na?	Dad, can I let the dog out before the rain gets here?	0	
+na	Bhuti, le bhasi idlula eMthatha okanye kufuneka ndehle eDutywa na?	Brother, does this bus go through Mthatha, or do I have to get off at Dutywa?	0	
+na	Mhlobo wam, ungandixolela ngokulibala umhla wakho wokuzalwa na?	My friend, can you forgive me for forgetting your birthday?	0	
+uthixo	Umakhulu uthandaza rhoqo kusasa, ekholelwa ukuba uThixo uyayiva imithandazo yakhe.	Grandmother prays every morning, believing that God hears her prayers.	1	
+uthixo	Ngecawa, umfundisi usixelela ukuba uThixo akabakhethi abantu ngobutyebi babo.	On Sunday the minister tells us that God does not judge people by their wealth.	1	
+uthixo	Xa ndilahlekelwa lithemba, ndikhumbula ukuba uThixo akandishiyanga ngamaxesha anzima.	When I lose hope, I remember that God did not abandon me in the hard times.	1	
+unyana	Unyana wam omdala uvuka ngentsimbi yesine ukuze afike esikolweni kwangoko.	My eldest son gets up at four so that he reaches school early.	2	
+unyana	Unyana kamalume usebenza emgodini eRustenburg, ubuya ekhaya ngeeholide zeDisemba.	My uncle's son works in a mine in Rustenburg and comes home for the December holidays.	2	
+unyana	Ndaba nebhongo mhla unyana wethu wathetha phambi kwabazali besikolo.	I was filled with pride the day our son spoke in front of the school's parents.	2	
+phakathi	Ngenxa yengqele, sitya phakathi endlwini, kungekhona phantsi komthi.	Because of the cold we are eating inside the house, not under the tree.	3	
+phakathi	Phakathi kwabasebenzi bonke, ngutata kuphela owaziyo ukulungisa injini yeteksi.	Out of all the workers, my father is the only one who knows how to fix a taxi engine.	3	
+phakathi	Ndiziva ndikhululekile phakathi kwabantu bakuthi kunasedolophini apho ndingaziwayo.	I feel at ease among my own people, unlike in town where nobody knows me.	3	
+abantu	Ngempelaveki imarike yaseKhayelitsha igcwala ngabantu abathenga imifuno nenyama.	At weekends the Khayelitsha market fills up with people buying vegetables and meat.	4	
+abantu	Abantu abaninzi baseGcuwa basebenza eKapa, babuyela ekhaya ngoDisemba.	Many people from Butterworth work in Cape Town and go back home in December.	4	
+abantu	Abantu bathanda ukuthetha, kodwa bambalwa abakwaziyo ukumamela xa usentlungwini.	People love to talk, but few of them know how to listen when you are hurting.	4	
+yena	Yena uhlala ephekela usapho lonke ngeCawa, thina sihlamba izitya.	She is the one who cooks for the whole family on Sundays; we wash the dishes.	5	
+yena	Kwiofisi yethu, yena kuphela ophendula iminxeba yabathengi abanomsindo.	In our office he is the only one who takes calls from angry customers.	5	
+yena	Wonke umntu wamlibala, kodwa yena akazange amlibale umhlobo wakhe osentolongweni.	Everyone else forgot him, but he himself never forgot his friend in prison.	5	
+phezu	Umama ubeke ibhokisi yamayeza phezu kwekhabhathi ukuze abantwana bangayifikeleli.	Mum put the box of medicines on top of the cupboard so the children can't reach it.	6	
+phezu	Umsebenzi ukhwele phezu kophahla lwesikolo elungisa iithayile ezaphukileyo ngesiphango.	A workman has climbed onto the school roof to fix the tiles the storm broke.	6	
+phezu	Ndinovalo xa ndikhwela phezu kwebhulorho ende, ndijonge phantsi emlanjeni.	I get scared when I climb up onto the high bridge and look down at the river.	6	
+mna	Mna ndivuka kuqala ekhaya ukuze ndibase umlilo phambi kokuba kuvuke abanye.	I am the first one up at home so that I can light the fire before the others wake.	7	
+mna	Emsebenzini, mna ndijongene neencwadi zemali, uZola ujongene nabathengi.	At work I handle the accounts, while Zola deals with the customers.	7	
+mna	Bonke bathi ndiyaphazama, kodwa mna ndisakholelwa ukuba le ndlela ilungile.	Everyone says I am making a mistake, but I still believe this path is the right one.	7	
+wena	Wena hlala apha ulinde umntwana, ndiza kubuya kwangoko ndivela evenkileni.	You stay here and watch the child; I'll be straight back from the shop.	8	
+wena	Wena wawusebenza kwifektri yeempahla eMonti ngaphambi kokuba ivalwe, akunjalo?	You used to work at the clothing factory in East London before it shut down, didn't you?	8	
+wena	Wena wandinceda ngexesha lokufa kukatata, andisoze ndikulibale oko.	You were the one who helped me when my father died; I will never forget that.	8	
+lowo	Umfana lowo uhlala kwindlu engasemva kwethu, usithengisela amaqanda qho ngoLwesihlanu.	That young man lives in the house behind ours and sells us eggs every Friday.	9	
+lowo	Umfundisi lowo watshatisa abazali bam kwiminyaka engamashumi amathathu eyadlulayo.	That minister married my parents thirty years ago.	9	
+lowo	Lowo ongakhathaliyo ngabanye abantu akasoze afumane uncedo mhla esengxakini.	The person who cares nothing for others will never find help on the day he is in trouble.	9	
+kaloku	Andikwazi ukuza namhlanje, kaloku ndigcina abantwana bakadade wethu.	I can't come today — you know I'm minding my sister's children.	10	
+kaloku	Masihambe ngoku, kaloku iteksi yokugqibela ihamba ngentsimbi yesithandathu.	Let's leave now — after all, the last taxi goes at six.	10	
+kaloku	Ungamkhwazi utata ngoku, kaloku usebenze ubusuku bonke esibhedlele.	Don't call for Dad right now — remember, he worked all night at the hospital.	10	
+oko	Ukuvuka kusasa oko kundenza ndidinwe imini yonke esikolweni.	That business of getting up early leaves me tired all day at school.	11	
+oko	Umphathi uthi masisebenze ngeCawa, kodwa oko akuvumelekanga kwisivumelwano sethu.	The manager says we must work on Sunday, but that isn't allowed under our agreement.	11	
+oko	Wonke umntu elalini uthetha ngaye, kodwa oko akumkhathazi konke konke.	Everyone in the village is talking about him, but that doesn't trouble him in the least.	11	
+abo	Abafana abo babedlala ibhola ebaleni bade kwahlwa izolo.	Those young men were playing ball on the field until dark yesterday.	12	
+abo	Abaphathi abo abakaze bahlale nathi kwiintlanganiso zabasebenzi ngoLwesihlanu.	Those managers have never once sat with us in the workers' Friday meetings.	12	
+abo	Andibathembi abarhwebi abo, kuba bathembisa izinto abangasoze bazenze.	I don't trust those traders, because they promise things they will never do.	12	
+xa	Xa linetha kakhulu, umakhulu usiphekela isophu eshushu eziko.	When it rains hard, Grandmother cooks us hot soup at the hearth.	13	
+xa	Xa umqeshi engafiki ngentsimbi yesibhozo, sonke silinda ngaphandle kwegeyithi.	If the boss hasn't arrived by eight, we all wait outside the gate.	13	
+xa	Ndiziva ndikhululekile xa ndibuyela ekhaya kwilali endakhulela kuyo.	I feel at ease when I go back home to the village I grew up in.	13	
+uyesu	Emva kwesidlo sangokuhlwa, umakhulu usixelela ukuba uYesu wabaphilisa abagulayo.	After the evening meal, Grandmother tells us that Jesus healed the sick.	14	
+uyesu	Ikwayara yecawa icula ingoma ethi uYesu ngumalusi wethu, abantu bevuma bonke.	The church choir sings a song saying Jesus is our shepherd, and everyone joins in.	14	
+uyesu	Utata wathi wafumana uxolo lwenene mhla wakholelwa ukuba uYesu wamfela.	Father said he found real peace the day he believed that Jesus died for him.	14	
+bona	Thina silungisa ukutya, bona bahlala ngaphandle bexoxa nabahlobo babo.	We're getting the food ready while they sit outside chatting with their friends.	15	
+bona	Sibacele ukuba basincede, kodwa bona bakhethe ukuya emdlalweni webhola.	We asked them to help us, but they chose to go to the football match instead.	15	
+bona	Andikhathali nokuba bathini bona; ndiza kuqhubeka ndifunda ubugcisa bam.	I don't care what they say; I'm going to carry on studying my art.	15	
+ngoko	Igesi iphelile ekhaya, ngoko ke siza kupheka ngeziko namhlanje.	The gas has run out at home, so today we're going to cook on the fire.	16	
+ngoko	Isikolo sivaliwe ngenxa yamanzi, ngoko abafundi babuyele emakhaya kusasa.	The school was closed because of the water, so the pupils went back home this morning.	16	
+ngoko	Ndandiseyimntwana ngoko, andiqondanga ukuba utata wayesifihlela ubunzima bakhe.	I was still a child then, and I didn't realise Father was hiding his hardship from us.	16	
+ilizwi	Ndalilahla ilizwi lam ndihlaba umkhosi kwelinye icala lomlambo izolo.	I lost my voice raising the alarm from the other side of the river yesterday.	17	
+ilizwi	Kwintlanganiso yelali, ilizwi lexhego lithathwa njengomthetho ngabantu bonke.	At the village meeting, an old man's word is taken as law by everybody.	17	
+ilizwi	Ndeva ilizwi likamama efowunini, ndaza ndakhala ndingakwazi ukuzibamba.	I heard my mother's voice on the phone, and then I cried, unable to hold it back.	17	
+inkosi	Inkosi yalapha ihlala isiza enkundleni ukuze imamele izikhalazo zabantu.	The chief here regularly comes to the court to hear the people's complaints.	18	
+inkosi	Ngomso inkosi iza kwahlulahlula umhlaba kwiintsapho ezintsha zelali.	Tomorrow the chief will parcel out the land to the village's new families.	18	
+inkosi	Ixhego lisabalisa ngendlela inkosi endala eyayibathanda ngayo abantu bayo.	The old man still tells of how the old king loved his people.	18	
+into	Kukho into endiyishiye ekhitshini, ndiza kubuya ndiyilande emva kokutya.	There's something I left in the kitchen; I'll come back for it after we eat.	19	
+into	Into endiyifundileyo emsebenzini kukuba ukuthula kunika amandla ngaphezu kokuphikisana.	The thing I've learnt at work is that keeping quiet gives you more power than arguing.	19	
+into	Umninawa wam uthenga yonke into ayibonayo, aze abe engenamali ekupheleni kwenyanga.	My younger brother buys every single thing he sees, and then he's broke at the end of the month.	19	
+le	Le mifuno ndiyithenge kusasa evenkileni yasekoneni, kodwa seyibunile.	I bought these vegetables at the corner shop this morning, but they've already wilted.	20	
+le	Le mibuzo yabafundi ibonisa ukuba abaqondanga isifundo sezolo.	These questions from the students show that they didn't understand yesterday's lesson.	20	
+le	Le mifanekiso kamakhulu indenza ndikhumbule imihla yethu elalini.	These photographs of my grandmother bring back the days we spent in the village.	20	
+lo	Lo mfana ulala apha ngeempelaveki, kuba umama wakhe usebenza esibhedlele.	This boy sleeps here at weekends, because his mother works at the hospital.	21	
+lo	Lo mqeshwa mtsha usebenza ngokukhawuleza, kodwa akakawaqondi amaxwebhu ethu.	This new employee works fast, but he doesn't understand our paperwork yet.	21	
+lo	Andimthembi lo mqhubi weteksi, uqhuba ngesantya esiphezulu kakhulu.	I don't trust this taxi driver — he drives far too fast.	21	
+igama	Ndilibele igama lomntwana wakhe, kodwa ndikhumbula ubuso bakhe kakuhle.	I've forgotten her child's name, but I remember his face clearly.	22	
+igama	Utitshala wabhala igama lam ngempazamo, ngoko ke andifumananga satifikethi.	The teacher wrote my name down wrong, so I never got a certificate.	22	
+igama	Umzukulwana wam unikwe igama likatatomkhulu owasweleka ngonyaka ophelileyo.	My grandson was given the name of my grandfather, who passed away last year.	22	
+nina	Thina siza kuhamba ngebhasi, ke nina niza kukhwela imoto katata.	We're taking the bus, and you lot are riding in Dad's car.	23	
+nina	Nina bafundi bonyaka wokugqibela kufuneka nibuyise iincwadi ngoLwesihlanu.	You final-year students have to bring the books back by Friday.	23	
+nina	Nina nasihleka mhla safika, kodwa ngoku nicela uncedo kuthi.	You laughed at us the day we arrived, and now you're asking us for help.	23	
+umthetho	Umthetho wasekhaya uthi akukho mntu otyela kwigumbi lokulala.	The rule in this house is that nobody eats in the bedroom.	24	
+umthetho	Umthetho omtsha wezendlela uthintela ukusebenzisa iselfowuni xa uqhuba.	The new traffic law bans using a cellphone while you are driving.	24	
+umthetho	Lo mthetho awukhuseli abasetyhini basezilalini, uphelela ephepheni kuphela.	This law does not protect rural women; it only ever exists on paper.	24	
+amadoda	Amadoda ahlala ngaphandle exoxa, abafazi belungiselela ukutya endlwini.	The men sit outside talking while the women get the food ready indoors.	25	
+amadoda	Amadoda amathathu asebenza emigodini yaseRustenburg abuyela ekhaya ngeeholide zeKrisimesi.	Three men who work in the Rustenburg mines come home for the Christmas holidays.	25	
+amadoda	Amadoda amaninzi oyika ukuya kugqirha ade abe sengozini enkulu.	Many men are afraid to see a doctor until they are already in serious danger.	25	
+apho	Beka inkomishi yakho apho etafileni, ndiza kuyihlamba emva kwesidlo.	Leave your cup there on the table; I'll wash it after the meal.	26	
+apho	Ndisebenza kwivenkile apho utata wam wasebenza khona iminyaka engamashumi amabini.	I work at the shop where my father worked for twenty years.	26	
+apho	Andifuni ukubuyela apho esikolweni, izinto ezandehlela khona zisandikhathaza.	I don't want to go back to that school; what happened to me there still upsets me.	26	
+umntu	Kufike umntu endlwini izolo ebusuku efuna ukubona utata wam.	Somebody came to the house last night looking for my father.	27	
+umntu	Umntu wokuqala ofika emsebenzini kusasa nguye ovula iingcango.	Whoever gets to work first in the morning is the one who unlocks the doors.	27	
+umntu	Umntu owalahlekelwa ngumzi wakhe akalibali, nokuba sekudlule iminyaka emingaphi.	A person who has lost their home never forgets, however many years go by.	27	
+nje	Bamba imela nje, ngolu hlobo, ukuze ungasiki iminwe yakho.	Hold the knife like this, so that you don't cut your fingers.	28	
+nje	Andizanga kucela mali, ndize kubona nje ukuba uphila njani.	I haven't come to ask for money; I've just come to see how you're doing.	28	
+nje	Wayehleli nje esitiyeni imini yonke, engathethi namntu, elindele umnxeba.	He just sat in the garden all day, speaking to no one, waiting for a call.	28	
+phantsi	Ibhola likamntwana litshone phantsi kwebhedi, sasilifuna imini yonke.	The child's ball had rolled under the bed; we spent the whole day looking for it.	29	
+phantsi	Umfundisi wasicela ukuba sihlale phantsi sithule ngelixa umtshato uqhubeka.	The minister asked us to sit down and keep quiet while the wedding went on.	29	
+phantsi	Sigcina imali yethu phantsi komqamelo, kuba asizithembi iibhanki zalapha.	We keep our money under the pillow, because we don't trust the banks here.	29	
+indlu	Xa kunetha ebusuku, sibeka iibhakethi phantsi kuba indlu yethu iyavuza.	When it rains at night we put buckets on the floor, because our house leaks.	30	
+indlu	Utata wakha indlu entsha kufuphi nesikolo, kodwa imali yaphela ingekagqitywa.	Dad built a new house near the school, but the money ran out before it was finished.	30	
+indlu	Indlu kamakhulu eQonce ndiyayikhumbula, apho sasidlala khona ebusika.	I still think about my grandmother's house in Qonce, where we used to play in winter.	30	
+leyo	Imithi leyo ephakathi kwendlu nesango yatyalwa ngutatomkhulu ngaphambi kokuba ndizalwe.	Those trees between the house and the gate were planted by my grandfather before I was born.	31	
+leyo	Imibuzo leyo yabafundi yamxaka utitshala kangangokuba waphuma egumbini.	Those questions from the students threw the teacher so badly that he walked out of the room.	31	
+leyo	Ndisayikhumbula iminyaka leyo yokugqibela esikolweni, xa sasicula sonke ngoLwesihlanu.	I still remember those final years at school, when we all used to sing together on Fridays.	31	
+ilizwe	Umakhulu uthi ilizwe lakowabo lalinamathafa amakhulu nemfuyo eninzi.	Grandmother says the land she grew up in had wide plains and plenty of livestock.	32	
+ilizwe	Ilizwe lonke laphulaphula ngokuzolileyo xa uMandela ethetha ngenkululeko.	The whole country listened in silence when Mandela spoke about freedom.	32	
+ilizwe	Xa ndibuya phesheya, ndiye ndibone ukuba ilizwe lam lihle kakhulu.	Whenever I come back from overseas, I see just how beautiful my country is.	32	
+loo	Loo mama ohlala emva kwethu usiphathela imifuno yasegadini yakhe.	That woman who lives behind us brings us vegetables from her garden.	33	
+loo	Loo teksi eya eMonti sele igcwele, masilinde elandelayo.	That taxi to East London is already full, so let's wait for the next one.	33	
+loo	Andisoze ndiyilibale loo mini, sanethwa yimvula sibuya emngcwabeni.	I will never forget that day; we were soaked by the rain on our way back from the funeral.	33	
+umphefumlo	Emva kokunyuka intaba, ndema ndatsala umphefumlo omde phambi kokuthetha.	After climbing the hill I stopped and drew a long breath before speaking.	34	
+umphefumlo	Ugqirha wandicela ukuba ndibambe umphefumlo ngelixa ethatha umfanekiso wesifuba.	The doctor asked me to hold my breath while he took a picture of my chest.	34	
+umphefumlo	Umphefumlo wam wavaleka ngumothuko xa ndibona inyoka endleleni.	My breath caught with fright when I saw a snake on the path.	34	
+ezo	Izitya ezo zineentsuku ezimbini zingahlanjwanga, masizihlambe phambi kokuba umama afike.	Those dishes have gone two days without being washed; let's wash them before Mum gets home.	35	
+ezo	Izicwangciso ezo zokuvula ivenkile zaphelela phantsi kuba kwakungekho mali.	Those plans to open a shop came to nothing because there was no money.	35	
+ezo	Izifundo ezo zesiXhosa zandinceda ndaqonda ngcono apho ndivela khona.	Those Xhosa lessons helped me understand better where I come from.	35	
+indoda	Indoda yam ivuka ngentsimbi yesine ukuze ikwazi ukufika emsebenzini kwangethuba.	My husband gets up at four so that he can reach work in good time.	36	
+indoda	Kwintlanganiso yelali indoda endala yathetha yaza yathulisa wonke umntu.	At the village meeting an old man spoke and hushed everyone.	36	
+indoda	Indoda enyanisekileyo ayithembisi into engenakuyenza, watsho utatomkhulu sihleli emlilweni.	An honest man does not promise what he cannot do, my grandfather said as we sat by the fire.	36	
+isandla	Ndasitshisa isandla sam xa ndisusa imbiza emlilweni ngaphandle kwelaphu.	I burned my hand taking the pot off the fire without a cloth.	37	
+isandla	Ndakufika, utatomkhulu wandolulela isandla, ndasibamba ngezandla zombini ngokuhlonipha.	When I arrived, my grandfather held out his hand, and I took it respectfully with both of mine.	37	
+isandla	Isandla sam sasingcangcazela xa ndityikitya isivumelwano sokuqala somsebenzi.	My hand was shaking as I signed my first work contract.	37	
+intliziyo	Emva kokubaleka ndisiya esitishini, intliziyo yam yabetha kabuhlungu esifubeni.	After running to the station, my heart was pounding painfully in my chest.	38	
+intliziyo	Ugqirha wathi intliziyo katata ifuna ukuphumla, ke wayeka umsebenzi.	The doctor said my father's heart needed rest, so he gave up his job.	38	
+intliziyo	Intliziyo yam yaphuka mhla umhlobo wam wemka esiya kuhlala eKapa.	My heart broke the day my friend left to go and live in Cape Town.	38	
+aba	Kumsitho wasekhaya, amadoda aba inyama ngokulingana kuzo zonke iintsapho.	At a family ceremony the men share out the meat equally among all the households.	39	
+aba	Amagosa karhulumente aba ukutya kwiilali ezibethwe yimbalela rhoqo ngenyanga.	Government officials hand out food to the drought-stricken villages every month.	39	
+aba	Amaxhego aba ilifa ngokwesiko, kodwa abazukulwana bakhalaza ngokungalingani.	The elders divide up the inheritance according to custom, but the grandchildren complain that it is unequal.	39	
+umoya	Umoya wabetha ngamandla ebusuku, wawisa umthi omncinci egadini yethu.	The wind blew hard during the night and knocked over the small tree in our garden.	40	
+umoya	Vula ifestile ukuze umoya ungene, kushushu kakhulu apha eklasini.	Open the window so some air can get in — it is far too hot in this classroom.	40	
+umoya	Ndiyawuthanda umoya wolwandle kuba ususa lonke uxinzelelo lweveki.	I love the sea air, because it carries off the whole week's stress.	40	
+elo	Elo qanda olishiye etafileni libolile; ndiza kulilahla ngoku.	That egg you left out on the table has gone off; I'm throwing it away now.	41	
+elo	Elo hashe lomelele; utata ulisebenzisa ukutsala inqwelo yeenkuni.	That horse is strong; my father uses it to pull the firewood cart.	41	
+elo	Elo bali likamakhulu ndisalikhumbula, nangona wasweleka ndineminyaka esixhenxe.	I still remember that story of my grandmother's, even though she died when I was seven.	41	
+uyise	Uyise kaThemba umphekela isidudu kwakusasa ngaphambi kokuba aye esikolweni.	Themba's father cooks him porridge first thing in the morning, before he leaves for school.	42	
+uyise	Umfundi lo ufuna ukuba ngumqhubi kuba uyise waqhuba iteksi iminyaka engamashumi amabini.	This student wants to be a driver because his father drove a taxi for twenty years.	42	
+uyise	Xa uyise engena endlwini, bonke abantwana bayathula baze bahlale phantsi.	The moment their father walks into the house, all the children go quiet and sit down.	42	
+musa	Musa ukungena ngezihlangu ezimdaka; ndigqibe ukuwucoca lo mgangatho.	Don't come in with muddy shoes — I have just finished cleaning this floor.	43	
+musa	Musa ukukhwela le teksi, umqhubi wayo uqhuba ngesantya esiphezulu.	Don't get into that taxi — the driver of it goes much too fast.	43	
+musa	Musa ukutyhafa ngenxa yamanqaku aphantsi; usenexesha lokuwalungisa ngaphambi kweholide.	Don't lose heart over low marks; you still have time to pull them up before the holidays.	43	
+amehlo	Amehlo kamakhulu awasaboni kakuhle; ndimfundela iileta zakhe ngokuhlwa.	Grandmother's eyes no longer see well, so I read her letters to her in the evenings.	44	
+amehlo	Ugqirha uthe mandiphumle, amehlo am adiniwe kukujonga ikhompyutha imini yonke.	The doctor told me to rest — my eyes are worn out from staring at a computer all day.	44	
+amehlo	Akathethanga nto, kodwa amehlo akhe andixelela ukuba akonwabanga.	He said nothing, but his eyes told me that he was unhappy.	44	
+emva	Emva kokutya, sonke sihlala phandle sisela iti sithetha ngemicimbi yosuku.	After the meal we all sit outside drinking tea and talking over the day's business.	45	
+emva	Utitshala uhamba-hamba emva kwabafundi ukuze abone ukuba akukho mntu okopayo.	The teacher paces up and down behind the pupils so that he can see nobody is copying.	45	
+emva	Ndakhala emva kokuva ezo ndaba, kodwa emva koko ndaziva ndikhululekile.	I cried when I heard that news, but afterwards I felt a weight lift off me.	45	
+amanzi	Umama uthumela abantwana ukuba bakhe amanzi emthonjeni kwakusasa.	Mother sends the children to fetch water from the spring first thing in the morning.	46	
+amanzi	Abasebenzi baseplasini basela amanzi abandayo emthunzini xa kutshisa emini.	The farm workers drink cold water in the shade when the midday heat sets in.	46	
+amanzi	Sikhalazela amanzi angcolileyo empompweni; ilali yonke ifuna impendulo kumasipala.	We are complaining about the dirty water at the tap; the whole village wants an answer from the municipality.	46	
+yona	Imifuno yasegadini yona iyakhula kakuhle, kodwa iitapile aziphumelelanga.	The garden vegetables are doing fine, it's the potatoes that have failed.	47	
+yona	Imisebenzi yasefektri yona iyafumaneka, kodwa umvuzo wayo awukwanelisi mntu.	Factory jobs are easy enough to come by, but the pay they give satisfies nobody.	47	
+yona	Utata wayityala le mithi ngo-1994; yona isaphila, nangona indlu ingasekho.	Father planted these trees in 1994; they are still standing, even though the house is gone.	47	
+thina	Umama uhamba ngebhasi, kodwa thina sikhwela iteksi ukuze sifike msinya.	Mother travels by bus, but we take a taxi so that we get there quickly.	48	
+thina	Thina esisebenza ebusuku siyagoduka kusasa, xa abanye besiya emsebenzini.	Those of us who work nights head home in the morning, just as everyone else is going in.	48	
+thina	Wonke umntu wathetha entlanganisweni, kodwa thina asizange sinikwe ithuba lokuphendula.	Everybody else spoke at the meeting, but we were never given a chance to reply.	48	
+kakhulu	Umntwana wam ukhule kakhulu kulo nyaka; izihlangu zakhe azisamlingani.	My child has grown so much this year that his shoes no longer fit him.	49	
+kakhulu	Isivuno sombona sancipha kakhulu kuba imvula ayizange ine ngoDisemba.	The maize harvest came out far smaller, because no rain fell at all in December.	49	
+kakhulu	Ndamkhumbula kakhulu umakhulu ngeKrisimesi; kwakukho isithuba esikhulu etafileni.	I missed my grandmother terribly at Christmas; there was a big empty space at the table.	49	
+ezi	Ezi zihlangu zombini zimanzi, zibeke ngaselangeni zome ngaphambi kokuya esikolweni.	Both of these shoes are soaked — put them out in the sun to dry before school.	50	
+ezi	Ezi zicwangciso zokwakha iklinikhi zamkelwe ngabahlali bonke kwintlanganiso yayizolo.	These plans to build a clinic were accepted by all the residents at yesterday's meeting.	50	
+ezi	Ezi ziqhamo zithengiswa ngasesitishini zibiza kakhulu, kodwa ndisazithenga rhoqo.	This fruit they sell by the station is expensive, but I still buy it every time.	50	
+apha	Apha endlwini kushushu kakhulu, masivule zonke iifestile nomnyango wangasemva.	It is stifling in here — let's open all the windows and the back door.	51	
+apha	Hlalani apha ngaphandle kwegumbi likagqirha, uza kunibiza ngamnye.	Wait here outside the doctor's room; he will call you in one at a time.	51	
+apha	Ndikhulele apha eMthatha, ngoko andifuni ukufudukela eKapa nokuba bandihlawula kangakanani.	I grew up here in Mthatha, so I won't move to Cape Town no matter what they pay me.	51	
+umkhonzi	Umkhonzi uvuka kwakusasa abase umlilo enkundleni phambi kokuba kuvuke wonke umntu.	The servant rises at first light and lights the fire in the yard before anyone else is up.	52	
+umkhonzi	Umkhonzi wathunywa emizini yonke ukuya kumema abantu emgidini wangomso.	The servant was sent round every homestead to invite people to tomorrow's feast.	52	
+umkhonzi	Umkhonzi othembekileyo akaphathwa njengesicaka, uphathwa njengelungu losapho.	A faithful servant is not treated like a slave; he is treated as one of the family.	52	
+ngoku	Ndandidla ngokupheka ngomlilo weenkuni, kodwa ngoku ndisebenzisa isitovu sikagesi.	I used to cook over a wood fire, but now I use an electric stove.	53	
+ngoku	Umphathi uthi masiphumle ngoku, siqhubeke nokulungisa uphahla emva kwesidlo sasemini.	The foreman says we should take our break now and carry on with the roof after lunch.	53	
+ngoku	Bendinexhala ixesha lonke, kodwa ngoku ndiziva ndikhululekile emva kweziphumo.	I was anxious the whole time, but now that the results are out I feel relieved.	53	
+umzi	Umzi katatomkhulu useMqanduli, sikhwela iibhasi ezimbini ukuya khona ngeKrisimesi.	My grandfather's homestead is at Mqanduli; we catch two buses to get there at Christmas.	55	
+umzi	Umzi ngamnye elalini unikele ngegusha yokwamkela abakhwetha ababuyayo entabeni.	Every homestead in the village gave a sheep to welcome the initiates coming down from the mountain.	55	
+umzi	Ndikhumbula umzi wakowethu xa ndisiva ivumba lomlilo weenkuni ebusika.	I ache for our homestead whenever I catch the smell of a wood fire in winter.	55	
+ubuso	Ubuso bomntwana bugcwele udaka emva kokudlala ebaleni imini yonke.	The child's face is caked with mud after playing out in the yard all day.	56	
+ubuso	Ugqirha wajonga ubuso bam wandibuza ukuba ndagqibela nini ukulala kakuhle.	The doctor looked at my face and asked when I had last slept properly.	56	
+ubuso	Andisoze ndilibale ubuso bukamama mhla ndaphumelela ibanga leshumi.	I will never forget my mother's face the day I passed matric.	56	
+musani	Musani ukungena endlwini ninezihlangu ezinodaka, ndisandula ukutshayela igumbi lonke.	Don't come into the house in muddy shoes — I have just swept the whole room.	57	
+musani	Musani ukuchitha amanzi, impompo yaselalini ivaliwe kude kube ngoMvulo.	Don't waste the water; the village tap is shut off until Monday.	57	
+musani	Musani ukuphelelwa lithemba, sisenexesha lokuwubuyisa lo mdlalo.	Don't lose heart, you lot — we still have time to turn this match around.	57	
+ububi	Ububi bendlela eya elalini benza iibhasi zingafiki ngexesha ebusika.	The dreadful state of the road to the village keeps the buses from arriving on time in winter.	58	
+ububi	Ububi bokuxhatshazwa kwabantwana kufuneka buxelwe emapoliseni ngokukhawuleza.	The evil of child abuse must be reported to the police without delay.	58	
+ububi	Umakhulu wayesithi ububi bomntu abukho ebusweni, bukwizenzo zakhe kuphela.	Grandmother used to say a person's ugliness is not in the face, only in what they do.	58	
+nye	Ekhaya sitya ndawo nye ngokuhlwa, akukho mntu otya egumbini lakhe.	At home we all eat in one place in the evening; nobody eats in their own room.	59	
+nye	Amagosa athi zonke izikolo zephondo mazibhale uviwo ngaxesha nye.	The officials said every school in the province must sit the exam at one and the same time.	59	
+nye	Abahlali baphendula ngazwi nye, besithi abayifuni indawo yokulahla inkunkuma elalini.	The residents answered with one voice that they do not want a rubbish dump in the village.	59	
+eli	Eli lifu limnyama liza nemvula, khawuleza usonge impahla eyomileyo.	This black cloud is bringing rain — hurry up and fold in the dry washing.	60	
+eli	Eli xesha lokuvuna umbona lifuna ukuba bonke abantwana bancedise emasimini.	This maize harvest season needs every one of the children to help out in the fields.	60	
+eli	Eli thuba lokufunda eyunivesithi ndalifumana kanye, andisayi kulilahla.	This chance to study at university came to me just once, and I am not going to waste it.	60	
+lawo	Amaqanda lawo abolile, ndiza kuwalahla ngaphambi kokuba sipheke.	Those eggs have gone off - I'll throw them out before we start cooking.	61	
+lawo	Amapolisa lawo asimisile endleleni, afuna ukubona ilayisensi katata.	Those policemen have stopped us on the road; they want to see Dad's licence.	61	
+lawo	Amazwi lawo abuhlungu kakhulu, andisakwazi ukujonga umhlobo wam emehlweni.	Those words hurt so much that I can no longer look my friend in the eye.	61	
+intombi	Intombi enkulu igcina abantwana xa umama esemsebenzini ebusuku.	The eldest girl looks after the children when Mom is at work on night shift.	62	
+intombi	Intombi kaNomsa isebenza evenkileni ngeempelaveki ukuze ihlawule imali yesikolo.	Nomsa's daughter works at the shop on weekends so that she can pay her school fees.	62	
+intombi	Intombi yam iphumelele ibanga leshumi, ndinebhongo kangangokuba ndiyalila.	My daughter has passed matric - I'm so proud I'm in tears.	62	
+la	La manzi abanda kakhulu, abantwana bayakhala xa ndibahlamba.	This water is far too cold; the children cry when I wash them.	63	
+la	La maxwebhu kufuneka asayinwe ngumphathi ngaphambi kokuba siwathumele.	These documents have to be signed by the manager before we send them off.	63	
+la	La mabali kamakhulu ayasothusa, andifuni ukulala ndodwa namhlanje ebusuku.	These stories of Grandma's give us a fright - I don't want to sleep alone tonight.	63	
+wona	Umnyango wona uvaliwe, kodwa ifestile ndiyishiye ivuliwe ubusuku bonke.	The door itself is locked, but I left the window standing open all night.	64	
+wona	Umvuzo katata ufika ekupheleni kwenyanga, kodwa wona uphela ngeeveki ezimbini.	Dad's wages do arrive at the end of the month, but they themselves are gone within two weeks.	64	
+wona	Umculo kamama undithuthuzela; wona wodwa uyakwazi ukuthoba intliziyo yam.	Mom's music comforts me; it alone can settle my heart.	64	
+oku	Oku kutya kwasala izolo, kodwa kusamnandi xa sikufudumeza kancinci.	This food was left over from yesterday, but it's still good if we warm it a little.	65	
+oku	Oku kusebenza ebusuku kundidinisa, ndicinga ukucela ukuba ndisebenze emini.	This working at night is wearing me out; I'm thinking of asking to work days instead.	65	
+oku	Oku kuthetha kwakho phambi kwabantu kundihlazisa, ndicela uyeke.	This way you talk in front of people embarrasses me - please stop.	65	
+inceba	Ndacela inceba kumakhulu emva kokwaphula isitya sakhe esitsha.	I begged Grandma for mercy after breaking her new dish.	66	
+inceba	Ijaji yabonisa inceba kumfana, yamnika ithuba lokugqibezela isikolo.	The judge showed the young man mercy and gave him a chance to finish school.	66	
+inceba	Inceba yakhe yandothusa kakhulu, ndandilindele umsindo nesohlwayo esikhulu.	Her mercy took me completely by surprise; I had been expecting anger and a heavy punishment.	66	
+umsebenzi	Umsebenzi wasefama uvuka ngentsimbi yesine ukuze asenge iinkomo.	The farm worker gets up at four in the morning to milk the cows.	67	
+umsebenzi	Umsebenzi wasekhitshini uphakele abantu abangamakhulu amabini kumtshato wezolo.	The kitchen worker dished up for two hundred people at yesterday's wedding.	67	
+umsebenzi	Umsebenzi omdala wakhala mhla wathatha umhlala-phantsi emva kweminyaka engamashumi amathathu.	The old labourer wept the day he retired, after thirty years on the job.	67	
+indlela	Indlela eya ekhaya izele ludaka xa kunetha, iiteksi ziyeka ukungena.	The road home fills up with mud when it rains, and the taxis stop coming in.	68	
+indlela	Umqhubi wethu wakhetha indlela endala yeenkomo, safika kade emsebenzini.	Our driver took the old cattle track, and we got to work late.	68	
+indlela	Indlela yasezantsi indoyikisa ebusuku, ndikhetha ukujika ngasecaweni nangona inde.	The lower road frightens me at night, so I go round past the church even though it's longer.	68	
+ilifa	Ilifa likatatomkhulu lahlulwa ngokulinganayo phakathi kwabantwana bakhe abathandathu.	Grandfather's inheritance was divided equally among his six children.	69	
+ilifa	Igqwetha lisixelele ukuba ilifa alinakwabiwa ngaphambi kokufundwa komyolelo.	The lawyer told us the inheritance cannot be shared out before the will is read.	69	
+ilifa	Ilifa endilifunayo kubazali bam lulwazi, hayi umhlaba okanye imali.	The inheritance I want from my parents is knowledge, not land or money.	69	
+izandla	Izandla zam zabanda emlanjeni, andikwazanga nokubamba isepha ndihlamba iimpahla.	My hands went numb at the river; I couldn't even keep hold of the soap while washing the clothes.	70	
+izandla	Izandla zikatata zomile kukusebenza emgodini ubomi bakhe bonke.	Dad's hands are rough and cracked from working in the mine his whole life.	70	
+izandla	Izandla zam bezingcangcazela xa ndinikwa isatifikethi phambi kwesikolo sonke.	My hands were shaking as I was handed the certificate in front of the whole school.	70	
+inkunzi	Utatomkhulu wathengisa inkunzi emnyama ukuze umzukulwana wakhe aye eyunivesithi.	Grandfather sold the black bull so that his grandson could go to university.	91	
+inkunzi	Umalusi wayibopha inkunzi emthini ngaphambi kokuba afike umthengi wenkomo.	The herdboy tied the bull to the tree before the cattle buyer arrived.	91	
+inkunzi	Ndoyika inkunzi yommelwane kuba isoloko ihlasela nabani na odlula ecingweni.	I'm afraid of the neighbour's bull, because it always charges anyone who walks past the fence.	91	
+ibandla	Umama ubhaka isonka kusasa ngeCawa, kuba ibandla lisela iti ekhaya emva kwenkonzo.	Mum bakes bread early on Sunday, because the congregation has tea at our house after the service.	92	
+ibandla	Ibandla likhethe amagosa amatsha emva kwentlanganiso ende yangoMgqibelo.	The congregation elected new stewards after a long Saturday meeting.	92	
+ibandla	Ibandla landamkela ndingazi mntu, ngoko ndiziva ndisekhaya rhoqo ngeCawa.	The congregation took me in when I knew no one, so I feel at home there every Sunday.	92	
+eso	Beka eso sitya phezu kwefriji, abantwana bangasithathi bedlala ekhitshini.	Put that dish up on the fridge, so the children don't grab it while they're playing in the kitchen.	93	
+eso	Eso sicwangciso sikaMandla asisebenzi, kuba abasebenzi bagoduka ngentsimbi yesine.	That plan of Mandla's doesn't work, because the workers go home at four o'clock.	93	
+eso	Eso sipho sikamama sindikhumbuza ngaye ngalo lonke ixesha ndisibona.	That gift from my mother reminds me of her every single time I see it.	93	
+umlilo	Umama uphemba umlilo ngamaphepha amadala xa iinkuni zimanzi ebusika.	Mum gets the fire going with old newspaper when the firewood is damp in winter.	94	
+umlilo	Umlilo watshisa amatyotyombe amathathu eKhayelitsha phambi kokuba kufike uncedo.	The fire burned down three shacks in Khayelitsha before help arrived.	94	
+umlilo	Ndisakhumbula umlilo wasebusuku, apho utatomkhulu wayesibalisela amabali okudala.	I still remember the night fire, where grandfather used to tell us the old stories.	94	
+umhlaba	Umhlaba wasegadini uqinile kakhulu, kufuneka siwunkcenkceshele phambi kokuba silime.	The soil in the garden has gone hard; we have to water it before we can dig.	95	
+umhlaba	Umhlaba wookhokho bethu wathathwa ngexesha lengcinezelo, kwaye usapho lwafudukela edolophini.	Our ancestors' land was taken during the years of oppression, and the family moved to town.	95	
+umhlaba	Xa ndime encotsheni yentaba, ndiva ngathi umhlaba wonke uphantsi kwam.	When I stand on the mountain top, it feels as though the whole world lies beneath me.	95	
+ubulungisa	Udade wam uthi ubulungisa abukho ekhaya, kuba nguye yedwa ohlamba izitya.	My sister says there is no justice at home, because she is the only one who washes the dishes.	96	
+ubulungisa	Usapho lulinde ubulungisa iminyaka emihlanu enkundleni, kodwa ityala alikagqitywa.	The family has waited five years for justice in court, but the case still isn't finished.	96	
+ubulungisa	Ndikholelwa ukuba ubulungisa buyafika, nokuba bufika emva kwexesha elide kakhulu.	I believe that justice does come, even if it arrives after a very long time.	96	
+inyaniso	Ndabuza unyana wam inyaniso ngefestile eyaphukileyo, waza wavuma engekafiki utata.	I asked my son for the truth about the broken window, and he owned up before his father got home.	97	
+inyaniso	Ijaji yalixelela ingqina ukuba lithethe inyaniso yonke phambi kwenkundla.	The judge told the witness to speak the whole truth before the court.	97	
+inyaniso	Inyaniso ibuhlungu, kodwa ndikhetha ukuyiva kunokuqhubeka ndixokiselwa ngabahlobo.	The truth hurts, but I would rather hear it than go on being lied to by friends.	97	
+uhlanga	Umakhulu usibalisela ukuba uhlanga lwethu lwafika kule ntlambo kudala kakhulu.	Grandmother tells us that our people came to this valley a very long time ago.	98	
+uhlanga	Kwintlanganiso yeenkokeli, umbuzo wokuba uhlanga lusachaphazela imivuzo waphinda wavuka.	At the leaders' meeting, the question of whether race still affects wages came up again.	98	
+uhlanga	Utata wayesithi uhlanga aluchazi mntu; izenzo zakhe kuphela ezimchazayo.	Dad used to say that race defines nobody; only a person's deeds define them.	98	
+intloko	Umntwana wabetha intloko etafileni, ndaza ndambeka iqhwa kwindawo edumbileyo.	The child banged his head on the table, and I put ice on the swollen spot.	99	
+intloko	Ugqirha wajonga intloko yomdlali emva kokuwa kwakhe kabuhlungu ebaleni lebhola.	The doctor examined the player's head after he fell badly on the soccer field.	99	
+intloko	Umakhulu wandiphulula intloko wathi ndingakhathazeki, konke kuza kulunga.	Grandmother stroked my head and told me not to worry, everything would come right.	99	
+impahla	Ilanga selitshonile, kodwa impahla isesemgceni; masiyithathe phambi kwemvula.	The sun has already set and the washing is still on the line; let's bring it in before the rain.	100	
+impahla	Umalume uthengisa impahla esetyenzisiweyo kwimarike yaseBhayi rhoqo ngoMgqibelo.	My uncle sells second-hand goods at the Gqeberha market every Saturday.	100	
+impahla	Ndakhupha yonke impahla katata ekhabhathini, kodwa andikwazanga ukuyilahla.	I took all my father's clothes out of the wardrobe, but I couldn't bring myself to throw them away.	100	
+ntoni	Umama umi emnyango, ebuza ukuba ndipheka ntoni ngokuhlwa.	Mum is standing in the doorway, asking what I'm cooking tonight.	71	
+ntoni	Kwintlanganiso yanamhlanje umphathi ubuzile ukuba senza ntoni ngezikhalazo zabathengi.	In today's meeting the manager asked what we are doing about the customers' complaints.	71	
+ntoni	Andiqondi ukuba ufuna ntoni kum emva kwayo yonke le minyaka.	I don't understand what you want from me after all these years.	71	
+igazi	Umntwana wawa ebhayisekileni phambi kwendlu, igazi laphuma empumlweni yakhe.	The child fell off his bicycle in front of the house, and blood ran from his nose.	72	
+igazi	Eklinikhi unesi wandixelela ukuba igazi lam linqabile, ngoko ndinikela rhoqo.	At the clinic the nurse told me my blood type is rare, so I donate regularly.	72	
+igazi	Nangona singadibani kakhulu, igazi lethu linye, ngoko ndisoloko ndimxhasa.	Even though we hardly ever see each other, we are of one blood, so I always stand by him.	72	
+umfazi	Umfazi othengisa imifino ekoneni yesitalato uhlala endigcinela iimbotyi ezintsha.	The woman who sells vegetables on the street corner always keeps fresh beans aside for me.	73	
+umfazi	Umfazi wakwamelwane undicele ukuba ndimgcinele abantwana ngoLwesihlanu, esiya emngcwabeni.	The woman next door asked me to mind her children on Friday while she goes to a funeral.	73	
+umfazi	Umfazi wam undixelele ukuba ndiyeke ukusebenza ubusuku bonke, uxhalabile.	My wife has told me to stop working all night; she is worried about me.	73	
+hayi	Hayi, andizukuyivula loo bhotile yewayini phambi kokuba abantwana balale.	No, I'm not opening that bottle of wine before the children are asleep.	74	
+hayi	Hayi bhuti, le teksi ayiyi eMonti; kufuneka ulinde leyo ilandelayo.	No, brother, this taxi doesn't go to East London; you'll have to wait for the next one.	74	
+hayi	Hayi bo, ndothukile kuba ulibele usuku lokuzalwa lukamama kwakhona.	Oh no, I'm stunned that you've forgotten Mum's birthday again.	74	
+ubukumkani	Utitshala usixelele ukuba ubukumkani bukaShaka babusaziwa kuwo wonke lo mmandla.	The teacher told us that Shaka's kingdom was known throughout this whole region.	75	
+ubukumkani	NgoDisemba ndatyelela eSwatini, ubukumkani obuncinci apho ndabukela umdaniso wesintu.	In December I visited Eswatini, the small kingdom where I watched a traditional dance.	75	
+ubukumkani	Umfundisi wathetha ngobukumkani bezulu ixesha elide, kwada kwatshona ilanga.	The minister preached about the kingdom of heaven for so long that the sun went down.	75	
+umlomo	Vala umlomo xa uhlafuna, mntwana; sitya nabantu abadala etafileni.	Close your mouth while you chew, child; we are eating at the table with grown-ups.	76	
+umlomo	Ugqirha wamazinyo wandicela ukuba ndivule umlomo, waza wafumana umngxuma.	The dentist asked me to open my mouth, and then he found a cavity.	76	
+umlomo	Umlomo wakhe awuthuli nakanye; uxelela wonke umntu iimfihlo zekhaya.	His mouth never rests for a moment; he tells everyone the family's secrets.	76	
+ngaphandle	Ngenxa yobushushu sitye isidlo sangokuhlwa ngaphandle phantsi komnquma.	Because of the heat we ate supper outside under the olive tree.	77	
+ngaphandle	Akukho mntu onokungena kule ofisi ngaphandle kwemvume yomphathi.	Nobody may go into this office without the manager's permission.	77	
+ngaphandle	Bonke abantwana bagoduke ngebhasi ngaphandle kukaThandi, olinde umama wakhe esangweni ekhathazekile.	All the children have gone home on the bus except Thandi, who is waiting anxiously for her mother at the gate.	77	
+hleze	Vala iifestile ngaphambi kokuba silale, hleze imvula ingene endlwini.	Close the windows before we go to bed, in case the rain gets into the house.	78	
+hleze	Ndiye ndakhawuleza ndayigqiba ingxelo, hleze umphathi acaphuke phambi kwabasebenzi.	I hurried and finished the report, lest the manager lose his temper in front of the staff.	78	
+hleze	Umakhulu wandilumkisa ukuba ndingahambi ndodwa ebusuku, hleze ndihlangane nengxaki elokishini.	Grandmother warned me not to walk alone at night, in case I run into trouble in the township.	78	
+inyama	Umama uthenge inyama yenkomo ukuze siyose ngoMgqibelo xa kufika iindwendwe.	Mum has bought beef so that we can braai it on Saturday when the visitors arrive.	79	
+inyama	Erenkini abafazi bathengisa inyama eyosiweyo nesonka ngexesha lesidlo sasemini.	At the taxi rank the women sell grilled meat and bread at lunchtime.	79	
+inyama	Kunyaka ophelileyo ndayeka inyama, kodwa ivumba lokosa kwabamelwane liyandihenda.	Last year I gave up meat, but the smell of the neighbours' braai still tempts me.	79	
+umsindo	Umsindo kaTata wancipha ngokukhawuleza emva kokuba umakhulu ethethile naye.	Father's anger died down quickly after Grandmother had a word with him.	80	
+umsindo	Emsebenzini umsindo womphathi wenza ukuba abasebenzi boyike ukubuza imibuzo.	At work the manager's temper makes the staff afraid to ask any questions.	80	
+umsindo	Umsindo wam wandenza ndathetha kakubi, ndisazisola nanamhla oku.	My anger made me speak cruelly, and I regret it to this day.	80	
+imini	Imini yonke ndisebenza egadini, ndiphumla kuphela xa ilanga litshona.	I work in the garden the whole day and only rest when the sun goes down.	81	
+imini	Imini yayishushu kakhulu, ngoko abasebenzi baphumla emthunzini womthi omkhulu.	The day was so hot that the workers rested in the shade of the big tree.	81	
+imini	Imini ibinzima kakhulu emsebenzini namhlanje, ndifuna nje ukulala.	The day has been so hard at work today that I just want to sleep.	81	
+nguthixo	Umakhulu wam uthi nguThixo osinceda xa izinto zisiba nzima.	My grandmother says it is God who helps us when things get hard.	82	
+nguthixo	Utata wathi nguThixo osinike lo msebenzi, ngoko masiwenze ngenyameko.	Father said it is God who gave us this job, so we should do it carefully.	82	
+nguthixo	Andiqinisekanga ukuba nguThixo obangela iimbalela, kodwa ndisathandaza yonke imihla.	I am not sure it is God who sends the droughts, but I still pray every day.	82	
+ikrele	Unyana wam wenze ikrele ngeplanga, udlala imfazwe egadini imini yonke.	My son has made a sword out of a plank and plays at war in the garden all day.	83	
+ikrele	Umdlali ophethe ikrele weza esiteji, laza iholo lonke lathi cwaka.	The actor carrying the sword stepped onto the stage, and the whole hall fell silent.	83	
+ikrele	Xa ndibona ikrele likatatomkhulu endongeni, ndikhumbula amabali emfazwe awayewabalisa.	When I see my grandfather's sword on the wall, I remember the war stories he used to tell.	83	
+isithunywa	Isithunywa sankqonkqoza emnyango ngokuhlwa, sifuna ukubona umninimzi ngokukhawuleza.	The messenger knocked at the door after dark, wanting to see the head of the homestead at once.	84	
+isithunywa	Ikomkhulu lithumele isithunywa ukuze sazise abantu ngentlanganiso yangomso.	The chief's great place has sent a messenger to tell people about tomorrow's meeting.	84	
+isithunywa	Ndalinda isithunywa imini yonke, kodwa asizange sifike, ndaphelelwa lithemba.	I waited for the messenger the whole day, but it never came and I lost hope.	84	
+amandla	Emva kokugula, andisenawo amandla okunyuka izitepsi ndisiya kwigumbi lam.	Since my illness I no longer have the strength to climb the stairs up to my room.	85	
+amandla	Abafana bahlanganisa amandla abo, bawususa umthi owawuwele endleleni.	The young men put their strength together and shifted the tree that had fallen across the road.	85	
+amandla	Ingoma kamakhulu indinika amandla okuqhubeka nokufunda de kuse.	Grandmother's song gives me the strength to keep studying until dawn.	85	
+lona	Iqanda lona ndilibilisile kakade, kodwa inyama isafuna imizuzu elishumi.	The egg I have already boiled, but the meat still needs ten minutes.	86	
+lona	Igama lam lona balibiza ngendlela engeyiyo emsebenzini, kodwa andisabalungisi.	My name, that one they pronounce wrongly at work, but I no longer correct them.	86	
+lona	Ithemba lona alipheli, nokuba imisebenzi ingafumaneki kule dolophu.	Hope itself does not run out, even when no work can be found in this town.	86	
+ubawo	Ubawo uvuka ngentsimbi yesine, aze enze itiye phambi kokuba sivuke.	My father gets up at four o'clock and makes tea before the rest of us wake.	87	
+ubawo	Ubawo wayesebenza emigodini yaseGoli iminyaka elishumi, esiza ekhaya ngeKrisimesi.	My father worked in the Johannesburg mines for ten years, coming home at Christmas.	87	
+ubawo	Ndiyamkhumbula ubawo kakhulu, ingakumbi xa ndisiva iingoma awayezithanda.	I miss my father badly, especially when I hear the songs he used to love.	87	
+isonka	Ndasika isonka ndaqaba ibhotolo, ndilungiselela abantwana isidlo sakusasa.	I cut the bread and spread butter on it, making the children's breakfast.	88	
+isonka	Ngexesha lekhefu emsebenzini sitya isonka netiye, sincokola ngebhola.	During the break at work we eat bread and drink tea while chatting about football.	88	
+isonka	Isonka esishushu sisandikhumbuza umakhulu owayesibhaka ngeziko yonke imihla.	Warm bread still reminds me of my grandmother, who baked it in the hearth every day.	88	
+umkhosi	Ubhuti wam wajoyina umkhosi, kwaye usibhalela iileta qho ngenyanga.	My brother joined the army, and he writes us letters every month.	89	
+umkhosi	Umkhosi umise iintente ngaphandle kwedolophu, amajoni elinde imiyalelo.	The army has pitched its tents outside the town, the soldiers waiting for orders.	89	
+umkhosi	Ndicinga ukuba umkhosi ufanele ukunceda abantu ngexesha lezikhukula, kungekhona ukulwa kuphela.	I think the army ought to help people during the floods, not only fight.	89	
+kanye	Ndihlamba iingubo kanye ngeveki, ngoMgqibelo xa ndingayi emsebenzini.	I wash the clothes once a week, on Saturday when I do not go to work.	90	
+kanye	Intlanganiso yabazali ibanjwa kanye ngekota, ngoko sonke sizama ukuya.	The parents' meeting is held once a term, so we all try to attend.	90	
+kanye	Ndaya elwandle kanye kuphela ebomini bam, kodwa andisoze ndiyilibale loo mini.	I have been to the sea only once in my life, but I will never forget that day.	90	
+abafazi	NgoMgqibelo kusasa abafazi bahlamba iimpahla emlanjeni, bencokola ngabantwana babo.	On Saturday morning the women wash clothes down at the river, gossiping about their children.	111	
+abafazi	Abafazi belali bahlanganise imali yokwakha ivenkile encinci ecaleni kwendlela.	The women of the village pooled their money to build a small shop beside the road.	111	
+abafazi	Utata uthi abafazi babesoloko bebamba ikhaya xa amadoda esemgodini.	Father says it was always the women who held the home together while the men were away at the mine.	111	
+ewe	Ewe, ndiyibonile imali oyishiye etafileni, ndaza ndayibeka ebhokisini.	Yes, I did see the money you left on the table, and I put it in the box.	112	
+ewe	Umphathi wabuza ukuba ndiyakwazi na ukuqhuba; ndathi ewe, ndaqala ngoMvulo.	The manager asked whether I could drive; I said yes, and I started on Monday.	112	
+ewe	Ewe, kubuhlungu, kodwa kufuneka sivume ukuba salibala umhla wakhe wokuzalwa.	Yes, it hurts, but we have to admit that we forgot her birthday.	112	
+zona	Iimpahla zam zona sezomile, kodwa ezabantwana zisamanzi ngenxa yemvula.	My own clothes are dry by now, but the children's are still wet because of the rain.	113	
+zona	Iincwadi zesikolo zona sizithengile, kodwa iiyunifomu asikazifumani kule veki.	The schoolbooks we have already bought, but the uniforms we still haven't got hold of this week.	113	
+zona	Ezi ngoma zona zindikhumbuza umakhulu, ngoko andikwazi ukuzimamela ndingakhali.	These songs in particular remind me of my grandmother, so I can't listen to them without crying.	113	
+isono	Umakhulu wayesithi ukulahla ukutya sisono, ngoko sasitya yonke into esityeni.	Grandmother used to say that throwing away food is a sin, so we ate everything on the plate.	114	
+isono	Emva kwentshumayelo, indoda leyo yavuma isono sayo phambi kwebandla lonke.	After the sermon, that man confessed his sin in front of the whole congregation.	114	
+isono	Andiqondi ukuba kusisono ukuhleka xa umntu ewile, kodwa umama uyakhathazeka.	I don't think it's a sin to laugh when somebody falls over, but it upsets my mother.	114	
+izulu	Izulu lisibekele ukusukela kusasa, ngoko sishiye iimpahla ngaphakathi endlwini.	The sky has been overcast since this morning, so we left the washing indoors.	115	
+izulu	Abalimi bakhangela izulu yonke intsasa, belindele imvula engekafiki nangoku.	The farmers scan the sky every morning, waiting for rain that still hasn't come.	115	
+izulu	Ngokuhlwa sasilala phandle sibukele izulu ligcwele iinkwenkwezi, singathethi nto.	In the evenings we would lie outside watching the sky fill with stars, saying nothing at all.	115	
+ixesha	Ixesha lokutya lifika ngentsimbi yesithandathu, ngoko umama uqala ukupheka ngoku.	Mealtime comes at six o'clock, so Mum is starting to cook right now.	116	
+ixesha	Umphathi wathi ixesha lethu liphelile, kufuneka siwugqibe umsebenzi ngoLwesihlanu.	The manager said our time is up and we have to finish the job by Friday.	116	
+ixesha	Ixesha lihamba ngokukhawuleza xa uhleli nabahlobo bakho, kodwa licotha xa ulindile.	Time runs fast when you're sitting with your friends, but it crawls when you're waiting.	116	
+abantwana	Abantwana badlala ebaleni de kwahlwa, bengevi xa ndibabiza.	The children played out in the yard until dark, not hearing me when I called them.	117	
+abantwana	Abantwana besikolo balinde iteksi ecaleni kwendlela, izikhwama zabo zisemhlabeni.	The schoolchildren are waiting for the taxi at the roadside, their bags down on the ground.	117	
+abantwana	Xa abantwana bemka baye edolophini, indlu ishiyeka ithe cwaka kakhulu.	When the children leave for the city, the house is left terribly quiet.	117	
+idini	Ekhaya kwenziwa idini lokubulela izinyanya ngokusinda kukatatomkhulu esibhedlele.	At home a sacrifice was made to thank the ancestors for grandfather pulling through at the hospital.	118	
+idini	Ilali yonke iza kuhlanganisa imali, kuba idini lifuna inkomo enkulu.	The whole village is going to pool money, because the sacrifice calls for a big ox.	118	
+idini	Umama ukholelwa ukuba idini linika usapho uxolo, nangona utata engavumi.	Mum believes that the sacrifice brings the family peace, even though Dad doesn't agree.	118	
+thetha	Thetha ngokucothayo, umakhulu akasakuva kakuhle emva kwalo mkhuhlane.	Speak slowly; grandmother doesn't hear well any more after that illness.	119	
+thetha	Andikwazi ukuthetha isiBhulu, ngoko umlingane wam undincedisa kwiintlanganiso zabathengi.	I can't speak Afrikaans, so my colleague helps me out in the meetings with customers.	119	
+thetha	Ndiyoyika ukuthetha phambi kwesihlwele; izandla zam ziyangcangcazela ndide ndilibale amagama.	I'm frightened of speaking in front of a crowd; my hands shake until I forget my words.	119	
+umyalelo	Umama ushiye umyalelo etafileni wokuba sipheke irayisi silinde ukufika kwakhe.	Mum left an instruction on the table that we should cook the rice and wait for her to get home.	120	
+umyalelo	Umyalelo womphathi uthi akukho mntu ushiya isakhiwo ngaphambi kwentsimbi yesihlanu.	The manager's instruction is that nobody leaves the building before five o'clock.	120	
+umyalelo	Umyalelo wakhe wawungacacanga, ngoko sonke sagqiba umsebenzi ngendlela eyahlukileyo.	His instruction wasn't clear, so each of us finished the work a different way.	120	
+uyihlo	Uyihlo uhlala esitulweni sakhe phandle, ephunga iti yasekuseni.	Your father sits outside in his own chair, sipping his morning tea.	121	
+uyihlo	Ndidibene noyihlo evenkileni izolo, undibuze ngezifundo zam zaseyunivesithi.	I ran into your father at the shop yesterday and he asked about my university studies.	121	
+uyihlo	Ndiyamhlonipha uyihlo kuba wasebenza kanzima ukuze ufunde eyunivesithi.	I respect your father, because he worked himself hard so that you could study at university.	121	
+ityala	Ndisahlawula ityala lemoto yam, ngoko andinakuya eKapa ngeeholide.	I'm still paying off my car loan, so I can't go down to Cape Town for the holidays.	122	
+ityala	Umninivenkile wandixolela ityala lam emva kokuba ndilahlekelwe ngumsebenzi.	The shopkeeper wrote off my debt after I lost my job.	122	
+ityala	Andithandi ukuboleka imali kubahlobo, kuba ityala litshabalalisa ubuhlobo.	I don't like borrowing money from friends, because debt destroys a friendship.	122	
+ingubo	Xa kubanda ebusuku, ndongeza ingubo yoboya phezu kwabantwana.	When it turns cold at night, I lay an extra wool blanket over the children.	123	
+ingubo	Sithenge ingubo entsha emarikeni, kodwa ayilingani nebhedi yethu enkulu.	We bought a new blanket at the market, but it doesn't fit our big bed.	123	
+ingubo	Ndisathanda ingubo endala kamakhulu, ivumba layo lindikhumbuza ubuntwana bam.	I still love grandmother's old blanket; its smell takes me back to my childhood.	123	
+umda	Utata wabiya umda wesibaya ngamaplanga, kuba iinkomo zaziphuma ebusuku.	Dad fenced the boundary of the kraal with planks, because the cattle kept getting out at night.	124	
+umda	Umda phakathi kweMzantsi Afrika neLesotho uvaliwe ebusuku ngenxa yekhephu.	The border between South Africa and Lesotho is closed at night because of the snow.	124	
+umda	Ngoku udlule umda, akufanelekanga ukuba uthethe ngolo hlobo kubazali bakho.	Now you have crossed the line; you have no business speaking to your parents that way.	124	
+incwadi	Ndifundela abantwana incwadi yamabali rhoqo ngaphambi kokuba balale.	I read the children a storybook every night before they go to sleep.	125	
+incwadi	Ndiboleke incwadi yembali kwithala leencwadi, kufuneka ndiyibuyise ngoLwesihlanu.	I borrowed a history book from the library, and I have to return it on Friday.	125	
+incwadi	Ndiyithanda kakhulu incwadi kaMqhayi, ndiyifunde izihlandlo ezithathu ngonyaka ophelileyo.	I love Mqhayi's book so much that I read it three times last year.	125	
+ukufa	Ukufa kukatatomkhulu kwasishiya sonke sisentlungwini, kodwa intsapho yamanyana.	Grandfather's death left every one of us grieving, but it drew the family together.	126	
+ukufa	Ukufa kwabantwana ngenxa yesifo sohudo kunciphile emva kokufika kwamanzi acocekileyo.	Deaths of children from diarrhoeal disease have dropped since clean water arrived.	126	
+ukufa	Abazali bam bathi ukufa yinxalenye yobomi, asifanele ukukubalekela.	My parents say death is part of life and that we shouldn't run away from it.	126	
+uxolo	Ndicela uxolo kummelwane wam, izinja zam zikhale ubusuku bonke.	I owe my neighbour an apology — my dogs barked the whole night through.	127	
+uxolo	Iinkokeli zelali zadibana ukuze kubuye uxolo phakathi kweentsapho ezimbini.	The village leaders sat down together so that peace could return between the two families.	127	
+uxolo	Uxolo lwentliziyo lubuyile kum emva kokuba ndithethe notata wam.	Peace came back into my heart once I had finally spoken to my father.	127	
+ilanga	Ilanga litshisa kakhulu emini, ndixhoma impahla ngaphandle ukuze yome msinya.	The sun is fierce at midday, so I hang the washing outside to dry it quickly.	128	
+ilanga	Ebusika sivuka ilanga lingekaphumi, ukuze siyokutheza iinkuni entabeni.	In winter we get up before the sun is out, so we can fetch firewood from the mountain.	128	
+ilanga	Xa ilanga litshona ngasemlanjeni, iintaka ziyathula, umoya wam uphola.	When the sun goes down by the river, the birds fall quiet and my spirit settles.	128	
+umphathi	Umphathi wevenkile wandibuyisela imali emva kokuba isonka sibolile.	The shop manager refunded my money after the bread turned out to be mouldy.	129	
+umphathi	Umphathi omtsha ubize intlanganiso ngoMvulo kusasa, kufuneka sifike ngexesha.	The new manager has called a meeting for Monday morning, and we have to be there on time.	129	
+umphathi	Abasebenzi bayamthanda umphathi wabo, kuba ubaphulaphula xa benengxaki.	The workers are fond of their manager, because he hears them out whenever they have a problem.	129	
+ne	Ndifake amaqanda amane epanini, kuba abantwana bafuna isidlo sakusasa.	I've put four eggs in the pan, because the children want their breakfast.	130	
+ne	Kwintlanganiso yanamhlanje bekukho abasebenzi abane kuphela, abanye banefluwenza.	Only four workers turned up at today's meeting; the rest are down with flu.	130	
+ne	Ndichithe iiyure ezine ndilinde ugqirha, ndade ndamka ndinomsindo.	I spent four hours waiting for the doctor and in the end walked out furious.	130	
+indawo	Ndifuna indawo ethuleyo yokufunda, kuba ekhaya kungxola kakhulu.	I need a quiet place to study, because it's far too noisy at home.	101	
+indawo	Sifike kwangethuba erenkini ukuze sifumane indawo yokuhlala eteksini.	We got to the taxi rank early so we'd get a seat in the taxi.	101	
+indawo	Ndikhumbula indawo esasidlala kuyo, ngoku kwakhiwe izindlu apho.	I remember the spot where we used to play; houses have been built there now.	101	
+iindaba	Utata uvala umculo xa iindaba ziqala kumabonwakude ngentsimbi yesixhenxe.	Dad turns the music off when the news starts on TV at seven.	102	
+iindaba	Umhlobo wam undixelele iindaba ezimnandi, ufumene umsebenzi eKapa.	My friend gave me good news: she's got a job in Cape Town.	102	
+iindaba	Iindaba zemfazwe zenza umakhulu angalali, uhlala ephethe unomathotholo.	The war news keeps Grandma awake; she never puts the radio down.	102	
+imbewu	Emva kwemvula, umakhulu ugrumba umhlaba aze afake imbewu yamathanga.	After the rain, Grandma turns the soil over and puts in the pumpkin seed.	103	
+imbewu	Abalimi bathenga imbewu yombona ngoAgasti, ukuze balime imvula ingekafiki.	Farmers buy maize seed back in August so they can plough before the rains come.	103	
+imbewu	Ndiyayikhathalela imbewu endayifumana kumakhulu, ndiyityale kwisitya esincinci efestileni.	I treasure the seed Grandma gave me; I've planted it in a small dish on the windowsill.	103	
+hamba	Ndihamba ngeenyawo ukuya esikolweni kuba iteksi ibiza kakhulu.	I walk to school because the taxi costs too much.	104	
+hamba	Hamba ngoku, mntanam, ukuze ubambe ibhasi yentsimbi yesithandathu.	Go now, my child, so you catch the six o'clock bus.	104	
+hamba	Ikhaya lithi cwaka xa abantwana behamba, kodwa umsebenzi usedolophini.	The house falls silent when the children leave, but the work is in the city.	104	
+indlebe	Umama wabeka indlebe emnyango, efuna ukuva ukuba abantwana balele na.	Mum put her ear to the door, wanting to hear whether the children were asleep.	105	
+indlebe	Emva kweminyaka elishumi emgodini, indlebe yam yasekunene ayisevi kakuhle.	After ten years down the mine, my right ear doesn't hear well any more.	105	
+indlebe	Ndifunde ukuba indlebe ephulaphulayo inceda umhlobo ngaphezu kwamacebo amaninzi.	I've learnt that a listening ear helps a friend more than a pile of advice.	105	
+ukuthetha	Umntwana wethu waqala ukuthetha eneenyanga ezilishumi elinanye, sonke savuya.	Our child started speaking at eleven months, and we were all delighted.	106	
+ukuthetha	Ukuthetha phambi kwabantu abaninzi kundenza ndibe nexhala, kodwa ndiyazama.	Speaking in front of a crowd makes me anxious, but I keep trying.	106	
+ukuthetha	Ukuthetha kukamakhulu kuzolile, kodwa amazwi akhe ashiya umkhondo entliziyweni.	Grandma's speech is calm, yet her words leave a mark on the heart.	106	
+njalo	Ukuba wenza njalo yonke imihla, imoto yakho iza kwonakala kwakamsinya.	If you keep doing it that way every day, your car will pack up before long.	107	
+njalo	Utitshala wandibonisa indlela, wathi mandenze njalo kwimibuzo eseleyo.	The teacher showed me the method and told me to do the same with the remaining questions.	107	
+njalo	Bendicinga ukuba uya kundinceda, kodwa akazange enze njalo.	I thought he was going to help me, but he never did.	107	
+ngexesha	Ndiphuma ekhaya ngentsimbi yesithandathu ukuze ndifike emsebenzini ngexesha.	I leave home at six so that I get to work on time.	108	
+ngexesha	Iteksi yasilibazisa endleleni, kodwa sifike ngexesha umtshato ungekaqali.	The taxi held us up on the way, but we arrived in time, before the wedding started.	108	
+ngexesha	Ndiyacaphuka xa umntu engafiki ngexesha, kuba nam bendilinde ixesha elide.	It irritates me when someone doesn't turn up on time, since I've been waiting a long while myself.	108	
+ubulumko	Ubulumko bukamakhulu busisindisile ngemini eyatsha ngayo indlu yommelwane.	Grandma's good sense saved us the day the neighbour's house burned down.	109	
+ubulumko	Abadala belali basebenzisa ubulumko xa kukho ingxabano ngomhlaba.	The village elders draw on their wisdom whenever there's a dispute over land.	109	
+ubulumko	Ndiyafunda ukuba ubulumko abufiki ngeminyaka kuphela, bufika nangeempazamo esizenzayo.	I'm learning that wisdom doesn't arrive with age alone; it comes with the mistakes we make.	109	
+phezulu	Umama ubeka iswekile phezulu ekhabhathini ukuze abantwana bangayifumani.	Mum keeps the sugar high up in the cupboard so the children can't get at it.	110	
+phezulu	Abasebenzi babeka uphawu phezulu kwesango, ukuze abantu balubone besekude.	The workers mounted the sign high above the gate so people could see it from far off.	110	
+phezulu	Intliziyo yam yatsiba phezulu xa ndabona igama lam kuluhlu lwabaphumeleleyo.	My heart leapt when I saw my name on the list of those who had passed.	110	
+izonka	Umama wabhaka izonka ezithandathu ngoMgqibelo, saza sazithengisa kubamelwane bethu.	Mum baked six loaves on Saturday, and we sold them to our neighbours.	171	
+izonka	Ivenkile yasekhoneni ithengisa izonka ezishushu ngeentsasa zeCawa, kodwa ziphela phambi kwentsimbi yesibhozo.	The corner shop sells hot loaves on Sunday mornings, but they are gone before eight o'clock.	171	
+izonka	Andithandi ukutya izonka ezindala; ndikhetha ukubhaka ezam ekhaya kusasa.	I don't like eating stale bread; I would rather bake my own at home in the morning.	171	
+umhobe	Abafundi bema bathi cwaka, bacula umhobe wesizwe phambi kokungena eklasini.	The pupils stood in complete silence, singing the national anthem before going into class.	172	
+umhobe	Kwibala lemidlalo, isihlwele sonke sasukuma xa umhobe wesizwe uqala.	At the stadium, the whole crowd rose to its feet when the national anthem began.	172	
+umhobe	Umhobe wesizwe undenza ndikhale, ngakumbi xa uculwa ngabantwana besikolo.	The national anthem makes me cry, especially when it is schoolchildren who are singing it.	172	
+imfazwe	Imfazwe yatshabalalisa ilali kamalume, waza wabalekela eMonti nosapho lwakhe.	The war destroyed my uncle's village, and he fled to East London with his family.	173	
+imfazwe	Utitshala wachaza indlela imfazwe eyatshintsha ngayo imida yeli lizwe.	The teacher explained the way the war changed the borders of this country.	173	
+imfazwe	Ndiyayithiya imfazwe kuba utata wabuya kuyo engasakwazi ukuhamba.	I hate war, because my father came back from it unable to walk.	173	
+icala	Ndabeka itafile ngakwelinye icala legumbi ukuze kubekho indawo yokudlala.	I moved the table to the other side of the room so there would be space to play.	174	
+icala	Umakhi undixelele ukuba icala lasemva lendlu lifuna udonga olutsha.	The builder told me that the back side of the house needs a new wall.	174	
+icala	Kule ngxabano, ndithatha icala likamama kuba ebenyanisile kwasekuqaleni.	In this quarrel I am taking my mother's side, because she was right from the start.	174	
+amathambo	Ndanika inja amathambo enkuku, yaza yawahlafuna phantsi kwetafile ubusuku bonke.	I gave the dog the chicken bones, and it chewed them under the table all night.	175	
+amathambo	Ugqirha uthe amathambo am abuthathaka, ngoko kufuneka ndiyeke ukuthwala imithwalo enzima.	The doctor said my bones are weak, so I have to stop carrying heavy loads.	175	
+amathambo	Emva kokusebenza emasimini imini yonke, amathambo am ayaqaqamba ebusuku.	After working in the fields all day, my bones ache at night.	175	
+icebo	Umakhulu wandinika icebo elihle malunga nendlela yokupheka umngqusho ngaphandle kwenyama.	Grandmother gave me good advice about how to cook samp without any meat.	176	
+icebo	Kwintlanganiso yabasebenzi, sacela icebo kumphathi wethu malunga nokunciphisa iiyure zomsebenzi.	At the staff meeting we asked our manager for advice about cutting back our working hours.	176	
+icebo	Ndalilandela icebo lakho lokuthetha notata ngokuzolileyo, ngoku uyandimamela.	I followed your advice about speaking to my father calmly, and now he listens to me.	176	
+ngomso	Ngomso umakhulu ufika ngebhasi yaseGqeberha, ngoko kufuneka sicoce indlu namhlanje.	Grandmother arrives tomorrow on the bus from Gqeberha, so we have to clean the house today.	177	
+ngomso	Ngomso ndiya edolophini ukuya kufaka isicelo somsebenzi kwivenkile entsha.	Tomorrow I am going into town to hand in a job application at the new shop.	177	
+ngomso	Ndinexhala kuba ngomso ndibhala uviwo lwezibalo endingalulungiselelanga kakuhle.	I am anxious, because tomorrow I write the maths exam that I have not prepared for properly.	177	
+intetho	Usodolophu wenza intetho ende embhiyozweni, kwaza kwana imvula phakathi kwayo.	The mayor made a long speech at the celebration, and then it started raining halfway through it.	178	
+intetho	Ndayilibala intetho endandiyilungiselele emtshatweni kadade wethu, ndaza ndakhala.	I forgot the speech I had prepared for my sister's wedding, and ended up in tears.	178	
+intetho	Intetho yale nkokeli yandivuselela ithemba, nangona ndandingamthembi ngaphambili.	This leader's speech rekindled my hope, even though I had not trusted him before.	178	
+esiya	Esiya situlo sasekhitshini sophukile, ngoko utata uza kusilungisa ngempelaveki.	That chair over there in the kitchen is broken, so Dad is going to fix it at the weekend.	179	
+esiya	Esiya sibhedlele savalwa ngonyaka ophelileyo, ngoko abantu bahamba imigama emide.	That hospital over there closed last year, so people now travel long distances.	179	
+esiya	Andisithandi esiya sitya esikhulu; ndikhetha esi sincinci sikamakhulu.	I don't like that big bowl over there; I prefer this small one of grandmother's.	179	
+ithole	Ithole lazalwa ebusuku ebuhlanti, laza lamunya ubisi lukanina ekuseni.	The calf was born during the night in the kraal, and by morning it was suckling its mother's milk.	180	
+ithole	Utatomkhulu wathengisa ithole emakethe yaseCofimvaba ukuze ahlawule imali yesikolo.	Grandfather sold a calf at the Cofimvaba market so that he could pay the school fees.	180	
+ithole	Ithole elincinci landilandela endleleni yonke, ndaza ndaqonda ukuba lilambile.	The little calf followed me the whole way, and then I realised that it was hungry.	180	
+ze	Umntwana uphuma ebhafini abaleke ze endlwini yonke, umama emsukela ngetawuli.	The child gets out of the bath and runs naked through the whole house, with his mother chasing him with a towel.	151	
+ze	Amakhwenkwe ayequbha ze emlanjeni de abone utitshala esiza.	The boys were swimming naked in the river until they saw the teacher coming.	151	
+ze	Ndaphupha ndihamba ze esitalatweni esixakekileyo, ndavuka ndibila ngamanzi.	I dreamt I was walking naked down a busy street, and woke up drenched in sweat.	151	
+isilivere	Isilivere sikamakhulu sihleli ekhabhathini unyaka wonke, sikhutshwa kuphela ngeKrisimesi.	Grandmother's silver sits in the cupboard all year and only comes out at Christmas.	152	
+isilivere	Umsebenzi wakhe kukucoca isilivere sasehotele rhoqo kusasa phambi kwesidlo.	His job is polishing the hotel's silver every morning before breakfast.	152	
+isilivere	Ndikhetha isilivere kunegolide, kuba sihamba nayo yonke into endiyinxibayo.	I prefer silver to gold, because it goes with everything I wear.	152	
+phandle	Ehlotyeni sitya isidlo sangokuhlwa phandle phantsi komthi, kushushu endlwini.	In summer we eat supper outside under the tree, because it is hot indoors.	153	
+phandle	Igumbi lokufundela lishushu kakhulu, ngoko utitshala uqhuba iklasi phandle.	The classroom is far too hot, so the teacher is holding the lesson outside.	153	
+phandle	Xa ndikhathazwa ziingcinga, ndiphuma ndihambe phandle de ndizole.	When my thoughts are troubling me, I go out and walk around outside until I settle.	153	
+iliso	Iliso lam ladumba emva kokulunywa yinyosi egadini kamakhulu.	My eye swelled up after a bee stung me in grandmother's garden.	154	
+iliso	Umphathi ubeka iliso kubasebenzi abatsha kwiiveki zabo zokuqala.	The manager keeps an eye on the new workers during their first few weeks.	154	
+iliso	Ndabona iliso likatata ligcwala iinyembezi xa sithetha ngomakhulu.	I saw my father's eye fill with tears when we talked about grandmother.	154	
+inkulu	Inkulu yasekhaya kufuneka ijonge abantwana abancinane xa abazali bengekho.	The first-born of the household has to watch the little ones when the parents are away.	155	
+inkulu	Emngcwabeni katata, kwafuneka inkulu ithethe egameni losapho lonke.	At my father's funeral, the first-born had to speak on behalf of the whole family.	155	
+inkulu	Inkulu ithwala uxanduva lwekhaya lonke, kodwa akukho mntu ubulelayo.	The eldest son carries the responsibility for the entire household, yet nobody ever says thank you.	155	
+ubunzima	Ubunzima bale ngxowa yempuphu bundenza ndime kathathu endleleni eya ekhaya.	The weight of this sack of flour makes me stop three times on the way home.	156	
+ubunzima	Umqhubi uthe ubunzima belori bugqithile kumlinganiselo ovunyelweyo, kufuneka sikhuphe iingxowa.	The driver says the truck's weight is over the permitted limit, so we have to take some sacks off.	156	
+ubunzima	Ekliniki bathe ubunzima bomntwana wam bunyuka kakuhle, ndaphefumla ngoxolo.	At the clinic they said my child's weight is rising nicely, and I breathed a sigh of relief.	156	
+ummelwane	Ummelwane wethu usinika amaqanda qho ngeveki, thina simnika imifuno yasegadini.	Our neighbour gives us eggs every week, and we give her vegetables from the garden.	157	
+ummelwane	Xa sisiya emsebenzini, ummelwane uhlala nabantwana bethu de sibuye.	When we go off to work, the neighbour stays with our children until we get back.	157	
+ummelwane	Ummelwane wam uvula umculo ngokuvakalayo ebusuku, ndide ndingalali.	My neighbour turns the music up loud at night, to the point where I get no sleep.	157	
+lishumi	Ixabiso lesonka lishumi leerandi ngoku, ngoko sithenga esinye kuphela ngosuku.	The price of bread is ten rands now, so we buy only one loaf a day.	158	
+lishumi	Inani labafundi abafikileyo namhlanje lishumi, abanye bathintelwe yimvula.	The number of pupils who turned up today is ten; the rest were kept away by the rain.	158	
+lishumi	Ixesha lokulinda ibhasi lishumi lemizuzu, kodwa kubanda ngathi ziiyure.	The wait for the bus is ten minutes, but in the cold it feels like hours.	158	
+imithi	Imithi endayityalayo egadini ikhulile, ngoku sihlala emthunzini wayo ehlotyeni.	The trees I planted in the garden have grown, and now we sit in their shade in summer.	159	
+imithi	Umasipala ugawula imithi emidala esitalatweni kuba iwisa amasebe ezindlwini.	The municipality is cutting down the old trees on the street because they drop branches onto the houses.	159	
+imithi	Ndikhathazekile kuba imithi yakwaMakhulu yomile emva kwembalela ende.	I am heartsore because the trees at my grandmother's place died after the long drought.	159	
+cwaka	Emva kokuba abantwana belele, kuthi cwaka endlwini ndikwazi ukufunda incwadi yam.	Once the children are asleep the house goes completely quiet and I can finally read my book.	160	
+cwaka	Kwathi cwaka eholweni xa intombazana encinci iqala ukucula.	The hall fell dead silent when the little girl started to sing.	160	
+cwaka	Xa ndibuza ngotata wam, kuthi cwaka etafileni, akukho mntu ondijongayo.	When I ask about my father, silence falls over the table and nobody will look at me.	160	
+obo	Obo busuku bemvula asilalanga, silinde utata owayengekafiki ekhaya.	That rainy night none of us slept, waiting for Dad, who still hadn't come home.	181	
+obo	Obo buchule bokuluka bufundiswa ngoomakhulu kuphela, hayi ezikolweni.	That weaving skill is passed on only by the grandmothers, not in schools.	181	
+obo	Obo bomi basedolophini bundidinisa kakhulu, ndifuna ukubuyela emaXhoseni.	That city life wears me right out; I want to go back to the Xhosa countryside.	181	
+ulwimi	Ulwimi lwam lwatsha xa ndandisitya isidudu esishushu kakhulu kusasa.	I burnt my tongue this morning eating porridge that was far too hot.	182	
+ulwimi	Emsebenzini kufuneka usebenzise ulwimi lwesiXhosa xa uthetha nabathengi bethu.	At work you have to use isiXhosa when you're dealing with our customers.	182	
+ulwimi	Ulwimi lwenkobe lufa kancinci xa abantwana bengasaluthethi ekhaya nasezitratweni.	A mother tongue dies slowly when children stop speaking it at home and in the streets.	182	
+izenzo	Izenzo zabantwana bam ekhaya zibonisa kakuhle into esibafundise yona.	What my children do at home shows clearly what we have taught them.	183	
+izenzo	Inkokeli yethu ithembisa kakhulu, kodwa izenzo zayo azihambelani namazwi ayo.	Our leader promises a great deal, but her actions don't match her words.	183	
+izenzo	Izenzo zobubele zikamakhulu zandifundisa ukuba ubuntu abuthengwa ngamali.	My grandmother's acts of kindness taught me that decency cannot be bought with money.	183	
+zoba	Umntwana wam uzoba iinkomo zikatatomkhulu kuzo zonke iincwadi zesikolo.	My child draws his grandfather's cattle on every page of his school books.	185	
+zoba	Kwiklasi yobugcisa, sizoba imephu yelali yethu ebonisa iindlela nomlambo.	In the art class we are drawing a map of our village showing the roads and the river.	185	
+zoba	Xa ndikhathazekile ndizoba ubuso bukamakhulu, kuba oko kuzolisa intliziyo yam.	When I'm troubled I draw my grandmother's face, because it settles my heart.	185	
+udonga	Udonga lwegumbi lam luvuza amanzi emva kwemvula enkulu yayizolo.	The wall of my room is seeping water after yesterday's heavy rain.	186	
+udonga	Abafundi bebanga lesibhozo balupeyinte udonga lwesikolo ngamabala akhanyayo.	The grade-eight learners have painted the school wall in bright colours.	186	
+udonga	Udonga olutsha lwabamelwane lusivalele ilanga, ngoku igadi yethu ayikhuli.	The neighbours' new wall blocks our sunlight, and now nothing in our garden grows.	186	
+amagama	Umama ubhala amagama ethu onke ezimpahleni zesikolo ngaphambi kokuqala konyaka.	Mum writes all our names into our school clothes before the year starts.	187	
+amagama	Kwintlanganiso yelali unobhala wafunda amagama abantu abafumene izindlu ezintsha.	At the village meeting the secretary read out the names of the people who received new houses.	187	
+amagama	Amagama omthandazo kamakhulu asenkumbulweni yam nangoku, nangona wandishiya kudala.	The words of my grandmother's prayer are still in my memory, though she left me long ago.	187	
+umqondiso	Utata wafaka umqondiso wesilumkiso esangweni lethu, kuba inja yethu iyaluma.	Dad put a warning sign up on our gate, because our dog really does bite.	188	
+umqondiso	Emsebenzini umqondiso obomvu uthetha ukuba akukho mntu ufanele angene kwelo gumbi.	At work the red sign means that nobody is allowed into that room.	188	
+umqondiso	Kutata, umqondiso wothando awukho kumazwi, ukwimisebenzi yakhe yemihla ngemihla.	With my father, the sign of love isn't in words; it's in the things he does every day.	188	
+intaba	Intaba engasemva kwendlu yethu inekhephu phezulu ngasekupheleni kukaJulayi.	The mountain behind our house has snow on its top by the end of July.	189	
+intaba	Abelusi banyuka intaba kusasa kakhulu, belandela iigusha ezilahlekileyo.	The herd boys climb the mountain at first light, tracking the sheep that have strayed.	189	
+intaba	Intaba leyo ibaluleke kakhulu kuthi, kuba amakhwenkwe ethu enziwa amadoda phaya.	That mountain matters a great deal to us, because it is where our boys are made men.	189	
+ingqolowa	Ingqolowa siyigaya ngokwethu ekhaya, ukuze umgubo ube mtsha xa sibhaka.	We grind the wheat ourselves at home, so the flour is fresh when we bake.	190	
+ingqolowa	Ingqolowa yalo nyaka ayivunwanga kakuhle, kuba imvula ayizanga ngexesha.	This year's wheat came in badly, because the rains never arrived on time.	190	
+ingqolowa	Ndiyakholelwa ukuba ingqolowa yalapha ingcono kunaleyo ithengiswa ezivenkileni ezinkulu.	I'm convinced the wheat grown here is better than what the big shops sell.	190	
+impi	Umakhulu usixelela ngobusuku impi eyafika ngabo elalini, kwabaleka wonke umntu.	Grandmother tells us about the night the army arrived in the village and everyone ran.	191	
+impi	Impi kaHintsa yalwa namajoni aseBhritane kwiintaba zaseNciba, kwaphalala igazi.	Hintsa's regiment fought the British soldiers in the hills along the Kei, and blood was spilt.	191	
+impi	Andikholelwa ukuba impi ingasombulula ingxaki phakathi kwabantu abalambileyo.	I don't believe an army can solve anything among people who are going hungry.	191	
+izindlu	Utata wakhe wakha izindlu ezintathu elalini ngaphambi kokuba agule.	His father built three houses in the village before he fell ill.	141	
+izindlu	Kule lokishi izindlu zininzi kakhulu, kodwa amanzi afika kanye ngeveki.	There are far too many houses in this township, but the water only comes once a week.	141	
+izindlu	Ndiyazikhumbula izindlu zakudala esasidlala kuzo, ngoku kukho iivenkile kuloo ndawo.	I still remember the old houses we used to play in; now there are shops on that spot.	141	
+ubani	Ubani ohambe nezitshixo zam, ndime elangeni ngaphandle kwendlu?	Who walked off with my keys? I'm standing out in the sun, locked out of the house.	142	
+ubani	Ubani ophethe amaxwebhu, kuba umphathi ufuna ukuwaxoxa ngentsimbi yesithathu?	Who has the documents? The manager wants to go through them at three o'clock.	142	
+ubani	Emva komngcwabo sasibuzana ukuba ubani oza kukhathalela abantwana ngoku.	After the funeral we kept asking one another who was going to look after the children now.	142	
+abaya	Abaya bantu bemi esitophini sebhasi sele belinde iiyure ezimbini.	Those people standing at the bus stop over there have already been waiting two hours.	143	
+abaya	Abaya bathengisi abangaphesheya kwendlela bathengisa amaqanda ngexabiso eliphantsi kunelethu.	Those traders across the road sell eggs at a lower price than ours.	143	
+abaya	Andibathembi abaya bantu abahleli emotweni emnyama kufuphi nesango lethu.	I don't trust those people sitting in the black car near our gate.	143	
+usindiso	Emva kweentsuku ezintathu elwandle, usindiso lwabo lwafika ngesikhephe sabalobi.	After three days at sea, their rescue arrived in a fishermen's boat.	144	
+usindiso	Umfundisi wathi usindiso alunakuthengwa ngemali, lufumaneka ngobabalo kuphela.	The minister said salvation cannot be bought with money; it comes by grace alone.	144	
+usindiso	Kuye, usindiso lwafika ngohlobo lwencwadi eyayibhalwe ngumhlobo wakhe wakudala.	For him, salvation came in the form of a letter written by an old friend.	144	
+ukholo	Ukholo lukamakhulu lwalusenza sithandaze phambi kwesidlo sangokuhlwa yonke imihla.	Grandmother's faith had us praying before supper every single day.	145	
+ukholo	Ukholo lwakhe alumvumeli ukuba asebenze ngeCawa, ngoko utshintshiselana amaxesha neqabane lakhe.	His faith won't let him work on a Sunday, so he swaps shifts with his workmate.	145	
+ukholo	Emva kokulahlekelwa ngumsebenzi, ukholo lwakhe lwaqina endaweni yokuncipha.	After he lost his job, his faith grew stronger instead of weakening.	145	
+umfo	Umfo osithengisela iinkuni ufika ngeenyawo qho ngoMgqibelo kusasa.	The fellow who sells us firewood turns up on foot every Saturday morning.	146	
+umfo	Umfo wasekhaya wandifumanela umsebenzi kwifemu yakhe ngaphandle kokuba ndicele.	A fellow from back home found me a job at his firm without my even asking.	146	
+umfo	Umfo lowo undihlekisa kakhulu, kodwa akukho mntu owaziyo ukuba usebenza phi.	That fellow makes me laugh a great deal, but nobody actually knows where he works.	146	
+sona	Iikomityi zonke zaphuka, kodwa isitya esikhulu sona sasala singonakalanga etafileni.	All the cups broke, but the big bowl itself was left undamaged on the table.	147	
+sona	Isicwangciso sabo sona sasisihle, kodwa abazange bafumane imali yokuqalisa.	Their plan itself was a good one, but they never got the money to start it.	147	
+sona	IsiXhosa sona ndisithetha kakuhle, kodwa andikwazi ukusibhala ngokuchanekileyo.	Xhosa itself I speak well, but I can't write it correctly.	147	
+buya	Utata ubuya emsebenzini emva kwentsimbi yesithandathu, size sitye sonke kunye.	Dad gets back from work after six, and then we all eat together.	148	
+buya	Waya eGoli engenanto, wabuya elalini emva kweminyaka elishumi enemoto.	He went off to Johannesburg with nothing and came back to the village ten years later with a car.	148	
+buya	Andiqinisekanga ukuba uza kubuya, kodwa ndisamgcinele igumbi lakhe.	I'm not sure he will come back, but I'm still keeping his room for him.	148	
+izono	Utata wayesithi izono zabantwana zilula ukuxolelwa kunezo zabantu abadala.	Dad used to say that children's sins are easier to forgive than those of grown-ups.	149	
+izono	Umfundisi wathi izono zethu zonke zixolelwa xa sizivuma ngokunyaniseka.	The minister said all our sins are forgiven when we confess them honestly.	149	
+izono	Izono zam zakudala zisandihlupha ebusuku, nangona sekudlule iminyaka emininzi.	My old sins still trouble me at night, even though many years have gone by.	149	
+unina	Umntwana ukhala efuna unina oye kulanda amanzi emthonjeni ezantsi.	The child is crying for his mother, who has gone down to the spring to fetch water.	150	
+unina	Utitshala ubize unina kaThandi esikolweni ukuze bathethe ngamanqaku akhe.	The teacher called Thandi's mother in to the school so they could talk about her marks.	150	
+unina	Wonke umntu uthi ufuze unina, kodwa yena akayithandi loo nto.	Everyone says he takes after his mother, but he himself hates hearing it.	150	
