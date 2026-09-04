@@ -72,3 +72,8 @@ items are built on request, in a session.
   sentences on the card; tester recommendations state the verdict as a
   sentence and say when there is no note; a "Professional" Reader register
   beside Native / Academic / Literary. *Agent.*
+- [ ] **13. Markdown pass over the seed explanations**, folded into the
+  grammar-concept review (item 8): plan in `markdown-explanations.md`,
+  one language at a time, French first. Runs from the local session (it
+  needs the API key and a browser). *Owner-scheduled; agent builds the
+  script.*
