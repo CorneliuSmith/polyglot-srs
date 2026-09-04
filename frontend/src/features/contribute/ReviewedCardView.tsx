@@ -141,6 +141,10 @@ export default function ReviewedCardView({
                     Preview — as the learner sees it
                   </p>
                   <ExplanationView text={draft[key] ?? ''} className="text-sm text-gray-800" />
+                  <p className="mt-1.5 text-[10px] text-gray-400">
+                    Plain text is typeset for you. Markdown also works: **bold**,
+                    &quot;- &quot; lists, | tables |, `code`.
+                  </p>
                 </div>
               )}
           </label>

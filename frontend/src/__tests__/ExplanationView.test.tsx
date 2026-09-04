@@ -128,3 +128,48 @@ describe('ExplanationView — Swahili shapes', () => {
     expect(screen.getByText(/all-purpose present/)).toBeDefined()
   })
 })
+
+describe('ExplanationView — markdown blocks (7c phase 2)', () => {
+  it('renders a block that carries markdown through the sanitised renderer', () => {
+    render(
+      <ExplanationView
+        text={'**Ser** is for identity.\n\n- ser: soy, eres\n- estar: estoy\n\n| form | use |\n|---|---|\n| soy | I am |'}
+      />,
+    )
+    expect(screen.getByText('Ser').tagName).toBe('STRONG')
+    expect(screen.getAllByRole('listitem')).toHaveLength(2)
+    expect(screen.getByRole('table')).toBeInTheDocument()
+    expect(screen.getByText('I am')).toBeInTheDocument()
+  })
+
+  it('leaves a plain block to the typesetter, even beside a markdown block', () => {
+    render(
+      <ExplanationView text={'Eu (I), tu (you), el (he), noi (we).\n\n- one item'} />,
+    )
+    // The enumeration is still the typesetter's two-column table, and the
+    // list is the renderer's — one table, one list item, on one card.
+    expect(screen.getAllByRole('table')).toHaveLength(1)
+    expect(screen.getByText('Eu')).toBeInTheDocument()
+    expect(screen.getByRole('listitem').textContent).toBe('one item')
+  })
+
+  it('refuses what the allow-list refuses: images, raw html, unsafe links', () => {
+    const { container } = render(
+      <ExplanationView
+        text={'**x** ![pic](https://e.com/p.png) <b>raw</b> [go](javascript:alert(1))'}
+      />,
+    )
+    expect(container.querySelector('img')).toBeNull()
+    expect(container.querySelector('b')).toBeNull()
+    expect(screen.getByText(/raw/)).toBeInTheDocument()
+    const href = container.querySelector('a')?.getAttribute('href') ?? ''
+    expect(href).not.toMatch(/javascript/)
+  })
+
+  it('a blank written as underscores does not flip a card into markdown', () => {
+    // Korean's cards write blanks as "___"; that is prose, not bold.
+    render(<ExplanationView text={"Use it for 'I live in ___', and 'I have ___'."} />)
+    expect(screen.queryByTestId('card-markdown')).toBeNull()
+    expect(screen.getByText(/I live in ___/)).toBeInTheDocument()
+  })
+})

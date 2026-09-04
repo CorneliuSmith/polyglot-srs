@@ -126,8 +126,10 @@ and `riddim` would have been promoted from a grammar-file defect into headwords.
 **not sufficient** — `friend` passes every letter rule and is still English.
 
 Two conventions were normalised on the way in: backticks were stripped from the new glosses
-(no `jam` gloss has ever carried one, 0 of 384, and nothing markdown-renders a gloss —
-`ReactMarkdown` is confined to the tutor — so a backtick prints literally on the card), and
+(no `jam` gloss has ever carried one, 0 of 384, and nothing markdown-renders a gloss — since
+4 Sep 2026 `ReactMarkdown` also renders *explanations* that carry markdown syntax, but glosses
+stay plain and `test_content_markdown_guard.py` holds them at zero backticks — so a backtick
+prints literally on the card), and
 where two batches glossed the same word the richer entry was kept, not the earlier one.
 
 ## Cassidy–JLU, enforced rather than declared (25 Aug 2026)

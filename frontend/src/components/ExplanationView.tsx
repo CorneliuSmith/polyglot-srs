@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import CardMarkdown from './CardMarkdown'
 
 /**
  * Human-readable typography for grammar explanations (§3b layout standard).
@@ -215,6 +216,27 @@ function renderInline(text: string) {
   return out
 }
 
+/**
+ * Does this block carry markdown syntax? The signals that flip a block from
+ * the typesetter to the markdown renderer (brief item 7c phase 2). Kept
+ * narrow on purpose: the corpus is plain prose, and a single stray "*"
+ * must not restyle a card. Underscores are deliberately NOT a signal —
+ * neither italic nor bold — because "___" is how cards write a blank
+ * ("I live in ___"); inside a block already flagged by another signal,
+ * GFM still renders them. backend/tests/test_content_markdown_guard.py
+ * mirrors this list.
+ */
+export function hasMarkdown(block: string): boolean {
+  return (
+    /`[^`\n]+`/.test(block) ||
+    /\*\*[^*\n]+\*\*/.test(block) ||
+    /(^|\n)\s*([-*+]|\d+\.)\s+/.test(block) ||
+    /(^|\n)\s*\|.*\|/.test(block) ||
+    /(^|\n)#{1,3}\s/.test(block) ||
+    /\[[^\]]+\]\([^)]+\)/.test(block)
+  )
+}
+
 export default function ExplanationView({
   text,
   className = 'text-gray-800',
@@ -222,10 +244,21 @@ export default function ExplanationView({
   text: string
   className?: string
 }) {
-  const paragraphs = text.split(/\n{2,}|\n/).map((p) => p.trim()).filter(Boolean)
+  // Blank-line blocks first: a markdown list or table spans lines and
+  // must reach the renderer whole. A plain block then splits on single
+  // newlines exactly as before, so nothing in the existing corpus moves.
+  const blocks = text.split(/\n{2,}/).map((b) => b.trim()).filter(Boolean)
+  type Para = { text: string; markdown: boolean }
+  const paragraphs = blocks.flatMap((b): Para[] =>
+    hasMarkdown(b)
+      ? [{ text: b, markdown: true }]
+      : b.split('\n').map((p) => p.trim()).filter(Boolean)
+          .map((p) => ({ text: p, markdown: false })),
+  )
   return (
     <div className={`space-y-2.5 ${className}`} data-testid="explanation">
-      {paragraphs.map((p, i) => {
+      {paragraphs.map(({ text: p, markdown }, i) => {
+        if (markdown) return <CardMarkdown key={i} content={p} />
         const parsed = parseParagraph(p)
         if (parsed.kind === 'terms' || parsed.kind === 'arrows') {
           return (

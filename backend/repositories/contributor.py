@@ -13,6 +13,7 @@ from collections.abc import Mapping
 import asyncpg
 
 from backend.repositories.audit import log_change
+from backend.services.markdown import clean_markdown
 from backend.services.references import clean_references
 from backend.services.seeder.morphology_charts import strip_nominal_chips
 
@@ -404,6 +405,8 @@ async def create_grammar_point(
     submitted_by: str,
 ) -> str | None:
     """Create a contributor grammar point (privileged). None if the title exists."""
+    explanation = clean_markdown(explanation)
+    culture_note = clean_markdown(culture_note)
     next_order = await conn.fetchval(
         "SELECT COALESCE(MAX(display_order), 0) + 1 FROM grammar_points WHERE language_id = $1",
         language_id,
@@ -2512,6 +2515,8 @@ async def save_explanation(
 ) -> bool:
     """Save a contributor explanation + references (privileged). Pending review."""
     refs = clean_references(references)
+    explanation = clean_markdown(explanation) or ""
+    culture_note = clean_markdown(culture_note) or ""
     prev = await conn.fetchrow(
         "SELECT language_id, explanation, culture_note, reference_links "
         "FROM grammar_points WHERE id = $1",
