@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import UiLanguageSwitcher from '../../components/UiLanguageSwitcher'
 import { Zap } from 'lucide-react'
 import ExplanationView from '../../components/ExplanationView'
-import { useNavigate, useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams, Link } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { getLanguages } from '../../api/profile'
 import { prefetchTTSMany } from '../../api/audio'
@@ -210,6 +210,24 @@ export default function GrammarPathPage() {
                             </li>
                           ))}
                         </ul>
+                      )}
+                      {detail.gym && detail.gym.drills > 0 && (
+                        <Link
+                          to="/gym"
+                          className="flex items-center gap-2 rounded-lg border border-lang/20 bg-lang-soft px-3 py-2 text-xs hover:bg-lang-soft/70"
+                        >
+                          <span className="font-semibold text-gray-900">
+                            {t('path.practiseForms', {
+                              label: detail.gym.label ?? point.title,
+                            })}
+                          </span>
+                          <span className="text-gray-500">
+                            {t('path.drillCount', { count: detail.gym.drills })}
+                          </span>
+                          <span className="ms-auto text-lang" aria-hidden="true">
+                            &rarr;
+                          </span>
+                        </Link>
                       )}
                       {detail.culture_note && (
                         <div className="bg-lang-soft border border-lang/20 rounded-lg p-3">
