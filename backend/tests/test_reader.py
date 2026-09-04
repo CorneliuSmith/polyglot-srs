@@ -547,7 +547,7 @@ def test_the_registers_sit_above_the_cefr_ladder():
         resolve_dial,
     )
 
-    assert set(BEYOND_CEFR) == {"native", "academic", "literary"}
+    assert set(BEYOND_CEFR) == {"native", "academic", "literary", "professional"}
 
     for mode in BEYOND_CEFR:
         target, open_cage = resolve_dial("B1", mode)
@@ -568,6 +568,13 @@ def test_the_registers_sit_above_the_cefr_ladder():
     assert "educated NATIVE" in native
     # The open cage still applies underneath the register.
     assert "FLOOR, not the limit" in academic
+    # Professional (owner, 4 Sep 2026) is the office, not the lecture hall:
+    # it must be its own instruction, not academic under another chip.
+    professional = _system_prompt("es", "en", learner, {"complexity": "professional"})
+    assert "workplace prose" in professional
+    assert "please find attached" in professional
+    assert "nominalisation" not in professional
+    assert resolve_dial("C2", "professional") == ("C2+ (professional / workplace register)", True)
 
     # The shelf gets a short name, not the prompt's descriptive label.
     assert pitch_label("B1", "academic") == "Academic"

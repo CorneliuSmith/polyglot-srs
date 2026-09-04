@@ -156,6 +156,8 @@
     "subtitle": "Un texto escrito exactamente a tu nivel — con algunas palabras nuevas por descubrir",
     "pickLanguageFirst": "Primero elige un idioma en el panel.",
     "newWordTitle": "Palabra nueva — toca para adivinarla",
+    "addWord": "Añadir",
+    "addPhrase": "Añadir «{{phrase}}»",
     "generateError": "No pudimos escribir ese texto — inténtalo de nuevo o prueba otro tema.",
     "shelfNewWords_one": "{{count}} palabra nueva",
     "shelfNewWords_other": "{{count}} palabras nuevas",
@@ -202,6 +204,7 @@
     "registerNative": "Nativo",
     "registerAcademic": "Académico",
     "registerLiterary": "Literario",
+    "registerProfessional": "Profesional",
     "registerHint": "Por encima de C2 no quedan niveles: estos son tipos de escritura, más allá de la escala."
   },
   "tutor": {

@@ -69,6 +69,11 @@ export default function FeedbackPanel({
               <span className="font-medium text-gray-700">{f.card_title ?? f.content_id}</span>
               <span className="text-xs text-gray-500"> · {f.card_type}</span>
               <p className="text-gray-600">{f.message}</p>
+              {f.reporter_email && (
+                <p className="text-[11px] text-gray-500" data-testid={`feedback-reporter-${f.id}`}>
+                  from {f.reporter_email}
+                </p>
+              )}
             </div>
             <button
               type="button"

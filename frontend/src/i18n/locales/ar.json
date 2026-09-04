@@ -162,6 +162,8 @@
     "subtitle": "نص مكتوب بمستواك تمامًا — مع بضع كلمات جديدة لتكتشفها",
     "pickLanguageFirst": "اختر لغة من لوحة التحكم أولاً.",
     "newWordTitle": "كلمة جديدة — انقرها لتخمينها",
+    "addWord": "إضافة",
+    "addPhrase": "إضافة «{{phrase}}»",
     "generateError": "تعذّرت كتابة هذا النص — حاول مرة أخرى، أو جرّب موضوعًا آخر.",
     "shelfNewWords_one": "كلمة جديدة واحدة",
     "shelfNewWords_two": "كلمتان جديدتان",
@@ -211,6 +213,7 @@
     "registerNative": "كما للناطقين",
     "registerAcademic": "أكاديمي",
     "registerLiterary": "أدبي",
+    "registerProfessional": "مهني",
     "registerHint": "فوق C2 لا توجد مستويات أخرى — هذه أنواع من الكتابة، خارج السلّم."
   },
   "tutor": {

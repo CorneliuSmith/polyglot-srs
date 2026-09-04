@@ -77,6 +77,31 @@ describe('TesterRecommendationsPanel', () => {
     expect(screen.getByText('needs work')).toBeDefined()
   })
 
+  it('says what the recommendation IS, and when there is no note says so', async () => {
+    // The verdict used to be only a badge in the corner; the owner read the
+    // row as a card with no recommendation on it ("I don't see an actual
+    // recommendation anywhere").
+    mockRecos.mockResolvedValue({
+      recommendations: [
+        {
+          id: 'r1', target_type: 'drill', target_id: 'd1',
+          recommendation: 'approve', note: '',
+          recommender_email: 'tester@example.com',
+          target_label: 'Vosotros {{answer}} cerca de la playa.',
+          target_translation: 'You all live near the beach.',
+          context: 'Present tense', created_at: '2026-09-04T09:00:00Z',
+        },
+      ],
+      limit: 200,
+      can_publish: true,
+    })
+    wrap(<TesterRecommendationsPanel languageId="l1" languageCode="es" awaiting={1} />)
+    expect((await screen.findByTestId('reco-verdict-r1')).textContent).toBe(
+      'Recommends: approve this item',
+    )
+    expect(screen.getByTestId('reco-no-note-r1').textContent).toMatch(/whole recommendation/)
+  })
+
   it('shows a visible row when the inbox counts recommendations it could not load', async () => {
     mockRecos.mockResolvedValue({ recommendations: [], limit: 200, can_publish: false })
     wrap(<TesterRecommendationsPanel languageId="l1" awaiting={3} />)

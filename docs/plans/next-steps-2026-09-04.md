@@ -66,3 +66,9 @@ items are built on request, in a session.
   Workshop / Review / Admin tabs are gone; everything they alone carried
   lives in the Workspace, which is now wide and framed in the UI language
   (`staff-console-consolidation.md`). *Agent.*
+- [x] **12. Four asks of 4 Sep** — Reader: any word (from its peek) or a
+  highlighted phrase can be added as a card, not only the recommended
+  ones; learner feedback names the reporter and shows a word's example
+  sentences on the card; tester recommendations state the verdict as a
+  sentence and say when there is no note; a "Professional" Reader register
+  beside Native / Academic / Literary. *Agent.*
