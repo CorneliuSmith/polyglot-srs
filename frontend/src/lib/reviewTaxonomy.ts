@@ -44,6 +44,7 @@ export type PanelId =
   | 'issues'
   | 'feedback'
   | 'feedback-queue'
+  | 'overlaps'
 
 export interface QueueMeta {
   key: keyof ReviewInboxCounts
@@ -114,11 +115,9 @@ export const QUEUE_META: QueueMeta[] = [
   { key: 'ai_topics', label: 'AI topic buckets', origin: 'ai',
     audience: 'all', hint: 'Topic buckets panel · Review tab',
     panel: 'ai-topics' },
-  // No panel: OverlapsPanel is mounted by ReviewQueue in SETTINGS, not on
-  // this tab — the hint below has said "Review tab" for a while and is
-  // wrong (DEBT.md). Left unfocusable rather than scoping to a blank page.
   { key: 'overlaps', label: 'Overlapping points', origin: 'ai',
-    audience: 'all', hint: 'Overlaps panel · Settings' },
+    audience: 'all', hint: 'Overlaps panel · Review tab',
+    panel: 'overlaps' },
 
   // ── Human contributions ──────────────────────────────────────────────
   { key: 'grammar_pending', label: 'Grammar points', origin: 'contributions',

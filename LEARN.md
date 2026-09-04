@@ -562,6 +562,19 @@ back to the batch percentage so the bar visibly moves.
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +
 TanStack Query 5 + Zustand 5 + react-router-dom 7 + Tailwind CSS 4.
 
+**One staff console.** Everything a contributor, reviewer, tester or
+admin does lives on the Workspace (`features/contribute/ContributorPage.tsx`,
+route `/contribute`): a per-language scope picker, the Review Inbox and
+its queues, the Workshop editors, and the admin sections. The Account
+page (`features/settings/SettingsPage.tsx`) is the person's page — Learner
+settings, the ambassador's Invite — plus a Workspace tab that is a door.
+It used to carry a second copy of the review queues and admin panels,
+built earlier and never removed; the two drifted (width, panel sets,
+scoping, translation) until the owner asked why they looked so different.
+Deep links into staff work take the Workspace's `?tab=`, `?section=`,
+`?queue=` and `?point=` parameters; the Account page never read a tab
+from the URL. Decision record: `docs/decisions/2026-09-04-one-staff-console.md`.
+
 **`npm run build`, not `npx tsc --noEmit`, is the only trustworthy
 type-check.** The build runs `tsc -b`, which type-checks the whole project
 graph; `--noEmit` alone has already let four real type errors through into a

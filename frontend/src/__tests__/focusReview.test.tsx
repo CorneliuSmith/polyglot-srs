@@ -271,7 +271,7 @@ describe('inbox tiles open a queue', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockInbox.mockResolvedValue({
-      counts: { change_requests: 5, overlaps: 2 },
+      counts: { change_requests: 5, overlaps: 2, flagged_drills: 1 },
       is_admin: true,
       can_publish: true,
       other_languages: [],
@@ -291,11 +291,15 @@ describe('inbox tiles open a queue', () => {
     const onFocus = vi.fn()
     renderWith(<ReviewInbox languageId="lang-1" onFocusQueue={onFocus} />)
 
-    // Overlaps lives in Settings, not this tab — clicking could only scope
-    // the page to nothing, so the tile stays a label.
-    const tile = await screen.findByTestId('queue-tile-overlaps')
+    // Flagged drills are acted on in the point editor, not a queue on this
+    // tab — clicking could only scope the page to nothing, so the tile
+    // stays a label. (Overlaps used to be the example; since 4 Sep 2026
+    // that queue lives here and its tile focuses like any other.)
+    const tile = await screen.findByTestId('queue-tile-flagged_drills')
     fireEvent.click(tile)
     expect(onFocus).not.toHaveBeenCalled()
+    fireEvent.click(await screen.findByTestId('queue-tile-overlaps'))
+    expect(onFocus).toHaveBeenCalledWith('overlaps')
   })
 })
 

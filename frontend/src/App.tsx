@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, type ComponentType } from 'react'
 import {
   createBrowserRouter,
+  Navigate,
   RouterProvider,
 } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
@@ -66,7 +67,6 @@ const RecommendationsPage = lazyWithRetry(() => import('./features/recommendatio
 const LanguageAboutPage = lazyWithRetry(() => import('./features/about/LanguageAboutPage'))
 const GymPage = lazyWithRetry(() => import('./features/gym/GymPage'))
 const NotesPage = lazyWithRetry(() => import('./features/notes/NotesPage'))
-const FeedbackPage = lazyWithRetry(() => import('./features/feedback/FeedbackPage'))
 const OnboardingPage = lazyWithRetry(() => import('./features/onboarding/OnboardingPage'))
 const WelcomePage = lazyWithRetry(() => import('./features/onboarding/WelcomePage'))
 const SettingsPage = lazyWithRetry(() => import('./features/settings/SettingsPage'))
@@ -143,7 +143,10 @@ const router = createBrowserRouter([
       { path: '/recommendations', element: <RecommendationsPage /> },
       // Staff triage. The panel already existed inside Settings → Admin;
       // this gives it an address the dashboard alert can link to.
-      { path: '/feedback', element: <FeedbackPage /> },
+      // The app-feedback queue's third door (4 Sep 2026): it lives on the
+      // Workspace's Review tab with every other queue. Old links land there.
+      { path: '/feedback',
+        element: <Navigate to="/contribute?tab=review&queue=feedback-queue" replace /> },
       { path: '/about', element: <LanguageAboutPage /> },
       { path: '/gym', element: <GymPage /> },
       { path: '/notes', element: <NotesPage /> },

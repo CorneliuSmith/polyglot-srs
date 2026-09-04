@@ -24,6 +24,8 @@ describe('page width', () => {
     'features/dashboard/ProgressPage.tsx',
     'features/dashboard/MorePage.tsx',
     'features/settings/SettingsPage.tsx',
+    // The one staff console: admin panels and review queues, all cards.
+    'features/contribute/ContributorPage.tsx',
   ]
 
   it.each(DASHBOARDS)('%s uses the shared width ramp', (file) => {

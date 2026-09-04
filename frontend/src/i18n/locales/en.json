@@ -1034,10 +1034,8 @@
     "tabs": {
       "aria": "Account sections",
       "learner": "Learner",
-      "contribute": "Workshop",
-      "review": "Review",
       "invite": "Invite",
-      "admin": "Admin"
+      "workspace": "Workspace"
     },
     "activeLanguage": "Active language",
     "level": {
@@ -1699,5 +1697,32 @@
     "choose": "Continue with {{name}}",
     "opening": "Opening checkout…",
     "changeHint": "You can change plans any time in Settings."
+  },
+  "workspace": {
+    "title": "Workspace",
+    "dashboard": "Dashboard",
+    "loading": "Loading…",
+    "thisLanguage": "this language",
+    "noRole": "You don’t have a contributor role for {{language}}. Ask an admin for access.",
+    "tabs": {
+      "aria": "Workspace",
+      "workshop": "Workshop",
+      "review": "Review",
+      "admin": "Admin"
+    },
+    "admin": {
+      "aria": "Admin sections",
+      "insights": "Insights",
+      "languages": "Languages",
+      "content": "Content",
+      "people": "People",
+      "rollouts": "Rollouts",
+      "costs": "Costs"
+    },
+    "content": {
+      "aria": "Content type",
+      "grammar": "grammar",
+      "vocab": "vocab"
+    }
   }
 }

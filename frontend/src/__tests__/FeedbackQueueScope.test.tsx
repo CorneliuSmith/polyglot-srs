@@ -63,8 +63,10 @@ describe('FeedbackQueuePanel — language scope', () => {
     )
   })
 
-  it('the standalone page keeps its old everything-view, chipless', async () => {
-    // /feedback and Settings mount the panel with no workspace language;
+  it('with no workspace language the panel shows everything, chipless', async () => {
+    // No page mounts it that way any more (the /feedback page and the
+    // Account page's copy went in the 4 Sep 2026 consolidation), but the
+    // contract is the panel's own and stays pinned;
     // their behavior must not change underneath them.
     renderPanel()
     await waitFor(() => expect(mockQueue).toHaveBeenCalledWith(undefined))

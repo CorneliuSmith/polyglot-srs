@@ -292,7 +292,7 @@ def admin_digest_html(
             f'<p style="{_MUTED}">These belong to no course, so they appear in '
             f"no language's queue.</p>"
             f'<div style="margin:12px 0 0">'
-            f'<a href="{escape(app_url)}/contribute?tab=admin" '
+            f'<a href="{escape(app_url)}/contribute?tab=review&amp;queue=feedback-queue" '
             f'style="color:#166534;font-weight:600;font-size:14px;'
             f'text-decoration:none">Open the feedback queue &rarr;</a></div>'
             f"</div>"
