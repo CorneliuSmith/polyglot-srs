@@ -584,6 +584,11 @@ placeholder is always an error, and a *dropped* placeholder is an error
 only outside plural forms. It found two keys missing from all five
 existing catalogs on its first run.
 
+A UI language is **not** a support locale, and shipping one translates no
+card content. `docs/seeding.md` has the table: a language code plays up to
+three independent roles (course, UI language, support locale), each with
+its own requirements, and only the UI one fails loudly.
+
 **One staff console.** Everything a contributor, reviewer, tester or
 admin does lives on the Workspace (`features/contribute/ContributorPage.tsx`,
 route `/contribute`): a per-language scope picker, the Review Inbox and
