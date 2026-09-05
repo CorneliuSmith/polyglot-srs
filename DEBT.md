@@ -241,6 +241,32 @@ quietly offers no Edit button.
 
 ## Real gotchas — already hit once, will bite again if forgotten
 
+### The two translation lanes disagree about what a support locale is
+
+`fill_start_batch` (the inline, session-time fill) resolves the locale with
+a LEFT JOIN on `languages` and carries on when there is no row, naming the
+locale by its code. `discover_pairs` (the background sweep) INNER JOINs the
+same table and drops the pair entirely. Both are in
+`services/auto_translate.py`.
+
+So a support locale that is not also a course language translates the
+session a learner is sitting in and **never fills its backlog** — and
+`translation_status`, the readout built precisely so this feature cannot
+fail silently, does not cover it: it reports courses with
+`auto_translate_enabled` off, but never a locale it could not resolve. The
+admin sees an empty pair list and a green panel.
+
+Nothing is broken today because all seven UI languages are also course
+languages. It breaks the first time one is not — a UI language for a
+market whose language the app does not teach is the obvious case, and is
+exactly the kind of thing that gets added without touching this file.
+
+Two fixes, both small, neither done: make the sweep LEFT JOIN like the
+inline fill so the lanes agree, and add an "unresolved locale" line to
+`translation_status` so the panel says so either way. Surfaced 5 Sep 2026
+while answering why Turkish content was still English (it was not this —
+see `docs/seeding.md`, "The three roles one language code plays").
+
 ### The Turkish catalog is a machine translation nobody has read
 
 All 1,491 strings of `frontend/src/i18n/locales/tr.json` were translated
