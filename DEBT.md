@@ -241,6 +241,29 @@ quietly offers no Edit button.
 
 ## Real gotchas — already hit once, will bite again if forgotten
 
+### A grid track without an explicit `grid-cols-*` floors at its content width
+
+Cost an hour on 5 Sep 2026, and will again: the admin Insights page
+scrolled sideways on a phone, showing a band of bare body background down
+the right of the screen. The retention table was already inside an
+`overflow-x-auto` wrapper, which is what makes this one hard to see — the
+wrapper scrolls the table, but it still REPORTS the table's full width to
+its ancestors, and the card was a grid item.
+
+`CARD_COLUMNS` read `grid gap-4 lg:grid-cols-2`. Below `lg` that is an
+IMPLICIT track, sized `auto`, and a grid item in an auto track takes its
+content-based minimum width — so the column could not shrink below the
+~700px table, the card grew past the viewport, and the page's scroll
+width went with it. `lg:grid-cols-2` was never affected, which is why it
+only ever broke on small screens: Tailwind's `grid-cols-N` compiles to
+`minmax(0, 1fr)`, and that zero minimum is what switches the automatic
+minimum size off.
+
+**Writing any new grid: name the base track (`grid-cols-1`), not just the
+breakpoint variants.** The same trap exists for flex — a flex item needs
+`min-w-0` for the identical reason. `pageWidth.test.ts` pins
+`CARD_COLUMNS`; it cannot pin a grid someone writes inline tomorrow.
+
 ### RateLimiter's cached Redis client can point at a dead event loop
 
 Each `TestClient` (and each uvicorn worker) runs its own asyncio event loop.
