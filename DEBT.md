@@ -288,6 +288,34 @@ learner's complaint about wording as probably right. The same caveat
 applies to any future catalog produced this way — which is why this
 entry is about the process, not just this file.
 
+### On a phone, whatever CAN shrink pays for whatever cannot
+
+Two reports a day apart, same shape, different CSS. A row or grid is
+wider than the viewport; one part of it is pinned (`shrink-0`, or an
+implicit `auto` grid track); so the *other* part absorbs the entire
+shortfall, and past zero the overflow spills anyway. You get two symptoms
+from one cause — something important vanishes, AND the page still
+overflows — which is why it reads as two bugs.
+
+- **5 Sep, Language visibility** (`LanguageVisibilityPanel`): the control
+  cluster — swap, review badge, open-reports count, "Auto-translate" and
+  "Visible" toggles, settings — was `shrink-0` beside a `min-w-0` name
+  button. Every row rendered as a flag and some checkboxes with **no
+  language name on it**, and the settings icon still sat outside the
+  card. Fixed by letting the row wrap: the name takes its own line below
+  `sm`, controls wrap underneath, single row from `sm` up.
+- **4 Sep, admin Insights** (`CARD_COLUMNS`): the entry below.
+
+**The rule when adding a row of controls:** on a phone, ask what gives.
+If the answer is "the label", the row needs to wrap, not to shrink — a
+truncated name is a worse outcome than a second line. `shrink-0` is right
+for two or three icons and wrong for a cluster carrying text labels.
+
+jsdom does no layout, so neither of these can be caught by measuring;
+both regressions are pinned by asserting the class decisions instead
+(`LanguageVisibilityPanel.test.tsx`, `pageWidth.test.ts`). That is weaker
+than a real check and worth replacing if visual testing ever arrives.
+
 ### A grid track without an explicit `grid-cols-*` floors at its content width
 
 Cost an hour on 5 Sep 2026, and will again: the admin Insights page
