@@ -903,7 +903,9 @@
     "addToReviews": "Добавить в мои повторения",
     "adding": "Добавляем…",
     "alreadyInReviews": "Уже в ваших повторениях — карточка будет возвращаться по своему расписанию FSRS.",
-    "otherLevel": "Прочее"
+    "otherLevel": "Прочее",
+    "practiseForms": "Отработать {{label}} в тренажёре",
+    "drillCount": "{{count}} упражнений"
   },
   "recos": {
     "mediaTypes": {

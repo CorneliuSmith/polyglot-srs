@@ -6,8 +6,9 @@ import es from '../i18n/locales/es.json'
 import fr from '../i18n/locales/fr.json'
 import pt from '../i18n/locales/pt.json'
 import ru from '../i18n/locales/ru.json'
+import tr from '../i18n/locales/tr.json'
 
-const LOCALES = { ar, es, fr, pt, ru } as const
+const LOCALES = { ar, es, fr, pt, ru, tr } as const
 type Forms = Record<string, string>
 
 describe('Gym form labels', () => {

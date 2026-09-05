@@ -241,6 +241,27 @@ quietly offers no Edit button.
 
 ## Real gotchas — already hit once, will bite again if forgotten
 
+### The Turkish catalog is a machine translation nobody has read
+
+All 1,491 strings of `frontend/src/i18n/locales/tr.json` were translated
+in one session on 5 Sep 2026, against the choices the five existing
+catalogs had already made for the product's own vocabulary (Deck →
+Deste, Gym → Antrenman, Review → Tekrar, Tutor → Öğretmen). It is
+structurally sound — parity, placeholders, tags and the Gym's
+course-language affixes are all pinned by tests — but **no Turkish
+speaker has read it**, and structure is not idiom. Expect the wrong
+register somewhere, and expect the grammar terminology in `gymForms`
+(262 labels: `Belirtme durumu`, `İstek kipi`, `Bitmemiş geçmiş`) to be
+the part a teacher argues with, since Turkish grammar names its own
+categories and those names do not always map onto the Latin ones the
+labels were written in.
+
+The fix is a reading, not a rewrite: hand `tr.json` to one Turkish
+speaker beside a running app. Until that happens, treat a Turkish
+learner's complaint about wording as probably right. The same caveat
+applies to any future catalog produced this way — which is why this
+entry is about the process, not just this file.
+
 ### A grid track without an explicit `grid-cols-*` floors at its content width
 
 Cost an hour on 5 Sep 2026, and will again: the admin Insights page

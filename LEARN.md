@@ -562,6 +562,28 @@ back to the batch percentage so the bar visibly moves.
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +
 TanStack Query 5 + Zustand 5 + react-router-dom 7 + Tailwind CSS 4.
 
+**UI languages are catalogs, not code.** `frontend/src/i18n/` holds one
+JSON per language and a `UI_LANGUAGES` list; adding one is a new catalog,
+two lines in `index.ts`, and nothing else. Nothing on the server has an
+allow-list to update — `user_profiles.ui_language` is free text, and the
+API stores whatever the client sends — so a language ships or does not
+ship entirely on the frontend. Seven now: English, Arabic, Spanish,
+Russian, French, Portuguese and Turkish (5 Sep 2026).
+
+Two things make that easy to get wrong. i18next falls back to English for
+a **missing key, silently**, so a half-translated catalog does not break
+— it leaks English into an otherwise-Turkish page and nobody finds out.
+And **plural forms are not English's to decide**: Arabic needs six
+categories, Russian three, Turkish and English two, so a locale carrying
+`streak_few` where English has only `_one`/`_other` is correct. Worse,
+Arabic's `_one` reads "يوم واحد" — the numeral spelled as a word, with no
+`{{count}}` to interpolate at all. `__tests__/localeParity.test.ts`
+encodes exactly that: every English key must exist everywhere and be
+non-blank, extra keys are allowed only as plural variants, an invented
+placeholder is always an error, and a *dropped* placeholder is an error
+only outside plural forms. It found two keys missing from all five
+existing catalogs on its first run.
+
 **One staff console.** Everything a contributor, reviewer, tester or
 admin does lives on the Workspace (`features/contribute/ContributorPage.tsx`,
 route `/contribute`): a per-language scope picker, the Review Inbox and

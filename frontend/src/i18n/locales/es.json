@@ -875,7 +875,9 @@
     "addToReviews": "Añadir a mis repasos",
     "adding": "Añadiendo…",
     "alreadyInReviews": "Ya está en tus repasos — seguirá volviendo según su calendario FSRS.",
-    "otherLevel": "Otros"
+    "otherLevel": "Otros",
+    "practiseForms": "Practica {{label}} en el Gimnasio",
+    "drillCount": "{{count}} ejercicios"
   },
   "recos": {
     "mediaTypes": {
