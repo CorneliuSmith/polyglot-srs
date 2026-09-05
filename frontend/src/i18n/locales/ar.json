@@ -918,7 +918,9 @@
     "addToReviews": "أضِف إلى مراجعاتي",
     "adding": "جارٍ الإضافة…",
     "alreadyInReviews": "موجودة في مراجعاتك بالفعل — ستستمر في العودة وفق جدول FSRS الخاص بها.",
-    "otherLevel": "أخرى"
+    "otherLevel": "أخرى",
+    "practiseForms": "تدرّب على {{label}} في التمارين",
+    "drillCount": "{{count}} تمرين"
   },
   "recos": {
     "mediaTypes": {

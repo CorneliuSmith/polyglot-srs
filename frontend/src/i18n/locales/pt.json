@@ -875,7 +875,9 @@
     "addToReviews": "Adicionar às minhas revisões",
     "adding": "Adicionando…",
     "alreadyInReviews": "Já nas suas revisões — ele continuará voltando no seu cronograma FSRS.",
-    "otherLevel": "Outro"
+    "otherLevel": "Outro",
+    "practiseForms": "Praticar {{label}} no Ginásio",
+    "drillCount": "{{count}} exercícios"
   },
   "recos": {
     "mediaTypes": {

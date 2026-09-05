@@ -875,7 +875,9 @@
     "addToReviews": "Ajouter à mes révisions",
     "adding": "Ajout…",
     "alreadyInReviews": "Déjà dans vos révisions — il continuera de revenir selon son planning FSRS.",
-    "otherLevel": "Autre"
+    "otherLevel": "Autre",
+    "practiseForms": "S’entraîner sur {{label}} au Gym",
+    "drillCount": "{{count}} exercices"
   },
   "recos": {
     "mediaTypes": {
