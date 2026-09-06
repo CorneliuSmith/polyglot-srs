@@ -42,13 +42,15 @@ items are built on request, in a session.
 - [ ] **6. The cross-queue stream.** One "next item across every queue"
   mode on top of the stepper. Worth it once the queues are busy.
 
-## The release gate (unchanged, owner decision of 26 Aug 2026)
+## The release gate — released 30 Aug 2026; the work continues as phases
 
 - [ ] **7. The Gym level.**
-- [ ] **8. A comprehensive grammar-concept review.** Both before the
-  production seeder sequence runs
-  (`docs/decisions/2026-08-26-owner-decisions.md`). The app itself
-  auto-deploys from `main`, so everything above is already live.
+- [ ] **8. A comprehensive grammar-concept review.** No longer a gate: the
+  owner ran the production sequence on 30 Aug and runs data pushes per
+  course from `docs/quality/refeed.md` (CLAUDE.md, "Production content
+  writes are the OWNER's to run"). Both items continue as Phases 3–4 of
+  `docs/plans/quality-parity.md`. The app itself auto-deploys from
+  `main`.
 
 ## Before end of month
 
@@ -72,8 +74,10 @@ items are built on request, in a session.
   sentences on the card; tester recommendations state the verdict as a
   sentence and say when there is no note; a "Professional" Reader register
   beside Native / Academic / Literary. *Agent.*
-- [ ] **13. Markdown pass over the seed explanations**, folded into the
-  grammar-concept review (item 8): plan in `markdown-explanations.md`,
-  one language at a time, French first. Runs from the local session (it
-  needs the API key and a browser). *Owner-scheduled; agent builds the
-  script.*
+- [ ] **13. Markdown pass over the seed explanations** — placed as the
+  closing per-language step of `quality-parity.md` Phase 3 (6 Sep): plan
+  in `markdown-explanations.md`, corrected the same day (scope is
+  `explanation` only; in-session export/apply, no API key; 1,378 texts
+  not 3,786; delivery is `refeed.md` step 4). One language at a time,
+  French first, ko after its dedupe. *Agent builds the export/apply
+  script and runs the passes in-session; the owner reseeds.*

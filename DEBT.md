@@ -188,6 +188,16 @@ a retire step in `reconcile` that sets it from the exclusions file, and the
 card draw / lesson intake filtering it while keeping the learner's
 `user_cards` row. CHECKS §12's class: a layer with no write path.
 
+Two more things the retire step has to cover, from the owner's second `em`
+screenshot (6 Sep, Spanish UI): the wrong gloss was faithfully translated —
+`translations(vocabulary_id, locale='es', definition='eme')`, the letter M
+— so the locale rows of a retired word must be hidden with it, and
+`auto_translate` must skip retired words rather than keep glossing them.
+And `prune_sentences` **keeps** a retired word's sentences on purpose: its
+"never strand a word" guard leaves every row of a word whose whole set
+would go ("Kill 'em." survives the English prune for exactly that reason).
+Retire first, and let the prune treat retired words as prunable to zero.
+
 ### The lesson's Gym link is English in five locales
 
 `GrammarPathPage` links a lesson to its Gym drill set (#397) using
@@ -205,6 +215,43 @@ not fixed. Two routes: gloss them through `gloss_overrides.tsv` (the
 mechanism exists and `circular_gloss` gates it) or lift the cap and let
 the audit decide. Either way the count to watch is production `en` rows
 against the file's 10,000 (9,963 once `fix/en-symbol-glosses` merges).
+
+### Rows the card can never show, and a fallback that hides it
+
+`make_cloze` (`backend/services/extract.py`) whole-word-matches the surface
+headword; `cards.py` skips any example row it rejects and, when every row of
+a word is rejected, silently serves the definition-only prompt. Thai (93% of
+rows — unspaced script), Korean (54% — dictionary-form headwords), Arabic
+(47% — stem headwords) and Yoruba (50% — toneless headwords) are mostly in
+that state: 1,085 / 566 / 491 / 182 top-2,000 words with no usable sentence.
+No log, no metric, no test says so. The 31 Aug Russian authoring applier
+made it worse by accepting LEMMA presence (pymorphy3), so an unknown share
+of its 6,517 rows are dead on arrival. Fix design and order in CHECKS §29;
+the `unclozable_rows` audit rule is the instrument that has to exist before
+any coverage table is believed for those four courses.
+
+### Vocabulary grading scolds for a form the card never specified
+
+`nlp/base.py` layer 3 grades a lemma match on a vocabulary card
+`CORRECT_SLOPPY` with "Correct meaning, but check the exact form" — right
+when the card named the form, wrong when it did not, and CHECKS §28 found
+a third of top-band cards do not. Until the content carries the form (or
+the grader checks whether it does), that string blames the learner for
+the card's gap. `frame_collision` — the mechanical half of the §28 check
+— is designed, not built; it belongs beside `ar_register` in
+`audit_content.py`.
+
+### `prune_sentences` keeps a word's fragments rather than empty it
+
+The "never strand a word" guard leaves every row of a word whose whole set
+would go. On 6 Sep that was 100 Russian and 72 Arabic words — names
+(`лиза`, `донна`, `كارلوس`), slang (`чё`, `бля`), inflected forms
+(`родился`), letters (`ن`, `ج`) — each still showing a bare fragment in
+production because the committed bank has nothing for them. Two ways out,
+neither built: exclude and retire them (the DEBT entry above), or a
+`--allow-strand` that prunes to zero, since a definition-only card is an
+honest fallback and "И?" is not. Until then a `stranded` count in the dry
+run is a list to act on, not a number to ignore (`docs/quality/refeed.md`).
 
 ### The Workspace chrome is translated; its 42 panels are not
 

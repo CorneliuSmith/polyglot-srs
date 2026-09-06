@@ -239,9 +239,13 @@ headings). Plain blocks are untouched, so nothing in the existing corpus
 moved; `backend/tests/test_content_markdown_guard.py` pins the seed at
 zero markers so a marker in data/ is a deliberate entry in its `ALLOWED`
 set. The server cleans the same column on the way in
-(`services/markdown.py`: raw tags out, unsafe link schemes out) at every
-writer — the editor, the seeder, the AI — because the renderer is the last
-line, not the only one. Underscores are never a signal: "___" is how the
+(`services/markdown.py`: raw tags out, unsafe link schemes out) at the
+editor and the AI generator — **not** in `seed_grammar.py`, which trusts
+the committed file; a script that writes markdown into `data/grammar/`
+must call `clean_markdown` itself (the markdown-explanations plan does) —
+because the renderer is the last line, not the only one. And only
+`explanation` renders markdown: culture and function notes are plain
+text on every surface. Underscores are never a signal: "___" is how the
 cards write a blank.
 
 The append-only AI tables are pruned daily by `services/retention.py`

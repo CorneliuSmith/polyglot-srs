@@ -998,6 +998,16 @@ Remaining, in order:
 - The finding count is whatever `audit_content` prints on the day — 920 was
   the 19 Aug figure (D4), 663 on 31 Aug. Do not plan against a frozen number
   (rule 31).
+- **Closing step, per language: the markdown pass over `explanation`**
+  (`docs/plans/markdown-explanations.md`, corrected 6 Sep). In the same PR
+  as that language's Phase 3 grammar-file work — the pass edits
+  `points[].explanation`, everything else in flight edits `drills[]` —
+  so one PR and one `seed_grammar` run per course. `explanation` only
+  (culture and function notes render plain); in-session export/apply,
+  no key; French first; ko after its dedupe; ru/en topped up after Phase
+  5. Placed here because it is editorial grammar work with no other home
+  now the 26 Aug gate is gone, and because Phases 7–8 touch no grammar
+  JSON so nothing waits on it.
 
 ### Phase 4 — Gym parity
 
@@ -1155,6 +1165,32 @@ rows from (1). Order stays the 20 Aug plan order after the owner's ru/ar:
 `mi xh yo` → `id tl he fa` → `en` → the well-resourced courses, `th`
 excluded (§22). Method stays `apply_authored_sentences.py` — 7–14 words,
 presence check, `difficulty_rank` = the word's frequency rank (rule 41).
+
+**10 · The prompt must determine the form — CHECKS §28.** The `do` card.
+Judged on all 27 (14 top-2,000 cards each, refuted): 128 of 377 do not
+determine their answer — sw/th 64%, ko 54%, en/id/nl 50%, down to fr 7%.
+Causes: another word fits 69, inflection 24, definition wrong 21, vague
+12. The cheapest fix is the DEFINITION in 77 of 128 — so this is Phase 2d
+(override depth) measured from the card's side, not a new pass. Build
+`frame_collision` in `audit_content.py` (report-level; 26 courses);
+decide the grading policy (§28: stop scolding for a form the card never
+named); then let 2d's override work carry the rule "definition + sentence
+determine one string" (§23).
+
+**11 · Rows the card can never blank — CHECKS §29.** `make_cloze` matches
+the surface headword whole-word; a row with only an inflection, a stem, a
+toneless twin or an unspaced run is skipped, and a word with no clozable
+row silently serves the definition-only prompt. Measured with the
+production function: th 93% of rows (1,085 top-2,000 words with none),
+ko 54% (566), ar 47% (491), yo 50% (182), la 34%, tr 16%, ru 13%, sw 11%.
+**Every coverage number in items 1–8 and in CHECKS §26 counted these rows
+as coverage; for th/ko/ar/yo they are not.** Order, by learner impact:
+Thai cloze through `thai.segment` (route exists, 1,085 words) → surface
+form stored as the row's answer for inflecting courses (migration,
+owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader pass over 6,048
+rows → Yoruba headword tones → an `unclozable_rows` audit rule that
+ratchets. And a rule for the applier from now on: SURFACE presence, never
+lemma presence — the 31 Aug Russian pass shipped rows the card cannot use.
 
 **9 · English vocabulary the seeder never inserts.** `EnglishSeeder` stops
 at 8,600 of 10,000 headwords: ~1,400 have no WordNet gloss and are skipped,
