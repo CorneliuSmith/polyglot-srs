@@ -1372,7 +1372,7 @@ Measured 6 Sep with the production function itself, every committed bank:
 
 | code | rows | rejected | % | top-2,000 words with NO clozable row |
 | --- | ---: | ---: | ---: | ---: |
-| th | 4,335 | 4,024 | 93% | **1,085** |
+| th | 4,335 | 4,024 → **660** | 93% → **15%** | ~~1,085~~ → **110** |
 | ko | 3,039 | 1,650 | 54% | **566** |
 | yo | 699 | 352 | 50% | 182 |
 | ar | 13,059 | 6,113 | 47% | **491** |
@@ -1409,8 +1409,16 @@ symptom:
 * **Unspaced script** — th: `ฉัน` inside `ฉันโอเค` has a Thai letter on
   its right, so a word-boundary match cannot exist. `thai.segment` already
   segments for the reading layer; the cloze never used it. 93% of the Thai
-  bank, and 1,085 of the top 2,000 words, have been definition-only cards
-  since the course shipped.
+  bank, and 1,085 of the top 2,000 words, were definition-only cards from
+  the day the course shipped. **FIXED 6 Sep — and it was worse than "no
+  match".** The 311 rows the regex did accept include 35 blanked ACROSS
+  word edges: `แก` carved out of `แก้ม` ("cheek"), `กี` out of `กี่`,
+  `มาน` out of `มานี่` (= มา + นี่). Python's `\w` drops the vowel marks
+  that would have stopped the lookahead — quality rule 39, in the one place
+  where it silently produced wrong learner-facing content rather than a
+  wrong count. So for an unspaced script the boundary regex is not useless,
+  it is WRONG, and `make_cloze`'s new `find_span` hook REPLACES it rather
+  than backing it up.
 * **Junk headwords** — tr `ş`, `i`, `ki`; en `te`, `fre` (fragments of
   names). Exclusion, not matching.
 
@@ -1424,9 +1432,32 @@ must require SURFACE presence, or write the surface form as the answer.
 
 **Fix design, in order of learner impact:**
 
-1. **Thai cloze through the segmenter** — `make_cloze` (or a Thai branch
-   beside it) matches on `thai.segment` tokens and blanks the segment.
-   Route exists; only the caller is missing. 1,085 words get a sentence.
+1. ~~**Thai cloze through the segmenter.**~~ **SHIPPED 6 Sep.**
+   `nlp.thai.answer_span` segments the sentence and returns the answer's
+   offsets when it falls out as a word of its own, and `make_cloze` takes it
+   through a `find_span` hook that `cards.py` supplies for `th` — on both
+   the Review and the Learn paths (the bulk query had to start selecting the
+   language code, or the walkthrough would have kept the buggy regex).
+
+   **Clozable Thai rows 311 → 3,675 (7% → 84%); top-2,000 words with no
+   showable sentence 1,085 → 110.** Two decisions worth keeping:
+
+   * **The lexicon is the union of the frequency list and the readings
+     table.** Measured separately over the 4,024 rejected rows: readings
+     alone recovered 91%, the frequency list alone 99% — but the frequency
+     list's extra hits were junk headwords (`แ`, `่`, `า`, `ร`, `ั`)
+     matching stray characters. Bigger is not better here, because greedy
+     longest-match changes what it carves as the lexicon grows.
+   * **The parse must be clean** — every segment a known word. That is what
+     rejects the accidental hits, and it is the same stance
+     `thai_reading._segment` already takes: no reading at all rather than a
+     partial one. It costs ~12 legitimate rows and refuses ~23 wrong blanks.
+
+   **Left over:** 22 junk headwords in `data/th_frequency.tsv` (16 inside
+   the top 2,000) that are single letters or a bare tone mark — `แ`, `โ`,
+   `ณ`, `ใ`, `เ`, `ะ`, `ธ`, `ร`, `้`, `า`. They are most of the 110 words
+   still without a sentence, and they belong in `vocab_exclusions.tsv`
+   (the `tr` `ş`/`i` class, one course over).
 2. **Inflecting courses: blank the SURFACE form and make it the answer.**
    A card for `смотреть` that shows `Не ___ на меня так.` and expects
    `смотри` is a better card than a definition prompt — it teaches the

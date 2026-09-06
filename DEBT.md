@@ -219,14 +219,26 @@ mechanism exists and `circular_gloss` gates it) or lift the cap and let
 the audit decide. Either way the count to watch is production `en` rows
 against the file's 10,000 (9,963 once `fix/en-symbol-glosses` merges).
 
+### `data/th_frequency.tsv` has 22 headwords that are not words
+
+Single Thai letters and a bare tone mark — `แ`, `โ`, `ณ`, `ใ`, `เ`, `ะ`,
+`ธ`, `ร`, `้`, `า` — 16 of them inside the top 2,000. They are cards a
+learner cannot answer, they are most of the 110 Thai words still without a
+showable sentence after the cloze fix, and they made the frequency list a
+worse segmentation lexicon than it should be (CHECKS §29). Same class as
+Turkish `ş`/`i` and the English symbol glosses: they belong in
+`data/vocab_exclusions.tsv`, and — like those — removing them from the file
+does not remove them from production until the retire step exists.
+
 ### Rows the card can never show, and a fallback that hides it
 
 `make_cloze` (`backend/services/extract.py`) whole-word-matches the surface
 headword; `cards.py` skips any example row it rejects and, when every row of
-a word is rejected, silently serves the definition-only prompt. Thai (93% of
-rows — unspaced script), Korean (54% — dictionary-form headwords), Arabic
-(47% — stem headwords) and Yoruba (50% — toneless headwords) are mostly in
-that state: 1,085 / 566 / 491 / 182 top-2,000 words with no usable sentence.
+a word is rejected, silently serves the definition-only prompt. Korean (54% of rows — dictionary-form
+headwords), Arabic (47% — stem headwords) and Yoruba (50% — toneless
+headwords) are mostly in that state: 566 / 491 / 182 top-2,000 words with no
+usable sentence. **Thai is fixed** (6 Sep): segmentation replaced the
+boundary regex, 311 → 3,675 rows, 110 words left — CHECKS §29.
 No log, no metric, no test says so. The 31 Aug Russian authoring applier
 made it worse by accepting LEMMA presence (pymorphy3), so an unknown share
 of its 6,517 rows are dead on arrival. Fix design and order in CHECKS §29;

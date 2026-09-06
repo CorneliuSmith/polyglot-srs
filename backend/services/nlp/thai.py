@@ -14,9 +14,17 @@ two facts that shape everything here:
 """
 from __future__ import annotations
 
+import csv
+import logging
 import re
+from functools import lru_cache
+from pathlib import Path
 
 from backend.services.nlp.base import BaseNLP
+
+logger = logging.getLogger(__name__)
+
+_DATA = Path(__file__).resolve().parents[3] / "data"
 
 _THAI_RUN = re.compile(r"[฀-๿]+")
 
@@ -55,6 +63,72 @@ def segment(text: str, lexicon: set[str]) -> list[str]:
         if pending_unknown:
             out.append("".join(pending_unknown))
     return out
+
+
+@lru_cache(maxsize=1)
+def cloze_lexicon() -> frozenset[str]:
+    """Every string this course treats as a Thai word.
+
+    The union of the frequency list and the readings table, because the two
+    disagree in both directions and each half earns its place: measured over
+    the 4,024 sentences `make_cloze` could not blank, the readings table
+    alone segmented 91% of them so that the headword fell out as a word, the
+    frequency list alone 99% — but the frequency list's extra hits are junk
+    headwords (single letters and a tone mark, `แ` `่` `า` `ร` `ั`) matching
+    stray characters, which the clean-parse rule in `answer_span` throws out.
+    The union with that rule keeps 3,347 and rejects the mis-parses.
+
+    Degrades to empty when the files are unreadable: `answer_span` then finds
+    nothing and the card falls back to the definition prompt, which is what
+    it did for every Thai card before this existed.
+    """
+    words: set[str] = set()
+    for name, column in (("th_frequency.tsv", "word"), ("th_readings.tsv", "word")):
+        try:
+            with (_DATA / name).open(encoding="utf-8-sig", newline="") as handle:
+                for row in csv.DictReader(handle, delimiter="\t"):
+                    word = (row.get(column) or "").strip()
+                    if word:
+                        words.add(word)
+        except OSError as exc:  # noqa: BLE001 — a missing file must never 500
+            logger.warning("thai lexicon %s unavailable: %s", name, exc)
+    return frozenset(words)
+
+
+def answer_span(sentence: str, answer: str) -> tuple[int, int] | None:
+    """Where *answer* sits in *sentence* as a standalone WORD, or None.
+
+    Thai writes without spaces, so `make_cloze`'s word-boundary match can
+    never fire and every Thai card fell back to a definition-only prompt —
+    311 of 4,335 committed rows were usable, and 1,085 of the top 2,000 words
+    had no sentence a card could show (CHECKS §29). Segmentation is the route
+    the reading layer already takes; it was simply never wired to the cloze.
+
+    A substring search is NOT the fix and would be worse than the fallback:
+    `มาน` occurs inside `มานี่` (= มา + นี่), so the blank would land on half
+    of two other words. The answer must come back as a segment of its own.
+
+    The parse must also be CLEAN — every segment a known word. Greedy
+    longest-match leaves unknown leftovers when it mis-carves a run, and
+    those are exactly the cases where the headword "appears" by accident.
+    Same stance as `thai_reading._segment`, which emits no reading at all
+    rather than a partial one.
+    """
+    if not sentence or not answer:
+        return None
+    lexicon = cloze_lexicon()
+    if not lexicon or answer not in lexicon:
+        return None
+    for run in _THAI_RUN.finditer(sentence):
+        pieces = segment(run.group(), lexicon)
+        if any(piece not in lexicon for piece in pieces):
+            continue
+        offset = run.start()
+        for piece in pieces:
+            if piece == answer:
+                return offset, offset + len(piece)
+            offset += len(piece)
+    return None
 
 
 class ThaiNLP(BaseNLP):
