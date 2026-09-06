@@ -12,7 +12,8 @@ Two screenshots: a vocabulary card, `human`, sentence "We are ___." — three
 words, the old corpus shape; and a grammar card whose TRANSLATION line read
 "do — the participle."
 
-The first is not a supply problem. English's bank holds 15,350 sentences
+The first is not a supply problem — and its cause was diagnosed wrong the
+first time; §26 carries the correction and the reasoning. English's bank holds 15,350 sentences
 for its top 2,000 words and 7,990 of them meet the §23 bar; `human` itself
 has longer sentences on file. **The card draws by `difficulty_rank` then
 `id`, every row of a word ties on the word's rank, and the old rows have
@@ -36,13 +37,15 @@ the board is a selection fix first and an authoring queue second.
 
 ## 2. The queue, in order, for when implementation resumes
 
-1. **Draw order (CHECKS §26).** One ORDER BY in `backend/repositories/cards.py`
-   (the LATERAL that builds `sentences`/`translations`/`glosses`/
-   `transliterations` — all five arrays, same order), integration test:
-   a word with a 3-word row at a lower id and a 9-word row at a higher id
-   returns the 9-word row first; a Thai word keeps rank order. Flips
-   ~9,500 top-2,000 cards across 26 courses at zero content cost. Do this
-   before any authoring.
+1. ~~**Draw order (CHECKS §26).** One ORDER BY in `cards.py`.~~ **Wrong
+   diagnosis, corrected 6 Sep — see §26.** The card rotates over every
+   clozable sentence (`_pick_index`), so there is no first row to reorder
+   and the ORDER BY would have changed nothing. The real cause was 15,802
+   thin rows in production that `prune_sentences` exempted by source;
+   **shipped instead**: the §24 floor is now a prune predicate shared with
+   `enforce_sentence_floor.py` (CHECKS §24a). **What is left is the
+   owner's:** re-run the prune for every course, the three already pruned
+   included.
 2. **`fix/en-symbol-glosses`** — pushed, unmerged. 37 English headwords to
    `vocab_exclusions.tsv`; data-invariant tests 249 passed / 9 WordNet
    skips; `audit_content` PASS at baseline. Needs the full CI run, then PR

@@ -1045,93 +1045,118 @@ defect. Ask what the writing system treats as optional — Arabic short vowels,
 Russian ё, Hebrew niqqud are all omissible — and judge only what remains.
 89% of this sweep was the writing system doing what it normally does.
 
-## §26 The card draws the SHORTEST sentence first (6 Sep 2026)
+## §26 The learner meets fragments because the PRUNE cannot reach them (6 Sep 2026, corrected same day)
 
-The owner's screenshot: English `human`, sentence "We are ___." — three
-words, in a course whose bank holds 15,350 sentences for its top 2,000
-words, 7,990 of them inside the §23 band. The word had a scene available;
-the card did not show it.
+**This section first said the card draws a word's sentences in rank-then-id
+order and therefore shows the oldest, shortest one first. That was wrong,
+and it is worth keeping the error visible because the fix it implied — one
+`ORDER BY` in `get_due_cards` — would have changed nothing a learner sees.**
 
-**Selection, not supply.** `get_due_cards` (`backend/repositories/cards.py`)
-aggregates a word's sentences `ORDER BY difficulty_rank ASC NULLS LAST, id`.
-Every row of a word carries the WORD's frequency rank (§24, rule 41), so the
-order inside a word is decided entirely by `id` — insertion order, which is
-file order. Corpus rows precede authored rows in every bank, and the Tatoeba
-export lists short sentences first. So the first-drawn sentence is the
-shortest the corpus had, on every course, however many good ones sit behind
-it. This is the `мне` defect (§24) in its second form: there the authored
-rows lost on rank; here they lose on the tie-break.
+**What the card actually does.** `_vocab_card` builds the candidate list from
+every clozable sentence the word has (no `LIMIT` anywhere in the LATERAL),
+then `_pick_index` chooses among them: unseen prompts first, then the ones
+the learner keeps missing, otherwise all of them — and inside that pool the
+index is `md5(card id, repetitions, lapses, last prompt) % len(pool)`. It is
+a gap-hunting rotation, stable across reloads, advancing when a review is
+recorded. **There is no "first".** The array order decides which sentence
+sits at which hash slot and nothing more, so ordering the SQL is a no-op.
 
-Measured on the committed banks, 6 Sep, top-2,000 band, Thai excluded (§22).
-"has §23" = words with at least one 7–14-word sentence; "1st < 7" = of
-those, how many draw a sub-seven sentence first; "no §23" = words with
-sentences but none in the band — the SUPPLY problem, which ordering cannot
-fix.
+What follows from that is the real rule: **a learner's chance of meeting a
+fragment is the fragment's SHARE of that word's clozable sentences.** Not the
+minimum, not the first — the share. To fix the card you remove the fragments
+from the pool; you cannot outrank them.
 
-| code | has §23 | 1st < 7 | % | top-3 all < 7 | no §23 |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| en | 1,900 | 1,689 | 89% | 1,096 | 75 |
-| de | 1,223 | 764 | 62% | 0 | 738 |
-| nl | 1,288 | 782 | 61% | 0 | 683 |
-| pt | 1,137 | 684 | 60% | 0 | 782 |
-| es | 1,184 | 695 | 59% | 0 | 784 |
-| it | 844 | 495 | 59% | 0 | 1,065 |
-| ru | 1,991 | 1,160 | 58% | 98 | 6 |
-| tr | 375 | 210 | 56% | 0 | 1,617 |
-| he | 316 | 160 | 51% | 2 | 1,538 |
-| fr | 1,537 | 755 | 49% | 0 | 398 |
-| id | 802 | 344 | 43% | 0 | 802 |
-| ko | 189 | 79 | 42% | 2 | 1,018 |
-| ro | 1,107 | 455 | 41% | 0 | 666 |
-| ar | 1,979 | 791 | 40% | 27 | 18 |
-| el | 743 | 296 | 40% | 0 | 1,042 |
-| tl | 780 | 288 | 37% | 0 | 620 |
-| fa | 931 | 322 | 35% | 4 | 448 |
-| yo | 291 | 88 | 30% | 0 | 128 |
-| ca | 965 | 253 | 26% | 0 | 509 |
-| sw | 791 | 174 | 22% | 0 | 414 |
-| ha | 1,429 | 200 | 14% | 1 | 7 |
-| jam | 482 | 56 | 12% | 0 | 1 |
-| hi | 1,306 | 92 | 7% | 0 | 320 |
-| mi | 672 | 39 | 6% | 0 | 15 |
-| xh | 193 | 6 | 3% | 0 | 298 |
-| la | 559 | 6 | 1% | 0 | 0 |
+**Where the fragments are, and why the earlier measurement missed it.** The
+committed banks are already clean: `enforce_sentence_floor.py` dropped 69,473
+sub-five-token rows on 31 Aug, and re-run today it finds **nothing left to
+drop**. Expected fragment exposure computed from the FILES is 0% for ar, ru,
+ha, la, mi and jam, 1% for en, 8% for de. The first table in this section
+counted rows under SEVEN tokens (§23's authoring bar, not §24's deletion
+bar), in file order, including rows `make_cloze` rejects — three errors
+pointing the same way.
 
-Read the two right-hand columns separately, because they are two jobs:
+**Production is a different corpus, and this is the defect.** 418,448 example
+sentences live there:
 
-* **ru and ar are the proof that supply alone does nothing.** 6,517 Russian
-  and 1,137 Arabic sentences were authored to the §23 bar on 31 Aug, every
-  top-2,000 word now has one — and 58% / 40% of those words still show a
-  fragment first, because the authored rows were appended after the corpus
-  rows. The owner would see no difference on most cards.
-* **tr, he, it, el, ko have more than a thousand top-2,000 words with no
-  §23 sentence at all.** That is the authoring queue (Phase 8), and it is
-  the order the plan already set.
+| source | rows | under 5 tokens | |
+| --- | ---: | ---: | ---: |
+| `tatoeba` | 385,250 | 91,987 | 24% — prunable |
+| `ai` | 29,587 | 14,137 | **48% — exempt** |
+| `curated` | 3,218 | 1,665 | **52% — exempt** |
+| `authored` | 393 | 100 | 25% |
 
-**The fix is one ORDER BY, and it is worth more than any authoring pass.**
-Prefer the §23 band at draw time, then rank, then id:
+`prune_sentences` never touched a row whose source is not `tatoeba`, because
+`curated` and `ai` are work no rebuild reproduces. **15,802 protected rows
+under five tokens** (Thai excluded) sat behind that exemption — ar 3,123,
+ru 2,822, es 2,410, tr 1,546, en 817, el 727, ca 622, pt 605, hi 576,
+sw 487, ko 341, ha/xh 240, mi 239, fa 201.
 
-    ORDER BY (array_length(regexp_split_to_array(btrim(pes.sentence), '\s+'), 1)
-              BETWEEN 7 AND 14) DESC,
-             pes.difficulty_rank ASC NULLS LAST, pes.id
+The owner's screenshot is exactly this. English `human`: **48 rows in
+production, source `ai`** — "You are human.", "I am human.", "She is
+human.", "We are humans and we are from Earth." — and **four in the
+committed bank**, led by "Every language that dies out takes a piece of
+human history with it." A rotation over 48 rows of which most are three-word
+frames shows a three-word frame most of the time. The same population is why
+pruning `ru` and `ar` did not settle those courses: their next dry runs
+reported 0 and 31 rows to delete while 2,822 and 3,123 thin protected rows
+stayed.
 
-A whitespace count is the right instrument HERE because it only has to sort,
-not judge: a Thai sentence mostly counts as one token and keeps today's
-order, and where phrase spaces do carry one into the band it is a longer
-sentence anyway — the change degrades to the status quo on an unspaced
-script rather than mis-sorting it. This LATERAL in `get_due_cards` is the
-only place the repository aggregates a word's sentences (grep
-`difficulty_rank ASC NULLS LAST`), so one edit covers Review and Learn.
-Test: a word with a 3-word row at a lower id and a 9-word row at a higher
-id returns the 9-word row first; a Thai word keeps rank order.
+**Fixed (§24a):** the floor is now a prune predicate as well as a file pass,
+sharing one definition. See the next section.
 
-Not the fix: re-ranking rows in the files (every row of a word ties on the
-word's rank by design, rule 41) or reordering file rows (production ids are
-already assigned; a re-seed is `ON CONFLICT DO NOTHING`, §18).
+**The rule this leaves.** *Ask what the reader is actually shown, then find
+the population that dominates it.* A minimum, a first row, or a file-order
+statistic is not that. And when a measurement and a mechanism disagree,
+read the code that does the choosing before writing the fix — Rule 43,
+which this section originally got wrong.
 
-**Status: all — a single query, no per-language value.** The rule this
-leaves: a bank number is not a learner number. Measure what the card draws.
-Rule 43.
+---
+
+## §24a The deletion floor belongs to the prune, not only to the files (6 Sep 2026)
+
+§24 set the deletion bar — *a sentence under five tokens goes when its word
+already has a longer one* — and shipped it as `scripts/enforce_sentence_floor.py`,
+which rewrites the committed TSVs. Production never got that rule. Both
+halves of the resulting gap were invisible from either side alone: the files
+looked clean because they are, and the prune looked complete because it
+deletes everything the files disown *among sources it is allowed to touch*.
+
+`_context_free` (§18a) already carved one hole in the source exemption, for
+rows that are only the headword — "Да.", "И?". It does not reach a row that
+is thin but not bare: "You are human." has context words, so it kept its
+exemption forever.
+
+**The fix.** `FLOOR = 5`, the tokenizer, and the unspaced-script exemption
+now live in `backend/services/seeder/prune_sentences.py`, and
+`scripts/enforce_sentence_floor.py` **imports them** — the file pass and the
+production prune cannot drift, which is the only way "the bank and the
+database follow the same rule" is structurally true rather than asserted.
+A row is a candidate whatever its source when it falls below the floor; the
+never-strand rule still refuses to empty a word, so a word whose every
+sentence is thin keeps them all. Thai is exempt entirely (§22).
+
+**What it reaches, measured on production the day it landed:**
+
+| course | before | after | course | before | after |
+| --- | ---: | ---: | --- | ---: | ---: |
+| en | 3,436 | **4,247** | es | — | 9,171 |
+| ru | 0 | **2,853** | tr | — | 10,015 |
+| ar | 31 | **3,270** | xh | — | 222 (145 stranded) |
+| th | 52 | 52 (exempt) | | | |
+
+Xhosa is the shape to expect in a thin course: 99% of its protected rows are
+under the floor, so 145 words hit the never-strand rule and keep what they
+have. That is the correct outcome and it is also the authoring queue.
+
+**Two tests exist because of how this was found.** The floor's own cases, and
+a repair to `test_curated_and_ai_rows_are_never_candidates`, which used a
+two-word sentence: once the floor landed that test still passed — via the
+never-strand rule, not the exemption it names. A test that passes for a
+reason it does not state is quality rule 14, and it was one edit away from
+hiding this.
+
+**Status: all — one predicate, Thai exempt by the same rule as §22.**
+Rule 43 (rewritten).
 
 ---
 

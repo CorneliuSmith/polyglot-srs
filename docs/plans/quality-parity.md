@@ -1138,15 +1138,18 @@ Re-measured on the committed banks after the 31 Aug–5 Sep passes:
 
 Three defects the owner's 5 Sep screenshots added, each measured on all 27:
 
-**6 · The card draws the shortest sentence first — CHECKS §26.** "We are
-___." for `human` while the bank held "This dog is almost human." and
-longer. Sentences are drawn `ORDER BY difficulty_rank, id`; every row of a
-word ties on the word's rank, so insertion order decides, and corpus rows
-were inserted first. 89% of English, 62% of German, 58% of Russian top-2,000
-words that OWN a 7–14-word sentence show a shorter one first (full table in
-§26). **One ORDER BY fixes every course at once and is the first thing to
-build when implementation resumes** — it is worth more than any authoring
-pass, including the two already done.
+**6 · The learner meets fragments the prune could not reach — CHECKS §26,
+§24a. FIXED 6 Sep; needs a re-prune per course.** "We are ___." for `human`
+while the bank held real sentences. Not a draw-order defect (the card
+rotates over every clozable sentence; there is no "first" — the original
+diagnosis in this item was wrong and §26 records why). The cause was
+**15,802 rows under five tokens in PRODUCTION**, 48% of every `ai` row,
+protected by `prune_sentences`' source exemption: `human` had 48 `ai` rows
+against 4 in the bank. The floor is now a prune predicate shared with
+`enforce_sentence_floor.py`, so the files and the database follow one rule.
+Dry runs after the change: en 3,436 → 4,247, ru 0 → 2,853, ar 31 → 3,270,
+es 9,171, tr 10,015, th 52 (exempt). **Every course needs a prune pass,
+including the three already pruned.**
 
 **7 · The English course renders its usage note as the translation —
 CHECKS §27.** "do — the participle." under TRANSLATION. The convention is
@@ -1183,8 +1186,8 @@ toneless twin or an unspaced run is skipped, and a word with no clozable
 row silently serves the definition-only prompt. Measured with the
 production function: th 93% of rows (1,085 top-2,000 words with none),
 ko 54% (566), ar 47% (491), yo 50% (182), la 34%, tr 16%, ru 13%, sw 11%.
-**Every coverage number in items 1–8 and in CHECKS §26 counted these rows
-as coverage; for th/ko/ar/yo they are not.** Order, by learner impact:
+**Every coverage number in items 1–8 counted these rows as coverage; for
+th/ko/ar/yo they are not.** Order, by learner impact:
 Thai cloze through `thai.segment` (route exists, 1,085 words) → surface
 form stored as the row's answer for inflecting courses (migration,
 owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader pass over 6,048
