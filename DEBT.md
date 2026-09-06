@@ -241,6 +241,29 @@ quietly offers no Edit button.
 
 ## Real gotchas — already hit once, will bite again if forgotten
 
+### A wrong-language row can still be STORED; it is only hidden at serve time
+
+Since 6 Sep 2026 a card never shows a third language: `locale_guard`
+strips a field that is provably neither the learner's locale nor English.
+That fixes what the learner sees. **It does not fix the row.** The Spanish
+sitting in an `example_sentences` row filed as `translation_locale='en'`
+— or in `drill_sentences.translation`, which has no locale column at all —
+is still there, still counts as filled, and so still suppresses the
+demand queue that would otherwise translate it properly.
+
+`services/quality/audit_locale_rows.py` now finds them (`_foreign_latin`,
+reusing the same conservative function-word test), so the fix is: run the
+audit against the deployment, and correct or delete what it lists. Until
+someone does, affected cards show no translation line where they used to
+show a wrong one — better, but not right.
+
+The detector is a heuristic and says so: two closed-class function-word
+hits and a margin over English. It will not catch a short mislabelled
+string with no function words ("Buenos días."), and it knows nothing
+about languages outside its ten-language table. Both are deliberate — the
+cost of a false positive is a deleted English cue, so it is tuned to stay
+quiet when unsure.
+
 ### The two translation lanes disagree about what a support locale is
 
 `fill_start_batch` (the inline, session-time fill) resolves the locale with

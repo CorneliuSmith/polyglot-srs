@@ -16,8 +16,11 @@ import pytest
 
 from backend.services.locale_guard import (
     LOCALIZED_FIELDS,
+    is_probably_english,
+    is_third_language,
     mark_locale_mismatches,
     mismatched_fields,
+    probable_latin_language,
     script_of,
     script_ratio,
     text_matches_locale,
@@ -156,3 +159,95 @@ class TestMarkIsAdditive:
     def test_no_locale_at_all_is_not_an_error(self):
         card = mark_locale_mismatches(dict(REPORTED), None)
         assert "locale_mismatch" not in card
+
+
+class TestThirdLanguageIsNeverServed:
+    """An Arabic-support account studying English was shown "El bebé llora
+    mucho por la noche." under الترجمة. The script guard was right — that
+    is not Arabic — but serving it anyway helped nobody: Spanish is
+    neither what they asked for nor the English fallback.
+
+    The rule (owner, 6 Sep 2026): the learner's locale, else English,
+    never a third language.
+    """
+
+    def test_the_reported_card_loses_its_spanish(self):
+        card = mark_locale_mismatches(
+            {"translation": "El bebé llora mucho por la noche."}, "ar")
+        assert card["translation"] is None
+        assert card["locale_withheld"] == ["translation"]
+        # Withheld is not "mismatched" — nothing is left to label.
+        assert "locale_mismatch" not in card
+
+    def test_the_english_fallback_is_kept_and_labelled(self):
+        # The whole point of keeping it: on a cloze this is the learner's
+        # only semantic cue, and English is what every query falls back to.
+        card = mark_locale_mismatches(
+            {"translation": "The baby cries a lot at night."}, "ar")
+        assert card["translation"] == "The baby cries a lot at night."
+        assert card["locale_mismatch"] == ["translation"]
+        assert "locale_withheld" not in card
+
+    def test_a_terse_english_note_survives(self):
+        # The English course's own drill translations read like this —
+        # no function words at all. Dropping them would be a worse bug
+        # than the one this fixes, so undecidable text is kept.
+        for note in ("Introducing yourself.", "Right now → continuous.",
+                     "Talking about a thing."):
+            card = mark_locale_mismatches({"translation": note}, "ar")
+            assert card["translation"] == note, note
+
+    def test_one_field_can_go_while_another_stays(self):
+        card = mark_locale_mismatches(
+            {"translation": "Le bébé pleure beaucoup la nuit.",
+             "hint": "to cry"}, "ar")
+        assert card["translation"] is None
+        assert card["hint"] == "to cry"
+        assert card["locale_withheld"] == ["translation"]
+        assert card["locale_mismatch"] == ["hint"]
+
+    def test_a_latin_locale_still_checks_nothing(self):
+        # Unchanged: Spanish under a Spanish-support account is correct,
+        # and script tells Latin locales apart no better than before.
+        card = mark_locale_mismatches({"translation": "El bebé llora."}, "es")
+        assert card["translation"] == "El bebé llora."
+        assert "locale_withheld" not in card
+
+
+class TestProbableLatinLanguage:
+    """Deliberately one-sided, exactly like the script guard: it reports
+    "provably not English" or "cannot tell", never "definitely English",
+    and only the first changes what a learner sees."""
+
+    def test_names_the_language_when_the_function_words_are_there(self):
+        assert probable_latin_language("El bebé llora mucho por la noche.") == "es"
+        assert probable_latin_language("Le bébé pleure beaucoup dans la nuit.") == "fr"
+        assert probable_latin_language("Il bambino piange molto per la notte.") == "it"
+
+    def test_english_is_never_the_answer(self):
+        # The function exists to answer "something OTHER than English?",
+        # so English is the thing compared against, not a result.
+        assert probable_latin_language("The baby cries a lot at night.") is None
+
+    def test_one_marker_is_a_coincidence(self):
+        # "die", "a" and "is" are English words too. Requiring two hits AND
+        # a margin over English keeps a quoted foreign phrase English.
+        assert probable_latin_language("The word die is German.") is None
+        assert is_probably_english("The word die is German.") is True
+
+    def test_short_and_unmarked_text_is_undecidable(self):
+        for text in ("", "   ", "1991", "—", "Titanic"):
+            assert probable_latin_language(text) is None
+            assert is_probably_english(text) is None
+
+    def test_a_sign_counts_where_a_function_word_is_missing(self):
+        # Two signs, no function words: "Año" and the inverted mark.
+        assert probable_latin_language("¿Año nuevo?") == "es"
+
+    def test_third_language_needs_proof_on_both_halves(self):
+        # Not the locale AND provably not English. Undecidable text is not
+        # a third language, so it keeps its old behaviour.
+        assert is_third_language("El bebé llora mucho por la noche.", "ar") is True
+        assert is_third_language("The baby cries a lot at night.", "ar") is False
+        assert is_third_language("Introducing yourself.", "ar") is False
+        assert is_third_language("يبكي الطفل كثيرا في الليل.", "ar") is False

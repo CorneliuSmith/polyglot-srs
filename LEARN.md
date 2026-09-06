@@ -584,6 +584,32 @@ placeholder is always an error, and a *dropped* placeholder is an error
 only outside plural forms. It found two keys missing from all five
 existing catalogs on its first run.
 
+**The fallback chain is the learner's locale, else English, never a third
+language** (owner, 6 Sep 2026). Every card query already implements the
+first two halves — `translation_locale IN ($locale, 'en')`, and a
+per-field `COALESCE` onto the authored English — so a third language can
+only reach a learner through a MISLABELLED row: Spanish text filed as
+`translation_locale='en'`, or written into `drill_sentences.translation`,
+which has no locale column because it is English by definition.
+
+`services/locale_guard.py` is what catches that at serve time, and it now
+answers two different questions. The original one is script-based: is
+this text written in the script the locale uses? That proves "not Arabic"
+and is blind between two Latin alphabets — which is exactly where the
+reported bug hid. So it gained a second, function-word test that answers
+only "is this provably NOT English", using closed-class words (articles,
+prepositions, copulas) that appear in any sentence of their language and
+are not borrowed into English prose.
+
+Both tests are deliberately one-sided: what they flag IS wrong, what they
+pass is merely not provably wrong. That asymmetry decides the outcome —
+a mismatched field that might be English is KEPT and labelled (it is the
+fallback, and on a cloze it is the learner's only semantic cue), while a
+provable third language is REMOVED and reported in `locale_withheld`.
+Undecidable text keeps its old behaviour, which matters because the
+English course's own drill translations are terse notes like "Introducing
+yourself." with no function words in them at all.
+
 A UI language is **not** a support locale, and shipping one translates no
 card content. `docs/seeding.md` has the table: a language code plays up to
 three independent roles (course, UI language, support locale), each with
