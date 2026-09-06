@@ -166,22 +166,182 @@ def mismatched_fields(
 
 
 def mark_locale_mismatches(card: dict, locale: str | None) -> dict:
-    """Stamp a card with the fields that are not in the learner's language.
+    """Stamp a card with the fields that are not in the learner's language,
+    and strip the ones that are a THIRD language.
 
     Applied to the assembled payload rather than inside each query on
     purpose: one call covers vocabulary, grammar and personal cards, and
     it catches a row that merely CLAIMS to be in the locale — which no
     amount of tracking the served locale in SQL can do.
 
-    The card is still served. The field is the learner's only semantic
-    cue on a cloze, so withholding it would trade a card they can read
-    the wrong language on for one they cannot answer at all; the UI
-    labels it with the language it is actually in, and the existing
-    demand queue fills it for next time. Absent key means "nothing to
-    report", so older clients and every Latin-script locale see exactly
-    what they saw before.
+    Two outcomes, because a mismatch is not one thing:
+
+    * **English** (or anything this cannot read) is KEPT and labelled. It
+      is the app's authored base and the fallback every query already
+      reaches for, and the field is the learner's only semantic cue on a
+      cloze — withholding it would trade a card they can read the wrong
+      language on for one they cannot answer at all.
+    * **A provable third language is REMOVED.** "El bebé llora mucho por
+      la noche." under an Arabic label helps nobody: it is not what they
+      asked for and not the fallback either. The owner's rule is the
+      learner's locale, else English, never a third language — so the
+      field goes, the card serves without it exactly as a card that never
+      had a translation does, and `locale_withheld` says so for anything
+      that wants to report it.
+
+    Removal needs proof on both halves (not the locale AND not English),
+    so an undecidable string keeps its old behaviour. Absent keys mean
+    "nothing to report", so older clients and every Latin-script locale
+    see exactly what they saw before.
     """
     bad = mismatched_fields(card, locale)
-    if bad:
-        card["locale_mismatch"] = bad
+    if not bad:
+        return card
+    withheld = [f for f in bad if is_probably_english(card.get(f)) is False]
+    if withheld:
+        for f in withheld:
+            card[f] = None
+        card["locale_withheld"] = withheld
+    labelled = [f for f in bad if f not in withheld]
+    if labelled:
+        card["locale_mismatch"] = labelled
     return card
+
+
+# ---------------------------------------------------------------------------
+# The Latin-to-Latin case the script check cannot reach.
+#
+# The script test above proves "this is not Arabic". It cannot prove "this is
+# Spanish rather than English", because they share an alphabet — and that is
+# the gap a learner fell into: an Arabic-support account studying English was
+# shown "El bebé llora mucho por la noche." under "الترجمة (not in your
+# language yet)". The script guard did its job (that is certainly not Arabic)
+# and then the payload served the row anyway, because the only alternative it
+# knew about was withholding the learner's one semantic cue.
+#
+# English is the app's authored base and the fallback every query already
+# reaches for, so the rule the owner asked for is: the learner's locale, else
+# English, and never a third language. Deciding that needs one question the
+# script test cannot answer — is this English? — so here is the cheapest
+# honest answer to it: function words. No model call, no dependency, and it
+# runs on every card.
+#
+# It is deliberately one-sided in the same way the script guard is. It reports
+# "provably not English" or "cannot tell", never "definitely English", and
+# only the first of those changes what a learner sees. Anything short,
+# ambiguous, or unmarked keeps its old behaviour — which matters more than it
+# looks, because the English course's own drill translations are terse notes
+# like "Introducing yourself." with no function words in them at all, and
+# withholding those would be a worse bug than the one this fixes.
+
+# Words that are common in one Latin-script language and rare or absent in
+# English. Chosen to be closed-class (articles, prepositions, conjunctions,
+# copulas): they appear in almost any sentence of their language and are not
+# borrowed into English prose the way nouns are.
+_LATIN_MARKERS: dict[str, frozenset[str]] = {
+    "es": frozenset("el la los las un una unos unas que por con para del al "
+                    "es son está están muy más pero como cuando donde porque "
+                    "su sus lo se no hay tiene".split()),
+    "pt": frozenset("o os as um uma que por com para do da dos das no na "
+                    "não mais muito mas como quando onde porque seu sua é "
+                    "são está estão tem".split()),
+    "fr": frozenset("le la les un une des du de est sont dans pour avec "
+                    "mais très plus ce cette qui que ne pas au aux sur son "
+                    "ses leur elle il".split()),
+    "it": frozenset("il lo la gli le un una che per con del della dei delle "
+                    "è sono molto più ma come quando dove perché suo sua "
+                    "nel nella non".split()),
+    "de": frozenset("der die das ein eine einen und ist sind nicht mit für "
+                    "sehr aber auch von zu im am auf dem den des".split()),
+    "nl": frozenset("de het een en is zijn niet met voor zeer maar ook van "
+                    "naar op in aan dat die deze".split()),
+    "ca": frozenset("el la els les un una que amb per del dels són és molt "
+                    "més però com quan on perquè seva seu".split()),
+    "ro": frozenset("și este sunt nu cu pentru din care mai foarte dar când "
+                    "unde pentru că lui ei".split()),
+    "tr": frozenset("bir ve bu için ile çok daha değil ama gibi olarak "
+                    "kadar sonra önce her".split()),
+    "id": frozenset("yang dan di ke dari untuk dengan tidak ini itu adalah "
+                    "pada atau juga akan sudah".split()),
+}
+
+# The same class of word in English, to compare against.
+_ENGLISH_MARKERS = frozenset(
+    "the a an is are was were be been and or of to in on at for with that "
+    "this these those it he she they you i not very more but as from by "
+    "have has had do does did will would can could".split()
+)
+
+# Letters and punctuation that only some of these languages use. Worth a
+# marker each on their own, because a short string can carry one of these
+# and no function word at all ("Año nuevo").
+_LATIN_SIGNS: dict[str, str] = {
+    "es": "ñ¿¡",
+    "pt": "ãõ",
+    "fr": "œ",
+    "de": "ß",
+    "tr": "ğışİ",
+    "ro": "ăâîșț",
+}
+
+# Two hits, and more than English scores. One hit is a coincidence — "die"
+# and "a" are English words too — and requiring a MARGIN over English keeps
+# a sentence that merely quotes a foreign phrase on the English side.
+_LATIN_MIN_HITS = 2
+
+
+def _words(text: str) -> list[str]:
+    out, cur = [], []
+    for ch in text.lower():
+        if ch.isalpha():
+            cur.append(ch)
+        elif cur:
+            out.append("".join(cur))
+            cur = []
+    if cur:
+        out.append("".join(cur))
+    return out
+
+
+def probable_latin_language(text: str | None) -> str | None:
+    """The Latin-script language *text* is probably in, or None when the
+    evidence does not support naming one. Never returns 'en': this exists
+    to answer "is it something OTHER than English", and English is the
+    thing being compared against."""
+    if not text or not text.strip():
+        return None
+    words = _words(text)
+    if not words:
+        return None
+    seen = set(words)
+    english = sum(1 for w in seen if w in _ENGLISH_MARKERS)
+    best, best_score = None, 0
+    for code, markers in _LATIN_MARKERS.items():
+        score = sum(1 for w in seen if w in markers)
+        score += sum(1 for ch in _LATIN_SIGNS.get(code, "") if ch in text.lower())
+        if score > best_score:
+            best, best_score = code, score
+    if best_score >= _LATIN_MIN_HITS and best_score > english:
+        return best
+    return None
+
+
+def is_probably_english(text: str | None) -> bool | None:
+    """True when *text* looks like English, False when it provably looks
+    like another Latin-script language, None when there is not enough to
+    go on. Only False is acted on."""
+    if not text or not text.strip():
+        return None
+    if probable_latin_language(text) is not None:
+        return False
+    return True if any(w in _ENGLISH_MARKERS for w in _words(text)) else None
+
+
+def is_third_language(text: str | None, locale: str | None) -> bool:
+    """*text* is neither the learner's locale nor English — the one case
+    that must never be served. Requires PROOF on both halves, so an
+    undecidable string is not a third language and keeps its old
+    behaviour."""
+    if text_matches_locale(text, locale):
+        return False
+    return is_probably_english(text) is False
