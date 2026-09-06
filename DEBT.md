@@ -151,17 +151,20 @@ Two things that pass the tests but are not finished:
   points — the whole point of generating it is that it lists them all.
 
 
-### The card draws a word's SHORTEST sentence first
+### The prune's source exemption shielded thin rows (fixed 6 Sep 2026)
 
-`get_due_cards` orders a word's sentences `difficulty_rank ASC, id`, and
-every row of a word carries the word's frequency rank on purpose (CHECKS
-§24), so `id` — insertion order — decides. Corpus rows were inserted before
-authored ones and Tatoeba lists short sentences first. Result: 89% of
-English and 58% of Russian top-2,000 words that own a 7–14-word sentence
-show a shorter one — after 6,517 Russian sentences were authored to fix
-exactly that. The fix is a single ORDER BY preferring the §23 band (the
-SQL is in CHECKS §26), with Thai degrading to today's order. Designed 6 Sep,
-not built; first item in `docs/decisions/2026-09-06-review-pass.md`.
+Kept as the reason, not the problem: `prune_sentences` exempted `curated`
+and `ai` rows because no rebuild reproduces them, which left **15,802 rows
+under five tokens** in production — 48% of every `ai` row — including the
+"You are human." / "I am human." set behind the owner's `human` card. The
+files had carried §24's floor since 31 Aug; production had not, which is why
+pruning ru and ar reported 0 and 31 rows while thousands of thin ones
+stayed. Now `FLOOR`, the tokenizer and the Thai exemption live in
+`prune_sentences.py` and `scripts/enforce_sentence_floor.py` imports them,
+so the file pass and the production prune cannot drift. **The rows only
+leave production when the owner re-runs the prune per course**
+(`docs/quality/refeed.md`) — every course needs a second pass, including
+en/ru/ar which were pruned before this existed.
 
 ### The English course shows its drill usage note under "Translation"
 

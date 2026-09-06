@@ -71,7 +71,11 @@ supabase db push
 .venv/bin/python -m backend.services.seeder.prune_sentences -l <code> --apply
 ```
 6. **Prune.** Removes every sentence production holds that the committed
-   bank does not endorse (CHECKS §18). Dry run first; `--apply` writes
+   bank does not endorse (CHECKS §18), plus — since 6 Sep — any row under
+   five tokens whose word keeps a longer one, whatever its source
+   (CHECKS §24a). **Re-run it for every course, including en, ru and ar
+   which were pruned before that rule existed**: it reaches 15,802 thin
+   `ai`/`curated` rows the old exemption protected. Dry run first; `--apply` writes
    `out/prune-<stamp>.sql` first. Refuses to run against an empty committed
    bank. This is the step that changes what a card shows; without it, step
    5 only ever adds.
@@ -114,10 +118,10 @@ delete it. The path is printed at the end of every `--apply`.
 ## After the run — what to look at
 
 * `reconcile -l <code>` again: the dry run should now report nothing.
-* One card you know: the word from the last screenshot, in Review. A
-  sentence that changed in the file should be the one on the card once
-  step 6 has run — and note CHECKS §26: the card draws by rank then id, so
-  a NEW sentence does not win over an old short one until that fix lands.
+* One card you know: the word from the last screenshot, in Review. A card
+  ROTATES over every sentence its word has (CHECKS §26), so what changes
+  after a prune is the odds, not one fixed choice — check a few appearances,
+  not one.
 * `SELECT count(*) FROM user_cards uc LEFT JOIN vocabulary v ON v.id =
   uc.card_id WHERE uc.card_type = 'vocabulary' AND v.id IS NULL` — must be
   0 (it was, on 30 Aug). `card_type` matters: grammar cards point at
@@ -131,7 +135,8 @@ delete it. The path is printed at the end of every `--apply`.
   in files (`vocab_exclusions.tsv`, 727 today, 764 after `fix/en-symbol-glosses`) are still served in
   production until a retire step exists (DEBT.md, "Exclusions have no
   production write path").
-* **Reorder a word's sentences.** Ids are assigned at insert; CHECKS §26.
+* **Choose WHICH sentence a card shows.** It rotates over all of them
+  (CHECKS §26); the only lever is which rows exist, which is step 6.
 * **Spend the API key.** Nothing here calls a model. The DB-side AI passes
   (`review_translations`, `review_hints`, gym top-up, example diversity) are
   owner decisions, listed in `docs/plans/quality-parity.md` Phase 6, and

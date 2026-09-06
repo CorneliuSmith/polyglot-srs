@@ -257,13 +257,17 @@ rate, say so — that result matters more than the phase closing quietly.
     teaches. The exemption was preserving exactly the defect the owner
     reported from a card.
 
-43. **Measure what the card DRAWS, not what the bank holds.** Sentences are
-    drawn `ORDER BY difficulty_rank, id`; every row of a word shares the
-    word's rank (rule 41), so the tie goes to insertion order — corpus rows
-    first, authored rows last. 89% of English and 58% of Russian top-2,000
-    words that OWN a §23 sentence still show a fragment first, after 6,517
-    Russian sentences were authored to fix exactly that. Coverage is a bank
-    number; the learner sees a selection. (CHECKS §26)
+43. **Ask what the reader is SHOWN, then find the population that dominates
+    it.** A card rotates over every clozable sentence a word has
+    (`_pick_index`: unseen first, then most-missed, else a stable hash) — so
+    exposure is a fragment's SHARE of the pool, not the minimum or the first
+    row. This rule replaces a wrong one: "the card draws the shortest first,
+    fix the ORDER BY" was measured in file order, at §23's 7-token bar
+    instead of §24's 5, over rows `make_cloze` rejects. The real cause was
+    15,802 thin rows in PRODUCTION that the prune's source exemption
+    protected. Read the code that does the choosing before writing the fix.
+    (CHECKS §26, §24a)
+
 44. **A label is a layer.** The English course's drill `translation` is a
     usage note by convention (`en.md` note 0) — correct data that renders
     under the heading "Translation" for an English-UI learner ("do — the

@@ -10,9 +10,12 @@ curated 70,975, so a learner opening the card for "I" was shown "I am.",
 
 **What it will not do.**
 
-* It never touches a row whose source is not `tatoeba`. `curated` and `ai`
-  rows are human-authored or human-reviewed and are not reproducible from a
-  file; the bulk corpus is.
+* It never touches a row whose source is not `tatoeba` — UNLESS that row is
+  one the exemption exists to protect nothing in: a sentence that is only
+  the word it teaches (`_context_free`), or one below the five-token floor
+  when the word keeps a longer survivor (`_below_floor`, CHECKS §24).
+  `curated` and `ai` rows are otherwise human-authored or human-reviewed and
+  are not reproducible from a file; the bulk corpus is.
 * It never leaves a word with no example sentence. A word whose every row
   would be deleted keeps its rows and is reported instead.
 * It matches on (word, SENTENCE) — never on the translation locale. The file
@@ -36,6 +39,7 @@ import argparse
 import asyncio
 import csv
 import os
+import unicodedata
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -48,6 +52,52 @@ ROLLBACK_DIR = REPO / "out"
 # Only the bulk corpus is reproducible from a committed file. Everything else
 # represents work a human did that no rebuild would bring back.
 PRUNABLE_SOURCES = ("tatoeba",)
+
+# The deletion floor, CHECKS §24 — the same number and the same tokenizer the
+# FILE pass uses (`scripts/enforce_sentence_floor.py` imports both from here,
+# so the two cannot drift). Thai writes without spaces, so counting tokens
+# says nothing about how much sentence is there (§22).
+FLOOR = 5
+UNSPACED = {"th"}
+
+
+def sentence_tokens(sentence: str) -> list[str]:
+    r"""Letters-plus-marks words, so Devanagari and Arabic vowel signs stay
+    attached to their letter — Python's ``\w`` drops them and turns नहीं
+    into नह (quality rule 39)."""
+    out: list[str] = []
+    cur = ""
+    for ch in sentence or "":
+        if unicodedata.category(ch).startswith(("L", "M")) or (cur and ch in "'\u2019-"):
+            cur += ch
+        else:
+            if cur:
+                out.append(cur)
+                cur = ""
+    if cur:
+        out.append(cur)
+    return out
+
+
+def _below_floor(sentence: str, code: str) -> bool:
+    """True when the sentence is too thin to teach (CHECKS §24).
+
+    Candidacy only — the caller's never-strand rule still refuses to empty a
+    word, so a word whose every sentence is thin keeps them all.
+
+    This exists because the source exemption was shielding exactly the rows
+    the owner kept meeting. The English card for `human` served "You are
+    human.", "I am human." and "She is human." — 48 rows, source `ai`, none
+    of them in any committed bank — while the bank held "Every language that
+    dies out takes a piece of human history with it." `_context_free` did not
+    reach them: they are not BARE headwords, they are three-token frames. The
+    file banks had this floor applied on 31 Aug; production never did, which
+    is why pruning `ru` and `ar` left 2,822 and 3,123 thin protected rows
+    behind. (Quality rule 42, second instance.)
+    """
+    if code in UNSPACED:
+        return False
+    return len(sentence_tokens(sentence)) < FLOOR
 
 
 def _context_free(sentence: str, word: str) -> bool:
@@ -64,7 +114,6 @@ def _context_free(sentence: str, word: str) -> bool:
     sentence to the headword rather than counting whitespace tokens, which is
     meaningless for Thai and misleading for Korean (CHECKS §22).
     """
-    import unicodedata
 
     bare = "".join(
         c for c in (sentence or "")
@@ -122,6 +171,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
             return (
                 r["source"] in PRUNABLE_SOURCES
                 or _context_free(r["sentence"], word)
+                or _below_floor(r["sentence"], code)
             )
 
         survivors = [
