@@ -1180,7 +1180,7 @@ decide the grading policy (§28: stop scolding for a form the card never
 named); then let 2d's override work carry the rule "definition + sentence
 determine one string" (§23).
 
-**11 · Rows the card can never blank — CHECKS §29.** `make_cloze` matches
+**11 · Rows the card can never blank — CHECKS §29. Thai SHIPPED 6 Sep.** `make_cloze` matches
 the surface headword whole-word; a row with only an inflection, a stem, a
 toneless twin or an unspaced run is skipped, and a word with no clozable
 row silently serves the definition-only prompt. Measured with the
@@ -1188,11 +1188,13 @@ production function: th 93% of rows (1,085 top-2,000 words with none),
 ko 54% (566), ar 47% (491), yo 50% (182), la 34%, tr 16%, ru 13%, sw 11%.
 **Every coverage number in items 1–8 counted these rows as coverage; for
 th/ko/ar/yo they are not.** Order, by learner impact:
-Thai cloze through `thai.segment` (route exists, 1,085 words) → surface
-form stored as the row's answer for inflecting courses (migration,
-owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader pass over 6,048
-rows → Yoruba headword tones → an `unclozable_rows` audit rule that
-ratchets. And a rule for the applier from now on: SURFACE presence, never
+~~Thai cloze through `thai.segment`~~ **done — 311 → 3,675 clozable rows,
+1,085 → 110 dead words, and 35 blanks that were landing across word edges
+withdrawn** → surface form stored as the row's answer for inflecting
+courses (migration, owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader
+pass over 6,048 rows → Yoruba headword tones → 22 junk Thai headwords to
+`vocab_exclusions.tsv` → an `unclozable_rows` audit rule that ratchets. And
+a rule for the applier from now on: SURFACE presence, never
 lemma presence — the 31 Aug Russian pass shipped rows the card cannot use.
 
 **9 · English vocabulary the seeder never inserts.** `EnglishSeeder` stops

@@ -40,6 +40,20 @@ class TestMakeCloze:
     def test_first_occurrence_only(self):
         assert make_cloze("sí sí", "sí") == "{{answer}} sí"
 
+    def test_a_span_finder_replaces_the_boundary_match(self):
+        """For a script with no word boundaries the regex is not useless,
+        it is wrong — so find_span REPLACES it rather than backing it up."""
+        def span(sentence, answer):
+            i = sentence.find(answer)
+            return None if i < 0 else (i, i + len(answer))
+
+        assert make_cloze("abcdef", "cd", span) == "ab{{answer}}ef"
+        # ...and the regex must not get a second go when the finder declines.
+        assert make_cloze("El gato duerme.", "gato", lambda s, a: None) is None
+
+    def test_a_span_finder_is_only_used_when_given(self):
+        assert make_cloze("El gato duerme.", "gato") == "El {{answer}} duerme."
+
 
 class TestClassifyWords:
     def test_known_vs_new_and_dedup(self):

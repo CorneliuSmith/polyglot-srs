@@ -80,12 +80,15 @@ the board is a selection fix first and an authoring queue second.
    four courses: Thai, Korean, Arabic and Yoruba cards mostly have NO
    usable sentence, because `make_cloze` cannot blank an inflection, a
    stem, a toneless twin or an unspaced run and the card falls back to
-   definition-only without saying so. In order: the Thai cloze through
-   `thai.segment` (code only; 1,085 words); `apply_authored_sentences.py`
-   requires SURFACE presence from now on; the `unclozable_rows` audit
-   rule; then the surface-form answer column (migration) for inflecting
-   courses and the Arabic reader pass. Do the Thai cloze right after item
-   1 — it is the same size of change and the same kind of win.
+   definition-only without saying so. ~~The Thai cloze through
+   `thai.segment`~~ — **shipped 6 Sep**: 311 → 3,675 clozable Thai rows,
+   1,085 → 110 top-2,000 words without a showable sentence, and 35 false
+   blanks withdrawn (the regex was carving `แก` out of `แก้ม`, "cheek").
+   Still open, in order: `apply_authored_sentences.py` must require SURFACE
+   presence from now on; the `unclozable_rows` audit rule; 22 junk Thai
+   headwords to `vocab_exclusions.tsv`; then the surface-form answer column
+   (migration) for inflecting courses and the Arabic reader pass over
+   6,048 rows.
 8. **Prune to zero, or retire.** The 6 Sep dry runs left 100 Russian and
    72 Arabic words stranded on fragments (names, slang, letters). Either
    fold them into the retire step (item 4) or give `prune_sentences` an
