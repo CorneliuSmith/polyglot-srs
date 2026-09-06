@@ -557,6 +557,40 @@ false and both lanes are open. The waiting room shows the count of cards
 needed when the gate needs more than one; with a one-card gate it falls
 back to the batch percentage so the bar visibly moves.
 
+### The content pipeline is add-only; deleting and gating are separate tools
+
+Every seeder UPSERTs and none deletes. `seeder.run` upserts vocabulary on
+`(language_id, word)`; `seed_grammar` UPDATEs a drill's hint, translation and
+gloss in place; `seed_sentences` inserts `ON CONFLICT DO NOTHING`. That is
+what makes `scripts/setup_db.sh` safe to re-run and what keeps a learner's
+`user_cards` from orphaning — and it means **a row removed from a file is
+still in production** until a tool that deletes is run on purpose:
+
+- `prune_sentences -l <code>` — file-authoritative: a sentence production
+  holds that no committed bank endorses goes. Dry run by default; `--apply`
+  writes `out/prune-<stamp>.sql` first and runs in one transaction; never
+  strands a word; `curated`/`ai` rows are exempt unless they are only the
+  headword. A bulk DELETE, so the owner runs it (CHECKS §18).
+- `reconcile -l <code>` — corrections (glosses, parts of speech, sentence
+  layers) with the same rollback-first shape. Never deletes a vocabulary
+  row.
+- `data/vocab_exclusions.tsv` — durable deletions at the FILE layer
+  (`source_data.apply_vocab_exclusions`), because a TSV-only deletion is
+  undone by the next regeneration. It has no production counterpart yet
+  (DEBT.md).
+
+Content produced by an in-session maker–checker pass never goes straight
+into a file either. Three gates sit between a run's output and the data
+directory, each a script with tests: `scripts/apply_drill_glosses.py`
+(cells == tokens, one `___` on the answer, folded no-leak),
+`scripts/apply_authored_sentences.py` (7–14 words, the word present, rank =
+the word's frequency rank, duplicates and frames rejected) and
+`scripts/enforce_sentence_floor.py` (a sub-five-token row goes only when its
+word has a longer one). Each reads a run's `journal.jsonl` as well as its
+task output, because the journal has held the full result every time the
+task file came back empty. The order of operations, per course, is
+`docs/quality/refeed.md`.
+
 ## Frontend
 
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +

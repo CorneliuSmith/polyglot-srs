@@ -113,18 +113,26 @@ Postgres in this container gets reaped periodically. If a run produces a
 flood of connection errors, restart it and re-run — don't report the flood
 as a result.
 
-## Production pushes are GATED (owner decision, 26 Aug 2026)
+## Production content writes are the OWNER's to run — never this agent's
 
-**Do not run the production sequence, and do not propose running it, until
-BOTH of these are complete:**
+The 26 Aug gate (Gym level + comprehensive grammar review) was released by
+the owner running the full sequence on **30 Aug 2026** — migrations,
+`seeder.run`, `reconcile --apply` — and `prune_sentences --apply` for en,
+ru and ar since. What has not changed, and does not change per session:
 
-1. the Gym level, and
-2. a review of the grammar concepts — which must be **comprehensive**, not
-   just defect-free.
+- **This agent never runs a production write** — seed, reconcile, prune,
+  or ad-hoc SQL. A bulk DELETE attempt was blocked by the auto-mode
+  classifier, correctly. Read-only queries via `DATABASE_URL` are fine;
+  print the host, never the DSN.
+- **Prepare, don't run.** The per-course order, every command without the
+  DSN, and the rollback for each is `docs/quality/refeed.md`. When the owner
+  asks how to push, point there and list what changed since their last run.
+- **Code deploys itself** from `main` (DigitalOcean); only DATA needs the
+  owner's hands.
 
-The owner has already heard the argument that the deployed app is worse than
-the repository and decided the release waits. Do not re-open it each session.
-Full detail and the three commands: `docs/decisions/2026-08-26-owner-decisions.md`.
+History and the decisions themselves:
+`docs/decisions/2026-08-26-owner-decisions.md`,
+`docs/decisions/2026-08-30-content-push-and-gloss-pass.md`.
 
 ## Migrations
 

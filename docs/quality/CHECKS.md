@@ -1042,6 +1042,158 @@ defect. Ask what the writing system treats as optional — Arabic short vowels,
 Russian ё, Hebrew niqqud are all omissible — and judge only what remains.
 89% of this sweep was the writing system doing what it normally does.
 
+## §26 The card draws the SHORTEST sentence first (6 Sep 2026)
+
+The owner's screenshot: English `human`, sentence "We are ___." — three
+words, in a course whose bank holds 15,350 sentences for its top 2,000
+words, 7,990 of them inside the §23 band. The word had a scene available;
+the card did not show it.
+
+**Selection, not supply.** `get_due_cards` (`backend/repositories/cards.py`)
+aggregates a word's sentences `ORDER BY difficulty_rank ASC NULLS LAST, id`.
+Every row of a word carries the WORD's frequency rank (§24, rule 41), so the
+order inside a word is decided entirely by `id` — insertion order, which is
+file order. Corpus rows precede authored rows in every bank, and the Tatoeba
+export lists short sentences first. So the first-drawn sentence is the
+shortest the corpus had, on every course, however many good ones sit behind
+it. This is the `мне` defect (§24) in its second form: there the authored
+rows lost on rank; here they lose on the tie-break.
+
+Measured on the committed banks, 6 Sep, top-2,000 band, Thai excluded (§22).
+"has §23" = words with at least one 7–14-word sentence; "1st < 7" = of
+those, how many draw a sub-seven sentence first; "no §23" = words with
+sentences but none in the band — the SUPPLY problem, which ordering cannot
+fix.
+
+| code | has §23 | 1st < 7 | % | top-3 all < 7 | no §23 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| en | 1,900 | 1,689 | 89% | 1,096 | 75 |
+| de | 1,223 | 764 | 62% | 0 | 738 |
+| nl | 1,288 | 782 | 61% | 0 | 683 |
+| pt | 1,137 | 684 | 60% | 0 | 782 |
+| es | 1,184 | 695 | 59% | 0 | 784 |
+| it | 844 | 495 | 59% | 0 | 1,065 |
+| ru | 1,991 | 1,160 | 58% | 98 | 6 |
+| tr | 375 | 210 | 56% | 0 | 1,617 |
+| he | 316 | 160 | 51% | 2 | 1,538 |
+| fr | 1,537 | 755 | 49% | 0 | 398 |
+| id | 802 | 344 | 43% | 0 | 802 |
+| ko | 189 | 79 | 42% | 2 | 1,018 |
+| ro | 1,107 | 455 | 41% | 0 | 666 |
+| ar | 1,979 | 791 | 40% | 27 | 18 |
+| el | 743 | 296 | 40% | 0 | 1,042 |
+| tl | 780 | 288 | 37% | 0 | 620 |
+| fa | 931 | 322 | 35% | 4 | 448 |
+| yo | 291 | 88 | 30% | 0 | 128 |
+| ca | 965 | 253 | 26% | 0 | 509 |
+| sw | 791 | 174 | 22% | 0 | 414 |
+| ha | 1,429 | 200 | 14% | 1 | 7 |
+| jam | 482 | 56 | 12% | 0 | 1 |
+| hi | 1,306 | 92 | 7% | 0 | 320 |
+| mi | 672 | 39 | 6% | 0 | 15 |
+| xh | 193 | 6 | 3% | 0 | 298 |
+| la | 559 | 6 | 1% | 0 | 0 |
+
+Read the two right-hand columns separately, because they are two jobs:
+
+* **ru and ar are the proof that supply alone does nothing.** 6,517 Russian
+  and 1,137 Arabic sentences were authored to the §23 bar on 31 Aug, every
+  top-2,000 word now has one — and 58% / 40% of those words still show a
+  fragment first, because the authored rows were appended after the corpus
+  rows. The owner would see no difference on most cards.
+* **tr, he, it, el, ko have more than a thousand top-2,000 words with no
+  §23 sentence at all.** That is the authoring queue (Phase 8), and it is
+  the order the plan already set.
+
+**The fix is one ORDER BY, and it is worth more than any authoring pass.**
+Prefer the §23 band at draw time, then rank, then id:
+
+    ORDER BY (array_length(regexp_split_to_array(btrim(pes.sentence), '\s+'), 1)
+              BETWEEN 7 AND 14) DESC,
+             pes.difficulty_rank ASC NULLS LAST, pes.id
+
+A whitespace count is the right instrument HERE because it only has to sort,
+not judge: a Thai sentence mostly counts as one token and keeps today's
+order, and where phrase spaces do carry one into the band it is a longer
+sentence anyway — the change degrades to the status quo on an unspaced
+script rather than mis-sorting it. This LATERAL in `get_due_cards` is the
+only place the repository aggregates a word's sentences (grep
+`difficulty_rank ASC NULLS LAST`), so one edit covers Review and Learn.
+Test: a word with a 3-word row at a lower id and a 9-word row at a higher
+id returns the 9-word row first; a Thai word keeps rank order.
+
+Not the fix: re-ranking rows in the files (every row of a word ties on the
+word's rank by design, rule 41) or reordering file rows (production ids are
+already assigned; a re-seed is `ON CONFLICT DO NOTHING`, §18).
+
+**Status: all — a single query, no per-language value.** The rule this
+leaves: a bank number is not a learner number. Measure what the card draws.
+Rule 43.
+
+---
+
+## §27 The English course renders its usage note under "Translation" (6 Sep 2026)
+
+The owner's screenshot: grammar card "What would you have ___ in my
+position?", TRANSLATION line reading `do — the participle.`
+
+Not a data corruption. `docs/quality/en.md` note 0 records the convention:
+on the English course the target language IS the metalanguage, so a drill's
+`translation` field holds a **usage note** ("Introducing yourself.", "The
+past of 'eat'.") and the real translations live in
+`data/grammar/en_drill_hints.<locale>.json` — 19 locales × 266 drills,
+attached by `seed_grammar` and read back as
+`COALESCE(dht.translation, ds.translation)` in `curriculum.py` and
+`cards.py`. A Spanish-locale learner sees *Ayer fui al mercado.* under
+Traducción. Correct.
+
+**The defect is the label, and it is only visible in one configuration:
+English course, English UI locale.** No `drill_hint_translations` row
+exists for locale `en`, the COALESCE falls through to the note, and the
+note renders under the heading "Translation" — a heading that promises a
+rendering of the sentence and delivers a remark about it. The owner reads
+the app in English, so the owner sees it on every English grammar card.
+
+Measured 6 Sep, all 27 grammar banks: **266 of 266 `en` drills carry a
+note** (the convention, not a defect); **0 other courses** — 9 regex hits
+outside `en` were inspected and all are real translations that happen to
+contain a grammar word ("One person, many people."). Scoped to `en` by the
+convention's own reason; no other course has the target language as
+metalanguage.
+
+Inside the 266, **11 are not usage notes but cue-shaped duplicates of the
+hint** — the `answer — explanation` template en.md rule 4 already bans for
+hints, now in the translation field: `do — the participle.` beside hint
+`do — participle`; `good — irregular comparative.` beside `good —
+comparative`; `Asking about a person.` beside `asking about a person`. Same
+text twice under two headings. Two points hold all eleven (Comparatives and
+superlatives ×5, The passive / conditionals / participle clauses ×4,
+Question words ×2). A note earns its place by adding the SCENE the hint
+lacks: `the participle` says nothing "Someone asks how you would have
+handled their situation" does.
+
+**Fix (design, not yet built):**
+
+1. Backend: on the `en` course return the note as `context` and
+   `translation` as the locale rendering only — `dht.translation`, null
+   when no locale row exists. Both `curriculum.py` (`examples`) and
+   `cards.py` (grammar examples). A Spanish learner keeps the translation
+   and gains nothing they cannot read; an English-UI learner gets the note
+   under an honest heading.
+2. Frontend: render `context` under a new label (`card.context`) in ALL six
+   locales — the Gym-link keys shipped in `en.json` alone (Phase 4) and that
+   mistake is not to be repeated.
+3. Data: rewrite the 11 cue-shaped notes as scenes in `en_grammar.json`.
+4. Check: `en` drill `translation` must not match `^\S+\s+[—–-]\s+` and must
+   not fold-equal its hint (`test_grammar_hints.py`). The other 26 courses
+   get the complementary check that `translation` is not one of the drill's
+   OWN fields restated — cheap, and it is the class.
+
+**Status: scoped to `en`** — the convention exists only where the target
+language is the metalanguage. Rule 44.
+
+---
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

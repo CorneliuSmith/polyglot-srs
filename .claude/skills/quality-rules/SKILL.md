@@ -257,6 +257,20 @@ rate, say so — that result matters more than the phase closing quietly.
     teaches. The exemption was preserving exactly the defect the owner
     reported from a card.
 
+43. **Measure what the card DRAWS, not what the bank holds.** Sentences are
+    drawn `ORDER BY difficulty_rank, id`; every row of a word shares the
+    word's rank (rule 41), so the tie goes to insertion order — corpus rows
+    first, authored rows last. 89% of English and 58% of Russian top-2,000
+    words that OWN a §23 sentence still show a fragment first, after 6,517
+    Russian sentences were authored to fix exactly that. Coverage is a bank
+    number; the learner sees a selection. (CHECKS §26)
+44. **A label is a layer.** The English course's drill `translation` is a
+    usage note by convention (`en.md` note 0) — correct data that renders
+    under the heading "Translation" for an English-UI learner ("do — the
+    participle."). When a field's meaning differs per course, the renderer
+    has to know, or the convention becomes a defect the moment it reaches a
+    screen. And a note that restates the hint is not a note. (CHECKS §27)
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
