@@ -270,7 +270,6 @@ tonight	Will you stay at home tonight?	¿Te quedarás en casa esta noche?	302	es
 everyone	Everyone said that I was wrong.	Todos dijeron que yo estaba equivocado.	303	es
 walk	I can walk to school in 10 minutes.	Puedo ir caminando a la escuela en 10 minutos.	304	es
 walk	Would you like to go for a walk?	¿Quieres dar un paseo?	304	es
-wanna	I wanna get out of here!	¡Quiero salir de aquí!	305	es
 ah	Ah, when will they meet again?	Ah, ¿cuándo se volverán a encontrar?	306	es
 marry	Why would you marry a woman if you like men?	¿Por qué casarse con una mujer si le gustan los hombres?	307	es
 second	Do it a second time.	Hazlo otra vez.	308	es
@@ -1022,8 +1021,6 @@ usually	We usually walk to school.	Generalmente vamos al colegio a pie.	1056	es
 account	We were held up for two hours on account of an accident.	A causa de un accidente nos retrasamos dos horas.	1057	es
 account	I was late for school on account of an accident.	Llegué tarde a la escuela por un accidente.	1057	es
 account	How do you account for that?	¿Cómo explicas eso?	1057	es
-er	He fell, so I had to take him to the ER.	Se había caído y le tuve que llevar a urgencias.	1058	es
-er	Tom was in the ER.	Tom estaba en urgencias.	1058	es
 color	What color is your hair?	¿De qué color es tu pelo?	1059	es
 color	Choose the color you like the best.	Elige el color que prefieras.	1059	es
 bob	Bob and Tom are brothers.	Bob y Tom son hermanos.	1060	es
@@ -1668,7 +1665,6 @@ mood	She is in a bad mood.	Ella está de mal humor.	1649	es
 dish	All you have to do is wash the dish.	Lo único que tienes que hacer es lavar el plato.	1652	es
 kate	Waiting for Kate, I saw Bob and Mary.	Mientras esperaba a Kate vi a Bob y a Mary.	1653	es
 wolf	Have you ever seen a wolf?	¿Alguna vez has visto un lobo?	1654	es
-la	I should cancel the trip to LA.	Debo cancelar el viaje a Los Angeles.	1657	es
 safety	She is worried about his safety.	Ella se preocupa por su seguridad.	1658	es
 safety	The Secret Service has to answer for the safety of the president.	El Servicio Secreto tuvo que responder por la seguridad del presidente.	1658	es
 location	This is the perfect location.	Esta es la ubicación perfecta.	1659	es
@@ -3910,9 +3906,6 @@ hannah	I took it for granted that they adored Hannah.	Di por sentado que adoraba
 feast	What a feast we had when we visited my aunt!	¡Vaya festín que tuvimos cuando visitamos a mi tía!	3746	es
 cabinet	What do you think of the new Cabinet?	¿Qué opinas del nuevo consejo de ministros?	3747	es
 cabinet	Every member of the cabinet was present.	Todos los miembros del gabinete estaban presentes.	3747	es
-tin	Tom heard the sound of rain on the tin roof.	Tom escuchaba el ruido de la lluvia en el techo de chapa.	3750	es
-tin	Can you tell silver and tin apart?	¿Puedes distinguir la plata del estaño?	3750	es
-tin	Do you know the difference between silver and tin?	¿Puedes distinguir la plata del estaño?	3750	es
 cricket	A caged cricket eats just as much as a free cricket.	Un grillo enjaulado come tanto como un grillo libre.	3751	es
 cricket	Tom is an excellent cricket player.	Tom es un excelente jugador de críquet.	3751	es
 cricket	Just as the Americans like baseball, the British like cricket.	Así como a los gringos les gusta el béisbol, a los británicos les gusta el críquet.	3751	es
@@ -4457,8 +4450,6 @@ shotgun	Tom shot Mary with a shotgun.	Tom le disparó a Mary con una escopeta.	4
 bass	Tom plays the bass guitar in our band.	Tom toca el bajo en nuestra banda.	4304	es
 gypsy	Gypsy culture is very centered on the family.	La cultura gitana está muy centrada en la familia.	4305	es
 honk	Tom continued to honk the horn.	Tom continuó pitando.	4311	es
-cd	It will cost you 10 dollars to buy the CD.	Comprar el CD cuesta 10 dólares.	4312	es
-cd	I spent 3000 yen on a new CD.	Gasté 3000 yenes en un nuevo CD.	4312	es
 samurai	A samurai without a sword is like a samurai with one, but only without one.	Un samurái sin espada es como un samurái con espada, sólo que sin ella.	4313	es
 samurai	The samurai drew his sword.	El samurái desenvainó su espada.	4313	es
 vera	Vera lives on the same street as you.	Vera vive en la misma calle que tú.	4314	es
@@ -5706,7 +5697,6 @@ chorus	They all sang in chorus.	Todos ellos cantaron en coro.	5542	es
 chorus	We sang songs in chorus.	Cantamos canciones en coro.	5542	es
 chorus	I did not listen to the chorus of that song.	No escuché el estribillo de esa canción.	5542	es
 nana	The snacks that our nana made us were always a special treat.	Las meriendas que nos hacía nuestra yaya eran siempre un deleite.	5543	es
-ra	The ancient Egyptians believed that the Sun was the eye of the god Ra.	Los antiguos egipcios creían que el Sol era el ojo del dios Ra.	5544	es
 negro	"""Negro"" is an offensive word."	"""Negro"" es una palabra ofensiva."	5545	es
 artificial	These pearls are genuine, not artificial.	Estas perlas son auténticas, no son falsas.	5547	es
 artificial	The artificial satellite was launched into orbit.	El satélite artificial fue puesto en órbita.	5547	es
@@ -6122,7 +6112,6 @@ tailor	That tailor always uses very good material.	Ese sastre usa siempre muy bu
 compartment	This is a non-smoking compartment.	Éste es un compartimento para no fumadores.	6029	es
 bureau	The bureau drawer has several compartments.	El cajón de la cómoda tiene varias divisiones.	6029	es
 compartment	Tom folded the map and put it back into the glove compartment.	Tom plegó el mapa y lo puso de vuelta en la guantera.	6029	es
-po	Send us your videos with your name and age to PO Box 4413.	Envíanos tus vídeos con tu nombre y tu edad al apartado de correos 4413.	6031	es
 stocking	There is a big hole in your stocking.	Tu calceta tiene un agujero grande.	6033	es
 stocking	You have a run in your stocking.	Tienes una carrera en las medias.	6033	es
 vegetarian	My wife is a vegetarian.	Mi mujer es vegetariana.	6036	es
@@ -6799,7 +6788,6 @@ patent	Where is the Tokyo patent office?	¿Dónde está la oficina de patentes d
 fa	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	En mi lengua las notas musicales son do, re, mi, fa, sol, la y si.	6795	es
 sol	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	En mi lengua las notas musicales son do, re, mi, fa, sol, la y si.	6795	es
 mi	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	En mi lengua las notas musicales son do, re, mi, fa, sol, la y si.	6795	es
-si	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	En mi lengua las notas musicales son do, re, mi, fa, sol, la y si.	6795	es
 driveway	Tom cleared snow from the driveway.	Tom quitó la nieve de la entrada para el automóvil.	6798	es
 intervene	There may be other factors that intervene in the relation between these two constants.	Puede que haya otros factores que intervengan en la relación entre estas dos constantes.	6800	es
 indulge	Even during work, I secretly indulge my Internet addiction.	Aun mientras trabajo me permito secretamente complacer mi adicción a Internet.	6802	es
@@ -7597,7 +7585,6 @@ peso	What am I going to eat with 20 pesos?	¿Qué voy a comer con 20 pesos?	7730
 inventory	After inventory, there was a net balance of three hundred pesos.	Hecho el inventario, quedó un líquido de trescientos pesos.	7730	es
 deception	The art of pleasing is the art of deception.	El arte de satisfacer es el arte de engañar.	7733	es
 margin	Leave a margin on the paper when you write.	Deje usted margen en el papel cuando escriba.	7738	es
-yer	Everybody shut yer traps!	¡Todo el mundo cerró sus trampas!	7739	es
 reflex	Thank you very much. Thank you for activating my gag reflex.	Muchas gracias. Gracias por activar mi reflejo del vómito.	7740	es
 significance	The sign had significance, though.	El signo tenía significado a pesar de ello.	7741	es
 soothe	Music has charms to soothe the savage beast.	La música tiene encantos que calman a las fieras.	7745	es
@@ -8372,9 +8359,6 @@ extinction	Extinction is part of evolution.	La extinción es parte de la evoluci
 equality	Equality is guaranteed by the Constitution.	La igualdad es garantizada por la constitución.	8759	es
 fraternity	"""Liberty, equality, fraternity"" is a French motto."	"""Libertad, igualdad, fraternidad"" es el lema francés."	8759	es
 librarian	The librarian classified the books according to subject.	La bibliotecaria clasificó los libros por tema.	8760	es
-ac	What if I leave the refrigerator door open instead of using the AC?	¿Y si dejara abierta la puerta del frigorífico en lugar del aire acondicionado?	8763	es
-ac	This AC unit wastes a lot of electricity.	Este aire acondicionado gasta mucha electricidad.	8763	es
-ac	Please turn up the AC a little bit.	Súbele un poco al aire acondicionado, por favor.	8763	es
 downhill	The weather is supposed to go downhill starting this afternoon.	Se considera que el tiempo empeorará a partir de esta tarde.	8765	es
 peru	According to the paper, there was an earthquake in Peru.	Según el periódico, hubo un terremoto en Perú.	8768	es
 peru	They built their empire in Peru about five hundred years ago.	Ellos construyeron su imperio en Perú hace aproximadamente quinientos años.	8768	es
@@ -8509,7 +8493,6 @@ consulate	Now I have to go to the consulate.	Ahora tengo que ir al consulado.	89
 consulate	I work at the consulate.	Trabajo en el consulado.	8930	es
 jaime	Jaime, how often do you take the car to go to university?	Jaime, ¿con qué frecuencia coges el coche para ir a la universidad?	8938	es
 competent	Tom and Mary are both very competent teachers.	Tom y Mary son profesores muy capaces.	8940	es
-bi	Tom is bi.	Tom es bisexual.	8942	es
 hamster	When I was small, I had a golden hamster.	Cuando era pequeño, tenía un hámster dorado.	8943	es
 hamster	She killed a hamster thinking that it was a mouse.	Ella mató un hámster pensando que era un ratón.	8943	es
 norris	Say what you will about his politics, but Chuck Norris was a terrible actor who made bad movies.	Di lo que quieras sobre su política, pero Chuck Norris era un actor terrible que hacía películas malas.	8945	es
@@ -8859,8 +8842,6 @@ setback	Automobile sales suffered a setback at the end of the financial year.	La
 forum	I contribute to this forum almost every day.	Contribuyo a este foro casi todos los días.	9405	es
 clack	The head nurse came striding up, her leather heels clacking on the tile floor.	La enfermera jefe llegó a grandes zancadas, los tacones de cuero resonando en el suelo embaldosado.	9406	es
 lullaby	Ann sang a lullaby for her little sister.	Ann le cantó una nana a su hermana pequeña.	9407	es
-eu	If I go to another country in the EU as a tourist, are there any steps I have to take?	Si voy a otro país de la UE como turista, ¿tengo que hacer algún trámite?	9409	es
-eu	The EU has 24 official languages.	La UE tiene 24 lenguas oficiales.	9409	es
 guinea	The EU is banning the sale of cosmetics tested on guinea pigs.	La UE está prohibiendo la venta de cosméticos testados en cobayas.	9409	es
 utility	Their furniture was chosen for utility rather than style.	Escogieron sus muebles más por utilidad que por estilo.	9411	es
 relocate	We have to relocate this entire industrial park to a safer area.	Hay que reubicar todo este polígono industrial en una zona más segura.	9412	es
@@ -9147,7 +9128,6 @@ lollipop	The red lollipop is heart shaped.	La paleta roja está en forma de cora
 capitalism	The worst virus is capitalism.	El peor virus es el capitalismo.	9772	es
 geezer	What was the geezer saying?	¿Qué decía el viejo?	9779	es
 fa	In my language, the notes of the scale are do, re, mi, fa, sol, la, ti, do.	En mi lengua las notas musicales son do, re, mi, fa, sol, la y si.	9780	es
-ti	In my language, the notes of the scale are do, re, mi, fa, sol, la, ti, do.	En mi lengua las notas musicales son do, re, mi, fa, sol, la y si.	9780	es
 tat	"""Why did you break my vase?"" ""Tit for tat."""	"""¿Por qué rompiste mi jarrón?"" ""Donde las dan las toman."""	9782	es
 tit	"""Why did you break my vase?"" ""Tit for tat."""	"""¿Por qué rompiste mi jarrón?"" ""Donde las dan las toman."""	9782	es
 spat	He spat on the ground.	Él escupió en el piso.	9783	es
@@ -9553,7 +9533,6 @@ tomorrow	I will stay home tomorrow.	Je resterai à la maison demain.	300	fr
 tonight	Thanks for coming over tonight.	Merci d'être venu ce soir.	302	fr
 everyone	Everyone said that I was wrong.	Tout le monde a dit que j'avais tort.	303	fr
 walk	I can walk to school in 10 minutes.	Je peux aller à l'école à pied en 10 minutes.	304	fr
-wanna	What do you wanna eat?	Que veux-tu manger ?	305	fr
 ah	Ah, when will they meet again?	Ah, quand se reverront-ils ?	306	fr
 ah	Ah, this is the life!	Ah, c'est la vie !	306	fr
 marry	Why would you marry a woman if you like men?	Pourquoi se marier avec une femme quand on aime les hommes ?	307	fr
@@ -10184,7 +10163,6 @@ spirit	I believe in the power of the spirit and will never leave you.	Je crois a
 release	Is death the only release?	La mort est-elle la seule délivrance ?	988	fr
 release	The company issued a press release.	L'entreprise a publié un communiqué de presse.	988	fr
 stone	That way I kill two birds with one stone.	Comme ça, je fais d'une pierre deux coups.	990	fr
-la	She lives in la-la land.	Elle vit au pays des Bisounours.	991	fr
 suck	You suck dude! I have to tell you everything!	Tu crains mon vieux ! Je dois tout te dire !	993	fr
 suck	Children suck the mother when they are young, and the father when they are old.	Les enfants tètent leur mère quand ils sont jeunes, et leur père quand ils vieillissent.	993	fr
 river	I walked along the river.	Je longeais la rivière.	995	fr
@@ -10236,7 +10214,6 @@ suddenly	Suddenly, all the lights went out.	Tout à coup, toutes les lampes s'é
 nick	What did they nick from you?	Qu'est-ce qu'ils t'ont piqué ?	1054	fr
 usually	I usually go home at four.	Je rentre habituellement à quatre heures.	1056	fr
 account	Charge this to my account.	Portez cela sur mon compte.	1057	fr
-er	He fell, so I had to take him to the ER.	Il est tombé, alors j'ai dû l'emmener aux urgences.	1058	fr
 bob	Bill can run faster than Bob.	Bill peut courir plus vite que Bob.	1060	fr
 bob	Bob and Tom are brothers.	Bob et Tom sont frères.	1060	fr
 result	Tom looked worried about the result of an English test.	Tom sembla anxieux des résultats du test d'anglais.	1061	fr
@@ -11039,7 +11016,6 @@ rome	All roads lead to Rome.	Tous les chemins mènent à Rome.	1834	fr
 rome	Married to an Italian, she lives in Rome now.	Mariée à un Italien, maintenant elle vit à Rome.	1834	fr
 rome	Rome was not built in a day.	Rome ne s'est pas faite en un jour.	1834	fr
 lad	I tell ya, you're in deep trouble, my lad.	J'te l'dis, t'as de sérieux problèmes, mon gars.	1836	fr
-ya	I tell ya, you're in deep trouble, my lad.	J'te l'dis, t'as de sérieux problèmes, mon gars.	1836	fr
 advantage	Hours lost on the ground cancel out the advantage of speed in the air.	Les heures perdues au sol annulent l'avantage de la vitesse de croisière.	1837	fr
 studio	She runs a dance studio.	Elle dirige un studio de danse.	1838	fr
 studio	Did you rent a studio apartment during your studies?	As-tu loué un studio pendant tes études ?	1838	fr
@@ -11226,7 +11202,6 @@ route	May I have a bus route map?	Puis-je avoir un plan des lignes de bus ?	20
 route	Taking a round-trip is longer than a direct route.	Faire un aller-retour est plus long qu'un trajet direct.	2020	fr
 blast	Yesterday, we had a blast!	Hier, on s'est éclaté !	2022	fr
 express	I went there for the express purpose of earning money.	Je suis venu là dans le but urgent de gagner de l'argent.	2023	fr
-ho	"For people who understand something about art, there is no need for words. One says ""Hm!"" ""Ha!"" or ""Ho!"", and with that everything is expressed."	"Pour les personnes qui comprennent quelque chose à propos de l'art, il n'y a pas besoin de mots. On dit ""Hm!"" ""Ha!"" ou ""Ho!"", et avec cela tout est exprimé."	2023	fr
 capable	Computers are capable of doing very complicated work in a split second.	Les ordinateurs peuvent faire un travail très compliqué en une fraction de seconde.	2024	fr
 capable	He is capable of teaching French.	Il est capable d'enseigner le français.	2024	fr
 progress	He is making great progress in English.	Il fait de gros progrès en anglais.	2025	fr
@@ -12164,7 +12139,6 @@ dennis	Dennis can be very wild sometimes.	Dennis peut-être très sauvage.	2928	
 net	The hunters captured the wild animal with a strong rope net.	Les chasseurs capturèrent l'animal sauvage avec un solide filet de corde.	2929	fr
 native	English is not my native language.	L'anglais n'est pas ma langue natale.	2930	fr
 cable	We went up the mountain by cable car.	Nous fîmes l'ascension de la montagne en téléphérique.	2931	fr
-ve	From the moment that I knew that the university existed, I've wanted to go there.	Depuis que je sais que l'université existe, je veux y aller.	2933	fr
 realise	Do you realise what you've just said?	Tu réalises ce que tu viens de dire ?	2933	fr
 con	Tom is a con artist.	Tom est un escroc.	2935	fr
 unlike	Bill is completely unlike his brother.	Bill est complètement différent de son frère.	2936	fr
@@ -13534,7 +13508,6 @@ den	The world is a den of crazies.	Le monde est une cage à fous.	4302	fr
 bass	I play bass in a jazz band.	Je joue de la basse dans un groupe de jazz.	4304	fr
 bass	A cat was sleeping in the bass drum.	Un chat dormait sur la grosse caisse.	4304	fr
 simpson	"""The Simpsons"" is one of my favourite TV shows."	Les Simpson, c'est une de mes séries préférées.	4310	fr
-cd	I spent 3000 yen on a new CD.	J'ai dépensé trois mille yens pour un nouveau CD.	4312	fr
 samurai	I live by the way of the samurai.	Je vis selon la voie du samouraï.	4313	fr
 samurai	A samurai without a sword is like a samurai with one, but only without one.	Un samouraï sans sabre est comme un samouraï avec, mais seulement sans.	4313	fr
 vera	Vera lives on the same street as you.	Vera habite dans la même rue que toi.	4314	fr
@@ -13667,7 +13640,6 @@ jessie	Jessie spoke bad French and worse German.	Jessie parlait mal français et
 wang	Mr Wang is from China.	M. Wang vient de Chine.	4439	fr
 wang	I went to find Wang.	Je suis parti chercher Wang.	4439	fr
 harrison	Do you have a John Harrison in your employ?	Disposez-vous d'un John Harrison à votre service ?	4440	fr
-las	They got married in Las Vegas.	Ils se sont mariés à Las Vegas.	4441	fr
 mat	Wipe your shoes on the mat.	Essuie tes pieds sur le tapis.	4443	fr
 mat	The cat is on the mat.	Le chat est sur le tapis.	4443	fr
 generally	Generally, who visits their parents more, sons or daughters?	En général, qui rend visite le plus à ses parents, les fils ou les filles ?	4444	fr
@@ -13743,7 +13715,6 @@ nile	No river in the world is longer than the Nile.	Aucun fleuve dans le monde n
 nile	We associate Egypt with the Nile.	Nous associons l'Égypte au Nil.	4521	fr
 nile	How long is the Nile River?	Quelle est la longueur du Nil ?	4521	fr
 th	He was born on July 28th, 1888.	Il est né le 28 juillet 1888.	4522	fr
-se	Belief in God is not evil per se.	La foi en Dieu, ce n'est pas maléfique en soi.	4525	fr
 naomi	Naomi has just finished her work.	Naomi vient juste de terminer son travail.	4526	fr
 naomi	I met Naomi on my way home and we had a chat.	J'ai croisé Naomi en rentrant chez moi et on a discuté.	4526	fr
 deceased	The Emperor prayed for the souls of the deceased.	L'empereur pria pour le repos des morts.	4527	fr
@@ -14078,7 +14049,6 @@ rhyme	The ear is not very satisfied with this rhyme.	L'oreille n'est pas très s
 pod	Karl was in a space pod.	Karl était dans une capsule spatiale.	4852	fr
 plea	A plea bargain is out of the question.	Une négociation de peine est hors de question.	4853	fr
 lipstick	Brian bought a lipstick for Kate.	Brian a acheté un rouge à lèvres pour Kate.	4854	fr
-ta	That'll do, ta!	Ça ira, merci !	4856	fr
 auto	The building you see over there is an auto factory.	Le bâtiment que tu vois là est une usine de voiture.	4857	fr
 auto	Lawyers and auto mechanics are the people I trust the least.	Les avocats et les mécaniciens auto sont les gens en qui j'ai le moins confiance.	4857	fr
 logical	You have a very logical way of thinking.	Tu as une façon de réfléchir très logique.	4858	fr
@@ -14869,7 +14839,6 @@ nevertheless	I am tired; nevertheless, I must finish my homework.	Je suis fatigu
 nevertheless	It is nevertheless a good sentence.	C'est néanmoins une bonne phrase.	5620	fr
 carnival	I hate snow and the carnival.	Je déteste la neige et le carnaval.	5621	fr
 carnival	If we had been in Venice a month prior, we could have taken part in the carnival.	Si nous avions été à Venise un mois plus tôt, nous aurions pu participer au carnaval.	5621	fr
-au	She works as an au pair.	Elle travaille comme jeune-fille au pair.	5622	fr
 portion	Tom got a small portion of pie.	Tom reçut un petit morceau de tarte.	5625	fr
 portion	He has not paid his portion of the rent.	Il n'a pas payé sa part du loyer.	5625	fr
 temptation	He never gave in to temptation.	Il n'a jamais cédé à la tentation.	5626	fr
@@ -15313,7 +15282,6 @@ thrust	I thrust my hand into my pocket.	Je mettais ma main dans la poche.	6100	f
 thrust	The policeman thrust me aside.	Le policier m'a poussé de côté.	6100	fr
 liberal	I have a liberal neighbor.	J'ai un voisin de gauche.	6102	fr
 haye	La Haye is so beautiful at this time of year.	La Haye est si belle en cette saison.	6103	fr
-la	La Haye is so beautiful at this time of year.	La Haye est si belle en cette saison.	6103	fr
 cuban	Cuban cigars are among the best in the world.	Les cigares cubains sont parmi les meilleurs au monde.	6104	fr
 cuban	Cuban soldiers were guarding the streets.	Les soldats cubains gardaient les rues.	6104	fr
 plumber	Not only is there no God, but try getting a plumber on weekends.	Non seulement Dieu n'existe pas, mais essayez d'avoir un plombier pendant le week-end.	6106	fr
@@ -17686,8 +17654,6 @@ equality	People in the world are always advocating for more freedom and equality
 equality	Equality is guaranteed by the Constitution.	L'égalité est garantie par la Constitution.	8759	fr
 equality	He was in favor of equality for all.	Il était en faveur de l'égalité pour tous.	8759	fr
 bourgeois	She comes from a bourgeois background.	Elle vient d'un milieu bourgeois.	8761	fr
-ac	Do you mind if I turn off the AC?	Vois-tu un inconvénient à ce que je coupe le courant ?	8763	fr
-ac	Please turn up the AC a little bit.	Augmente la climatisation s'il te plait.	8763	fr
 downhill	Things went downhill pretty quickly.	Les choses se sont dégradées assez rapidement.	8765	fr
 peru	What is the common language in Peru?	Quelle est la langue commune au Pérou ?	8768	fr
 peru	According to the paper, there was an earthquake in Peru.	Selon le journal, il y a eu un tremblement de terre au Pérou.	8768	fr
@@ -17877,7 +17843,6 @@ parenting	Following the same parenting style is very important. If a parent choo
 competent	The new waiter should be much more competent.	Le nouveau serveur devrait être beaucoup plus performant.	8940	fr
 competent	I believe he is competent.	Je pense qu'il est compétent.	8940	fr
 competent	He was a famous poet and a competent diplomat.	Il était un poète connu et un diplomate compétent.	8940	fr
-bi	Tom is bi.	Tom est bi.	8942	fr
 hamster	My hamster is too cute.	Mon hamster est trop mignon.	8943	fr
 norris	Chuck Norris can win a game of Connect Four in three moves.	Chuck Norris peut remporter une partie de Puissance Quatre en trois coups.	8945	fr
 norris	Jesus was born in 1940 before Chuck Norris.	Jésus est né en 1940 avant Chuck Norris.	8945	fr
@@ -18284,8 +18249,6 @@ setback	This is a serious setback.	C'est un sérieux revers.	9403	fr
 setback	It would be a huge setback for them.	Ce serait un sacré coup dur pour eux.	9403	fr
 stride	It might take you a few weeks on the job to get into your stride.	Il vous faudra peut-être quelques semaines de travail pour trouver votre rythme.	9406	fr
 lullaby	Do you want me to sing you a lullaby?	Tu veux que je te chante une berceuse ?	9407	fr
-eu	The EU has 24 official languages.	L'UE compte 24 langues officielles.	9409	fr
-eu	Is the EU just a grouping of economic interests?	L'UE n'est-elle qu'un groupement d'intérêts économiques ?	9409	fr
 nightfall	Judging from the look of the sky, we might have a shower before nightfall.	À en juger par l'aspect du ciel, il se pourrait bien que nous ayons une averse avant la tombée de la nuit.	9410	fr
 nightfall	We hope to reach the summit before nightfall.	Nous espérons atteindre le sommet avant la tombée de la nuit.	9410	fr
 nightfall	The men returned before nightfall.	Les hommes revinrent avant que la nuit ne tombe.	9410	fr
@@ -18578,7 +18541,6 @@ lollipop	This lollipop is too sweet.	Cette sucette est trop sucrée.	9771	fr
 capitalism	"As communism has collapsed, capitalism is now accused of trying to ""dominate the world."""	"Le communisme s'étant effondré, le capitalisme est maintenant accusé de vouloir ""dominer le monde""."	9772	fr
 capitalism	He advocated State Capitalism over Market Capitalism.	Il défendait le capitalisme d'état contre le capitalisme de marché.	9772	fr
 geezer	What was the geezer saying?	Qu'a dit la vieille peau ?	9779	fr
-ti	Yeah, show us your ti..., uh, translations.	Ouais, montre-nous tes f... phrases...	9780	fr
 tat	Want to play tit for tat?	Un prêté pour un rendu ?	9782	fr
 tat	Tom insulted me severely, but I gave him tit for tat.	Tom m'a sérieusement insulté, mais je lui ai rendu la pareille.	9782	fr
 spat	They had a spat yesterday.	Ils ont eu une prise de bec, hier.	9783	fr
@@ -18614,7 +18576,6 @@ cartridge	Please replace the empty ink cartridge in the printer.	Veuillez rempla
 rosy	In your rosy cheeks rests innocence.	Tes joues rouges respirent l'innocence.	9815	fr
 sabine	Sabine loves plums.	Sabine adore les prunes.	9816	fr
 gore	Al Gore is a global-warming activist.	Al Gore est un activiste contre le réchauffement planétaire.	9817	fr
-al	Al Gore is a global-warming activist.	Al Gore est un activiste contre le réchauffement planétaire.	9817	fr
 hast	My God, my God, why hast thou forsaken me?	Mon Dieu, mon Dieu, pourquoi m'as-tu abandonné ?	9819	fr
 hast	Hamlet, thou hast thy father much offended.	Hameau, tu as gravement offensé ton père !	9819	fr
 finland	In such countries as Norway and Finland, they have lots of snow in winter.	Dans des pays comme la Norvège et la Finlande, il y a beaucoup de neige en hiver.	9821	fr
@@ -18995,7 +18956,6 @@ stand	Are you just going to stand there all day?	Wirst du dort den ganzen Tag st
 week	He took a week off.	Er nahm sich eine Woche frei.	301	de
 tonight	Will you stay at home tonight?	Bleibst du heute Abend zu Hause?	302	de
 walk	I can walk to school in 10 minutes.	Ich kann in 10 Minuten zur Schule gehen.	304	de
-wanna	"""I wanna have a word with you."" ""Sure, what is it?"""	„Ich möchte mich mal mit dir unterhalten.“ – „Gern. Worum geht’s?“	305	de
 ah	Ah, when will they meet again?	Ah, wann treffen sie sich wieder?	306	de
 marry	Why would you marry a woman if you like men?	Warum heiratet man eine Frau, wenn man Männer liebt?	307	de
 second	He will be back in a second.	Er wird gleich zurück sein.	308	de
@@ -19686,7 +19646,6 @@ suddenly	I had been working for two hours when I suddenly felt sick.	Ich hatte z
 nick	Tom arrived in the nick of time.	Tom kam gerade noch rechtzeitig an.	1054	de
 kitchen	There is a cat in the kitchen.	In der Küche ist eine Katze.	1055	de
 kitchen	Is Father in the kitchen?	Ist Vater in der Küche?	1055	de
-er	Er, how do you use this?	Äh, wie benutzt man das?	1058	de
 color	Do you like this color?	Magst du diese Farbe?	1059	de
 result	I am pleased with the result.	Ich bin mit dem Ergebnis zufrieden.	1061	de
 crap	Crap! My girlfriend is already back! What should we do?!	Mist! Meine Freundin ist schon zurück! Was sollen wir machen?	1062	de
@@ -20294,7 +20253,6 @@ kate	Kate knows how to make a cake.	Katrin kann Kuchen backen.	1653	de
 wolf	Man is a wolf to man.	Der Mensch ist dem Menschen ein Wolf.	1654	de
 cow	Our cow does not give milk to us.	Unsere Kuh gibt uns keine Milch.	1655	de
 bedroom	Did you have to share a bedroom with your brothers or sisters?	Musstet ihr euch ein Schlafzimmer mit euren Brüdern oder Schwestern teilen?	1656	de
-la	I should cancel the trip to LA.	Ich sollte die Reise nach Los Angeles absagen.	1657	de
 location	I like this flat. The location is good, and besides, rent is not very high.	Mir gefällt diese Wohnung. Die Lage ist gut, und außerdem ist die Miete nicht sehr hoch.	1659	de
 genius	He may be a genius.	Er könnte ein Genie sein.	1660	de
 cheese	This cake tastes like it has cheese in it.	Dieser Kuchen schmeckt nach Käse.	1661	de
@@ -20636,7 +20594,6 @@ billion	There are almost seven billion people in the world.	Es gibt fast sieben 
 carter	It was yesterday morning that I saw Mr Carter.	Es war gestern Morgen, als ich Herrn Carter gesehen habe.	2017	de
 blast	Tom died in the blast.	Tom starb in der Explosion.	2022	de
 hm	"For people who understand something about art, there is no need for words. One says ""Hm!"" ""Ha!"" or ""Ho!"", and with that everything is expressed."	Bei Leuten, die etwas von der Kunst verstehen, bedarf es keiner Worte. Man sagt „Hm!“ „Ha!“ oder „Ho!“, und damit ist alles ausgedrückt.	2023	de
-ho	"For people who understand something about art, there is no need for words. One says ""Hm!"" ""Ha!"" or ""Ho!"", and with that everything is expressed."	Bei Leuten, die etwas von der Kunst verstehen, bedarf es keiner Worte. Man sagt „Hm!“ „Ha!“ oder „Ho!“, und damit ist alles ausgedrückt.	2023	de
 capable	He is capable of teaching French.	Er ist in der Lage, Französisch zu unterrichten.	2024	de
 progress	He is making great progress in English.	Er macht große Fortschritte in Englisch.	2025	de
 zone	Which time zone does the country belong to?	Zu welcher Zeitzone gehört das Land?	2026	de
@@ -21575,7 +21532,6 @@ net	Net-profit comes to 10 million dollars every year.	Der Nettogewinn beläuft 
 native	English is not my native language.	Englisch ist nicht meine Muttersprache.	2930	de
 cable	Some students take the cable car.	Es gibt auch Schüler, die die Seilbahn nehmen.	2931	de
 cable	The boat was tied to the shore by a cable.	Das Boot war mit einem Tau am Ufer festgebunden.	2931	de
-ve	From the moment that I knew that the university existed, I've wanted to go there.	Seit ich weiß, dass die Universität existiert, will ich hingehen.	2933	de
 escort	I've been sent to escort you.	Man schickt mich, um Sie zu eskortieren.	2933	de
 con	They start believing their own con.	Sie beginnen an ihre eigene Lüge zu glauben.	2935	de
 unlike	Bill is completely unlike his brother.	Bill ist ganz anders als sein Bruder.	2936	de
@@ -22402,9 +22358,6 @@ whoa	Whoa, you have to take that thing to the dry cleaners.	Boah, Sie müssen ma
 feast	You are a feast for my eyes.	Du bist meine Augenweide.	3746	de
 cabinet	Every member of the cabinet was present.	Alle Mitglieder des Kabinetts waren anwesend.	3747	de
 cabinet	The file cabinet drawers are open.	Die Schubladen des Aktenschrankes stehen offen.	3747	de
-tin	Can you tell silver and tin apart?	Kannst du Silber von Zinn unterscheiden?	3750	de
-tin	He is a tin god.	Er ist ein Götze.	3750	de
-tin	Do you know the difference between silver and tin?	Kennst du den Unterschied zwischen Silber und Zinn?	3750	de
 cricket	Just as the Americans like baseball, the British like cricket.	So wie die Amerikaner Baseball mögen, mögen die Briten Cricket.	3751	de
 cricket	A caged cricket eats just as much as a free cricket.	Eine Grille im Käfig frisst genauso viel wie eine Grille in Freiheit.	3751	de
 closely	Dutch is closely related to German.	Niederländisch ist eng verwandt mit Deutsch.	3753	de
@@ -22953,8 +22906,6 @@ veronica	It has to be said that Veronica has done a great job here.	Man muß sch
 hiya	Hiya! Do you fancy a walk?	Huhu! Hättest du Lust auf einen Spaziergang?	4309	de
 simpson	"""The Simpsons"" is one of my favourite TV shows."	„Die Simpsons“ sind eine meiner Lieblingsfernsehserien.	4310	de
 honk	Tom continued to honk the horn.	Tom hupte weiter.	4311	de
-cd	I spent 3000 yen on a new CD.	Ich habe 3000 Yen für eine neue CD ausgegeben.	4312	de
-cd	Which CD do you want to listen to?	Welche CD willst du anhören?	4312	de
 samurai	A samurai without a sword is like a samurai with one, but only without one.	Ein Samuraj ohne Schwert ähnelt einem Samuraj mit Schwert, aber nur ohne Schwert.	4313	de
 vera	Vera lives on the same street as you.	Vera wohnt in derselben Straße wie du.	4314	de
 thud	The demon lord finally lost consciousness and fell to the floor with a thud.	Der Dämonenfürst verlor endlich das Bewusstsein und krachte zu Boden.	4315	de
@@ -23153,7 +23104,6 @@ um	"""Um, what day was it today again?"" ""August 5th."""	„Ach, was war heute 
 pete	To Laura. Happy 40th birthday. Love, Pete.	Für Laura. Alles Gute zum 40. Geburtstag! Liebe Grüße von Peter.	4522	de
 pedro	May I speak to Pedro?	Kann ich Pedro sprechen?	4524	de
 pedro	Do you have a brother, Pedro?	Hast du einen Bruder, Pedro?	4524	de
-se	Belief in God is not evil per se.	Der Glaube an Gott ist nicht das Böse an sich.	4525	de
 naomi	I met Naomi on my way home and we had a chat.	Auf meinem Nachhauseweg habe ich Naomi getroffen und wir haben uns nett unterhalten.	4526	de
 naomi	Naomi has just finished her work.	Naomi hat gerade ihre Arbeit beendet.	4526	de
 naomi	Naomi was very pleased to win first prize.	Naomi war sehr froh, dass sie den ersten Preis errungen hatte.	4526	de
@@ -23508,8 +23458,6 @@ rhyme	"In your language, does ""heart"" rhyme with ""pain""?"	Reimt sich in dein
 lipstick	Brian bought a lipstick for Kate.	Brian hat einen Lippenstift für Kate gekauft.	4854	de
 lipstick	There was much lipstick on her lips.	Da war viel Lippenstift auf ihren Lippen.	4854	de
 lipstick	He paid $20 for the lipstick.	Er bezahlte zwanzig Dollar für den Lippenstift.	4854	de
-ta	That'll do, ta!	Danke, es reicht!	4856	de
-ta	Whoops. Ta very much.	Huch! Vielen Dank!	4856	de
 auto	Lawyers and auto mechanics are the people I trust the least.	Anwälte und Automechaniker sind die Leute, denen ich am wenigsten vertraue.	4857	de
 auto	The building you see over there is an auto factory.	Das Gebäude, das du da drüben siehst, ist eine Autofabrik.	4857	de
 logical	His view is quite logical.	Sein Standpunkt ist recht logisch.	4858	de
@@ -24147,7 +24095,6 @@ tramp	Mary has a tramp stamp.	Mary hat ein Arschgeweih.	5491	de
 tramp	The cold wind pained the tramp terribly.	Der kalte Wind peinigte den Landstreicher schrecklich.	5491	de
 outsider	I was an outsider, so to speak.	Ich war sozusagen ein Außenseiter.	5494	de
 outsider	All his life Tom was an outsider.	Tom war sein Leben lang ein Außenseiter.	5494	de
-cha	I could do with a cup of cha.	Ich hätte Lust auf eine Tasse Tee.	5496	de
 fang	No, I am Fang Ning.	Nein, ich bin Fang Ning.	5498	de
 popcorn	Have you ever eaten chocolate-covered popcorn?	Hast du schon einmal Popcorn mit Schokoladenüberzug gegessen?	5499	de
 popcorn	I bought two bags of popcorn.	Ich habe zwei Tüten Popcorn gekauft.	5499	de
@@ -24277,9 +24224,6 @@ blunt	Forgive me for being blunt.	Entschuldige meine Unverblümtheit!	5617	de
 battlefield	They died on the battlefield.	Sie starben auf dem Schlachtfeld.	5619	de
 carnival	I hate snow and the carnival.	Ich hasse Schnee und den Karneval.	5621	de
 carnival	Venice carnival events have been cut short for the first time ever.	Zum allererstenmal sind beim Karneval in Venedig Veranstaltungen abgebrochen worden.	5621	de
-au	She works as an au pair.	Sie arbeitet als Au-pair-Mädchen.	5622	de
-au	Mary works as an au pair.	Maria arbeitet als Au-pair-Mädchen.	5622	de
-au	My lover works as an au pair in Italy.	Meine Liebste arbeitet als Au-pair-Mädchen in Italien.	5622	de
 hah	Hah, that proves I was right!	Ha, das beweist, dass ich recht hatte!	5624	de
 portion	A portion of the island was destroyed by the massive waves.	Ein Teil der Insel wurde durch die riesigen Wellen zerstört.	5625	de
 portion	Tom got a small portion of pie.	Tom erhielt eine kleine Kuchenportion.	5625	de
@@ -25678,7 +25622,6 @@ seminar	This seminar deals with the development of Japanese literature since the
 gospel	Tom read a passage from the Gospel of Matthew.	Tom las aus dem Evangelium des Matthäus vor.	7081	de
 gospel	Juan is reading the Gospel according to Matthew.	Juan liest im Matthäusevangelium.	7081	de
 transcript	Did you see the transcript?	Hast du das Protokoll gesehen?	7082	de
-tis	'Tis better to have loved and lost than never to have loved at all.	Lieb’ ist selbst verloren besser, als wenn sie nie erfahren wär’.	7083	de
 barbarian	Look under the skin of a civilized man and you will find a barbarian.	Schau einem zivilisierten Mensch unter die Haut, und du findest einen Barbaren.	7084	de
 barbarian	My level 9 barbarian has died.	Mein Stufe-9-Barbar ist gestorben.	7084	de
 serpent	It had the head of a woman, the body of a lion, the wings of a bird, and the tail of a serpent.	Es hatte den Kopf einer Frau, den Körper eines Löwen, die Flügel eines Vogels und den Schwanz einer Schlange.	7085	de
@@ -26446,7 +26389,6 @@ valet	This hotel has valet parking.	Dieses Hotel verfügt über einen Parkdienst
 referee	The referee must be fair to both teams.	Der Schiedsrichter muss beiden Mannschaften gegenüber fair sein.	7944	de
 referee	The referee blew his whistle to end the match.	Der Schiedsrichter pfiff das Spiel ab.	7944	de
 referee	A referee should not favor either side.	Ein Schiedsrichter sollte keine Seite bevorzugen.	7944	de
-ere	"But I heard him exclaim, ere he drove out of sight ""Happy Christmas to all, and to all a good-night."""	Doch hört’ ich ihn rufen, eh davon er sich macht’: „Frohe Weihnacht euch allen, allen gute Nacht!“	7945	de
 oral	We had an oral exam.	Wir hatten eine mündliche Prüfung.	7946	de
 hairdresser	Is there a hairdresser in the hotel?	Gibt es einen Frisör im Hotel?	7947	de
 hairdresser	I go monthly to the hairdresser.	Ich gehe jeden Monat zum Frisör.	7947	de
@@ -26640,7 +26582,6 @@ coaster	I got sick riding the roller coaster with the loop-the-loop.	Mir wurde s
 unemployment	He was forced into unemployment.	Er wurde in die Arbeitslosigkeit gezwungen.	8138	de
 unemployment	This year unemployment will reach record levels.	Dieses Jahr wird die Arbeitslosigkeit Rekordhöhe erreichen.	8138	de
 eighty	She must be over eighty.	Sie muss über 80 sein.	8140	de
-ra	Eighty sentences will do for today. Ta-ra!	Achtzig Sätze sind genug für heute, tschüss!	8140	de
 munich	Did you accompany Peter to Munich?	Hast du Peter nach München begleitet?	8141	de
 munich	When are you in Munich?	Wann bist du in München?	8141	de
 install	Can you help me install this software?	Kannst du mir beim Installieren dieses Programms behilflich sein?	8142	de
@@ -27269,7 +27210,6 @@ kyoto	Summers are very hot in Kyoto.	Die Sommer sind sehr heiß in Kyoto.	8828	d
 peed	He tickled his little sister until she peed her pants.	Er kitzelte seine kleine Schwester, bis sie sich ins Höschen pinkelte.	8829	de
 dunk	Tom likes to dunk his biscuit in his coffee.	Tom tunkt seine Kekse gern in seinen Kaffee.	8830	de
 implication	The implication was that where there was a well, there were residents.	Das bedeutete, dass es dort, wo ein Brunnen war, auch Einwohner gab.	8831	de
-ho	Tom has just been given the heave-ho.	Tom wurde gerade der Laufpass gegeben.	8832	de
 goodwill	Emma Watson is a UN Women Goodwill Ambassador.	Emma Watson ist eine UN-Sonderbotschafterin für Frauenrechte.	8835	de
 goodwill	Our future depends on the goodwill of a small elite.	Unsere Zukunft hängt vom Wohlwollen einer kleinen Elite ab.	8835	de
 goodwill	The airline provided free accommodation to stranded passengers as a goodwill gesture.	Die Fluggesellschaft versorgte die gestrandeten Passagiere aus Kulanz mit kostenlosen Unterkünften.	8835	de
@@ -29042,7 +28982,6 @@ condition	I accept, but only under one condition.	Lo accetto, ma c'è un se.	105
 condition	We are in good condition.	Siamo in buona salute.	1050	it
 wound	She took care of his wound.	Lei curò la sua ferita.	1052	it
 kitchen	There is a cat in the kitchen.	C'è un gatto in cucina.	1055	it
-er	Tom has been taken to the ER.	Tom è stato portato al pronto soccorso.	1058	it
 color	Do you like this color?	Ti piace questo colore?	1059	it
 color	Which color do you like more, blue or red?	Quale colore ti piace di più, il blu o il rosso?	1059	it
 yo	Tom is playing with his yo-yo.	Tom sta giocando con il suo yo-yo.	1063	it
@@ -31152,9 +31091,6 @@ theft	He is guilty of theft.	È colpevole di furto.	3743	it
 cleaner	The air of Sydney is cleaner than that of Tokyo.	L'aria di Sydney è più pulita di quella di Tokyo.	3744	it
 feast	You are a feast for my eyes.	Sei la pupilla dei miei occhi.	3746	it
 cabinet	Forming a cabinet is difficult.	Formare un gabinetto è difficile.	3747	it
-tin	Can you tell silver and tin apart?	Riesci a distinguere l'argento dallo stagno?	3750	it
-tin	Do you know the difference between silver and tin?	Sai qual è la differenza tra argento e stagno?	3750	it
-tin	Tom heard the sound of rain on the tin roof.	Tom ha sentito il suono della pioggia sul tetto di lamiera.	3750	it
 cricket	Tom is an excellent cricket player.	Tom è un giocatore di cricket eccellente.	3751	it
 length	He measured the length of the bed.	Misurò la lunghezza del letto.	3754	it
 oath	He said under oath that he was born in Italy.	Ha detto sotto giuramento che il suo luogo di nascita è l'Italia.	3755	it
@@ -31614,7 +31550,6 @@ shotgun	He got in with a shotgun in his hands.	È entrato con un fucile in mano.
 shotgun	Shoot yourself with a shotgun.	Sparati con una lupara.	4303	it
 bass	Tom plays the bass guitar in our band.	Tom suona il basso nel nostro gruppo.	4304	it
 honk	Tom continued to honk the horn.	Tom continuava a suonare il clacson.	4311	it
-cd	Which CD do you want to listen to?	Quale CD vuoi ascoltare?	4312	it
 samurai	I live by the way of the samurai.	Vivo seguendo la via del samurai.	4313	it
 samurai	The samurai drew his sword.	Il samurai estrasse la spada.	4313	it
 vera	Vera lives on the same street as you.	Vera vive nella tua stessa strada.	4314	it
@@ -31722,7 +31657,6 @@ observation	Science is based on careful observation.	La scienza è basata sull'o
 jessie	The men looked at Jessie in silence.	Gli uomini guardavano Jessie in silenzio.	4438	it
 wang	I tried to speak Chinese and Mr. Wang tried to speak French.	Io provavo a parlare in cinese e il signor Wang provava a parlare in francese.	4439	it
 harrison	George Harrison was a gentleman all his life!	George Harrison è stato un gentiluomo per tutta la vita!	4440	it
-las	Tom went to Las Vegas.	Tom è andato a Las Vegas.	4441	it
 mat	The cat is on the mat.	Il gatto è sul tappeto.	4443	it
 generally	Generally, who visits their parents more, sons or daughters?	Generalmente chi visita di più i propri genitori, i figli o le figlie?	4444	it
 generally	Students generally like a teacher who understands their problems.	Gli studenti generalmente apprezzano un professore che capisce i loro problemi.	4444	it
@@ -32538,7 +32472,6 @@ chorus	They all sang in chorus.	Hanno cantato tutti in coro.	5542	it
 chorus	What role does the Chorus play?	Che ruolo gioca il Coro?	5542	it
 chorus	We sang songs in chorus.	Abbiamo cantato delle canzoni in coro.	5542	it
 nana	Have you thanked Nana for the present yet?	Hai già ringraziato la nonna per il regalo?	5543	it
-ra	The ancient Egyptians believed that the Sun was the eye of the god Ra.	Gli antichi egizi pensavano che il Sole fosse l’occhio del dio Ra.	5544	it
 negro	"""Negro"" is an offensive word."	"""Negro"" è una parola offensiva."	5545	it
 artificial	They are going to launch an artificial satellite tomorrow.	Lanceranno un satellite artificiale domani.	5547	it
 artificial	These pearls are genuine, not artificial.	Queste perle sono autentiche, non artificiali.	5547	it
@@ -32605,7 +32538,6 @@ asylum	Last century they would have just thrown someone like Tom into a lunatic 
 battlefield	Their love story is a real battlefield.	La loro storia d'amore è un vero campo di battaglia.	5619	it
 battlefield	The battlefield was full of the dead and the dying.	Il campo di battaglia era pieno di morti e morenti.	5619	it
 carnival	I hate snow and the carnival.	Io odio la neve e il Carnevale.	5621	it
-au	She works as an au pair.	Lavora come ragazza alla pari.	5622	it
 hah	Hah, that proves I was right!	Hah, dimostra che avevo ragione!	5624	it
 portion	This portion of the library is off-limits to the public.	Questa zona della biblioteca è chiusa al pubblico.	5625	it
 temptation	I can resist everything except temptation.	Posso resistere a tutto tranne che alle tentazioni.	5626	it
@@ -32858,7 +32790,6 @@ glimpse	You get a glimpse of the plain from this window.	Da questa finestra si h
 tailor	The father is a tailor.	Il padre è un sarto.	6027	it
 tailor	That tailor always uses very good material.	Quel sarto usa sempre del materiale molto buono.	6027	it
 compartment	This is a non-smoking compartment.	Questo è uno scompartimento non-fumatori.	6029	it
-po	The longest river in Italy is the Po.	Il fiume più lungo d'Italia è il Po.	6031	it
 vegetarian	My wife is a vegetarian.	Mia moglie è vegetariana.	6036	it
 vegetarian	Do you eat meat or are you a vegetarian?	Mangi carne o sei vegetariano?	6036	it
 brothel	I plan to work in a brothel.	Ho intenzione di lavorare in un bordello.	6037	it
@@ -34476,7 +34407,6 @@ canary	My canary was killed by a cat.	Il mio canarino è stato ucciso da un gatt
 canary	A canary is a small bird, and people sometimes keep it as a pet.	Un canarino è un piccolo uccello e la gente talvolta lo tiene come animale domestico.	8694	it
 eccentric	Many scientists have the reputation of being eccentric.	Molti scienziati hanno la reputazione di essere eccentrici.	8700	it
 newcomer	The newcomer fell short of our expectation.	Il nuovo arrivato è stato all'altezza delle nostre aspettative.	8701	it
-na	I would like to learn the Na'vi language.	Vorrei imparare la lingua Na'vi.	8702	it
 memphis	Tom lives with Mary in Memphis.	Tom vive con Mary a Memphis.	8703	it
 formidable	He is a formidable opponent.	È un avversario formidabile.	8706	it
 gel	Do you have any hair gel?	Hai del gel per capelli?	8708	it
@@ -34606,7 +34536,6 @@ consulate	In France did you work at the embassy or in the consulate?	In Francia 
 folly	Who lives without folly is not so wise as he thinks.	Chi vive senza follia non è così saggio come crede.	8931	it
 parenting	The challenges of parenting can be overwhelming, but I embrace them with love.	Le sfide della genitorialità possono essere travolgenti, ma io le abbraccio con amore.	8933	it
 scalpel	The scalpel was extremely sharp.	Il bisturi era estremamente affilato.	8935	it
-bi	Tom is bi.	Tom è bisessuale.	8942	it
 oswald	Oswald has a black hamster.	Oslvaldo ha un criceto nero.	8943	it
 entrepreneur	My father is an entrepreneur.	Mio padre è impresario.	8944	it
 entrepreneur	Tom is an Internet entrepreneur.	Tom è un imprenditore di Internet.	8944	it
@@ -34852,8 +34781,6 @@ rotation	Job rotation is essential to running a business.	La rotazione dei lavor
 rotation	Life may look like a constant rotation.	La vita può sembrare una rotazione costante.	9400	it
 solely	He solely focuses on money.	Si concentra esclusivamente sul denaro.	9401	it
 forum	I contribute to this forum almost every day.	Contribuisco a questo forum quasi ogni giorno.	9405	it
-eu	Does Iceland have to join the EU?	L'Islanda deve unirsi all'UE?	9409	it
-eu	The EU has 24 official languages.	L'UE ha 24 lingue ufficiali.	9409	it
 utility	Their furniture was chosen for utility rather than style.	Il loro arredamento è stato scelto per l'utilità piuttosto che per lo stile.	9411	it
 blacksmith	Tom is a skilled blacksmith.	Tom è un abile fabbro.	9419	it
 welsh	Welsh is a beautiful language.	Il gallese è una bella lingua.	9422	it
@@ -35068,9 +34995,7 @@ qe	Qing Qing, a seven-year-old panda, can even recognise its name.	Qing Qing, un
 tyranny	You must oppose his tyranny!	Vi dovete opporre alla sua tirannia!	9811	it
 tyranny	How long are you going to tolerate his tyranny?	Per quanto continuerai a tollerare la sua tirannia?	9811	it
 gore	So where does Al Gore fit in to the story?	Quindi dove si incastra Al Gore nella storia?	9817	it
-al	So where does Al Gore fit in to the story?	Quindi dove si incastra Al Gore nella storia?	9817	it
 gore	Al Gore is a global-warming activist.	Al Gore è un attivista contro il riscaldamento globale.	9817	it
-al	Al Gore is a global-warming activist.	Al Gore è un attivista contro il riscaldamento globale.	9817	it
 gore	Al Gore was born in Washington, DC.	Al Gore è nato a Washington, DC.	9817	it
 dc	Al Gore was born in Washington, DC.	Al Gore è nato a Washington, DC.	9817	it
 hast	My God, my God, why hast thou forsaken me?	Dio mio, Dio mio, perché mi hai abbandonato?	9819	it
@@ -35379,7 +35304,6 @@ sleep	I have to go to sleep.	Мне пора идти спать.	297	ru
 stand	Are you just going to stand there all day?	Ты что, собираешься там весь день стоять?	299	ru
 week	I paid him the money last week.	Я ему заплатил на прошлой неделе.	301	ru
 walk	The car broke down, so they had to walk.	Машина сломалась, поэтому им пришлось идти пешком.	304	ru
-wanna	I wanna get out of here!	Я хочу уйти отсюда!	305	ru
 ah	Ah, when will they meet again?	А, когда они снова встретятся?	306	ru
 case	I have nothing to do with the case.	Я не имею к этому никакого отношения.	309	ru
 soon	I will be back soon.	Я скоро вернусь.	314	ru
@@ -36550,7 +36474,6 @@ wrap	Could you gift wrap it?	Вы можете завернуть подарок
 capture	To be honest, we came to capture you.	Если честно, мы пришли тебя поймать.	1763	ru
 europe	By the way, have you ever been to Europe?	Кстати, вы когда-нибудь были в Европе?	1764	ru
 europe	He has visited Europe several times.	Он несколько раз посещал Европу.	1764	ru
-em	As long as they're not doing it in public, let 'em go for it.	До тех пор пока они не делают это на публике, пусть делают.	1765	ru
 martin	Hurry up, Martin. We're already late!	Мартин, давай быстрей. Мы уже опаздываем!	1765	ru
 shh	Shh! You're talking too loud!	Тсс! Вы слишком громко говорите!	1765	ru
 chick	That chick is fucking hot!	Эта цыпочка чертовски горячая!	1767	ru
@@ -38340,7 +38263,6 @@ cleaner	Tap water is sometimes cleaner than bottled water.	Вода из-под 
 adore	I just adore your new hat.	Я просто обожаю твою новую шляпу.	3745	ru
 cabinet	The file cabinet drawers are open.	Открыты ящики картотечного шкафа.	3747	ru
 cabinet	Every member of the cabinet was present.	Присутствовали все члены кабинета.	3747	ru
-tin	Can you tell silver and tin apart?	Вы можете отличить серебро от олова?	3750	ru
 cricket	The cricket is chirping softly.	Потихоньку стрекочет сверчок.	3751	ru
 cricket	Tom is an excellent cricket player.	Том — отличный игрок в крикет.	3751	ru
 length	He measured the length of the bed.	Он измерил длину кровати.	3754	ru
@@ -38925,7 +38847,6 @@ jessie	I saw Jessie standing there.	Я видел, что Джесси стоя�
 jessie	Jessie gave orders that Alex was to be treated well.	Джесси отдала приказ, что с Алексом надлежало хорошо обращаться.	4438	ru
 wang	Mr Wang is from China.	Г-н Ванг из Китая.	4439	ru
 wang	Mr. Wang learnt German because he wanted to go to Germany.	Мистер Вонг выучил немецкий, потому что хочет поехать в Германию.	4439	ru
-las	They got married in Las Vegas.	Они поженились в Лас-Вегасе.	4441	ru
 winston	"""How many fingers am I holding up, Winston?"" ""Four."""	«Сколько пальцев я показываю, Уинстон?» – «Четыре».	4442	ru
 mat	Wipe your shoes on the mat.	Вытирайте ноги.	4443	ru
 generally	I generally have lunch there.	Обычно я обедаю там.	4444	ru
@@ -39922,7 +39843,6 @@ mechanical	We've got a mechanical problem.	У нас механическая п
 karma	Do you believe in karma?	Ты веришь в карму?	5540	ru
 jefferson	They liked what Jefferson said.	Им понравилось то, что сказал Джефферсон.	5541	ru
 chorus	We sang songs in chorus.	Мы распевали песни хором.	5542	ru
-ra	The ancient Egyptians believed that the Sun was the eye of the god Ra.	Древние египтяне верили, что Солнце - это глаз бога Ра.	5544	ru
 negro	Everybody knew Tom was a negro, though he tried his best to conceal it.	Все знали, что Том негр, хоть он и старался изо всех сил это скрыть.	5545	ru
 info	We need some info about the town.	Нам нужны кое-какие сведения о городе.	5546	ru
 info	Where did you get this info?	Откуда у тебя эта информация?	5546	ru
@@ -39994,7 +39914,6 @@ battlefield	He would still be alive had he refused to go to the battlefield then
 battlefield	They died on the battlefield.	Они погибли на поле боя.	5619	ru
 nevertheless	I am tired; nevertheless, I must finish my homework.	Я устал, но тем не менее я должен закончить своё домашнее задание.	5620	ru
 carnival	I hate snow and the carnival.	Ненавижу снег и карнавалы.	5621	ru
-au	She works as an au pair.	Она работает няней за границей.	5622	ru
 hah	Hah, that proves I was right!	Ха, это доказывает, что я был прав!	5624	ru
 temptation	Men are subject to temptation.	Люди подвластны искушениям.	5626	ru
 temptation	I can resist everything except temptation.	Я могу выдержать всё, кроме искушений.	5626	ru
@@ -41021,7 +40940,6 @@ stomp	My upstairs neighbors stomp around like elephants.	Соседи сверх
 fa	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	На моем языке ноты гаммы называются так: до, ре, ми, фа, соль, ля, си, до.	6795	ru
 sol	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	На моем языке ноты гаммы называются так: до, ре, ми, фа, соль, ля, си, до.	6795	ru
 mi	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	На моем языке ноты гаммы называются так: до, ре, ми, фа, соль, ля, си, до.	6795	ru
-si	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	На моем языке ноты гаммы называются так: до, ре, ми, фа, соль, ля, си, до.	6795	ru
 driveway	Tom cleared snow from the driveway.	Том убрал снег с проезда.	6798	ru
 intervene	Do not intervene in matters which do not concern you!	Не вмешивайся в то, что тебя не касается!	6800	ru
 intervene	If you intervene, they will also intervene.	Если ты вмешаешься, они тоже вмешаются.	6800	ru
@@ -41787,7 +41705,6 @@ trespassing	You're under arrest for trespassing.	Вы арестованы за 
 sizzle	Tom fried three eggs in the pan and put in bacon too, which sizzled and smelled delicious.	Том разбил три яйца в сковородку и добавил ещё туда сала, так что всё это аппетитно зашипело и запахло.	7736	ru
 margin	This product brought us a large margin.	Этот продукт принёс нам большую прибыль.	7738	ru
 margin	Leave a margin on the paper when you write.	Оставляй поля на бумаге, когда пишешь.	7738	ru
-yer	Everybody shut yer traps!	Все вы, заткнитесь!	7739	ru
 soothe	Music has charms to soothe the savage beast.	Музыка имеет волшебное свойство утихомиривать дикого зверя.	7745	ru
 asthma	My daughter often had asthma attacks when she was a child.	У моей дочери в детстве часто были приступы астмы.	7746	ru
 physicist	His father is a physicist.	Его отец - физик.	7747	ru
@@ -42684,7 +42601,6 @@ scalpel	The scalpel was extremely sharp.	Скальпель был чрезвы�
 scalpel	Scalpel blades are extremely sharp.	У скальпелей чрезвычайно острые лезвия.	8935	ru
 competent	The new waiter should be much more competent.	Новый официант должен быть гораздо компетентнее.	8940	ru
 competent	Tom and Mary are both very competent teachers.	Том и Мэри оба очень компетентные преподаватели.	8940	ru
-bi	Tom is bi.	Том - бисексуал.	8942	ru
 testicle	My hamster has a swollen testicle on one side.	У моего хомячка с одной стороны опухло яичко.	8943	ru
 hamster	Tom let the hamster out of its cage.	Том выпустил хомяка из клетки.	8943	ru
 hamster	She killed a hamster thinking that it was a mouse.	Она убила хомяка, думая, что это мышь.	8943	ru
@@ -43049,8 +42965,6 @@ setback	It would be a huge setback for them.	Это стало бы для ни�
 setback	This is a serious setback.	Это серьёзная потеря.	9403	ru
 forum	You should practice English with a friend or classmate. Maybe you could join an Internet forum or a language club.	Вам нужно практиковать английский вместе с другом или одноклассником. Возможно, вы могли бы присоединиться к Интернет-форуму или языковому клубу.	9405	ru
 lullaby	Mary sang a lullaby to calm down the baby­.	Мэри пела колыбельную, чтобы успокоить ребёнка.	9407	ru
-eu	Does Iceland have to join the EU?	Должна ли Исландия вступать в Евросоюз?	9409	ru
-eu	The EU has 24 official languages.	В ЕС 24 официальных языка.	9409	ru
 utility	Utility payments are higher in the winter.	Коммунальные платежи зимой выше.	9411	ru
 utility	Have you already been warned that utility rates will rise?	Вас уже предупредили, что тарифы на коммунальные услуги вырастут?	9411	ru
 mutiny	The mutiny was nipped in the bud.	Мятеж был подавлен в зародыше.	9416	ru
@@ -44152,7 +44066,6 @@ block	They live in our block.	Onlar bizim blokta yaşıyorlar.	1049	tr
 condition	The condition of the patient turned for the better.	Hastanın durumu daha iyiye doğru yöneldi.	1050	tr
 nick	Tom arrived in the nick of time.	Tom tam zamanında geldi.	1054	tr
 account	How do you account for that?	Onun hesabını nasıl verirsin?	1057	tr
-er	Tom has been taken to the ER.	Tom acil servise götürüldü.	1058	tr
 bob	After drinking all night, Bob was dead to the world.	Bütün gece içtikten sonra, Bob deliksiz uyudu.	1060	tr
 result	Tom looked worried about the result of an English test.	Tom bir İngilizce testin sonucu hakkında üzgün görünüyordu.	1061	tr
 yo	How long has it been since you played with a yo-yo?	Bir dönme dolapla oynadığından beri ne kadar oldu?	1063	tr
@@ -44626,7 +44539,6 @@ mood	She is in a bad mood.	O kötü bir ruh hali içinde.	1649	tr
 nah	"""Have you been here before?"" ""Nah, this is my first time."""	"""Daha önce burada bulundun mu?"" ""Hayır, bu benim ilk gelişim."""	1650	tr
 dish	Somebody has broken this dish.	Biri bu tabağı kırdı.	1652	tr
 cancel	Tom needs to cancel his flight.	Tom'un uçuşunu iptal etmesi gerekiyor.	1657	tr
-la	I should cancel the trip to LA.	Los Angeles'a olan geziyi iptal etmeliyim.	1657	tr
 safety	She is worried about his safety.	O, onun güvenliği hakkında endişelidir.	1658	tr
 location	She asked about the location of the house.	O, evin yerini sordu.	1659	tr
 location	Every year I find myself at a different location.	Her yıl kendimi farklı bir yerde buluyorum.	1659	tr
@@ -46485,8 +46397,6 @@ feast	You are a feast for my eyes.	Sen benim gözlerim için bir ziyafetsin.	374
 cabinet	Every member of the cabinet was present.	Kabinenin her üyesi mevcuttu.	3747	tr
 cabinet	Forming a cabinet is difficult.	Bir kabine oluşturmak zordur.	3747	tr
 sire	Greetings, sire. The desert awaits you.	Merhabalar efendim. Çöl sizi bekliyor.	3748	tr
-tin	Can you tell silver and tin apart?	Gümüşü kalaydan ayırabilir misin?	3750	tr
-tin	Tom heard the sound of rain on the tin roof.	Tom teneke çatıdaki yağmurun sesini duyuyordu.	3750	tr
 closely	The events were closely linked.	Olaylar yakından bağlantılı idi.	3753	tr
 length	He measured the length of the bed.	Yatağın uzunluğunu ölçtü.	3754	tr
 length	I will not go to the length of saying such things.	Öyle şeyler söyleyecek kadar ileri gitmem.	3754	tr
@@ -46978,7 +46888,6 @@ shotgun	He got in with a shotgun in his hands.	Ellerinde bir av tüfeği ile ara
 bass	I play bass in a jazz band.	Bir caz orkestrasında bas gitar çalıyorum.	4304	tr
 simpson	"""The Simpsons"" is one of my favourite TV shows."	"""The Simpsons"" en sevdiğim TV şovlarından biridir."	4310	tr
 honk	Tom continued to honk the horn.	Tom kornaya basmaya devam etti.	4311	tr
-cd	May I borrow this CD?	Bu CD'yi ödünç alabilir miyim?	4312	tr
 samurai	I live by the way of the samurai.	Ben samuray tarzıyla yaşıyorum.	4313	tr
 verdict	Has the jury reached a verdict?	Jüri bir karara vardı mı?	4316	tr
 bare	She choked him with her bare hands.	O, çıplak elleriyle onu boğdu.	4322	tr
@@ -47091,8 +47000,6 @@ jessie	Jessie gave orders that Alex was to be treated well.	Jessie, Alex'e iyi d
 tyler	Tyler was born and grew up in the same part of Virginia as William Henry Harrison.	Tyler, William Henry Harrison gibi Virginia'nın aynı kısmında doğdu ve büyüdü.	4440	tr
 harrison	He said Harrison had only one vote.	Harrison'un sadece bir oyu olduğunu söyledi.	4440	tr
 harrison	George Harrison was a gentleman all his life!	George Harrison tüm yaşamı boyunca bir centilmendi.	4440	tr
-las	Las Vegas is one of the fastest growing cities in the United States.	Las Vegas, Amerika Birleşik Devletleri'ndeki en hızlı büyüyen şehirlerden biridir.	4441	tr
-las	They got married in Las Vegas.	Onlar Las Vegas'ta evlendiler.	4441	tr
 mat	The cat is on the mat.	Kedi paspasın üstünde.	4443	tr
 mat	Wipe your shoes on the mat.	Ayakkabılarını paspasta sil.	4443	tr
 generally	We generally drink tea after a meal.	Biz genellikle bir öğünden sonra çay içeriz.	4444	tr
@@ -48138,7 +48045,6 @@ de	Your eyes are as beautiful as the arms of the Venus de Milo.	Gözleriniz, Ven
 mechanical	Tom is studying to be a mechanical engineer.	Tom makine mühendisi olmak için öğrenim görüyor.	5539	tr
 karma	Karma is a nasty little bitch!	Karma iğrenç bir küçük fahişedir!	5540	tr
 jefferson	This did not worry Jefferson.	Bu Jefferson'u üzmedi.	5541	tr
-ra	The ancient Egyptians believed that the Sun was the eye of the god Ra.	Eski Mısırlılar, Güneş'in Tanrı Ra'nın gözü olduğuna inandılar.	5544	tr
 info	We need some info about the town.	Kentle ilgili biraz bilgiye ihtiyacımız var.	5546	tr
 artificial	The artificial satellite was launched into orbit.	Yapay uydu yörüngesine fırlatıldı.	5547	tr
 artificial	We skied on artificial snow.	Biz yapay karda kaydık.	5547	tr
@@ -48230,8 +48136,6 @@ battlefield	He would still be alive had he refused to go to the battlefield then
 nevertheless	It is nevertheless a good sentence.	O yine de iyi bir cümle.	5620	tr
 nevertheless	Nevertheless, I want to go there.	Yine de oraya gitmek istiyorum.	5620	tr
 carnival	I hate snow and the carnival.	Kar ve karnavaldan nefret ediyorum.	5621	tr
-au	She works as an au pair.	O bir au pair olarak çalışır.	5622	tr
-au	"""What is the element with the symbol Au?"" ""Gold."""	"""Simgesi Au olan element hangisidir?"" ""Altın."""	5622	tr
 hah	Hah, that proves I was right!	İşte, o benim haklı olduğumu kanıtlıyor!	5624	tr
 portion	Tom got a small portion of pie.	Tom küçük porsiyon bir pasta aldı.	5625	tr
 portion	He has not paid his portion of the rent.	O, kira payını ödemedi.	5625	tr
@@ -48609,7 +48513,6 @@ tailor	The actor used to have the tailor make his suits.	Aktör takım elbiseler
 davy	Davy was making mud pies behind the barn.	Davy, ahırın arkasında çamurdan turtalar yapıyordu.	6028	tr
 compartment	This is a non-smoking compartment.	Bu bir sigara- içilmez kompartmanıdır.	6029	tr
 bureau	The bureau drawer has several compartments.	Büro çekmecesinin birçok bölümü var.	6029	tr
-po	The longest river in Italy is the Po.	İtalya'daki en uzun nehir Po'dur.	6031	tr
 crappy	Stop listening to this crappy music.	Bu berbat müziği dinlemeyi kes.	6032	tr
 crappy	It was a crappy time in my life.	Hayatımdaki berbat bir dönemdi.	6032	tr
 stocking	There is a big hole in your stocking.	Çorabında büyük bir delik var.	6033	tr
@@ -49327,7 +49230,6 @@ patent	Tom filed a patent for his invention.	Tom buluşu için patent başvurusu
 stomp	Tom tried to stomp out the fire.	Tom yangından kurtulmaya çalıştı.	6794	tr
 fa	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	Benim dilimde nota dizilimi do, re, mi, fa, sol, la, si, do şeklindedir.	6795	tr
 mi	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	Benim dilimde nota dizilimi do, re, mi, fa, sol, la, si, do şeklindedir.	6795	tr
-si	In my language, the notes of the scale are do, re, mi, fa, sol, la, si, do.	Benim dilimde nota dizilimi do, re, mi, fa, sol, la, si, do şeklindedir.	6795	tr
 mccoy	This is the real McCoy.	Sahici bu.	6796	tr
 driveway	Tom cleared snow from the driveway.	Tom araba yolundaki karı temizledi.	6798	tr
 driveway	Is that your car in the driveway?	Araba yolundaki senin araban mı?	6798	tr
@@ -50187,7 +50089,6 @@ deception	The art of pleasing is the art of deception.	Hoşa gitme sanatı, alda
 trespassing	You are trespassing on private property.	Özel mülkiyete izinsiz giriyorsunuz.	7735	tr
 trespassing	You're under arrest for trespassing.	İzinsiz girdiğin için tutuklusun.	7735	tr
 margin	This product brought us a large margin.	Bu ürün bize büyük bir kar getirdi.	7738	tr
-yer	Everybody shut yer traps!	Herkes sizin tuzakları kaybetti.	7739	tr
 significance	Today I will be speaking about the significance of sports in modern society.	Bugün modern toplumda sporun önemi hakkında konuşacağım.	7741	tr
 significance	Your thoughts are of no significance at all.	Düşüncelerinizin hiçbir anlamı yok.	7741	tr
 soothe	I tried to soothe the child.	Ben çocuğu yatıştırmaya çalıştım.	7745	tr
@@ -51066,8 +50967,6 @@ librarian	The librarian told Tom and Mary to be quiet.	Kütüphaneci Tom ve Mary
 librarian	The librarian classified the books according to subject.	Kütüphaneci kitapları konularına göre sınıflandırdı.	8760	tr
 bourgeois	"The term ""bourgeois"" can be used as an insult by both the lower and the upper classes."	"""Burjuva"" terimi hem orta hem de üst sınıflara bir hakaret olarak kullanılabilir."	8761	tr
 bourgeois	She comes from a bourgeois background.	O burjuva bir çevreden geliyor.	8761	tr
-ac	Do you mind if I turn off the AC?	Klimayı kapatabilir miyim?	8763	tr
-ac	Please turn up the AC a little bit.	Lütfen klimanın derecesini biraz yükselt.	8763	tr
 peru	They built their empire in Peru about five hundred years ago.	Onlar yaklaşık beş yüz yıl önce Peru'da imparatorluklarını kurdular.	8768	tr
 peru	According to the paper, there was an earthquake in Peru.	Gazeteye göre Peru'da bir deprem oldu.	8768	tr
 confrontation	He deliberately kept on provoking a confrontation.	O, kasıtlı olarak bir çatışmayı provoke etmeye devam etti.	8770	tr
@@ -51931,7 +51830,6 @@ cartridge	The ink cartridge can be recycled.	Mürekkep kartuşu geri dönüştü
 tabloid	My father would never read a tabloid newspaper.	Babam asla bir tabloid gazete okumaz.	9814	tr
 rosy	She has beautiful rosy cheeks.	Onun güzel al yanakları var.	9815	tr
 gore	Al Gore was born in Washington, DC.	Al Gore, Washington, DC'de doğdu.	9817	tr
-al	Al Gore was born in Washington, DC.	Al Gore, Washington, DC'de doğdu.	9817	tr
 dc	Al Gore was born in Washington, DC.	Al Gore, Washington, DC'de doğdu.	9817	tr
 gore	Mr. Bush had slightly more votes than Mr. Gore.	Bay Bush, Bay Gore'dan biraz daha fazla oy aldı.	9817	tr
 gore	Al Gore is a global-warming activist.	Al Gore bir küresel ısınma eylemcisi.	9817	tr
@@ -52238,8 +52136,6 @@ fight	We fight all the time.	نحن دائمًا نتشاجر.	298	ar
 stand	What does this stand for?	إلامَ يرمز ذلك؟	299	ar
 tonight	Thanks for coming over tonight.	نشكرك لمجيئك عندنا الليلة.	302	ar
 everyone	She is loved by everyone.	الجميع يحبها.	303	ar
-wanna	"""I wanna have a word with you."" ""Sure, what is it?"""	"""أريد أن أحدّثك."" ""بالتأكيد، و عن ماذا؟"""	305	ar
-wanna	Wait. I wanna talk to you.	انتظر. أريد الحديث معك.	305	ar
 ah	Ah, when will they meet again?	آه ، متى سيتقابلون مجدداً؟	306	ar
 case	We made up our mind to come in any case.	قررنا أن نأتي على أي حال.	309	ar
 soon	I will be back soon.	سأعود قريباً.	314	ar
@@ -53480,7 +53376,6 @@ brazil	Italy is far from Brazil.	إيطاليا بعيدة عن البرازيل
 brazil	The flag of Brazil has four colors: green, yellow, blue and white.	علم البرازيل فيه اربعه الوان : اخضر و اصفر و ازرق و ابيض.	4283	ar
 ton	Your bicycle weighs a ton.	دراجتك ثقيلة جدا.	4289	ar
 laptop	How can you have a laptop and not a cell phone?	كيف يكون عندك لابتوب ولا يكون عندك جوال؟	4298	ar
-cd	May I borrow this CD?	هل بإمكاني استعارة هذا القرص؟	4312	ar
 circumstance	Please understand that, under these circumstances, we have no other choice but to find another buyer.	يرجى تَفَهُم أنه في ظل هذه الظروف ، ليس لدينا أي خيار سوى البحث عن مشترٍ آخر.	4320	ar
 buyer	Please understand that, under these circumstances, we have no other choice but to find another buyer.	يرجى تَفَهُم أنه في ظل هذه الظروف ، ليس لدينا أي خيار سوى البحث عن مشترٍ آخر.	4320	ar
 bare	The trees will soon be bare.	ستفقد الأشجار قريبا أوراقها.	4322	ar
@@ -54200,7 +54095,6 @@ sow	You reap what you sow.	سوف تحصد ما زرعت.	9385	ar
 reap	You reap what you sow.	سوف تحصد ما زرعت.	9385	ar
 ornament	This is a Christmas tree ornament.	هذا تزيين لشجرة عيد الميلاد.	9391	ar
 rotation	Mercury has a very slow rotation.	كوكب عطارد يدور على نفسه ببطء شديد.	9400	ar
-eu	If I go to another country in the EU as a tourist, are there any steps I have to take?	اذا ذهبت الى بلد اوربي اخر كسائح ، هل هناك اي خطوات يجب علي اتخاذها ؟	9409	ar
 dung	The dung beetle turned in another direction.	غير خنفوس الروث اتجاهه.	9421	ar
 dung	Ancient Egyptians worshipped dung beetles.	كان المصريون القدامى يعبدون خنفساء الروث.	9421	ar
 shatter	That might shatter the windshield.	من شأن هذا أن يكسر الزجاج الأمامي.	9425	ar
@@ -56170,7 +56064,6 @@ terrorist	We will never give in to terrorist demands.	Nu ne vom supune niciodat�
 moan	She let out a moan.	A scos un geamăt.	2136	ro
 hung	When was the last time you hung out with Tom?	Când a fost ultima dată când ai umblat cu Tom?	2137	ro
 ambulance	Do you need an ambulance?	Ai nevoie de o salvare?	2138	ro
-ll	I sent you a letter last week and I'll send you one more today.	V-am trimis o scrisoare săptămână trecută și vă trimit încă una azi.	2152	ro
 disturb	I'll do my best not to disturb your studying.	Îmi voi da silința să nu te deranjez când studiezi.	2152	ro
 employee	The good employee is proud.	Angajatul bun este mândru.	2154	ro
 retire	I think you should retire.	Cred că trebuie să ieși la pensie.	2156	ro
@@ -58779,7 +58672,6 @@ shore	The next day the wreck of the ship was discovered on the shore.	Siku iliyo
 wreck	The next day the wreck of the ship was discovered on the shore.	Siku iliyofuata mabaki ya meli hiyo yalipatikana ufuoni.	2888	sw
 sight	The waves were crashing on the shore; it was a lovely sight.	Mawimbi yalikuwa yakiporomoka ufukweni; ilikuwa inapendeza macho.	2888	sw
 officially	The United States officially declared a state of emergency.	Marekani ilitangaza rasmi hali ya dharura.	2889	sw
-ne	But, oh, Ned, our friendship has been so good and so pleasant! What a pity to spoil it!	Lakini, dah, urafiki wetu ulikuwa mzuri na wa kuvutia. Nauonea huruma kuuharibu!	2890	sw
 spoil	But, oh, Ned, our friendship has been so good and so pleasant! What a pity to spoil it!	Lakini, dah, urafiki wetu ulikuwa mzuri na wa kuvutia. Nauonea huruma kuuharibu!	2890	sw
 clay	Now, just let the clay slide between your fingers.	Sasa, acha tu udongo uteleze kati ya vidole vyako.	2894	sw
 immediately	The possibility of a lack of connection between the events can be dismissed immediately.	Uwezo wa ukosefu wa uhusiano kati ya hafla zinaweza kufutiliwa mbali mara moja.	2897	sw
@@ -59024,7 +58916,6 @@ heather	Heather loves the way she lives her life.	Heather anapenda jinsi anaishi
 enterprise	Your success in the enterprise depends on your effort.	Kufanikiwa kwako katika biashara kunategemea bidii yako.	3738	sw
 feast	What a feast we had when we visited my aunt!	Tulipomtembelea shangazi tulifurahia karamu nzuri sana.	3746	sw
 aunt	What a feast we had when we visited my aunt!	Tulipomtembelea shangazi tulifurahia karamu nzuri sana.	3746	sw
-tin	Do you know the difference between silver and tin?	Je, unajua tofauti kati ya fedha na bati?	3750	sw
 remind	I remind you that you are still under oath.	Nakukumbusha kuwa bado uko chini ya kiapo.	3755	sw
 donald	Donald was the name of my English teacher.	Donald lilikuwa jina la mwalimu wangu wa Kiingereza.	3762	sw
 tension	I felt the tension grow between us.	Nilihisi mvutano unakua kati yetu.	3764	sw
@@ -59196,7 +59087,6 @@ dispatch	Dispatch a royal rider with this sealed letter from the king.	Tuma fara
 rider	Dispatch a royal rider with this sealed letter from the king.	Tuma farasi wa kifalme na barua hii iliyotiwa muhuri kutoka kwa mfalme.	4437	sw
 jessie	Jessie spoke bad French and worse German.	Jessie aliongea Kifaransa na Kijerumani kibaya.	4438	sw
 vegas	Dreams can be won or lost in Las Vegas.	Ndoto zinaweza kushinda au kupotea jijini Las Vegas	4441	sw
-las	Dreams can be won or lost in Las Vegas.	Ndoto zinaweza kushinda au kupotea jijini Las Vegas	4441	sw
 maximum	Dan was sent to a maximum security facility in Florida.	Dani alifungwa kwenye gereza la juu huko Florida.	4448	sw
 forty	Mr George Bush is the forty-first president of the United States.	Bwana George Bush ndiye rais wa arobaini na moja wa Amerika.	4450	sw
 george	Mr George Bush is the forty-first president of the United States.	Bwana George Bush ndiye rais wa arobaini na moja wa Amerika.	4450	sw
@@ -60129,8 +60019,6 @@ mission	Do you understand the mission?	Você está entendendo o que quero que fa
 condition	I accept, but only under one condition.	Eu aceito, mas apenas sob uma condição.	1050	pt
 dig	I cannot dig a hole in the middle of the street.	Não posso cavar um buraco no meio da rua.	1051	pt
 nick	Tom arrived in the nick of time.	Tom chegou na hora certa.	1054	pt
-er	He fell, so I had to take him to the ER.	Ele tinha caído, então tive de levá-lo à sala de emergências.	1058	pt
-er	Tom has been taken to the ER.	Tom foi levado para a sala de emergência.	1058	pt
 color	Do you like this color?	Você gosta dessa cor?	1059	pt
 color	Choose the color you like the best.	Escolha a cor que mais gostar.	1059	pt
 bob	Bill can run faster than Bob.	Bill corre mais rápido do que Bob.	1060	pt
@@ -60608,7 +60496,6 @@ royal	He is of royal blood.	Ele tem sangue real.	1759	pt
 text	Even my grandma can send a text.	Até minha avó pode enviar uma mensagem.	1761	pt
 wrap	Can you gift-wrap this, please?	Você pode embalar isso para presente, por favor?	1762	pt
 capture	To be honest, we came to capture you.	Vamos ser francos. Viemos para capturá-lo.	1763	pt
-re	Better to be hated for who you are than loved for who you're not.	Melhor ser odiado por aquilo que somos do que ser amado por aquilo que não somos.	1765	pt
 martin	Hurry up, Martin. We're already late!	Apresse-se, Martin. Nós já estamos atrasados!	1765	pt
 goin	We're goin' home.	Estamos indo para casa.	1765	pt
 honour	"""God bless you!"" he cried. ""You have saved my honour."""	"""Deus te abençoe!"" ele chorou. ""Salvaste a minha honra."""	1766	pt
@@ -62030,7 +61917,6 @@ adore	I just adore your new hat.	Eu simplesmente adoro o teu novo chapéu.	3745	
 feast	This is only a feast.	Isto é apenas um banquete.	3746	pt
 cabinet	Every member of the cabinet was present.	Todos os membros do gabinete estavam presentes.	3747	pt
 cabinet	The file cabinet drawers are open.	As gavetas do arquivo estão abertas.	3747	pt
-tin	Can you tell silver and tin apart?	Você sabe diferenciar a prata do estanho?	3750	pt
 closely	Dutch is closely related to German.	O holandês tem uma relação próxima com o alemão.	3753	pt
 closely	If you listen closely enough you'll be able to hear it.	Se você escutar mais de perto, vai poder ouvir.	3753	pt
 oath	When the Father asked the bride to repeat the oath, she stayed silent.	Quando o padre pediu à noiva que repetisse o juramento, esta ficou calada.	3755	pt
@@ -62407,7 +62293,6 @@ den	The world is a den of crazies.	O mundo é uma toca de loucos.	4302	pt
 shotgun	Tom shot Mary with a shotgun.	Tom atingiu Mary com uma espingarda.	4303	pt
 bass	I play bass in a jazz band.	Eu toco contrabaixo numa banda de jazz.	4304	pt
 veronica	It has to be said that Veronica has done a great job here.	É bom que se diga que a Verônica fez um ótimo trabalho aqui.	4308	pt
-cd	Which CD do you want to listen to?	Qual CD você quer escutar?	4312	pt
 vera	Vera lives on the same street as you.	Vera mora na mesma rua que você.	4314	pt
 consciousness	He has not yet recovered consciousness.	Ele ainda não recobrou a consciência.	4315	pt
 verdict	I disagree with the verdict.	Eu discordo com o veredito.	4316	pt
@@ -64252,7 +64137,6 @@ gospel	How beautiful are the feet of them that preach the gospel of peace!	Quão
 gospel	They believe in the Gospel.	Eles creem no evangelho.	7081	pt
 transcript	A transcript is an official record of the courses you took and grades you received in high school, college or graduate school.	Um certificado de habilitações é um registo oficial dos cursos que se frequentou e das classificações que se obteve no ensino secundário, superior ou pós-graduado.	7082	pt
 transcript	When the call is finished, a senior director in the Situation Room reviews the notes and transcript.	Quando termina o telefonema, um diretor sénior na Sala de Crise revê as notas e a transcrição.	7082	pt
-tis	'Tis better to have loved and lost than never to have loved at all.	É melhor ter amado e perdido, do que jamais ter amado.	7083	pt
 serpent	It had the head of a woman, the body of a lion, the wings of a bird, and the tail of a serpent.	Tinha cabeça de mulher, corpo de leão, asas de pássaro e cauda de serpente.	7085	pt
 bead	You can play Go using whatever you have, such as poker chips, beads, buttons, coins, etc. You do not need to use Go stones.	Você pode jogar Go usando o que tiver, como fichas de pôquer, contas, botões, moedas, etc. Você não precisa usar pedras de Go.	7086	pt
 cosmos	The cosmos is all that ever was, that ever is and that ever will be.	O cosmos é tudo o que sempre foi, que sempre é e que sempre será.	7090	pt
@@ -65243,7 +65127,6 @@ bookstore	The bookstore is near the park.	A livraria é perto do parque.	8752	pt
 extinction	I want to help Native Americans to save their languages from extinction.	Quero ajudar os ameríndios a salvar suas línguas da extinção.	8757	pt
 equality	Is desiring for equality and opportunities for all just a dream?	Será um sonho o desejo de igualdade de oportunidades para todos?	8759	pt
 librarian	The librarian told Tom and Mary to be quiet.	O bibliotecário mandou o Tom e a Mary ficarem quietos.	8760	pt
-ac	Please turn up the AC a little bit.	Por favor, aumenta um pouco o ar condicionado.	8763	pt
 dc	More than 100 years after alternating current (AC) defeated direct current (DC) in the so-called Battle of Currents and became the standard way electricity was delivered, new technologies have opened up the possibility and even the necessity for the two systems to co-exist.	Mais de 100 anos depois de a corrente alternada (CA) ter derrotado a corrente contínua (CC) na chamada Batalha das Correntes e se ter tornado o modo habitual de fornecimento de eletricidade, as novas tecnologias abriram a possibilidade e mesmo a necessidade de os dois sistemas coexistirem.	8763	pt
 peru	Peru is the third largest country in South America after Brazil and Argentina.	O Peru é o terceiro maior país da América do Sul depois do Brasil e da Argentina.	8768	pt
 premature	A pointless life is a premature death.	A vida sem um objetivo é morte prematura.	8775	pt
@@ -65655,7 +65538,6 @@ troll	In his spare time, Tom keeps busy as a troll in internet forums.	No seu te
 stride	It took you a while to pick up speed, but now you're really hitting your stride.	Demoraste algum tempo a ganhar velocidade, mas agora estás mesmo a avançar a passos largos.	9406	pt
 clack	The head nurse came striding up, her leather heels clacking on the tile floor.	A enfermeira-chefe aproximou-se a passos largos, os seus tacões de couro a bater no chão de ladrilhos.	9406	pt
 lullaby	I'll sing you a lullaby.	Vou cantar para você um acalanto.	9407	pt
-eu	The EU has 24 official languages.	A UE tem 24 línguas oficiais.	9409	pt
 utility	Practical utility and artistic beauty combine to make a comfortable house to live in.	Prática utilidade e beleza artística se combinam para fazer uma casa confortável para morar.	9411	pt
 lone	The painting depicted a lone horseman riding through a forest.	A pintura retratava um cavaleiro solitário cavalgando por uma floresta.	9420	pt
 horseman	The painting depicted a lone horseman riding through a forest.	A pintura retratava um cavaleiro solitário cavalgando por uma floresta.	9420	pt
