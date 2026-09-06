@@ -1193,7 +1193,8 @@ th/ko/ar/yo they are not.** Order, by learner impact:
 withdrawn** → surface form stored as the row's answer for inflecting
 courses (migration, owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader
 pass over 6,048 rows → Yoruba headword tones → 22 junk Thai headwords to
-`vocab_exclusions.tsv` → an `unclozable_rows` audit rule that ratchets. And a rule for the applier from now on: SURFACE presence, never
+`vocab_exclusions.tsv` → an `unclozable_rows` audit rule that ratchets. And
+a rule for the applier from now on: SURFACE presence, never
 lemma presence — the 31 Aug Russian pass shipped rows the card cannot use.
 
 **9 · English vocabulary the seeder never inserts.** `EnglishSeeder` stops
