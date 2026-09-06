@@ -285,14 +285,15 @@ rate, say so — that result matters more than the phase closing quietly.
     must not scold for a form the card never named. (CHECKS §28)
 46. **A sentence the card cannot BLANK is not coverage.** `make_cloze`
     whole-word-matches the surface headword; a row carrying only an
-    inflection, a stem, a toneless twin or an unspaced run is skipped and
-    the card falls back to definition-only. 93% of Thai, 54% of Korean, 47%
-    of Arabic rows are that — 1,085 / 566 / 491 top-2,000 words with no
-    usable sentence. Require SURFACE presence when authoring (the 31 Aug
-    Russian applier accepted lemma presence and shipped dead rows), and
-    measure coverage with `make_cloze`, not with a regex of your own — the
-    obvious "it's the `\w` boundary" diagnosis recovered zero rows when
-    tested. (CHECKS §29)
+    inflection, a stem or a toneless twin is skipped and the card falls back
+    to definition-only, silently. Korean 54% of rows, Arabic 47%, Yoruba
+    50% — 566 / 491 / 182 top-2,000 words with no usable sentence. Require
+    SURFACE presence when authoring (the 31 Aug Russian applier accepted
+    lemma presence and shipped dead rows), and measure coverage with
+    `make_cloze` itself, not a regex of your own. Thai was the worst of
+    these (93%) and is fixed: for an unspaced script a boundary regex is
+    not useless but WRONG — it was blanking `แก` out of `แก้ม` — so
+    segmentation replaces it rather than backing it up. (CHECKS §29)
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
