@@ -5,6 +5,14 @@ suggestions — check this file before planning work in any of these areas.
 
 ## 1. The production push is GATED. Do not run it, do not ask to run it yet.
 
+> **Status, 6 Sep 2026 — superseded in practice on 30 Aug.** The owner ran
+> the sequence themselves (`docs/decisions/2026-08-30-content-push-and-gloss-pass.md`)
+> and has run `prune_sentences --apply` for en/ru/ar since. What survives of
+> this decision is the half that was never about timing: the owner runs
+> production writes, the agent prepares them (`docs/quality/refeed.md`,
+> CLAUDE.md). The Gym-level and grammar-review work continues as Phases 3–4
+> of `docs/plans/quality-parity.md`, no longer as a release gate.
+
 **The owner runs the production sequence when two things are complete:**
 
 1. **The Gym level is finished.**

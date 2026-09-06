@@ -44,6 +44,11 @@ that survives is the functional one: a hint names the grammatical job, it never 
    `"He often studies {{answer}} night."` → `"The fixed phrase with 'night'."` BAD (and *not* what the file
    does): `"He often studies at night."` — an English "translation" of an English sentence hands over the
    answer.
+   **The convention has one visible cost (6 Sep 2026, CHECKS §27):** an English-UI learner has no
+   `drill_hint_translations` row for locale `en`, so `COALESCE(dht.translation, ds.translation)` falls through
+   to the note and the card renders `"do — the participle."` under the heading **Translation**. The data is
+   right; the label is wrong. Fix is app-side — return the note as `context` under its own label — not a
+   rewrite of the field into English-for-English, which would hand over the answer (the BAD case above).
 1. **The exemption is scoped to that one rule, and must stay so.** A usage note is still text the learner sees,
    so it is still bound by `giveaway_by_gloss`: five hits are a short hint appearing whole in its own note.
    BAD: hint `a woman` under `"Introducing a woman in your family."` (`She`); `a thing` under `"Talking about
@@ -57,7 +62,13 @@ that survives is the functional one: a hint names the grammatical job, it never 
 3. **For pronoun and possessive answers, describe the referent's role, never restate it.** GOOD:
    `belonging to a thing — no apostrophe` → `its`; `it belongs to us` → `our`; `the man's name` → `His`.
    BAD: `belonging to her` → `Her` — sibling drills in that point get it right, so this is a slip.
-4. **Never `answer — explanation`.** Three drills do it, all in one C2 point, all the same string. BAD:
+4. **Never `answer — explanation`.** Three drills do it, all in one C2 point, all the same string. **The
+   same template has crept into the `translation` field of 11 drills** (Comparatives and superlatives ×5, the
+   passive/conditionals/participle clauses ×4, Question words ×2): `do — the participle.` beside hint
+   `do — participle`, `good — irregular comparative.` beside `good — comparative`. The base form is not the
+   answer, so it is not a leak — it is the hint said twice under two headings, and it is not a usage note. A
+   note earns its place by adding the SCENE the hint lacks: `Someone asks how you would have handled their
+   situation.` Checked: `translation` must not match `^\S+\s+[—–-]\s+` and must not fold-equal the hint. BAD:
    `be — bare` → `be`. GOOD, from the *same point*: `obey — bare form` → `follow`; `step down — bare form` →
    `resign`; `seek advice from — bare form` → `consult`. The fix is modelled next door — synonym plus form
    spec; for `be`, write `the linking verb — bare form`.

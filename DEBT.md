@@ -31,14 +31,19 @@ flipping the flag; that's your call to make when the hold lifts. If you ever
 audit the codebase and find payment code that looks unreachable, this is
 why.
 
-### The production push is gated on two things, and has been for a while
+### Production data is pushed by the owner, by hand, and the push has run
 
-Per `docs/decisions/2026-08-26-owner-decisions.md`: no `supabase db push` /
-reconcile sequence runs until (1) the Gym level is finished and (2) the
-grammar concepts have had a *comprehensive* review, not just a
-defect-free one. Worth re-reading before assuming "the code is ready, why
-isn't it deployed" — the repository has been ahead of the deployed app for a
-while on purpose.
+Until 30 Aug 2026 the repository was deliberately ahead of the deployed
+app — `docs/decisions/2026-08-26-owner-decisions.md` gated the content push
+on the Gym level and a comprehensive grammar review. The owner released that
+gate by running the sequence themselves on 30 Aug, and has run
+`prune_sentences --apply` for en/ru/ar since. What remains true, and is
+easy to get wrong from either direction: **code deploys itself from
+`main`; data does not.** A merged TSV or grammar JSON changes nothing a
+learner sees until the owner runs `docs/quality/refeed.md` for that course,
+and this agent must not run it (a bulk DELETE attempt was blocked by the
+auto-mode classifier). 24 courses have never been pruned, so their cards can
+still serve sentences no committed bank endorses (CHECKS §18).
 
 ### `trial_reviewer` in the database, "Tester" on screen
 
@@ -145,6 +150,61 @@ Two things that pass the tests but are not finished:
   start reading as padded, split the map by level rather than trimming
   points — the whole point of generating it is that it lists them all.
 
+
+### The card draws a word's SHORTEST sentence first
+
+`get_due_cards` orders a word's sentences `difficulty_rank ASC, id`, and
+every row of a word carries the word's frequency rank on purpose (CHECKS
+§24), so `id` — insertion order — decides. Corpus rows were inserted before
+authored ones and Tatoeba lists short sentences first. Result: 89% of
+English and 58% of Russian top-2,000 words that own a 7–14-word sentence
+show a shorter one — after 6,517 Russian sentences were authored to fix
+exactly that. The fix is a single ORDER BY preferring the §23 band (the
+SQL is in CHECKS §26), with Thai degrading to today's order. Designed 6 Sep,
+not built; first item in `docs/decisions/2026-09-06-review-pass.md`.
+
+### The English course shows its drill usage note under "Translation"
+
+By convention (`docs/quality/en.md` note 0) an English drill's
+`translation` field holds a usage note and the real translations live in
+`data/grammar/en_drill_hints.<locale>.json`. With an English UI locale no
+`drill_hint_translations` row exists, `COALESCE(dht.translation,
+ds.translation)` falls through, and the note renders under the "Translation"
+heading — "do — the participle." (CHECKS §27). Fix is a `context` field
+under its own label in all six locales, plus 11 notes that merely restate
+the hint. Not a data bug; do not "fix" it by writing English-for-English
+translations, which hand over the answer.
+
+### Exclusions have no production write path
+
+`data/vocab_exclusions.tsv` (727 rows; 764 once `fix/en-symbol-glosses` merges) is applied by the FILE loader
+(`source_data.apply_vocab_exclusions`), and no seeder deletes a vocabulary
+row because `user_cards` references it. So every excluded word — the 645
+"a male given name" cards retired on 25 Aug, and the 37 in
+`fix/en-symbol-glosses` (`em` glossed as a printer's quad, `er` as erbium,
+`ya`, `wanna`) — is still served in production. What is needed: a
+`vocabulary.retired_at` column (migration, owner-applied; readers degrade),
+a retire step in `reconcile` that sets it from the exclusions file, and the
+card draw / lesson intake filtering it while keeping the learner's
+`user_cards` row. CHECKS §12's class: a layer with no write path.
+
+### The lesson's Gym link is English in five locales
+
+`GrammarPathPage` links a lesson to its Gym drill set (#397) using
+`path.practiseForms` and `path.drillCount`, which exist only in `en.json`;
+ar, es, fr, pt and ru fall back to the English string on that line. Add the
+five keys with the next frontend change — and the `card.context` key from
+the entry above should ship in all six at once.
+
+### `EnglishSeeder` stops at 8,600 of 10,000 headwords
+
+~1,400 English headwords have no WordNet gloss and are skipped rather than
+inserted, and they include `what`, `how` and `because` — absent from
+production today while `en_frequency.tsv` lists them. Diagnosed 5 Sep,
+not fixed. Two routes: gloss them through `gloss_overrides.tsv` (the
+mechanism exists and `circular_gloss` gates it) or lift the cap and let
+the audit decide. Either way the count to watch is production `en` rows
+against the file's 10,000 (9,963 once `fix/en-symbol-glosses` merges).
 
 ### The Workspace chrome is translated; its 42 panels are not
 

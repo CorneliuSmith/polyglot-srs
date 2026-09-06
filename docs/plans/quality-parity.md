@@ -995,6 +995,9 @@ Remaining, in order:
   speaker stays held and stays written down.
 - Refresh stale docs (ko.md, sw.md, en.md, README agreement_feature row).
 - Baseline ratchets DOWN with each fix; never up.
+- The finding count is whatever `audit_content` prints on the day — 920 was
+  the 19 Aug figure (D4), 663 on 31 Aug. Do not plan against a frozen number
+  (rule 31).
 
 ### Phase 4 — Gym parity
 
@@ -1005,6 +1008,14 @@ Remaining, in order:
 - Copy pass on early manifests to the later house style.
 - `-k drills-topup` CLI implemented and tested (the DB run itself is the
   owner's, in the runbook).
+- **Lessons point at the Gym (#397, 5 Sep 2026).** A lesson payload carries
+  the manifest entry for its point (`gym: {label, usage, example, column,
+  drills}`) and `GrammarPathPage` links to `/gym` under the examples — the
+  owner's *futur simple* screenshot: a conjugation is too broad to enumerate
+  on a lesson page, so the lesson names the drill set instead. **Left out:**
+  `path.practiseForms` / `path.drillCount` exist only in `en.json`; ar, es,
+  fr, pt and ru fall back to English on that one line. Add the five keys
+  with the next frontend change (DEBT.md).
 
 ### Phase 5 — Extraction leverage (session-only, facts-only)
 
@@ -1022,11 +1033,20 @@ Remaining, in order:
 
 - Full gates: audit (baseline equal-or-down), backend tests, ruff,
   frontend build + vitest, adversarial QA sweep over all new content.
-- `docs/quality/refeed.md` + chat summary: exact per-language reseed
-  order (`seed_english` → `run.py` → `seed_sentences` → `seed_grammar` →
-  `morphology_charts` → `seed_alphabet`), which DB-side passes to run
-  afterwards (`review_translations` offline mode, `review_hints`,
-  gym top-up, example diversity) and what each costs.
+- ~~`docs/quality/refeed.md`~~ — **written 6 Sep 2026**, from the sequence
+  the owner actually ran on 30 Aug and the prunes since: backup →
+  migrations → `run` (vocabulary + alphabet decks) → `reconcile` →
+  `seed_grammar` → `seed_sentences` → `prune_sentences`, per course, every
+  command without the DSN, rollback for the two that write one. Still to
+  add as they become real: the DB-side passes (`review_translations`
+  offline mode, `review_hints`, gym top-up, example diversity) and a
+  measured cost per course.
+- **Exclusions have no production write path.** `vocab_exclusions.tsv` is
+  applied by the FILE loader (`source_data.apply_vocab_exclusions`); no
+  seeder deletes a vocabulary row (learner cards would orphan), so the 723
+  excluded rows — and the 37 the `em` card added — remain in production
+  until a retire step exists. CHECKS §12's class, one more time. See the
+  6 Sep handover for the design.
 
 ### Phase 8 — Example-sentence fitness, all 27 courses (owner, 30 Aug 2026)
 
@@ -1082,6 +1102,69 @@ reading still hides the answer and looks like a reading.
 **Order.** (1) and (3) are deletions and can run with the prune, per course.
 (2) needs a decision per pair — retag the sentence to the word it actually
 contains, or drop it. (4) needs a check written before it can be counted.
+
+#### Where Phase 8 stands, 6 Sep 2026 (review pass, no implementation)
+
+Re-measured on the committed banks after the 31 Aug–5 Sep passes:
+
+* **(1) 2,671 → 378 bare-headword rows remain** (ko 74, th 64, ca 29, en 26,
+  el 25, tr 21, ar 18, es 15, the rest under 15). Every one is now the ONLY
+  sentence its word has — the floor rule (§24) keeps a thin row until
+  something better exists — and Thai's 64 sit outside the floor entirely
+  (§22). These are an authoring list, not a deletion list.
+* **(2) done** for the 963 measured: 856 were the writing system (§25),
+  49 retagged, 58 dropped.
+* **(3) 10 → 44** with the pattern widened to the corpus naming itself:
+  "Benvinguts a Tatoeba", "'Tatoeba' significa 'per exemple' en japonès"
+  — ca 11, nl 8, es 4, en/fr/ro 3, de/id/it/tl 2, ar/pt/th/tr 1. Drop, and
+  add `tatoeba` to `prune_sentences._context_free` / the floor script so it
+  cannot return.
+* **(5)** the owner has run `prune_sentences --apply` for `en` (127,363
+  rows), `ru` and `ar` (twice each). 24 courses remain; the runbook is
+  `docs/quality/refeed.md`.
+* **ru and ar are at the bar on SUPPLY** — 6,517 and 1,137 authored
+  sentences, 6 and 18 top-2,000 words without a §23 sentence — and it made
+  almost no difference to the card, which is item 6.
+
+Three defects the owner's 5 Sep screenshots added, each measured on all 27:
+
+**6 · The card draws the shortest sentence first — CHECKS §26.** "We are
+___." for `human` while the bank held "This dog is almost human." and
+longer. Sentences are drawn `ORDER BY difficulty_rank, id`; every row of a
+word ties on the word's rank, so insertion order decides, and corpus rows
+were inserted first. 89% of English, 62% of German, 58% of Russian top-2,000
+words that OWN a 7–14-word sentence show a shorter one first (full table in
+§26). **One ORDER BY fixes every course at once and is the first thing to
+build when implementation resumes** — it is worth more than any authoring
+pass, including the two already done.
+
+**7 · The English course renders its usage note as the translation —
+CHECKS §27.** "do — the participle." under TRANSLATION. The convention is
+deliberate (`en.md` note 0: 19 locale files carry the real translations),
+the label is wrong for an English-UI learner, and 11 of the 266 notes are
+cue-shaped duplicates of the hint. Scoped to `en`; 0 elsewhere (9 hits
+inspected). Fix: a `context` field rendered under its own label in six
+locales, 11 notes rewritten, a check.
+
+**8 · The supply queue, by course.** Top-2,000 words with sentences but
+none in the §23 band (§26, right-hand column): tr 1,617 · he 1,538 · it
+1,065 · el 1,042 · ko 1,018 · id 802 · es 784 · pt 782 · de 738 · nl 683 ·
+ro 666 · tl 620 · ca 509 · fa 448 · sw 414 · fr 398 · hi 320 · xh 298 · yo
+128 · en 75 · ar 18 · mi 15 · ha 7 · ru 6 · jam 1 · la 0. Plus the 378 bare
+rows from (1). Order stays the 20 Aug plan order after the owner's ru/ar:
+`mi xh yo` → `id tl he fa` → `en` → the well-resourced courses, `th`
+excluded (§22). Method stays `apply_authored_sentences.py` — 7–14 words,
+presence check, `difficulty_rank` = the word's frequency rank (rule 41).
+
+**9 · English vocabulary the seeder never inserts.** `EnglishSeeder` stops
+at 8,600 of 10,000 headwords: ~1,400 have no WordNet gloss and are skipped,
+and they include `what`, `how`, `because` — absent from production today.
+Diagnosed 5 Sep, not fixed: either gloss them from `gloss_overrides.tsv`
+(the mechanism already exists) or lift the cap and let `circular_gloss`
+gate them. And `fix/en-symbol-glosses` (pushed, unmerged) removes 37
+headwords WordNet glossed as chemical symbols, printing terms or clitics
+(`em` → quad, `er` → erbium, `ya`, `wanna`) — the `em` card. Merging it
+does not remove them from production (Phase 6 note above).
 
 ### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
 
