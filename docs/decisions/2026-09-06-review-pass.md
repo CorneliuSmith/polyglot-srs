@@ -57,8 +57,13 @@ the board is a selection fix first and an authoring queue second.
 4. **A retire step for exclusions.** `vocabulary.retired_at` (migration,
    owner-applied, readers degrade per CLAUDE.md), set by `reconcile` from
    `vocab_exclusions.tsv`, filtered by the card draw and lesson intake
-   while the learner's `user_cards` row is kept. Without it the `em` card
-   outlives the merge. Then the owner runs `reconcile --apply` for `en`.
+   while the learner's `user_cards` row is kept; the word's `translations`
+   rows hide with it (the Spanish UI showed the wrong gloss translated to
+   `eme`), `auto_translate` skips retired words, and `prune_sentences`
+   treats a retired word as prunable to zero — today its stranding guard
+   keeps "Kill 'em." alive. Without all of that the `em` card outlives the
+   merge. Then the owner runs `reconcile --apply` and `prune_sentences`
+   for `en`.
 5. **English vocabulary the seeder skips** — the 8,600 cap: `what`, `how`,
    `because` absent from production. Gloss through `gloss_overrides.tsv`
    or lift the cap; the audit gates either.
@@ -67,14 +72,48 @@ the board is a selection fix first and an authoring queue second.
    course in `quality-parity.md` Phase 8 item 8; plus the 378 bare rows
    (item 1) and the 44 Tatoeba self-references (item 3). Method unchanged:
    in-session maker–checker, `apply_authored_sentences.py`, never the key.
-7. **Then Phases 2d, 3, 5, and last 7**, as the plan orders them.
+7. **Un-clozable rows (CHECKS §29)** — found on the same day, after this
+   record was first written, and large enough to re-rank the queue for
+   four courses: Thai, Korean, Arabic and Yoruba cards mostly have NO
+   usable sentence, because `make_cloze` cannot blank an inflection, a
+   stem, a toneless twin or an unspaced run and the card falls back to
+   definition-only without saying so. In order: the Thai cloze through
+   `thai.segment` (code only; 1,085 words); `apply_authored_sentences.py`
+   requires SURFACE presence from now on; the `unclozable_rows` audit
+   rule; then the surface-form answer column (migration) for inflecting
+   courses and the Arabic reader pass. Do the Thai cloze right after item
+   1 — it is the same size of change and the same kind of win.
+8. **Prune to zero, or retire.** The 6 Sep dry runs left 100 Russian and
+   72 Arabic words stranded on fragments (names, slang, letters). Either
+   fold them into the retire step (item 4) or give `prune_sentences` an
+   `--allow-strand` so a word can be emptied — a definition-only card is
+   honest, "И?" is not.
+9. **Form determinacy (CHECKS §28)** — the `do` card, measured on all 27:
+   a quarter to a third of top-band cards do not determine their answer,
+   mostly because another word fits or the definition is wrong. Build
+   `frame_collision` in `audit_content.py` (report-level, 26 courses);
+   decide the grading policy (stop scolding for a form the card never
+   named — one condition in `base.py` layer 3); the content side rides
+   Phase 2d's override work under the rule now in §23.
+10. **Then Phases 2d, 3, 5, and last 7**, as the plan orders them — with
+    the markdown pass over explanations as Phase 3's closing per-language
+    step (`markdown-explanations.md`, corrected and placed 6 Sep).
 
 After any merged data change the owner runs `docs/quality/refeed.md` for
-that course; after item 1 the owner runs nothing — it is code.
+that course; after items 1 and 7's Thai cloze the owner runs nothing — they
+are code. State of production on 6 Sep after the owner's dry runs: `en`
+3,436 rows to prune (stranded 0), `ar` 31, `ru` 0.
 
 ## 3. Documents changed in this pass
 
-`CHECKS.md` §26, §27 · `quality-parity.md` Phases 3, 4, 6, 8 · `en.md` note
+Second pass, later the same day: `CHECKS.md` §28 (form determinacy) and
+§29 (un-clozable rows), §23's new rule line · `quality-parity.md` Phase 3
+closing step, Phase 8 items 10–11 · `markdown-explanations.md` corrected
+and placed · `next-steps-2026-09-04.md` items 7, 8, 13 · `refeed.md`
+stranded note · `DEBT.md` four entries · `LEARN.md` cleaner drift ·
+rules 45–46.
+
+First pass: `CHECKS.md` §26, §27 · `quality-parity.md` Phases 3, 4, 6, 8 · `en.md` note
 0 and rule 4 · `refeed.md` (new; Phase 6 had promised it since August) ·
 `DEBT.md` (gate entry rewritten; five entries added) · `LEARN.md` (the
 add-only pipeline and its gates) · `CLAUDE.md` (the gate paragraph, which

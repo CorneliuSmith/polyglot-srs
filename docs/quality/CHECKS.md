@@ -966,6 +966,9 @@ The bar, applied when authoring and enforced when checking:
 * **Native settings.** A dacha, a marshrutka, Ramadan, a souq — not English
   scenery with the nouns changed.
 * **Meaning-for-meaning translations**, never word-for-word.
+* **The definition plus the sentence determine ONE string** (§28, owner
+  6 Sep). Where the language inflects the headword, the sentence forces
+  the form or the definition names it.
 
 **Measured before the first pass (30 Aug):** 21% of Russian and 31% of
 Arabic sentences were three tokens or fewer. 151 Russian and 228 Arabic words
@@ -1191,6 +1194,236 @@ handled their situation" does.
 
 **Status: scoped to `en`** — the convention exists only where the target
 language is the metalanguage. Rule 44.
+
+---
+
+## §28 The prompt must determine the form (owner, 6 Sep 2026)
+
+The owner's card: English `do`, definition *to perform; also the
+question/negative helper*, cloze *What ___ you do?* The learner typed `did`
+— a perfect sentence — and was told *"Almost! Correct meaning, but check
+the exact form."* Nothing on the card says present tense. "This definition
+is not specific enough. This is something that should be monitored by all
+languages."
+
+**What a vocabulary card gives the learner to work from.** `cards.py`
+(`_shape_vocab_card`, the `hint = r["definition"]` line): the definition
+as the prompt, the cloze, and the translation — but only when the UI
+locale is not English, so an English-UI learner of English gets definition
+and cloze alone. No form cue exists on a vocabulary card; the hint layer
+belongs to grammar drills. And the grader is lenient on purpose: for
+vocabulary a lemma match grades `CORRECT_SLOPPY` (`nlp/base.py` layer 3,
+SM-2 quality 3 not 4) with that exact feedback string. So the learner was
+credited and then scolded for a form the card never specified. Two
+defects: the prompt under-determines the answer (content), and the
+feedback presumes it did (policy).
+
+**Measured 6 Sep on all 27 courses**: 14 top-2,000 cards per course as
+the learner meets them — definition, first-drawn cloze, translation —
+judged by a reader of the language ("list every string that fills the
+blank grammatically AND naturally"), then every flagged card handed to a
+skeptic told to refute. 377 cards; 160 flagged; **32 refuted; 128 stand
+(34%) — of which 26 are §29 rows (no blank on the sampled card), leaving
+102 (27%) that are this section's defect**. The refuters earned their keep: "Do you like ___?" (`cake`)
+survived only because the definition is the soap sense; `pure`'s "She has
+a ___ heart" was withdrawn once the adjective's definition was read
+against it.
+
+| code | sample | not determined | % | code | sample | not determined | % |
+| --- | ---: | ---: | ---: | --- | ---: | ---: | ---: |
+| sw | 14 | 9 | 64% | tr | 14 | 5 | 36% |
+| th | 14 | 9 | 64% | de | 14 | 5 | 36% |
+| ko | 13 | 7 | 54% | yo | 14 | 5 | 36% |
+| id | 14 | 7 | 50% | he | 14 | 5 | 36% |
+| en | 14 | 7 | 50% | ha | 14 | 4 | 29% |
+| nl | 14 | 7 | 50% | ca | 14 | 3 | 21% |
+| tl | 14 | 6 | 43% | el | 14 | 3 | 21% |
+| ru | 14 | 6 | 43% | la | 14 | 3 | 21% |
+| ar | 14 | 6 | 43% | it es ro pt xh jam | 14 | 2 | 14% |
+| fa hi mi | 14 | 6 | 43% | fr | 14 | 1 | 7% |
+
+§29 rows inside those counts (the sampled sentence had no blank): th 7,
+sw 6, ru 4, ko 3, tr 2, yo 2, ar 1, la 1. Net of them, sw and th drop to
+3 and 2 of 14; the well-resourced Latin-script courses are unchanged.
+
+A 14-card sample sets the scale, not the decimal: the honest reading is
+"between a fifth and two thirds of top-band cards, on every course, and no
+course is clean". **One correction the refuters forced:** some flags are
+§29 rows — the sampled sentence carried the headword only as an
+inflection, so it showed NO blank, and the judges counted the inflection
+as a competitor. On the real card those rows never appear (the card falls
+back to definition-only). They are marked below; §29 owns them.
+
+**The causes are not what the `do` card suggested.** Of the 128:
+
+* **69 — another WORD fits** (`other_word`). *I am sure of his ___* takes
+  `success`, `triumph`, `innocence`; *I know your brother ___ well* takes
+  every degree adverb; *___. What can I do?* takes any assent word; Thai
+  and Indonesian short sentences are bare frames. The definition then has
+  to do all the work, and a one-line WordNet/kaikki gloss describes the
+  synonym as well as the word.
+* **24 — another FORM of the same word fits** (`inflection`) — the `do`
+  class. Concentrated where the headword is a stem or a dictionary form:
+  Swahili 7 (agglutinated verbs), Russian 5 (aspect: `забрать` / `забирать`
+  both grammatical after `пойти`; past-tense gender), Korean, Turkish,
+  Yoruba 2 each.
+* **21 — the definition is WRONG for the sentence** (`definition_wrong`):
+  `movement` glossed as physical motion under *leader of the ___*; `cake`
+  as a block of soap; `jerry` as an ethnic slur under *Tom and ___*. Rule
+  D2c2 (definition ↔ example sense) measured, and it is one card in
+  eighteen.
+* **12 — the definition is VAGUE** (`definition_vague`): empty (`andy`),
+  or names a form without a lemma (Russian `мужчины` glossed only
+  *genitive singular*).
+* 2 fragments (§21).
+
+**Which layer fixes it** (the judges' cheapest fix, per card): definition
+77 · hint 25 · grading policy 19 · sentence 7. That order matters. The
+sentence is rarely the cheapest fix — a good sentence still admits
+synonyms — and the DEFINITION is the layer that decides, which is Phase 2d
+(override depth) from another direction.
+
+**Mechanical instrument, all 26 spaced-script courses: `frame_collision`.**
+The same blanked sentence appearing in a bank with different answers — a
+cloze that the corpus itself proves is not determined. Measured 6 Sep:
+
+| code | rows in colliding frames | top-2,000 words hit | worst frame |
+| --- | ---: | ---: | --- |
+| it | 2,388 | 397 | *sono ___.* ×78 |
+| tr | 1,560 | 398 | *o bir ___.* ×41 |
+| el | 1,018 | 265 | *είναι ___.* ×36 |
+| he | 981 | 471 | *תום ___.* ×57 |
+| en | 978 | 265 | *do you have a ___?* ×26 |
+| nl | 967 | 217 | *ik heb een ___ nodig.* ×28 |
+| pt | 870 | 189 | *tom é ___.* ×11 |
+| ru | 759 | 50 | *я ___.* ×23 |
+| fr | 715 | 165 | *c'est ___.* ×20 |
+| de | 694 | 157 | *das ist ___.* ×16 |
+| es 578 · ro 394 · hi 388 · tl 294 · ca 135 · ar 129 · id 127 · ko 92 · fa 17 · sw 12 · mi 10 · yo/jam/la/ha 4 · xh 2 | | | |
+
+Cheap, language-agnostic, and it catches exactly the "bare frame" half of
+`other_word`. It belongs in `audit_content.py` beside `ar_register` (the one
+rule that already scans a sentence bank), report-level first, warn once
+the numbers are believed. It does NOT catch the `do` class — `did` is not a
+headword, so no second row exists to collide with; that half needs
+morphology per language (pymorphy3, the Gym charts, lemminflect) and is
+the same instrument §29 needs.
+
+**The rule for authoring and checking** — added to §23: *the definition
+plus the sentence must determine ONE string.* Concretely: a definition
+names the sense the sentence uses (D2c2) and, where the language inflects
+the headword, either the sentence forces the form (an adverbial, an
+auxiliary, agreement) or the definition names it (*base form*, *past*,
+*perfective*). Vocabulary hints stay off the card; the card has two
+layers to say this with and must use them.
+
+**And the grading policy, which is the owner's call.** Where a card does
+NOT determine the form, an inflection the sentence accepts is a right
+answer, and "check the exact form" is wrong feedback. Options: (a) keep
+`CORRECT_SLOPPY` but say why — *"`did` also fits; the card wanted `do`"*;
+(b) grade `CORRECT` when the definition names no form; (c) leave grading
+and fix every card. (b) is the honest default until the content is fixed,
+and costs one condition in `base.py` layer 3.
+
+**Status: all — judged on 27, `frame_collision` measurable on 26 (Thai
+needs the segmenter, §22/§29).** Rule 45.
+
+---
+
+## §29 A sentence the card cannot blank is not a sentence (6 Sep 2026)
+
+Found while measuring §28: a Russian sample card for `сексуальный` had no
+blank, because its sentence contains only `сексуальные`. That is not a
+sample artefact — it is what production does with such a row, one step
+further along. `cards.py` builds a vocabulary card's cloze at draw time with
+`make_cloze(sentence, word)` (`backend/services/extract.py`), a
+case-insensitive **whole-word match on the surface headword**. A row whose
+sentence carries the word only as an inflection, a stem, a toneless twin,
+or inside an unspaced run is rejected, silently, and if every row of a
+word is rejected the card **falls back to the definition-only prompt** —
+no sentence, no context, exactly the card the owner keeps meeting.
+
+Measured 6 Sep with the production function itself, every committed bank:
+
+| code | rows | rejected | % | top-2,000 words with NO clozable row |
+| --- | ---: | ---: | ---: | ---: |
+| th | 4,335 | 4,024 | 93% | **1,085** |
+| ko | 3,039 | 1,650 | 54% | **566** |
+| yo | 699 | 352 | 50% | 182 |
+| ar | 13,059 | 6,113 | 47% | **491** |
+| la | 1,932 | 665 | 34% | 40 |
+| tr | 17,958 | 2,790 | 16% | 221 |
+| ru | 23,360 | 3,114 | 13% | 41 |
+| sw | 2,797 | 317 | 11% | 131 |
+| xh | 932 | 53 | 6% | 28 |
+| ha | 4,283 | 230 | 5% | 9 |
+| hi | 6,866 | 153 | 2% | 17 |
+| en | 30,738 | 242 | 1% | 11 |
+| mi | 1,849 | 19 | 1% | 2 |
+| ca de el es fa fr he id it jam nl pt ro tl | — | 0 | 0% | 0 |
+
+**The first hypothesis was wrong, and the split is the useful part.** The
+matcher's boundary is `[^\W\d_]`, and rule 39 says `\w` drops combining
+marks, so the obvious reading was "Arabic tashkeel and Yoruba tone break
+the boundary". Re-run with a letters-PLUS-marks boundary: **0 rows
+recovered**. Folding optional diacritics (ar/he/fa, §25): 65. Everything
+else genuinely lacks the surface headword — five different reasons, one
+symptom:
+
+* **Lemma headword, inflected sentence** — ko (`있다` / `있어요`: a Korean
+  dictionary form never appears in a polite sentence), ru (`смотреть` /
+  `смотри`), sw (`fanya` / `akifanya`), ha, xh, la (`silva` / `silvā`), hi.
+* **Stem headword** — ar: `وجب` against `يجب`; the 30 Aug Arabic headwords
+  are stemmer output (CHECKS §3b). Non-concatenative, so no string test
+  separates "derived form present" from "word absent" — `إلى` sits on
+  a sentence about earning euros that contains no `إلى` at all. 6,048 rows
+  need a reader, not a regex.
+* **Toneless headword, toned sentence** — yo: `ẹkọ` against `ilé-ẹ́kọ́`.
+  The headword is the defect (the tone plan in `yo.md`); folding the tone
+  to make the match would launder the word (rule 10).
+* **Unspaced script** — th: `ฉัน` inside `ฉันโอเค` has a Thai letter on
+  its right, so a word-boundary match cannot exist. `thai.segment` already
+  segments for the reading layer; the cloze never used it. 93% of the Thai
+  bank, and 1,085 of the top 2,000 words, have been definition-only cards
+  since the course shipped.
+* **Junk headwords** — tr `ş`, `i`, `ki`; en `te`, `fre` (fragments of
+  names). Exclusion, not matching.
+
+**Self-inflicted, and worth saying plainly.** `scripts/apply_authored_sentences.py`
+verified Russian presence with pymorphy3 — LEMMA presence — because rule 38
+had shown that "target word absent" rejects were inflections. They were,
+and the card cannot use them either way: an authored row with `парня` for
+`парень` is correct Russian and dead on arrival. An unknown share of the
+6,517 Russian rows authored on 31 Aug is in the 3,114 above; the applier
+must require SURFACE presence, or write the surface form as the answer.
+
+**Fix design, in order of learner impact:**
+
+1. **Thai cloze through the segmenter** — `make_cloze` (or a Thai branch
+   beside it) matches on `thai.segment` tokens and blanks the segment.
+   Route exists; only the caller is missing. 1,085 words get a sentence.
+2. **Inflecting courses: blank the SURFACE form and make it the answer.**
+   A card for `смотреть` that shows `Не ___ на меня так.` and expects
+   `смотри` is a better card than a definition prompt — it teaches the
+   form in context, and grading's lemma layer (base.py layer 3) already
+   credits `смотреть` as CORRECT_SLOPPY. Needs the surface form stored per
+   row (`example_sentences.answer`, migration, owner-applied; loaders
+   degrade), filled at seed time by the same morphology the applier used
+   (pymorphy3 for ru; the Gym charts for the 14 courses that have them;
+   a checker pass for ko/ar). Until then those rows stay dead.
+3. **Arabic**: a reader pass over the 6,048 — retag to the surface word
+   where it is a real derived form, drop where the word is absent (§25's
+   method, larger set). Stem headwords themselves are §3b.
+4. **Yoruba**: tones on headwords, then re-measure — the bank is already
+   toned.
+5. **A report-level audit rule, `unclozable_rows`**, per course, with
+   `top-2,000 words with no clozable row` as the number that ratchets.
+   Coverage claims (§9, §23, §26) all counted rows the card can never
+   show; every one of those tables is an overstatement for th/ko/ar/yo
+   until this is the instrument.
+
+**Status: all — the matcher is shared; the causes are per-language and
+named above.** Rule 46.
 
 ---
 

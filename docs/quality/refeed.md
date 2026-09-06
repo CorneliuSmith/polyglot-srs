@@ -71,10 +71,20 @@ supabase db push
 .venv/bin/python -m backend.services.seeder.prune_sentences -l <code> --apply
 ```
 6. **Prune.** Removes every sentence production holds that the committed
-   bank does not endorse (CHECKS §18). Dry run first — read the count and
-   the "stranded" line (must be 0); `--apply` writes `out/prune-<stamp>.sql`
-   first. Refuses to run against an empty committed bank. This is the step
-   that changes what a card shows; without it, step 5 only ever adds.
+   bank does not endorse (CHECKS §18). Dry run first; `--apply` writes
+   `out/prune-<stamp>.sql` first. Refuses to run against an empty committed
+   bank. This is the step that changes what a card shows; without it, step
+   5 only ever adds.
+
+   **Reading the dry run.** `delete` is what goes; apply when it is what
+   you expect. `stranded` is words whose EVERY production row would go —
+   the prune leaves them untouched rather than empty the word. It is not
+   an error and it does not block `--apply`, but it is a list: on 6 Sep it
+   was 100 Russian and 72 Arabic words the committed bank has nothing for
+   (names, slang, inflected headwords, single letters), each still serving
+   a fragment. They wait for exclusion + retire, or a prune-to-zero
+   option (DEBT.md). Seeding does not help them — checked, read-only, the
+   same day: none had a file row production lacked.
 
 ```bash
 .venv/bin/python -m backend.services.seeder.morphology_charts -l <code>
