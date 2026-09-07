@@ -21,7 +21,7 @@
  * actually available.
  */
 
-export type HintLayerField = 'base' | 'transliteration' | 'phonetics' | 'gloss' | 'translation' | 'hint'
+export type HintLayerField = 'base' | 'transliteration' | 'phonetics' | 'gloss' | 'translation' | 'context' | 'hint'
 
 // The disclosure order is the same everywhere: reading, then word-by-word,
 // then the sentence translation, then the word's own meaning. Each step is a
@@ -43,8 +43,13 @@ export type HintLayerField = 'base' | 'transliteration' | 'phonetics' | 'gloss' 
 // letters, phonetics says how to say them. Only Thai carries it today — RTGS
 // drops tone entirely and Thai is tonal — and courses without one skip the
 // layer, so this order is safe for all eight.
-const WITH_READING: HintLayerField[] = ['transliteration', 'phonetics', 'gloss', 'translation', 'hint']
-const NO_READING: HintLayerField[] = ['gloss', 'translation', 'hint']
+// `context` sits where a translation would and is served INSTEAD of one, on
+// the English course only: there the authored field is a usage note rather
+// than a rendering of the sentence, and an English-reading learner has no
+// locale row to fall back to (CHECKS §27). The server decides which of the
+// two it sends; a course that sends neither skips both.
+const WITH_READING: HintLayerField[] = ['transliteration', 'phonetics', 'gloss', 'translation', 'context', 'hint']
+const NO_READING: HintLayerField[] = ['gloss', 'translation', 'context', 'hint']
 
 // Courses whose script a learner cannot sound out cold. Everything else falls
 // through to NO_READING and still shows the gloss.
@@ -58,6 +63,7 @@ export interface HintLayerSource {
   phonetics?: string | null
   gloss?: string | null
   translation?: string | null
+  context?: string | null
   hint?: string | null
   /** Fields the server could prove are NOT in the learner's language —
    * usually an English fallback served because their rendering doesn't
@@ -93,6 +99,7 @@ const LABELS: Record<HintLayerField, string> = {
   phonetics: 'review.layerPhonetics',
   gloss: 'review.layerGloss',
   translation: 'review.layerTranslation',
+  context: 'review.layerContext',
   hint: 'review.layerHint',
 }
 

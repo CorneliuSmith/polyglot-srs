@@ -201,14 +201,6 @@ And `prune_sentences` **keeps** a retired word's sentences on purpose: its
 would go ("Kill 'em." survives the English prune for exactly that reason).
 Retire first, and let the prune treat retired words as prunable to zero.
 
-### The lesson's Gym link is English in five locales
-
-`GrammarPathPage` links a lesson to its Gym drill set (#397) using
-`path.practiseForms` and `path.drillCount`, which exist only in `en.json`;
-ar, es, fr, pt and ru fall back to the English string on that line. Add the
-five keys with the next frontend change — and the `card.context` key from
-the entry above should ship in all six at once.
-
 ### `EnglishSeeder` stops at 8,600 of 10,000 headwords
 
 ~1,400 English headwords have no WordNet gloss and are skipped rather than

@@ -68,3 +68,55 @@ def test_report_conjugation_hint_debt_across_languages():
     # The cleaned languages must not appear; only the held set may remain.
     assert not (_CLEAN & report.keys()), report
     assert report.keys() <= _HELD, f"unexpected debt outside the held set: {report}"
+
+
+# --- The English usage note (CHECKS §27) -------------------------------------
+#
+# On the English course a drill's `translation` is a usage NOTE by convention
+# (docs/quality/en.md note 0): the target language is the metalanguage, so an
+# English rendering of an English sentence would hand over the answer. The
+# note has to earn its place by adding the SITUATION the hint cannot carry —
+# and eleven of them had drifted into the `answer — explanation` template that
+# en.md rule 4 already bans for hints, so the card said the same thing twice
+# under two headings ("do — the participle." beside hint "do — participle").
+
+_CUE_SHAPED = re.compile(r"^\S+\s+[—–-]\s+\S")
+
+
+def _fold_note(text: str) -> str:
+    return re.sub(r"\s+", " ", (text or "")).casefold().strip(" .!?")
+
+
+def _english_drills():
+    with open("data/grammar/en_grammar.json", encoding="utf-8") as fh:
+        for point in json.load(fh)["points"]:
+            for drill in point.get("drills", []):
+                yield point["title"], drill
+
+
+def test_an_english_note_is_not_the_hint_said_twice():
+    bad = [
+        (title, drill.get("sentence", "")[:40], drill.get("translation"))
+        for title, drill in _english_drills()
+        if _fold_note(drill.get("translation")) == _fold_note(drill.get("hint"))
+        and _fold_note(drill.get("translation"))
+    ]
+    assert not bad, (
+        f"{len(bad)} English notes merely restate their own hint — the card "
+        f"prints one sentence under two headings: {bad[:3]}"
+    )
+
+
+def test_an_english_note_is_not_a_conjugation_cue():
+    """`build — the participle.` is a cue, not a note. The base form is not the
+    answer so it is no leak, but it tells the learner nothing the hint beside
+    it has not already said."""
+    bad = [
+        (title, drill.get("translation"))
+        for title, drill in _english_drills()
+        if _CUE_SHAPED.match((drill.get("translation") or "").strip())
+    ]
+    assert not bad, (
+        f"{len(bad)} English notes use the `answer — explanation` template "
+        f"that en.md rule 4 bans for hints: {bad[:3]}"
+    )
