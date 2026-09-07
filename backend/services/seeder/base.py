@@ -9,6 +9,8 @@ import asyncpg
 from backend.repositories.pool import savepoint
 from backend.services.content_filter import is_explicit_gloss
 
+from .gloss_overrides import apply_gloss_overrides_to_records
+
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 
 
@@ -136,13 +138,21 @@ class BaseSeeder(ABC):
             )
         return safe
 
-    async def load(self, records: list[dict]) -> int:
-        """UPSERT records into vocabulary + translations tables. Returns count."""
-        self._merge_morphology_charts(records)
-        # Sources can repeat a word (case variants, merged sense rows); a
-        # duplicate inside one UNNEST statement makes ON CONFLICT DO UPDATE
-        # fail with "cannot affect row a second time". Merge duplicates
-        # first: later fields win, translation dicts accumulate.
+    def prepare_records(self, records: list[dict]) -> list[dict]:
+        """What `load` writes: duplicates merged, hand definitions overlaid.
+
+        Sources can repeat a word (case variants, merged sense rows); a
+        duplicate inside one UNNEST statement makes ON CONFLICT DO UPDATE
+        fail with "cannot affect row a second time". Merge duplicates
+        first: later fields win, translation dicts accumulate.
+
+        Then `gloss_overrides.tsv` is laid over the result for EVERY course.
+        The English seeder always did this for itself; the other 26 read
+        their frequency file's `en` column as written, so a definition
+        corrected in the override file after the file was last rebuilt
+        reached neither the seeder nor production — and a re-seed silently
+        put the stale column back. See `apply_gloss_overrides_to_records`.
+        """
         merged: dict[str, dict] = {}
         for rec in records:
             prev = merged.get(rec["word"])
@@ -154,6 +164,16 @@ class BaseSeeder(ABC):
                 prev.update({k: v for k, v in rec.items() if v is not None})
                 prev["translations"] = translations
         records = list(merged.values())
+        applied = apply_gloss_overrides_to_records(self.language_code, records)
+        if applied:
+            self.logger.info("%s: %d definition override(s) applied from "
+                             "gloss_overrides.tsv", self.language_code, applied)
+        return records
+
+    async def load(self, records: list[dict]) -> int:
+        """UPSERT records into vocabulary + translations tables. Returns count."""
+        self._merge_morphology_charts(records)
+        records = self.prepare_records(records)
 
         conn = await asyncpg.connect(self.db_url)
         try:

@@ -4,6 +4,65 @@ Everything below is either a command only you can run (production writes)
 or a decision only you can make. Nothing here is code work; that continues
 without you. Read top to bottom: the order matters.
 
+## STOP — read this first (7 Sep, late evening)
+
+Your dry run of `reconcile -l all` at 11:39 showed `gloss 0` for every course
+but English. That was not because the definitions were already right: **the
+1,611 definitions authored this week reached neither the frequency files nor
+production**, because the override file (`gloss_overrides.tsv`) only ever got
+into a course through a rebuild of its frequency file, and the reconcile
+compared against the file's column alone. Production still teaches Turkish
+`mi` as "Used to form interrogatives." — after your `seeder.run -l tr`, which
+wrote the linked spellings correctly but, like every non-English seeder, read
+the stale column. Measured read-only, per course, before the fix:
+
+| in the override file | already in the file | already in production | in neither |
+|---:|---:|---:|---:|
+| 4,297 | 2,537 | 2,686 | **1,611** |
+
+Fixed in the PR after #430: the reconcile now compares against the file
+**with the overrides laid over it**, every seeder lays the same overlay over
+its records before writing (so a re-seed can no longer put a stale column
+back), the dry run prints the **retire** column it had been computing and
+not showing, and `new` counts only rows a seeder would actually create.
+
+The retire step exists and the migration has landed (checked read-only at
+the same time: `retired_at` present, 0 rows retired). Everything you have run
+so far — backup, `supabase db push`, `seeder.run -l tr` — stands. What is
+left, from here, once that PR is merged and pulled:
+
+```bash
+git pull origin main
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all
+```
+
+The fixed tool's own dry run against production, 7 Sep late evening, read
+`gloss 1,594 · pos 3,370 · gone 40,861 · new 0 · s-layer 191 · retire 848 ·
+unret 0`. Yours should match; if a number is far off, stop and paste it.
+`new 0` means the English seeder step (old step 2) has nothing to add —
+the reconcile now carries English's part-of-speech corrections too — so
+skip it. Then:
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all --apply
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.seed_grammar -l all
+```
+
+```bash
+for c in ar ca de el en es fa fr ha he hi id it jam ko la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.prune_sentences -l $c --apply; done
+```
+
+The original step list below is kept for the record; steps 0, 1 and 2b are
+done.
+
+**A fourth decision, D, surfaced by the same dry run** — see Part 2.
+
 ## Part 1 — Commands, in this order
 
 Every command reads `DATABASE_URL` from `.env`. None takes the DSN on the
@@ -120,6 +179,28 @@ Spanish `s` (sur), `x` (por), `m` (metro) were defended as things Spanish
 writers really write. Both readings are reasonable and they cannot both be
 the rule. Is a written abbreviation a vocabulary card? Whichever way, it
 applies to every course at once. Details in DEBT.md.
+
+### D. 40,861 production rows the files no longer govern (new, 7 Sep)
+
+The `gone` column: rows in the database that are not in any committed
+frequency file — reported, never deleted, and not retired because they are
+not in `vocab_exclusions.tsv`. Classified read-only on 7 Sep:
+
+| class | rows | what it is |
+|---|---:|---|
+| tail | 39,004 | words an older generation of the list had (ru 5,913, es 4,871, ca 4,941, pt 4,578, fr 3,988, it 3,936, de 3,687, el 3,486, ro 2,871). Almost all sit INSIDE the file's rank range, not beyond it: a regenerated list ranked different words there. Live cards, glosses from before the quality program. |
+| unmarked twin | 678 | a spelling that differs from a file word only by a mark: la `amo`/`amō` (39, the whole Latin departed set, with 2 learner cards), yo 122, ro 101, fr 90, pt 74, es 71 … Some are the WORSE form (es `salio`), some the BETTER one (ru `актёр` — the file has `актер`). |
+| letter / mark / digit | 331 | ko jamo ㄱ ㄴ ㄷ … (40, 12 with learner cards), th consonants (36, 4 with cards), fa 32, he 22, tr 27, hi 17 … deleted from the files directly instead of through the exclusions file, so the retire step cannot see them. |
+
+Options, cheapest first: (1) leave all live and record it (today's state);
+(2) add the 331 glyphs to `vocab_exclusions.tsv` mechanically and retire
+them on the next reconcile — low risk, one PR; (3) a judged pass over the
+678 twins deciding per pair which spelling the course keeps — Phase 2e
+work, a workflow, not mechanical; (4) retire every ungoverned row — 40,861
+cards gone from the decks, ~37% of Russian's. Recommendation: 2 now, 3 as
+the next Phase 2e item, 4 only after 3 has said which twins are the better
+form. Full list: session scratchpad `departed.json` (regenerate with the
+read-only query in CHECKS §31 if that is gone).
 
 ### C. Korean teaches four topics twice
 

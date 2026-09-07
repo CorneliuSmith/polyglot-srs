@@ -619,6 +619,17 @@ Languages that find a word by something other than the regex — Thai
 module, `backend/services/span_finders.py`, and every consumer of
 `make_cloze` reads it there rather than keeping its own dict.
 
+### A definition has three homes, and one overlay
+
+`data/<code>_frequency.tsv` carries the source gloss; `gloss_overrides.tsv`
+carries the hand-authored correction; production carries whatever last
+wrote it. Since 7 Sep 2026 both writers — every seeder
+(`BaseSeeder.prepare_records`) and the reconcile (`expected_rows`) — lay the
+override file over the frequency file before comparing or writing, so the
+override is authoritative everywhere and a re-seed cannot revert it. Before
+that, the overlay happened only when `source_data` rebuilt a file, and a
+week of definitions sat in the override file reaching nothing (CHECKS §31).
+
 ## Frontend
 
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +

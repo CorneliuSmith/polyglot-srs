@@ -36,6 +36,8 @@ from pathlib import Path
 
 import asyncpg
 
+from backend.services.seeder.gloss_overrides import load_gloss_overrides
+
 REPO = Path(__file__).resolve().parents[3]
 DATA = REPO / "data"
 ROLLBACK_DIR = REPO / "out"
@@ -63,6 +65,30 @@ def read_tsv(code: str) -> dict[str, dict]:
             if word:
                 out[word] = row
     return out
+
+
+def expected_rows(code: str) -> dict[str, dict]:
+    """word -> {pos, en}: what production SHOULD say — the committed file
+    with `gloss_overrides.tsv` laid over it.
+
+    Until 7 Sep 2026 this compared against the file's `en` column alone.
+    The override file reached that column only when `source_data` rebuilt
+    the file, so 1,611 definitions authored in the Phase 2d pass — every
+    course but English — sat in the override file, in neither the frequency
+    file nor production, and the dry run reported `gloss 0` for all 26 of
+    them. Same overlay the seeder now applies (`BaseSeeder.prepare_records`),
+    so the two tools agree on what a definition is.
+    """
+    rows = read_tsv(code)
+    for word, hit in load_gloss_overrides(code).items():
+        row = rows.get(word)
+        if row is None:
+            continue          # an override never invents a word
+        if hit.get("en"):
+            row["en"] = hit["en"]
+        if hit.get("pos"):
+            row["pos"] = hit["pos"]
+    return rows
 
 
 def read_sentences(code: str) -> list[dict]:
@@ -160,17 +186,21 @@ async def survey_retirements(conn, code: str, lang_id) -> dict:
             lang_id,
         )
     except asyncpg.exceptions.UndefinedColumnError:
-        return {"retire": [], "unretire": [], "skipped": "no retired_at column"}
+        # Its own key: this used to be `skipped`, which `print_report` reads
+        # as "skip the whole course", so a database behind on the migration
+        # printed a table with that course MISSING rather than a dash.
+        return {"retire": [], "unretire": [],
+                "retire_skipped": "no retired_at column"}
     retire = [{"id": r["id"], "word": r["word"]}
               for r in rows if r["word"] in excluded and r["retired_at"] is None]
     unretire = [{"id": r["id"], "word": r["word"]}
                 for r in rows if r["word"] not in excluded and r["retired_at"] is not None]
-    return {"retire": retire, "unretire": unretire, "skipped": None}
+    return {"retire": retire, "unretire": unretire, "retire_skipped": None}
 
 
 async def survey(conn, code: str) -> dict:
     """Compare one language's committed file against the database."""
-    tsv = read_tsv(code)
+    tsv = expected_rows(code)
     if not tsv:
         return {"code": code, "skipped": "no frequency file"}
 
@@ -229,7 +259,13 @@ async def survey(conn, code: str) -> dict:
         "gloss_changes": gloss_changes, "pos_changes": pos_changes,
         "sentence_layers": await survey_sentence_layers(conn, code, lang_id),
         "missing_translation": missing_translation, "departed": departed_detail,
-        "absent_from_db": sorted(set(tsv) - db_words),
+        # Only rows that carry a gloss: every seeder skips a word it cannot
+        # define (English warns and drops 1,267 WordNet-less words), so
+        # counting those as "new" told the operator the seeder would add
+        # 1,267 rows when it would add 66.
+        "absent_from_db": sorted(
+            w for w in set(tsv) - db_words if (tsv[w].get("en") or "").strip()
+        ),
         **await survey_retirements(conn, code, lang_id),
     }
 
@@ -338,15 +374,22 @@ async def apply(conn, reports: list[dict]) -> dict:
 
 def print_report(reports: list[dict], detail: bool) -> None:
     print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
-          f"{'gone':>6}{'new':>6}{'s-layer':>8}")
-    print("-" * 60)
-    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0}
+          f"{'gone':>6}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}")
+    print("-" * 74)
+    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0,
+           "re": 0, "un": 0}
     for rep in reports:
         if rep.get("skipped"):
             continue
         g, p = len(rep["gloss_changes"]), len(rep["pos_changes"])
         t, d = len(rep["missing_translation"]), len(rep["departed"])
         n = len(rep["absent_from_db"])
+        # Retirements were surveyed, applied and rolled back, and never
+        # printed — the operator was told to "read the retire count" of a
+        # dry run that had no such column (7 Sep 2026).
+        re_, un = len(rep.get("retire", [])), len(rep.get("unretire", []))
+        re_col = (f"{re_:>8}{un:>6}" if not rep.get("retire_skipped")
+                  else f"{'-':>8}{'-':>6}")
         # s-layer was in the header and the legend, computed, applied and
         # rolled back — but never PRINTED, so the one column describing the
         # romanisation/interlinear backfill read as blank in every dry run.
@@ -359,12 +402,15 @@ def print_report(reports: list[dict], detail: bool) -> None:
         tot["gone"] += d
         tot["new"] += n
         tot["sl"] += sl
+        tot["re"] += re_
+        tot["un"] += un
         print(f"{rep['code']:<6}{rep['db_rows']:>7}{rep['tsv_rows']:>7}"
-              f"{g:>7}{p:>6}{t:>7}{d:>6}{n:>6}{sl:>8}")
-    print("-" * 60)
+              f"{g:>7}{p:>6}{t:>7}{d:>6}{n:>6}{sl:>8}{re_col}")
+    print("-" * 74)
     print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['pos']:>6}{tot['tr']:>7}"
-          f"{tot['gone']:>6}{tot['new']:>6}{tot['sl']:>8}")
-    print("\ngloss  definitions this would CORRECT (ON CONFLICT DO NOTHING never did)")
+          f"{tot['gone']:>6}{tot['new']:>6}{tot['sl']:>8}{tot['re']:>8}{tot['un']:>6}")
+    print("\ngloss  definitions this would CORRECT — the file's column with "
+          "gloss_overrides.tsv laid over it")
     print("pos    parts of speech this would correct")
     print("no-tr  rows with no English translation row at all — would be inserted")
     print("gone   in the database, no longer in the file — REPORTED ONLY, never deleted")
@@ -372,6 +418,9 @@ def print_report(reports: list[dict], detail: bool) -> None:
     print("s-layer example sentences whose transliteration/gloss is EMPTY in the")
     print("       database while the committed bank has one. ON CONFLICT DO NOTHING")
     print("       means a re-seed never fills these; this is the only thing that does.")
+    print("retire rows listed in vocab_exclusions.tsv that are still drawn — hidden,")
+    print("       progress kept, reversible ('-' = database behind migration 20261016)")
+    print("unret  rows retired earlier whose exclusion line was since removed — restored")
 
     if detail:
         for rep in reports:
@@ -438,7 +487,9 @@ async def main() -> int:
         print(f"applied — {counts['gloss']} glosses corrected, "
               f"{counts['added_translation']} translations inserted, "
               f"{counts['pos']} parts of speech corrected, "
-              f"{counts['sentence_layers']} sentence layers filled")
+              f"{counts['sentence_layers']} sentence layers filled, "
+              f"{counts['retired']} words retired, "
+              f"{counts['unretired']} unretired")
         print(f"undo with: python -m backend.services.seeder.reconcile "
               f"--rollback {path}")
         return 0
