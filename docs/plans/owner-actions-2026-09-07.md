@@ -184,27 +184,43 @@ writers really write. Both readings are reasonable and they cannot both be
 the rule. Is a written abbreviation a vocabulary card? Whichever way, it
 applies to every course at once. Details in DEBT.md.
 
-### D. 40,861 production rows the files no longer govern (new, 7 Sep)
+### D. 40,683 production rows no committed file governs (new, 7 Sep)
 
-The `gone` column: rows in the database that are not in any committed
-frequency file — reported, never deleted, and not retired because they are
-not in `vocab_exclusions.tsv`. Classified read-only on 7 Sep:
+Rows in the database that no committed source owns — reported by the
+reconcile as `gone`, never deleted, and not retired because they are not in
+`vocab_exclusions.tsv`. Classified read-only on 7 Sep:
 
 | class | rows | what it is |
 |---|---:|---|
-| tail | 39,004 | words an older generation of the list had (ru 5,913, es 4,871, ca 4,941, pt 4,578, fr 3,988, it 3,936, de 3,687, el 3,486, ro 2,871). Almost all sit INSIDE the file's rank range, not beyond it: a regenerated list ranked different words there. Live cards, glosses from before the quality program. |
-| unmarked twin | 678 | a spelling that differs from a file word only by a mark: la `amo`/`amō` (39, the whole Latin departed set, with 2 learner cards), yo 122, ro 101, fr 90, pt 74, es 71 … Some are the WORSE form (es `salio`), some the BETTER one (ru `актёр` — the file has `актер`). |
-| letter / mark / digit | 331 | ko jamo ㄱ ㄴ ㄷ … (40, 12 with learner cards), th consonants (36, 4 with cards), fa 32, he 22, tr 27, hi 17 … deleted from the files directly instead of through the exclusions file, so the retire step cannot see them. |
+| tail | 39,004 | words an older generation of the list had (ru 5,913, ca 4,941, es 4,871, pt 4,578, fr 3,988, it 3,936, de 3,687, el 3,486, ro 2,871). Almost all sit INSIDE the file's rank range, not beyond it: a regenerated list ranked different words there. Live cards with glosses from before the quality program. |
+| unmarked twin | 678 | a spelling that differs from a file word only by a mark: la `amo`/`amō` (39, the whole Latin departed set), yo 122, ro 101, fr 90, pt 74, es 71 … Some are the WORSE form (es `salio`), some the BETTER one (ru `актёр`, where the file has `актер` glossed as a mere inflection). |
+| letter debris | 165 | single letters glossed "the fourth letter of the Catalan alphabet" — ca 21, tr 27, fr 23, ro 21, pt 15, it 15, de 12, es 12, yo 14, ru 4, xh 1. Extraction artefacts, 4 with learner cards. |
 
-Options, cheapest first: (1) leave all live and record it (today's state);
-(2) add the 331 glyphs to `vocab_exclusions.tsv` mechanically and retire
-them on the next reconcile — low risk, one PR; (3) a judged pass over the
-678 twins deciding per pair which spelling the course keeps — Phase 2e
-work, a workflow, not mechanical; (4) retire every ungoverned row — 40,861
-cards gone from the decks, ~37% of Russian's. Recommendation: 2 now, 3 as
-the next Phase 2e item, 4 only after 3 has said which twins are the better
-form. Full list: session scratchpad `departed.json` (regenerate with the
-read-only query in CHECKS §31 if that is gone).
+**Correction to the first version of this decision.** It said 331 letters
+and proposed excluding them mechanically. **166 of those are the alphabet
+decks** — Korean, Thai, Hindi, Hebrew, Persian, Greek, Russian — seeded from
+code by `seed_alphabet`, `part_of_speech = 'letter'`, level A0, with 17
+learner cards among them. They are absent from the frequency files by
+design. Retiring them would have emptied seven alphabet decks. The reconcile
+now separates them into an `other` column and never counts them as `gone`.
+
+Options, cheapest first:
+
+1. Leave all live and record it (today's state).
+2. Add the **165 letter-debris rows** to `vocab_exclusions.tsv` and retire
+   them on the next reconcile — low risk now that the alphabet decks are
+   excluded, one PR, 4 learner cards affected.
+3. A judged pass over the **678 twins**, deciding per pair which spelling
+   the course keeps and whether the file should adopt the better form. Some
+   are genuinely two words (es `cayo` "islet" vs `cayó` "he fell") and must
+   not be touched.
+4. Retire every ungoverned row — 40,683 cards out of the decks, about 37% of
+   Russian's. Not recommended without 3 first.
+
+Recommendation: **2 now, 3 next** (a maker–checker pass is running in-session
+and its verdicts will be attached here), 4 only after 3 has said which twins
+are the better form. Lists: session scratchpad `decision_d_glyphs.json`,
+`decision_d_twins.json`, `departed.json`.
 
 ### C. Korean teaches four topics twice
 

@@ -186,3 +186,76 @@ class TestEverySeederOverlaysTheOverrides:
         carried the override."""
         hit = gloss_overrides.load_gloss_overrides("tr")["mi"]["en"]
         assert "harmonis" in hit and "mü" in hit
+
+
+class TestGoneMeansUngoverned:
+    """`gone` used to mean "not in the frequency file", which is not the same
+    as "nothing owns it". 166 of the 40,861 rows it reported on 7 Sep 2026
+    were alphabet-deck cards (`seed_alphabet`, 8 courses, 17 of them held by
+    learners) and 12 were curated starter words. A plan to retire "the
+    letters and digits nothing governs" would have deleted seven alphabet
+    decks.
+    """
+
+    def _survey(self, db_rows, monkeypatch, code="tr"):
+        async def _layers(conn, code, lang_id):
+            return []
+        monkeypatch.setattr(reconcile, "survey_sentence_layers", _layers)
+        monkeypatch.setattr(reconcile, "excluded_words", lambda c: set())
+
+        class _Conn:
+            async def fetchval(self, *a, **k):
+                return "lang"
+
+            async def fetch(self, sql, *a, **k):
+                if "retired_at" in sql:
+                    return [{"id": r["id"], "word": r["word"], "retired_at": None}
+                            for r in db_rows]
+                if "user_cards" in sql:
+                    # honour the word list the survey passes, as Postgres would
+                    wanted = set(a[1]) if len(a) > 1 else None
+                    return [{"id": r["id"], "word": r["word"], "cards": 0}
+                            for r in db_rows
+                            if wanted is None or r["word"] in wanted]
+                return [{"morphology": None, **r} for r in db_rows]
+        return asyncio.run(reconcile.survey(_Conn(), code))
+
+    def test_an_alphabet_letter_is_not_ungoverned(self, data, monkeypatch):
+        rep = self._survey([
+            {"id": "1", "word": "ㄱ", "part_of_speech": "letter", "definition": "giyeok"},
+            {"id": "2", "word": "junk", "part_of_speech": "noun", "definition": "debris"},
+        ], monkeypatch)
+        assert rep["owned_elsewhere"] == ["ㄱ"]
+        assert [d["word"] for d in rep["departed"]] == ["junk"]
+
+    def test_a_curated_starter_word_is_not_ungoverned(self, data, monkeypatch, tmp_path):
+        (tmp_path / "ar_seed.json").write_text(
+            '[{"word": "\\u0625\\u0646 \\u0634\\u0627\\u0621 \\u0627\\u0644\\u0644\\u0647"}]',
+            encoding="utf-8")
+        (tmp_path / "ar_frequency.tsv").write_text("rank\tword\tpos\ten\n1\tبيت\tnoun\thouse\n",
+                                                   encoding="utf-8")
+        rep = self._survey([
+            {"id": "1", "word": "إن شاء الله", "part_of_speech": "phrase", "definition": "God willing"},
+            {"id": "2", "word": "خرابة", "part_of_speech": "noun", "definition": "ruin"},
+        ], monkeypatch, code="ar")
+        assert rep["owned_elsewhere"] == ["إن شاء الله"]
+        assert [d["word"] for d in rep["departed"]] == ["خرابة"]
+
+    def test_a_missing_starter_file_governs_nothing(self, data):
+        assert reconcile.words_from_other_sources("tr") == set()
+
+    def test_the_report_prints_the_other_column(self, data, monkeypatch):
+        rep = self._survey([
+            {"id": "1", "word": "ㄱ", "part_of_speech": "letter", "definition": "giyeok"},
+        ], monkeypatch)
+        out = io.StringIO()
+        with redirect_stdout(out):
+            reconcile.print_report([rep], detail=False)
+        header = out.getvalue().splitlines()[0]
+        assert "other" in header and "gone" in header
+
+    def test_the_shipped_sources_are_readable(self):
+        """Each named starter file parses and yields words — an unreadable one
+        silently widens `gone` back to the old, wrong number."""
+        for code in reconcile.OTHER_SOURCES:
+            assert reconcile.words_from_other_sources(code), code

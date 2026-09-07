@@ -336,6 +336,13 @@ rate, say so — that result matters more than the phase closing quietly.
     boundaries registers a span finder in `span_finders.py` — one registry,
     read by the card, the audit, the gate and the prune (rule 13).
 
+50. **A course has more than one source; "not in the file" is not
+    "ungoverned".** The reconcile's `gone` column counted 166 alphabet-deck
+    cards (seeded from code, 17 held by learners) and 12 curated starter
+    words among rows it called orphaned, and the plan built on it would have
+    deleted seven alphabet decks. Before acting on a maintenance list, read
+    what is IN it — sample the rows, not the count (rule 43 for lists).
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

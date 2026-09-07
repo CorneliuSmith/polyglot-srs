@@ -131,13 +131,12 @@ Every statement is an upsert, so rerunning a course that was cut off is
 safe. Since 7 Sep every content tool's connection has a five-minute
 command timeout, so a dropped session now fails loudly instead of waiting.
 
-**What the apply looks like while it runs.** After "rollback written first:
-…" it prints nothing until the summary line — one transaction, one
-statement per changed row, over the pooler. The 7 Sep apply (about 6,000
-rows) took twenty minutes of silence. It is not stuck; check with a
-read-only `SELECT state, wait_event, now()-xact_start FROM pg_stat_activity`
-if in doubt. Ctrl-C rolls the whole transaction back and the run can be
-repeated. DEBT has the fix (batch with UNNEST, print per kind).
+**What the apply looks like while it runs.** It prints the rollback path,
+then a line per course and kind as each lands ("tr glosses: 71"), then the
+summary. Everything is one transaction, so Ctrl-C rolls all of it back and
+the run can simply be repeated. It sends arrays of up to 500 rows per
+statement; the 7 Sep run, before that change, was one statement per row and
+took twenty silent minutes.
 
 ## Rolling back
 

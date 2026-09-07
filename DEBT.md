@@ -660,22 +660,17 @@ demand), and `seed_grammar` writes without a transaction, so a course cut
 off midway is partially written until rerun — harmless, every statement is
 an upsert. Run grammar per course (`refeed.md`) so a hang costs one course.
 
-## `reconcile --apply` is one round trip per row, and silent while it runs (7 Sep 2026)
+## `seed_grammar` is the last content tool that writes one row at a time (7 Sep 2026)
 
-The owner's apply of 7 Sep — 1,594 definitions, 3,370 parts of speech, 23
-morphologies, 191 sentence layers, 848 retirements — ran as ~6,000
-single-row `UPDATE`s inside one transaction over the Supabase pooler,
-printed nothing after "rollback written first", and took about twenty
-minutes. It looked stuck; it was not (checked read-only in
-`pg_stat_activity`: the session alternated between `active` and `idle in
-transaction / ClientRead`, i.e. waiting for the next statement). The
-seeder learned this lesson already — `BaseSeeder.load` batches with
-`UNNEST` because "one round trip per row over a pooled connection turns a
-seed into hours". Do the same in `reconcile.apply` (one `UPDATE … FROM
-unnest($1::uuid[], $2::text[])` per change kind, or chunks of 500) and
-print a line per kind as it lands. Until then `docs/quality/refeed.md`
-says to expect the silence. Ctrl-C mid-run is safe: one transaction, so
-nothing partial commits and the run can simply be repeated.
+`reconcile --apply` used to be: about 6,000 single-row UPDATEs in one
+transaction over the Supabase pooler, twenty minutes, silent after the
+rollback line — the owner asked whether it was stuck. Fixed the same day
+(`APPLY_CHUNK`, UNNEST arrays, a progress line per kind), the third time
+this project has paid for one round trip per row after `BaseSeeder.load`
+learned it. `seed_grammar` still does it: 274-307 drills per course, one
+`execute` each, plus 5,054 hint rows for English. It is the reason a
+grammar reseed takes minutes per course. Same fix applies; nobody has
+needed it enough yet.
 
 ## 27 override rows name a word no frequency file has (7 Sep 2026)
 
@@ -690,10 +685,15 @@ rows today; these predate the gate or outlived their headword.
 
 ## Rows production serves that no committed file governs (7 Sep 2026)
 
-40,861 vocabulary rows are in production and in no frequency file: 39,004
-from older generations of the big-course lists (ru 5,913 …), 678 unmarked
-twins of file words (la `amo` beside `amō`), 331 letters/marks/digits
-deleted from files directly. The reconcile REPORTS them (`gone`) and the
+40,683 vocabulary rows are in production and owned by no committed source:
+39,004 from older generations of the big-course lists (ru 5,913 …), 678
+unmarked twins of file words (la `amo` beside `amō`), 165 single letters
+glossed "the fourth letter of the Catalan alphabet". (The count was 40,861
+until `gone` learned that a course has more than one source: 166 of those
+rows are alphabet-deck cards from `seed_alphabet` and 12 are curated
+starter words. Retiring "the letters nothing governs" would have deleted
+seven alphabet decks — ask what a maintenance list CONTAINS before acting
+on its size.) The reconcile REPORTS them (`gone`) and the
 retire step cannot see them because they are not in `vocab_exclusions.tsv`.
 They are live cards inside the decks' rank range, ungoverned by every check
 in `docs/quality/`. Owner decision D (`owner-actions-2026-09-07.md`); the
