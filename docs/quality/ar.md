@@ -250,3 +250,17 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## The override file outranks `ar_seed.json` (7 Sep 2026)
+
+The 224 curated words in `data/ar_seed.json` used to be the last word on a
+definition because `ArabicSeeder` runs after the frequency seeder and the
+upsert let it win. Since 7 Sep every seeder lays `gloss_overrides.tsv` over
+its records (CHECKS §31), so for the 26 words that are in both — `أو`
+particle → conj, `حب` verb "to love" → noun "love, affection", among them —
+the override wins, and `reconcile` compares against the same overlay. This
+is the consistent choice: the override rows are the later, checker-verified
+decisions from the Phase 2d pass, and the reconcile would have reverted the
+curated values on its next `--apply` regardless. To let a curated value
+stand, delete the word's override row; the seed file then wins again.
+

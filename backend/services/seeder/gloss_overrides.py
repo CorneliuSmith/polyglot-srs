@@ -35,3 +35,44 @@ def load_gloss_overrides(language: str, path: Path | None = None) -> dict[str, d
                     "en": (row.get("en") or "").strip(),
                 }
     return out
+
+
+def apply_gloss_overrides_to_records(
+    language: str, records: list[dict], path: Path | None = None,
+) -> int:
+    """Overlay the hand-authored definitions onto seeder records, in place.
+
+    Until 7 Sep 2026 the override file reached production by exactly one
+    road: `source_data --language X` rebuilt the frequency TSV with the
+    overrides folded into its `en` column, and the seeder and the reconcile
+    both read that column. A definition written to the override file WITHOUT
+    a rebuild reached nothing — which is what the Phase 2d pass did for
+    1,611 definitions across 25 courses (quality rule 13: a layer with no
+    write path cannot ship). The English seeder had always overlaid the file
+    itself; now every seeder does, here, and the reconcile compares against
+    the same overlay (`reconcile.expected_rows`), so a re-seed can no longer
+    revert a corrected definition to the file's stale column either.
+
+    An override never invents a record: rank comes from the corpus. Returns
+    the number of records touched.
+    """
+    overrides = load_gloss_overrides(language, path)
+    if not overrides:
+        return 0
+    applied = 0
+    for rec in records:
+        hit = overrides.get(rec.get("word") or "")
+        if not hit:
+            continue
+        gloss, pos = hit.get("en") or "", hit.get("pos") or ""
+        if not (gloss or pos):
+            continue
+        if gloss:
+            translations = dict(rec.get("translations") or {})
+            translations["en"] = gloss
+            rec["translations"] = translations
+        if pos:
+            rec["pos"] = pos
+        applied += 1
+    return applied
+

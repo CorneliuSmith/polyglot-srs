@@ -181,6 +181,12 @@ rate, say so — that result matters more than the phase closing quietly.
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
     "Tuscan girl", rank inherited from `città`).
+    **And the committed file must have a WRITE PATH to production** (rule
+    13, again): `gloss_overrides.tsv` reached 25 courses only through a
+    file rebuild, so 1,611 corrected definitions sat unshipped until the
+    reconcile and every seeder learned to lay the overrides over the file
+    (CHECKS §31). A TSV-only deletion, likewise, leaves the row LIVE in
+    production for ever — 331 letters and 678 unmarked twins are (DEBT).
 
 ## Verification
 

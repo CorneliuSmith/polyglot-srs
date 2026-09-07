@@ -79,7 +79,7 @@ class TestSurveyRetirements:
         failing the reconcile (CLAUDE.md)."""
         rep = self._survey([], {"em"}, monkeypatch, column=False)
         assert rep == {"retire": [], "unretire": [],
-                       "skipped": "no retired_at column"}
+                       "retire_skipped": "no retired_at column"}
 
 
 class TestTheRollbackUndoesBothDirections:

@@ -1587,6 +1587,75 @@ prune, the dotless-i finder and the registry); `test_extract.py`, `test_readings
 unchanged and green. Owner-run: `seeder.run -l tr` (writes `alternatives`, loads the
 re-tagged rows) BEFORE `reconcile --apply` — `owner-actions-2026-09-07.md`.
 
+## §31 The override file had no write path for 25 courses (7 Sep 2026)
+
+**Status: all 27** — fixed in code; the owner's next `reconcile --apply` carries
+the backlog.
+
+**What the owner saw.** The dry run of `reconcile -l all` after a week of
+definition work: `gloss 73` for English, `gloss 0` for the other 26 courses,
+and no retire column at all. Production, probed read-only at the same time,
+still taught Turkish `mi` as "Used to form interrogatives." — after `seeder.run
+-l tr` had just run.
+
+**Why.** Three tools, three ideas of what a definition is. `source_data` folds
+`gloss_overrides.tsv` into the frequency file's `en` column when it REBUILDS
+the file. The English seeder overlays the override file itself. Every other
+seeder reads the `en` column as written, and `reconcile` compared production
+against that column alone. So an override written after the file's last
+rebuild reached nothing, and a re-seed reverted any definition the reconcile
+had once corrected. `scripts/apply_gloss_overrides.py`, this week's gate,
+writes only the override file — rule 13 broken by the tool built to satisfy
+rule 27. Measured, per course, against production:
+
+| in the override file | in the frequency file | in production | in neither |
+|---:|---:|---:|---:|
+| 4,297 | 2,537 | 2,686 | **1,611** |
+
+English: 368 of 368 in production. Every other course: the 2d pass and
+today's Turkish rule-stating definitions, all unshipped.
+
+**The fix.** One overlay, applied in both places: `gloss_overrides.
+apply_gloss_overrides_to_records` in `BaseSeeder.prepare_records` (every
+seeder, before the upsert) and `reconcile.expected_rows` (the file with the
+overrides laid over it). `print_report` now prints `retire` and `unret`
+columns, a dash when the database is behind migration 20261016 — and no
+longer drops the whole course from the table in that case, which is what the
+old `skipped` key did. `new` counts only words that carry a gloss, because no
+seeder creates one without (English's 1,267 → 66).
+
+**Also on the same dry run — rows the files no longer govern.** `gone` totals
+40,861: 39,004 words an older generation of the big-course lists had (inside
+the file's rank range, not beyond it), 678 unmarked twins of file words
+(Latin's entire departed set is `amo`/`amō` pairs), 331 letters, marks and
+digits deleted from files directly rather than through the exclusions file.
+All live. Owner decision D in `owner-actions-2026-09-07.md`. The read-only
+query that classifies them: join `vocabulary` against the file's words per
+course; `glyph` = at most one letter or mark-only; `twin` = equal to a file
+word after stripping combining marks; everything else `tail`.
+
+**What the fixed tool measured** (read-only dry run against production, 7 Sep
+late evening): `gloss 1,594 · pos 3,370 · retire 848 · new 0 · s-layer 191`.
+The 1,611 above over-counts by the 27 override rows whose word is in no
+frequency file (DEBT) — the tool's number is the one to cite (rule 31).
+
+**Found by the adversarial review of #431, fixed in it:** the seeder merged
+morphology charts BEFORE the overlay, so `strip_nominal_chips` judged with
+the file's pos and 23 words the override moves out of the nominal set (fr
+`son` noun → det, `pas` noun → adv, es/ca `mira` noun → verb) would have kept
+"Gender / Plural" chips — the defect the strip exists for. Order swapped;
+and the reconcile, which is how those 23 pos changes reach production first,
+now strips the chips in the same step (`morphology_changes`, rolled back
+with the rest). Also recorded: the override now outranks `ar_seed.json` for
+the 26 Arabic words in both (`ar.md`).
+
+**Verified:** `backend/tests/test_reconcile_overrides.py` (the overlay in
+`expected_rows`, the survey reporting an override as a correction, `new`
+glossed-only, the retire column printed, a migration-behind database keeping
+its row, `prepare_records` applying the override, the overlay-before-charts
+order, the chip strip on a pos change, and the shipped file carrying the
+Turkish particle).
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

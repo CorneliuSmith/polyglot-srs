@@ -152,6 +152,14 @@ delete it. The path is printed at the end of every `--apply`.
   draw, progress kept — by `reconcile --apply` once migration
   `20261016_vocabulary_retired` has landed (#417); before it lands the step
   reports "skipped" and the words are still served.
+* **Read `gloss_overrides.tsv` — it does now, as does every seeder (7 Sep
+  2026).** Before that day the override file reached a course only when
+  `source_data --language X` rebuilt its frequency file, so a definition
+  corrected in the override file alone reached nothing, and a re-seed put
+  the file's stale column back. 1,611 definitions were in that state on
+  7 Sep (CHECKS §31). Now `reconcile` compares against the file WITH the
+  overrides laid over it and `--apply` writes them; the seeders lay the
+  same overlay over their records.
 * **Carry linked spellings or re-tagged sentences.** `reconcile` syncs
   definitions, part of speech and retirements only. A course whose frequency
   file gained an `alt` column (`vocabulary.alternatives` — Turkish harmony,
