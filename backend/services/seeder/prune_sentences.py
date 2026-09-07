@@ -156,7 +156,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
         """,
         code,
     )
-    protected = sum(1 for r in rows if r["source"] not in PRUNABLE_SOURCES)
+    exempt_rows = [r for r in rows if r["source"] not in PRUNABLE_SOURCES]
     # Group by word so the "never strand a word" rule can be applied per word.
     by_word: dict[str, list] = {}
     for r in rows:
@@ -189,9 +189,16 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
             kept_empty.append(word)
             continue
         delete.extend(candidates)
+    # `protected` must mean "kept ONLY because of its source", so it counts
+    # exempt rows that SURVIVE. Counting every exempt row overlapped `delete`
+    # the moment thin rows lost the exemption (§24a), and the columns then
+    # did not reconcile for a reader deciding whether to --apply.
+    exempt_deleted = sum(1 for r in delete
+                         if r["source"] not in PRUNABLE_SOURCES)
+    protected = len(exempt_rows) - exempt_deleted
     return {"code": code, "skipped": None, "delete": delete,
-            "protected": protected, "kept_empty": kept_empty,
-            "total": len(rows)}
+            "protected": protected, "exempt_deleted": exempt_deleted,
+            "kept_empty": kept_empty, "total": len(rows)}
 
 
 def write_rollback(reports: list[dict], stamp: str) -> Path:
@@ -243,23 +250,29 @@ async def apply(conn: asyncpg.Connection, reports: list[dict]) -> int:
 
 
 def print_report(reports: list[dict]) -> None:
-    print(f"{'lang':<6}{'db':>9}{'delete':>9}{'keeps':>8}{'protected':>11}{'stranded':>10}")
-    print("-" * 53)
-    tot_d = tot_p = 0
+    print(f"{'lang':<6}{'db':>9}{'delete':>9}{'thin':>8}"
+          f"{'keeps':>8}{'protected':>11}{'stranded':>10}")
+    print("-" * 61)
+    tot_d = tot_p = tot_x = 0
     for rep in reports:
         if rep.get("skipped"):
             continue
         d = len(rep["delete"])
+        x = rep.get("exempt_deleted", 0)
         tot_d += d
         tot_p += rep["protected"]
-        print(f"{rep['code']:<6}{rep['total']:>9,}{d:>9,}"
+        tot_x += x
+        print(f"{rep['code']:<6}{rep['total']:>9,}{d:>9,}{x:>8,}"
               f"{rep['total'] - d:>8,}{rep['protected']:>11,}"
               f"{len(rep['kept_empty']):>10,}")
-    print("-" * 53)
-    print(f"{'all':<6}{'':>9}{tot_d:>9,}{'':>8}{tot_p:>11,}")
-    print("\ndelete    tatoeba rows the committed bank no longer endorses")
-    print("keeps     rows that remain (curated/ai are never candidates)")
-    print("protected rows exempt by source — curated or ai")
+    print("-" * 61)
+    print(f"{'all':<6}{'':>9}{tot_d:>9,}{tot_x:>8,}{'':>8}{tot_p:>11,}")
+    print("\ndelete    rows no committed bank endorses: the bulk corpus, plus")
+    print("          any row that is only its headword or below the five-token")
+    print("          floor whatever its source (CHECKS §18a, §24a)")
+    print("thin      of those, the ones a curated/ai exemption used to shield")
+    print("keeps     rows that remain")
+    print("protected rows kept ONLY because they are curated or ai")
     print("stranded  words whose every row would go; left untouched instead")
 
 

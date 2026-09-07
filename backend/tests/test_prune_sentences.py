@@ -150,6 +150,35 @@ class TestThinRowsLoseTheirExemption:
         assert rep["delete"] == []
         assert rep["kept_empty"] == ["xh1"]
 
+    def test_the_report_columns_reconcile(self, monkeypatch):
+        """`protected` means "kept ONLY because of its source", so it must
+        exclude exempt rows that are being deleted. Counting every exempt row
+        overlapped `delete` the moment thin rows lost the exemption, and the
+        owner reads these columns to decide whether to --apply."""
+        rows = [
+            # exempt + thin -> deleted, so NOT protected
+            _row(word="human", sentence="You are human.", source="ai"),
+            # exempt + long -> survives on its source alone
+            _row(word="human",
+                 sentence="I have always wanted to meet a human like you.",
+                 source="ai"),
+            # bulk corpus, unendorsed -> deleted the ordinary way
+            _row(word="human", sentence="A human being walks.",
+                 source="tatoeba"),
+            # endorsed -> survives, and keeps the word off the stranded list
+            _row(word="human",
+                 sentence="Every language that dies out takes a piece of "
+                          "human history with it.",
+                 source="tatoeba"),
+        ]
+        keep = {("human", "Every language that dies out takes a piece of "
+                          "human history with it.")}
+        rep = self._survey(rows, keep, monkeypatch)
+        assert len(rep["delete"]) == 2
+        assert rep["exempt_deleted"] == 1          # the thin ai row
+        assert rep["protected"] == 1               # the long ai row only
+        assert rep["total"] - len(rep["delete"]) == 2
+
     def test_a_thin_row_the_file_endorses_is_kept(self, monkeypatch):
         """File-authoritative, still: the bank may legitimately hold a short
         sentence, and the floor never overrules an endorsement."""
