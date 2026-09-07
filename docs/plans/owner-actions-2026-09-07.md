@@ -236,7 +236,25 @@ ordinal abbreviations (`7e`, `10e`, `21e`…), Russian `в.` (east) and `р.`
 (river), Spanish `a-` (a bound prefix), and French `è` (an eye-dialect
 contraction).
 
-Recommendation: **3 next** (a maker–checker pass is running in-session
+**Option 3 is done too (7 Sep, night):** all 678 twins were read by a
+reader of each language against that course's orthography policy and
+re-read by a second told to overturn what was wrong — 31 verdicts changed,
+in both directions. **386 are unmarked duplicates and are now in
+`vocab_exclusions.tsv`**; 65 turned out to be defects in the COMMITTED file
+rather than in production (the file has the unaccented form, or an
+inflection stub where the production row has the lemma) and need a file
+edit plus a re-seed; 223 are genuinely two words and were left alone.
+Full record, every row: `docs/decisions/2026-09-07-unmarked-twins.md`.
+
+Your next reconcile dry run will therefore show **`retire 535`** — 149
+letter debris plus 386 twins. Two of them have a learner card, both Latin
+(`non`, `de`, unmacronised twins of `nōn` and `dē`).
+
+What is left of decision D: the 65 file defects, the 223 words that need a
+file row of their own (Phase 8 supply), and the 39,004 tail — option 4,
+still not recommended.
+
+Recommendation: **the 65 file defects next** (a maker–checker pass is running in-session
 and its verdicts will be attached here), 4 only after 3 has said which twins
 are the better form. Lists: session scratchpad `decision_d_glyphs.json`,
 `decision_d_twins.json`, `departed.json`.
