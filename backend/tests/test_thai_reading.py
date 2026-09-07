@@ -224,6 +224,16 @@ class TestThaiCloze:
         assert answer_span("ผู้หญิงมีแก้มสวย", "แก") is None
         assert answer_span("ฉันมีเพื่อนไม่กี่คน", "กี") is None
 
+    def test_a_single_letter_is_not_a_word(self):
+        """`th_frequency.tsv` lists 22 headwords that are one Thai letter or a
+        bare tone mark. In a segmentation lexicon they let greedy match
+        "parse" a run it does not understand, and they let the cloze blank a
+        letter as if it were a word."""
+        from backend.services.nlp.thai import answer_span, cloze_lexicon
+        lexicon = cloze_lexicon()
+        assert not any(len(w) < 2 for w in lexicon)
+        assert answer_span("ทอมเป็นลูกบุญธรรม", "ร") is None
+
     def test_it_declines_when_the_parse_is_not_clean(self):
         """Greedy longest-match leaves unknown leftovers when it mis-carves a
         run, and those are exactly the accidental hits. Same stance as the
