@@ -178,6 +178,17 @@ under its own label in all six locales, plus 11 notes that merely restate
 the hint. Not a data bug; do not "fix" it by writing English-for-English
 translations, which hand over the answer.
 
+### 1,264 English words below rank 2,000 still have no definition
+
+`EnglishSeeder` can only teach a word it can define, and WordNet has no
+entry for 1,389 of the frequency list's headwords — it skipped every one of
+them. The 125 inside the top 2,000 are fixed (66 glossed by hand, 59
+excluded as contraction debris, given names or abbreviations), and `what`,
+rank 16, is in the course at last. **The remaining 1,264 all sit below rank
+2,000** and are a long tail of the same three kinds. The seeder now names
+them in a warning instead of skipping in silence, which is how the first 125
+stayed hidden for months. Work them when a course reaches that depth.
+
 ### Written abbreviations as vocabulary: 12 held, and the judges disagreed
 
 A sweep of every single-character and letterless headword across 24 courses
