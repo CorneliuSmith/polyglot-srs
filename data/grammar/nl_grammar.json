@@ -890,7 +890,7 @@
           "sentence": "Er {{answer}} geen melk in de koelkast.",
           "answer": "is",
           "translation": "There is no milk in the fridge.",
-          "hint": "singular",
+          "hint": "agree the verb with the noun that follows er",
           "display_order": 5,
           "gloss": "EXPL · ___ · NEG.INDF · milk.C · in · DEF.C · fridge.C"
         },
@@ -2151,7 +2151,7 @@
           "sentence": "Weet jij {{answer}} zij komt?",
           "answer": "of",
           "translation": "Do you know whether she is coming?",
-          "hint": "whether",
+          "hint": "the conjunction introducing an embedded yes-no question",
           "display_order": 6,
           "gloss": "know.PRS.2SG · 2SG · ___ · 3SG.F · come.PRS.3SG"
         }

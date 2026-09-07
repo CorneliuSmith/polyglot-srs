@@ -492,7 +492,7 @@
           "sentence": "बच्चे स्कूल {{answer}} पढ़ते हैं।",
           "answer": "में",
           "translation": "The children study in school.",
-          "hint": "in",
+          "hint": "the postposition of enclosed location, not a surface or a source",
           "display_order": 5,
           "transliteration": "bachche skool {{answer}} padhte hain.",
           "gloss": "child.M.PL · school · ___ · study.HAB.M.PL · be.PRS.3PL"
@@ -1218,7 +1218,7 @@
           "sentence": "लोग बाहर इंतज़ार कर {{answer}} हैं।",
           "answer": "रहे",
           "translation": "People are waiting outside.",
-          "hint": "plural",
+          "hint": "the continuous marker agrees with the subject — check its number and gender",
           "display_order": 6,
           "cell": "रहे",
           "transliteration": "log baahar intazaar kar {{answer}} hain.",

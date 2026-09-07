@@ -125,7 +125,7 @@
           "sentence": "{{answer}} arbeitet in München.",
           "answer": "Er",
           "translation": "He works in Munich.",
-          "hint": "he",
+          "hint": "third-person subject, one male referent",
           "cell": "er",
           "display_order": 11,
           "gloss": "___ · work.3SG · in · Munich"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} singt sehr gut.",
           "answer": "Sie",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person subject, one female referent",
           "cell": "sie",
           "display_order": 12,
           "gloss": "___ · sing.3SG · very · well"
@@ -143,7 +143,7 @@
           "sentence": "{{answer}} regnet heute.",
           "answer": "Es",
           "translation": "It is raining today.",
-          "hint": "it",
+          "hint": "the placeholder subject a weather verb needs",
           "cell": "es",
           "display_order": 13,
           "gloss": "___ · rain.3SG · today"
@@ -152,7 +152,7 @@
           "sentence": "{{answer}} lernen zusammen.",
           "answer": "Wir",
           "translation": "We study together.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker among others",
           "cell": "wir",
           "display_order": 14,
           "gloss": "___ · learn.1PL · together"
@@ -170,7 +170,7 @@
           "sentence": "{{answer}} wohnen in Köln.",
           "answer": "Sie",
           "translation": "They live in Cologne.",
-          "hint": "they",
+          "hint": "third-person subject, several people",
           "cell": "sie (pl)",
           "display_order": 16,
           "gloss": "___ · live.3PL · in · Cologne"
@@ -345,7 +345,7 @@
           "sentence": "{{answer}} Kaffee ist heiß.",
           "answer": "Der",
           "translation": "The coffee is hot.",
-          "hint": "masculine",
+          "hint": "the definite article — match the gender of the noun it introduces",
           "display_order": 4,
           "cell": "der",
           "gloss": "___ · coffee · be.PRS.3SG · hot"
@@ -363,7 +363,7 @@
           "sentence": "{{answer}} Auto ist schnell.",
           "answer": "Das",
           "translation": "The car is fast.",
-          "hint": "neuter",
+          "hint": "the definite article — match the gender of the noun it introduces",
           "display_order": 6,
           "cell": "das",
           "gloss": "___ · car · be.PRS.3SG · fast"
@@ -427,7 +427,7 @@
           "sentence": "Das ist {{answer}} Katze.",
           "answer": "eine",
           "translation": "That is a cat.",
-          "hint": "feminine",
+          "hint": "the indefinite article — match the gender of the noun it introduces",
           "display_order": 4,
           "gloss": "DEM.N · be.PRS.3SG · ___ · cat"
         },
@@ -435,7 +435,7 @@
           "sentence": "Hier ist {{answer}} Stuhl.",
           "answer": "ein",
           "translation": "Here is a chair.",
-          "hint": "masculine",
+          "hint": "the indefinite article — match the gender of the noun it introduces",
           "display_order": 5,
           "gloss": "here · be.PRS.3SG · ___ · chair"
         },
@@ -443,7 +443,7 @@
           "sentence": "Das ist {{answer}} schönes Auto.",
           "answer": "ein",
           "translation": "That is a beautiful car.",
-          "hint": "neuter",
+          "hint": "the indefinite article — match the gender of the noun it introduces",
           "display_order": 6,
           "gloss": "DEM.N · be.PRS.3SG · ___ · beautiful.N · car"
         }

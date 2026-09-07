@@ -226,11 +226,15 @@ def _is_allomorph_set(answers: list[str]) -> bool:
 # A hint that tells the learner where in the sentence to look, rather than
 # which answer to write: "agree the verb with the noun that follows",
 # "check the noun's gender", "let the number of things named decide".
-_DERIVE_FROM_SENTENCE = re.compile(
-    r"\b(agree(?:s|ing)?\s+with|check\b|decide|match(?:es|ing)?\s+the|"
-    r"look\s+at|that\s+follows|which\s+one\s+the\s+sentence|from\s+the\s+sentence)\b",
-    re.IGNORECASE,
-)
+# Two halves, both required: an instruction to DO something, and the thing in
+# the sentence to do it against. One alone is not enough — "existential verb"
+# names no operation, and "the noun's gender" with no verb is just the feature.
+_DIRECTIVE = re.compile(
+    r"\b(agree|match|check|decide|pick|choose|count|look|derive|work\s+out|"
+    r"judge|read)\w*\b", re.IGNORECASE)
+_EVIDENCE = re.compile(
+    r"\b(noun|number|gender|thing|things|subject|follows|following|sentence|"
+    r"what\s+\w+|near|person)\b", re.IGNORECASE)
 
 
 def _sends_you_to_the_sentence(hint: str) -> bool:
@@ -249,7 +253,8 @@ def _sends_you_to_the_sentence(hint: str) -> bool:
     hint. "existential verb" alone stays a duplicate, because it tells the
     learner nothing about where to look.
     """
-    return bool(_DERIVE_FROM_SENTENCE.search(hint or ""))
+    hint = hint or ""
+    return bool(_DIRECTIVE.search(hint) and _EVIDENCE.search(hint))
 
 
 def _quoted_construction(hint: str, answer: str) -> str | None:

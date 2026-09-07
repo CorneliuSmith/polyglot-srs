@@ -107,7 +107,7 @@
           "sentence": "{{answer}} vorbesc puțină română.",
           "answer": "Eu",
           "translation": "I speak a little Romanian.",
-          "hint": "I",
+          "hint": "first-person singular subject — the one who is speaking",
           "cell": "eu",
           "display_order": 9,
           "gloss": "___ · speak.1SG · little.F.SG · Romanian.F.SG"
@@ -125,7 +125,7 @@
           "sentence": "{{answer}} lucrează la o bancă.",
           "answer": "El",
           "translation": "He works at a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "el",
           "display_order": 11,
           "gloss": "___ · work.3SG · at · INDF.F.SG · bank.F.SG"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} cântă foarte frumos.",
           "answer": "Ea",
           "translation": "She sings very beautifully.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "ea",
           "display_order": 12,
           "gloss": "___ · sing.3SG · very · beautifully"
@@ -143,7 +143,7 @@
           "sentence": "{{answer}} locuim în Cluj.",
           "answer": "Noi",
           "translation": "We live in Cluj.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker and others",
           "cell": "noi",
           "display_order": 13,
           "gloss": "___ · live.1PL · in · Cluj"
@@ -325,7 +325,7 @@
           "sentence": "Am {{answer}} idee.",
           "answer": "o",
           "translation": "I have an idea.",
-          "hint": "feminine",
+          "hint": "the indefinite article — check the gender of the noun after it",
           "display_order": 3,
           "gloss": "have.1SG · ___ · idea"
         },
@@ -333,7 +333,7 @@
           "sentence": "Este {{answer}} carte bună.",
           "answer": "o",
           "translation": "It is a good book.",
-          "hint": "feminine",
+          "hint": "the indefinite article — check the gender of the noun after it",
           "display_order": 4,
           "gloss": "be.3SG · ___ · book · good.F"
         },
@@ -349,7 +349,7 @@
           "sentence": "Este {{answer}} zi frumoasă.",
           "answer": "o",
           "translation": "It is a beautiful day.",
-          "hint": "feminine",
+          "hint": "the indefinite article — check the gender of the noun after it",
           "display_order": 6,
           "gloss": "be.3SG · ___ · day · beautiful.F"
         }
@@ -1125,7 +1125,7 @@
           "sentence": "{{answer}} o pisică în grădină.",
           "answer": "Este",
           "translation": "There is a cat in the garden.",
-          "hint": "singular",
+          "hint": "agree the verb with the number of the noun that follows",
           "display_order": 3,
           "gloss": "___ · INDF.F · cat · in · garden"
         },
@@ -1133,7 +1133,7 @@
           "sentence": "Nu {{answer}} lapte.",
           "answer": "este",
           "translation": "There is no milk.",
-          "hint": "singular",
+          "hint": "agree the verb with the number of the noun that follows",
           "display_order": 4,
           "gloss": "NEG · ___ · milk"
         },
@@ -1141,7 +1141,7 @@
           "sentence": "{{answer}} multe probleme?",
           "answer": "Sunt",
           "translation": "Are there many problems?",
-          "hint": "plural",
+          "hint": "agree the verb with the number of the noun that follows",
           "display_order": 5,
           "gloss": "___ · many.F.PL · problem.PL"
         },
@@ -1149,7 +1149,7 @@
           "sentence": "În oraș {{answer}} un parc frumos.",
           "answer": "este",
           "translation": "There is a beautiful park in the city.",
-          "hint": "singular",
+          "hint": "agree the verb with the number of the noun that follows",
           "display_order": 6,
           "gloss": "in · city · ___ · INDF.M · park · beautiful.M.SG"
         }
@@ -2731,7 +2731,7 @@
           "sentence": "{{answer}} plouă mâine, nu mergem în excursie.",
           "answer": "dacă",
           "translation": "If it rains tomorrow, we won't go on the trip.",
-          "hint": "if",
+          "hint": "the conjunction that marks the condition, not the result",
           "display_order": 4,
           "gloss": "___ · rain.3SG · tomorrow · NEG · go.1PL · in · trip"
         },
@@ -2747,7 +2747,7 @@
           "sentence": "Ai reuși {{answer}} ai încerca mai mult.",
           "answer": "dacă",
           "translation": "You would succeed if you tried harder.",
-          "hint": "if",
+          "hint": "the conjunction that marks the condition, not the result",
           "display_order": 6,
           "gloss": "COND.2SG · succeed.INF · ___ · COND.2SG · try.INF · more · much"
         }

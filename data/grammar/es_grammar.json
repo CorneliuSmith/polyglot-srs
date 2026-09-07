@@ -150,7 +150,7 @@
           "sentence": "{{answer}} es mi hermana.",
           "answer": "Ella",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "display_order": 11,
           "cell": "ella",
           "gloss": "___ · be.3SG · 1SG.POSS · sister"
@@ -177,7 +177,7 @@
           "sentence": "{{answer}} vivimos en Madrid.",
           "answer": "Nosotros",
           "translation": "We live in Madrid.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker plus others",
           "cell": "nosotros",
           "display_order": 14,
           "gloss": "___ · live.1PL · in · Madrid"
@@ -380,7 +380,7 @@
           "sentence": "{{answer}} profesor es simpático.",
           "answer": "El",
           "translation": "The teacher is nice.",
-          "hint": "masculine singular",
+          "hint": "the definite article — match the gender of the noun that follows",
           "display_order": 4,
           "cell": "el",
           "gloss": "___ · teacher · be.3SG · nice.M.SG"
@@ -398,7 +398,7 @@
           "sentence": "{{answer}} escuela es grande.",
           "answer": "La",
           "translation": "The school is big.",
-          "hint": "feminine singular",
+          "hint": "the definite article — match the gender of the noun that follows",
           "display_order": 6,
           "cell": "la",
           "gloss": "___ · school · be.3SG · big"

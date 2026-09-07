@@ -1338,7 +1338,7 @@
      "sentence": "Ina son {{answer}} riga.",
      "answer": "wannan",
      "translation": "I like this gown.",
-     "hint": "this",
+     "hint": "pick the demonstrative by the noun's number and how near the thing is",
      "cell": "wannan",
      "display_order": 3,
      "gloss": "1SG.PROG · like · ___ · gown"
@@ -1392,7 +1392,7 @@
      "sentence": "{{answer}} yara suna wasa.",
      "answer": "Waɗannan",
      "translation": "These children are playing.",
-     "hint": "these",
+     "hint": "pick the demonstrative by the noun's number and how near the thing is",
      "cell": "waɗannan",
      "display_order": 9,
      "gloss": "___ · child.PL · 3PL.PROG · play"
@@ -1401,7 +1401,7 @@
      "sentence": "Ka zauna {{answer}}.",
      "answer": "nan",
      "translation": "Sit here.",
-     "hint": "here",
+     "hint": "a place word for the spot where the speaker is, not a modifier on a noun",
      "cell": "nan",
      "display_order": 10,
      "gloss": "2SG.M.SBJV · sit · ___"
@@ -2477,7 +2477,7 @@
      "sentence": "Mun ji {{answer}} an gina sabuwar makaranta.",
      "answer": "cewa",
      "translation": "We heard that a new school has been built.",
-     "hint": "that",
+     "hint": "the complementiser opening a reported clause after a verb of saying or thinking",
      "display_order": 4,
      "gloss": "1PL.PFV · hear · ___ · IMPRS.PFV · build · new.F.GEN · school"
     },
@@ -2493,7 +2493,7 @@
      "sentence": "Na yi imani {{answer}} za su dawo.",
      "answer": "cewa",
      "translation": "I believe that they will return.",
-     "hint": "that",
+     "hint": "the complementiser opening a reported clause after a verb of saying or thinking",
      "display_order": 6,
      "gloss": "1SG.PFV · do · belief · ___ · FUT · 3PL · return"
     }

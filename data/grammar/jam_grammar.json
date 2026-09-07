@@ -177,7 +177,7 @@
           "sentence": "Mi mada {{answer}} nors.",
           "answer": "a",
           "translation": "My mother is a nurse.",
-          "hint": "is",
+          "hint": "the equative link between two noun phrases",
           "display_order": 6,
           "gloss": "1SG.POSS · mother · ___ · nurse"
         }
@@ -709,7 +709,7 @@
           "sentence": "Pas mi {{answer}} buk pan di tiebl.",
           "answer": "di",
           "translation": "Pass me the book on the table.",
-          "hint": "the",
+          "hint": "marks the noun as one the listener can already identify",
           "display_order": 3,
           "gloss": "pass · 1SG · ___ · book · on · DEF · table"
         },
@@ -725,7 +725,7 @@
           "sentence": "{{answer}} son at tide.",
           "answer": "Di",
           "translation": "The sun is hot today.",
-          "hint": "the",
+          "hint": "marks the noun as one the listener can already identify",
           "display_order": 5,
           "gloss": "___ · sun · hot · today"
         },
@@ -1131,7 +1131,7 @@
           "sentence": "Notn no de {{answer}} du ya so.",
           "answer": "fi",
           "translation": "There's nothing to do here.",
-          "hint": "to",
+          "hint": "the particle before the verb, marking purpose or intent",
           "display_order": 4,
           "gloss": "nothing · NEG · be.at · ___ · do · here · so"
         },
@@ -1147,7 +1147,7 @@
           "sentence": "Wi riedi {{answer}} go nou.",
           "answer": "fi",
           "translation": "We're ready to go now.",
-          "hint": "to",
+          "hint": "the particle before the verb, marking purpose or intent",
           "display_order": 6,
           "gloss": "1PL · ready · ___ · go · now"
         }
@@ -1259,7 +1259,7 @@
           "sentence": "Yu {{answer}} kom tumaro?",
           "answer": "kyan",
           "translation": "Can you come tomorrow?",
-          "hint": "can",
+          "hint": "the modal of ability or permission",
           "display_order": 2,
           "cell": "kyan",
           "gloss": "2SG · ___ · come · tomorrow"
@@ -1711,7 +1711,7 @@
           "sentence": "Im waak {{answer}} di ous beks beks.",
           "answer": "outa",
           "translation": "He walked out of the house very angry.",
-          "hint": "out of",
+          "hint": "the preposition for movement away from inside something",
           "display_order": 6,
           "gloss": "3SG · walk · ___ · DEF · house · angry · angry"
         }
@@ -1780,7 +1780,7 @@
           "sentence": "Wa yu {{answer}} du ef yu win di moni?",
           "answer": "wuda",
           "translation": "What would you do if you won the money?",
-          "hint": "would",
+          "hint": "the modal in the result clause of an unreal condition",
           "display_order": 6,
           "gloss": "what · 2SG · ___ · do · if · 2SG · win · DEF · money"
         }

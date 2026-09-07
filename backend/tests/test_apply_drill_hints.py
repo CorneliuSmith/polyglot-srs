@@ -76,6 +76,20 @@ class TestOneHintMayCoverSeveralAnswers:
         assert _sends_you_to_the_sentence(
             "existential verb — let the number of things named decide the ending")
 
+    def test_it_reads_the_phrasing_authors_actually_use(self):
+        """The first version matched literal phrases and missed "agree IT
+        with", "match IT to", "pick ... by the noun's number" — three real
+        hints from three courses. It now wants a directive verb AND the
+        evidence in the sentence, which is the thing being described rather
+        than one wording of it."""
+        from backend.services.quality.audit_content import _sends_you_to_the_sentence
+        assert _sends_you_to_the_sentence(
+            "the indefinite article — match it to the gender of the noun")
+        assert _sends_you_to_the_sentence(
+            "existential verb — agree it with the number of what exists")
+        assert _sends_you_to_the_sentence(
+            "pick the demonstrative by the noun's number and how near the thing is")
+
     def test_it_stays_narrow(self):
         """A long hint is not enough; it has to say where to look. Otherwise
         the exemption would swallow the rule it is carved out of."""
@@ -84,3 +98,7 @@ class TestOneHintMayCoverSeveralAnswers:
         assert not _sends_you_to_the_sentence("feminine singular")
         assert not _sends_you_to_the_sentence(
             "the verb used to say that something exists somewhere")
+        # Naming the evidence without an instruction is just the feature.
+        assert not _sends_you_to_the_sentence("the noun's gender and number")
+        # And an instruction with nothing to apply it to is not a method.
+        assert not _sends_you_to_the_sentence("choose carefully")

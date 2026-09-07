@@ -765,7 +765,7 @@
           "sentence": "There {{answer}} no milk.",
           "answer": "is",
           "translation": "The fridge is empty.",
-          "hint": "singular",
+          "hint": "the existential verb — match it to the noun that follows",
           "display_order": 4,
           "gloss": "there · ___ · NEG · milk"
         },
@@ -781,7 +781,7 @@
           "sentence": "There {{answer}} many people here today.",
           "answer": "are",
           "translation": "The place is crowded.",
-          "hint": "plural",
+          "hint": "the existential verb — match it to the noun that follows",
           "display_order": 6,
           "gloss": "there · ___ · many · person.PL · here · today"
         }
