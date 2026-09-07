@@ -306,7 +306,6 @@ describe('the English usage note gets its own label (CHECKS §27)', () => {
   // row, so the card used to print "do — the participle." under the heading
   // Translation. The server now sends it as `context` instead.
   const card = {
-    sentence: 'What would you have {{answer}} in my position?',
     correct_answer: 'done',
     hint: 'do — participle',
   }
@@ -334,7 +333,6 @@ describe('the English usage note gets its own label (CHECKS §27)', () => {
 
   it('changes nothing for a course that sends no note', () => {
     const layers = hintLayersFor('es', {
-      sentence: 'El gato {{answer}} en la ventana.',
       correct_answer: 'duerme',
       translation: 'The cat sleeps in the window.',
     })
