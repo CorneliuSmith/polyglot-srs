@@ -81,7 +81,12 @@ supabase db push
    5 only ever adds.
 
    **Reading the dry run.** `delete` is what goes; apply when it is what
-   you expect. `stranded` is words whose EVERY production row would go —
+   you expect. `thin` is the part of it that a `curated`/`ai` exemption used
+   to shield — for `ru` that is all 2,853 rows, which is why the earlier
+   prune of that course reported zero. `protected` counts rows kept ONLY
+   because of their source, so `db = delete + keeps` and `protected` no
+   longer overlaps `delete` (it did until 6 Sep, which made the columns
+   irreconcilable for a reader deciding whether to apply). `stranded` is words whose EVERY production row would go —
    the prune leaves them untouched rather than empty the word. It is not
    an error and it does not block `--apply`, but it is a list: on 6 Sep it
    was 100 Russian and 72 Arabic words the committed bank has nothing for
