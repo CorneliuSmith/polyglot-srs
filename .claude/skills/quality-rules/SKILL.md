@@ -27,13 +27,21 @@ working. Each rule exists because its absence already shipped a defect.
    fold merging 84 cards), write the price into the doc and leave the decision
    alone — surfacing it is the job, overruling it is not.
 
-## Order of work (owner decision, 20 Aug 2026)
+## Order of work (re-set 6 Sep 2026 — measured, supersedes 20 Aug)
 
-**Low-frequency courses first — clean AND populate** (`mi` step c, `ha`, `xh`,
-`yo`, `jam`, `id`, `tl`, `he`, `fa`). Several are not yet real courses: `tl`
-has 90 rows, `jam` 384. **Then** the deep pass on the well-resourced courses
-to `en`/`la` standard. **Then** sentences, for all 27 at once — no course
-reaches the sentence stage ahead of the others.
+**The authoritative sequence is the table at the top of
+`docs/plans/quality-parity.md`.** Guards first, then definitions (Phase 2d),
+then sentences (Phase 8), then grammar, Gym, extraction, verification, and
+Topic Lens last.
+
+The 20 Aug order — low-frequency courses first, then the deep pass, then
+sentences for all 27 at once — was written when row counts were the only
+number available. Two measurements retired it: **a course's size barely
+predicts what a learner meets** (`yo` 88% bad cards, `ko` 82%, `th` 69% vs
+`it` 24% on 33,159 rows), and **the definition is the cheapest fix for 60%
+of broken cards**, not the sentence. Per-course order everywhere is now the
+harm ranking: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro`
+→ the rest; `pt es de nl fr la ru en ha jam` are already under 15%.
 
 The expectation is that the deep pass will be lighter on the big courses
 because their data is better. Treat that as a prediction to test, not a fact:
