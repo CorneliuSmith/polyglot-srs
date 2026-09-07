@@ -690,10 +690,15 @@ rows today; these predate the gate or outlived their headword.
 
 ## Rows production serves that no committed file governs (7 Sep 2026)
 
-40,861 vocabulary rows are in production and in no frequency file: 39,004
-from older generations of the big-course lists (ru 5,913 …), 678 unmarked
-twins of file words (la `amo` beside `amō`), 331 letters/marks/digits
-deleted from files directly. The reconcile REPORTS them (`gone`) and the
+40,683 vocabulary rows are in production and owned by no committed source:
+39,004 from older generations of the big-course lists (ru 5,913 …), 678
+unmarked twins of file words (la `amo` beside `amō`), 165 single letters
+glossed "the fourth letter of the Catalan alphabet". (The count was 40,861
+until `gone` learned that a course has more than one source: 166 of those
+rows are alphabet-deck cards from `seed_alphabet` and 12 are curated
+starter words. Retiring "the letters nothing governs" would have deleted
+seven alphabet decks — ask what a maintenance list CONTAINS before acting
+on its size.) The reconcile REPORTS them (`gone`) and the
 retire step cannot see them because they are not in `vocab_exclusions.tsv`.
 They are live cards inside the decks' rank range, ungoverned by every check
 in `docs/quality/`. Owner decision D (`owner-actions-2026-09-07.md`); the

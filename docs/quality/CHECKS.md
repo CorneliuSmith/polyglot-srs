@@ -1624,15 +1624,27 @@ longer drops the whole course from the table in that case, which is what the
 old `skipped` key did. `new` counts only words that carry a gloss, because no
 seeder creates one without (English's 1,267 → 66).
 
-**Also on the same dry run — rows the files no longer govern.** `gone` totals
-40,861: 39,004 words an older generation of the big-course lists had (inside
-the file's rank range, not beyond it), 678 unmarked twins of file words
-(Latin's entire departed set is `amo`/`amō` pairs), 331 letters, marks and
-digits deleted from files directly rather than through the exclusions file.
-All live. Owner decision D in `owner-actions-2026-09-07.md`. The read-only
-query that classifies them: join `vocabulary` against the file's words per
-course; `glyph` = at most one letter or mark-only; `twin` = equal to a file
-word after stripping combining marks; everything else `tail`.
+**Also on the same dry run — rows the files no longer govern, and a count
+that was wrong.** `gone` read 40,861. It meant "not in the frequency file",
+which is not the same as "nothing owns it": **166 of those rows are
+alphabet-deck cards** (`seed_alphabet`, 8 courses, `part_of_speech =
+'letter'`, level A0 — 17 of them held by learners) and **12 are curated
+starter words** (`ar_seed.json` 9, `ru_starter.tsv`, `fr_vocabulary.csv`,
+`sw_vocabulary.csv`). Both are governed, just not by the list. The first
+version of owner decision D proposed retiring "the 331 letters, marks and
+digits nothing governs" mechanically — that would have deleted the Korean,
+Thai, Hindi, Hebrew, Persian, Greek and Russian alphabet decks. Caught by
+asking what the rows ARE before proposing what to do with them, which is
+rule 43 applied to a maintenance list rather than a card.
+
+`gone` now means ungoverned and a new `other` column counts what a second
+committed source owns (`words_from_other_sources`, plus `pos = 'letter'` —
+the flag the card layer already uses for an alphabet card). The real
+ungoverned set is **40,683**: 39,004 words an older generation of the
+big-course lists had (inside the file's rank range, not beyond it), 678
+unmarked twins of file words (Latin's entire departed set is `amo`/`amō`
+pairs), and 165 single letters glossed as "the fourth letter of the Catalan
+alphabet" — extraction debris, not decks, and never at level A0.
 
 **What the fixed tool measured** (read-only dry run against production, 7 Sep
 late evening): `gloss 1,594 · pos 3,370 · retire 848 · new 0 · s-layer 191`.

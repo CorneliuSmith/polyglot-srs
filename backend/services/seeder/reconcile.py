@@ -83,6 +83,48 @@ def _strip_chips(morphology, new_pos: str) -> tuple[str, str] | None:
             json.dumps(stripped or {}, ensure_ascii=False))
 
 
+# A frequency file is not a course's only committed source. These are read
+# whole (word column only) so a row they own is not reported as ungoverned.
+# The alphabet decks are code, not data (`seed_alphabet.ALPHABETS`), and are
+# recognised by the row itself: `part_of_speech = 'letter'` is what the card
+# layer uses to mean "alphabet-deck card" (`repositories/cards.py`).
+OTHER_SOURCES = {
+    "ar": ("ar_seed.json",),
+    "ru": ("ru_starter.tsv",),
+    "fr": ("fr_vocabulary.csv",),
+    "ko": ("ko_vocabulary.csv",),
+    "sw": ("sw_vocabulary.csv",),
+}
+
+
+def words_from_other_sources(code: str) -> set[str]:
+    """Every word this course seeds from something other than its frequency
+    file — the curated JSON/CSV starters. Missing or unreadable files are
+    silently empty: this only ever WIDENS what counts as governed, and a
+    course with no second source is the normal case."""
+    out: set[str] = set()
+    for name in OTHER_SOURCES.get(code, ()):
+        path = DATA / name
+        if not path.exists():
+            continue
+        try:
+            if path.suffix == ".json":
+                blob = json.loads(path.read_text(encoding="utf-8"))
+                items = blob if isinstance(blob, list) else (
+                    blob.get("words") or blob.get("entries") or [])
+                out |= {str(i.get("word") or "").strip()
+                        for i in items if isinstance(i, dict)}
+            else:
+                delim = "\t" if path.suffix == ".tsv" else ","
+                with path.open(encoding="utf-8-sig", newline="") as handle:
+                    out |= {(r.get("word") or "").strip()
+                            for r in csv.DictReader(handle, delimiter=delim)}
+        except (OSError, ValueError):
+            continue
+    out.discard("")
+    return out
+
+
 def expected_rows(code: str) -> dict[str, dict]:
     """word -> {pos, en}: what production SHOULD say — the committed file
     with `gloss_overrides.tsv` laid over it.
@@ -261,9 +303,24 @@ async def survey(conn, code: str) -> dict:
                     "id": row["id"], "word": row["word"],
                     "old": stripped[0], "new": stripped[1]})
 
-    # In the database but no longer in the file. Never deleted here.
+    # In the database and governed by NO committed source. Never deleted here.
+    #
+    # "Not in the frequency file" is not the same thing: the alphabet decks
+    # are seeded from code (`seed_alphabet`, 8 courses, `part_of_speech =
+    # 'letter'`) and five courses have a curated JSON/CSV starter beside
+    # their list. On 7 Sep 2026 `gone` counted all of those — 166 alphabet
+    # letters, 17 of them held by learners, and 12 curated words — and a
+    # plan to "mechanically retire the letters and digits nothing governs"
+    # would have taken the Korean, Thai, Hindi, Hebrew, Persian, Greek and
+    # Russian alphabet decks with it.
+    owned = words_from_other_sources(code)
     db_words = {r["word"] for r in db_rows}
-    departed = sorted(db_words - set(tsv))
+    elsewhere = sorted(
+        {r["word"] for r in db_rows
+         if r["word"] not in tsv
+         and ((r["part_of_speech"] or "") == "letter" or r["word"] in owned)}
+    )
+    departed = sorted(db_words - set(tsv) - set(elsewhere))
     departed_detail = []
     if departed:
         rows = await conn.fetch(
@@ -285,6 +342,7 @@ async def survey(conn, code: str) -> dict:
         "morphology_changes": morphology_changes,
         "sentence_layers": await survey_sentence_layers(conn, code, lang_id),
         "missing_translation": missing_translation, "departed": departed_detail,
+        "owned_elsewhere": elsewhere,
         # Only rows that carry a gloss: every seeder skips a word it cannot
         # define (English warns and drops 1,267 WordNet-less words), so
         # counting those as "new" told the operator the seeder would add
@@ -409,10 +467,10 @@ async def apply(conn, reports: list[dict]) -> dict:
 
 def print_report(reports: list[dict], detail: bool) -> None:
     print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
-          f"{'gone':>6}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}")
-    print("-" * 74)
+          f"{'gone':>6}{'other':>7}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}")
+    print("-" * 81)
     tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0,
-           "re": 0, "un": 0}
+           "re": 0, "un": 0, "oe": 0}
     for rep in reports:
         if rep.get("skipped"):
             continue
@@ -423,6 +481,7 @@ def print_report(reports: list[dict], detail: bool) -> None:
         # printed — the operator was told to "read the retire count" of a
         # dry run that had no such column (7 Sep 2026).
         re_, un = len(rep.get("retire", [])), len(rep.get("unretire", []))
+        oe = len(rep.get("owned_elsewhere", []))
         re_col = (f"{re_:>8}{un:>6}" if not rep.get("retire_skipped")
                   else f"{'-':>8}{'-':>6}")
         # s-layer was in the header and the legend, computed, applied and
@@ -439,17 +498,22 @@ def print_report(reports: list[dict], detail: bool) -> None:
         tot["sl"] += sl
         tot["re"] += re_
         tot["un"] += un
+        tot["oe"] += oe
         print(f"{rep['code']:<6}{rep['db_rows']:>7}{rep['tsv_rows']:>7}"
-              f"{g:>7}{p:>6}{t:>7}{d:>6}{n:>6}{sl:>8}{re_col}")
-    print("-" * 74)
+              f"{g:>7}{p:>6}{t:>7}{d:>6}{oe:>7}{n:>6}{sl:>8}{re_col}")
+    print("-" * 81)
     print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['pos']:>6}{tot['tr']:>7}"
-          f"{tot['gone']:>6}{tot['new']:>6}{tot['sl']:>8}{tot['re']:>8}{tot['un']:>6}")
+          f"{tot['gone']:>6}{tot['oe']:>7}{tot['new']:>6}{tot['sl']:>8}"
+          f"{tot['re']:>8}{tot['un']:>6}")
     print("\ngloss  definitions this would CORRECT — the file's column with "
           "gloss_overrides.tsv laid over it")
     print("pos    parts of speech this would correct (a word leaving the nominal set")
     print("       also loses its Gender/Plural chips — counted in the apply summary)")
     print("no-tr  rows with no English translation row at all — would be inserted")
-    print("gone   in the database, no longer in the file — REPORTED ONLY, never deleted")
+    print("gone   in the database and in NO committed source — REPORTED ONLY, never deleted")
+    print("other  in the database from a source that is not the frequency file: an")
+    print("       alphabet-deck letter (seed_alphabet) or a curated starter file.")
+    print("       Governed, just not by the list — never a retire candidate.")
     print("new    in the file, not yet in the database — run the seeder, not this")
     print("s-layer example sentences whose transliteration/gloss is EMPTY in the")
     print("       database while the committed bank has one. ON CONFLICT DO NOTHING")
