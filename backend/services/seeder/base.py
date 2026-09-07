@@ -11,6 +11,17 @@ from backend.services.content_filter import is_explicit_gloss
 
 from .gloss_overrides import apply_gloss_overrides_to_records
 
+# Every content tool talks to production through the Supabase pooler, and
+# a pooler can drop the server side of a session while the client still
+# waits for a reply. asyncpg's default is to wait for ever: on 7 Sep 2026
+# `seed_grammar -l all` sat two hours after "OK en" — asleep, 0% CPU, one
+# ESTABLISHED socket, no statement on the server, the pooled backend reset
+# minutes earlier. A bounded wait turns that into an error the operator can
+# see and a per-course rerun can recover from. Generous, because the
+# seeder's UNNEST chunks are real work; nothing here should take five
+# minutes on one statement.
+COMMAND_TIMEOUT = 300
+
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 
 
@@ -180,7 +191,7 @@ class BaseSeeder(ABC):
         records = self.prepare_records(records)
         self._merge_morphology_charts(records)
 
-        conn = await asyncpg.connect(self.db_url)
+        conn = await asyncpg.connect(self.db_url, command_timeout=COMMAND_TIMEOUT)
         try:
             # Look up language_id
             self.language_id = await conn.fetchval(

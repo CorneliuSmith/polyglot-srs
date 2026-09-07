@@ -50,8 +50,12 @@ skip it. Then:
 .venv/bin/python -m backend.services.seeder.reconcile -l all --apply
 ```
 
+Grammar, one course at a time — `-l all` hung after its fifth course on
+7 Sep when the pooler dropped the session (DEBT); ar ca de el en are done,
+so the loop below starts at es. Rerunning a finished course is harmless.
+
 ```bash
-.venv/bin/python -m backend.services.seeder.seed_grammar -l all
+for c in es fa fr ha he hi id it jam ko la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
 ```
 
 ```bash

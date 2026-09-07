@@ -37,6 +37,7 @@ from pathlib import Path
 
 import asyncpg
 
+from backend.services.seeder.base import COMMAND_TIMEOUT
 from backend.services.seeder.gloss_overrides import load_gloss_overrides
 
 REPO = Path(__file__).resolve().parents[3]
@@ -493,7 +494,7 @@ async def main() -> int:
         return 2
 
     import asyncpg
-    conn = await asyncpg.connect(args.db_url)
+    conn = await asyncpg.connect(args.db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         if args.rollback:
             sql = Path(args.rollback).read_text(encoding="utf-8")
