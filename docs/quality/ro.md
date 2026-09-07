@@ -240,3 +240,24 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## A feminine noun and a verb infinitive fold to one string (7 Sep 2026)
+
+Romanian writes the feminine singular noun with a final `ă` and the
+first-conjugation infinitive with a final `a`, so `uzină` (works, plant)
+and `a uzina` (to machine) are one string once the grader strips the mark.
+The same pair exists for `violență`/`a violenta`, `eclipsă`/`a eclipsa`,
+`expertiză`/`a expertiza`, `perlă`/`a perla`, `ramă`/`a rama` and
+`însuți`/`a însuti`.
+
+**The course can carry only one of each pair as a card.** A repair pass
+proposed keeping the noun and retiring the verb; the checker refused,
+because the verbs are real and several carry full conjugation charts in
+`ro_morphology.json`. Which member wins is a Romanian editorial decision
+about what a learner meets, not something a sweep can settle — and the
+rank the corpus measured belongs to both. Seven rows are left as they
+were, listed in `docs/decisions/2026-09-07-file-headword-repairs.md`.
+
+Related and still open (DEBT): rank 4 `si` is glossed "si (musical note
+B)" where the frequency plainly belongs to `și` ("and").
+

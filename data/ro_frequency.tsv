@@ -1254,7 +1254,7 @@ rank	word	pos	en
 1253	mica	adj	definite nominative/accusative feminine singular of mic (“small”)
 1254	limba	noun	definite nominative/accusative singular of limbă
 1255	având	verb	gerund of avea (“to have”)
-1256	sir	noun	sir
+1256	șir	noun	row, line, queue (of people or things); series, succession; range of mountains (n., pl. șiruri) — zile în șir “days on end”, un șir de munți “a mountain range”
 1257	norocos	adj	lucky, fortunate
 1258	energie	noun	energy (impetus behind activity)
 1259	milion	noun	million
@@ -2135,7 +2135,7 @@ rank	word	pos	en
 2134	incendiu	noun	fire (occurrence of fire in a certain place)
 2135	nota	verb	to make a note of, note down in writing
 2136	vrăjitoare	noun	female equivalent of vrăjitor: witch
-2137	mos	noun	a cup
+2137	moș	noun	old man; (before a name) old fellow, uncle (m., pl. moși) — Moș Crăciun “Father Christmas, Santa Claus”, moși “forebears, ancestors”
 2138	copie	noun	copy
 2139	deosebit	adj	different, distinct (especially from each another)
 2140	focuri	noun	plural of foc
@@ -2575,7 +2575,7 @@ rank	word	pos	en
 2574	ulei	noun	oil (liquid fat)
 2575	mormânt	noun	grave, tomb
 2576	anumit	det	certain (having been determined but unspecified)
-2577	print	noun	print
+2577	prinț	noun	prince — a monarch's son, or the ruler of a principality (m., pl. prinți)
 2578	senator	noun	senator
 2579	oglindă	noun	mirror
 2580	lucrurilor	noun	definite genitive/dative plural of lucru
@@ -2819,7 +2819,7 @@ rank	word	pos	en
 2818	franceză	adj	nominative/accusative feminine singular of francez
 2819	august	noun	August
 2820	căpitanului	noun	definite dative/genitive singular of căpitan
-2821	brat	noun	brother; monk
+2821	braț	noun	arm — the limb from shoulder to hand; by extension the arm of a chair, a river or a crane (n., pl. brațe) — la braț “arm in arm”, în brațe “in one's arms”
 2822	descrie	verb	to describe; to depict
 2823	mia	noun	definite nominative/accusative singular of mie
 2824	însemnat	adj	significant
@@ -2849,7 +2849,7 @@ rank	word	pos	en
 2848	gustul	noun	definite nominative/accusative singular of gust
 2849	tur	noun	tour; round
 2850	surori	noun	plural of soră (“sisters”)
-2851	ceata	noun	definite nominative/accusative singular of ceată
+2851	ceată	noun	band, group, troop — a body of people acting together; flock, pack of animals (f., pl. cete) — în ceată “in a group”
 2852	consilier	noun	counsellor, adviser
 2853	miercuri	noun	Wednesday
 2854	palma	noun	definite nominative/accusative singular of palmă
@@ -3062,7 +3062,7 @@ rank	word	pos	en
 3061	nefericire	noun	unhappiness (feeling of not being happy)
 3062	singurii	adj	definite nominative/accusative masculine plural of singur
 3063	adrian	name	a village in Gurghiu, Mureș County, Romania
-3064	otel	noun	hotel
+3064	oțel	noun	steel — the metal (n., pl. oțeluri) — oțel inoxidabil “stainless steel”, nervi de oțel “nerves of steel”
 3065	metodă	noun	method
 3066	mută	noun	female equivalent of mut
 3067	curge	verb	to flow, run (liquid), drip
@@ -7205,7 +7205,7 @@ rank	word	pos	en
 7204	interpol	noun	Interpol (the International Criminal Police Organization)
 7205	interval	noun	interval
 7206	diplomat	noun	diplomat
-7207	buza	noun	definite nominative/accusative singular of buză
+7207	buză	noun	lip — of the mouth (f., pl. buze); edge, rim, brink — buza prăpastiei “the brink of the precipice”
 7208	dânsa	pron	she
 7209	avatar	noun	avatar
 7210	dinamita	verb	to dynamite
@@ -7475,7 +7475,7 @@ rank	word	pos	en
 7474	pieri	verb	to perish, die; to disappear, vanish
 7475	murdărie	noun	dirt, filth, grime
 7476	funcționa	verb	to function
-7477	gena	noun	definite nominative/accusative singular of genă
+7477	genă	noun	gene — the unit of heredity carried on a chromosome (f., pl. gene)
 7478	debara	noun	storeroom
 7479	fulgere	verb	third-person singular/plural present subjunctive of fulgera
 7480	faimă	noun	fame, renown, reputation, luster, name
@@ -7832,7 +7832,7 @@ rank	word	pos	en
 7831	virtute	noun	virtue, virtuousness
 7832	îndesat	adj	stuffed
 7833	satur	verb	first-person singular present indicative/subjunctive of sătura
-7834	soacra	noun	definite nominative/accusative singular of soacră
+7834	soacră	noun	mother-in-law — the mother of one's husband or wife (f., pl. soacre)
 7835	încoa	adv	hither, here, this way, in my direction
 7836	scutit	adj	exempt
 7837	șansa	noun	definite nominative/accusative singular of șansă
@@ -8008,7 +8008,7 @@ rank	word	pos	en
 8007	latură	noun	side; aspect
 8008	creator	adj	creative
 8009	stampila	verb	to stamp
-8010	teza	noun	definite nominative/accusative singular of teză
+8010	teză	noun	thesis — a proposition put forward and argued; (school) an end-of-term written examination paper (f., pl. teze) — teză de doctorat “doctoral thesis”, teză la matematică “end-of-term maths paper”
 8011	cazare	noun	accommodation
 8012	culturii	noun	definite genitive/dative singular of cultură
 8013	sensibilitate	noun	sensitivity
@@ -8020,7 +8020,7 @@ rank	word	pos	en
 8019	treisprezece	num	thirteen
 8020	regional	adj	regional
 8021	furând	verb	gerund of fura
-8022	poanta	verb	alternative form of ponta
+8022	poantă	noun	punchline, the point of a joke; a gag, a witty turn (f., pl. poante) — a strica poanta “to spoil the punchline”
 8023	derutat	adj	confused
 8024	tactic	adj	tactical
 8025	tăiere	noun	cut
@@ -8328,7 +8328,7 @@ rank	word	pos	en
 8327	amarnic	adj	bitter
 8328	cultiva	verb	to cultivate
 8329	violare	noun	violation
-8330	pizda	noun	definite nominative/accusative singular of pizdă
+8330	pizdă	noun	(vulgar) cunt, pussy — the female genitals; (of a person) wimp, coward (f., pl. pizde)
 8331	inuman	adj	inhuman; inhumane
 8332	vreunei	det	genitive/dative feminine of vreun
 8333	ajungând	verb	gerund of ajunge
@@ -8451,7 +8451,7 @@ rank	word	pos	en
 8450	despărțit	adj	divided
 8451	morcov	noun	carrot
 8452	stația	noun	definite nominative/accusative singular of stație
-8453	catedrala	noun	definite singular of catedrală
+8453	catedrală	noun	cathedral — the principal church of a diocese, the bishop's seat (f., pl. catedrale)
 8454	întărit	adj	hardened
 8455	francisc	name	a male given name from Latin, equivalent to English Francis
 8456	slujitor	noun	servant
@@ -8516,7 +8516,7 @@ rank	word	pos	en
 8515	prenume	noun	first name
 8516	vulturi	noun	plural of vultur
 8517	android	noun	android
-8518	arca	noun	backer, protector
+8518	arcă	noun	ark — a large covered boat, met almost only in arca lui Noe “Noah's ark” (f., pl. arce)
 8519	toarne	verb	third-person singular/plural present subjunctive of turna
 8520	apelor	noun	definite genitive/dative plural of apă
 8521	maniera	noun	definite nominative/accusative singular of manieră
@@ -8931,7 +8931,7 @@ rank	word	pos	en
 8930	preluare	noun	taking over
 8931	robi	verb	to enslave, enthrall
 8932	miză	noun	ante
-8933	amica	noun	definite nominative/accusative singular of amică
+8933	amică	noun	female friend, lady friend; girlfriend — the feminine counterpart of amic (f., pl. amice)
 8934	debarcader	noun	wharf
 8935	intervenție	noun	intervention
 8936	miau	intj	meow (cry of a cat)
@@ -9092,7 +9092,7 @@ rank	word	pos	en
 9091	fluierat	noun	whistle
 9092	somnului	noun	definite genitive/dative singular of somn
 9093	diavoli	noun	plural of diavol
-9094	navala	adj	definite nominative/accusative feminine singular of naval
+9094	năvală	noun	onrush, rush, surge; invasion, assault, onslaught (f., pl. năvale) — a da năvală “to rush in, to storm in”
 9095	mumie	noun	mummy
 9096	proxenet	noun	pimp
 9097	copiile	noun	definite nominative/accusative plural of copie
@@ -9247,7 +9247,7 @@ rank	word	pos	en
 9246	modificata	adj	definite nominative/accusative feminine singular of modificat
 9247	troian	noun	Trojan
 9248	discotecă	noun	nightclub
-9249	freza	noun	definite nominative/accusative singular of freză
+9249	freză	noun	milling cutter, router bit — a rotary cutting tool (f., pl. freze); (colloquial) haircut, hairdo
 9250	busolă	noun	compass (navigational tool)
 9251	datorat	adj	alternative form of datorit
 9252	amănunt	noun	detail, particular
@@ -9330,7 +9330,7 @@ rank	word	pos	en
 9329	zbârnâit	noun	a whirr
 9330	ușile	noun	definite nominative/accusative plural of ușă
 9331	înțelept	adj	wise, sage
-9332	dorința	noun	definite nominative/accusative singular of dorință (“wish”)
+9332	dorință	noun	wish, desire; longing (f., pl. dorințe) — a-și pune o dorință “to make a wish”, ultima dorință “a last wish”
 9333	anchetator	noun	investigator
 9334	argumenta	verb	to support with arguments
 9335	autodistrugere	noun	self-destruction
@@ -9837,7 +9837,7 @@ rank	word	pos	en
 9836	halo	noun	halo
 9837	locurilor	noun	definite genitive/dative plural
 9838	șansele	noun	definite nominative/accusative plural of șansă
-9839	puma	noun	puma
+9839	pumă	noun	puma, cougar, mountain lion — the large American wild cat (f., pl. pume)
 9840	produci	verb	second-person singular present indicative/subjunctive of produce
 9841	îmbătrâni	verb	to age; to grow/get old, elderly
 9842	terminasem	verb	first-person singular pluperfect indicative of termina

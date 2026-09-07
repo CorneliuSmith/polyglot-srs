@@ -60,7 +60,7 @@ rank	word	pos	en
 58	ọrọ	noun	word, phrase, uttering
 59	ìwé	noun	book; paper; document, letter
 60	ọkọ	noun	hoe
-61	fẹ	verb	to want, to desire
+61	fẹ́	verb	to want, to desire — stands between the subject and the verb (mo fẹ́ jẹun: I want to eat); to want someone as a spouse, to marry; distinct from fẹ̀ (to be wide), and from fẹ́ràn at rank 204, which is the ordinary word for liking or being fond of something
 62	ilẹ	noun	land, earth, soil; country, homeland
 63	da	verb	to pour (down or into); to overturn, to capsize
 64	ju	verb	to throw
@@ -79,7 +79,7 @@ rank	word	pos	en
 77	de	verb	to tie down, to constrain
 78	ìyá	noun	mother, mum; a term of respect for an elder or a woman of higher rank
 79	ọpọlọpọ	noun	several or numerous in quantity
-80	eniyan	noun	person, people, human being
+80	ènìyàn	noun	person, human being — the full written form; people, human beings in general (pluralised with àwọn when the count matters). Broader than ẹni, which names the particular one, and against èèyàn at rank 241, the everyday spoken form of the same word
 81	la	verb	to dream
 82	àgbà	noun	elder, senior adult; a senior institution or body
 83	máa	particle	will — future marker placed before the verb
@@ -105,7 +105,7 @@ rank	word	pos	en
 103	ọkùnrin	noun	man, male person; manliness, bravery
 104	inú	noun	inside, interior; stomach, belly
 105	oṣu	noun	moon; (in particular) new moon
-106	ounjẹ	noun	food
+106	oúnjẹ	noun	food, anything eaten; a meal, the cooked dish that is served (oúnjẹ alẹ́: the evening meal)
 107	olori	noun	the official designated wife of a monarch; usually the most senior wife of a king; queen consort
 108	e	pron	him, her, it
 109	lẹhin	verb	to have a legacy
@@ -148,7 +148,7 @@ rank	word	pos	en
 146	asiko	noun	time, occasion, season
 147	obi	noun	parent
 148	ọmọdé	noun	child; childhood
-149	nla	adj	big, large
+149	ńlá	adj	big, large — follows the noun it describes (ilé ńlá: a big house); great, considerable, of weight or seriousness (ìṣòro ńlá: a big problem)
 150	han	verb	to appear, show; to be visible
 151	wọ	verb	to become strained under a heavy weight
 152	idi	noun	eagle, usually referring to African species of the genera Aquila and Haliaeetus,
@@ -467,7 +467,7 @@ rank	word	pos	en
 465	gbẹ	verb	to plant; to sow
 466	naira	noun	naira (currency of Nigeria)
 467	ibanujẹ	noun	sadness, depression
-468	awa	pron	we (emphatic first-person plural personal pronoun)
+468	àwa	pron	we, us — emphatic first-person plural pronoun, used when the subject is focused or contrasted (Àwa ni: it is us), as against plain a for the ordinary subject and wa after a verb or noun
 469	onikaluku	noun	each person, individual
 470	ẹṣin	noun	horse
 471	ibinu	noun	anger, rage, fury

@@ -2024,7 +2024,7 @@ rank	word	pos	en
 2024	saltar	verb	to leap; to jump
 2025	equipamento	noun	equipment; apparatus
 2026	bolsa	noun	purse, handbag, bag
-2027	génio	noun	genius; the tutelary deity or spirit of a place or person
+2027	gênio	noun	genius (m.) — a person of exceptional ability (ele é um gênio da matemática); temper, disposition (tem um gênio difícil = he has a difficult temper); genie, guardian spirit
 2028	primeiros	adj	masculine plural of primeiro
 2029	terceira	adj	feminine singular of terceiro
 2030	ganhou	verb	third-person singular preterite indicative of ganhar
@@ -2060,7 +2060,7 @@ rank	word	pos	en
 2060	penses	verb	second-person singular present subjunctive of pensar
 2061	modelo	noun	model (representation of a physical object)
 2062	topo	noun	top (uppermost part)
-2063	prémio	noun	prize (that which may be won by chance)
+2063	prêmio	noun	prize, award (m.) — what you win in a contest, lottery or competition (ganhar um prêmio = to win a prize); premium — the sum paid for an insurance policy
 2064	anjo	noun	angel; a very good person
 2065	confio	verb	first-person singular present indicative of confiar
 2066	chuva	noun	rain
@@ -3299,7 +3299,7 @@ rank	word	pos	en
 3300	existir	verb	to exist (to be)
 3301	bateria	noun	battery (group of electrochemical cells used to power electric devices)
 3302	hannah	name	a female given name, equivalent to English Hannah, alternative form of Hanna
-3303	pénis	noun	European Portuguese standard spelling of pênis
+3303	pênis	noun	penis (m.) — the male sexual and urinary organ; invariable in the plural (os pênis)
 3304	doze	num	twelve
 3305	costuma	verb	third-person singular present indicative
 3306	orgulhosa	adj	feminine singular of orgulhoso
@@ -3355,7 +3355,7 @@ rank	word	pos	en
 3356	compreendes	verb	second-person singular present indicative of compreender
 3357	beco	noun	alley
 3358	repito	verb	first-person singular present indicative of repetir
-3359	cerimónia	noun	European Portuguese standard spelling of cerimônia
+3359	cerimônia	noun	ceremony (f.) — a formal ritual with religious, social or political significance (cerimônia de casamento = wedding ceremony); formality, standing on ceremony (fazer cerimônia = to be shy about accepting something; sem cerimônia = casually, without fuss)
 3360	house	noun	house music, house (a genre of music)
 3361	atirou	verb	third-person singular preterite indicative of atirar
 3362	construção	noun	construction, building (act or process of building)
@@ -3368,7 +3368,7 @@ rank	word	pos	en
 3369	tragam	verb	third-person plural present subjunctive
 3370	sincronizadas	verb	feminine plural of sincronizado
 3371	satélite	noun	satellite (object orbiting a celestial object)
-3372	oxigénio	noun	oxygen; an atom of oxygen
+3372	oxigênio	noun	oxygen (m.) — the gas that makes up about a fifth of the air and that we breathe (máscara de oxigênio = oxygen mask); an atom of oxygen
 3373	levas	verb	second-person singular present indicative of levar
 3374	cores	noun	plural of cor
 3375	julgar	verb	to judge; to sentence (sit in judgment on, pass sentence on)
@@ -3534,7 +3534,7 @@ rank	word	pos	en
 3535	arquivo	noun	archive; file
 3536	imediato	adj	immediate (without delay)
 3537	pastor	noun	herdsman; herder (someone who tends livestock)
-3538	dêem	verb	pre-reform spelling
+3538	deem	verb	give; let them give — third-person plural present subjunctive and imperative of dar (espero que eles deem uma resposta = I hope they give an answer; deem uma olhada nisso = take a look at this)
 3539	cancelar	verb	to call off, to cancel
 3540	arranjei	verb	first-person singular preterite indicative of arranjar
 3541	tomo	noun	volume, tome (book which is part of a series)
@@ -4011,7 +4011,7 @@ rank	word	pos	en
 4012	comunicar	verb	to communicate (impart or transmit)
 4013	arrumar	verb	to fix; to set up
 4014	passaporte	noun	passport; a type of hot dog
-4015	ténis	noun	tennis; a trainer, sneaker
+4015	tênis	noun	tennis (m.) — the racket sport (jogar tênis = to play tennis; quadra de tênis = tennis court); a trainer, sneaker, athletic shoe (um par de tênis = a pair of trainers); invariable in the plural (os tênis)
 4016	cria	noun	young; offspring (a young animal, especially one that still depends on its mother)
 4017	preocupem	verb	third-person plural present subjunctive
 4018	victoria	noun	a female given name from Latin, masculine equivalent Victor, equivalent to English Victoria
@@ -4912,7 +4912,7 @@ rank	word	pos	en
 4914	cuja	det	feminine singular of cujo
 4915	quisermos	verb	first-person plural future subjunctive of querer
 4916	conquistar	verb	to conquer; to acquire by arms; to win in war
-4917	gémeos	noun	plural of gémeo
+4917	gêmeos	noun	twins (m. pl.) — two or more children born of the same pregnancy (irmãos gêmeos = twin brothers; ela teve gêmeos = she had twins); (capitalised, Gêmeos) Gemini, the zodiac sign
 4918	helena	name	a female given name from Ancient Greek, equivalent to English Helen
 4919	euros	noun	plural of euro
 4920	beijos	noun	plural of beijo
@@ -4985,7 +4985,7 @@ rank	word	pos	en
 4987	internos	adj	masculine plural of interno
 4988	autor	noun	author (originator or creator of a work)
 4989	amada	adj	feminine singular of amado
-4990	colónia	noun	European Portuguese standard spelling of colônia
+4990	colônia	noun	colony (f.) — a territory held by a foreign power, or the settlers living in it (a colônia portuguesa); cologne, scented water (água de colônia, or just colônia)
 4991	bati	verb	first-person singular preterite indicative of bater
 4992	brilhantes	adj	masculine/feminine plural of brilhante
 4993	libertação	noun	release, liberation
@@ -5523,7 +5523,7 @@ rank	word	pos	en
 5525	mesas	noun	plural of mesa
 5526	fada	noun	fairy
 5527	particularmente	adv	particularly
-5528	suite	noun	pre-reform spelling (used until 1943 in Brazil and 1911 in Portugal) of suíte
+5528	suíte	noun	suite (f.) — a set of connected rooms in a hotel (uma suíte de luxo); (Brazil) a bedroom with its own private bathroom (quarto com suíte = en-suite bedroom); a suite of musical pieces
 5529	tiraram	verb	third-person plural preterite/pluperfect indicative of tirar
 5530	faleceu	verb	third-person singular preterite indicative of falecer
 5531	décadas	noun	plural of década
@@ -6255,7 +6255,7 @@ rank	word	pos	en
 6258	madrugada	noun	the period between midnight and sunrise; early morning
 6259	manga	noun	sleeve; pipe
 6260	marijuana	noun	marijuana, cannabis
-6261	bónus	noun	bonus
+6261	bônus	noun	bonus (m.) — extra money paid on top of a salary or fee (bônus de fim de ano = year-end bonus); an added perk or extra given free; invariable in the plural (os bônus)
 6262	realizador	noun	director
 6263	ligas	verb	second-person singular present indicative of ligar
 6264	longas	adj	feminine plural of longo
@@ -6347,7 +6347,7 @@ rank	word	pos	en
 6350	ambição	noun	ambition
 6351	correndo	verb	gerund of correr
 6352	garotos	noun	plural of garoto
-6353	iris	noun	pre-reform spelling (used until 1943 in Brazil and 1911 in Portugal) of íris
+6353	íris	noun	iris (f.) — the coloured ring of the eye around the pupil (a íris azul); the iris flower, of the genus Iris
 6354	judicial	adj	judicial
 6355	perguntes	verb	second-person singular present subjunctive of perguntar
 6356	sexto	adj	sixth
@@ -6588,7 +6588,7 @@ rank	word	pos	en
 6591	bêbados	adj	masculine plural of bêbado
 6592	fraldas	noun	plural of fralda
 6593	honestos	adj	masculine plural of honesto
-6594	cocó	noun	chicken
+6594	cocô	noun	poo, poop (m.) — the nursery word for excrement (fazer cocô = to poo; cocô de cachorro = dog poo); (figuratively, informal) crap, junk — something of very poor quality
 6595	ouvires	verb	second-person singular future subjunctive
 6596	prendas	verb	second-person singular present subjunctive of prender
 6597	alterações	noun	plural of alteração
@@ -6852,7 +6852,7 @@ rank	word	pos	en
 6857	mentais	adj	masculine/feminine plural of mental
 6858	sofia	noun	a female given name, equivalent to English Sophie or Sophia
 6859	formal	adj	formal (being in accord with established forms)
-6860	paranóico	adj	pre-reform spelling
+6860	paranoico	adj	paranoid — irrationally suspicious or convinced of being persecuted (ele está paranoico com isso = he's paranoid about it); (used as a noun, m.) a person suffering from paranoia
 6861	prisões	noun	plural of prisão
 6862	cooperação	noun	cooperation (act of cooperating or being cooperative)
 6863	olhava	verb	first/third-person singular imperfect indicative of olhar
@@ -7405,13 +7405,13 @@ rank	word	pos	en
 7412	recomendação	noun	recommendation; advice
 7413	obrigações	noun	plural of obrigação
 7414	d.c.	adv	abbreviation of depois de Cristo (“after Christ”): AD
-7415	jóia	noun	jewel, gem (pre-Acordo spelling of joia)
+7415	joia	noun	jewel, gem (f.) — a piece of precious jewellery (loja de joias = jewellery shop); a treasure — anything or anyone precious (essa menina é uma joia); (Brazil, spoken) great, fine (tudo joia? = everything good?)
 7416	abater	verb	to collapse; to topple
 7417	elefantes	noun	plural of elefante
 7418	desejam	verb	third-person plural present indicative of desejar
 7419	primária	noun	primary school
 7420	equipamentos	noun	plural of equipamento
-7421	havai	name	European Portuguese standard form of Havaí
+7421	havaí	name	Hawaii (m.) — the Pacific island state of the United States (o Havaí; as ilhas do Havaí = the Hawaiian islands)
 7422	disfarçado	adj	disguised; covert
 7423	comunistas	noun	plural of comunista
 7424	arsenal	noun	arsenal (military establishment)
@@ -8055,7 +8055,7 @@ rank	word	pos	en
 8062	cova	noun	hole, hollow, cavity
 8063	charuto	noun	cigar (rolled bundle of tobacco made for smoking)
 8064	desafios	noun	plural of desafio
-8065	pólo	noun	pre-reform spelling
+8065	polo	noun	pole (m.) — the geographic or magnetic pole (Polo Norte = the North Pole); a hub or centre (polo industrial = industrial hub); polo, the sport played on horseback
 8066	hospitalidade	noun	hospitality
 8067	agricultor	noun	farmer
 8068	pensasse	verb	first/third-person singular imperfect subjunctive of pensar
@@ -9561,7 +9561,7 @@ rank	word	pos	en
 9568	su	name	a diminutive of the female given names Susana, Suzana, Susane, or Suzane
 9569	burros	adj	masculine plural of burro
 9570	defensor	noun	defender (someone or something which defends)
-9571	paranóia	noun	pre-reform spelling
+9571	paranoia	noun	paranoia (f.) — a psychotic condition marked by delusions of persecution; (spoken Brazil) an irrational fear or obsessive worry (isso é paranoia sua = that's just you being paranoid)
 9572	tropical	adj	tropical (of or relating to the tropics)
 9573	equivalente	adj	equivalent (similar or identical in value)
 9574	repouso	noun	repose; rest; the act of resting
