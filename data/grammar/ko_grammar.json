@@ -7898,6 +7898,26 @@
           "transliteration": "i yageun harue ___ deuseyo.",
           "cell": "번 – times (pure Korean)",
           "display_order": 22
+        },
+        {
+          "sentence": "저는 {{answer}} 동안 한국에서 일했어요.",
+          "answer": "육 개월",
+          "translation": "I worked in Korea for six months.",
+          "hint": "months with the Chinese-origin counter — so the number is Sino-Korean too",
+          "gloss": "1SG.POL.TOP · ___ · during · Korea.LOC · work.PST.POL",
+          "transliteration": "jeoneun ___ dongan hangugeseo ilhaesseoyo.",
+          "cell": "개월 – months (Sino-Korean)",
+          "display_order": 23
+        },
+        {
+          "sentence": "한국에 온 지 {{answer}}이 지났어요.",
+          "answer": "육 개월",
+          "translation": "Six months have passed since I came to Korea.",
+          "hint": "Use the Sino-Korean number for 6 with the Chinese-origin counter for months (not 달).",
+          "gloss": "Korea.LOC · come.PST.PTCP · since · ___ · pass.PST.POL",
+          "transliteration": "hanguge on ji ___i jinasseoyo.",
+          "cell": "개월 – months (Sino-Korean)",
+          "display_order": 24
         }
       ],
       "paradigm": [
@@ -12467,6 +12487,16 @@
           "transliteration": "yageul meokgo naseo gamgiga da {{answer}}.",
           "cell": "past, polite ~요",
           "display_order": 7
+        },
+        {
+          "sentence": "지난주보다 날씨가 훨씬 {{answer}}.",
+          "answer": "나았어요",
+          "translation": "The weather is much better than last week.",
+          "hint": "polite past of the comparative adjective — the ㅅ drops before the vowel",
+          "gloss": "last.week.COMP · weather.NOM · much · ___",
+          "transliteration": "jinanjuboda nalssiga hwolssin ___.",
+          "cell": "past, polite ~요",
+          "display_order": 8
         }
       ],
       "prerequisites": [
