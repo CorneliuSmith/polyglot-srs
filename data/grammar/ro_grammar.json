@@ -35,7 +35,7 @@
           "sentence": "{{answer}} sunt din București.",
           "answer": "Eu",
           "translation": "I am from Bucharest.",
-          "hint": "I",
+          "hint": "subject pronoun for the speaker alone",
           "display_order": 1,
           "cell": "eu",
           "gloss": "___ · be.1SG · from · Bucharest"
@@ -53,7 +53,7 @@
           "sentence": "{{answer}} este sora mea.",
           "answer": "Ea",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "third-person subject, female referent",
           "display_order": 3,
           "cell": "ea",
           "gloss": "___ · be.3SG · sister.DEF.F.SG · my.F.SG"
@@ -62,7 +62,7 @@
           "sentence": "{{answer}} suntem studenți.",
           "answer": "Noi",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "subject pronoun covering the speaker together with others",
           "display_order": 4,
           "cell": "noi",
           "gloss": "___ · be.1PL · student.M.PL"
@@ -89,7 +89,7 @@
           "sentence": "{{answer}} este fratele meu.",
           "answer": "El",
           "translation": "He is my brother.",
-          "hint": "he",
+          "hint": "third-person subject, male referent",
           "cell": "el",
           "display_order": 7,
           "gloss": "___ · be.3SG · brother.DEF.M.SG · my.M.SG"
@@ -309,7 +309,7 @@
           "sentence": "Am {{answer}} câine.",
           "answer": "un",
           "translation": "I have a dog.",
-          "hint": "masculine",
+          "hint": "the indefinite article — check the gender of câine",
           "display_order": 1,
           "gloss": "have.1SG · ___ · dog"
         },
@@ -317,7 +317,7 @@
           "sentence": "Este {{answer}} casă mare.",
           "answer": "o",
           "translation": "It is a big house.",
-          "hint": "feminine",
+          "hint": "the indefinite article — decided by the gender of casă",
           "display_order": 2,
           "gloss": "be.3SG · ___ · house · big"
         },
@@ -1109,7 +1109,7 @@
           "sentence": "Pe masă {{answer}} o carte.",
           "answer": "este",
           "translation": "There is a book on the table.",
-          "hint": "singular",
+          "hint": "existential verb — agree it with how much is on the table",
           "display_order": 1,
           "gloss": "on · table · ___ · INDF.F · book"
         },
@@ -1117,7 +1117,7 @@
           "sentence": "În stradă {{answer}} două cafenele.",
           "answer": "sunt",
           "translation": "There are two cafés in the street.",
-          "hint": "plural",
+          "hint": "existential verb — count what is in the street and agree with it",
           "display_order": 2,
           "gloss": "in · street · ___ · two.F · cafe.PL"
         },
@@ -1183,7 +1183,7 @@
           "sentence": "{{answer}} locuiești?",
           "answer": "Unde",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "interrogative asking for a place",
           "display_order": 1,
           "gloss": "___ · live.2SG"
         },
@@ -1199,7 +1199,7 @@
           "sentence": "{{answer}} este ziua ta?",
           "answer": "Când",
           "translation": "When is your birthday?",
-          "hint": "when",
+          "hint": "interrogative asking for a point in time",
           "display_order": 3,
           "gloss": "___ · be.3SG · day-DEF.F.SG · 2SG.POSS.F"
         },
@@ -1207,7 +1207,7 @@
           "sentence": "{{answer}} este asta?",
           "answer": "Ce",
           "translation": "What is this?",
-          "hint": "what",
+          "hint": "interrogative naming an unknown thing",
           "display_order": 4,
           "gloss": "___ · be.3SG · this.F.SG"
         },
@@ -1215,7 +1215,7 @@
           "sentence": "{{answer}} frați ai?",
           "answer": "Câți",
           "translation": "How many brothers do you have?",
-          "hint": "how many",
+          "hint": "quantity interrogative — match its form to the noun counted",
           "display_order": 5,
           "gloss": "___ · brother.PL · have.2SG"
         },
@@ -1223,7 +1223,7 @@
           "sentence": "{{answer}} este profesorul tău?",
           "answer": "Cine",
           "translation": "Who is your teacher?",
-          "hint": "who",
+          "hint": "interrogative asking for a person's identity",
           "display_order": 6,
           "gloss": "___ · be.3SG · teacher.DEF.M.SG · 2SG.POSS.M"
         },
@@ -1783,7 +1783,7 @@
           "sentence": "Îl cunosc pe Ion; {{answer}} văd în fiecare zi.",
           "answer": "îl",
           "translation": "I know Ion; I see him every day.",
-          "hint": "him",
+          "hint": "direct-object clitic — take gender and number from the person named",
           "display_order": 1,
           "gloss": "3SG.M.ACC · know.1SG · OBJ · Ion · ___ · see.1SG · in · every · day"
         },
@@ -1791,7 +1791,7 @@
           "sentence": "Unde e Maria? Nu {{answer}} găsesc.",
           "answer": "o",
           "translation": "Where is Maria? I can't find her.",
-          "hint": "her",
+          "hint": "direct-object clitic standing in for Maria",
           "display_order": 2,
           "gloss": "where · be.3SG · Maria · NEG · ___ · find.1SG"
         },
@@ -1815,7 +1815,7 @@
           "sentence": "Suntem aici; {{answer}} auzi?",
           "answer": "ne",
           "translation": "We're here; can you hear us?",
-          "hint": "us",
+          "hint": "direct-object clitic pointing back at the speakers' own group",
           "display_order": 5,
           "gloss": "be.1PL · here · ___ · hear.2SG"
         },
@@ -1939,7 +1939,7 @@
           "sentence": "Vin la cinema {{answer}} prietenii mei.",
           "answer": "cu",
           "translation": "I'm coming to the cinema with my friends.",
-          "hint": "with",
+          "hint": "preposition marking accompaniment",
           "display_order": 3,
           "gloss": "come.1SG · to · cinema · ___ · friend.M.PL.DEF · 1SG.POSS.M.PL"
         },
@@ -1947,7 +1947,7 @@
           "sentence": "Am cumpărat un cadou {{answer}} mama.",
           "answer": "pentru",
           "translation": "I bought a gift for my mother.",
-          "hint": "for",
+          "hint": "preposition marking the beneficiary of the gift",
           "display_order": 4,
           "gloss": "have.1SG · buy.PTCP · INDF.M · gift · ___ · mother.F.SG.DEF"
         },
@@ -1955,7 +1955,7 @@
           "sentence": "Nu pot trăi {{answer}} cafea.",
           "answer": "fără",
           "translation": "I can't live without coffee.",
-          "hint": "without",
+          "hint": "preposition marking absence or lack",
           "display_order": 5,
           "gloss": "NEG · can.1SG · live.INF · ___ · coffee"
         },
@@ -2311,7 +2311,7 @@
           "sentence": "Profesorul {{answer}} explică lecția clar.",
           "answer": "ne",
           "translation": "The teacher explains the lesson to us clearly.",
-          "hint": "to us",
+          "hint": "indirect-object clitic — the group receiving the explanation includes the speaker",
           "display_order": 4,
           "gloss": "teacher.DEF.M · ___ · explain.3SG · lesson.DEF.F · clearly"
         },
@@ -2397,7 +2397,7 @@
           "sentence": "Aceasta este casa în {{answer}} am crescut.",
           "answer": "care",
           "translation": "This is the house in which I grew up.",
-          "hint": "which",
+          "hint": "relative pronoun after a preposition, pointing back to the house",
           "display_order": 6,
           "gloss": "this.F · be.3SG · house.DEF.F · in · ___ · PST.1SG · grow.PTCP"
         }
@@ -2607,7 +2607,7 @@
           "sentence": "Nu știu {{answer}} magazinul e deschis azi.",
           "answer": "dacă",
           "translation": "I don't know whether the shop is open today.",
-          "hint": "whether",
+          "hint": "connector introducing an embedded yes/no question",
           "display_order": 6,
           "gloss": "NEG · know.1SG · ___ · shop.DEF.M.SG · be.3SG · open.M.SG · today"
         }
@@ -2707,7 +2707,7 @@
           "sentence": "{{answer}} înveți mult, vei reuși la examen.",
           "answer": "dacă",
           "translation": "If you study a lot, you'll pass the exam.",
-          "hint": "if",
+          "hint": "connector opening the condition clause",
           "display_order": 1,
           "gloss": "___ · learn.2SG · much · FUT.2SG · succeed.INF · at · exam"
         },
@@ -3197,7 +3197,7 @@
           "sentence": "{{answer}} era târziu, am continuat discuția.",
           "answer": "deși",
           "translation": "Although it was late, we continued the discussion.",
-          "hint": "although",
+          "hint": "connector marking concession — the clause runs counter to the main one",
           "display_order": 1,
           "gloss": "___ · be.IPFV.3SG · late · have.PRS.1PL · continue.PTCP · discussion-DEF.F.SG"
         },
@@ -3205,7 +3205,7 @@
           "sentence": "Am rămas acasă {{answer}} ploua tare.",
           "answer": "deoarece",
           "translation": "I stayed home because it was raining hard.",
-          "hint": "because",
+          "hint": "connector introducing the reason for the main clause",
           "display_order": 2,
           "gloss": "have.PRS.1SG · stay.PTCP · at_home · ___ · rain.IPFV.3SG · hard"
         },
@@ -3377,7 +3377,7 @@
           "sentence": "{{answer}} vremea era rea, spectacolul continuă.",
           "answer": "deși",
           "translation": "Although the weather was bad, the show went on. (literary)",
-          "hint": "although",
+          "hint": "concessive connector — the main clause defies the obstacle",
           "display_order": 6,
           "gloss": "___ · weather.DEF · be.PST.IPFV.3SG · bad.F.SG · show.DEF · continue.PST.PFV.3SG"
         }

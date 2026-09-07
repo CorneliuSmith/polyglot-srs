@@ -78,7 +78,7 @@
           "sentence": "{{answer}} canta muy bien.",
           "answer": "Ella",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "ella",
           "display_order": 3,
           "gloss": "___ · sing.3SG · very · well"
@@ -87,7 +87,7 @@
           "sentence": "{{answer}} somos estudiantes.",
           "answer": "Nosotros",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker's own group",
           "display_order": 4,
           "cell": "nosotros",
           "gloss": "___ · be.1PL · student.PL"
@@ -96,7 +96,7 @@
           "sentence": "{{answer}} trabaja en un banco.",
           "answer": "Él",
           "translation": "He works in a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "él",
           "display_order": 5,
           "gloss": "___ · work.3SG · in · INDF.M · bank"
@@ -159,7 +159,7 @@
           "sentence": "{{answer}} hablo un poco de español.",
           "answer": "Yo",
           "translation": "I speak a little Spanish.",
-          "hint": "I",
+          "hint": "first-person singular subject — the verb ending marks the person",
           "cell": "yo",
           "display_order": 12,
           "gloss": "___ · speak.1SG · INDF.M · little · of · Spanish"
@@ -353,7 +353,7 @@
           "sentence": "{{answer}} casa es grande.",
           "answer": "la",
           "translation": "The house is big.",
-          "hint": "feminine singular",
+          "hint": "definite article — check the gender of the noun it introduces",
           "display_order": 1,
           "cell": "la",
           "gloss": "___ · house · be.3SG · big"
@@ -362,7 +362,7 @@
           "sentence": "{{answer}} libro es nuevo.",
           "answer": "el",
           "translation": "The book is new.",
-          "hint": "masculine singular",
+          "hint": "definite article — let the noun's gender decide the form",
           "display_order": 2,
           "cell": "el",
           "gloss": "___ · book · be.3SG · new.M.SG"
@@ -371,7 +371,7 @@
           "sentence": "{{answer}} casas son blancas.",
           "answer": "Las",
           "translation": "The houses are white.",
-          "hint": "feminine plural",
+          "hint": "definite article — match the noun in gender and number",
           "display_order": 3,
           "cell": "las",
           "gloss": "___ · house.PL · be.3PL · white.F.PL"
@@ -389,7 +389,7 @@
           "sentence": "{{answer}} coches son rápidos.",
           "answer": "Los",
           "translation": "The cars are fast.",
-          "hint": "masculine plural",
+          "hint": "definite article — agree with the noun in gender and number",
           "display_order": 5,
           "cell": "los",
           "gloss": "___ · car.PL · be.3PL · fast.M.PL"
@@ -467,7 +467,7 @@
           "sentence": "Tengo {{answer}} perro.",
           "answer": "un",
           "translation": "I have a dog.",
-          "hint": "masculine singular",
+          "hint": "indefinite article — the gender of the noun picks the form",
           "display_order": 1,
           "cell": "un",
           "gloss": "have.1SG · ___ · dog"
@@ -476,7 +476,7 @@
           "sentence": "Es {{answer}} casa grande.",
           "answer": "una",
           "translation": "It is a big house.",
-          "hint": "feminine singular",
+          "hint": "indefinite article — check the gender of the noun that follows",
           "display_order": 2,
           "cell": "una",
           "gloss": "be.3SG · ___ · house · big"
@@ -1273,7 +1273,7 @@
           "sentence": "{{answer}} un libro en la mesa.",
           "answer": "Hay",
           "translation": "There is a book on the table.",
-          "hint": "there is",
+          "hint": "impersonal existential verb — one form for singular and plural",
           "display_order": 1,
           "gloss": "___ · INDF.M · book · on · DEF.F · table"
         },
@@ -1373,7 +1373,7 @@
           "sentence": "¿{{answer}} es esto?",
           "answer": "Qué",
           "translation": "What is this?",
-          "hint": "what",
+          "hint": "question word asking for the identity of a thing",
           "display_order": 3,
           "gloss": "___ · be.3SG · this.N"
         },
@@ -1381,7 +1381,7 @@
           "sentence": "¿{{answer}} vives?",
           "answer": "Dónde",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "question word asking for a place",
           "display_order": 4,
           "gloss": "___ · live.2SG"
         },
@@ -1389,7 +1389,7 @@
           "sentence": "¿{{answer}} es tu cumpleaños?",
           "answer": "Cuándo",
           "translation": "When is your birthday?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 5,
           "gloss": "___ · be.3SG · POSS.2SG · birthday.M"
         },
@@ -2105,7 +2105,7 @@
           "sentence": "¿La película? {{answer}} vimos anoche.",
           "answer": "La",
           "translation": "The film? We saw it last night.",
-          "hint": "feminine singular",
+          "hint": "direct object pronoun — agree with the noun it stands for",
           "display_order": 3,
           "gloss": "DEF.F.SG · film · ___ · see.PST.PFV.1PL · last_night"
         },
@@ -2113,7 +2113,7 @@
           "sentence": "¿Los libros? {{answer}} compré ayer.",
           "answer": "Los",
           "translation": "The books? I bought them yesterday.",
-          "hint": "masculine plural",
+          "hint": "direct object pronoun — copy the gender and number of what it replaces",
           "display_order": 4,
           "gloss": "DEF.M.PL · book.PL · ___ · buy.PST.PFV.1SG · yesterday"
         },
@@ -2121,7 +2121,7 @@
           "sentence": "¿El pan? No {{answer}} encuentro.",
           "answer": "lo",
           "translation": "The bread? I can't find it.",
-          "hint": "masculine singular",
+          "hint": "direct object pronoun — the noun referred back to sets the form",
           "display_order": 5,
           "gloss": "DEF.M.SG · bread · NEG · ___ · find.PRS.1SG"
         },
@@ -2129,7 +2129,7 @@
           "sentence": "¿Las fotos? {{answer}} tengo en el móvil.",
           "answer": "las",
           "translation": "The photos? I have them on my phone.",
-          "hint": "feminine plural",
+          "hint": "direct object pronoun — agree with the thing already named",
           "display_order": 6,
           "gloss": "DEF.F.PL · photo.PL · ___ · have.PRS.1SG · in · DEF.M.SG · phone"
         }

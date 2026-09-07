@@ -35,7 +35,7 @@
           "sentence": "{{answer}} sono di Roma.",
           "answer": "Io",
           "translation": "I am from Rome.",
-          "hint": "I",
+          "hint": "subject pronoun — the one who is speaking",
           "display_order": 1,
           "cell": "io",
           "gloss": "___ · be.1SG · from · Rome"
@@ -53,7 +53,7 @@
           "sentence": "{{answer}} è mia sorella.",
           "answer": "Lei",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "display_order": 3,
           "cell": "lei",
           "gloss": "___ · be.3SG · my.F.SG · sister"
@@ -62,7 +62,7 @@
           "sentence": "{{answer}} siamo studenti.",
           "answer": "Noi",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "subject pronoun covering the speaker plus others",
           "display_order": 4,
           "cell": "noi",
           "gloss": "___ · be.1PL · student.PL"
@@ -71,7 +71,7 @@
           "sentence": "{{answer}} sono i miei genitori.",
           "answer": "Loro",
           "translation": "They are my parents.",
-          "hint": "they",
+          "hint": "third-person plural subject, people being introduced",
           "display_order": 5,
           "cell": "loro",
           "gloss": "___ · be.3PL · DEF.M.PL · my.M.PL · parent.PL"
@@ -80,7 +80,7 @@
           "sentence": "{{answer}} è il mio professore.",
           "answer": "Lui",
           "translation": "He is my teacher.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "display_order": 6,
           "cell": "lui",
           "gloss": "___ · be.3SG · DEF.M.SG · my.M.SG · teacher"
@@ -98,7 +98,7 @@
           "sentence": "{{answer}} parlo un po' di italiano.",
           "answer": "Io",
           "translation": "I speak a little Italian.",
-          "hint": "I",
+          "hint": "subject pronoun — the one who is speaking",
           "cell": "io",
           "display_order": 8,
           "gloss": "___ · speak.1SG · INDF.M.SG · little · of · Italian"
@@ -280,7 +280,7 @@
           "sentence": "{{answer}} casa è grande.",
           "answer": "La",
           "translation": "The house is big.",
-          "hint": "feminine singular",
+          "hint": "definite article — check the gender of the noun it introduces",
           "display_order": 1,
           "cell": "la",
           "gloss": "___ · house.F.SG · be.3SG · big.SG"
@@ -289,7 +289,7 @@
           "sentence": "{{answer}} libro è nuovo.",
           "answer": "Il",
           "translation": "The book is new.",
-          "hint": "masculine singular",
+          "hint": "definite article — the noun's gender and opening sound decide the form",
           "display_order": 2,
           "cell": "il",
           "gloss": "___ · book.M.SG · be.3SG · new.M.SG"
@@ -298,7 +298,7 @@
           "sentence": "{{answer}} bambini giocano fuori.",
           "answer": "I",
           "translation": "The children are playing outside.",
-          "hint": "masculine plural",
+          "hint": "definite article before a plural noun — check its gender and initial sound",
           "display_order": 3,
           "cell": "i",
           "gloss": "___ · child.M.PL · play.3PL · outside"
@@ -316,7 +316,7 @@
           "sentence": "{{answer}} ragazze sono simpatiche.",
           "answer": "Le",
           "translation": "The girls are nice.",
-          "hint": "feminine plural",
+          "hint": "definite article agreeing with a plural noun — work out its gender",
           "display_order": 5,
           "cell": "le",
           "gloss": "___ · girl.F.PL · be.3PL · nice.F.PL"
@@ -422,7 +422,7 @@
           "sentence": "Ho {{answer}} cane.",
           "answer": "un",
           "translation": "I have a dog.",
-          "hint": "masculine",
+          "hint": "indefinite article — the noun's gender and opening sounds decide the form",
           "display_order": 1,
           "gloss": "have.1SG · ___ · dog.M.SG"
         },
@@ -430,7 +430,7 @@
           "sentence": "È {{answer}} casa grande.",
           "answer": "una",
           "translation": "It is a big house.",
-          "hint": "feminine",
+          "hint": "indefinite article — check the gender of the noun that follows",
           "display_order": 2,
           "gloss": "be.3SG · ___ · house.F.SG · big.SG"
         },
@@ -1212,7 +1212,7 @@
           "sentence": "{{answer}} abiti?",
           "answer": "Dove",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "question word asking for a location",
           "display_order": 1,
           "gloss": "___ · live.2SG"
         },
@@ -1228,7 +1228,7 @@
           "sentence": "{{answer}} è il tuo compleanno?",
           "answer": "Quando",
           "translation": "When is your birthday?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 3,
           "gloss": "___ · be.PRS.3SG · DEF.M.SG · 2SG.POSS.M.SG · birthday"
         },
@@ -1236,7 +1236,7 @@
           "sentence": "{{answer}} cosa guardi?",
           "answer": "Che",
           "translation": "What are you watching?",
-          "hint": "what",
+          "hint": "question word asking about a thing",
           "display_order": 4,
           "gloss": "___ · thing · watch.PRS.2SG"
         },
@@ -1244,7 +1244,7 @@
           "sentence": "{{answer}} fratelli hai?",
           "answer": "Quanti",
           "translation": "How many brothers do you have?",
-          "hint": "how many",
+          "hint": "interrogative of number, agreeing with the noun counted",
           "display_order": 5,
           "gloss": "___ · brother.PL · have.PRS.2SG"
         },
@@ -1252,7 +1252,7 @@
           "sentence": "{{answer}} piangi?",
           "answer": "Perché",
           "translation": "Why are you crying?",
-          "hint": "why",
+          "hint": "question word asking for a reason",
           "display_order": 6,
           "gloss": "___ · cry.PRS.2SG"
         },
@@ -1826,7 +1826,7 @@
           "sentence": "Conosci Marco? Sì, {{answer}} conosco bene.",
           "answer": "lo",
           "translation": "Do you know Marco? Yes, I know him well.",
-          "hint": "him",
+          "hint": "direct object pronoun replacing the man just named",
           "display_order": 1,
           "gloss": "know.PRS.2SG · Marco · yes · ___ · know.PRS.1SG · well"
         },
@@ -1834,7 +1834,7 @@
           "sentence": "Dov'è Maria? Non {{answer}} vedo.",
           "answer": "la",
           "translation": "Where is Maria? I don't see her.",
-          "hint": "her",
+          "hint": "direct object pronoun replacing the woman just named",
           "display_order": 2,
           "gloss": "where-be.PRS.3SG · Maria · NEG · ___ · see.PRS.1SG"
         },
@@ -1858,7 +1858,7 @@
           "sentence": "Siamo qui; {{answer}} senti?",
           "answer": "ci",
           "translation": "We're here; can you hear us?",
-          "hint": "us",
+          "hint": "direct object pronoun standing for the speaker's own group",
           "display_order": 5,
           "gloss": "be.PRS.1PL · here · ___ · hear.PRS.2SG"
         },
@@ -1904,7 +1904,7 @@
           "sentence": "Scrivi a Maria? Sì, {{answer}} scrivo spesso.",
           "answer": "le",
           "translation": "Do you write to Maria? Yes, I write to her often.",
-          "hint": "to her",
+          "hint": "indirect object pronoun for a single female recipient",
           "display_order": 2,
           "gloss": "write.PRS.2SG · to · Maria · yes · ___ · write.PRS.1SG · often"
         },
@@ -1936,7 +1936,7 @@
           "sentence": "Parli ai tuoi genitori? Sì, {{answer}} parlo ogni giorno.",
           "answer": "gli",
           "translation": "Do you talk to your parents? Yes, I talk to them every day.",
-          "hint": "to them",
+          "hint": "indirect object pronoun for plural recipients already named",
           "display_order": 6,
           "gloss": "speak.2SG · to.DEF.M.PL · 2SG.POSS.M.PL · parent.PL · yes · ___ · speak.1SG · every · day"
         }
@@ -2739,7 +2739,7 @@
           "sentence": "Non so {{answer}} il negozio è aperto oggi.",
           "answer": "se",
           "translation": "I don't know whether the shop is open today.",
-          "hint": "whether",
+          "hint": "conjunction introducing an embedded yes-or-no question",
           "display_order": 5,
           "gloss": "NEG · know.1SG · ___ · DEF.M.SG · shop · be.3SG · open.M.SG · today"
         },
@@ -3135,7 +3135,7 @@
           "sentence": "È stanca; {{answer}}, continua a lavorare.",
           "answer": "tuttavia",
           "translation": "She is tired; however, she keeps working.",
-          "hint": "however",
+          "hint": "connector marking a contrast with the preceding clause",
           "display_order": 2,
           "gloss": "be.PRS.3SG · tired.F.SG · ___ · continue.PRS.3SG · to · work.INF"
         },

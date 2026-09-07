@@ -31,7 +31,7 @@
           "sentence": "{{answer}} sou do Brasil.",
           "answer": "Eu",
           "translation": "I am from Brazil.",
-          "hint": "I",
+          "hint": "subject pronoun naming the speaker themselves; check who the verb form fits",
           "cell": "eu",
           "display_order": 1,
           "gloss": "___ · be.PRS.1SG · of-DEF.M · Brazil"
@@ -49,7 +49,7 @@
           "sentence": "{{answer}} fala inglês?",
           "answer": "Você",
           "translation": "Do you speak English?",
-          "hint": "you",
+          "hint": "subject pronoun for the person addressed — the one whose verb wears third-person endings",
           "cell": "você",
           "display_order": 3,
           "gloss": "___ · speak.PRS.3SG · English"
@@ -67,7 +67,7 @@
           "sentence": "{{answer}} é meu irmão.",
           "answer": "Ele",
           "translation": "He is my brother.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "ele",
           "display_order": 5,
           "gloss": "___ · be.PRS.3SG · my.M · brother"
@@ -85,7 +85,7 @@
           "sentence": "{{answer}} somos amigos.",
           "answer": "Nós",
           "translation": "We are friends.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker together with others",
           "cell": "nós",
           "display_order": 7,
           "gloss": "___ · be.PRS.1PL · friend.M-PL"
@@ -121,7 +121,7 @@
           "sentence": "{{answer}} são da Bahia.",
           "answer": "Eles",
           "translation": "They are from Bahia.",
-          "hint": "they",
+          "hint": "third-person plural subject, an all-male or mixed group",
           "cell": "eles",
           "display_order": 11,
           "gloss": "___ · be.PRS.3PL · of-DEF.F · Bahia"
@@ -919,7 +919,7 @@
           "sentence": "{{answer}} fica a estação de metrô?",
           "answer": "Onde",
           "translation": "Where is the metro station?",
-          "hint": "where",
+          "hint": "interrogative asking for a location",
           "display_order": 1,
           "gloss": "___ · be_located.PRS.3SG · DEF.F.SG · station · of · metro"
         },
@@ -935,7 +935,7 @@
           "sentence": "{{answer}} começa o filme?",
           "answer": "Quando",
           "translation": "When does the film start?",
-          "hint": "when",
+          "hint": "interrogative asking for a point in time",
           "display_order": 3,
           "gloss": "___ · begin.PRS.3SG · DEF.M.SG · film"
         },
@@ -943,7 +943,7 @@
           "sentence": "{{answer}} é aquela moça?",
           "answer": "Quem",
           "translation": "Who is that young woman?",
-          "hint": "who",
+          "hint": "interrogative asking for someone's identity",
           "display_order": 4,
           "gloss": "___ · be.PRS.3SG · that.F.SG · girl"
         },
@@ -951,7 +951,7 @@
           "sentence": "{{answer}} se diz isso em português?",
           "answer": "Como",
           "translation": "How do you say that in Portuguese?",
-          "hint": "how",
+          "hint": "interrogative asking for manner or method",
           "display_order": 5,
           "gloss": "___ · PASS · say.PRS.3SG · that.N · in · Portuguese"
         },
@@ -959,7 +959,7 @@
           "sentence": "{{answer}} custa a passagem?",
           "answer": "Quanto",
           "translation": "How much does the ticket cost?",
-          "hint": "how much",
+          "hint": "interrogative asking for an amount or price",
           "display_order": 6,
           "gloss": "___ · cost.PRS.3SG · DEF.F.SG · ticket"
         },
@@ -1431,7 +1431,7 @@
           "sentence": "Conhece meu chefe? Eu {{answer}} respeito muito.",
           "answer": "o",
           "translation": "Do you know my boss? I respect him a lot.",
-          "hint": "him",
+          "hint": "direct-object clitic standing for the male person already named",
           "display_order": 3,
           "gloss": "know.PRS.3SG · 1SG.POSS.M.SG · boss · 1SG · ___ · respect.PRS.1SG · much"
         },
@@ -1439,7 +1439,7 @@
           "sentence": "A Maria? Eu {{answer}} encontrei na feira.",
           "answer": "a",
           "translation": "Maria? I met her at the street market.",
-          "hint": "her",
+          "hint": "direct-object clitic standing for the female person already named",
           "display_order": 4,
           "gloss": "DEF.F.SG · Maria · 1SG · ___ · meet.PST.1SG · in-DEF.F.SG · market"
         },
@@ -1447,7 +1447,7 @@
           "sentence": "Nossos amigos {{answer}} convidaram para jantar.",
           "answer": "nos",
           "translation": "Our friends invited us to dinner.",
-          "hint": "us",
+          "hint": "first-person plural object clitic — the speaker's own group as target",
           "display_order": 5,
           "gloss": "our.M.PL · friend.M.PL · ___ · invite.PST.3PL · to · dine.INF"
         },
@@ -2094,7 +2094,7 @@
           "sentence": "A cidade {{answer}} eu nasci fica no interior.",
           "answer": "onde",
           "translation": "The town where I was born is in the countryside.",
-          "hint": "where",
+          "hint": "relative introducing a clause about the place just named",
           "display_order": 2,
           "gloss": "DEF.F.SG · city · ___ · 1SG · be_born.PST.1SG · stay.PRS.3SG · in-DEF.M.SG · countryside"
         },
@@ -2110,7 +2110,7 @@
           "sentence": "As pessoas {{answer}} chegaram cedo pegaram lugar.",
           "answer": "que",
           "translation": "The people who arrived early got seats.",
-          "hint": "who",
+          "hint": "all-purpose relative as subject — Portuguese does not switch it for people",
           "display_order": 4,
           "gloss": "DEF.F.PL · person-PL · ___ · arrive.PST.3PL · early · get.PST.3PL · place"
         },
@@ -2722,7 +2722,7 @@
           "sentence": "O hotel é caro; {{answer}}, vale a pena.",
           "answer": "porém",
           "translation": "The hotel is expensive; however, it's worth it.",
-          "hint": "however",
+          "hint": "connector marking a contrast with the clause before it",
           "display_order": 2,
           "gloss": "DEF.M · hotel · be.PRS.3SG · expensive.M · ___ · worth.PRS.3SG · DEF.F · trouble"
         },
@@ -2754,7 +2754,7 @@
           "sentence": "Estudou muito; {{answer}}, passou fácil.",
           "answer": "portanto",
           "translation": "He studied hard; therefore, he passed easily.",
-          "hint": "therefore",
+          "hint": "connector marking the result that follows from the first clause",
           "display_order": 6,
           "gloss": "study.PST.PFV.3SG · much · ___ · pass.PST.PFV.3SG · easy"
         }

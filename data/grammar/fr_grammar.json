@@ -35,7 +35,7 @@
           "sentence": "{{answer}} suis de Paris.",
           "answer": "Je",
           "translation": "I am from Paris.",
-          "hint": "I",
+          "hint": "subject pronoun — the one who is speaking",
           "display_order": 1,
           "cell": "je",
           "gloss": "___ · be.1SG · from · Paris"
@@ -53,7 +53,7 @@
           "sentence": "{{answer}} est ma sœur.",
           "answer": "Elle",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "subject pronoun — third-person singular subject, female referent",
           "display_order": 3,
           "cell": "elle",
           "gloss": "___ · be.3SG · 1SG.POSS.F · sister"
@@ -62,7 +62,7 @@
           "sentence": "{{answer}} sommes étudiants.",
           "answer": "Nous",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "subject pronoun — the speaker together with others, as subject",
           "display_order": 4,
           "cell": "nous",
           "gloss": "___ · be.1PL · student.M.PL"
@@ -89,7 +89,7 @@
           "sentence": "{{answer}} travaille à Paris.",
           "answer": "Il",
           "translation": "He works in Paris.",
-          "hint": "he",
+          "hint": "subject pronoun — third-person singular subject, male referent",
           "cell": "il",
           "display_order": 7,
           "gloss": "___ · work.3SG · at · Paris"
@@ -107,7 +107,7 @@
           "sentence": "{{answer}} parle un peu français.",
           "answer": "Je",
           "translation": "I speak a little French.",
-          "hint": "I",
+          "hint": "subject pronoun — the one who is speaking",
           "cell": "je",
           "display_order": 9,
           "gloss": "___ · speak.1SG · INDF.M · little · French"
@@ -289,7 +289,7 @@
           "sentence": "{{answer}} maison est grande.",
           "answer": "La",
           "translation": "The house is big.",
-          "hint": "feminine singular",
+          "hint": "the definite article — the noun that follows decides its gender",
           "display_order": 1,
           "cell": "la",
           "gloss": "___ · house · be.3SG · big.F.SG"
@@ -298,7 +298,7 @@
           "sentence": "{{answer}} livre est nouveau.",
           "answer": "Le",
           "translation": "The book is new.",
-          "hint": "masculine singular",
+          "hint": "the definite article — check the gender of the noun it introduces",
           "display_order": 2,
           "cell": "le",
           "gloss": "___ · book · be.3SG · new.M.SG"
@@ -307,7 +307,7 @@
           "sentence": "{{answer}} enfants jouent dehors.",
           "answer": "Les",
           "translation": "The children are playing outside.",
-          "hint": "plural",
+          "hint": "the definite article — check whether the following noun is one or many",
           "display_order": 3,
           "cell": "les",
           "gloss": "___ · child.PL · play.3PL · outside"
@@ -382,7 +382,7 @@
           "sentence": "J'ai {{answer}} chien.",
           "answer": "un",
           "translation": "I have a dog.",
-          "hint": "masculine",
+          "hint": "the indefinite article — check the gender of the noun",
           "display_order": 1,
           "cell": "un",
           "gloss": "1SG-have.1SG · ___ · dog"
@@ -391,7 +391,7 @@
           "sentence": "C'est {{answer}} grande maison.",
           "answer": "une",
           "translation": "It is a big house.",
-          "hint": "feminine",
+          "hint": "the indefinite article — the noun's gender decides, not the adjective's",
           "display_order": 2,
           "cell": "une",
           "gloss": "this-be.3SG · ___ · big.F.SG · house"
@@ -409,7 +409,7 @@
           "sentence": "Nous avons {{answer}} amis à Lyon.",
           "answer": "des",
           "translation": "We have (some) friends in Lyon.",
-          "hint": "plural indefinite",
+          "hint": "the indefinite article — check the number of the noun that follows",
           "display_order": 4,
           "cell": "des",
           "gloss": "1PL · have.1PL · ___ · friend.PL · in · Lyon"
@@ -1199,7 +1199,7 @@
           "sentence": "{{answer}} habites-tu ?",
           "answer": "Où",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "question word asking for a place",
           "display_order": 1,
           "gloss": "___ · live.2SG-2SG · Q"
         },
@@ -1215,7 +1215,7 @@
           "sentence": "{{answer}} est ton anniversaire ?",
           "answer": "Quand",
           "translation": "When is your birthday?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 3,
           "gloss": "___ · be.3SG · POSS.2SG.M · birthday · Q"
         },
@@ -1223,7 +1223,7 @@
           "sentence": "{{answer}} regardes-tu ?",
           "answer": "Que",
           "translation": "What are you watching?",
-          "hint": "what",
+          "hint": "question word standing in for the direct object of the verb",
           "display_order": 4,
           "gloss": "___ · watch.2SG-2SG · Q"
         },
@@ -1231,7 +1231,7 @@
           "sentence": "{{answer}} de frères as-tu ?",
           "answer": "Combien",
           "translation": "How many brothers do you have?",
-          "hint": "how many",
+          "hint": "question word asking for a quantity",
           "display_order": 5,
           "gloss": "___ · of · brother.PL · have.2SG-2SG · Q"
         },
@@ -1239,7 +1239,7 @@
           "sentence": "{{answer}} est-ce que tu pleures ?",
           "answer": "Pourquoi",
           "translation": "Why are you crying?",
-          "hint": "why",
+          "hint": "question word asking for a reason",
           "display_order": 6,
           "gloss": "___ · be.3SG-this · COMP · 2SG · cry.2SG · Q"
         },
@@ -1820,7 +1820,7 @@
           "sentence": "Tu connais Marc? Oui, je {{answer}} connais bien.",
           "answer": "le",
           "translation": "Do you know Marc? Yes, I know him well.",
-          "hint": "him",
+          "hint": "direct object pronoun replacing Marc — that noun's own gender picks the form",
           "display_order": 1,
           "gloss": "2SG · know.PRS.2SG · Marc · yes · 1SG · ___ · know.PRS.1SG · well"
         },
@@ -1828,7 +1828,7 @@
           "sentence": "Où est Marie? Je ne {{answer}} vois pas.",
           "answer": "la",
           "translation": "Where is Marie? I don't see her.",
-          "hint": "her",
+          "hint": "direct object pronoun replacing Marie — that noun's own gender picks the form",
           "display_order": 2,
           "gloss": "where.Q · be.PRS.3SG · Marie · 1SG · NEG · ___ · see.PRS.1SG · NEG"
         },
@@ -1836,7 +1836,7 @@
           "sentence": "Ces livres sont bien; je {{answer}} lis maintenant.",
           "answer": "les",
           "translation": "These books are good; I'm reading them now.",
-          "hint": "them",
+          "hint": "direct object pronoun standing for the books just mentioned",
           "display_order": 3,
           "gloss": "this.PL · book.PL · be.PRS.3PL · good · 1SG · ___ · read.PRS.1SG · now"
         },
@@ -1852,7 +1852,7 @@
           "sentence": "Nous sommes là; tu {{answer}} entends?",
           "answer": "nous",
           "translation": "We're here; can you hear us?",
-          "hint": "us",
+          "hint": "direct object pronoun — the speaker's own group as object of the verb",
           "display_order": 5,
           "gloss": "1PL · be.PRS.1PL · there · 2SG · ___ · hear.PRS.2SG"
         },
@@ -1906,7 +1906,7 @@
           "sentence": "Tu écris à tes parents? Oui, je {{answer}} écris souvent.",
           "answer": "leur",
           "translation": "Do you write to your parents? Yes, I write to them often.",
-          "hint": "to them",
+          "hint": "indirect object pronoun for the people being written to",
           "display_order": 2,
           "gloss": "2SG · write.PRS.2SG · DAT · POSS.2SG.PL · parent.PL · yes · 1SG · ___ · write.PRS.1SG · often"
         },
@@ -2272,7 +2272,7 @@
           "sentence": "{{answer}} école est grande.",
           "answer": "Notre",
           "translation": "Our school is big.",
-          "hint": "our",
+          "hint": "possessive adjective — the owner is the speaker's group, one thing owned",
           "display_order": 8,
           "gloss": "___ · school · be.PRS.3SG · big.F"
         },
@@ -2568,7 +2568,7 @@
           "sentence": "Voici la ville {{answer}} je suis né.",
           "answer": "où",
           "translation": "Here is the town where I was born.",
-          "hint": "where",
+          "hint": "relative pronoun linking back to a place as its antecedent",
           "display_order": 3,
           "gloss": "here_is · DEF.F.SG · town · ___ · 1SG · be.PRS.1SG · born.PTCP.M.SG"
         },
@@ -2794,7 +2794,7 @@
           "sentence": "Elle demande {{answer}} tu veux un café.",
           "answer": "si",
           "translation": "She asks whether you want a coffee.",
-          "hint": "whether",
+          "hint": "the conjunction that reports a yes-or-no question",
           "display_order": 2,
           "gloss": "3SG.F · ask.3SG · ___ · 2SG · want.2SG · INDF.M.SG · coffee"
         },
@@ -3278,7 +3278,7 @@
           "sentence": "Il n'aime pas Paris; {{answer}}, il y travaille.",
           "answer": "cependant",
           "translation": "He doesn't like Paris; however, he works there.",
-          "hint": "however",
+          "hint": "connector marking contrast with the clause before it",
           "display_order": 4,
           "gloss": "3SG.M · NEG-like.3SG.PRS · NEG · Paris · ___ · 3SG.M · LOC · work.3SG.PRS"
         },

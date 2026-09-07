@@ -680,7 +680,7 @@
           "sentence": "{{answer}} anakuja?",
           "answer": "Nani",
           "translation": "Who is coming?",
-          "hint": "who",
+          "hint": "interrogative asking after a person, standing in subject position",
           "display_order": 3,
           "gloss": "___ · CL1.PRES.come"
         },
@@ -696,7 +696,7 @@
           "sentence": "Utafika {{answer}}?",
           "answer": "lini",
           "translation": "When will you arrive?",
-          "hint": "when",
+          "hint": "interrogative asking for the time of the event, placed after the verb",
           "display_order": 5,
           "gloss": "2SG.FUT.arrive · ___"
         },
@@ -704,7 +704,7 @@
           "sentence": "Unapenda kitabu {{answer}}?",
           "answer": "gani",
           "translation": "Which book do you like?",
-          "hint": "which",
+          "hint": "post-nominal interrogative that singles out one item from a known set",
           "display_order": 6,
           "gloss": "2SG.PRES.like · CL7.book · ___"
         },
@@ -3312,7 +3312,7 @@
           "sentence": "{{answer}} mvua ilinyesha, tulisafiri.",
           "answer": "Ingawa",
           "translation": "Although it rained, we travelled.",
-          "hint": "although",
+          "hint": "concessive opener — it must introduce a full clause, not a noun phrase",
           "display_order": 1,
           "gloss": "___ · CL9.rain · CL9.PAST.fall · 1PL.PAST.travel"
         },

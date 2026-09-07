@@ -35,7 +35,7 @@
           "sentence": "{{answer}} wohne in Berlin.",
           "answer": "Ich",
           "translation": "I live in Berlin.",
-          "hint": "I",
+          "hint": "first-person singular subject — the one who is speaking",
           "display_order": 1,
           "cell": "ich",
           "gloss": "___ · live.1SG · in · Berlin"
@@ -53,7 +53,7 @@
           "sentence": "{{answer}} ist meine Schwester.",
           "answer": "Sie",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "display_order": 3,
           "cell": "sie",
           "gloss": "___ · be.3SG · 1SG.POSS.F.SG · sister"
@@ -62,7 +62,7 @@
           "sentence": "{{answer}} sind Studenten.",
           "answer": "Wir",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "first-person plural subject — a group including the speaker",
           "display_order": 4,
           "cell": "wir",
           "gloss": "___ · be.1PL · student.PL"
@@ -80,7 +80,7 @@
           "sentence": "{{answer}} arbeitet bei einer Bank.",
           "answer": "Er",
           "translation": "He works at a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "display_order": 6,
           "cell": "er",
           "gloss": "___ · work.3SG · at · INDF.F.DAT · bank"
@@ -89,7 +89,7 @@
           "sentence": "{{answer}} ist kalt heute.",
           "answer": "Es",
           "translation": "It is cold today.",
-          "hint": "it",
+          "hint": "impersonal subject with no real referent — a weather statement",
           "cell": "es",
           "display_order": 7,
           "gloss": "___ · be.3SG · cold · today"
@@ -98,7 +98,7 @@
           "sentence": "{{answer}} sind meine Eltern.",
           "answer": "Sie",
           "translation": "They are my parents.",
-          "hint": "they",
+          "hint": "third-person plural subject — people outside the conversation",
           "cell": "sie (pl)",
           "display_order": 8,
           "gloss": "___ · be.3PL · 1SG.POSS.PL · parent.PL"
@@ -107,7 +107,7 @@
           "sentence": "{{answer}} trinke gern Kaffee.",
           "answer": "Ich",
           "translation": "I like drinking coffee.",
-          "hint": "I",
+          "hint": "first-person singular subject — the one who is speaking",
           "cell": "ich",
           "display_order": 9,
           "gloss": "___ · drink.1SG · gladly · coffee"
@@ -318,7 +318,7 @@
           "sentence": "{{answer}} Haus ist groß.",
           "answer": "Das",
           "translation": "The house is big.",
-          "hint": "neuter",
+          "hint": "definite article — recall the gender class Haus belongs to",
           "display_order": 1,
           "cell": "das",
           "gloss": "___ · house · be.PRS.3SG · big"
@@ -327,7 +327,7 @@
           "sentence": "{{answer}} Mann ist Lehrer.",
           "answer": "Der",
           "translation": "The man is a teacher.",
-          "hint": "masculine",
+          "hint": "definite article — check which gender class the noun carries",
           "display_order": 2,
           "cell": "der",
           "gloss": "___ · man · be.PRS.3SG · teacher"
@@ -336,7 +336,7 @@
           "sentence": "{{answer}} Frau ist Ärztin.",
           "answer": "Die",
           "translation": "The woman is a doctor.",
-          "hint": "feminine",
+          "hint": "definite article — decide from the noun's gender class, not its meaning",
           "display_order": 3,
           "cell": "die",
           "gloss": "___ · woman · be.PRS.3SG · doctor.F"
@@ -354,7 +354,7 @@
           "sentence": "{{answer}} Kinder spielen draußen.",
           "answer": "Die",
           "translation": "The children are playing outside.",
-          "hint": "plural",
+          "hint": "definite article — settle the noun's number before you reach for a gender",
           "display_order": 5,
           "cell": "die",
           "gloss": "___ · child.PL · play.PRS.3PL · outside"
@@ -403,7 +403,7 @@
           "sentence": "Das ist {{answer}} Haus.",
           "answer": "ein",
           "translation": "That is a house.",
-          "hint": "neuter",
+          "hint": "indefinite article — the noun's gender decides whether an ending is added",
           "display_order": 1,
           "gloss": "DEM.N · be.PRS.3SG · ___ · house"
         },
@@ -411,7 +411,7 @@
           "sentence": "Das ist {{answer}} gute Idee.",
           "answer": "eine",
           "translation": "That is a good idea.",
-          "hint": "feminine",
+          "hint": "indefinite article — check the gender of Idee to see if an ending is needed",
           "display_order": 2,
           "gloss": "DEM.N · be.PRS.3SG · ___ · good.F · idea"
         },
@@ -419,7 +419,7 @@
           "sentence": "Er ist {{answer}} Freund von mir.",
           "answer": "ein",
           "translation": "He is a friend of mine.",
-          "hint": "masculine",
+          "hint": "indefinite article — the noun's gender governs the ending, not the person's sex",
           "display_order": 3,
           "gloss": "3SG.M.NOM · be.PRS.3SG · ___ · friend · of · 1SG.DAT"
         },
@@ -1145,7 +1145,7 @@
           "sentence": "{{answer}} wohnst du?",
           "answer": "Wo",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "interrogative asking for a place, not a time or a person",
           "display_order": 1,
           "gloss": "___ · live.2SG · 2SG"
         },
@@ -1161,7 +1161,7 @@
           "sentence": "{{answer}} ist das?",
           "answer": "Was",
           "translation": "What is that?",
-          "hint": "what",
+          "hint": "interrogative asking which thing is meant, not which person",
           "display_order": 3,
           "gloss": "___ · be.3SG · that"
         },
@@ -1177,7 +1177,7 @@
           "sentence": "{{answer}} beginnt der Kurs?",
           "answer": "Wann",
           "translation": "When does the course begin?",
-          "hint": "when",
+          "hint": "interrogative asking for a point in time",
           "display_order": 5,
           "gloss": "___ · begin.3SG · DEF.M.NOM · course"
         },
@@ -1185,7 +1185,7 @@
           "sentence": "{{answer}} ist dein Lehrer?",
           "answer": "Wer",
           "translation": "Who is your teacher?",
-          "hint": "who",
+          "hint": "interrogative asking for a person's identity",
           "display_order": 6,
           "gloss": "___ · be.3SG · 2SG.POSS · teacher"
         },
@@ -2875,7 +2875,7 @@
           "sentence": "Er ist müde; {{answer}} arbeitet er weiter.",
           "answer": "trotzdem",
           "translation": "He's tired; nevertheless he keeps working.",
-          "hint": "nevertheless",
+          "hint": "concessive adverb: the second clause defies the first, and the verb follows it",
           "display_order": 2,
           "gloss": "3SG.M.NOM · be.PRS.3SG · tired · ___ · work.PRS.3SG · 3SG.M.NOM · further"
         },

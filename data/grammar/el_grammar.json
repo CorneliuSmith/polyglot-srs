@@ -36,7 +36,7 @@
           "answer": "Εγώ",
           "translation": "I am from Athens.",
           "transliteration": "___ íme apó tin Athína.",
-          "hint": "I",
+          "hint": "first-person singular subject — the speaker referring to themself",
           "display_order": 1,
           "cell": "εγώ",
           "gloss": "___ · be.1SG · from · DEF.F.ACC.SG · Athens.ACC"
@@ -56,7 +56,7 @@
           "answer": "Αυτή",
           "translation": "She is my sister.",
           "transliteration": "___ íne i adelfí mu.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "display_order": 3,
           "cell": "αυτή",
           "gloss": "___ · be.3SG · DEF.F.NOM.SG · sister.NOM · 1SG.POSS"
@@ -66,7 +66,7 @@
           "answer": "Εμείς",
           "translation": "We are students.",
           "transliteration": "___ ímaste fitités.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker together with others",
           "display_order": 4,
           "cell": "εμείς",
           "gloss": "___ · be.1PL · student.NOM.PL"
@@ -96,7 +96,7 @@
           "answer": "Αυτός",
           "translation": "He is our teacher.",
           "transliteration": "___ íne o dáskalós mas.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "αυτός",
           "display_order": 7,
           "gloss": "___ · be.3SG · DEF.M.NOM.SG · teacher.NOM · 1PL.POSS"
@@ -106,7 +106,7 @@
           "answer": "Αυτό",
           "translation": "It is difficult.",
           "transliteration": "___ íne dískolo.",
-          "hint": "it",
+          "hint": "third-person singular subject standing for a situation, not a person",
           "cell": "αυτό",
           "display_order": 8,
           "gloss": "___ · be.3SG · difficult.N.NOM.SG"
@@ -333,7 +333,7 @@
           "answer": "Ο",
           "translation": "The street is big.",
           "transliteration": "___ drómos íne megálos.",
-          "hint": "masculine",
+          "hint": "definite article for the subject — take the gender from δρόμος",
           "display_order": 1,
           "cell": "ο",
           "gloss": "___ · street.M.SG.NOM · be.PRS.3SG · big.M.SG.NOM"
@@ -343,7 +343,7 @@
           "answer": "Η",
           "translation": "The day is beautiful.",
           "transliteration": "___ méra íne oréa.",
-          "hint": "feminine",
+          "hint": "definite article for the subject — take the gender from μέρα",
           "display_order": 2,
           "cell": "η",
           "gloss": "___ · day.F.SG.NOM · be.PRS.3SG · beautiful.F.SG.NOM"
@@ -353,7 +353,7 @@
           "answer": "Το",
           "translation": "The book is new.",
           "transliteration": "___ vivlío íne kenúryo.",
-          "hint": "neuter",
+          "hint": "definite article for the subject — take the gender from βιβλίο",
           "display_order": 3,
           "cell": "το",
           "gloss": "___ · book.N.SG.NOM · be.PRS.3SG · new.N.SG.NOM"
@@ -424,7 +424,7 @@
           "answer": "μία",
           "translation": "It is a beautiful day.",
           "transliteration": "Íne ___ oréa méra.",
-          "hint": "feminine",
+          "hint": "indefinite article — the gender comes from μέρα",
           "display_order": 1,
           "cell": "μία",
           "gloss": "be.PRS.3SG · ___ · beautiful.F.SG.NOM · day.F.SG.NOM"
@@ -434,7 +434,7 @@
           "answer": "ένας",
           "translation": "He is a good friend.",
           "transliteration": "Aftós íne ___ kalós fílos.",
-          "hint": "masculine",
+          "hint": "indefinite article — the gender comes from φίλος",
           "display_order": 2,
           "cell": "ένας",
           "gloss": "3SG.M.NOM · be.PRS.3SG · ___ · good.M.SG.NOM · friend.M.SG.NOM"
@@ -444,7 +444,7 @@
           "answer": "ένα",
           "translation": "It is a big house.",
           "transliteration": "Íne ___ megálo spíti.",
-          "hint": "neuter",
+          "hint": "indefinite article — the gender comes from σπίτι",
           "display_order": 3,
           "cell": "ένα",
           "gloss": "be.PRS.3SG · ___ · big.N.SG.NOM · house.N.SG.NOM"
@@ -1148,7 +1148,7 @@
           "answer": "Υπάρχει",
           "translation": "There is a book on the table.",
           "transliteration": "___ éna vivlío sto trapézi.",
-          "hint": "singular",
+          "hint": "existential verb — let the number of things named decide the ending",
           "display_order": 1,
           "gloss": "___ · INDF.N.SG.NOM · book.N.SG.NOM · at-DEF.N.SG.ACC · table.N.SG.ACC"
         },
@@ -1157,7 +1157,7 @@
           "answer": "Υπάρχουν",
           "translation": "There are two cafés on the street.",
           "transliteration": "___ dío kafetéries ston drómo.",
-          "hint": "plural",
+          "hint": "existential verb — let the number of things named decide the ending",
           "display_order": 2,
           "gloss": "___ · two · cafe.F.PL.NOM · at-DEF.M.SG.ACC · street.M.SG.ACC"
         },
@@ -1228,7 +1228,7 @@
           "answer": "Πού",
           "translation": "Where do you live?",
           "transliteration": "___ ménis?",
-          "hint": "where",
+          "hint": "question word asking for a place",
           "display_order": 1,
           "gloss": "___ · live.PRS.2SG"
         },
@@ -1246,7 +1246,7 @@
           "answer": "Πότε",
           "translation": "When is your birthday?",
           "transliteration": "___ íne ta yenéthliá su?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 3,
           "gloss": "___ · be.PRS.3PL · DEF.N.PL.NOM · birthday.N.PL.NOM · 2SG.POSS"
         },
@@ -1255,7 +1255,7 @@
           "answer": "Τι",
           "translation": "What is this?",
           "transliteration": "___ íne aftó?",
-          "hint": "what",
+          "hint": "question word asking to identify a thing",
           "display_order": 4,
           "gloss": "___ · be.PRS.3SG · this.N.SG.NOM"
         },
@@ -1264,7 +1264,7 @@
           "answer": "Ποιος",
           "translation": "Who is your teacher?",
           "transliteration": "___ íne o dáskalós su?",
-          "hint": "who",
+          "hint": "question word asking for a person's identity; it agrees with the noun",
           "display_order": 5,
           "gloss": "___ · be.PRS.3SG · DEF.M.SG.NOM · teacher.M.SG.NOM · 2SG.POSS"
         },
@@ -1273,7 +1273,7 @@
           "answer": "Γιατί",
           "translation": "Why are you crying?",
           "transliteration": "___ kles?",
-          "hint": "why",
+          "hint": "question word asking for a cause",
           "display_order": 6,
           "gloss": "___ · cry.PRS.2SG"
         }
@@ -1917,7 +1917,7 @@
           "sentence": "Ξέρω τον Γιώργο· {{answer}} βλέπω κάθε μέρα.",
           "answer": "τον",
           "translation": "I know George; I see him every day.",
-          "hint": "him",
+          "hint": "object clitic standing in for Γιώργο, placed before the verb",
           "transliteration": "Xéro ton Yiórgo; ___ vlépo káthe méra.",
           "cell": "τον",
           "display_order": 1,
@@ -1927,7 +1927,7 @@
           "sentence": "Πού είναι η Μαρία; Δεν {{answer}} βρίσκω.",
           "answer": "την",
           "translation": "Where is Maria? I can't find her.",
-          "hint": "her",
+          "hint": "object clitic standing in for Μαρία, placed before the verb",
           "transliteration": "Pú íne i María? Den ___ vrísko.",
           "cell": "την",
           "display_order": 2,
@@ -1937,7 +1937,7 @@
           "sentence": "Ωραίο βιβλίο! {{answer}} διαβάζω τώρα.",
           "answer": "το",
           "translation": "Nice book! I'm reading it now.",
-          "hint": "it",
+          "hint": "object clitic standing in for the noun βιβλίο, placed before the verb",
           "transliteration": "Oréo vivlío! ___ diavázo tóra.",
           "cell": "το",
           "display_order": 3,
@@ -1967,7 +1967,7 @@
           "sentence": "Είμαστε εδώ· {{answer}} ακούς;",
           "answer": "μας",
           "translation": "We're here; can you hear us?",
-          "hint": "us",
+          "hint": "object clitic pointing back to the speakers, plural",
           "transliteration": "Ímaste edó; ___ akús?",
           "cell": "μας",
           "display_order": 6,
@@ -2084,7 +2084,7 @@
           "sentence": "Ήρθα {{answer}} την Αθήνα χθες.",
           "answer": "από",
           "translation": "I came from Athens yesterday.",
-          "hint": "from",
+          "hint": "preposition marking the origin of the movement",
           "transliteration": "Írtha ___ tin Athína chthes.",
           "display_order": 2,
           "gloss": "come.PFV.PST.1SG · ___ · DEF.F.SG · Athens.ACC · yesterday"
@@ -2093,7 +2093,7 @@
           "sentence": "Πάω σινεμά {{answer}} τους φίλους μου.",
           "answer": "με",
           "translation": "I'm going to the cinema with my friends.",
-          "hint": "with",
+          "hint": "preposition marking accompaniment",
           "transliteration": "Páo sinemá ___ tus fílus mu.",
           "display_order": 3,
           "gloss": "go.1SG · cinema.ACC · ___ · DEF.M.PL · friend.PL.ACC · 1SG.POSS"
@@ -2102,7 +2102,7 @@
           "sentence": "Αγόρασα ένα δώρο {{answer}} τη μητέρα μου.",
           "answer": "για",
           "translation": "I bought a gift for my mother.",
-          "hint": "for",
+          "hint": "preposition marking the intended beneficiary",
           "transliteration": "Agórasa éna dóro ___ ti mitéra mu.",
           "display_order": 4,
           "gloss": "buy.PFV.PST.1SG · INDF.N.SG · gift.ACC · ___ · DEF.F.SG · mother.ACC · 1SG.POSS"
@@ -2111,7 +2111,7 @@
           "sentence": "Δεν μπορώ να ζήσω {{answer}} καφέ.",
           "answer": "χωρίς",
           "translation": "I can't live without coffee.",
-          "hint": "without",
+          "hint": "preposition marking absence of the thing named",
           "transliteration": "Den boró na zíso ___ kafé.",
           "display_order": 5,
           "gloss": "NEG · can.1SG · INF · live.PFV.1SG · ___ · coffee.ACC"
@@ -2120,7 +2120,7 @@
           "sentence": "Περπατήσαμε {{answer}} την παραλία.",
           "answer": "προς",
           "translation": "We walked towards the beach.",
-          "hint": "towards",
+          "hint": "preposition marking direction of travel, not arrival at it",
           "transliteration": "Perpatísame ___ tin paralía.",
           "display_order": 6,
           "gloss": "walk.PFV.PST.1PL · ___ · DEF.F.ACC · beach.ACC"
@@ -2151,7 +2151,7 @@
           "sentence": "Το αυτοκίνητο {{answer}} είναι καινούριο.",
           "answer": "μου",
           "translation": "My car is new.",
-          "hint": "my",
+          "hint": "possessive clitic after the noun; the owner is the speaker",
           "transliteration": "To aftokínito ___ íne kenúrio.",
           "cell": "μου",
           "display_order": 1,
@@ -2171,7 +2171,7 @@
           "sentence": "Η αδελφή {{answer}} μένει στη Λάρισα.",
           "answer": "της",
           "translation": "Her sister lives in Larissa.",
-          "hint": "her",
+          "hint": "possessive clitic after the noun; the owner is one female person",
           "transliteration": "I adelfí ___ méni sti Lárisa.",
           "cell": "της",
           "display_order": 3,
@@ -2181,7 +2181,7 @@
           "sentence": "Ο σκύλος {{answer}} είναι πολύ φιλικός.",
           "answer": "του",
           "translation": "His dog is very friendly.",
-          "hint": "his",
+          "hint": "possessive clitic after the noun; the owner is one male person",
           "transliteration": "O skílos ___ íne polí filikós.",
           "cell": "του",
           "display_order": 4,
@@ -2191,7 +2191,7 @@
           "sentence": "Οι γείτονες {{answer}} είναι πολύ ευγενικοί.",
           "answer": "μας",
           "translation": "Our neighbours are very kind.",
-          "hint": "our",
+          "hint": "possessive clitic after the noun; the owners are the speaker's group",
           "transliteration": "I yítones ___ íne polí evyenikí.",
           "cell": "μας",
           "display_order": 5,
@@ -2201,7 +2201,7 @@
           "sentence": "Το σπίτι {{answer}} είναι κοντά στη θάλασσα.",
           "answer": "τους",
           "translation": "Their house is near the sea.",
-          "hint": "their",
+          "hint": "possessive clitic after the noun; the owners are several other people",
           "transliteration": "To spíti ___ íne kondá sti thálassa.",
           "cell": "τους",
           "display_order": 6,
@@ -2563,7 +2563,7 @@
           "sentence": "Αυτό είναι το σπίτι {{answer}} μεγάλωσα.",
           "answer": "όπου",
           "translation": "This is the house where I grew up.",
-          "hint": "where",
+          "hint": "relative word linking back to a place rather than to a thing",
           "transliteration": "Aftó íne to spíti ___ megálosa.",
           "display_order": 3,
           "gloss": "this.N.SG.NOM · be.PRS.3SG · DEF.N.SG.NOM · house.SG.NOM · ___ · grow_up.PFV.PST.1SG"
@@ -2648,7 +2648,7 @@
           "sentence": "{{answer}} λίγη βοήθεια με τις βαλίτσες.",
           "answer": "χρειάζομαι",
           "translation": "I need a little help with the suitcases.",
-          "hint": "I need",
+          "hint": "deponent verb — middle form only, present, subject is the speaker alone",
           "transliteration": "___ líyi voíthia me tis valítses.",
           "display_order": 4,
           "gloss": "___ · little.F.ACC.SG · help.ACC.SG · with · DEF.F.ACC.PL · suitcase.ACC.PL"
@@ -2666,7 +2666,7 @@
           "sentence": "Εμείς {{answer}} πολύ νωρίς τις καθημερινές.",
           "answer": "ξυπνάμε",
           "translation": "We wake up very early on weekdays.",
-          "hint": "we wake up",
+          "hint": "verb for ending sleep, present tense, matching the stated subject",
           "transliteration": "Emís ___ polí norís tis kathimerinés.",
           "display_order": 6,
           "gloss": "1PL.NOM · ___ · very · early · DEF.F.ACC.PL · weekday.ACC.PL"
@@ -2773,7 +2773,7 @@
           "sentence": "{{answer}} έχεις χρόνο, έλα να με δεις.",
           "answer": "αν",
           "translation": "If you have time, come and see me.",
-          "hint": "if",
+          "hint": "the conjunction that turns the first clause into a condition",
           "transliteration": "___ échis chróno, éla na me dis.",
           "display_order": 1,
           "gloss": "___ · have.2SG · time.ACC.SG · come.IMP.2SG · SBJV · 1SG.OBJ · see.PFV.2SG"
@@ -3457,7 +3457,7 @@
           "sentence": "Δεν ήρθα {{answer}} ήμουν άρρωστος.",
           "answer": "επειδή",
           "translation": "I didn't come because I was ill.",
-          "hint": "because",
+          "hint": "connector introducing the reason for the main clause",
           "transliteration": "Den írtha ___ ímun árrostos.",
           "display_order": 1,
           "gloss": "NEG · come.PST.PFV.1SG · ___ · be.PST.1SG · ill.M.NOM.SG"
@@ -3484,7 +3484,7 @@
           "sentence": "Μίλησε δυνατά, {{answer}} να τον ακούσουν όλοι.",
           "answer": "ώστε",
           "translation": "He spoke loudly, so that everyone could hear him.",
-          "hint": "so that",
+          "hint": "connector introducing the intended result, followed by να",
           "transliteration": "Mílise dinatá, ___ na ton akúsun óli.",
           "display_order": 4,
           "gloss": "speak.PST.PFV.3SG · loudly · ___ · SBJV · 3SG.M.ACC · hear.PFV.3PL · all.M.NOM.PL"

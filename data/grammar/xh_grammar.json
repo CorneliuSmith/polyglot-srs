@@ -613,7 +613,7 @@
           "sentence": "Ufika {{answer}}?",
           "answer": "nini",
           "translation": "When do you arrive?",
-          "hint": "when",
+          "hint": "interrogative probing the time of the action — not its place or agent",
           "display_order": 4,
           "gloss": "2SG.PRES.arrive · ___"
         },
@@ -621,7 +621,7 @@
           "sentence": "Usebenza {{answer}}?",
           "answer": "phi",
           "translation": "Where do you work?",
-          "hint": "where",
+          "hint": "interrogative probing the place of the action — not its time or manner",
           "display_order": 5,
           "gloss": "2SG.PRES.work · ___"
         },
@@ -1786,7 +1786,7 @@
           "sentence": "{{answer}} ufuna ukuphumelela, funda.",
           "answer": "Ukuba",
           "translation": "If you want to succeed, study.",
-          "hint": "if",
+          "hint": "the conjunction opening the condition on which the main clause depends",
           "display_order": 3,
           "gloss": "___ · 2SG.PRES.want · INF.succeed · study.IMP"
         },
@@ -1810,7 +1810,7 @@
           "sentence": "Ndiyavuya {{answer}} ufikile.",
           "answer": "ukuba",
           "translation": "I am glad that you have arrived.",
-          "hint": "that",
+          "hint": "complementiser after a verb of emotion, opening the clause reporting the news",
           "display_order": 6,
           "gloss": "1SG.PRES.glad · ___ · 2SG.arrive.PERF"
         }

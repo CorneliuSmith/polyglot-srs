@@ -205,7 +205,7 @@
           "sentence": "{{answer}} ben moe.",
           "answer": "Ik",
           "translation": "I am tired.",
-          "hint": "I",
+          "hint": "first-person singular subject — the speaker",
           "display_order": 1,
           "gloss": "___ · be.1SG · tired"
         },
@@ -229,7 +229,7 @@
           "sentence": "{{answer}} is mijn broer.",
           "answer": "Hij",
           "translation": "He is my brother.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "display_order": 4,
           "gloss": "___ · be.3SG · 1SG.POSS · brother"
         },
@@ -279,7 +279,7 @@
           "sentence": "Ik {{answer}} student.",
           "answer": "ben",
           "translation": "I am a student.",
-          "hint": "am",
+          "hint": "zijn, first-person singular",
           "display_order": 1,
           "cell": "ben",
           "gloss": "1SG · ___ · student"
@@ -651,7 +651,7 @@
           "sentence": "{{answer}} woon je?",
           "answer": "Waar",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "question word asking for a place",
           "display_order": 1,
           "gloss": "___ · live.PRS.2SG · 2SG"
         },
@@ -659,7 +659,7 @@
           "sentence": "{{answer}} is dat?",
           "answer": "Wie",
           "translation": "Who is that?",
-          "hint": "who",
+          "hint": "question word asking which person is meant",
           "display_order": 2,
           "gloss": "___ · be.PRS.3SG · DEM.N"
         },
@@ -667,7 +667,7 @@
           "sentence": "{{answer}} kom je naar huis?",
           "answer": "Wanneer",
           "translation": "When are you coming home?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 3,
           "gloss": "___ · come.PRS.2SG · 2SG · to · house"
         },
@@ -675,7 +675,7 @@
           "sentence": "{{answer}} kost dat?",
           "answer": "Wat",
           "translation": "What does that cost?",
-          "hint": "what",
+          "hint": "question word asking for a thing, not a person",
           "display_order": 4,
           "gloss": "___ · cost.PRS.3SG · DEM.N"
         },
@@ -683,7 +683,7 @@
           "sentence": "{{answer}} ben je moe?",
           "answer": "Waarom",
           "translation": "Why are you tired?",
-          "hint": "why",
+          "hint": "question word asking for a reason",
           "display_order": 5,
           "gloss": "___ · be.PRS.2SG · 2SG · tired"
         },
@@ -789,7 +789,7 @@
           "sentence": "Dit is {{answer}} fiets.",
           "answer": "mijn",
           "translation": "This is my bicycle.",
-          "hint": "my",
+          "hint": "possessive determiner — the owner is the speaker",
           "display_order": 1,
           "gloss": "this.N · be.PRS.3SG · ___ · bicycle.C"
         },
@@ -829,7 +829,7 @@
           "sentence": "Zij wast {{answer}} handen.",
           "answer": "haar",
           "translation": "She washes her hands.",
-          "hint": "her",
+          "hint": "possessive determiner — owner is a third person, female",
           "display_order": 6,
           "gloss": "she · wash.PRS.3SG · ___ · hand.PL"
         }
@@ -858,7 +858,7 @@
           "sentence": "Er {{answer}} een probleem.",
           "answer": "is",
           "translation": "There is a problem.",
-          "hint": "singular",
+          "hint": "existential verb — agree it with what follows er",
           "display_order": 1,
           "gloss": "EXPL · ___ · INDF · problem.N"
         },
@@ -866,7 +866,7 @@
           "sentence": "Er {{answer}} veel mensen op straat.",
           "answer": "zijn",
           "translation": "There are many people in the street.",
-          "hint": "plural",
+          "hint": "existential verb — agree it with the noun after er",
           "display_order": 2,
           "gloss": "EXPL · ___ · many · person.PL · on · street.C"
         },
@@ -1073,7 +1073,7 @@
           "sentence": "Je {{answer}} hier niet roken.",
           "answer": "mag",
           "translation": "You may not smoke here.",
-          "hint": "may",
+          "hint": "modal of permission — put it in the subject's form",
           "display_order": 2,
           "gloss": "2SG · ___ · here · NEG · smoke.INF"
         },
@@ -1105,7 +1105,7 @@
           "sentence": "Hij {{answer}} goed koken.",
           "answer": "kan",
           "translation": "He can cook well.",
-          "hint": "can",
+          "hint": "modal of ability — put it in the subject's form",
           "display_order": 6,
           "gloss": "3SG.M · ___ · well · cook.INF"
         }
@@ -1280,7 +1280,7 @@
           "sentence": "Wat {{answer}} jullie dit weekend doen?",
           "answer": "gaan",
           "translation": "What are you all going to do this weekend?",
-          "hint": "plural",
+          "hint": "future auxiliary of intention — agree it with the subject",
           "display_order": 2,
           "gloss": "what · ___ · 2PL · this.N · weekend · do.INF"
         },
@@ -1944,7 +1944,7 @@
           "sentence": "Ik wil komen, {{answer}} ik heb geen tijd.",
           "answer": "maar",
           "translation": "I want to come, but I have no time.",
-          "hint": "but",
+          "hint": "coordinator marking contrast; word order stays main-clause",
           "display_order": 6,
           "gloss": "1SG · want.PRS.1SG · come.INF · ___ · 1SG · have.PRS.1SG · NEG.INDF · time"
         }
@@ -2050,7 +2050,7 @@
           "sentence": "Ik {{answer}} graag een huis met een tuin willen.",
           "answer": "zou",
           "translation": "I would like a house with a garden.",
-          "hint": "would",
+          "hint": "past form of zullen, softening the wish into a polite one",
           "display_order": 2,
           "gloss": "1SG · ___ · gladly · INDF · house · with · INDF · garden · want.INF"
         },
@@ -2127,7 +2127,7 @@
           "sentence": "Ik weet niet {{answer}} hij thuis is.",
           "answer": "of",
           "translation": "I don't know whether he is home.",
-          "hint": "whether",
+          "hint": "subordinator introducing an embedded yes/no question",
           "display_order": 3,
           "gloss": "1SG · know.PRS.1SG · NEG · ___ · 3SG.M · home · be.PRS.3SG"
         },
@@ -2634,7 +2634,7 @@
           "sentence": "Onder collega's is {{answer}} tegenwoordig normaal.",
           "answer": "je",
           "translation": "Among colleagues, informal you is normal nowadays.",
-          "hint": "informal",
+          "hint": "second-person address pronoun — let the register of the setting pick the form",
           "display_order": 6,
           "gloss": "among · colleague-PL · be.PRS.3SG · ___ · nowadays · normal"
         }

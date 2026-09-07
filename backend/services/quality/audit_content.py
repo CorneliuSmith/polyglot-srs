@@ -223,6 +223,35 @@ def _is_allomorph_set(answers: list[str]) -> bool:
     return len(skeletons) == 1 and bool(skeletons.pop())
 
 
+# A hint that tells the learner where in the sentence to look, rather than
+# which answer to write: "agree the verb with the noun that follows",
+# "check the noun's gender", "let the number of things named decide".
+_DERIVE_FROM_SENTENCE = re.compile(
+    r"\b(agree(?:s|ing)?\s+with|check\b|decide|match(?:es|ing)?\s+the|"
+    r"look\s+at|that\s+follows|which\s+one\s+the\s+sentence|from\s+the\s+sentence)\b",
+    re.IGNORECASE,
+)
+
+
+def _sends_you_to_the_sentence(hint: str) -> bool:
+    """True when one hint may cover several answers because it names the METHOD.
+
+    Same principle as `_is_allomorph_set` — the sentence picks the answer, and
+    picking it is the exercise — but that heuristic only reaches short harmony
+    variants (Turkish mı/mi/mu/mü). It cannot reach `is`/`are` under "There ___
+    a book", and for an agreement point the two rules are otherwise in direct
+    conflict: `agreement_feature` forbids stating the feature ("singular"),
+    while `duplicate_hint` forbids one hint covering both answers. Every hint
+    for such a point violates one or the other unless the hint is allowed to
+    say "work it out from the noun".
+
+    Deliberately narrow: it wants an explicit directive, not merely a long
+    hint. "existential verb" alone stays a duplicate, because it tells the
+    learner nothing about where to look.
+    """
+    return bool(_DERIVE_FROM_SENTENCE.search(hint or ""))
+
+
 def _quoted_construction(hint: str, answer: str) -> str | None:
     """The fragment of `hint` that quotes `answer` inside a construction, if any.
 
@@ -386,7 +415,9 @@ def audit_points(code: str, points: list[dict]) -> dict[str, list[str]]:
                 answers_by_hint[hint.casefold()].add(answer.casefold())
 
         for hint, answers in answers_by_hint.items():
-            if len(answers) > 1 and not _is_allomorph_set(sorted(answers)):
+            if (len(answers) > 1
+                    and not _is_allomorph_set(sorted(answers))
+                    and not _sends_you_to_the_sentence(hint)):
                 joined = ", ".join(sorted(answers))
                 findings["duplicate_hint"].append(f"[{title}] hint '{hint}' -> {joined}")
 

@@ -35,7 +35,7 @@
           "sentence": "{{answer}} طالب.",
           "answer": "أنا",
           "translation": "I am a student.",
-          "hint": "I",
+          "hint": "subject pronoun — the speaker referring to themselves",
           "display_order": 1,
           "transliteration": "___ ṭālib",
           "cell": "أنا",
@@ -45,7 +45,7 @@
           "sentence": "{{answer}} معلمة.",
           "answer": "هي",
           "translation": "She is a teacher.",
-          "hint": "she",
+          "hint": "subject pronoun for a single female third party",
           "display_order": 2,
           "transliteration": "___ muʿallima",
           "cell": "هي",
@@ -55,7 +55,7 @@
           "sentence": "{{answer}} من مصر.",
           "answer": "هو",
           "translation": "He is from Egypt.",
-          "hint": "he",
+          "hint": "subject pronoun for a single male third party",
           "display_order": 3,
           "transliteration": "___ min Miṣr",
           "cell": "هو",
@@ -65,7 +65,7 @@
           "sentence": "{{answer}} طلاب.",
           "answer": "نحن",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "subject pronoun covering the speaker plus others",
           "display_order": 4,
           "transliteration": "___ ṭullāb",
           "cell": "نحن",
@@ -75,7 +75,7 @@
           "sentence": "هل {{answer}} جوعان؟",
           "answer": "أنت",
           "translation": "Are you hungry?",
-          "hint": "you",
+          "hint": "subject pronoun for the person being addressed",
           "display_order": 5,
           "transliteration": "hal ___ jawʿān",
           "cell": "أنتَ",
@@ -85,7 +85,7 @@
           "sentence": "{{answer}} أصدقاء.",
           "answer": "هم",
           "translation": "They are friends.",
-          "hint": "they",
+          "hint": "subject pronoun for a group of third parties",
           "display_order": 6,
           "transliteration": "___ aṣdiqāʾ",
           "cell": "هم",
@@ -1278,7 +1278,7 @@
           "sentence": "{{answer}} اسمك؟",
           "answer": "ما",
           "translation": "What is your name?",
-          "hint": "what",
+          "hint": "question word asking to identify a thing, not a person",
           "display_order": 1,
           "transliteration": "___ ismuka",
           "gloss": "___ · name-2SG.M.POSS"
@@ -1287,7 +1287,7 @@
           "sentence": "{{answer}} أنت الآن؟",
           "answer": "أين",
           "translation": "Where are you now?",
-          "hint": "where",
+          "hint": "question word asking for a location",
           "display_order": 2,
           "transliteration": "___ anta al-ān",
           "gloss": "___ · 2SG.M · DEF-now"
@@ -1296,7 +1296,7 @@
           "sentence": "{{answer}} هذا؟",
           "answer": "من",
           "translation": "Who is this?",
-          "hint": "who",
+          "hint": "question word asking for a person's identity",
           "display_order": 3,
           "transliteration": "___ hādhā",
           "gloss": "___ · this.M"
@@ -1314,7 +1314,7 @@
           "sentence": "{{answer}} يبدأ الدرس؟",
           "answer": "متى",
           "translation": "When does the lesson start?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 5,
           "transliteration": "___ yabdaʾu ad-dars",
           "gloss": "___ · begin.PRS.3SG.M · DEF-lesson"
@@ -1323,7 +1323,7 @@
           "sentence": "{{answer}} حالك؟",
           "answer": "كيف",
           "translation": "How are you?",
-          "hint": "how",
+          "hint": "question word asking about manner or condition",
           "display_order": 6,
           "transliteration": "___ ḥāluka",
           "gloss": "___ · state-2SG.M.POSS"
@@ -1604,7 +1604,7 @@
           "sentence": "{{answer}} يعملن في المستشفى.",
           "answer": "الممرضات",
           "translation": "The nurses (f.) work at the hospital.",
-          "hint": "nurses (f.)",
+          "hint": "definite feminine sound plural: the ward's caregiving staff",
           "transliteration": "al-___ yaʿmalna fī l-mustashfā",
           "display_order": 4,
           "gloss": "___ · work.PRS.3PL.F · in · DEF-hospital"
@@ -1613,7 +1613,7 @@
           "sentence": "عندنا ثلاث {{answer}} جديدة.",
           "answer": "سيارات",
           "translation": "We have three new cars.",
-          "hint": "cars",
+          "hint": "sound plural of the counted noun — a road vehicle",
           "transliteration": "ʿindanā thalāth ___ jadīda",
           "display_order": 5,
           "gloss": "at-1PL · three · ___ · new.F.SG"
@@ -1622,7 +1622,7 @@
           "sentence": "{{answer}} على الطاولة.",
           "answer": "المجلات",
           "translation": "The magazines are on the table.",
-          "hint": "magazines",
+          "hint": "definite sound plural: the printed periodicals lying there",
           "transliteration": "al-___ ʿalā ṭ-ṭāwila",
           "display_order": 6,
           "gloss": "___ · on · DEF-table"
@@ -1738,7 +1738,7 @@
           "sentence": "جاء {{answer}} إلى الصف.",
           "answer": "طالبان",
           "translation": "Two students came to the class.",
-          "hint": "two students",
+          "hint": "dual of the noun for one who studies — its case follows from being the subject",
           "transliteration": "jāʾa ___ ilā ṣ-ṣaff",
           "display_order": 2,
           "gloss": "come.PST.3SG.M · ___ · to · DEF-class"
@@ -1756,7 +1756,7 @@
           "sentence": "للطاولة {{answer}} فقط.",
           "answer": "رجلان",
           "translation": "The table has only two legs.",
-          "hint": "two legs",
+          "hint": "dual of the limb noun furniture stands on",
           "transliteration": "li-ṭ-ṭāwila ___ faqaṭ",
           "display_order": 4,
           "gloss": "for-DEF-table · ___ · only"
@@ -1774,7 +1774,7 @@
           "sentence": "في يدي {{answer}} اثنتان.",
           "answer": "ساعتان",
           "translation": "I have two watches on my hand.",
-          "hint": "two watches",
+          "hint": "dual of the noun for a time-telling device",
           "transliteration": "fī yadī ___ ithnatān",
           "display_order": 6,
           "gloss": "in · hand-1SG.POSS · ___ · two.F-DU.NOM"
@@ -1805,7 +1805,7 @@
           "sentence": "الكتاب {{answer}} الطاولة.",
           "answer": "على",
           "translation": "The book is on the table.",
-          "hint": "on",
+          "hint": "preposition of contact with a surface from above",
           "transliteration": "al-kitāb ___ aṭ-ṭāwila",
           "display_order": 1,
           "gloss": "DEF-book · ___ · DEF-table"
@@ -1814,7 +1814,7 @@
           "sentence": "أنا {{answer}} البيت الآن.",
           "answer": "في",
           "translation": "I am in the house now.",
-          "hint": "in",
+          "hint": "preposition marking location within an enclosure",
           "transliteration": "anā ___ al-bayt al-ān",
           "display_order": 2,
           "gloss": "1SG · ___ · DEF-house · DEF-now"
@@ -1823,7 +1823,7 @@
           "sentence": "جئت {{answer}} المدينة.",
           "answer": "من",
           "translation": "I came from the city.",
-          "hint": "from",
+          "hint": "preposition marking the starting point of the motion",
           "transliteration": "jiʾtu ___ al-madīna",
           "display_order": 3,
           "gloss": "come.PST.1SG · ___ · DEF-city"
@@ -1832,7 +1832,7 @@
           "sentence": "نذهب {{answer}} المطار.",
           "answer": "إلى",
           "translation": "We are going to the airport.",
-          "hint": "to",
+          "hint": "preposition marking the destination of the motion",
           "transliteration": "nadhhab ___ al-maṭār",
           "display_order": 4,
           "gloss": "go.PRS.1PL · ___ · DEF-airport"
@@ -1841,7 +1841,7 @@
           "sentence": "تحدثنا {{answer}} المشروع.",
           "answer": "عن",
           "translation": "We talked about the project.",
-          "hint": "about",
+          "hint": "preposition a speech verb takes for its topic",
           "transliteration": "taḥaddathnā ___ al-mashrūʿ",
           "display_order": 5,
           "gloss": "talk.PST.1PL · ___ · DEF-project"
@@ -1850,7 +1850,7 @@
           "sentence": "ذهبت {{answer}} صديقي.",
           "answer": "مع",
           "translation": "I went with my friend.",
-          "hint": "with",
+          "hint": "preposition marking accompaniment, not instrument",
           "transliteration": "dhahabtu ___ ṣadīqī",
           "display_order": 6,
           "gloss": "go.PST.1SG · ___ · friend-1SG.POSS"
@@ -1881,7 +1881,7 @@
           "sentence": "الفيل {{answer}} من القطة.",
           "answer": "أكبر",
           "translation": "The elephant is bigger than the cat.",
-          "hint": "bigger",
+          "hint": "comparative of the adjective meaning large",
           "transliteration": "al-fīl ___ min al-qiṭṭa",
           "display_order": 1,
           "gloss": "DEF-elephant · ___ · than · DEF-cat"
@@ -1890,7 +1890,7 @@
           "sentence": "هذا الطريق {{answer}} من ذاك.",
           "answer": "أقصر",
           "translation": "This road is shorter than that one.",
-          "hint": "shorter",
+          "hint": "comparative of the adjective meaning not long",
           "transliteration": "hādhā ṭ-ṭarīq ___ min dhāk",
           "display_order": 2,
           "gloss": "this.M.SG · DEF-road · ___ · than · that.M.SG"
@@ -1899,7 +1899,7 @@
           "sentence": "اللغة العربية {{answer}} من الإنجليزية عندي.",
           "answer": "أصعب",
           "translation": "Arabic is harder than English for me.",
-          "hint": "harder",
+          "hint": "comparative of the adjective meaning difficult",
           "transliteration": "al-lugha l-ʿarabiyya ___ min al-injlīziyya ʿindī",
           "display_order": 3,
           "gloss": "DEF-language · DEF-Arabic.F.SG · ___ · than · DEF-English.F.SG · at-1SG"
@@ -1908,7 +1908,7 @@
           "sentence": "القاهرة {{answer}} مدينة في مصر.",
           "answer": "أكبر",
           "translation": "Cairo is the biggest city in Egypt.",
-          "hint": "biggest",
+          "hint": "superlative of the adjective meaning large, standing before its noun",
           "transliteration": "al-Qāhira ___ madīna fī Miṣr",
           "display_order": 4,
           "gloss": "DEF-Cairo · ___ · city.GEN.SG · in · Egypt"
@@ -1917,7 +1917,7 @@
           "sentence": "هو {{answer}} طالب في الصف.",
           "answer": "أذكى",
           "translation": "He is the smartest student in the class.",
-          "hint": "smartest",
+          "hint": "superlative of the adjective meaning clever",
           "transliteration": "huwa ___ ṭālib fī ṣ-ṣaff",
           "display_order": 5,
           "gloss": "3SG.M · ___ · student.GEN.SG · in · DEF-class"
@@ -1926,7 +1926,7 @@
           "sentence": "الصحة {{answer}} من المال.",
           "answer": "أهم",
           "translation": "Health is more important than money.",
-          "hint": "more important",
+          "hint": "comparative of the adjective meaning significant",
           "transliteration": "aṣ-ṣiḥḥa ___ min al-māl",
           "display_order": 6,
           "gloss": "DEF-health · ___ · than · DEF-money"
@@ -2084,7 +2084,7 @@
           "sentence": "أصدقائي هنا، {{answer}} إلى البيت.",
           "answer": "دعوتهم",
           "translation": "My friends are here; I invited them home.",
-          "hint": "I invited them",
+          "hint": "invite, 1sg past — plus the object suffix for the people meant",
           "transliteration": "aṣdiqāʾī hunā, ___ ilā l-bayt",
           "cell": "ـهم",
           "display_order": 5,
@@ -2094,7 +2094,7 @@
           "sentence": "الضيوف وصلوا فـ{{answer}} بحرارة.",
           "answer": "استقبلتهم",
           "translation": "The guests arrived, so I welcomed them warmly.",
-          "hint": "I welcomed them",
+          "hint": "greet, 1sg past — plus the object suffix for the visitors",
           "transliteration": "aḍ-ḍuyūf waṣalū fa-___ bi-ḥarāra",
           "cell": "ـهم",
           "display_order": 6,
@@ -2368,7 +2368,7 @@
           "sentence": "أعتقد {{answer}} اللغة العربية مهمة.",
           "answer": "أن",
           "translation": "I think that Arabic is important.",
-          "hint": "that",
+          "hint": "the complementiser introducing a clause after a verb of opinion",
           "transliteration": "aʿtaqid ___ al-lugha l-ʿarabiyya muhimma",
           "display_order": 2,
           "gloss": "think.PRS.1SG · ___ · DEF-language.F.ACC · DEF-Arabic.F.ACC · important.F.NOM"
@@ -2377,7 +2377,7 @@
           "sentence": "هو ذكي {{answer}} كسول قليلًا.",
           "answer": "لكن",
           "translation": "He is smart but a little lazy.",
-          "hint": "but",
+          "hint": "the particle of contrast between two clauses",
           "transliteration": "huwa dhakī ___ kasūl qalīlan",
           "display_order": 3,
           "gloss": "he.3SG.M · smart.M.SG · ___ · lazy.M.SG · little.ACC"
@@ -2386,7 +2386,7 @@
           "sentence": "تأخرت {{answer}} السيارة تعطلت.",
           "answer": "لأن",
           "translation": "I was late because the car broke down.",
-          "hint": "because",
+          "hint": "particle introducing the cause of what came before",
           "transliteration": "taʾakhkhartu ___ as-sayyāra taʿaṭṭalat",
           "display_order": 4,
           "gloss": "be_late.PST.1SG · ___ · DEF-car.F · break_down.PST.3SG.F"
@@ -2395,7 +2395,7 @@
           "sentence": "ينظر إليّ {{answer}} يعرفني.",
           "answer": "كأن",
           "translation": "He looks at me as if he knows me.",
-          "hint": "as if",
+          "hint": "particle marking a comparison to something not actually the case",
           "transliteration": "yanẓur ilayya ___ yaʿrifunī",
           "display_order": 5,
           "gloss": "look.PRS.3SG.M · to-1SG · ___ · know.PRS.3SG.M-OBJ.1SG"
@@ -2404,7 +2404,7 @@
           "sentence": "{{answer}} النتيجة تكون جيدة.",
           "answer": "لعل",
           "translation": "Perhaps the result will be good.",
-          "hint": "perhaps",
+          "hint": "sentence-opening particle expressing hope or expectation",
           "transliteration": "___ an-natīja takūn jayyida",
           "display_order": 6,
           "gloss": "___ · DEF-result.F · be.PRS.3SG.F · good.F.SG"
@@ -3282,7 +3282,7 @@
           "sentence": "حضر الجميع الاجتماع {{answer}} مديرَهم.",
           "answer": "إلا",
           "translation": "Everyone attended the meeting except their manager.",
-          "hint": "except",
+          "hint": "the exception particle in an affirmative sentence",
           "transliteration": "ḥaḍara l-jamīʿ al-ijtimāʿ ___ mudīrahum",
           "display_order": 1,
           "gloss": "attend.PST.3SG.M · DEF-all · DEF-meeting · ___ · manager.ACC-3PL.POSS"
@@ -3300,7 +3300,7 @@
           "sentence": "لا أشرب {{answer}} الماء.",
           "answer": "إلا",
           "translation": "I drink nothing but water.",
-          "hint": "nothing but",
+          "hint": "exception particle after a negative — the sole thing that applies follows",
           "transliteration": "lā ashrab ___ al-māʾ",
           "display_order": 3,
           "gloss": "NEG · drink.PRS.1SG · ___ · DEF-water"

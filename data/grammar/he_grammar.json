@@ -481,7 +481,7 @@
           "sentence": "{{answer}} ספר טוב.",
           "answer": "יש",
           "translation": "There is a good book.",
-          "hint": "there is",
+          "hint": "existential particle — does the clause assert presence or deny it?",
           "transliteration": "___ sefer tov.",
           "display_order": 2,
           "gloss": "___ · book · good.M.SG"
