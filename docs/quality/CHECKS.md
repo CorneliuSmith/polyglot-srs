@@ -1482,11 +1482,15 @@ must require SURFACE presence, or write the surface form as the answer.
    method, larger set). Stem headwords themselves are §3b.
 4. **Yoruba**: tones on headwords, then re-measure — the bank is already
    toned.
-5. **A report-level audit rule, `unclozable_rows`**, per course, with
-   `top-2,000 words with no clozable row` as the number that ratchets.
-   Coverage claims (§9, §23, §26) all counted rows the card can never
-   show; every one of those tables is an overstatement for th/ko/ar/yo
-   until this is the instrument.
+5. ~~**A report-level audit rule, `unclozable_rows`.**~~ **SHIPPED 6 Sep.**
+   Per course, top-2,000 band, printed by `audit_content` beside
+   `frame_collision` (§28) off one read of each bank — 1.3s to 6.9s, which
+   is the price of measuring what a learner is shown rather than what the
+   file holds. **1,871 words today:** ko 566, ar 491, tr 221, yo 182,
+   th 132, sw 131, ru 41, la 40, xh 28, hi 17, en 11, ha 9, mi 2, zero
+   elsewhere. Coverage claims (§9, §23, §26) all counted rows the card can
+   never show, so every one of those tables is an overstatement for
+   th/ko/ar/yo until it is re-measured against this rule.
 
 **Status: all — the matcher is shared; the causes are per-language and
 named above.** Rule 46.

@@ -143,8 +143,16 @@ exempt for `en`, whose translation field is a usage note by design),
 `structural` (missing grammar file, thin sentence bank, empty morphology).
 
 **Report-level** (measured and printed, never scored):
-`gender_marking` — "how often do noun hints mark gender" is a number to drive
-editorial work, not a threshold anyone can set honestly.
+
+| Rule | What it measures | Why it is not scored |
+| --- | --- | --- |
+| `gender_marking` | How often noun hints mark gender | A number to drive editorial work, not a threshold anyone can set honestly |
+| `unclozable_rows` | Top-2,000 words whose every sentence the card cannot blank, so it serves the definition alone (CHECKS §29) | Supply, not a bug. 1,871 today: ko 566, ar 491, tr 221, yo 182, th 132, sw 131 — the courses whose headwords are dictionary forms, stems or toneless twins |
+| `frame_collision` | One blanked sentence carrying several different answers — the corpus proving its own prompt is ambiguous (CHECKS §28) | Ambiguity is editorial. 4,737 today: it 824, tr 464, en 382, pt 342, nl 351. It catches only half the class — `did` is not a headword, so "What ___ you do?" has no second row to collide with |
+
+Both card rules read the sentence banks, which takes the audit from 1.3s to
+6.9s. That is the price of measuring what a learner is shown rather than what
+the file contains.
 
 ### The baseline ratchet
 
