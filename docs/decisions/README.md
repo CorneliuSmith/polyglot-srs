@@ -24,6 +24,7 @@ which also carries the template.
 Not ADRs: standing instructions from the owner, and end-of-pass handovers
 written for the next session. Read the newest first.
 
+- [2026-09-07](2026-09-07-fr-markdown-pass.md) — French explanations formatted and corrected: 20 of 42 render as markdown, 13 content fixes, four paradigms had no vous form
 - [2026-09-07](2026-09-07-file-headword-repairs.md) — 56 of 65 committed-file headwords repaired; the Romanian noun/verb fold the course can only card once
 - [2026-09-07](2026-09-07-unmarked-twins.md) — the 678 unmarked twins judged: 386 retired, 65 file defects found, 223 real words left alone (decision D option 3)
 - [2026-09-07](2026-09-07-turkish-harmony-one-card.md) — Turkish harmony spellings are one card; the sentence fixes the shape (CHECKS §30)

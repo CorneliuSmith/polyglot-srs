@@ -194,7 +194,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you.\n\nThe plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud.\n\nEndings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
+      "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you.\n\nThe plural usually adds a silent `-s` (livre → livres); since it isn't pronounced, the article carries the plural out loud.\n\nEndings give clues: `-tion` and `-té` are usually feminine, `-age` and `-eau` usually masculine.",
       "culture_note": "",
       "references": [
         {
@@ -268,7 +268,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école).\n\nFrench uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| le | masculine nouns | le livre |\n| la | feminine nouns | la maison |\n| les | any plural | les livres |\n\nBefore a vowel or silent h, le and la both shrink to **l'** (l'école).\n\nFrench uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
       "culture_note": "",
       "references": [
         {
@@ -361,7 +361,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Un before masculine nouns (un chien), une before feminine (une maison), and — unlike English — a plural indefinite des (des amis, 'some friends'). Des is required where English just drops the article: j'ai des questions.",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| un | masculine nouns | un chien |\n| une | feminine nouns | une maison |\n| des | any plural | des amis |\n\nUnlike English, French has a plural indefinite article: **des** amis is 'some friends'. Des is required where English just drops the article: j'ai des questions.",
       "culture_note": "",
       "references": [
         {
@@ -454,7 +454,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont.\n\nProfessions take no article after être: elle est professeur.",
+      "explanation": "**Être** (to be) is wildly irregular and everywhere:\n\n| Person | Form |\n| --- | --- |\n| je | suis |\n| tu | es |\n| il / elle | est |\n| nous | sommes |\n| vous | êtes |\n| ils / elles | sont |\n\nProfessions take no article after être: elle est professeur.",
       "culture_note": "",
       "references": [
         {
@@ -596,7 +596,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.\n\nFrench uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
+      "explanation": "**Avoir** (to have):\n\n| Person | Form |\n| --- | --- |\n| j' | ai |\n| tu | as |\n| il / elle | a |\n| nous | avons |\n| vous | avez |\n| ils / elles | ont |\n\nFrench uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
       "culture_note": "Never say 'je suis vingt ans' — age is something you HAVE in French.",
       "references": [
         {
@@ -738,7 +738,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Ninety percent of French verbs end in -er and share one pattern.\n\nDrop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent).\n\nFour of those six forms sound identical — the pronoun does the work in speech.",
+      "explanation": "Ninety percent of French verbs end in `-er` and share one pattern.\n\nDrop `-er` and add:\n\n| Person | Ending | parler |\n| --- | --- | --- |\n| je | -e | parle |\n| tu | -es | parles |\n| il / elle | -e | parle |\n| nous | -ons | parlons |\n| vous | -ez | parlez |\n| ils / elles | -ent | parlent |\n\nFour of those six forms sound identical — the pronoun does the work in speech.",
       "culture_note": "",
       "references": [
         {
@@ -880,7 +880,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent.\n\n-re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent.\n\nAttendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
+      "explanation": "`-ir` verbs like finir, and `-re` verbs like vendre:\n\n| Person | finir | vendre |\n| --- | --- | --- |\n| je | finis | vends |\n| tu | finis | vends |\n| il / elle | finit | vend |\n| nous | finissons | vendons |\n| vous | finissez | vendez |\n| ils / elles | finissent | vendent |\n\nNote the `-iss-` in the plural of finir.\n\nAttendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
       "culture_note": "",
       "references": [
         {
@@ -1178,7 +1178,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who).\n\nThree ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
+      "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who).\n\nThree ways to build a question:\n\n- intonation: tu viens ?\n- est-ce que: est-ce que tu viens ?\n- inversion: viens-tu ?\n\nEst-ce que is the everyday workhorse.",
       "culture_note": "",
       "references": [
         {
@@ -1647,7 +1647,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, add -ais, -ais, -ait, -ions, -iez, -aient: mangeais 'I was eating', finissait 'he used to finish'. être is irregular (j'étais).\n\nContrast with the passé composé (one completed act).",
+      "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, and add:\n\n| person | ending |\n| --- | --- |\n| je | -ais |\n| tu | -ais |\n| il / elle | -ait |\n| nous | -ions |\n| vous | -iez |\n| ils / elles | -aient |\n\nJe mangeais 'I was eating', il finissait 'he used to finish'. être is irregular (j'étais).\n\nContrast with the passé composé (one completed act).",
       "culture_note": "",
       "references": [
         {
@@ -1725,7 +1725,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The simple future adds -ai, -as, -a, -ons, -ez, -ont to the infinitive (dropping a final -e of -re verbs): je mangerai 'I will eat', il finira 'he will finish'.\n\nSome stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
+      "explanation": "The simple future adds one set of endings to the infinitive (dropping a final -e of -re verbs):\n\n| person | ending |\n| --- | --- |\n| je | -ai |\n| tu | -as |\n| il / elle | -a |\n| nous | -ons |\n| vous | -ez |\n| ils / elles | -ont |\n\nJe mangerai 'I will eat', il finira 'he will finish'.\n\nSome stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
       "culture_note": "",
       "references": [
         {
@@ -1803,7 +1803,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "A known direct object becomes a pronoun placed before the verb: le (him/it m.), la (her/it f.), les (them), me, te, nous, vous.\n\nJe le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
+      "explanation": "A known direct object becomes a pronoun placed before the verb:\n\n| pronoun | meaning |\n| --- | --- |\n| me | me |\n| te | you (informal sg.) |\n| le | him, it (m.) |\n| la | her, it (f.) |\n| nous | us |\n| vous | you (pl. or formal sg.) |\n| les | them |\n\nJe le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
       "culture_note": "",
       "references": [
         {
@@ -1881,7 +1881,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "lui 'to him/her' and leur 'to them' replace à + a person: je lui parle 'I talk to him'. y replaces à + a thing or a place: j'y vais 'I go there'. en replaces de + something or a quantity: j'en veux 'I want some', j'en ai trois 'I have three of them'.",
+      "explanation": "- lui 'to him/her' and leur 'to them' replace à + a person: je lui parle 'I talk to him'.\n- y replaces à + a thing or a place: j'y vais 'I go there'.\n- en replaces de + something or a quantity: j'en veux 'I want some', j'en ai trois 'I have three of them'.",
       "culture_note": "",
       "references": [
         {
@@ -2037,7 +2037,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Reflexive verbs carry a pronoun matching the subject: me, te, se, nous, vous, se, before the verb.\n\nJe me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive.\n\nIn the passé composé they take être.",
+      "explanation": "Reflexive verbs carry a pronoun matching the subject, placed before the verb:\n\n| subject | pronoun |\n| --- | --- |\n| je | me |\n| tu | te |\n| il / elle | se |\n| nous | nous |\n| vous | vous |\n| ils / elles | se |\n\nJe me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive.\n\nIn the passé composé they take être.",
       "culture_note": "",
       "references": [
         {
@@ -2199,7 +2199,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Possessives agree with the thing owned, not the owner: mon/ma/mes 'my', ton/ta/tes 'your', son/sa/ses 'his/her', notre/nos, votre/vos, leur/leurs.\n\nBefore a feminine noun starting with a vowel, use mon/ton/son (mon amie).\n\nDemonstratives: ce/cet (m.), cette (f.), ces (pl.) 'this/these'.",
+      "explanation": "Possessives agree with the thing owned, not the owner:\n\n| owner | m. sg. | f. sg. | plural |\n| --- | --- | --- | --- |\n| my | mon | ma | mes |\n| your (informal sg.) | ton | ta | tes |\n| his / her | son | sa | ses |\n| our | notre | notre | nos |\n| your (pl. or formal sg.) | votre | votre | vos |\n| their | leur | leur | leurs |\n\nBefore a feminine noun starting with a vowel, use mon/ton/son (mon amie).\n\nDemonstratives 'this/these': ce (m.), cet (m., before a vowel), cette (f.), ces (pl.).",
       "culture_note": "",
       "references": [
         {
@@ -2301,7 +2301,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, add -e, -es, -e, -ions, -iez, -ent: que je parle, que nous finissions.\n\nKey irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
+      "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, and add:\n\n| person | ending |\n| --- | --- |\n| je | -e |\n| tu | -es |\n| il / elle | -e |\n| nous | -ions |\n| vous | -iez |\n| ils / elles | -ent |\n\nQue je parle, que nous finissions.\n\nKey irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
       "culture_note": "",
       "references": [
         {
@@ -2535,7 +2535,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "qui is the subject of the relative clause ('who/which' + verb): l'homme qui parle. que is the object ('whom/which/that' + subject): le livre que je lis. où means 'where/when': la ville où j'habite. dont replaces de + something ('whose/of which/about which'): le film dont je parle.",
+      "explanation": "- qui is the subject of the relative clause ('who/which' + verb): l'homme qui parle.\n- que is the object ('whom/which/that' + subject): le livre que je lis.\n- où means 'where/when': la ville où j'habite.\n- dont replaces de + something ('whose/of which/about which'): le film dont je parle.",
       "culture_note": "",
       "references": [
         {
@@ -2769,7 +2769,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens.\n\nReport what/who with ce que / ce qui: je ne sais pas ce qu'il veut.\n\nWhen the main verb is past, tenses shift back (présent → imparfait, etc.).",
+      "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens.\n\nReport 'what' with ce qui (subject) or ce que (object): je ne sais pas ce qu'il veut. For 'who', qui does the job alone: je ne sais pas qui vient.\n\nWhen the main verb is past, tenses shift back (présent → imparfait, etc.).",
       "culture_note": "",
       "references": [
         {
@@ -2925,7 +2925,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "For an unreal or hypothetical present, si + imparfait pairs with the conditional: si j'avais le temps, je viendrais 'if I had time, I would come'. (For a real future condition it's si + présent → futur: si tu études, tu réussiras.) Never put the conditional directly after si.",
+      "explanation": "For an unreal or hypothetical present, si + imparfait pairs with the conditional: si j'avais le temps, je viendrais 'if I had time, I would come'. (For a real future condition it's si + présent → futur: si tu étudies, tu réussiras.) Never put the conditional directly after si.",
       "culture_note": "",
       "references": [
         {
@@ -3081,7 +3081,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Certain conjunctions always take the subjunctive: bien que / quoique 'although', pour que / afin que 'so that', avant que 'before', à condition que 'provided that', jusqu'à ce que 'until', sans que 'without'.\n\nBien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
+      "explanation": "Certain conjunctions always take the subjunctive:\n\n- bien que / quoique 'although'\n- pour que / afin que 'so that'\n- avant que 'before'\n- à condition que 'provided that'\n- jusqu'à ce que 'until'\n- sans que 'without'\n\nBien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
       "culture_note": "",
       "references": [
         {
@@ -3237,7 +3237,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Written and spoken French links ideas with connectors: donc / alors 'so/therefore', pourtant / cependant / néanmoins 'however/yet', car / puisque 'because/since', d'ailleurs 'besides', en revanche 'on the other hand'.\n\nThey organize an argument and are worth deploying deliberately.",
+      "explanation": "Written and spoken French links ideas with connectors:\n\n- donc / alors 'so/therefore'\n- pourtant / cependant / néanmoins 'however/yet'\n- car / puisque 'because/since'\n- d'ailleurs 'besides'\n- en revanche 'on the other hand'\n\nThey organize an argument and are worth deploying deliberately.",
       "culture_note": "",
       "references": [
         {
@@ -3549,7 +3549,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "French emphasizes a word by 'clefting' it. c'est … qui highlights a subject: c'est moi qui l'ai fait 'it's I who did it'. c'est … que highlights anything else: c'est à Paris que je vis 'it's in Paris that I live'. ce qui/ce que … c'est frames a whole idea: ce que je veux, c'est réussir 'what I want is to succeed'.",
+      "explanation": "French emphasizes a word by 'clefting' it.\n\n- c'est … qui highlights a subject: c'est moi qui l'ai fait 'it's I who did it'.\n- c'est … que highlights anything else: c'est à Paris que je vis 'it's in Paris that I live'.\n- ce qui/ce que … c'est frames a whole idea: ce que je veux, c'est réussir 'what I want is to succeed'.",
       "culture_note": "",
       "references": [
         {
@@ -3627,7 +3627,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, and comparisons: je crains qu'il ne vienne 'I fear he will come'.\n\nElevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous?).",
+      "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, the verbs of fearing (craindre que, avoir peur que), and comparisons: je crains qu'il ne vienne 'I fear he will come'.\n\nElevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous ?).",
       "culture_note": "",
       "references": [
         {
@@ -3705,7 +3705,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "The most useful French verbs bend the present tense:\n\naller (to go): vais, vas, va, allons, allez, vont. faire (to do/make): fais, fait, faisons, faites, font. pouvoir (can): peux, peut, pouvons, peuvent. vouloir (to want): veux, veut, voulons, veulent. venir (to come): viens, vient, venons, viennent. prendre (to take): prends, prend, prenons, prennent.\n\nLearn them on sight — they carry half of daily conversation, and aller/venir also build the near future and recent past.",
+      "explanation": "The most useful French verbs bend the present tense. Each line below runs je, tu, il/elle, nous, vous, ils/elles:\n\n- aller (to go): vais, vas, va, allons, allez, vont\n- faire (to do/make): fais, fais, fait, faisons, faites, font\n- pouvoir (can): peux, peux, peut, pouvons, pouvez, peuvent\n- vouloir (to want): veux, veux, veut, voulons, voulez, veulent\n- venir (to come): viens, viens, vient, venons, venez, viennent\n- prendre (to take): prends, prends, prend, prenons, prenez, prennent\n\nLearn them on sight — they carry half of daily conversation, and aller/venir also build the near future and recent past.",
       "culture_note": "",
       "references": [
         {

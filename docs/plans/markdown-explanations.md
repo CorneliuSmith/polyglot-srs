@@ -1,6 +1,11 @@
 # Markdown pass over the seed explanations — plan (4 Sep 2026)
 
-**Status: the tooling is built (7 Sep 2026); the editorial pass has not
+**Status: FRENCH IS DONE (7 Sep 2026) — 20 of 42 explanations now render
+as markdown and 13 content defects were corrected on the way through
+(`docs/decisions/2026-09-07-fr-markdown-pass.md`). 26 courses to go, in the
+order below. The tooling is built.**
+
+**Status was: the tooling is built; the editorial pass has not
 started.** `scripts/apply_grammar_explanations.py` is the export/apply pair
 the corrections below call for, and `test_content_markdown_guard.py` has
 been reshaped so a formatted explanation is legal while a construct the card
