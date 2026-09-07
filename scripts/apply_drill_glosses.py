@@ -85,24 +85,49 @@ UNSPACED = {"th"}
 def tokenize(sentence: str, code: str = "") -> list[str]:
     """The units a gloss must have one cell for.
 
-    For unspaced scripts, borrow the segmentation the reading pipeline
-    already performs — the romaniser emits space-separated words and passes
-    {{answer}} through as a unit, so its output segments the sentence the
-    same way a learner reads it. Falls back to whitespace when no reading is
-    available, which is the old behaviour and right for every other course.
+    For unspaced scripts this is `nlp.thai.segment` over `cloze_lexicon` —
+    the SAME segmentation the cloze uses to find its blank and the applier
+    uses to measure a sentence's length. It has to be the same one: this
+    gate previously borrowed the reading pipeline's split instead, and the
+    two disagreed on 48 of 151 Thai drills, so glosses written against one
+    were refused by the other. A language gets one answer to "where are the
+    word boundaries" (CHECKS §22, §29).
+
+    Falls back to whitespace when the lexicon is unavailable, which is the
+    old behaviour and right for every other course.
     """
     if code in UNSPACED:
         try:
             import sys
             sys.path.insert(0, str(REPO))
-            from backend.services.readings import sentence_reading
+            from backend.services.nlp.thai import cloze_lexicon, segment
 
-            reading = sentence_reading(sentence, code)
-            if reading and reading.split():
-                return reading.split()
-        except Exception:  # noqa: BLE001 — a missing reader must not block a gloss
+            lexicon = cloze_lexicon()
+            if lexicon:
+                # {{answer}} carries no Thai letters, so it survives as its
+                # own chunk between the segmented runs either side.
+                return [t for t in segment_with_marker(sentence, lexicon, segment)
+                        if t.strip()]
+        except Exception:  # noqa: BLE001 — a missing lexicon must not block a gloss
             pass
     return sentence.split()
+
+
+def segment_with_marker(sentence: str, lexicon, segment) -> list[str]:
+    """Segment the Thai runs, keeping `{{answer}}` and any Latin text whole."""
+    out: list[str] = []
+    for chunk in re.split(r"(\{\{answer\}\})", sentence):
+        if not chunk:
+            continue
+        if chunk == "{{answer}}":
+            out.append(chunk)
+            continue
+        pieces = segment(chunk, lexicon)
+        if pieces:
+            out.extend(pieces)
+        else:
+            out.extend(chunk.split())
+    return out
 
 
 def check(gloss: str, sentence: str, answer: str, code: str = "") -> str | None:

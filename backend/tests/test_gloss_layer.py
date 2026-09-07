@@ -54,16 +54,19 @@ UNSPACED = {"th"}
 
 
 def _tokens(sentence: str, code: str) -> list[str]:
-    if code in UNSPACED:
-        try:
-            from backend.services.readings import sentence_reading
+    """The applier's own tokenizer, imported rather than copied.
 
-            reading = sentence_reading(sentence, code)
-            if reading and reading.split():
-                return reading.split()
-        except Exception:  # noqa: BLE001 — a missing reader must not fail a gloss
-            pass
-    return sentence.split()
+    This was a third implementation of "where are Thai word boundaries",
+    beside the gate's and the cloze's, and the three disagreed: glosses
+    written against one were refused by another on 48 of 151 drills. A
+    language gets one answer (CHECKS §22, §29)."""
+    import sys
+    from pathlib import Path
+
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+    from scripts.apply_drill_glosses import tokenize
+
+    return tokenize(sentence, code)
 
 
 @pytest.mark.parametrize("path", FILES, ids=[os.path.basename(p) for p in FILES])
