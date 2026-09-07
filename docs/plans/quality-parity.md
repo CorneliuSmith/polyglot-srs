@@ -1284,6 +1284,46 @@ pass over 6,048 rows → Yoruba headword tones → 22 junk Thai headwords to
 a rule for the applier from now on: SURFACE presence, never
 lemma presence — the 31 Aug Russian pass shipped rows the card cannot use.
 
+**9 · English vocabulary the seeder never inserts. FIXED 7 Sep for the top
+band.** `EnglishSeeder` builds definitions from WordNet and skipped the
+1,389 headwords WordNet has no entry for — silently, which is why `what`
+(rank 16), `how` (54) and `because` (107) were absent from the course while
+the seeder reported success. The 125 inside the top 2,000 were classified
+and glossed by an in-session maker-checker (the checker rejected 15, mostly
+glosses that reached a synonym as readily as the target): **66 glossed in
+`gloss_overrides.tsv`, 59 excluded** as contraction debris, given names or
+abbreviations. Top-2,000 words with no definition: 125 → 0. The remaining
+1,264 sit below rank 2,000 (DEBT), and the seeder now reports what it
+skips.
+
+**10 · The prompt must determine the form — CHECKS §28.** The `do` card.
+Judged on all 27 (14 top-2,000 cards each, refuted): 128 of 377 do not
+determine their answer — sw/th 64%, ko 54%, en/id/nl 50%, down to fr 7%.
+Causes: another word fits 69, inflection 24, definition wrong 21, vague
+12. The cheapest fix is the DEFINITION in 77 of 128 — so this is Phase 2d
+(override depth) measured from the card's side, not a new pass. Build
+`frame_collision` in `audit_content.py` (report-level; 26 courses);
+decide the grading policy (§28: stop scolding for a form the card never
+named); then let 2d's override work carry the rule "definition + sentence
+determine one string" (§23).
+
+**11 · Rows the card can never blank — CHECKS §29. Thai SHIPPED 6 Sep.** `make_cloze` matches
+the surface headword whole-word; a row with only an inflection, a stem, a
+toneless twin or an unspaced run is skipped, and a word with no clozable
+row silently serves the definition-only prompt. Measured with the
+production function: th 93% of rows (1,085 top-2,000 words with none),
+ko 54% (566), ar 47% (491), yo 50% (182), la 34%, tr 16%, ru 13%, sw 11%.
+**Every coverage number in items 1–8 counted these rows as coverage; for
+th/ko/ar/yo they are not.** Order, by learner impact:
+~~Thai cloze through `thai.segment`~~ **done — 311 → 3,675 clozable rows,
+1,085 → 110 dead words, and 35 blanks that were landing across word edges
+withdrawn** → surface form stored as the row's answer for inflecting
+courses (migration, owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader
+pass over 6,048 rows → Yoruba headword tones → 22 junk Thai headwords to
+`vocab_exclusions.tsv` → an `unclozable_rows` audit rule that ratchets. And
+a rule for the applier from now on: SURFACE presence, never
+lemma presence — the 31 Aug Russian pass shipped rows the card cannot use.
+
 **9 · English vocabulary the seeder never inserts.** `EnglishSeeder` stops
 at 8,600 of 10,000 headwords: ~1,400 have no WordNet gloss and are skipped,
 and they include `what`, `how`, `because` — absent from production today.
