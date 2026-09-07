@@ -17,6 +17,7 @@ from __future__ import annotations
 import csv
 import logging
 import re
+import unicodedata
 from functools import lru_cache
 from pathlib import Path
 
@@ -65,6 +66,26 @@ def segment(text: str, lexicon: set[str]) -> list[str]:
     return out
 
 
+def _is_word(entry: str) -> bool:
+    """Reject lexicon entries that are not words.
+
+    `data/th_frequency.tsv` carries 22 headwords that are a single Thai
+    letter or a bare tone mark — `แ`, `โ`, `ณ`, `เ`, `ร`, `้`, `า` — 16 of
+    them inside the top 2,000 (DEBT.md). A single character cannot be a Thai
+    word: the script builds a syllable from a consonant plus its vowel, so
+    these are fragments of the writing system rather than vocabulary.
+
+    Keeping them out matters twice over. They let greedy longest-match
+    "parse" a run it does not understand — `ทอมเป็นลูกบุญธรรม` came back as
+    three real words plus `บุ ญ ธ ร ร ม`, every one of them "known", so a
+    clean-parse check waved it through and a length check called it nine
+    words. And they let `answer_span` blank a letter as if it were a word.
+    """
+    if len(entry) < 2:
+        return False
+    return any(unicodedata.category(ch).startswith("L") for ch in entry)
+
+
 @lru_cache(maxsize=1)
 def cloze_lexicon() -> frozenset[str]:
     """Every string this course treats as a Thai word.
@@ -88,7 +109,7 @@ def cloze_lexicon() -> frozenset[str]:
             with (_DATA / name).open(encoding="utf-8-sig", newline="") as handle:
                 for row in csv.DictReader(handle, delimiter="\t"):
                     word = (row.get(column) or "").strip()
-                    if word:
+                    if _is_word(word):
                         words.add(word)
         except OSError as exc:  # noqa: BLE001 — a missing file must never 500
             logger.warning("thai lexicon %s unavailable: %s", name, exc)

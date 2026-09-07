@@ -1439,8 +1439,8 @@ must require SURFACE presence, or write the surface form as the answer.
    the Review and the Learn paths (the bulk query had to start selecting the
    language code, or the walkthrough would have kept the buggy regex).
 
-   **Clozable Thai rows 311 → 3,675 (7% → 84%); top-2,000 words with no
-   showable sentence 1,085 → 110.** Two decisions worth keeping:
+   **Clozable Thai rows 311 → 3,594 (7% → 83%); top-2,000 words with no
+   showable sentence 1,085 → 132.** Three decisions worth keeping:
 
    * **The lexicon is the union of the frequency list and the readings
      table.** Measured separately over the 4,024 rejected rows: readings
@@ -1453,11 +1453,21 @@ must require SURFACE presence, or write the surface form as the answer.
      `thai_reading._segment` already takes: no reading at all rather than a
      partial one. It costs ~12 legitimate rows and refuses ~23 wrong blanks.
 
-   **Left over:** 22 junk headwords in `data/th_frequency.tsv` (16 inside
-   the top 2,000) that are single letters or a bare tone mark — `แ`, `โ`,
-   `ณ`, `ใ`, `เ`, `ะ`, `ธ`, `ร`, `้`, `า`. They are most of the 110 words
-   still without a sentence, and they belong in `vocab_exclusions.tsv`
-   (the `tr` `ş`/`i` class, one course over).
+   * **A single character is not a word, and the lexicon must say so.**
+     `th_frequency.tsv` lists 22 headwords that are one Thai letter or a
+     bare tone mark (`แ`, `โ`, `ณ`, `เ`, `ร`, `้`, `า`; 16 inside the top
+     2,000). While they were in the lexicon, greedy match could "parse" a
+     run it did not understand — `ทอมเป็นลูกบุญธรรม` came back as three real
+     words plus `บุ ญ ธ ร ร ม`, every chunk "known", so a clean-parse check
+     waved it through and a length check called it nine words. Filtering
+     them costs 81 clozable rows and adds 22 dead words — those 22 ARE the
+     junk headwords, which can no longer be blanked as though a letter were
+     a word. The right trade, and the numbers above already include it.
+
+   **Left over:** those same 22 headwords are still CARDS. They belong in
+   `vocab_exclusions.tsv` (the `tr` `ş`/`i` class, one course over), and
+   removing them from the file does not remove them from production until
+   the retire step exists.
 2. **Inflecting courses: blank the SURFACE form and make it the answer.**
    A card for `смотреть` that shows `Не ___ на меня так.` and expects
    `смотри` is a better card than a definition prompt — it teaches the
