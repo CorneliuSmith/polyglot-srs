@@ -515,7 +515,50 @@ and `ERRORS.extracted.md` is still replaced wholesale rather than merged.
 
 ---
 
-## The plan — six phases, one PR each
+## The plan — the phases, and the order they run in
+
+**Read this section first; the phase write-ups below are in the order they
+were WRITTEN, which is no longer the order they run in.** The numbering is
+kept because CHECKS.md, DEBT.md, the decision log and the memory all cite it
+— renaming Phase 2d would break every reference for no gain. What follows is
+the authoritative sequence.
+
+**Re-ordered 6 Sep 2026, and the reason it moved.** The original order was
+"low-frequency courses first, clean AND populate, then the deep pass, then
+sentences for all 27" (owner, 20 Aug). Two measurements taken this week
+overturn its premise:
+
+* **A course's row count says nothing about what a learner meets.** Ranking
+  the 27 by the chance of drawing a bad card in the top-2,000 band — no
+  sentence at all, or the rotation landing on a fragment (CHECKS §26, §29)
+  — puts `yo` 88%, `ko` 82%, `xh` 70%, `th` 69% and `sw` 52% at the top,
+  while `it` (33,159 rows) sits at 24% and `en` at 2%. Size and harm are
+  nearly unrelated.
+* **The definition, not the sentence, is the cheapest fix.** Of 128 cards
+  that fail to determine their answer (CHECKS §28), the judges' cheapest
+  repair was the definition for 77, a form cue for 25, and a better
+  sentence for only 7.
+
+So the deep definition pass moves AHEAD of the bulk sentence authoring, and
+the guards move ahead of both — a guard written after a pass has to be paid
+for twice.
+
+| # | Phase | Why here |
+| --- | --- | --- |
+| **1** | **Guards and instruments** (the 6 Sep queue, items 1–8 of `docs/decisions/2026-09-06-review-pass.md`) | Cheap, code-only, and each one stops a later pass producing waste. `apply_authored_sentences.py` must require SURFACE presence before ANY authoring runs — the 31 Aug Russian pass accepted lemma presence and wrote rows the card cannot display. Then the `unclozable_rows` audit rule, the retire step for exclusions, the English `context` label with its six locales. |
+| **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. |
+| **3** | **Phase 8 — example-sentence fitness** | The authoring queue, worst-first: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro` → the rest. `pt es de nl fr la ru en ha jam` are already under 15% bad cards and need nothing here. |
+| **4** | **Phase 2e — grader collisions** (judgment repairs) and **Phase 2c** gloss completion | Both are bounded lists with the mechanical half already shipped. |
+| **5** | **Phase 3 — grammar and hint debt**, closing with the markdown pass over explanations | Same files, one PR and one reseed per course. |
+| **6** | **Phase 4 — Gym parity** | Owner asked lessons to point at the Gym (#397); the manifests are the remaining half. |
+| **7** | **Phase 5 — extraction leverage** | Facts only, session only. Feeds 2d and 8 for the courses that have sources. |
+| **8** | **Phase 6 — verification** | The full gate and a re-measure of every table in this plan. `docs/quality/refeed.md` is written; the rest is the sweep. |
+| **9** | **Phase 7 — Topic Lens** | Owner decision, 30 Aug: LAST. It reads the glosses Phase 2d rewrites, so classifying earlier means reviewing twice. |
+
+**What is already done** (do not re-plan it): Phase 0; the prune reaching
+thin rows (§24a) and the Thai cloze (§29), both 6 Sep; the drill-gloss pass
+to 73%; the ru/ar authoring to §23; the English thinning.
+
 
 ### Phase 0 — Instruments first (measure before touching) — SHIPPED (#292)
 
@@ -1206,9 +1249,11 @@ none in the §23 band (§26, right-hand column): tr 1,617 · he 1,538 · it
 1,065 · el 1,042 · ko 1,018 · id 802 · es 784 · pt 782 · de 738 · nl 683 ·
 ro 666 · tl 620 · ca 509 · fa 448 · sw 414 · fr 398 · hi 320 · xh 298 · yo
 128 · en 75 · ar 18 · mi 15 · ha 7 · ru 6 · jam 1 · la 0. Plus the 378 bare
-rows from (1). Order stays the 20 Aug plan order after the owner's ru/ar:
-`mi xh yo` → `id tl he fa` → `en` → the well-resourced courses, `th`
-excluded (§22). Method stays `apply_authored_sentences.py` — 7–14 words,
+rows from (1). **Order re-set 6 Sep** by the harm ranking in "The plan" above, replacing
+the 20 Aug order: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi
+ro` → the rest. Ten courses need nothing here (`pt es de nl fr la ru en ha
+jam`, all under 15% bad cards). Thai is IN now that its cloze works (§29),
+but its sentences are judged by segment count, not whitespace (§22). Method stays `apply_authored_sentences.py` — 7–14 words,
 presence check, `difficulty_rank` = the word's frequency rank (rule 41).
 
 **10 · The prompt must determine the form — CHECKS §28.** The `do` card.
