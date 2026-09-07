@@ -58,9 +58,16 @@ so the loop below starts at es. Rerunning a finished course is harmless.
 for c in es fa fr ha he hi id it jam ko la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
 ```
 
+**The prune is already done** — you ran the 27-course loop at 03:03 on
+7 Sep (the rollback files are in `out/`). A dry run on the evening of
+7 Sep would delete 10 rows in all: ar 3, tr 6, en 1. Nothing to run.
+
 ```bash
-for c in ar ca de el en es fa fr ha he hi id it jam ko la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.prune_sentences -l $c --apply; done
+.venv/bin/python -m backend.services.seeder.prune_sentences
 ```
+
+(that is the dry run, if you want to see it for yourself; `--apply` is not
+needed.)
 
 The original step list below is kept for the record; steps 0, 1 and 2b are
 done.
