@@ -41,10 +41,8 @@ word	sentence	translation	difficulty_rank
 ไป	ผมไปกับคุณได้	I can go with you.	60
 ได้	ผมไปกับคุณได้	I can go with you.	60
 ผม	ผมไปกับคุณได้	I can go with you.	60
-า	มันคือฮาร์ป	It's a harp.	69
 มัน	มันคือฮาร์ป	It's a harp.	69
 ร	มันคือฮาร์ป	It's a harp.	69
-์	มันคือฮาร์ป	It's a harp.	69
 โอเค	มันโอเค	It's OK.	69
 มัน	มันโอเค	It's OK.	69
 อะไร	มันคืออะไร?	What is it?	69
@@ -110,10 +108,8 @@ word	sentence	translation	difficulty_rank
 ทอม	สวัสดีทอม	Hi, Tom.	126
 ทอม	ฉันคือทอม	I'm Tom.	126
 ออกไป	ทอมออกไปแล้ว	Tom left.	126
-แ	ทอมแแก	Tom quit.	126
 แก	ทอมแแก	Tom quit.	126
 หา	หาทอม	Find Tom.	126
-่	ทอมแกว่ง	Tom waved.	126
 แก	ทอมแกว่ง	Tom waved.	126
 อรุณสวัสดิ์	อรุณสวัสดิ์ ทอม	Good morning, Tom.	126
 กับ	ไปกับทอม	Go with Tom.	126
@@ -147,7 +143,6 @@ word	sentence	translation	difficulty_rank
 เป็น	พวกนี้เป็นของคุณหรือไม่?	Are these yours?	139
 บ	ทอมเป็นลูกบุญธรรม	Tom's adopted.	139
 ร	ทอมเป็นลูกบุญธรรม	Tom's adopted.	139
-ุ	ทอมเป็นลูกบุญธรรม	Tom's adopted.	139
 ธ	ทอมเป็นลูกบุญธรรม	Tom's adopted.	139
 ที่รัก	ทอมเป็นที่รักของเพื่อนของเขา	Tom is liked by his friends.	139
 ที่	คุณเป็นแม่ที่ดี	You're a good mother.	139
@@ -167,7 +162,6 @@ word	sentence	translation	difficulty_rank
 ถึง	ทำไมคุณถึงไม่มา?	Why didn't you come?	159
 ยัง	เขายังมาไม่ถึง	He hasn't arrived yet.	159
 ถึง	เขายังมาไม่ถึง	He hasn't arrived yet.	159
-่	ทำไมคุณถึงทำไม่ได้	Why can't you do it?	159
 ถึง	ทำไมคุณถึงทำไม่ได้	Why can't you do it?	159
 ได้	ทำไมคุณถึงทำไม่ได้	Why can't you do it?	159
 ยินดีต้อนรับ	ยินดีต้อนรับ	Welcome.	160
@@ -186,7 +180,6 @@ word	sentence	translation	difficulty_rank
 ไม่รู้	เขาไม่รู้อะไร	He knows nothing.	167
 ไม่รู้	ฉันไม่รู้นั่น	I don't know that.	167
 ไม่รู้	ทอมไม่รู้	Tom didn't know.	167
-ั	ฉันไม่รู้จักคุณ	I don't know you.	167
 จ	ฉันไม่รู้จักคุณ	I don't know you.	167
 เธอ	ฉันไม่รู้ว่าเธอเป็นใคร	I have no idea who she is.	167
 ทั้งหมด	นั่นคือทั้งหมด	That's about it.	173
@@ -222,7 +215,6 @@ word	sentence	translation	difficulty_rank
 ถูก	ใครถูก?	Who was right?	199
 ถูก	มันไม่ถูก	It isn't cheap.	199
 ผ	ถูกเผงเลย	Exactly!	199
-เ	ถูกเผงเลย	Exactly!	199
 เพราะว่า	นั่นเป็นเพราะว่าคุณเป็นผู้หญิง	That's because you're a girl.	201
 ผู้หญิง	นั่นเป็นเพราะว่าคุณเป็นผู้หญิง	That's because you're a girl.	201
 ผู้หญิง	คุณคือผู้หญิงของฉัน	You're my woman.	201
@@ -335,7 +327,6 @@ word	sentence	translation	difficulty_rank
 รัก	พระเจ้ารักคุณ	God loves you.	269
 พวกเรา	พวกเรารักทอม	We love Tom.	269
 ร	ฉันรักร็อค	I love rock music.	269
-็	ฉันรักร็อค	I love rock music.	269
 ค	ฉันรักร็อค	I love rock music.	269
 ผู้ชาย	ฉันเป็นผู้ชาย	I am a man.	271
 ผู้ชาย	พวกเราคือผู้ชาย	We are men.	271
@@ -348,7 +339,6 @@ word	sentence	translation	difficulty_rank
 ผมรักคุณ	ผมรักคุณมากกว่าที่คุณรักผม	I love you more than you love me.	279
 ขอร้อง	เธอขอร้องให้เขาอยู่	She begged him to stay.	288
 ให้	เธอขอร้องให้เขาอยู่	She begged him to stay.	288
-้	ไปให้พ้น, ทอม	Go away, Tom.	288
 ให้	ไปให้พ้น, ทอม	Go away, Tom.	288
 เดือน	ให้เวลาฉันสามเดือน	Give me three months.	288
 สาม	ให้เวลาฉันสามเดือน	Give me three months.	288
@@ -360,15 +350,12 @@ word	sentence	translation	difficulty_rank
 บ้าน	ฉันอยู่บ้าน	I'm at home.	289
 บ้าน	อยู่บ้าน	Stay at home.	289
 ตอนนั้น	ฉันอยู่ที่บ้านตอนนั้น	I was at home then.	289
-็	บ้านของทอมไม่ได้ล็อค	Tom's house wasn't locked.	289
 ค	บ้านของทอมไม่ได้ล็อค	Tom's house wasn't locked.	289
 เหมือน	พวกเขาเหมือนครอบครัว	They're like family.	290
 ครอบครัว	พวกเขาเหมือนครอบครัว	They're like family.	290
 ครอบครัว	ทอมมีครอบครัวแล้ว	Tom has a family now.	290
 จะ	ฉันจะไม่ตาย	I won't die.	291
 จะ	พวกเขาจะรอเรา	They will wait for us.	291
-ไ	คุณจะไปเมื่อไหร่?	When will you leave?	291
-่	คุณจะไปเมื่อไหร่?	When will you leave?	291
 เมื่อ	คุณจะไปเมื่อไหร่?	When will you leave?	291
 จะ	คุณจะไปเมื่อไหร่?	When will you leave?	291
 ไม่เป็นไร	เราจะไม่เป็นไร	We're going to be fine.	291
@@ -377,7 +364,6 @@ word	sentence	translation	difficulty_rank
 หา	ฉันจะไปหาคุณพรุ่งนี้	I'll visit you tomorrow.	291
 วัน	ฉันจะหยุดสองหรือสามวัน	I'll take two or three days off.	291
 สอง	ฉันจะหยุดสองหรือสามวัน	I'll take two or three days off.	291
-ไ	ฉันไม่รู้ว่าเขาจะมาเมื่อไหร่	I don't know when he's coming.	291
 เมื่อ	ฉันไม่รู้ว่าเขาจะมาเมื่อไหร่	I don't know when he's coming.	291
 พวกคุณ	พวกคุณจะไปที่ไหน	Where are you guys headed?	291
 ดื่ม	ผมจะออกไปดื่ม	I'm going out for a drink.	291
@@ -393,7 +379,6 @@ word	sentence	translation	difficulty_rank
 ปล่อย	ปล่อยฉันไป	Let me go.	298
 ฟัง	ฟังนะ	Listen.	299
 ฟัง	ทอมฟัง	Tom listens.	299
-้	เฮ้ฟังฉัน	Hey, listen to me.	299
 เฮ	เฮ้ฟังฉัน	Hey, listen to me.	299
 ถ้า	ฉันจะไม่ดื่มมันหรอกถ้าฉันเป็นคุณ	I wouldn't drink that if I were you.	302
 หรอก	ฉันจะไม่ดื่มมันหรอกถ้าฉันเป็นคุณ	I wouldn't drink that if I were you.	302
@@ -416,7 +401,6 @@ word	sentence	translation	difficulty_rank
 ถูกต้อง	ครั้งนี้คุณทำถูกต้องแล้ว	You did that right this time.	307
 เพื่อ	คุณทำอย่างนั้นเพื่อใคร	Who did you do that for?	307
 ทั้งหมด	นั่นคือทั้งหมดที่เราทำ	That's all we ever do.	307
-ั	แม่กับพ่อไม่ได้มากับฉัน	Mum and Dad aren't coming with me.	308
 บ	แม่กับพ่อไม่ได้มากับฉัน	Mum and Dad aren't coming with me.	308
 มาก	แม่กับพ่อไม่ได้มากับฉัน	Mum and Dad aren't coming with me.	308
 มาก	มันดีมาก	It's very good.	308
@@ -427,7 +411,6 @@ word	sentence	translation	difficulty_rank
 รู้	ฉันรู้	I know!	309
 รู้	ทอมรู้	Tom knew.	309
 รู้	ใครจะรู้?	Who knows?	309
-ั	ฉันรู้ว่าคุณไม่รู้จักทอม	I know you don't know Tom.	309
 จ	ฉันรู้ว่าคุณไม่รู้จักทอม	I know you don't know Tom.	309
 เรื่อง	คุณรู้ว่ามันเป็นเรื่องจริง	You know it's true.	309
 จริง	คุณรู้ว่ามันเป็นเรื่องจริง	You know it's true.	309
@@ -470,7 +453,6 @@ word	sentence	translation	difficulty_rank
 ขวบ	ผมมีลูกชายอายุสามขวบ	I've got a three-year-old son.	331
 ตั้งแต่	ฉันอยู่ที่นี่มาตั้งแต่ปี 2556	I've lived here since 2013.	332
 ทหาร	พวกเขาไม่ใช่ทหาร	They're not soldiers.	333
-ไ	คุณเป็นทหารเมื่อไหร่	When were you a soldier?	333
 เมื่อ	คุณเป็นทหารเมื่อไหร่	When were you a soldier?	333
 ทหาร	คุณเป็นทหารเมื่อไหร่	When were you a soldier?	333
 เท่านั้น	คือเท่านั้นหรือ?	Is that it?	335
@@ -532,10 +514,7 @@ word	sentence	translation	difficulty_rank
 โมง	คุณตื่นหกโมงไหม?	Do you get up at six?	372
 หก	คุณตื่นหกโมงไหม?	Do you get up at six?	372
 น่ารัก	คุณน่ารัก	You're cute.	375
-้	ฉันมุ่งเน้นไปที่นั่น	I've been focusing on that.	377
 ที่นั่น	ฉันมุ่งเน้นไปที่นั่น	I've been focusing on that.	377
-ุ	ฉันมุ่งเน้นไปที่นั่น	I've been focusing on that.	377
-เ	ฉันมุ่งเน้นไปที่นั่น	I've been focusing on that.	377
 ที่นั่น	คุณอยู่ที่นั่นหรือไม่?	Are you there?	377
 ที่นั่น	เราจะไปที่นั่นเวลา 2:30 น.	We'll be there at 2:30.	377
 พรุ่งนี้	เจอกันพรุ่งนี้	See you tomorrow.	382
@@ -614,8 +593,6 @@ word	sentence	translation	difficulty_rank
 พี่ชาย	อันที่จริงทอมเป็นพี่ชายของฉัน	Actually, Tom is my older brother.	426
 อัน	อันที่จริงทอมเป็นพี่ชายของฉัน	Actually, Tom is my older brother.	426
 ไฟ	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
-แ	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
-็	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
 ค	คุณมีไฟแช็คไหม?	Do you have a lighter?	428
 สัปดาห์	สามสัปดาห์ผ่านไป	Three weeks went by.	436
 ผ่าน	สามสัปดาห์ผ่านไป	Three weeks went by.	436
@@ -667,7 +644,6 @@ word	sentence	translation	difficulty_rank
 รึ	พร้อมรึยัง	Are you ready?	471
 ถอย	อย่าถอย	Don't back off.	473
 ถนน	ถนนร้าง	The street is deserted.	475
-า	ถนนร้าง	The street is deserted.	475
 ไม่น่าเชื่อ	ไม่น่าเชื่อ!	Unbelievable!	478
 ก่อน	มีคนเคยมาที่นี่ก่อนเรา	Someone has been here before us.	479
 เคย	มีคนเคยมาที่นี่ก่อนเรา	Someone has been here before us.	479
@@ -786,7 +762,6 @@ word	sentence	translation	difficulty_rank
 ต้องการ	ลูกของฉันต้องการที่จะพูด	My baby wants to talk.	557
 ความรัก	ฉันต้องการความรัก	I need love.	557
 ต้องการ	ฉันต้องการความรัก	I need love.	557
-ุ	ทอมต้องการบรรลุอะไร	What does Tom want to achieve?	557
 เช่น	ทอมต้องการทำเช่นนั้น	Tom does want to do that.	557
 จาก	คุณต้องการอะไรจากฉัน?	What do you want with me?	557
 ลา	คุณต้องการที่จะบอกลาไหม?	Do you want to say goodbye?	557
@@ -829,7 +804,6 @@ word	sentence	translation	difficulty_rank
 ความตาย	ฉันหนีความตาย	I escaped death.	578
 หนี	ฉันหนีความตาย	I escaped death.	578
 ข้อความ	ฝากข้อความไว้	Leave a message.	582
-า	ฝากข้อความไว้	Leave a message.	582
 แท็กซี่	ฉันจะหาแท็กซี่ได้ที่ไหน?	Where can I get a taxi?	583
 แท็กซี่	เราจะนั่งแท็กซี่กันไหม?	Shall we take a taxi?	583
 แท็กซี่	แท็กซี่มาแล้ว	The taxi's here.	583
@@ -877,9 +851,7 @@ word	sentence	translation	difficulty_rank
 เข้า	กลับเข้าบ้านกันเถอะ	Get back in the house.	607
 เถอะ	กลับเข้าบ้านกันเถอะ	Get back in the house.	607
 เย	ทุกคนหัวเราะเยาะเขา	Everyone laughed at him.	612
-ะ	ทุกคนหัวเราะเยาะเขา	Everyone laughed at him.	612
 เย	ทุกคนหัวเราะเยาะฉัน	Everybody laughed at me.	612
-ะ	ทุกคนหัวเราะเยาะฉัน	Everybody laughed at me.	612
 จนกว่า	รอจนกว่าทอมจะกลับมา	Let's wait until Tom gets back.	614
 จนกว่า	อย่าทำอะไรจนกว่าฉันจะมา	Don't do anything until I come.	614
 ครั้งแรก	นี่ไม่น่าจะใช่ครั้งแรกที่คุณมาช้า	It's not exactly the first time you've arrived late.	617
@@ -913,7 +885,6 @@ word	sentence	translation	difficulty_rank
 คนโง่	คุณเป็นคนโง่	You're an idiot.	641
 บ้าง	เขาบอกอะไรกับคุณบ้างไหม?	Did he tell you anything?	642
 บ้าง	พวกเขาพูดอะไรบ้าง	What are they saying?	642
-ใ	จดใว้ว่ามีอะไรบ้าง	Make a list.	642
 บ้าง	จดใว้ว่ามีอะไรบ้าง	Make a list.	642
 จ	จดใว้ว่ามีอะไรบ้าง	Make a list.	642
 เซอร์ไพรส์	ฉันมีเซอร์ไพรส์ให้คุณ	I have a surprise for you.	646
@@ -1110,7 +1081,6 @@ word	sentence	translation	difficulty_rank
 ทำให้	ทอมทำให้ฉันกลัว	Tom frightened me.	788
 ชีวิต	มันทำให้ชีวิตผมง่ายขึ้น	It makes my life easier.	788
 เซ	ทอมเดินโซเซ	Tom stutters.	790
-โ	ทอมเดินโซเซ	Tom stutters.	790
 มอง	ฉันมองไปรอบ ๆ	I looked around me.	793
 รอบ	ฉันมองไปรอบ ๆ	I looked around me.	793
 มอง	คุณมองเห็นพวกเขามั้ย?	Can you see them?	793
@@ -1273,7 +1243,6 @@ word	sentence	translation	difficulty_rank
 ชิม	นั่นดูน่าอร่อย ฉันจะลองชิมดู	That looks delicious. I'd like to try it.	916
 อร่อย	นั่นดูน่าอร่อย ฉันจะลองชิมดู	That looks delicious. I'd like to try it.	916
 เสื้อผ้า	เธอนี่แขวะฉันเรื่องเสื้อผ้าตลอดเลยนะ	You are always digging at me about my clothes.	918
-แ	เธอนี่แขวะฉันเรื่องเสื้อผ้าตลอดเลยนะ	You are always digging at me about my clothes.	918
 วะ	เธอนี่แขวะฉันเรื่องเสื้อผ้าตลอดเลยนะ	You are always digging at me about my clothes.	918
 ตลอด	เธอนี่แขวะฉันเรื่องเสื้อผ้าตลอดเลยนะ	You are always digging at me about my clothes.	918
 ขนาด	คุณรู้ขนาดของคุณไหม?	Do you know your size?	921
@@ -1350,7 +1319,6 @@ word	sentence	translation	difficulty_rank
 ผ	ฉันไม่มีฟันผุเลย	I don't have any cavities.	960
 คุก	ตอนนี้ทอมอยู่ในคุก	Tom is now in prison.	961
 ชน	เธอเกือบจะถูกรถชน	She was almost hit by a car.	964
-โ	คุณต้องกินอาหารที่มีคุณค่าทางโภชนาการ	You have to eat nutritious food.	964
 ค่า	คุณต้องกินอาหารที่มีคุณค่าทางโภชนาการ	You have to eat nutritious food.	964
 ชน	คุณต้องกินอาหารที่มีคุณค่าทางโภชนาการ	You have to eat nutritious food.	964
 วิทยุ	เปิดวิทยุ	Turn on the radio.	968
@@ -1492,7 +1460,6 @@ word	sentence	translation	difficulty_rank
 พี่น้อง	ฉันสงสัยอยู่เสมอว่ามันจะเป็นอย่างไรที่มีพี่น้อง	I've always wondered what it'd be like to have siblings.	1069
 แฟน	ผมสงสัยว่าทอมมีแฟนแล้วจริงหรือ	I wonder if Tom really has a girlfriend.	1069
 ทะเล	พวกเขาทะเลาะกัน	They quarreled.	1071
-ะ	พวกเขาทะเลาะกัน	They quarreled.	1071
 ทะเล	อย่าทะเลาะกันเรื่องนี้	Let's not quarrel about this.	1071
 ทะเล	ฉันไม่ชอบเห็นคนทะเลาะกัน	I don't like to see people fighting.	1071
 บาง	มีบางอย่างที่เธอต้องรู้	There is something you must know.	1073
@@ -1585,14 +1552,12 @@ word	sentence	translation	difficulty_rank
 เปล่า	นี่ใช่หนังสือที่คุณตามหาอยู่รึเปล่า?	Is this the book you're looking for?	1143
 รึ	นี่ใช่หนังสือที่คุณตามหาอยู่รึเปล่า?	Is this the book you're looking for?	1143
 หัวใจ	เพียงทำตามหัวใจของคุณ	Just follow your heart.	1143
-โ	ฉันทำงานด้านอุปโภคบริโภค	I am in the grocery line.	1144
 ด้าน	ฉันทำงานด้านอุปโภคบริโภค	I am in the grocery line.	1144
 ริ	ฉันทำงานด้านอุปโภคบริโภค	I am in the grocery line.	1144
 ซอ	ผมเป็นซอมบี้ครับ	I'm a zombie!	1145
 ขนมปัง	ขนมปังฝรั่งเศสอร่อย	French bread is delicious.	1146
 อร่อย	ขนมปังฝรั่งเศสอร่อย	French bread is delicious.	1146
 ขนมปัง	มีขนมปังอยู่ในเตาอบ	There's bread in the oven.	1146
-เ	มีขนมปังอยู่ในเตาอบ	There's bread in the oven.	1146
 น้ำตาล	ทอมใช้น้ำผึ้งแทนน้ำตาล	Tom uses honey instead of sugar.	1147
 น้ำผึ้ง	ทอมใช้น้ำผึ้งแทนน้ำตาล	Tom uses honey instead of sugar.	1147
 แทน	ทอมใช้น้ำผึ้งแทนน้ำตาล	Tom uses honey instead of sugar.	1147
@@ -1853,7 +1818,6 @@ word	sentence	translation	difficulty_rank
 ยอมรับ	ทอมยอมรับว่าเขาโกหก	Tom admitted he'd lied.	1314
 ยอมรับ	ผมยอมรับว่าผมทำ	I admitted that I did it.	1314
 ชนิด	นั่นเป็นปลาชนิดอะไร?	What kind of fish is that?	1315
-์	กระต่ายรักแคร์รอต	Rabbits love carrots.	1316
 กระต่าย	กระต่ายรักแคร์รอต	Rabbits love carrots.	1316
 แชมเปญ	ขอแชมเปญได้ไหม	Champagne, please.	1318
 ลม	ฉันเป็นลม	I fainted.	1319
@@ -1909,7 +1873,6 @@ word	sentence	translation	difficulty_rank
 ป่วย	ฉันรู้สึกป่วย	I feel sick.	1359
 ป่วย	ทอมป่วย	Tom's sick.	1359
 นักเรียน	นักเรียนจำนวนมากทำงานพาร์ทไทม์	A lot of students do part-time jobs.	1360
-์	นักเรียนจำนวนมากทำงานพาร์ทไทม์	A lot of students do part-time jobs.	1360
 ไท	นักเรียนจำนวนมากทำงานพาร์ทไทม์	A lot of students do part-time jobs.	1360
 จำนวน	นักเรียนจำนวนมากทำงานพาร์ทไทม์	A lot of students do part-time jobs.	1360
 แขก	แขกของคุณกำลังรอ	Your guests are waiting.	1362
@@ -4172,7 +4135,6 @@ word	sentence	translation	difficulty_rank
 เห	ทอมคือผู้ชายคนนั้นเหรอ?	Is that boy Tom?	562
 เมื่อ	ทอมร้องไห้เมื่อฉันกลับถึงบ้าน	Tom was crying when I got home.	571
 ต้อง	ทอมต้องไปตอนนี้หรือไม่?	Does Tom need to go right now?	579
-า	ทุกคนหัวเราะเยาะเขา	Everyone laughed at him.	584
 เต้น	ทอมเริ่มเต้น	Tom started dancing.	608
 บ้าง	ทอมเป็นไงบ้าง?	How's Tom?	613
 เล่น	พูดเล่น	Just kidding!	623
@@ -4190,12 +4152,9 @@ word	sentence	translation	difficulty_rank
 เมื่อ	อุบัติเหตุเกิดขึ้นเมื่อสองชั่วโมงก่อน	The accident happened two hours ago.	908
 แก	ฉันต้องกินยาแก้แพ้ค่ะ	I need allergy medicine, please.	911
 และ	ฉันเปิดกล่องและมองเข้าไปข้างใน	I opened the box and looked inside.	914
-ุ	ฉันไม่มีฟันผุเลย	I don't have any cavities.	917
-ุ	ไข่มุกเหล่านี้ดูเหมือนจริง	These pearls look real.	996
 สนุก	ขอให้สนุก	Have fun.	1021
 สงสัย	ฉันสงสัยว่าเกิดอะไรขึ้น	I wonder what happened.	1022
 บาง	มีอะไรบางอย่างอยู่ในตาของฉัน	I got something in my eye.	1026
-ุ	เนื้อนี่ละมุน	This beef is tender.	1039
 ราคา	ราคาเนื้อจะลงเร็วๆนี้	The price of meat will soon come down.	1039
 ขาย	ทอมกำลังจะขายบ้านของเขา	Tom is going to sell his house.	1091
 เพียง	เพียงทำตามหัวใจของคุณ	Just follow your heart.	1092
