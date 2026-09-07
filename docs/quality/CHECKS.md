@@ -1661,6 +1661,13 @@ now strips the chips in the same step (`morphology_changes`, rolled back
 with the rest). Also recorded: the override now outranks `ar_seed.json` for
 the 26 Arabic words in both (`ar.md`).
 
+**And the apply stopped being silent.** It was one statement per row over the
+pooler — 6,000 round trips, twenty minutes, no output after the rollback path,
+which the owner reasonably read as a hang. Now UNNEST arrays in chunks of 500
+with a line per course and kind (`test_reconcile_apply_batched.py`). Third
+time this project has paid for one-round-trip-per-row; `seed_grammar` is the
+last tool that still does it (DEBT).
+
 **Verified:** `backend/tests/test_reconcile_overrides.py` (the overlay in
 `expected_rows`, the survey reporting an override as a correction, `new`
 glossed-only, the retire column printed, a migration-behind database keeping

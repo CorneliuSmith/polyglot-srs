@@ -410,58 +410,120 @@ def write_rollback(reports: list[dict], stamp: str) -> Path:
     return path
 
 
-async def apply(conn, reports: list[dict]) -> dict:
+# One statement per row over the Supabase pooler is what made the 7 Sep
+# apply — about 6,000 rows — take twenty silent minutes (DEBT). The seeder
+# learned this already: `BaseSeeder.load` batches with UNNEST for the same
+# reason. 500 keeps each statement's parameter arrays small enough to stay
+# comfortably inside Postgres's limits while cutting the round trips by the
+# same factor.
+APPLY_CHUNK = 500
+
+
+async def _apply_batched(conn, sql: str, rows: list[dict], *fields: str) -> int:
+    """Run *sql* once per chunk, passing one array per field.
+
+    *sql* takes the fields as $1..$n arrays, in the order given. Returns the
+    number of rows sent, so a caller's counter still counts ROWS, not
+    statements — the summary line means the same thing it always did.
+    """
+    for start in range(0, len(rows), APPLY_CHUNK):
+        chunk = rows[start:start + APPLY_CHUNK]
+        await conn.execute(sql, *([r[f] for r in chunk] for f in fields))
+    return len(rows)
+
+
+async def apply(conn, reports: list[dict], progress=None) -> dict:
+    """Write every surveyed change inside one transaction.
+
+    *progress* is called with (kind, rows) as each kind lands, so a long run
+    says what it is doing instead of printing nothing for twenty minutes.
+    """
     counts = {"gloss": 0, "pos": 0, "morphology": 0, "added_translation": 0,
                "sentence_layers": 0, "retired": 0, "unretired": 0}
+
+    def note(kind: str, n: int) -> None:
+        if n and progress is not None:
+            progress(kind, n)
+
     async with conn.transaction():
         for rep in reports:
-            for c in rep.get("gloss_changes", []):
-                await conn.execute(
-                    "UPDATE translations SET definition = $1 "
-                    "WHERE vocabulary_id = $2 AND locale = 'en'",
-                    c["new"], c["id"])
-                counts["gloss"] += 1
-            for c in rep.get("sentence_layers", []):
-                # COALESCE-free on purpose: survey already proved the column is
-                # empty, and a plain SET makes the rollback exact.
-                if c["transliteration"] is not None:
-                    await conn.execute(
-                        "UPDATE example_sentences SET transliteration = $1 WHERE id = $2",
-                        c["transliteration"], c["id"])
-                if c["gloss"] is not None:
-                    await conn.execute(
-                        "UPDATE example_sentences SET gloss = $1 WHERE id = $2",
-                        c["gloss"], c["id"])
-                counts["sentence_layers"] += 1
-            for c in rep.get("missing_translation", []):
-                await conn.execute(
-                    "INSERT INTO translations (vocabulary_id, locale, definition) "
-                    "VALUES ($1, 'en', $2) "
-                    "ON CONFLICT (vocabulary_id, locale) DO UPDATE SET definition = $2",
-                    c["id"], c["new"])
-                counts["added_translation"] += 1
-            for c in rep.get("pos_changes", []):
-                await conn.execute(
-                    "UPDATE vocabulary SET part_of_speech = $1 WHERE id = $2",
-                    c["new"], c["id"])
-                counts["pos"] += 1
-            for c in rep.get("morphology_changes", []):
-                await conn.execute(
-                    "UPDATE vocabulary SET morphology = $1::jsonb WHERE id = $2",
-                    c["new"], c["id"])
-                counts["morphology"] += 1
+            code = rep.get("code", "?")
+            n = await _apply_batched(
+                conn,
+                "UPDATE translations SET definition = u.definition "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(definition, id) "
+                "WHERE translations.vocabulary_id = u.id "
+                "AND translations.locale = 'en'",
+                rep.get("gloss_changes", []), "new", "id")
+            counts["gloss"] += n
+            note(f"{code} glosses", n)
+
+            layers = rep.get("sentence_layers", [])
+            # COALESCE-free on purpose: survey already proved the column is
+            # empty, and a plain SET makes the rollback exact. The two columns
+            # are written separately because a row may need only one.
+            await _apply_batched(
+                conn,
+                "UPDATE example_sentences SET transliteration = u.value "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(value, id) "
+                "WHERE example_sentences.id = u.id",
+                [c for c in layers if c["transliteration"] is not None],
+                "transliteration", "id")
+            await _apply_batched(
+                conn,
+                "UPDATE example_sentences SET gloss = u.value "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(value, id) "
+                "WHERE example_sentences.id = u.id",
+                [c for c in layers if c["gloss"] is not None], "gloss", "id")
+            counts["sentence_layers"] += len(layers)
+            note(f"{code} sentence layers", len(layers))
+
+            n = await _apply_batched(
+                conn,
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "SELECT u.id, 'en', u.definition "
+                "FROM unnest($1::uuid[], $2::text[]) AS u(id, definition) "
+                "ON CONFLICT (vocabulary_id, locale) "
+                "DO UPDATE SET definition = EXCLUDED.definition",
+                rep.get("missing_translation", []), "id", "new")
+            counts["added_translation"] += n
+            note(f"{code} translations", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET part_of_speech = u.pos "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(pos, id) "
+                "WHERE vocabulary.id = u.id",
+                rep.get("pos_changes", []), "new", "id")
+            counts["pos"] += n
+            note(f"{code} parts of speech", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET morphology = u.morphology::jsonb "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(morphology, id) "
+                "WHERE vocabulary.id = u.id",
+                rep.get("morphology_changes", []), "new", "id")
+            counts["morphology"] += n
+            note(f"{code} morphologies", n)
+
             # The learner's `user_cards` row is untouched: retiring stops the
             # word being DRAWN, it does not take away progress already made.
-            for c in rep.get("retire", []):
-                await conn.execute(
-                    "UPDATE vocabulary SET retired_at = now() WHERE id = $1",
-                    c["id"])
-                counts["retired"] += 1
-            for c in rep.get("unretire", []):
-                await conn.execute(
-                    "UPDATE vocabulary SET retired_at = NULL WHERE id = $1",
-                    c["id"])
-                counts["unretired"] += 1
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET retired_at = now() "
+                "WHERE id = ANY($1::uuid[])",
+                rep.get("retire", []), "id")
+            counts["retired"] += n
+            note(f"{code} retired", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET retired_at = NULL "
+                "WHERE id = ANY($1::uuid[])",
+                rep.get("unretire", []), "id")
+            counts["unretired"] += n
+            note(f"{code} unretired", n)
     return counts
 
 
@@ -578,7 +640,9 @@ async def main() -> int:
         stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
         path = write_rollback(reports, stamp)
         print(f"\nrollback written first: {path}")
-        counts = await apply(conn, reports)
+        counts = await apply(
+            conn, reports,
+            progress=lambda kind, n: print(f"  {kind}: {n:,}", flush=True))
         # sentence_layers was tallied and never printed — the same omission
         # the report column had. On the 30 Aug production apply the summary
         # read "532 glosses, 0 translations, 3409 parts of speech" while
