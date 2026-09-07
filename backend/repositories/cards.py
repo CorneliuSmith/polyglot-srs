@@ -38,6 +38,23 @@ from backend.services.topic_taxonomy import HIDDEN_TOPICS
 # uses, so all three layers mark the gap the same way.
 BLANK_READING = "___"
 
+
+def _blanked(text: str | None) -> str | None:
+    """A support layer with the answer marker still in it, made showable.
+
+    The marker is Latin text, so a romaniser passes it through untouched and
+    the learner reads "u mu'allim {{answer}}." under an Arabic sentence. The
+    vocabulary card learned this already (`_vocab_card` blanks before it
+    romanises, CHECKS §11); the grammar card served whatever the drill row
+    stored, and 1,612 of them store the marker — ko 921, th 268, hi 248,
+    he 88, fa 87, every one of them a course whose layer order shows a
+    reading. Substituting here rather than rewriting the rows fixes what is
+    already in production, without a reseed.
+    """
+    if not text:
+        return text
+    return text.replace(ANSWER_MARKER, BLANK_READING)
+
 logger = logging.getLogger(__name__)
 
 
@@ -686,8 +703,9 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         answer = (r["drill_answers"] or [None])[idx]
         hint = (r["drill_hints"] or [None] * len(drills))[idx]
         translation = (r["drill_translations"] or [None] * len(drills))[idx]
-        gloss = (r["drill_glosses"] or [None] * len(drills))[idx]
-        transliteration = (r["drill_transliterations"] or [None] * len(drills))[idx]
+        gloss = _blanked((r["drill_glosses"] or [None] * len(drills))[idx])
+        transliteration = _blanked(
+            (r["drill_transliterations"] or [None] * len(drills))[idx])
         translation, context = split_note(
             r["language_code"], translation,
             (r["drill_base_translations"] or [None] * len(drills))[idx])
@@ -1920,8 +1938,8 @@ async def get_card_details_bulk(
                     "sentence": e["sentence"],
                     "answer": e["answer"],
                     "translation": e["translation"],
-                    "gloss": e["gloss"],
-                    "transliteration": e["transliteration"],
+                    "gloss": _blanked(e["gloss"]),
+                    "transliteration": _blanked(e["transliteration"]),
                     "hint": e["hint"],
                 }
         # The "in context" block shows 5 of the point's drills — but sampled
@@ -2517,8 +2535,8 @@ async def get_cram_cards(
                 "correct_answer": r["answers"][i],
                 "hint": r["hints"][i],
                 "translation": r["translations"][i],
-                "gloss": r["glosses"][i],
-                "transliteration": r["transliterations"][i],
+                "gloss": _blanked(r["glosses"][i]),
+                "transliteration": _blanked(r["transliterations"][i]),
                 # Paradigm cell + authored dictionary form — the raw material
                 # for the standardized baseline built after chart attach.
                 "cell": r["cells"][i] if r["cells"] else None,

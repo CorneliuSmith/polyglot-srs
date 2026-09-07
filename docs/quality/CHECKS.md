@@ -1675,6 +1675,34 @@ its row, `prepare_records` applying the override, the overlay-before-charts
 order, the chip strip on a pos change, and the shipped file carrying the
 Turkish particle).
 
+## §32 The grammar card printed the answer marker in its reading line (7 Sep 2026)
+
+**Status: all 27** — one card-layer fix; five courses carry the data
+(`ko` 921 drills, `th` 268, `hi` 248, `he` 88, `fa` 87).
+
+CHECKS §11 recorded this for the vocabulary card: the blank marker is Latin
+text, so every romaniser passes it through untouched and the learner reads
+`READING {{answer}}?` under a script they cannot yet decode. `_vocab_card`
+was fixed then — it blanks before it romanises. **The grammar card was not.**
+It serves whatever the drill row stored, and 1,612 committed drill rows store
+`{{answer}}` in their transliteration where the convention is `___`. Every one
+of those five courses has a layer order that shows the reading, so the marker
+was on screen.
+
+Found while fixing the Korean paradigm gap, by asking what ELSE the grammar
+files carry that the card renders without reading it first.
+
+**Fixed in the card, not the data** (`_blanked` in `repositories/cards.py`,
+applied on the review, learn-quiz and cram paths): the rows are already in
+production, so a data fix would need a reseed before a learner stopped seeing
+it, and the card fix costs nothing and covers both. The sentence keeps its
+marker — the input box is drawn by splitting on it.
+
+**Verified:** `backend/tests/test_drill_reading_marker.py` — the helper, the
+three card paths, that the sentence keeps its marker, and a measurement of the
+corpus the fix protects, plus a check that those five courses really do show a
+reading layer (what makes it a defect rather than dead data).
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules
