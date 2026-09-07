@@ -165,6 +165,7 @@ class EnglishSeeder(BaseSeeder):
         overrides = load_gloss_overrides("en")
 
         records = []
+        unglossed: list[tuple[int, str]] = []
         for rank, word in freq_words:
             lower = word.lower()
             override = overrides.get(word) or overrides.get(lower)
@@ -190,7 +191,20 @@ class EnglishSeeder(BaseSeeder):
                 # Look up WordNet synsets for definition
                 synsets = wn.synsets(word)
                 if not synsets:
-                    # Skip words with no synsets (unknown terms)
+                    # WordNet has no entry, so there is nothing to define the
+                    # word with and it cannot be taught. Recorded rather than
+                    # skipped in silence: this is why `what` (rank 16), `how`
+                    # (54) and `because` (107) were absent from the English
+                    # course for months while the seeder reported success —
+                    # 1,389 words, 125 of them inside the top 2,000.
+                    #
+                    # The fix for one of these is a row in
+                    # `gloss_overrides.tsv`, which is read above and which the
+                    # other 26 courses already use; or, when the "word" is a
+                    # tokenizer's debris (`didn`, `outta`) or a given name, a
+                    # row in `vocab_exclusions.tsv` so it stops being counted
+                    # as a gap.
+                    unglossed.append((rank, word))
                     continue
                 # The sense people actually mean, not WordNet's first — which
                 # is a noun, and made rank 3 `be` the element beryllium. See
@@ -224,6 +238,17 @@ class EnglishSeeder(BaseSeeder):
                 "morphology": json.dumps(morphology, ensure_ascii=False),
                 "translations": {"en": definition},
             })
+
+        if unglossed:
+            top = [w for rank, w in unglossed if rank <= 2000]
+            self.logger.warning(
+                "en: %d of %d words have no WordNet entry and no gloss, so "
+                "they are NOT seeded — %d of them inside the top 2,000%s. "
+                "Give each one a row in gloss_overrides.tsv, or in "
+                "vocab_exclusions.tsv when it is not a word.",
+                len(unglossed), len(freq_words), len(top),
+                f": {', '.join(sorted(top)[:12])}…" if top else "",
+            )
 
         # Per-locale word translations (built by source_data --language en
         # from the kaikki English extract): lets "learning English from X"
