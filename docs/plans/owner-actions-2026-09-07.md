@@ -12,8 +12,17 @@ here 7 Sep, late evening, after the runs finished:
 | `seed_grammar` for all 27 | done, Korean re-run on its own after #436 |
 | `prune_sentences` loop | done 03:03 — 91,774 rows; a dry run now finds 10 |
 
-**The one thing left**, once PR #438 (56 committed-file headword repairs)
-is merged and pulled:
+**The one thing left.** #438 is merged; pull and run the reconcile. Its
+dry run against production, read on the evening of 7 Sep after the merge:
+
+| gloss | pos | retire | new |
+|---:|---:|---:|---:|
+| 61 | 3 | 55 | 0 |
+
+61 definitions: the 56 repaired headwords, the Yoruba pronoun `n` whose
+dormant override had shipped the wrong word, and four Latin rows whose
+one-word stubs ("not", "day", "son", "we") gained real definitions when
+six dormant overrides were re-keyed to their macronised headwords.
 
 ```bash
 git pull origin main
@@ -23,7 +32,7 @@ git pull origin main
 .venv/bin/python -m backend.services.seeder.reconcile -l all
 ```
 
-Expect roughly `gloss 56 · retire 55`. Then:
+Then:
 
 ```bash
 .venv/bin/python -m backend.services.seeder.reconcile -l all --apply
