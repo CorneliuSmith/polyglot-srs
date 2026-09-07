@@ -72,7 +72,7 @@
      "sentence": "{{answer}} ɗalibi ne.",
      "answer": "Shi",
      "translation": "He is a student.",
-     "hint": "he",
+     "hint": "independent subject pronoun — third person, male referent",
      "display_order": 3,
      "gloss": "___ · student · COP.M"
     },
@@ -88,7 +88,7 @@
      "sentence": "{{answer}} malama ce.",
      "answer": "Ita",
      "translation": "She is a teacher.",
-     "hint": "she",
+     "hint": "independent subject pronoun — third person, female referent",
      "display_order": 5,
      "gloss": "___ · teacher · COP.F"
     },
@@ -360,7 +360,7 @@
      "sentence": "Za {{answer}} tafi kasuwa.",
      "answer": "mu",
      "translation": "We will go to the market.",
-     "hint": "we",
+     "hint": "the subject marker paired with the future particle — speaker included, more than one",
      "display_order": 4,
      "gloss": "FUT · ___ · go · market"
     },
@@ -376,7 +376,7 @@
      "sentence": "Za {{answer}} dawo da yamma.",
      "answer": "su",
      "translation": "They will return in the evening.",
-     "hint": "they",
+     "hint": "the person marker paired with the future particle — third person, more than one referent",
      "display_order": 6,
      "gloss": "FUT · ___ · return · in · evening"
     }
@@ -632,7 +632,7 @@
      "sentence": "{{answer}} gidanka?",
      "answer": "Ina",
      "translation": "Where is your house?",
-     "hint": "where",
+     "hint": "question word asking for a location",
      "display_order": 3,
      "gloss": "___ · house.GEN.2SG.M"
     },
@@ -640,7 +640,7 @@
      "sentence": "{{answer}} za ka tafi?",
      "answer": "Yaushe",
      "translation": "When will you go?",
-     "hint": "when",
+     "hint": "question word asking for a point in time",
      "display_order": 4,
      "gloss": "___ · FUT · 2SG.M · go"
     },
@@ -648,7 +648,7 @@
      "sentence": "{{answer}} ne kuɗin wannan?",
      "answer": "Nawa",
      "translation": "How much does this cost?",
-     "hint": "how much",
+     "hint": "question word asking for a quantity or price",
      "display_order": 5,
      "gloss": "___ · COP.M · money.GEN · this"
     },
@@ -656,7 +656,7 @@
      "sentence": "{{answer}} ya dafa abinci?",
      "answer": "Wa",
      "translation": "Who cooked the food?",
-     "hint": "who",
+     "hint": "question word asking for the identity of the doer",
      "display_order": 6,
      "gloss": "___ · 3SG.M.PFV · cook · food"
     }
@@ -772,7 +772,7 @@
      "sentence": "Na gan {{answer}} jiya.",
      "answer": "ta",
      "translation": "I saw her yesterday.",
-     "hint": "her",
+     "hint": "object pronoun — third person, female referent",
      "display_order": 3,
      "gloss": "1SG.PFV · see · ___ · yesterday"
     },
@@ -780,7 +780,7 @@
      "sentence": "Sun kira {{answer}}.",
      "answer": "ni",
      "translation": "They called me.",
-     "hint": "me",
+     "hint": "object pronoun — the speaker as the one acted on",
      "display_order": 4,
      "gloss": "3PL.PFV · call · ___"
     },
@@ -788,7 +788,7 @@
      "sentence": "Ta taimaki {{answer}}.",
      "answer": "su",
      "translation": "She helped them.",
-     "hint": "them",
+     "hint": "object pronoun — third person, more than one referent",
      "display_order": 5,
      "gloss": "3SG.F.PFV · help · ___"
     },
@@ -796,7 +796,7 @@
      "sentence": "Za mu gan {{answer}} gobe.",
      "answer": "ku",
      "translation": "We will see you (plural) tomorrow.",
-     "hint": "you (plural)",
+     "hint": "object pronoun — the addressees, more than one",
      "display_order": 6,
      "gloss": "FUT · 1PL · see · ___ · tomorrow"
     }
@@ -1262,7 +1262,7 @@
      "sentence": "{{answer}} ruwa ya sauka, ba za mu fita ba.",
      "answer": "Idan",
      "translation": "If it rains, we won't go out.",
-     "hint": "if",
+     "hint": "conjunction introducing the condition clause",
      "display_order": 3,
      "gloss": "___ · rain · 3SG.M.PFV · descend · NEG · FUT · 1PL · go.out · NEG"
     },
@@ -1320,7 +1320,7 @@
      "sentence": "{{answer}} littafi nawa ne.",
      "answer": "Wannan",
      "translation": "This book is mine.",
-     "hint": "this",
+     "hint": "demonstrative for a single item near the speaker",
      "cell": "wannan",
      "display_order": 1,
      "gloss": "___ · book.M · 1SG.POSS.M · COP.M"
@@ -1347,7 +1347,7 @@
      "sentence": "{{answer}} mutane ɗalibai ne.",
      "answer": "Waɗannan",
      "translation": "These people are students.",
-     "hint": "these",
+     "hint": "demonstrative for several items near the speaker",
      "cell": "waɗannan",
      "display_order": 4,
      "gloss": "___ · person.PL · student.PL · COP.PL"
@@ -1365,7 +1365,7 @@
      "sentence": "Zo {{answer}}!",
      "answer": "nan",
      "translation": "Come here!",
-     "hint": "here",
+     "hint": "locative adverb pointing at the speaker's own position",
      "cell": "nan",
      "display_order": 6,
      "gloss": "come.IMP · ___"
@@ -2337,7 +2337,7 @@
      "sentence": "Yana so ya zo, {{answer}} ba shi da lokaci.",
      "answer": "amma",
      "translation": "He wants to come, but he has no time.",
-     "hint": "but",
+     "hint": "connector marking contrast between the two clauses",
      "display_order": 4,
      "gloss": "3SG.M.PROG · want · 3SG.M.SBJV · come · ___ · NEG · 3SG.M · with · time"
     },
@@ -2469,7 +2469,7 @@
      "sentence": "Ta ce {{answer}} ba za ta zo ba.",
      "answer": "cewa",
      "translation": "She said that she would not come.",
-     "hint": "that",
+     "hint": "the complementiser introducing reported speech",
      "display_order": 3,
      "gloss": "3SG.F.PFV · say · ___ · NEG · FUT · 3SG.F · come · NEG"
     },
@@ -2950,7 +2950,7 @@
      "sentence": "Haƙuri maganin {{answer}}.",
      "answer": "duniya",
      "translation": "Patience is the medicine of the world.",
-     "hint": "the world",
+     "hint": "the noun in the possessive phrase — all of existence, life at large",
      "display_order": 2,
      "gloss": "patience · medicine.GEN · ___"
     },

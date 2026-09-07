@@ -660,7 +660,7 @@
           "sentence": "Это {{answer}} книги.",
           "answer": "мои",
           "translation": "These are my books.",
-          "hint": "plural",
+          "hint": "possessive for a single owner — let the noun's number decide the ending",
           "display_order": 4,
           "transliteration": "E'to ___ knigi.",
           "cell": "pl",
@@ -4617,7 +4617,7 @@
           "sentence": "{{answer}} дела?",
           "answer": "Как",
           "translation": "How are things?",
-          "hint": "how",
+          "hint": "interrogative asking about manner or state, not about identity or place",
           "transliteration": "___ dela?",
           "display_order": 6,
           "gloss": "___ · affair.PL.NOM"

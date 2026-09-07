@@ -43,7 +43,7 @@
           "sentence": "{{answer}} is my sister.",
           "answer": "She",
           "translation": "Introducing a woman in your family.",
-          "hint": "a woman",
+          "hint": "subject pronoun — third person, female referent",
           "display_order": 2,
           "gloss": "___ · be.3SG · 1SG.POSS · sister"
         },
@@ -59,7 +59,7 @@
           "sentence": "{{answer}} is my father.",
           "answer": "He",
           "translation": "Introducing a man in your family.",
-          "hint": "a man",
+          "hint": "subject pronoun — third person, male referent",
           "display_order": 4,
           "gloss": "___ · be.3SG · 1SG.POSS · father"
         },
@@ -67,7 +67,7 @@
           "sentence": "{{answer}} is on the table.",
           "answer": "It",
           "translation": "Talking about a thing.",
-          "hint": "a thing",
+          "hint": "subject pronoun — inanimate, non-human referent",
           "display_order": 5,
           "gloss": "___ · be.3SG · on · DEF · table"
         },
@@ -741,7 +741,7 @@
           "sentence": "There {{answer}} a book on the table.",
           "answer": "is",
           "translation": "One thing exists.",
-          "hint": "singular",
+          "hint": "existential 'there' — agree the verb with the noun that follows",
           "display_order": 1,
           "gloss": "there · ___ · INDF · book · on · DEF · table"
         },
@@ -749,7 +749,7 @@
           "sentence": "There {{answer}} two cafés in this street.",
           "answer": "are",
           "translation": "More than one thing exists.",
-          "hint": "plural",
+          "hint": "existential 'there' — agree the verb with the noun that follows",
           "display_order": 2,
           "gloss": "there · ___ · two · café.PL · in · this · street"
         },
@@ -2933,7 +2933,7 @@
           "sentence": "I saw {{answer}} at school yesterday.",
           "answer": "him",
           "translation": "Talking about seeing a man.",
-          "hint": "a man",
+          "hint": "object pronoun after the verb — male referent",
           "display_order": 2,
           "gloss": "1SG · see.PST · ___ · at · school · yesterday"
         },
@@ -2941,7 +2941,7 @@
           "sentence": "This present is for {{answer}}.",
           "answer": "her",
           "translation": "A present for a woman.",
-          "hint": "a woman",
+          "hint": "object pronoun after a preposition — female referent",
           "display_order": 3,
           "gloss": "this · present · be.3SG · for · ___"
         },
