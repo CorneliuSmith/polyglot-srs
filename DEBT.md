@@ -178,39 +178,6 @@ under its own label in all six locales, plus 11 notes that merely restate
 the hint. Not a data bug; do not "fix" it by writing English-for-English
 translations, which hand over the answer.
 
-### Exclusions have no production write path
-
-`data/vocab_exclusions.tsv` (727 rows; 764 once `fix/en-symbol-glosses` merges) is applied by the FILE loader
-(`source_data.apply_vocab_exclusions`), and no seeder deletes a vocabulary
-row because `user_cards` references it. So every excluded word — the 645
-"a male given name" cards retired on 25 Aug, and the 37 in
-`fix/en-symbol-glosses` (`em` glossed as a printer's quad, `er` as erbium,
-`ya`, `wanna`) — is still served in production. What is needed: a
-`vocabulary.retired_at` column (migration, owner-applied; readers degrade),
-a retire step in `reconcile` that sets it from the exclusions file, and the
-card draw / lesson intake filtering it while keeping the learner's
-`user_cards` row. CHECKS §12's class: a layer with no write path.
-
-Two more things the retire step has to cover, from the owner's second `em`
-screenshot (6 Sep, Spanish UI): the wrong gloss was faithfully translated —
-`translations(vocabulary_id, locale='es', definition='eme')`, the letter M
-— so the locale rows of a retired word must be hidden with it, and
-`auto_translate` must skip retired words rather than keep glossing them.
-And `prune_sentences` **keeps** a retired word's sentences on purpose: its
-"never strand a word" guard leaves every row of a word whose whole set
-would go ("Kill 'em." survives the English prune for exactly that reason).
-Retire first, and let the prune treat retired words as prunable to zero.
-
-### `EnglishSeeder` stops at 8,600 of 10,000 headwords
-
-~1,400 English headwords have no WordNet gloss and are skipped rather than
-inserted, and they include `what`, `how` and `because` — absent from
-production today while `en_frequency.tsv` lists them. Diagnosed 5 Sep,
-not fixed. Two routes: gloss them through `gloss_overrides.tsv` (the
-mechanism exists and `circular_gloss` gates it) or lift the cap and let
-the audit decide. Either way the count to watch is production `en` rows
-against the file's 10,000 (9,963 once `fix/en-symbol-glosses` merges).
-
 ### Written abbreviations as vocabulary: 12 held, and the judges disagreed
 
 A sweep of every single-character and letterless headword across 24 courses

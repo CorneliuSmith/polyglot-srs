@@ -57,16 +57,15 @@ the board is a selection fix first and an authoring queue second.
    (`translation` not `^\S+\s+[—–-]\s+`, not fold-equal to the hint).
    Ship `path.practiseForms` / `path.drillCount` for ar/es/fr/pt/ru in the
    same change.
-4. **A retire step for exclusions.** `vocabulary.retired_at` (migration,
-   owner-applied, readers degrade per CLAUDE.md), set by `reconcile` from
-   `vocab_exclusions.tsv`, filtered by the card draw and lesson intake
-   while the learner's `user_cards` row is kept; the word's `translations`
-   rows hide with it (the Spanish UI showed the wrong gloss translated to
-   `eme`), `auto_translate` skips retired words, and `prune_sentences`
-   treats a retired word as prunable to zero — today its stranding guard
-   keeps "Kill 'em." alive. Without all of that the `em` card outlives the
-   merge. Then the owner runs `reconcile --apply` and `prune_sentences`
-   for `en`.
+4. ~~**A retire step for exclusions.**~~ **SHIPPED 7 Sep** — migration
+   20261016 (`vocabulary.retired_at`, owner-applied), `reconcile` sets it
+   from `vocab_exclusions.tsv` and clears it for any word that leaves the
+   file, the Review draw and the Learn intake skip retired words (probed,
+   not caught — a missing column would abort the pooled transaction), and
+   `auto_translate` stops glossing them into further locales. The learner's
+   card, history and schedule are untouched. **Owner: apply the migration,
+   then `reconcile -l all --apply`** — 858 exclusions take effect then, the
+   `em` card among them.
 5. **English vocabulary the seeder skips** — the 8,600 cap: `what`, `how`,
    `because` absent from production. Gloss through `gloss_overrides.tsv`
    or lift the cap; the audit gates either.

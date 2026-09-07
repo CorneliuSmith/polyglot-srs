@@ -34,6 +34,8 @@ import os
 from datetime import UTC
 from pathlib import Path
 
+import asyncpg
+
 REPO = Path(__file__).resolve().parents[3]
 DATA = REPO / "data"
 ROLLBACK_DIR = REPO / "out"
@@ -122,6 +124,50 @@ async def survey_sentence_layers(conn, code: str, lang_id) -> list[dict]:
     return fills
 
 
+def excluded_words(code: str) -> set[str]:
+    """The headwords `data/vocab_exclusions.tsv` says this course must not
+    teach — 858 rows across the courses: alphabet letters glossed as
+    vocabulary, Arabic punctuation, English words WordNet matched to a
+    chemical symbol (`em` is a printer's quad), typo-mass rows, and the 645
+    given names nobody can produce from "a male given name"."""
+    path = DATA / "vocab_exclusions.tsv"
+    if not path.exists():
+        return set()
+    out: set[str] = set()
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            if (row.get("language") or "").strip() == code:
+                word = (row.get("word") or "").strip()
+                if word:
+                    out.add(word)
+    return out
+
+
+async def survey_retirements(conn, code: str, lang_id) -> dict:
+    """Which rows should stop being drawn, and which should start again.
+
+    The file is the source of truth in both directions: a word listed in the
+    exclusions is retired, and a word that LEAVES the file is un-retired, so
+    deleting a line restores the card rather than needing a second tool.
+
+    Returns empty dicts when the column is missing, which is a database
+    behind on migration 20261016 rather than an error.
+    """
+    excluded = excluded_words(code)
+    try:
+        rows = await conn.fetch(
+            "SELECT id, word, retired_at FROM vocabulary WHERE language_id = $1",
+            lang_id,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        return {"retire": [], "unretire": [], "skipped": "no retired_at column"}
+    retire = [{"id": r["id"], "word": r["word"]}
+              for r in rows if r["word"] in excluded and r["retired_at"] is None]
+    unretire = [{"id": r["id"], "word": r["word"]}
+                for r in rows if r["word"] not in excluded and r["retired_at"] is not None]
+    return {"retire": retire, "unretire": unretire, "skipped": None}
+
+
 async def survey(conn, code: str) -> dict:
     """Compare one language's committed file against the database."""
     tsv = read_tsv(code)
@@ -184,6 +230,7 @@ async def survey(conn, code: str) -> dict:
         "sentence_layers": await survey_sentence_layers(conn, code, lang_id),
         "missing_translation": missing_translation, "departed": departed_detail,
         "absent_from_db": sorted(set(tsv) - db_words),
+        **await survey_retirements(conn, code, lang_id),
     }
 
 
@@ -226,13 +273,22 @@ def write_rollback(reports: list[dict], stamp: str) -> Path:
             lines.append(
                 f"UPDATE vocabulary SET part_of_speech = {old} "
                 f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']}")
+        for c in rep.get("retire", []):
+            lines.append(
+                f"UPDATE vocabulary SET retired_at = NULL "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']} (un-retire)")
+        for c in rep.get("unretire", []):
+            lines.append(
+                f"UPDATE vocabulary SET retired_at = now() "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']} (re-retire)")
     lines.append("COMMIT;")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
 
 
 async def apply(conn, reports: list[dict]) -> dict:
-    counts = {"gloss": 0, "pos": 0, "added_translation": 0, "sentence_layers": 0}
+    counts = {"gloss": 0, "pos": 0, "added_translation": 0,
+               "sentence_layers": 0, "retired": 0, "unretired": 0}
     async with conn.transaction():
         for rep in reports:
             for c in rep.get("gloss_changes", []):
@@ -265,6 +321,18 @@ async def apply(conn, reports: list[dict]) -> dict:
                     "UPDATE vocabulary SET part_of_speech = $1 WHERE id = $2",
                     c["new"], c["id"])
                 counts["pos"] += 1
+            # The learner's `user_cards` row is untouched: retiring stops the
+            # word being DRAWN, it does not take away progress already made.
+            for c in rep.get("retire", []):
+                await conn.execute(
+                    "UPDATE vocabulary SET retired_at = now() WHERE id = $1",
+                    c["id"])
+                counts["retired"] += 1
+            for c in rep.get("unretire", []):
+                await conn.execute(
+                    "UPDATE vocabulary SET retired_at = NULL WHERE id = $1",
+                    c["id"])
+                counts["unretired"] += 1
     return counts
 
 
