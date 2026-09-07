@@ -1668,6 +1668,15 @@ with a line per course and kind (`test_reconcile_apply_batched.py`). Third
 time this project has paid for one-round-trip-per-row; `seed_grammar` is the
 last tool that still does it (DEBT).
 
+**And the trap the fix armed.** Once the overlay works, an override row for
+a word the file does NOT carry stops being inert and becomes a landmine: it
+fires the day someone adds that headword. It went off within hours —
+restoring Yoruba `n` woke an override written for `ń` and production served
+the 1SG pronoun as "is/are doing". 28 rows were in that state; the six Latin
+ones were re-keyed to their macronised headwords (repairing six one-word
+top-50 glosses), 22 superseded rows were deleted, and the state is now
+impossible (`TestNoDormantOverrides`).
+
 **Verified:** `backend/tests/test_reconcile_overrides.py` (the overlay in
 `expected_rows`, the survey reporting an override as a correction, `new`
 glossed-only, the retire column printed, a migration-behind database keeping

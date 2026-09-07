@@ -1,5 +1,4 @@
 language	word	pos	en
-ar	ء	character	hamza — the sign for the glottal stop /ʔ/
 ar	آب	verb	August (eighth month of the Gregorian and Julian calendars)
 ar	آخر	adj	other, another — the masculine form (شخص ___ 'another person'); with different vowels, the last one, the end of something
 ar	آن	noun	moment, instant — chiefly في ___ واحد 'at one and the same time'; the base that the word for 'now' is built on
@@ -340,7 +339,6 @@ ca	vol	verb	he, she or it wants (___ marxar, she wants to leave); also (m.) flig
 ca	vols	verb	you want (què ___?, what do you want?)
 ca	vull	verb	I want (___ un cafè, I want a coffee)
 ca	y	conj	The twenty-fifth letter of the Catalan alphabet, called i grega and written in the Latin script.
-ca	è	character	the letter e with a grave accent, marking stress and the open pronunciation /ɛ/
 ca	és	verb	is; he/she/it is (from ser — identity, origin, lasting qualities, and where a thing is: el llibre és a la taula)
 de	abdruck	noun	imprint, impression (the mark left by pressing); print (as of a finger)
 de	adele	verb	a female given name from French, equivalent to English Adele or Adela
@@ -363,7 +361,6 @@ de	boulevard	noun	boulevard, avenue, broad street; the tabloid press (short for 
 de	brauch	verb	I need (colloquial first-person singular present of brauchen, for brauche; ich brauch deine Hilfe — I need your help); Brauch (der) — custom, tradition
 de	brüder	noun	brothers (nominative/accusative/genitive plural of Bruder — der Bruder; er hat drei Brüder — he has three brothers); brethren (religious or archaic use)
 de	college	noun	a college (an institution in an English-speaking country, not a German one)
-de	d	noun	The fourth letter of the German alphabet, called de and written in the Latin script.
 de	da	adv	in this place, present ('is anybody ___?'); at that point in the story, then; also 'since, because' at the head of a clause
 de	dachte	verb	thought, had the thought — the plain past for I and he/she/it ('I ___ you were asleep')
 de	damit	adv	with it, with that, by that (pronominal adverb of mit); so that, in order that (conjunction); thereby, therefore
@@ -438,7 +435,6 @@ de	information	noun	information; a piece of information
 de	ist	verb	"is (he, she, it); also the auxiliary ""has"" in the perfect of verbs of motion or change of state"
 de	ja	intj	yes; yeah (agreeing); as a particle inside a sentence: of course, as you know
 de	jens	name	a male given name from Low German or Danish, equivalent to English John
-de	k	noun	The eleventh letter of the German alphabet, written in the Latin script.
 de	kann	verb	can, am able to, is able to; may, is allowed to — the I-form and the he/she/it-form of the present
 de	kannst	verb	can, are able to — the ability verb in the form used with du ('___ you help me?')
 de	keine	pron	no, not any — before a feminine noun or a plural ('I have ___ time', '___ children')
@@ -448,14 +444,12 @@ de	komm	verb	come here! — the command to one person you know well ('___ over h
 de	kommt	verb	comes, arrives, is on its way — the he/she/it present form ('the bus ___ at six')
 de	könnte	verb	could, would be able to — the unreal, hypothetical form for I and he/she/it ('I ___ help you')
 de	kündigung	noun	termination, dismissal, resignation, notice (a declaration of will ending a continuing obligation)
-de	l	noun	the twelfth letter of the German alphabet; abbreviation of Liter (litre)
 de	lass	verb	let!, leave it! — the command to one person ('___ me alone')
 de	lauf	verb	run!, go! (singular imperative of laufen; lauf nicht so schnell — don't run so fast); Lauf (der) — run, race; course (im Lauf der Dinge — in the course of things); barrel (of a gun)
 de	legen	verb	to lay, to put, to place (causative of liegen; legen Sie die Hände auf den Kopf — put your hands on your head; eine Falle legen — to set a trap; ein Komma legen/setzen); sich legen — to lie down; to subside, to die down
 de	leid	adj	sorry — only in the phrase 'es tut mir ___' (I'm sorry); as a noun, sorrow or grief
 de	los	adj	rid of, free of
 de	lunch	noun	an English-style midday meal, generally smaller than the German Mittagessen
-de	m	noun	The thirteenth letter of the German alphabet, written in the Latin script.
 de	mach	verb	make!, do! — the command to one person ('___ it quickly')
 de	macht	verb	makes, does; also in 'that ___ nothing', never mind — the he/she/it present form
 de	mal	adv	softening particle in requests and commands (Komm mal her — come here a sec); once, at some time (short for einmal); Mal (das) — time, occasion (das erste Mal — the first time); times (in multiplication)
@@ -525,7 +519,6 @@ de	uns	pron	us; to us, for us (direct and indirect object); ourselves, each othe
 de	unsere	pron	our — belonging to us, before a feminine noun or a plural ('___ mother', '___ children')
 de	versuch	verb	try! (singular imperative of versuchen; versuch es noch einmal — give it another try); Versuch (der) — attempt, try; experiment, test, trial
 de	von	prep	from (an origin, a sender, a starting point); of, belonging to — the everyday stand-in for the genitive ('the car ___ my father')
-de	w	noun	the twenty-third letter of the German alphabet; also an abbreviation of West (west)
 de	wache	verb	I keep watch; I wake up (first-person singular present of wachen / aufwachen; ich wache früh auf — I wake up early); Wache (die) — guard duty, sentry duty; guard post; vigil, wake
 de	war	verb	was — I was, he/she/it was; the simple past of sein; there was
 de	warte	verb	I wait; wait! (first-person singular present and imperative of warten); Warte (die) — lookout, vantage point
@@ -2024,7 +2017,6 @@ it	puoi	verb	you can, you are able to, informal; you may ('___ entrare' 'you can
 it	qualche	det	some, a few - always with a singular noun ('___ giorno fa' 'a few days ago')
 it	quella	det	that, with a feminine noun ('___ casa' 'that house'); that one, over there
 it	questa	det	this, with a feminine noun ('___ casa' 'this house', '___ sera' 'tonight'); this one
-it	r	article	The sixteenth letter of the Italian alphabet, called erre and written in the Latin script.
 it	resta	verb	stays, remains (third-person singular present of restare); also the tu imperative, stay — resta qui con noi 'stay here with us', non ti resta che aspettare 'all you can do is wait'; as a noun (f.), the awn of an ear of grain
 it	resto	noun	rest, remainder (m.); change (money) — ecco il resto 'here's your change', del resto 'besides, after all'; also first-person singular present of restare, I stay, I'm staying — resto qui 'I'm staying here'
 it	ricordo	verb	I remember (first-person singular present indicative of ricordare): ora ricordo 'now I remember'; as a noun (m.), memory, recollection; souvenir, keepsake
@@ -2234,23 +2226,23 @@ la	anima	noun	the breath of life; the soul as life-force, which leaves the body 
 la	animus	noun	the thinking, willing part of a person — the seat of thought, intention and courage
 la	atque	conj	links two items as a closely bound pair, 'and what is more'; a weightier join than et
 la	aut	conj	or (of alternatives that exclude each other); (doubled) either ... or ...
-la	cur	adv	why?; for what reason (in direct and indirect questions)
+la	cūr	adv	why?; for what reason (in direct and indirect questions)
 la	cōgitō	verb	I turn something over in my mind, mull it over, reflect — the act of thinking, not the opinion held
-la	dies	noun	day; daylight; an appointed date (dies, diei m., f. when a set date)
+la	diēs	noun	day; daylight; an appointed date (dies, diei m., f. when a set date)
 la	ego	pron	I (used for emphasis or contrast; the verb ending already shows the subject)
 la	enim	conj	gives the ground for the statement just made; postpositive — it stands second in its clause, never first
 la	ergō	conj	marks a strict logical consequence, as in a proof: 'I think, ___ I am'
 la	est	verb	is; he is, she is, it is; there is (3rd person singular of sum, to be)
 la	et	conj	and; also, even; (doubled) both ... and ...
 la	etiam	adv	even, pushing to the extreme case ('___ the children knew'); also, as well — free to stand first
-la	filius	noun	son (filius, -i m.)
+la	fīlius	noun	son (filius, -i m.)
 la	homō	noun	a human being of either sex — the creature, as against gods and beasts (vir is the adult male)
 la	igitur	conj	draws the conclusion from what was just said, 'so then' — and never stands first in its clause
 la	ipse	pron	the very one, in person — stresses that it is that one and no other ('the master ___ said it')
 la	ita	adv	in such a way, to such a degree, usually answered by a following clause; in reply, 'yes, just that way'
 la	nam	conj	for: opens a fresh sentence backing up the one just made, instead of subordinating a clause the way quia and quoniam do
-la	non	adv	not (the plain negative, placed before the word it denies); no, in a reply
-la	nos	pron	"we; us (one form for both subject and object; also ""I"" in letters)"
+la	nōn	adv	not (the plain negative, placed before the word it denies); no, in a reply
+la	nōs	pron	"we; us (one form for both subject and object; also ""I"" in letters)"
 la	nōn	adv	not (the plain negative, placed before the word it denies); no, in a reply
 la	petō	verb	I make for something, head straight at it, go after it; I request it of someone
 la	putō	verb	I reckon, I hold the opinion that something is so — judging it, not turning it over in the mind
@@ -2259,7 +2251,7 @@ la	quod	conj	the fact that: attaches a whole stated fact to the sentence — as 
 la	quoque	adv	too, as well — always placed right after the word it adds ('you ___' = you as well)
 la	quī	pron	the relative word that hangs a clause on a noun already named: 'the man ___ came'
 la	sed	conj	"but; but rather, on the contrary; but also, in ""not only ... but also"""
-la	si	conj	if; supposing that (indicative for real conditions, subjunctive for unreal)
+la	sī	conj	if; supposing that (indicative for real conditions, subjunctive for unreal)
 la	sī	conj	if; supposing that (indicative for real conditions, subjunctive for unreal)
 la	sīc	adv	in exactly this way, just as shown or just as done — the 'thus' of '___ transit glōria mundī'
 la	teneō	verb	I keep a grip on something, hold it fast, retain it — grasping it, not merely owning it
@@ -2638,8 +2630,6 @@ pt	homem	noun	man — an adult male person (um ___ alto, o ___ que mora ali).
 pt	há	verb	there is, there are; ago (of elapsed time: há dois anos)
 pt	ido	verb	gone — past participle of ir (tinha ido = had gone; não deveria ter ido = I shouldn't have gone); (as a noun, m.) Ido, a constructed language reformed from Esperanto
 pt	jacto	noun	jet (pre-Acordo European spelling of jato)
-pt	jóia	noun	jewel, gem (pre-Acordo spelling of joia)
-pt	l	character	The twelfth letter of the Portuguese alphabet, written in the Latin script.
 pt	la	pron	her, it — form of a used attached after a verb ending in -r, -s or -z (comprá-la = to buy it)
 pt	lanche	noun	snack; a light afternoon meal
 pt	las	pron	them (feminine) — form of as used attached after a verb ending in -r, -s or -z (comprá-las = to buy them)
@@ -3010,7 +3000,6 @@ ru	все	pron	everyone, everybody; all, all of (plural)
 ru	всего	det	"only, just that much (""it took ___ an hour""); in all, altogether; also the ""of everything, of all"" form."
 ru	всех	det	"everyone, all of them — in the object or ""of / about all"" slot (""I know ___"", ""better than ___"", ""for ___"")."
 ru	всё	pron	everything, all of it (neuter of весь); still, all the time (as adverb)
-ru	втроем	adv	together, in a group of three — properly spelt втроём
 ru	выступления	noun	genitive singular of выступле́ние (vystuplénije)
 ru	где	adv	"in what place — asks or names a location (""___ do you live?"", ""the town ___ I was born""); location, not destination."
 ru	годы	noun	years — год (m.) in the nominative/accusative plural (те годы — those years; спустя годы — years later; лучшие годы моей жизни — the best years of my life); years, ages, a long stretch of time (на это уходят годы — it takes years)
@@ -4070,7 +4059,6 @@ tr	yoklama	noun	roll call; examination, test
 tr	yoksa	conj	or else, otherwise ('acele et, ___ geç kalırız', hurry, or we'll be late); in a question, 'or is it that...?'
 tr	yoldaş	noun	companion, fellow traveller; comrade (as a form of address, especially in Communist usage)
 tr	yoğun	adj	intense, intensive; dense, thick; busy
-tr	yüksel	name	a male given name; a female given name; a surname
 tr	yüzeysel	adj	superficial, not deep; cursory, not thorough, slapdash
 tr	zımba	noun	hole punch (a device for making holes in thin material); stapler
 tr	çakal	noun	jackal (the animal); (of a person) opportunistic, wily and deceptive; a scoundrel
@@ -4153,7 +4141,6 @@ yo	agbajọ	noun	a gathering, collective, community; the act of raking or sweepi
 yo	agbanrere	noun	rhinoceros; (originally) the roan antelope
 yo	aiye	noun	life, world (archaic spelling of ayé)
 yo	ajao	noun	an anomalure or scaly-tailed flying squirrel (Anomalurus beecrofti, A. derbianus), not a true squirrel
-yo	ajayi	name	a unisex given name meaning 'one we fight to turn', an orúkọ àmútọ̀runwá given to a child born facing downwards; also a surname
 yo	akalamagbo	noun	a large beaked, scavenging-bird with a goitre, usually associated with the ground hornbill or marabou stork
 yo	akin	noun	bravery, valor, courage; brave person; warrior; A prefix used in male Yoruba given names, (ex. Akíndélé).
 yo	akoso	noun	the act of coordinating or organizing activities; activities being coordinated or organized; coordination, administration, management, control
@@ -4167,14 +4154,12 @@ yo	atan	name	a female river deity worshipped in several eastern Yoruba towns; At
 yo	atari	noun	crown of the head; max, climax; basis
 yo	ati	conj	and — joins two nouns or phrases into one list ('bread ___ water')
 yo	aworan	noun	picture, image, drawing, diagram; (literally) the act of observing or watching to ponder
-yo	awọn	particle	plural marker àwọn, placed before a noun; they, them (emphatic pronoun)
 yo	ayo	noun	any of several plants, including Guilandina bonduc and Corchorus olitorius (ewédú); the seeds of the ayò plant; the board game ayò, a mancala variety played with those seeds
 yo	aṣa	noun	custom, tradition — the inherited way a people does things
 yo	ba	verb	to meet, to encounter, to catch up with someone; the pre-verbal marker that pairs with bí to make a conditional
 yo	baalẹ	noun	In pre-colonial Yoruba society, the head or ruler of a small village or a town. In modern day Nigeria, most baálẹ̀ have been recognized as a king of their own respective village.
 yo	balogun	name	a Yoruba chieftaincy title, historically the commander of a town's troops; also a surname
 yo	balẹ	verb	to feel reassured; to be calm; to hold oneself together; to land
-yo	bi	conj	if, when (bí); like, as, how (bí); to give birth to (bí)
 yo	buba	noun	blouse or outer garment worn by women; top or outer garment worn by men; inner garment worn by men typically under an agbada
 yo	bun	verb	to dash, to donate, to give away; to gift, bless, or endow someone; to be gifted, endowed, or blessed with something
 yo	bọ	verb	to be coming, to be on the way here; with a high tone, to peel, to slip off, or to feed someone
@@ -4216,20 +4201,16 @@ yo	jọ	verb	to resemble, to look like someone; to gather together in one place
 yo	kaakiri	verb	to go or wander all over a place, to roam everywhere; to be everywhere
 yo	kan	det	"a, a certain; one (after the noun: ọjọ́ kan ""one day""); kàn to touch, to concern"
 yo	kekere	noun	small entity or quantity; minor; young age, adolescence
-yo	ki	particle	that, should (kí, subjunctive); what? (kí ni); to greet (kí)
-yo	ko	particle	not (kò, before the verb); to gather, to pack up (kó)
-yo	kunle	name	a male given name meaning “(one that) fills the house”, short for longer names such as Adékúnlé and Ọlákúnlé
 yo	kẹhinde	name	a unisex given name (orúkọ àmútọ̀runwá) given to the second-born of twins; also a surname
 yo	kọ	verb	to write; to sing; in the high-tone form, to teach or to learn; with a low tone, to refuse
 yo	la	verb	to lick up soup or honey; with a low tone, to split open, to escape danger, to prosper
 yo	lafun	noun	cassava flour; the àmàlà made from it
-yo	lati	particle	to (láti, infinitive marker before a verb); from (a place); since (a time)
 yo	lo	verb	to make use of something, to put it to work — takes its object directly, where fi needs a following verb
 yo	lẹhin	prep	behind, at the back of; after, once something is over
 yo	m	pron	I — a first-person singular subject pronoun; the course's own sentences write the bare n before kò and after kí, and m is the variant spelling (see n, ń)
 yo	magun	noun	a supernatural charm placed on a woman by her husband (or for a young girl, by her parents), to prevent her from being raped and dissuade adultery.
 yo	máa	particle	will, going to — the spoken future marker before a verb; also marks habitual action, 'keeps on doing'
-yo	n	particle	"is/are doing — ń before a verb marks ongoing action; also ""I"" (n̄, variant of mo)"
+yo	n	pron	I — the first-person singular subject pronoun, the form used after the subjunctive kí and before the negator kò (kí n dúró, n kò tíì kà á); mid tone, so nothing is written on it — distinct from ń, the progressive marker
 yo	ng	pron	I (archaic spelling of n̄)
 yo	ni	verb	is, it is (ni, copula and focus); at, in, on (ní); to have (ní)
 yo	njẹ	particle	opens a yes-no question in formal or written style ('___ you know that…?'); ṣé is the spoken opener
@@ -4254,12 +4235,9 @@ yo	padà	verb	to go back, to turn back the way one came; to give something back
 yo	pupọ	adv	much, many, a lot — follows the word it measures ('it is good ___' = it is very good)
 yo	pẹ	verb	to be late or delayed; to take a long time, to last; to live long
 yo	ra	verb	to buy, to get something by paying for it
-yo	ri	verb	to see; to find, to get; to look like, to appear
 yo	saro	name	the Saro, formerly enslaved returnees from Sierra Leone and Liberia, largely of Yoruba descent; Sierra Leonean; Sierra Leone (a country in Africa)
-yo	si	prep	to, toward (sí, with motion); and then (sì, links clauses); there is (in kò sí)
 yo	sokoto	name	Sokoto (a state and its capital city in north-western Nigeria); the Sokoto Caliphate
 yo	tabi	conj	or — joins two alternatives (written tàbí in full)
-yo	taiwo	name	a unisex given name (orúkọ àmútọ̀runwá) given to the first-born of twins; also a surname
 yo	ti	particle	already, have done (ti, before a verb); who, which, that (tí); of, belonging to
 yo	titi	adv	until, right up to a point in time; on and on, without stopping
 yo	to	verb	to be enough, to measure up to a required amount or standard; as much as, in comparisons

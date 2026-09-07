@@ -343,6 +343,12 @@ rate, say so — that result matters more than the phase closing quietly.
     deleted seven alphabet decks. Before acting on a maintenance list, read
     what is IN it — sample the rows, not the count (rule 43 for lists).
 
+51. **An override for a word the file does not carry is a landmine, not a
+    no-op.** It ships nothing until someone adds that headword, and then it
+    wins. Restoring Yoruba `n` woke an override written for `ń` and shipped
+    "is/are doing" as the 1SG pronoun within hours of the overlay starting
+    to work. Keep the two files in step (CHECKS §31, `TestNoDormantOverrides`).
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
