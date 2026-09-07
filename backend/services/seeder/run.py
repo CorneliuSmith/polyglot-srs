@@ -75,7 +75,12 @@ async def main():
         try:
             from .seed_arabic import ArabicFrequencySeeder, ArabicSeeder
             # Corpus TSV first, curated seed second — the upsert lets the
-            # hand-authored entries win for the words both sources carry.
+            # hand-authored entries win for the words both sources carry,
+            # EXCEPT where gloss_overrides.tsv names the word: the override
+            # is laid over every seeder's records (BaseSeeder.prepare_records,
+            # 7 Sep 2026), so for the 26 words in both ar_seed.json and the
+            # override file, the override — the later, checked decision —
+            # wins, and the reconcile agrees with it (docs/quality/ar.md).
             if (DATA_DIR / "ar_frequency.tsv").exists():
                 seeders.append(ArabicFrequencySeeder(args.db_url))
             seeders.append(ArabicSeeder(args.db_url))

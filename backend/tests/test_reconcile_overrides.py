@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import asyncio
 import io
+import json
 from contextlib import redirect_stdout
 
 import pytest
@@ -33,6 +34,7 @@ def data(tmp_path, monkeypatch):
            "language\tword\tpos\ten\ntr\tmi\tparticle\tthe yes/no question particle\n"
            "tr\tyok\t\tnever invented\nen\tmi\t\tnot this course\n")
     monkeypatch.setattr(reconcile, "DATA", tmp_path)
+    monkeypatch.setattr(reconcile, "ROLLBACK_DIR", tmp_path / "out")
     monkeypatch.setattr(gloss_overrides, "GLOSS_OVERRIDES_PATH", tmp_path / "gloss_overrides.tsv")
     return tmp_path
 
@@ -70,8 +72,33 @@ class TestSurveySeesTheOverride:
                             for r in db_rows]
                 if "user_cards" in sql:
                     return []
-                return db_rows
+                return [{"morphology": None, **r} for r in db_rows]
         return asyncio.run(reconcile.survey(_Conn(), "tr"))
+
+    def test_a_pos_change_out_of_the_nominal_set_strips_the_chips(self, data, monkeypatch):
+        """Review of #431: 23 words the override moves from noun to det/adv/verb
+        would have kept 'Gender / Plural' chips — the reconcile is how those
+        pos changes reach production first, so it strips them too."""
+        _write(data, "tr_frequency.tsv", "rank\tword\tpos\ten\n1\tson\tdet\this\n")
+        rep = self._survey([{"id": "1", "word": "son", "part_of_speech": "noun",
+                             "definition": "his",
+                             "morphology": {"lemma": "son", "chips": [
+                                 {"label": "Gender", "value": "m"},
+                                 {"label": "Stem", "value": "s-"}]}}], monkeypatch)
+        assert [c["new"] for c in rep["pos_changes"]] == ["det"]
+        assert len(rep["morphology_changes"]) == 1
+        new = json.loads(rep["morphology_changes"][0]["new"])
+        assert [c["label"] for c in new["chips"]] == ["Stem"]
+        sql = reconcile.write_rollback([{"code": "tr", **rep}], "T").read_text(encoding="utf-8")
+        assert "SET morphology = " in sql and "Gender" in sql
+
+    def test_a_pos_change_that_stays_nominal_leaves_the_chips(self, data, monkeypatch):
+        _write(data, "tr_frequency.tsv", "rank\tword\tpos\ten\n1\tev\tadj\thouse\n")
+        rep = self._survey([{"id": "1", "word": "ev", "part_of_speech": "noun",
+                             "definition": "house",
+                             "morphology": {"chips": [{"label": "Gender", "value": "m"}]}}],
+                           monkeypatch)
+        assert rep["pos_changes"] and rep["morphology_changes"] == []
 
     def test_the_dry_run_reports_the_override_as_a_correction(self, data, monkeypatch):
         rep = self._survey([{"id": "1", "word": "mi", "part_of_speech": "particle",
@@ -134,6 +161,14 @@ class TestEverySeederOverlaysTheOverrides:
         by_word = {r["word"]: r for r in records}
         assert by_word["mi"]["translations"]["en"] == "the yes/no question particle"
         assert by_word["ev"]["translations"]["en"] == "house"
+
+    def test_the_overlay_runs_before_the_chart_merge(self):
+        """`strip_nominal_chips` judges with the record's pos; the override
+        can move a word out of the nominal set, so it must be laid over
+        first. Checked on the source of `load`, the only place the order lives."""
+        import inspect
+        src = inspect.getsource(BaseSeeder.load)
+        assert src.index("self.prepare_records(") < src.index("self._merge_morphology_charts(")
 
     def test_the_helper_touches_only_matching_records(self, data):
         records = [{"word": "ev", "translations": {"en": "house"}}]

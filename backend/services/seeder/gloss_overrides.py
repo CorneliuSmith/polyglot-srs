@@ -65,6 +65,8 @@ def apply_gloss_overrides_to_records(
         if not hit:
             continue
         gloss, pos = hit.get("en") or "", hit.get("pos") or ""
+        if not (gloss or pos):
+            continue
         if gloss:
             translations = dict(rec.get("translations") or {})
             translations["en"] = gloss

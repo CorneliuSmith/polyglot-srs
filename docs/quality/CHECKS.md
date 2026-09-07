@@ -1634,11 +1634,27 @@ query that classifies them: join `vocabulary` against the file's words per
 course; `glyph` = at most one letter or mark-only; `twin` = equal to a file
 word after stripping combining marks; everything else `tail`.
 
-**Verified:** `backend/tests/test_reconcile_overrides.py` (11 tests: the
-overlay in `expected_rows`, the survey reporting an override as a correction,
-`new` glossed-only, the retire column printed, a migration-behind database
-keeping its row, `prepare_records` applying the override, and the shipped
-file carrying the Turkish particle).
+**What the fixed tool measured** (read-only dry run against production, 7 Sep
+late evening): `gloss 1,594 · pos 3,370 · retire 848 · new 0 · s-layer 191`.
+The 1,611 above over-counts by the 27 override rows whose word is in no
+frequency file (DEBT) — the tool's number is the one to cite (rule 31).
+
+**Found by the adversarial review of #431, fixed in it:** the seeder merged
+morphology charts BEFORE the overlay, so `strip_nominal_chips` judged with
+the file's pos and 23 words the override moves out of the nominal set (fr
+`son` noun → det, `pas` noun → adv, es/ca `mira` noun → verb) would have kept
+"Gender / Plural" chips — the defect the strip exists for. Order swapped;
+and the reconcile, which is how those 23 pos changes reach production first,
+now strips the chips in the same step (`morphology_changes`, rolled back
+with the rest). Also recorded: the override now outranks `ar_seed.json` for
+the 26 Arabic words in both (`ar.md`).
+
+**Verified:** `backend/tests/test_reconcile_overrides.py` (the overlay in
+`expected_rows`, the survey reporting an override as a correction, `new`
+glossed-only, the retire column printed, a migration-behind database keeping
+its row, `prepare_records` applying the override, the overlay-before-charts
+order, the chip strip on a pos change, and the shipped file carrying the
+Turkish particle).
 
 ## Prompt ↔ rule parity
 

@@ -172,8 +172,13 @@ class BaseSeeder(ABC):
 
     async def load(self, records: list[dict]) -> int:
         """UPSERT records into vocabulary + translations tables. Returns count."""
-        self._merge_morphology_charts(records)
+        # Overlay first, charts second: `strip_nominal_chips` decides with the
+        # record's pos, and the override can move a word out of the nominal
+        # set (fr `son` noun → det). The other order wrote "Gender / Plural"
+        # chips onto 23 determiners, adverbs and verbs — the defect the
+        # strip exists to prevent (review of #431).
         records = self.prepare_records(records)
+        self._merge_morphology_charts(records)
 
         conn = await asyncpg.connect(self.db_url)
         try:

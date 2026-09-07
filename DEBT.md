@@ -644,6 +644,17 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
+## 27 override rows name a word no frequency file has (7 Sep 2026)
+
+An override never invents a word, so these ship nowhere: `ar ء`; `ca è`;
+`de d k l m w`; `it r`; `la cur dies filius non nos` + 1 (the file carries the
+macron forms `cūr`, `diēs`, `fīlius`, `nōn`, `nōs`); `pt l`; `tr yüksel`;
+`yo ajayi awọn bi ki ko` + 6 (the file carries tone-marked forms). Found by
+the review of #431. The Latin and Yoruba ones are probably good definitions
+under a stale key — re-key them to the marked headword if the definition
+still fits, delete the rest. `scripts/apply_gloss_overrides.py` refuses such
+rows today; these predate the gate or outlived their headword.
+
 ## Rows production serves that no committed file governs (7 Sep 2026)
 
 40,861 vocabulary rows are in production and in no frequency file: 39,004

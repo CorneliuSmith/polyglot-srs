@@ -17,7 +17,7 @@ def test_the_apply_summary_names_every_counter_it_keeps():
     src = inspect.getsource(reconcile.main)
     summary = src[src.index('print(f"applied'):]
     summary = summary[:summary.index(")\n")]
-    for key in ("gloss", "pos", "added_translation", "sentence_layers",
-                "retired", "unretired"):
+    for key in ("gloss", "pos", "morphology", "added_translation",
+                "sentence_layers", "retired", "unretired"):
         assert key in summary, (
             f"apply() counts {key!r} but the summary line never prints it")
