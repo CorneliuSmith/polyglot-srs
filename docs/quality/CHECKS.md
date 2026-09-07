@@ -1327,12 +1327,19 @@ cloze that the corpus itself proves is not determined. Measured 6 Sep:
 | es 578 · ro 394 · hi 388 · tl 294 · ca 135 · ar 129 · id 127 · ko 92 · fa 17 · sw 12 · mi 10 · yo/jam/la/ha 4 · xh 2 | | | |
 
 Cheap, language-agnostic, and it catches exactly the "bare frame" half of
-`other_word`. It belongs in `audit_content.py` beside `ar_register` (the one
-rule that already scans a sentence bank), report-level first, warn once
-the numbers are believed. It does NOT catch the `do` class — `did` is not a
-headword, so no second row exists to collide with; that half needs
-morphology per language (pymorphy3, the Gym charts, lemminflect) and is
-the same instrument §29 needs.
+`other_word`. It does NOT catch the `do` class — `did` is not a headword, so
+no second row exists to collide with; that half needs morphology per
+language (pymorphy3, the Gym charts, lemminflect) and is the same instrument
+§29 needs.
+
+**SHIPPED 6 Sep, report-level, in `audit_content` beside `unclozable_rows`
+off one read of each bank.** The numbers above were measured with a
+standalone script over every row; the rule measures **clozable rows only**,
+because a collision between two cards nobody can be shown is not a
+collision — which is why its counts are lower and are the ones to quote:
+**4,737** — it 824, tr 464, en 382, nl 351, pt 342, el 311, fr 297, de 293,
+ru 267, es 235, he 226, hi 163, ro 157, tl 118, th 116, ca 50, id 45,
+ar 41, ko 28, and single digits elsewhere.
 
 **The rule for authoring and checking** — added to §23: *the definition
 plus the sentence must determine ONE string.* Concretely: a definition
