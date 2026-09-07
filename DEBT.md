@@ -672,6 +672,16 @@ learned it. `seed_grammar` still does it: 274-307 drills per course, one
 grammar reseed takes minutes per course. Same fix applies; nobody has
 needed it enough yet.
 
+## 1,612 drill rows write the answer marker where the convention is `___`
+
+`data/grammar/{ko,th,hi,he,fa}_grammar.json` store `{{answer}}` inside the
+drill's `transliteration`. The card now substitutes a blank when it serves
+them (CHECKS §32), so nothing reaches the screen, but the files are still
+wrong and a new drill written by copying a neighbour inherits it. A data
+pass should rewrite them to `___`; until then the card fix is load-bearing.
+No guard forbids the marker in the data on purpose — a test that failed on
+1,612 committed rows would have to be born red.
+
 ## 27 override rows name a word no frequency file has (7 Sep 2026)
 
 An override never invents a word, so these ship nowhere: `ar ء`; `ca è`;
