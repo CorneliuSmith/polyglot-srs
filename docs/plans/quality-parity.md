@@ -985,9 +985,30 @@ Two courses have been repaired to a standard the other 25 are not held to, and
 the depth was chosen reactively — a screenshot pointed at English, a question
 pointed at Latin. Before any third course gets that treatment:
 
-- **`gloss_overrides` from ~20 rows per language to the top 200.** 527 rows
-  across 27 languages today; the top 20 of a 10,000-row file is not coverage.
-  200 is the band a learner actually reaches in the first months.
+- ~~**`gloss_overrides` from ~20 rows per language to the top 200.**~~
+  **DONE 7 Sep 2026.** Every course's top 200 was read in its own language
+  and the broken definitions repaired: 1,618 proposed, checked by a second
+  reader that accepted 1,526, corrected 87 and rejected 5. The file goes
+  from 2,699 rows to 4,301 and top-200 coverage from a range of 1–47 to
+  10–134.
+
+  **The commonest fault was not a wrong sense.** 517 of the repairs were a
+  definition that reaches a SYNONYM — Russian `не` as bare "not", `что` as
+  bare "that", Turkish `mi`/`mı`/`mu`/`mü` sharing one line ("Used to form
+  interrogatives") between four different words. Nothing in those tells a
+  learner which word to type, which is CHECKS §28 measured across the whole
+  band rather than in a 14-card sample.
+
+  The wrong-sense ones were rarer and worse: Russian `у` glossed "Wu
+  (language)", Yoruba `ọdun` (year) as "The plant Discoglypremna caloneura",
+  `aṣa` (custom) as "a hawk or kite", Thai `พระเจ้า` (God) as "buddha". A
+  homograph won the extraction each time.
+
+  Authored through `scripts/apply_gloss_overrides.py`, whose gate is a
+  ratchet on the file: writing it found five shipped English definitions
+  (`sterling`, `silver`, `bat`, `pepper`, `mop`) that explain the word with
+  the word, because the audit reads the frequency column and nothing had
+  ever checked the override file itself.
 - **Burn down the 920 audit findings worst-first.** `tl` 152 and `id` 121 are
   273 between them — nearly a third of the total in two of the smallest
   courses.
