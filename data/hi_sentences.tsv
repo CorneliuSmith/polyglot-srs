@@ -1674,7 +1674,6 @@ word	sentence	translation	difficulty_rank
 मौसम	कल का मौसम कैसा होगा कहना मुश्किल है।	It's hard to say what the weather will be like tomorrow.	1191
 मौसम	कल मौसम अच्छा होगा क्या?	Will the weather be good tomorrow?	1191
 बदलता	मौसम दिन-ब-दिन बदलता है।	The weather varies from day to day.	1191
-ब	मौसम दिन-ब-दिन बदलता है।	The weather varies from day to day.	1191
 सालों	पिछले कुछ सालों से मौसम बहुत अजीब है।	Weather's been strange the past few years.	1191
 शब्द	मुझे ठीक से नहीं पता इस शब्द को कैसे पढ़ा जाता है।	I am not sure how to pronounce the word.	1192
 पढ़ा	मुझे ठीक से नहीं पता इस शब्द को कैसे पढ़ा जाता है।	I am not sure how to pronounce the word.	1192
@@ -2685,7 +2684,6 @@ word	sentence	translation	difficulty_rank
 बादल	आज बादल कल से ज़्यादा हैं।	There are more clouds today than yesterday.	2224
 यूरोप	तुम यूरोप कब जा रहे हो?	When are you going to Europe?	2226
 मेल	क्या मैं आपका ई-मेल जान सकती हूँ?	May I have your email, please?	2227
-ई	क्या मैं आपका ई-मेल जान सकती हूँ?	May I have your email, please?	2227
 संबंधित	हम शादी से संबंधित हैं।	We're related by marriage.	2232
 होकर	वह बड़ा होकर डॉक्टर बनना चाहता है।	He will be a doctor when he grows up.	2233
 मना	यहाँ धूम्रपान करना मना है।	Smoking is not allowed here.	2234
@@ -5512,8 +5510,6 @@ word	sentence	translation	difficulty_rank
 वसीयत	मेरे पिता नें अपनी वसीयत में मुझे बहुत सारे पैसे छोड़े थे।	My father left me a lot of money in his will.	19999
 शर्म	उसको अपने पुराने कपड़ो पर शर्म आती है।	She is ashamed of her old clothes.	19999
 बहनें	मेरी दो बहनें हैं और दोनो की शादी हो चुकी है।	I have two sisters, both of whom are married.	19999
-ख	मुझे याद है कि मेरी माँ ने मुझे क-ख-ग-ध सिखाए थे।	I remember my mother teaching me the alphabet.	19999
-क	मुझे याद है कि मेरी माँ ने मुझे क-ख-ग-ध सिखाए थे।	I remember my mother teaching me the alphabet.	19999
 जीना	मेरे ख़याल से आम ज़िन्दगी जीना बहुत अच्छी बात है।	I think it is very good to lead a regular life.	19999
 मंदिरों	मैं पुराने मंदिरों को देखने जाने का शौकीन हूँ।	My hobby is visiting old temples.	19999
 माने	यह महाशय बहुत जाने-माने पियानिस्ट हैं।	The gentleman is a very famous pianist.	19999
@@ -6856,8 +6852,6 @@ word	sentence	translation	difficulty_rank
 पेन	टॉम को एक पेन मिला।	He found a pen.	19999
 पेन	टॉम को एक पेन मिल गया।	He found a pen.	19999
 क़लम	टॉम को एक क़लम मिल गई।	He found a pen.	19999
-द	"उसने ""द गॉडफ़ादर"" देखी।"	"She watched ""The Godfather."""	19999
-द	"उन्होंने ""द गॉडफ़ादर"" देखी।"	"She watched ""The Godfather."""	19999
 मोमबत्तियाँ	मैंने मोमबत्तियाँ जलाईं।	I lit the candles.	19999
 हँसी	मैरी अपने आप पर हँसी।	Mary laughed at herself.	19999
 चिल्लाता	गुस्तावो चिल्लाता रहा।	Gustavo continued yelling.	19999

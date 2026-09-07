@@ -219,16 +219,26 @@ mechanism exists and `circular_gloss` gates it) or lift the cap and let
 the audit decide. Either way the count to watch is production `en` rows
 against the file's 10,000 (9,963 once `fix/en-symbol-glosses` merges).
 
-### `data/th_frequency.tsv` has 22 headwords that are not words
+### Written abbreviations as vocabulary: 12 held, and the judges disagreed
 
-Single Thai letters and a bare tone mark — `แ`, `โ`, `ณ`, `ใ`, `เ`, `ะ`,
-`ธ`, `ร`, `้`, `า` — 16 of them inside the top 2,000. They are cards a
-learner cannot answer, they are most of the 110 Thai words still without a
-showable sentence after the cloze fix, and they made the frequency list a
-worse segmentation lexicon than it should be (CHECKS §29). Same class as
-Turkish `ş`/`i` and the English symbol glosses: they belong in
-`data/vocab_exclusions.tsv`, and — like those — removing them from the file
-does not remove them from production until the retire step exists.
+A sweep of every single-character and letterless headword across 24 courses
+(851 candidates, judged then defended) removed 94 that are letters,
+punctuation, bare diacritics or extraction artefacts. **12 are held**, not
+because they are defensible but because the pass judged them
+inconsistently: Portuguese `s` (segundo), `h` (hora), `d` (Dom), `c`, `n`,
+`q` were called abbreviations and condemned, while the Spanish equivalents
+— `s` (sur), `m` (metro), `x` (por), `d`, `c`, `n`, `t`, `i` — were defended
+as written abbreviations a learner meets. Both readings are reasonable and
+they cannot both be the standard.
+
+Also held: Arabic `ي` and `ت` and Korean `잡`, `갖`, `걷`, `찢`, called
+clitics or bare verb stems that never stand alone.
+
+**The decision needed is one rule, not twelve verdicts:** is a written
+abbreviation a vocabulary card? A card asks the learner to PRODUCE the
+string from a definition, and "por, in texting" → `x` is a poor card by
+that test — but it is a real thing Spanish writers write. Whichever way it
+goes, it must apply to every course at once (quality rule 1).
 
 ### Rows the card can never show, and a fallback that hides it
 

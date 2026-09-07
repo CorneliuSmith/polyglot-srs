@@ -48,7 +48,6 @@ rank	word	pos	en
 47	ฮัลโหล	intj	hello: used to answer a telephone or attract attention.
 48	แต่ว่า	conj	but.
 49	หยุด	verb	to stop; to take a break; to be on vacation; to be off (as from work)
-50	ั	character	A Thai vowel letter traditionally named ไม้หันอากาศ, ไม้ผัด, or หางกังหัน.
 51	ขอบใจ	intj	thank you
 52	ขอโทษ	verb	sorry; excuse me, pardon me (the everyday apology, usually with ครับ/ค่ะ); to apologise (to someone), to say sorry
 53	นาที	noun	minute.
@@ -64,7 +63,6 @@ rank	word	pos	en
 63	บาย	noun	rice
 64	หา	intj	used to express surprise, bewilderment, disbelief, contempt, or interrogation
 65	พวก	noun	group; party (of people, animals)
-66	โ	character	A Thai vowel letter traditionally named ไม้โอ
 67	แซม	name	Sam (man's given name, as transliterated in dubbed film and TV); (verb) to insert among, to intersperse (as grey hairs among black)
 68	ทุกคน	pron	everyone, everybody
 69	มัน	noun	fat; grease; oil; tallow
@@ -242,7 +240,6 @@ rank	word	pos	en
 241	ไหม	particle	(yes/no question particle)
 242	เคลียร์	verb	to clear — to empty, to free of obstruction (เคลียร์ทาง); to clear up, to sort out, to settle (a misunderstanding, a debt, a backlog)
 243	ใต้เท้า	noun	a term of respect used as a title for or term of address to a dignitary.
-244	ใ	character	A Thai vowel letter traditionally named ไม้ม้วน
 245	ด้วยความยินดี	phrase	my pleasure; you're welcome
 246	ตอน	noun	when, at, during (before a time expression: ตอนนี้ — now, ตอนเช้า — in the morning); part, section; episode (of a series); (verb) to castrate; to graft
 247	สี่	num	4 (Thai numeral: ๔)
@@ -417,7 +414,6 @@ rank	word	pos	en
 416	ป้า	noun	elder sister of one's parent.
 417	เลือด	noun	blood
 418	คนเดียว	adv	alone; unaccompanied; by oneself
-419	เ	character	A Thai vowel letter traditionally named ไม้หน้า
 420	ไร้สาระ	adj	nonsensical
 421	เจ็บ	verb	to be sick.; to be hurt; be in pain.
 422	สาว	noun	girl, young woman
@@ -429,7 +425,6 @@ rank	word	pos	en
 428	ไฟ	noun	fire; flame; light; light source
 429	ควีน	noun	queen (royal person)
 430	หายไป	verb	to vanish away, disappear
-431	ะ	character	A vowel letter traditionally named วิสรรชนีย์
 432	อร่อย	adj	delicious; tasty
 433	ชีวิต	noun	life
 434	เจ็ด	num	7 (Thai numeral: ๗)
@@ -915,7 +910,6 @@ rank	word	pos	en
 914	น้ำผึ้ง	noun	honey
 915	ชู	verb	to raise; to elevate; to lift up; to enhance.
 916	ชิม	verb	to taste; to sample (food)
-917	้	character	"The diacritical mark called ""mai tho"" - ไม้โท"
 918	วะ	intj	used to express frustration.
 919	เพศสัมพันธ์	noun	sexual intercourse; sex
 920	ผู้บัญชาการ	noun	chief; leader; commander. Abbreviation: ผบ. (pɔ̌ɔ-bɔɔ)
@@ -934,7 +928,6 @@ rank	word	pos	en
 933	ดาว	noun	star (any sense)
 934	ทางขวา	adj	right
 935	พันเอก	noun	colonel
-936	า	character	A Thai vowel letter traditionally named ลากข้าง. It can be informally called สระอา.
 937	ม้า	noun	horse (classifier: ตัว); also a low bench or stool, and the knight in chess
 938	ตายห่า	verb	to die in a great number at the same time, especially because of an epidemic.
 939	เครื่องบิน	noun	airplane
@@ -1927,7 +1920,6 @@ rank	word	pos	en
 1926	สั่ง	verb	to order; to command; to direct; to instruct
 1927	นิวเคลียร์	adj	nuclear
 1928	อีกา	noun	crow; jungle crow, Corvus macrorhynchos.
-1929	แ	character	A Thai vowel letter composed of two เ. It can be informally called สระแอ.
 1930	หม่อมฉัน	pron	a first person pronoun
 1931	ตน	noun	self; oneself
 1932	ไปเที่ยว	verb	to travel, to tour
@@ -2165,7 +2157,6 @@ rank	word	pos	en
 2164	หมากฝรั่ง	noun	chewing gum
 2165	ยิน	verb	to hear; to feel; to like
 2166	เคลื่อนที่	verb	to move (out of its base).
-2167	ฯ	punct	an abbreviation marker (named ไปยาลน้อย or เปยยาลน้อย).
 2168	ที่นั่ง	noun	seat, as chair, bench, etc; place to sit; space to sit
 2169	ลอย	verb	to float (on the water or in the air)
 2170	สันติภาพ	noun	peace, calm, calmness, peaceful state, tranquillity, quiet, hush, repose.
@@ -2328,7 +2319,6 @@ rank	word	pos	en
 2327	กุมภา	noun	clipping of กุมภาพันธ์ (gum-paa-pan)
 2328	ละคร	noun	show; play; drama
 2329	มี.ค.	name	initialism of มีนาคม (mii-naa-kom, “March”)
-2330	่	character	"The diacritical mark called ""mai ek"" - ไม้เอก"
 2331	อึดอัด	adj	tight; uncomfortable; awkward
 2332	แหลม	adj	pointed; sharp; keen; pointy
 2333	จระเข้	noun	crocodilian; crocodile
@@ -2497,7 +2487,6 @@ rank	word	pos	en
 2496	แม่นยำ	adj	exact, precise, accurate
 2497	ควร	verb	should, ought to, must
 2498	สำรอง	verb	to store up; to back up.
-2499	์	character	A diacritic in Thai that silences a consonant or multiple.
 2500	การตัดสินใจ	noun	abstract noun of ตัดสินใจ (dtàt-sǐn-jai)
 2501	วานร	noun	monkey.
 2502	เกียวโต	name	Kyoto (a prefecture on the island of Honshu, Japan)
@@ -2561,7 +2550,6 @@ rank	word	pos	en
 2560	สายัณห์สวัสดิ์	intj	good evening.
 2561	นักลงทุน	noun	investor.
 2562	ไอดอล	noun	idol: highly promoted and merchandised entertainer.
-2563	ไ	character	A Thai vowel letter traditionally named ไม้มลาย. It can be informally called สระไอไม้มลาย
 2564	น่ากิน	adj	tasty looking.
 2565	ว่าง	adj	free; at leisure
 2566	สูท	noun	suit (clothing)
@@ -3161,7 +3149,6 @@ rank	word	pos	en
 3160	บาป	noun	sin; badness; evilness
 3161	วัตถุระเบิด	noun	explosive.
 3162	เล็บ	noun	nail (fingernail, toenail), claw, talon
-3163	็	character	It is a Thai symbol that is called Mai Taikhu
 3164	สัด	verb	to mate; to copulate.
 3165	สื่อสาร	verb	to communicate
 3166	ไหล่	noun	shoulder
@@ -3719,7 +3706,6 @@ rank	word	pos	en
 3718	จุดหมาย	noun	aim; purpose; goal.
 3719	โดนใจ	verb	to impress, captivate, or fascinate; to catch one's fancy; to be to one's liking.
 3720	ใบไม้ผลิ	noun	spring (season).
-3721	ุ	character	A Thai vowel letter traditionally named ตีนเหยียด. It can be informally called สระอุ.
 3722	ความทรมาน	noun	abstract noun of ทรมาน (tɔɔ-rá-maan)
 3723	ลูกไม้	noun	fruit: product of a tree or other plant.
 3724	ว่าว	noun	kite (toy for flying)
