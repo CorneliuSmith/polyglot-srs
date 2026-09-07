@@ -1050,7 +1050,34 @@ Remaining, in order:
 
 ### Phase 3 — Grammar & hint debt burn-down
 
-- Execute the documented id/tl hint rewrite rules (≈270 findings).
+**Status 7 Sep 2026: the hint debt is burned down. 540 fail-level audit
+findings → 29, and the baseline from 34 entries to 11.** Two passes over
+508 findings (`giveaway_by_gloss` 426 → 15, `agreement_feature` 102 → 2),
+each course rewritten by a speaker of it and checked by a second reader on
+two questions in order: does the hint still give the answer away, and does
+it still HELP — a hint so vague it narrows nothing has traded one defect
+for another. `scripts/apply_drill_hints.py` re-runs the audit's own
+predicates, so a hint it accepts is one `audit_content` will not flag.
+
+**Two rules were in direct conflict and one had to give.**
+`agreement_feature` forbids a hint that is only the feature the drill tests;
+`duplicate_hint` forbids one hint covering several answers. For "there
+is/there are", or Greek's three definite articles, every possible hint
+violates one or the other — unless a hint may say "work it out from the
+noun", which is what the allomorph exemption already means when it says the
+sentence picks the answer and picking it is the exercise. Widened to cover a
+method hint: a directive verb AND the evidence in the sentence. "existential
+verb" is still a duplicate; so is "the noun's gender" with no instruction.
+
+**What remains, and why:** 15 `giveaway_by_gloss`; 11 `leak_hard`, which are
+the German `haben, wir` conjugation cue that CHECKS §19 calls the exercise's
+premise and the renderer already blanks; 2 `agreement_feature`; and single
+findings in three other rules. 95 Korean `hint_language` warnings are the
+dictionary-form convention for a language with no derivable infinitive
+(`_HELD` in `test_grammar_hints`), not debt.
+
+- ~~Execute the documented id/tl hint rewrite rules (≈270 findings).~~ Done:
+  both courses report zero fail-level findings.
 - `giveaway_by_gloss` burn-down worst-first (ar, jam, el, th, ro, yo, ha…),
   each language judged against its own `docs/quality/<code>.md`.
 - ko: dedupe same-topic point pairs; register/hint fixes from ko.md.
