@@ -104,18 +104,38 @@ class TestAgainstTheCorpus:
                     bad.append((p.get("title"), why))
         assert bad == [], f"{path.name}: the gate refuses shipped text: {bad[:5]}"
 
-    def test_the_corpus_carries_no_markdown_yet(self):
-        """Pins the starting point the plan measured, so the first course to
-        be formatted shows up as a real change rather than as drift."""
-        formatted = [
-            (path.stem, p.get("title"))
-            for path in sorted(GRAMMAR.glob("*_grammar.json"))
-            for p in (lambda d: d["points"] if isinstance(d, dict) else d)(
-                json.loads(path.read_text(encoding="utf-8")))
-            if has_markdown(p.get("explanation") or "")
-        ]
-        assert formatted == [], f"already formatted: {formatted[:5]}"
+    def test_only_the_courses_the_pass_has_reached_carry_markdown(self):
+        """A ratchet, not a zero. The editorial pass runs course by course
+        (`docs/plans/markdown-explanations.md`), so this names the ones it
+        has reached. A course that gains markdown without being listed here
+        gained it by accident — a copied paragraph, an AI-written row — and
+        that is what this catches. Add a code when its pass ships."""
+        formatted = {"fr"}
+        by_course = {}
+        for path in sorted(GRAMMAR.glob("*_grammar.json")):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            points = data["points"] if isinstance(data, dict) else data
+            n = sum(1 for p in points
+                    if has_markdown(p.get("explanation") or ""))
+            if n:
+                by_course[path.stem.replace("_grammar", "")] = n
+        assert set(by_course) == formatted, (
+            f"formatted courses are {sorted(by_course)}, expected "
+            f"{sorted(formatted)} — add the code above when a pass ships, or "
+            f"find out how markdown got in")
 
+    def test_a_finished_course_is_not_wholly_formatted(self):
+        """Restraint is the point: a pass that formats every paragraph is a
+        worse pass than one that formats a third."""
+        data = json.loads((GRAMMAR / "fr_grammar.json").read_text(encoding="utf-8"))
+        points = data["points"] if isinstance(data, dict) else data
+        with_expl = [p for p in points if (p.get("explanation") or "").strip()]
+        done = [p for p in with_expl if has_markdown(p.get("explanation") or "")]
+        share = len(done) / len(with_expl)
+        assert 0.2 <= share <= 0.75, (
+            f"fr formatted {len(done)}/{len(with_expl)} = {share:.0%} — under a "
+            "fifth suggests the pass did nothing, over three quarters suggests "
+            "it formatted for its own sake")
 
 class TestTheRoundTrip:
     def test_export_then_apply_is_a_no_op(self, tmp_path, capsys):
