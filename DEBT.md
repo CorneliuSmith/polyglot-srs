@@ -613,6 +613,37 @@ Postgres + Redis and run the full suite; use them before trusting a
 
 ---
 
+## Linked spellings (Turkish harmony — 7 Sep 2026)
+
+### Two foreign words the Turkish span finder refuses
+
+`pin` r6014 ("PIN kodu", 2 rows) and `instagram` r9193 (1 row) are written
+with a dotted capital I in Turkish text, and `nlp/turkish.py::answer_span`
+lowers `I` to `ı` before matching, so their cards now serve the definition
+alone. Left that way on purpose: a fallback to the plain regex for words that
+"look foreign" would re-admit the mis-casings the finder exists to catch
+(`işık`, `irak` — CHECKS §30). Fix, if the rows matter: give those two an
+`alt` entry (`PIN`, `Instagram` are not shapes of the word, so no) — or
+retire them; both are past rank 6,000 and neither is a Turkish word.
+
+### One orphan sentence row: `irmak`
+
+`data/tr_sentences.tsv` has 1 row tagged `irmak`, a default-lowercase of
+`Irmak` (river, properly `ırmak`), which is not a headword. Inert — the
+loader has no vocabulary row to attach it to — and it would go on the next
+regeneration. Re-tag it if `ırmak` ever becomes a headword.
+
+### `alternatives` means two things, by course
+
+The column is one mechanism with a per-language meaning: another right
+answer by default (Jamaican `likkle`/`little`, English colour/color — grades
+CORRECT), the harmony shapes of one word in Turkish (grades CORRECT_SLOPPY
+when a sentence fixed the shape). The meaning lives in
+`BaseNLP.alternative_result` and its Turkish override, and `tr.md` says not
+to put a synonym in the column. Jamaican also copies its `alt` column into
+`morphology["spellings"]` — the same list twice; nothing reads the copy. A
+course adding an `alt` column should read CHECKS §30 first.
+
 ## Documentation drift — accurate now, but watch for recurrence
 
 ### `README.md` undercounts languages and misnames the scheduler

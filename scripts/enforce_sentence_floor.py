@@ -42,6 +42,7 @@ DATA = REPO / "data"
 from backend.services.seeder.prune_sentences import (  # noqa: E402
     FLOOR,
     UNSPACED,
+    shape_keeps,
 )
 from backend.services.seeder.prune_sentences import (  # noqa: E402
     sentence_tokens as tokens,
@@ -76,8 +77,12 @@ def main() -> int:
             if len(thin) == len(group):
                 stranded += 1          # nothing better exists; leave it alone
                 continue
+            # A linked spelling keeps its best row (Turkish harmony, §30).
+            full = [r for r in group if r not in thin]
+            kept = shape_keeps(_word, full, thin, code)
             for r in thin:
-                drop.add(id(r))
+                if not any(r is k for k in kept):
+                    drop.add(id(r))
             improved += 1
         total_dropped += len(drop)
         total_words += improved

@@ -1504,6 +1504,89 @@ named above.** Rule 46.
 
 ---
 
+## §30 One word, several spellings: one card, and the sentence fixes the shape (owner, 7 Sep 2026)
+
+**Status: all 27** — the mechanism is generic (`alt` column → `vocabulary.alternatives`
+→ `find_cloze`); only Turkish and Jamaican carry the column today.
+
+**What the owner saw.** Turkish `mi`, `mı`, `mu`, `mü` were four headwords (r6, r16,
+r48, r163) with one definition, "Used to form interrogatives", four times. A learner
+on any of the four cards could not know which spelling to type; the grader then
+accepted whichever they typed, because Python's `IGNORECASE` treats dotless `ı` as
+a case of `i` (below). Phase 2d's first repair gave each spelling a definition
+naming its vowel class — "placed after a word whose last vowel is e or i" — which
+is `tr.md` hint standard 2's BAD shape exactly: it tells the learner which class
+won, which is the whole computation. The owner: "terms should be linked but show
+the vowel parity that applies."
+
+**The decision.** One card per morpheme. The commonest spelling keeps the row
+(`mi` r6, `de` r7, `ta` r408); the others go in the frequency file's `alt` column
+(semicolon-separated, the column Jamaican already had) and the seeder writes them
+to `vocabulary.alternatives`. The definition states the RULE and lists the shapes
+as one word. The retired spellings (`mı mu mü da te`) are in `vocab_exclusions.tsv`
+and leave production on `reconcile --apply`; their sentences were re-tagged to the
+head spelling — they still teach the particle.
+
+**How the card shows the parity.** Each sentence carries ONE shape, and that shape
+is the answer the sentence fixes — "Var ___?" is `mı` and nothing else. So:
+
+- `find_cloze(sentence, forms, find_span)` (`extract.py`) blanks whichever shape
+  the sentence carries, headword first, and says which. `_vocab_card` and the
+  Learn quiz set `correct_answer` to THAT shape and hand the grader the other
+  shapes as `alternatives`. The reveal after a miss shows the harmonised form.
+- Grading (`nlp/base.py` layer 6 → `alternative_result`): an alternative is by
+  default another right answer — colour/color, likkle/little — and grades
+  CORRECT. `TurkishNLP` overrides it: when the prompt was a sentence (the card
+  context now carries the shown prompt; the blank marker is the test), typing
+  another shape names the right word and skips the one computation the language
+  asks for → CORRECT_SLOPPY, "Right word, but not the shape this sentence takes:
+  it harmonises with what comes before it — mı." With no sentence (definition-
+  only prompt) no shape is fixed and any of them is the word → CORRECT.
+- Every other consumer asks about every shape too, or "Var mı?" reads as a row
+  the `mi` card cannot blank (rule 46): the audit's `unclozable_rows` and
+  `frame_collision`, the authored-sentence gate, and the prune — which now never
+  strands a SHAPE either: each shape keeps its longest row even below the
+  five-token floor, because the particle's sentences are short by nature and the
+  card exists to show the shape the sentence takes. One predicate,
+  `prune_sentences.shape_keeps`, serves the prune, the file-side floor script
+  and its test. Applied to the committed Turkish bank: 11 thin rows dropped
+  (`mi` 10 → 4, one per shape; `de` 4 → 2; `ışık` 4 → 1) and two proper-noun
+  rows under `ta` ("Taler nedir?") that no shape could blank.
+
+**The bug this exposed, and its class.** Python's `re.IGNORECASE` folds four
+non-ASCII letters onto ASCII — `ı`, `İ`, `ſ` and the Kelvin sign — so the cloze
+regex blanked `mı` for the `mi` card, and would carve `sik` out of a sentence for
+`sık`. Turkish now has a span finder (`nlp/turkish.py::answer_span`) that lowers
+both sides the Turkish way before an exact match, registered in ONE place,
+`backend/services/span_finders.py`, which the card, the audit, the gate and the
+prune all read (they each kept their own `{"th": …}` dict before — rule 13). Run
+over the whole bank: **13 of 17,958 rows** were blanked on the wrong letter — the
+three `mı` rows, and three mis-cased headwords the fold had been hiding: `işık`
+(3 sentence rows under a spelling that is not a headword; `ışık` r946 is) →
+re-tagged; `irak` r3117 → `ırak` (Iraq lowercases with dotless ı); `ii` r3778
+"abbreviation of iyi" → excluded (its rows are the Roman numeral in "II. Dünya
+Savaşı"). Cost, written down: `pin` r6014 (2 rows, "PIN kodu") and `instagram`
+r9193 (1 row) are foreign words whose capital I is a dotted i, and the Turkish
+rule now refuses them — 3 rows at ranks past 6,000, against 13 wrong blanks in
+the top 200. A fallback to the plain regex for "foreign-looking" words would
+re-admit exactly the mis-casings above; not taken.
+
+**Where the other courses stand.** Korean's `이/가`, `은/는`, `을/를` stay two
+cards each — `ko.md` hint standard 1 names the 받침 condition, and knowing that
+condition IS knowing the word; the pair differs by a consonant test the
+definition can state without handing over the answer. Jamaican's `alt` column
+(`likkle`/`little`) already flowed through the same `alternatives` column and
+keeps the base meaning (CORRECT). No other course's frequency file has an `alt`
+column; a language with harmony or sandhi alternants that arrive as separate
+headwords (none found in the top-200 audit of the other 25) follows Turkish.
+
+**Verified:** `backend/tests/test_linked_forms.py` (23 tests: `find_cloze`, the
+file, the seeder, the card, the grader in both cases, the audit, the gate, the
+prune, the dotless-i finder and the registry); `test_extract.py`, `test_readings.py`,
+`test_prune_sentences.py`, `test_audit_card_rules.py`, `test_apply_authored_sentences.py`
+unchanged and green. Owner-run: `seeder.run -l tr` (writes `alternatives`, loads the
+re-tagged rows) BEFORE `reconcile --apply` — `owner-actions-2026-09-07.md`.
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

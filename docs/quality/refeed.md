@@ -147,10 +147,16 @@ delete it. The path is printed at the end of every `--apply`.
 ## What this cannot do
 
 * **Delete a vocabulary row.** `user_cards` references it and the card
-  draw INNER JOINs, so a delete orphans a learner's progress. Rows retired
-  in files (`vocab_exclusions.tsv`, 727 today, 764 after `fix/en-symbol-glosses`) are still served in
-  production until a retire step exists (DEBT.md, "Exclusions have no
-  production write path").
+  draw INNER JOINs, so a delete orphans a learner's progress. Rows excluded
+  in files (`vocab_exclusions.tsv`) are RETIRED instead — hidden from every
+  draw, progress kept — by `reconcile --apply` once migration
+  `20261016_vocabulary_retired` has landed (#417); before it lands the step
+  reports "skipped" and the words are still served.
+* **Carry linked spellings or re-tagged sentences.** `reconcile` syncs
+  definitions, part of speech and retirements only. A course whose frequency
+  file gained an `alt` column (`vocabulary.alternatives` — Turkish harmony,
+  CHECKS §30) or whose sentence rows were re-tagged to another headword needs
+  `seeder.run -l <code>` first; the seeder is the only write path for both.
 * **Choose WHICH sentence a card shows.** It rotates over all of them
   (CHECKS §26); the only lever is which rows exist, which is step 6.
 * **Spend the API key.** Nothing here calls a model. The DB-side AI passes

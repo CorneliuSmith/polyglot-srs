@@ -24,6 +24,7 @@ which also carries the template.
 Not ADRs: standing instructions from the owner, and end-of-pass handovers
 written for the next session. Read the newest first.
 
+- [2026-09-07](2026-09-07-turkish-harmony-one-card.md) — Turkish harmony spellings are one card; the sentence fixes the shape (CHECKS §30)
 - [2026-09-06](2026-09-06-review-pass.md) — old versus modern: the card draws the old sentence first (CHECKS §26); the ordered queue for implementation
 - [2026-09-04](2026-09-04-one-staff-console.md) — one staff console
 - [2026-08-30](2026-08-30-content-push-and-gloss-pass.md) — the production push ran; the gloss pass 16% → 73%

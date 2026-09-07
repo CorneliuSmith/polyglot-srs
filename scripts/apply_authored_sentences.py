@@ -10,7 +10,7 @@ authored sentences sorted last and were never shown — the owner's `мне` car
 kept displaying the fragments they had been written to replace.
 
 **Presence — the SURFACE form, checked the way the card checks it.** A row is
-accepted only if `make_cloze` can blank it, because that is exactly what the
+accepted only if `find_cloze` can blank it (any linked spelling), because that is exactly what the
 review card does with it: a sentence carrying the headword in another form is
 correct language and a dead row, skipped at draw time, leaving the card on its
 definition-only fallback (CHECKS §29).
@@ -52,16 +52,16 @@ MORPH_LANGS = {"ru"}
 
 sys.path.insert(0, str(REPO))
 
-from backend.services.extract import make_cloze  # noqa: E402
-from backend.services.nlp.thai import answer_span as _thai_span  # noqa: E402
+from backend.services.extract import find_cloze  # noqa: E402
+from backend.services.linked_forms import forms_of  # noqa: E402
 from backend.services.nlp.thai import cloze_lexicon  # noqa: E402
 from backend.services.nlp.thai import segment as _thai_segment  # noqa: E402
+from backend.services.span_finders import span_finder  # noqa: E402
 
 # Scripts whose words a space does not separate: length is a count of
 # SEGMENTS there, and the blank is found by segmenting rather than by a word
 # boundary (CHECKS §22, §29). Without this every Thai sentence measured one
 # token long and the 7-14 rule rejected the whole language.
-SPAN_FINDERS = {"th": _thai_span}
 
 
 def sentence_length(sentence: str, code: str) -> int:
@@ -83,7 +83,7 @@ def sentence_length(sentence: str, code: str) -> int:
 def clozable(word: str, sentence: str, code: str) -> bool:
     """Can the card actually blank this word here? The only presence test
     that matters, because it is the one `_vocab_card` runs at draw time."""
-    return make_cloze(sentence, word, SPAN_FINDERS.get(code)) is not None
+    return find_cloze(sentence, forms_of(word, code), span_finder(code)) is not None
 
 
 def tokens(sentence: str) -> list[str]:

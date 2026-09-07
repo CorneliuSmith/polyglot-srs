@@ -65,6 +65,25 @@ def make_cloze(sentence: str, answer: str, find_span=None) -> str | None:
     return new if n else None
 
 
+def find_cloze(
+    sentence: str, forms: list[str], find_span=None,
+) -> tuple[str, str] | None:
+    """Blank whichever of *forms* the sentence carries; say which one it was.
+
+    A word with linked spellings (Turkish mi/mı/mu/mü, Jamaican likkle/little
+    — `vocabulary.alternatives`) appears in a sentence as ONE of them, and
+    that one is the answer the sentence fixes: "Var ___?" takes mı and
+    nothing else. Tries the forms in order (headword first), so a sentence
+    that carries the headword blanks the headword. Returns (cloze, form), or
+    None when no form is a standalone word in the sentence.
+    """
+    for form in forms:
+        cloze = make_cloze(sentence, form, find_span)
+        if cloze is not None:
+            return cloze, form
+    return None
+
+
 def classify_words(
     tokens: list[str],
     known_words: set[str],
