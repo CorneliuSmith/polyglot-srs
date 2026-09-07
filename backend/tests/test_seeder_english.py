@@ -200,17 +200,27 @@ class TestEnglishSeederGlossOverrides:
         assert water["translations"]["en"].strip()
 
     async def test_untouched_words_keep_their_wordnet_definition(self, seeder):
+        """One override must change one word and leave every other alone.
+
+        BOTH runs stub the override loader — the control with an empty set.
+        Letting the control read `data/gloss_overrides.tsv` compared a stubbed
+        run against the real file, so the test broke the moment that file
+        gained a word it happened to sample: Phase 2d added `time`, and the
+        control started returning the authored definition while the run under
+        test fell back to WordNet."""
         rows = {"book": {"pos": "noun", "en": "a written work bound between covers"}}
         with fixture_patch(), patch(
             "backend.services.seeder.seed_english.load_gloss_overrides", return_value=rows
         ):
             overridden = await seeder.transform()
-        with fixture_patch():
+        with fixture_patch(), patch(
+            "backend.services.seeder.seed_english.load_gloss_overrides", return_value={}
+        ):
             plain = await seeder.transform()
         by_word = {r["word"]: r["translations"]["en"] for r in plain}
         for r in overridden:
             if r["word"] != "book":
-                assert r["translations"]["en"] == by_word[r["word"]]
+                assert r["translations"]["en"] == by_word[r["word"]], r["word"]
 
 
 # ── committed definitions ─────────────────────────────────────────────────────
