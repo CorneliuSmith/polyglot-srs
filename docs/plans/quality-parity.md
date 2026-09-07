@@ -1125,7 +1125,11 @@ dictionary-form convention for a language with no derivable infinitive
   no key; French first; ko after its dedupe; ru/en topped up after Phase
   5. Placed here because it is editorial grammar work with no other home
   now the 26 Aug gate is gone, and because Phases 7–8 touch no grammar
-  JSON so nothing waits on it.
+  JSON so nothing waits on it. **The tooling is built (7 Sep 2026):**
+  `scripts/apply_grammar_explanations.py --export/--apply`, and the seed
+  guard now permits the renderer-supported subset in `explanation` while
+  holding `culture_note` and `function` at zero. Only the editorial read
+  remains.
 
 ### Phase 4 — Gym parity
 

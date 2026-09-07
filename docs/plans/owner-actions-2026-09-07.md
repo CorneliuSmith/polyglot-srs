@@ -184,6 +184,15 @@ writers really write. Both readings are reasonable and they cannot both be
 the rule. Is a written abbreviation a vocabulary card? Whichever way, it
 applies to every course at once. Details in DEBT.md.
 
+**Fifteen more joined this decision on 7 Sep**, all found by the
+letter-debris sweep and held rather than excluded: French `7e 8e 9e 10e 12e
+13e 14e 18e 19e 20e 21e` (ordinal abbreviations — real written French, but
+is an abbreviation a vocabulary card?), Russian `в.` (east) and `р.`
+(river), Spanish `a-` (a bound prefix, not a word a learner types), French
+`è` (glossed "contraction of elle + est", which is eye-dialect). Same
+question as the original twelve: a written abbreviation is real, and a card
+that asks a learner to type one is not obviously teaching anything.
+
 ### D. 40,683 production rows no committed file governs (new, 7 Sep)
 
 Rows in the database that no committed source owns — reported by the
@@ -217,7 +226,35 @@ Options, cheapest first:
 4. Retire every ungoverned row — 40,683 cards out of the decks, about 37% of
    Russian's. Not recommended without 3 first.
 
-Recommendation: **2 now, 3 next** (a maker–checker pass is running in-session
+**Option 2 is done (7 Sep, night):** 149 of the 165 letter-debris rows are
+in `vocab_exclusions.tsv` and your next reconcile dry run will show them as
+`retire 149`. Three readers checked the list first and refused one row —
+Yoruba `n`, which is the 1SG subject pronoun, deleted from the file by an
+early junk sweep and left live glossed as an alphabet letter; it is
+restored (`yo.md`). Fifteen more are held for **decision B**: eleven French
+ordinal abbreviations (`7e`, `10e`, `21e`…), Russian `в.` (east) and `р.`
+(river), Spanish `a-` (a bound prefix), and French `è` (an eye-dialect
+contraction).
+
+**Option 3 is done too (7 Sep, night):** all 678 twins were read by a
+reader of each language against that course's orthography policy and
+re-read by a second told to overturn what was wrong — 31 verdicts changed,
+in both directions. **386 are unmarked duplicates and are now in
+`vocab_exclusions.tsv`**; 65 turned out to be defects in the COMMITTED file
+rather than in production (the file has the unaccented form, or an
+inflection stub where the production row has the lemma) and need a file
+edit plus a re-seed; 223 are genuinely two words and were left alone.
+Full record, every row: `docs/decisions/2026-09-07-unmarked-twins.md`.
+
+Your next reconcile dry run will therefore show **`retire 535`** — 149
+letter debris plus 386 twins. Two of them have a learner card, both Latin
+(`non`, `de`, unmacronised twins of `nōn` and `dē`).
+
+What is left of decision D: the 65 file defects, the 223 words that need a
+file row of their own (Phase 8 supply), and the 39,004 tail — option 4,
+still not recommended.
+
+Recommendation: **the 65 file defects next** (a maker–checker pass is running in-session
 and its verdicts will be attached here), 4 only after 3 has said which twins
 are the better form. Lists: session scratchpad `decision_d_glyphs.json`,
 `decision_d_twins.json`, `departed.json`.

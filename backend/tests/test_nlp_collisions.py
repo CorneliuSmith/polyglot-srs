@@ -207,7 +207,17 @@ SLOPPY_KEY_CEILINGS = {
     # sweep (letters, punctuation, extraction debris), the four rare twins of
     # common words below, and the definition pass. A ceiling left above the
     # real number protects nothing.
-    "ru": 39, "ar": 113, "en": 8, "sw": 0, "tr": 122, "yo": 117, "ha": 0,
+    # yo 117 -> 118 on 7 Sep 2026, deliberately: the 1SG subject pronoun `n`
+    # was restored to the file. It had been deleted from the TSV by an early
+    # junk sweep (a bare letter) while staying live in production glossed
+    # "the fifteenth letter of the Yoruba alphabet" — and the course's own
+    # bank writes it four times as 1SG (`n kò tíì kà á`, `kí n dúró`), with
+    # a drill frame that expects it. Restoring it folds it onto `ń`, the
+    # progressive marker, so typing the pronoun where the marker belongs is
+    # now WRONG_FORM rather than a silent pass. Same shape as the six above:
+    # a rise from separating two real words is the guard gaining something
+    # to protect.
+    "ru": 39, "ar": 113, "en": 8, "sw": 0, "tr": 122, "yo": 118, "ha": 0,
     # mi ROSE 0 -> 19 when 169 macronised words the course teaches gained
     # cards. Before, Māori had no macronised headwords at all, so it had no
     # pairs to protect and the zero meant "nothing to see", not "clean". Now

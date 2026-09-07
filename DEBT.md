@@ -683,6 +683,43 @@ under a stale key — re-key them to the marked headword if the definition
 still fits, delete the rest. `scripts/apply_gloss_overrides.py` refuses such
 rows today; these predate the gate or outlived their headword.
 
+## 101 committed sentence rows now point at a retired word (7 Sep 2026)
+
+Retiring the 535 letter-debris and unmarked-twin rows leaves 101 rows in
+the committed sentence banks tagged to a word that is no longer drawn —
+mostly Turkish (`Dükkan tüm gün açık.` under `dükkan`, the misspelling of
+`dükkân`) and German (`grosse`, the Swiss spelling of `große`). They are
+inert: no card reaches them. They are NOT free supply for the correct
+twin either, because the sentence text carries the wrong spelling — moving
+`Dükkan tüm gün açık.` to `dükkân` would hand that card a sentence it
+cannot blank (rule 46) and teach the misspelling besides. Correct the text
+and re-tag, or drop the row, in a sentence pass. Counted per course by
+joining `vocab_exclusions.tsv` against `data/*_sentences.tsv`.
+
+The rest of the tr letter rows show why the exclusions are right rather
+than wrong: the "sentences" under `tr i`, `tr c`, `tr g` are ordinary
+sentences that merely contain a capital letter (`İş iyi.`, `C vitamini`,
+`G.N.P.`) — extraction noise, never teaching material for a headword.
+
+## Two content defects found while auditing something else (7 Sep 2026)
+
+Both surfaced when a checker read the letter-debris sweep; neither is in
+its scope, and neither is fixed.
+
+- **Romanian rank 4 `si` is glossed "si (musical note B)".** Rank 4 of a
+  shipped course cannot be a musical note: the frequency belongs to `și`
+  ("and"), typed without its comma-below. Same class as the ro rows already
+  in `vocab_exclusions.tsv` ("the stated meaning cannot carry this rank"),
+  but this one is IN the file, so it needs a definition and possibly a
+  re-spelling, not an exclusion. Rank 211 `i` glossed "and" is archaic
+  Romanian and probably the same fault.
+- **Catalan has no apostrophe headwords at all.** `data/ca_frequency.tsv`
+  carries none of `l'`, `d'`, `m'`, `t'`, `s'`, `n'`, `'l`, `'m`, `'s`,
+  `'ns` in 469 KB, while French and Italian carry theirs in the top 60.
+  `ca.md` names elision and clitic clusters as one of the three features
+  that dominate drill quality and calls the apostrophe the character
+  authors get wrong most. A coverage gap, not debris.
+
 ## Rows production serves that no committed file governs (7 Sep 2026)
 
 40,683 vocabulary rows are in production and owned by no committed source:

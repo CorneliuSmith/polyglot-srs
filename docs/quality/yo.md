@@ -295,3 +295,34 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## The 1SG pronoun `n` was deleted from the file and left live in production (7 Sep 2026)
+
+An early junk sweep removed bare single letters from the frequency files.
+One of them was a word: **`n`, the first-person singular subject pronoun** —
+the form used after the subjunctive `kí` and before the negator `kò`. The
+row stayed in production, glossed "the fifteenth letter of the Yoruba
+alphabet, called ní", while the course's own bank writes it as 1SG four
+times (`Mo gbà ìwé rẹ̀ lánàá, ṣùgbọ́n n kò tíì kà á`, `kí n dúró di ọ̀la`,
+`ẹ jẹ́ kí n bá yín gbé e`) and a drill frame expects it. The file carried
+the same pronoun under three OTHER spellings — `ń` r43 (which is the
+progressive marker, not the pronoun), `mo` r183, `ng` r502, `m` r912 — but
+not the one the sentences make a learner read.
+
+Found by the checker on the letter-debris sweep, which refused to retire it.
+Restored at rank 11, the rank production already carries — a duplicate of
+`ṣé`'s rank, because the file was renumbered after the row was dropped and
+inventing a different rank would misstate its frequency. Ranks are slots
+here, not a queue (`tr` and `ru` already carry gaps from exclusions).
+
+**The price, taken deliberately:** `n` and `ń` fold together under the
+grader's mark-strip, so the collision ceiling rose 117 → 118. Typing the
+pronoun where the progressive marker belongs is now WRONG_FORM instead of a
+silent pass — the same trade the 25 Aug tone pass made for `o` / `ó` / `ò`.
+`m`'s gloss claimed it was "the standard spelling"; it now cross-references
+`n` and `ń` instead of contradicting the corpus.
+
+**Mid tone is not a missing mark.** `n` is fully marked as it stands, so the
+tone-policy rule that retires unaccented twins does not reach it — the
+distinction this course protects is `n` (1SG) against `ń` (progressive).
+
