@@ -40,7 +40,7 @@
           "sentence": "{{answer}} moro no Rio de Janeiro.",
           "answer": "Eu",
           "translation": "I live in Rio de Janeiro.",
-          "hint": "I",
+          "hint": "subject pronoun for the one who is speaking — match the verb ending",
           "cell": "eu",
           "display_order": 2,
           "gloss": "___ · live.PRS.1SG · in-DEF.M · Rio · of · Janeiro"
@@ -58,7 +58,7 @@
           "sentence": "{{answer}} trabalha aqui?",
           "answer": "Você",
           "translation": "Do you work here?",
-          "hint": "you",
+          "hint": "subject pronoun for the person being addressed",
           "cell": "você",
           "display_order": 4,
           "gloss": "___ · work.PRS.3SG · here"
@@ -76,7 +76,7 @@
           "sentence": "{{answer}} chega amanhã de manhã.",
           "answer": "Ele",
           "translation": "He arrives tomorrow morning.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "ele",
           "display_order": 6,
           "gloss": "___ · arrive.PRS.3SG · tomorrow · of · morning"
@@ -94,7 +94,7 @@
           "sentence": "{{answer}} moramos perto da praia.",
           "answer": "Nós",
           "translation": "We live near the beach.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker's own group",
           "cell": "nós",
           "display_order": 8,
           "gloss": "___ · live.PRS.1PL · near · of-DEF.F · beach"
@@ -130,7 +130,7 @@
           "sentence": "{{answer}} jogam futebol no domingo.",
           "answer": "Eles",
           "translation": "They play football on Sundays.",
-          "hint": "they",
+          "hint": "third-person plural subject, a group that includes a male referent",
           "cell": "eles",
           "display_order": 12,
           "gloss": "___ · play.PRS.3PL · football · in-DEF.M · Sunday"

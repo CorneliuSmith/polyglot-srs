@@ -777,7 +777,7 @@
           "sentence": "Nō {{answer}} koe?",
           "answer": "hea",
           "translation": "Where are you from?",
-          "hint": "where",
+          "hint": "the interrogative asking about location, following the origin particle nō",
           "display_order": 6,
           "gloss": "from · ___ · 2SG"
         }
@@ -2323,7 +2323,7 @@
           "sentence": "Kāore {{answer}} rātou kia hoki mai.",
           "answer": "anō",
           "translation": "They haven't come back yet.",
-          "hint": "yet",
+          "hint": "the particle completing the kāore … kia frame for an action still pending",
           "gloss": "NEG · ___ · 3PL · SBJV · return · hither",
           "display_order": 5
         },

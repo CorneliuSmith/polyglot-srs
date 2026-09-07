@@ -116,7 +116,7 @@
           "sentence": "{{answer}} lavora in banca.",
           "answer": "Lui",
           "translation": "He works in a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "lui",
           "display_order": 10,
           "gloss": "___ · work.3SG · in · bank"
@@ -125,7 +125,7 @@
           "sentence": "{{answer}} canta molto bene.",
           "answer": "Lei",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "lei",
           "display_order": 11,
           "gloss": "___ · sing.3SG · very · well"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} abitiamo a Milano.",
           "answer": "Noi",
           "translation": "We live in Milan.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker together with others",
           "cell": "noi",
           "display_order": 12,
           "gloss": "___ · live.1PL · at · Milan"
@@ -152,7 +152,7 @@
           "sentence": "{{answer}} giocano a tennis.",
           "answer": "Loro",
           "translation": "They play tennis.",
-          "hint": "they",
+          "hint": "third-person plural subject, several people acting",
           "cell": "loro",
           "display_order": 14,
           "gloss": "___ · play.3PL · at · tennis"
@@ -307,7 +307,7 @@
           "sentence": "{{answer}} caffè è caldo.",
           "answer": "Il",
           "translation": "The coffee is hot.",
-          "hint": "masculine singular",
+          "hint": "the definite article — decided by the noun's gender and its opening sound",
           "display_order": 4,
           "cell": "il",
           "gloss": "___ · coffee.M.SG · be.3SG · hot.M.SG"
@@ -438,7 +438,7 @@
           "sentence": "È {{answer}} bella giornata.",
           "answer": "una",
           "translation": "It is a beautiful day.",
-          "hint": "feminine",
+          "hint": "the indefinite article — decided by the noun's gender and its opening sound",
           "display_order": 3,
           "gloss": "be.3SG · ___ · beautiful.F.SG · day.F.SG"
         },
@@ -462,7 +462,7 @@
           "sentence": "È {{answer}} buon libro.",
           "answer": "un",
           "translation": "It is a good book.",
-          "hint": "masculine",
+          "hint": "the indefinite article — decided by the noun's gender and its opening sound",
           "display_order": 6,
           "gloss": "be.3SG · ___ · good.M.SG · book.M.SG"
         }
@@ -3151,7 +3151,7 @@
           "sentence": "Non gli piace la città; {{answer}}, ci lavora.",
           "answer": "tuttavia",
           "translation": "He doesn't like the city; however, he works there.",
-          "hint": "however",
+          "hint": "the connector that marks a contrast with the clause before it",
           "display_order": 4,
           "gloss": "NEG · 3SG.M.DAT · please.PRS.3SG · DEF.F.SG · city · ___ · LOC · work.PRS.3SG"
         },

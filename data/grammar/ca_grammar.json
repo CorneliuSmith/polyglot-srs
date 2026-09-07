@@ -125,7 +125,7 @@
           "sentence": "{{answer}} treballa en un banc.",
           "answer": "Ell",
           "translation": "He works in a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "ell",
           "display_order": 11,
           "gloss": "___ · work.3SG · in · INDF.M.SG · bank"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} canta molt bé.",
           "answer": "Ella",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "ella",
           "display_order": 12,
           "gloss": "___ · sing.3SG · very · well"
@@ -143,7 +143,7 @@
           "sentence": "{{answer}} vivim a Girona.",
           "answer": "Nosaltres",
           "translation": "We live in Girona.",
-          "hint": "we",
+          "hint": "subject that includes the speaker plus others — match the verb ending",
           "cell": "nosaltres",
           "display_order": 13,
           "gloss": "___ · live.1PL · at · Girona"
@@ -326,7 +326,7 @@
           "sentence": "{{answer}} cafè és calent.",
           "answer": "El",
           "translation": "The coffee is hot.",
-          "hint": "masculine singular",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 4,
           "cell": "el",
           "gloss": "___ · coffee · be.3SG · hot.M.SG"
@@ -335,7 +335,7 @@
           "sentence": "{{answer}} porta és oberta.",
           "answer": "La",
           "translation": "The door is open.",
-          "hint": "feminine singular",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 5,
           "cell": "la",
           "gloss": "___ · door · be.3SG · open.F.SG"
@@ -427,7 +427,7 @@
           "sentence": "És {{answer}} bon llibre.",
           "answer": "un",
           "translation": "It is a good book.",
-          "hint": "masculine",
+          "hint": "the indefinite article — match it to the gender of the noun",
           "display_order": 4,
           "gloss": "be.3SG · ___ · good.M.SG · book"
         },
@@ -435,7 +435,7 @@
           "sentence": "Tinc {{answer}} pregunta.",
           "answer": "una",
           "translation": "I have a question.",
-          "hint": "feminine",
+          "hint": "the indefinite article — match it to the gender of the noun",
           "display_order": 5,
           "gloss": "have.1SG · ___ · question"
         },
@@ -443,7 +443,7 @@
           "sentence": "És {{answer}} dia bonic.",
           "answer": "un",
           "translation": "It is a beautiful day.",
-          "hint": "masculine",
+          "hint": "the indefinite article — match it to the gender of the noun",
           "display_order": 6,
           "gloss": "be.3SG · ___ · day · beautiful.M.SG"
         }
@@ -3124,7 +3124,7 @@
           "sentence": "No li agrada la ciutat; {{answer}}, hi treballa.",
           "answer": "tanmateix",
           "translation": "He doesn't like the city; however, he works there.",
-          "hint": "however",
+          "hint": "connector marking a contrast with the clause before it",
           "display_order": 4,
           "gloss": "NEG · 3SG.DAT · please.3SG · DEF.F · city · ___ · LOC · work.3SG"
         },

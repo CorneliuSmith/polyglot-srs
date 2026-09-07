@@ -115,7 +115,7 @@
           "sentence": "{{answer}} μένω στη Θεσσαλονίκη.",
           "answer": "Εγώ",
           "translation": "I live in Thessaloniki.",
-          "hint": "I",
+          "hint": "subject pronoun for the one who is speaking",
           "cell": "εγώ",
           "display_order": 9,
           "transliteration": "___ méno sti Thessaloníki.",
@@ -135,7 +135,7 @@
           "sentence": "{{answer}} δουλεύει στην τράπεζα.",
           "answer": "Αυτός",
           "translation": "He works at the bank.",
-          "hint": "he",
+          "hint": "subject pronoun, single male referent",
           "cell": "αυτός",
           "display_order": 11,
           "transliteration": "___ dulévi stin trápeza.",
@@ -145,7 +145,7 @@
           "sentence": "{{answer}} μένει στο κέντρο.",
           "answer": "Αυτή",
           "translation": "She lives in the centre.",
-          "hint": "she",
+          "hint": "subject pronoun, single female referent",
           "cell": "αυτή",
           "display_order": 12,
           "transliteration": "___ méni sto kéndro.",
@@ -155,7 +155,7 @@
           "sentence": "{{answer}} είναι πολύ ακριβό.",
           "answer": "Αυτό",
           "translation": "It is very expensive.",
-          "hint": "it",
+          "hint": "subject pronoun standing for a neuter thing, not a person",
           "cell": "αυτό",
           "display_order": 13,
           "transliteration": "___ íne polí akrivó.",
@@ -165,7 +165,7 @@
           "sentence": "{{answer}} έχουμε ένα σπίτι στο χωριό.",
           "answer": "Εμείς",
           "translation": "We have a house in the village.",
-          "hint": "we",
+          "hint": "subject pronoun for the speaker together with others",
           "cell": "εμείς",
           "display_order": 14,
           "transliteration": "___ échume éna spíti sto chorió.",
@@ -363,7 +363,7 @@
           "answer": "Ο",
           "translation": "The coffee is hot.",
           "transliteration": "___ kafés íne zestós.",
-          "hint": "masculine",
+          "hint": "the definite article — check the gender of the noun that follows",
           "display_order": 4,
           "cell": "ο",
           "gloss": "___ · coffee.M.SG.NOM · be.PRS.3SG · hot.M.SG.NOM"
@@ -373,7 +373,7 @@
           "answer": "Η",
           "translation": "The door is open.",
           "transliteration": "___ pórta íne anichtí.",
-          "hint": "feminine",
+          "hint": "the definite article — check the gender of the noun that follows",
           "display_order": 5,
           "cell": "η",
           "gloss": "___ · door.F.SG.NOM · be.PRS.3SG · open.F.SG.NOM"
@@ -383,7 +383,7 @@
           "answer": "Το",
           "translation": "The child is sleeping.",
           "transliteration": "___ pedí kimáte.",
-          "hint": "neuter",
+          "hint": "the definite article — check the gender of the noun that follows",
           "display_order": 6,
           "cell": "το",
           "gloss": "___ · child.N.SG.NOM · sleep.PRS.3SG"
@@ -454,7 +454,7 @@
           "answer": "μία",
           "translation": "I have an idea.",
           "transliteration": "Ého ___ idéa.",
-          "hint": "feminine",
+          "hint": "the indefinite article — match it to the gender of the noun",
           "display_order": 4,
           "cell": "μία",
           "gloss": "have.PRS.1SG · ___ · idea.F.SG.ACC"
@@ -464,7 +464,7 @@
           "answer": "ένα",
           "translation": "It is a good book.",
           "transliteration": "Íne ___ kaló vivlío.",
-          "hint": "neuter",
+          "hint": "the indefinite article — match it to the gender of the noun",
           "display_order": 5,
           "cell": "ένα",
           "gloss": "be.PRS.3SG · ___ · good.N.SG.NOM · book.N.SG.NOM"
@@ -474,7 +474,7 @@
           "answer": "ένας",
           "translation": "It is a beautiful garden.",
           "transliteration": "Íne ___ ómorfos kípos.",
-          "hint": "masculine",
+          "hint": "the indefinite article — match it to the gender of the noun",
           "display_order": 6,
           "cell": "ένας",
           "gloss": "be.PRS.3SG · ___ · beautiful.M.SG.NOM · garden.M.SG.NOM"
@@ -1166,7 +1166,7 @@
           "answer": "υπάρχει",
           "translation": "There is no milk.",
           "transliteration": "Den ___ gála.",
-          "hint": "singular",
+          "hint": "existential verb — agree it with the number of what exists",
           "display_order": 3,
           "gloss": "NEG · ___ · milk.N.SG.NOM"
         },
@@ -1175,7 +1175,7 @@
           "answer": "Υπάρχουν",
           "translation": "There are many people here.",
           "transliteration": "___ polí ánthropi edó.",
-          "hint": "plural",
+          "hint": "existential verb — agree it with the number of what exists",
           "display_order": 4,
           "gloss": "___ · many.M.PL.NOM · person.M.PL.NOM · here"
         },
@@ -1184,7 +1184,7 @@
           "answer": "Υπάρχει",
           "translation": "Is there a park nearby?",
           "transliteration": "___ éna párko kondá?",
-          "hint": "singular",
+          "hint": "existential verb — agree it with the number of what exists",
           "display_order": 5,
           "gloss": "___ · INDF.N.SG.NOM · park.N.SG.NOM · nearby"
         },
@@ -1193,7 +1193,7 @@
           "answer": "υπάρχουν",
           "translation": "There are no problems.",
           "transliteration": "Den ___ provlímata.",
-          "hint": "plural",
+          "hint": "existential verb — agree it with the number of what exists",
           "display_order": 6,
           "gloss": "NEG · ___ · problem.N.PL.NOM"
         }
@@ -2800,7 +2800,7 @@
           "sentence": "{{answer}} δεν βιαστείς, θα χάσεις το λεωφορείο.",
           "answer": "αν",
           "translation": "If you don't hurry, you'll miss the bus.",
-          "hint": "if",
+          "hint": "the conjunction that opens the condition clause",
           "transliteration": "___ den viastís, tha chásis to leoforío.",
           "display_order": 4,
           "gloss": "___ · NEG · hurry.PFV.2SG · FUT · lose.PFV.2SG · DEF.N.ACC.SG · bus.ACC.SG"
@@ -3502,7 +3502,7 @@
           "sentence": "Έμεινε σπίτι {{answer}} έβρεχε πολύ.",
           "answer": "επειδή",
           "translation": "She stayed home because it was raining a lot.",
-          "hint": "because",
+          "hint": "the subordinator that names the cause, not a contrast",
           "transliteration": "Émine spíti ___ évreche polí.",
           "display_order": 6,
           "gloss": "stay.PST.PFV.3SG · home.ACC.SG · ___ · rain.PST.IPFV.3SG · much"

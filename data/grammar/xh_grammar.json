@@ -1802,7 +1802,7 @@
           "sentence": "{{answer}} imvula iyana, siza kuhlala endlwini.",
           "answer": "Ukuba",
           "translation": "If it rains, we will stay in the house.",
-          "hint": "if",
+          "hint": "the conjunction that opens a conditional clause",
           "display_order": 5,
           "gloss": "___ · CL9.rain · CL9.PRES.rain · 1PL.FUT · INF.stay · LOC.house"
         },

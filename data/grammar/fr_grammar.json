@@ -125,7 +125,7 @@
           "sentence": "{{answer}} travaille dans une banque.",
           "answer": "Il",
           "translation": "He works in a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "il",
           "display_order": 11,
           "gloss": "___ · work.3SG · in · INDF.F · bank"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} chante très bien.",
           "answer": "Elle",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "elle",
           "display_order": 12,
           "gloss": "___ · sing.3SG · very · well"
@@ -143,7 +143,7 @@
           "sentence": "{{answer}} habitons à Lyon.",
           "answer": "Nous",
           "translation": "We live in Lyon.",
-          "hint": "we",
+          "hint": "first-person plural subject — the -ons ending confirms it",
           "cell": "nous",
           "display_order": 13,
           "gloss": "___ · live.1PL · at · Lyon"
@@ -316,7 +316,7 @@
           "sentence": "{{answer}} café est chaud.",
           "answer": "Le",
           "translation": "The coffee is hot.",
-          "hint": "masculine singular",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 4,
           "cell": "le",
           "gloss": "___ · coffee · be.3SG · hot.M.SG"
@@ -325,7 +325,7 @@
           "sentence": "{{answer}} porte est ouverte.",
           "answer": "La",
           "translation": "The door is open.",
-          "hint": "feminine singular",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 5,
           "cell": "la",
           "gloss": "___ · door · be.3SG · open.F.SG"
@@ -334,7 +334,7 @@
           "sentence": "{{answer}} chiens sont dans le jardin.",
           "answer": "Les",
           "translation": "The dogs are in the garden.",
-          "hint": "plural",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 6,
           "cell": "les",
           "gloss": "___ · dog.PL · be.3PL · in · DEF.M.SG · garden"
@@ -418,7 +418,7 @@
           "sentence": "C'est {{answer}} bon livre.",
           "answer": "un",
           "translation": "It is a good book.",
-          "hint": "masculine",
+          "hint": "the indefinite article — check the noun's gender and number",
           "display_order": 5,
           "cell": "un",
           "gloss": "this-be.3SG · ___ · good.M.SG · book"
@@ -427,7 +427,7 @@
           "sentence": "Elle achète {{answer}} pommes.",
           "answer": "des",
           "translation": "She is buying (some) apples.",
-          "hint": "plural indefinite",
+          "hint": "the indefinite article — check the noun's gender and number",
           "display_order": 6,
           "cell": "des",
           "gloss": "3SG.F · buy.3SG · ___ · apple.PL"
@@ -2826,7 +2826,7 @@
           "sentence": "Elle m'a demandé {{answer}} j'avais fini.",
           "answer": "si",
           "translation": "She asked me whether I had finished.",
-          "hint": "whether",
+          "hint": "the conjunction that reports a yes/no question",
           "display_order": 6,
           "gloss": "3SG.F · 1SG.OBJ-have.3SG · ask.PTCP · ___ · 1SG-have.PST.IPFV.1SG · finish.PTCP"
         },
@@ -3294,7 +3294,7 @@
           "sentence": "Le café est cher; {{answer}}, le thé est bon marché.",
           "answer": "cependant",
           "translation": "Coffee is expensive; however, tea is cheap.",
-          "hint": "however",
+          "hint": "the connector marking contrast, formal register",
           "display_order": 6,
           "gloss": "DEF.M · coffee · be.3SG.PRS · expensive.M.SG · ___ · DEF.M · tea · be.3SG.PRS · good.M.SG · market"
         },
