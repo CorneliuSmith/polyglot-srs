@@ -1038,6 +1038,23 @@ Remaining, in order:
    measured (84 cards, `على`/`علي` at ranks 8/144): green rested on Egyptian
    convention that `ar.md` excludes, and MSA distinguishes /aː/ from /iː/
    word-finally. Now amber. **199 → 1** across both moves.
+1b. **Rare junk twins of common words — swept 7 Sep, 4 found.** A rare entry
+   that grades identically to a COMMON word degrades that word's card: the
+   learner types the common word and is told it is "a different word".
+   French rank 22 `ça` collided with rank 183 `ca`, "initialism of conseil
+   d'administration". Measured across all 27 with the audit's own key: only
+   4 survive — `en yöu` (no gloss, rank 4241, grades as `you` at rank 2),
+   `pt nã` (eye dialect of não, grades as `na`), `pt es` (initialism of a
+   Brazilian state, grades as `és`), `el ά` (abbreviation, grades as `α`).
+   Excluded. A fifth candidate, `de brüder`, was a false positive — it is
+   the ordinary plural of Bruder and stays.
+
+   **The 490 French and 486 Romanian collisions are NOT this class.** They
+   are the contrastive pairs the guard exists to protect — `à`/`a`,
+   `ou`/`où`, `sur`/`sûr`, `du`/`dû` — where the accent IS the word. The
+   ceilings in `test_nlp_collisions.py` are now tightened to the measured
+   counts, so those gains cannot silently erode.
+
 2. **Judgment repairs** the mechanical rules could not make: `el` tonos twins
    (keep-the-marked was tried and REVERTED — Greek monosyllables are standard
    unmarked), `hi` nuqta variants, `de` ß/ss, `fr` 1990-reform merges (accept
