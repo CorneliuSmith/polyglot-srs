@@ -193,3 +193,78 @@ would replace a correct gloss with a wrong one.
 | 752 | `alın` | second-person plural imperative of almak: take!, get!, have! (polite or  |
 | 884 | `kalın` | second-person plural imperative of kalmak: stay!, remain!, keep (polite  |
 | 885 | `gider` | third-person singular aorist of gitmek: goes, he/she/it goes (habitually |
+
+## Phase 2d–3 pass (7 September 2026)
+
+Measured and changed in the quality-parity passes of 6–7 September; figures
+re-measured from the repository on 7 September.
+
+- **Definitions.** The top 200 were read by a reader of Turkish and
+  **74 repaired** through `scripts/apply_gloss_overrides.py`; a second
+  reader accepted or corrected every one it saw. Faults found: not a definition 38, reaches a synonym 26, wrong sense 9.
+  105 of the top 200 now carry a hand-written definition — a low
+  count means the extracted glosses were already right, not that the band
+  was skipped.
+- **Hints.** **11 drill hints** that gave away their answer — sitting
+  inside their own translation, or only the agreement feature the drill
+  tests — rewritten through `scripts/apply_drill_hints.py`.
+- **Headwords.** **1 removed** in the 2d pass, **7 in all** by day's end (see below) — to `vocab_exclusions.tsv` (letters,
+  punctuation, extraction debris, rare twins of common words). Production
+  retires them on the next `reconcile --apply` (migration 20261016).
+- **State.** 91% of the top 1,000 have a sentence the card can
+  actually blank; 100% of drills carry an interlinear gloss;
+  0 fail-level audit findings; a top-2,000 card is bad — no
+  usable sentence, or a fragment drawn — 45% of the time.
+
+**Vowel-harmony spellings are ONE card (owner decision, 7 Sep 2026; CHECKS §30).**
+`mi / mı / mu / mü`, `de / da` and `ta / te` were separate headwords sharing one
+definition — "Used to form interrogatives" four times — so a learner on any
+of the four cards could not know which spelling to type. Phase 2d's first
+repair gave each spelling a definition naming the vowel class it follows,
+which is hint standard 2's BAD shape exactly: it tells the learner which
+class won, which is the whole computation. Reversed. The commonest spelling
+keeps the row (`mi` r6, `de` r7, `ta` r408) with the others in the frequency
+file's `alt` column → `vocabulary.alternatives`; the definition states the
+rule and lists the spellings as forms of one word. The retired spellings'
+sentences were re-tagged to the head spelling, and the rows leave production
+on the next `reconcile --apply` (after `seeder.run -l tr`, which writes the
+alternatives).
+
+How the card shows the parity: each sentence carries one shape, and that
+shape is the answer — "Var ___?" expects `mı`, the reveal shows `mı`, and the
+other three ride along as alternatives. Typing `mu` there is the right word
+and the wrong computation: **CORRECT_SLOPPY**, "Right word, but not the shape
+this sentence takes: it harmonises with what comes before it — mı"
+(`nlp/turkish.py::alternative_result`). With no sentence to fix a shape, any
+of the four is the word (CORRECT). In this course `alternatives` MEANS
+harmony shapes — do not put a synonym or a regional spelling there.
+
+The repair exposed a grader-level fault: Python's case-insensitive regex
+treats dotless `ı` as a case of `i`, so the cloze had been blanking `mı` for
+the `mi` card and would carve `sik` out of a sentence for `sık`. Turkish now
+finds its blank under Turkish casing (`answer_span`, registered in
+`span_finders.py`). Measured over the bank: 13 of 17,958 rows were blanked
+on the wrong letter, and three headwords were mis-cased by a default
+lowercase somewhere upstream — `işık` (re-tagged to `ışık` r946), `irak` →
+`ırak` r3117, `ii` r3778 excluded (the Roman numeral in "II. Dünya Savaşı").
+Cost: `pin` r6014 (2 rows, "PIN kodu") and `instagram` r9193 (1 row) are
+foreign words whose capital I is dotted, and the Turkish rule refuses them —
+3 rows past rank 6,000; a fallback would re-admit the mis-casings above.
+One orphan remains: 1 sentence row tagged `irmak` (should be `ırmak`, not a
+headword) — inert, listed in DEBT.
+
+The five-token floor and the linked card meet in the middle: a shape keeps
+its longest row even below the floor (`prune_sentences.shape_keeps`, used
+by the prune, `scripts/enforce_sentence_floor.py` and the file test), so
+the bank now holds `mi` × 4 — one sentence each for mi, mı, mu, mü — and
+`de` × 2, after 11 thin rows went and two proper-noun rows under `ta`
+("Taler nedir?", "Tanina evde değil.") that no shape could blank.
+
+Headwords this pass, all told: **7 removed** (`vocab_exclusions.tsv`) — one
+junk twin, the five harmony spellings, `ii`. Contrast Korean (`ko.md`),
+where the 받침 pair stays two cards.
+
+Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
+rows whatever their source), §26 (the card rotates — a fragment's exposure is
+its share of the pool), §28 (definition plus sentence must determine one
+string), §29 (a sentence the card cannot blank is not coverage).

@@ -315,6 +315,21 @@ rate, say so — that result matters more than the phase closing quietly.
     shipped is what separated the 5 real findings from the 1,359 false
     ones. (CHECKS §28)
 
+48. **One word with several spellings is ONE card; the sentence fixes the
+    shape.** Turkish `mi/mı/mu/mü` were four headwords sharing a definition,
+    then four definitions naming the vowel class (the outcome, forbidden by
+    `tr.md`). Link them (`alt` column → `alternatives`), let `find_cloze`
+    blank whichever shape the sentence carries, grade a wrong shape as the
+    right word graded sloppy, and make EVERY consumer that asks "is the word
+    here" ask about every shape (`linked_forms.py`). Korean's 받침 pairs stay
+    two cards — the condition is statable without the answer (CHECKS §30).
+49. **Case-insensitive is language-specific.** Python's `IGNORECASE` folds
+    dotless `ı` onto `i` (with `İ`, `ſ`, the Kelvin sign), so the cloze
+    blanked the wrong letter on 13 Turkish rows and hid three mis-cased
+    headwords. A language that needs its own casing or has no word
+    boundaries registers a span finder in `span_finders.py` — one registry,
+    read by the card, the audit, the gate and the prune (rule 13).
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

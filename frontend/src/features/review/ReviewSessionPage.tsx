@@ -671,6 +671,10 @@ function ReviewSessionInner({
         card_type: card.card_type,
         morphology: card.morphology ?? {},
         alternatives: card.alternatives ?? [],
+        // The prompt as shown, blank included: a language whose alternatives
+        // are the shapes of one word (Turkish harmony) grades a wrong shape
+        // sloppy only when a sentence fixed the shape.
+        sentence: card.sentence,
       },
     })
   }

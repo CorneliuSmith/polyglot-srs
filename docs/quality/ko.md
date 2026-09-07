@@ -199,3 +199,42 @@ would replace a correct gloss with a wrong one.
 | 639 | `보기` | seeing, looking, the sight of something — 보다 nominalized with -기 (보기 좋아요 |
 | 1149 | `드릴` | to give, to offer (humble, to someone senior) — 드리다 in the -(으)ㄹ determi |
 | 1352 | `마실` | to drink, (something) to drink — 마시다 in the -(으)ㄹ determiner form, alway |
+
+## Phase 2d–3 pass (7 September 2026)
+
+Measured and changed in the quality-parity passes of 6–7 September; figures
+re-measured from the repository on 7 September.
+
+- **Definitions.** The top 200 were read by a reader of Korean and
+  **73 repaired** through `scripts/apply_gloss_overrides.py`; a second
+  reader accepted or corrected every one it saw. Faults found: wrong sense 27, reaches a synonym 25, not a definition 20.
+  93 of the top 200 now carry a hand-written definition — a low
+  count means the extracted glosses were already right, not that the band
+  was skipped.
+- **Hints.** **0 drill hints** that gave away their answer — sitting
+  inside their own translation, or only the agreement feature the drill
+  tests — rewritten through `scripts/apply_drill_hints.py`.
+- **Headwords.** **8 removed** to `vocab_exclusions.tsv` (letters,
+  punctuation, extraction debris, rare twins of common words). Production
+  retires them on the next `reconcile --apply` (migration 20261016).
+- **State.** 47% of the top 1,000 have a sentence the card can
+  actually blank; 100% of drills carry an interlinear gloss;
+  0 fail-level audit findings; a top-2,000 card is bad — no
+  usable sentence, or a fragment drawn — 82% of the time.
+
+**받침 allomorph pairs stay TWO cards, unlike Turkish harmony (7 Sep 2026).**
+`이/가`, `은/는`, `을/를` are conditioned by the preceding syllable's final
+consonant, and hint standard 1 already says the hint names that condition
+("subject marker — 물 ends in a consonant"). A vocabulary card has no
+sentence to point at, so its definition states the general condition
+("the subject marker attached after a vowel") — knowing that rule IS
+knowing the word, and the two members differ in the medial, not a vowel
+class that harmony computes. Turkish `mi/mı/mu/mü` went the other way (one
+card, the sentence fixes the shape, a wrong shape is the right word graded
+sloppy — tr.md, CHECKS §30) because there the definition naming the vowel
+class hands over the answer. Do not "harmonise" the two courses.
+
+Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
+rows whatever their source), §26 (the card rotates — a fragment's exposure is
+its share of the pool), §28 (definition plus sentence must determine one
+string), §29 (a sentence the card cannot blank is not coverage).

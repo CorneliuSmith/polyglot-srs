@@ -268,11 +268,23 @@ def test_a_word_with_a_real_sentence_keeps_no_fragments(path):
     by_word = defaultdict(list)
     for r in rows:
         by_word[(r.get("word") or "").strip()].append(r.get("sentence") or "")
+    from backend.services.seeder.prune_sentences import shape_keeps
+    code = os.path.basename(path).split("_")[0]
     bad = []
     for word, group in by_word.items():
         lens = [len(_sentence_tokens(s)) for s in group]
         if max(lens) >= 5 and min(lens) < 5:
-            bad.append((word, [s for s, n in zip(group, lens, strict=False) if n < 5][:2]))
+            thin = [s for s, n in zip(group, lens, strict=False) if n < 5]
+            full = [s for s, n in zip(group, lens, strict=False) if n >= 5]
+            # A linked spelling keeps its best row (CHECKS §30): the `mi`
+            # card must be able to show mı, mu and mü, whose sentences are
+            # short by nature.
+            allowed = {r["sentence"] for r in shape_keeps(
+                word, [{"sentence": s} for s in full],
+                [{"sentence": s} for s in thin], code)}
+            thin = [s for s in thin if s not in allowed]
+            if thin:
+                bad.append((word, thin[:2]))
     assert not bad, (
         f"{len(bad)} word(s) keep a fragment despite having a real sentence, "
         f"e.g. {bad[:2]}")

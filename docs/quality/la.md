@@ -184,3 +184,30 @@ the all-or-nothing policy; flip the hint template so a Latin form opens it; leav
 a bare English gloss with no person/number/tense cell; rely on word order to disambiguate a case;
 misquote a classical line; or use an Ecclesiastical spelling. Then check five noun definitions
 carry genitive + gender — today all five fail, and that is the top of the burn-down list.
+
+## Phase 2d–3 pass (7 September 2026)
+
+Measured and changed in the quality-parity passes of 6–7 September; figures
+re-measured from the repository on 7 September.
+
+- **Definitions.** The top 200 were read by a reader of Latin and
+  **26 repaired** through `scripts/apply_gloss_overrides.py`; a second
+  reader accepted or corrected every one it saw. Faults found: reaches a synonym 26.
+  33 of the top 200 now carry a hand-written definition — a low
+  count means the extracted glosses were already right, not that the band
+  was skipped.
+- **Hints.** **0 drill hints** that gave away their answer — sitting
+  inside their own translation, or only the agreement feature the drill
+  tests — rewritten through `scripts/apply_drill_hints.py`.
+- **Headwords.** **0 removed** to `vocab_exclusions.tsv` (letters,
+  punctuation, extraction debris, rare twins of common words). Production
+  retires them on the next `reconcile --apply` (migration 20261016).
+- **State.** 93% of the top 1,000 have a sentence the card can
+  actually blank; 100% of drills carry an interlinear gloss;
+  0 fail-level audit findings; a top-2,000 card is bad — no
+  usable sentence, or a fragment drawn — 7% of the time.
+
+Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
+rows whatever their source), §26 (the card rotates — a fragment's exposure is
+its share of the pool), §28 (definition plus sentence must determine one
+string), §29 (a sentence the card cannot blank is not coverage).

@@ -20,7 +20,8 @@ from __future__ import annotations
 
 import logging
 
-from backend.services.nlp.base import BaseNLP
+from backend.services.extract import ANSWER_MARKER
+from backend.services.nlp.base import AnswerResult, BaseNLP
 
 logger = logging.getLogger(__name__)
 
@@ -61,6 +62,35 @@ def turkish_lower(text: str) -> str:
     return text.replace("İ", "i").replace("I", "ı").lower()
 
 
+_WORD_EDGE = r"(?<![^\W\d_]){}(?![^\W\d_])"
+
+
+def answer_span(sentence: str, answer: str) -> tuple[int, int] | None:
+    """Where *answer* stands as a whole word in *sentence*, under Turkish casing.
+
+    `make_cloze`'s regex matches case-insensitively, and Python's IGNORECASE
+    treats dotless `ı` as a case of `i` — so "Var mı?" blanked for the `mi`
+    card, and `sık` would blank `sik`. Lowercasing both sides the Turkish
+    way (I → ı, İ → i) before an exact match keeps the two vowels apart.
+    `turkish_lower` maps one character to one, so the span found in the
+    lowered text is the span in the original; if some foreign character
+    breaks that, fall back to the plain regex rather than lose the row.
+    """
+    import re
+
+    low_answer = turkish_lower(answer.strip())
+    if not low_answer:
+        return None
+    low_sentence = turkish_lower(sentence)
+    if len(low_sentence) != len(sentence):
+        match = re.search(_WORD_EDGE.format(re.escape(answer.strip())), sentence,
+                          re.IGNORECASE | re.UNICODE)
+    else:
+        match = re.search(_WORD_EDGE.format(re.escape(low_answer)), low_sentence,
+                          re.UNICODE)
+    return (match.start(), match.end()) if match else None
+
+
 def _vowel_harmony_suffix(lemma: str, back: str, front: str) -> str:
     """Pick the back- or front-vowel variant of a suffix for *lemma*."""
     for ch in reversed(lemma):
@@ -73,6 +103,33 @@ def _vowel_harmony_suffix(lemma: str, back: str, front: str) -> str:
 
 class TurkishNLP(BaseNLP):
     """Turkish NLP backend (agglutinative, vowel-harmony aware)."""
+
+    def alternative_result(
+        self,
+        alternative: str,
+        correct_answer: str,
+        card_context: dict | None,
+    ) -> tuple[AnswerResult, str | None]:
+        """A Turkish card's alternatives are the harmony shapes of one word.
+
+        mi/mı/mu/mü is one particle spelled to agree with the vowel before
+        it, and the card carries the other three as alternatives so that
+        the four are one card, not four headwords sharing a definition. When
+        the prompt is a sentence, the sentence has already chosen the shape
+        ("Var ___?" is mı): typing another shape names the right word and
+        skips the one computation the language asks for — CORRECT_SLOPPY,
+        with the rule, never the silent CORRECT the base class gives a
+        regional spelling. With no sentence (a definition-only prompt) no
+        shape is fixed and any of them is the word (tr.md, hint standard 2).
+        """
+        sentence = (card_context or {}).get("sentence") or ""
+        if ANSWER_MARKER not in sentence:
+            return AnswerResult.CORRECT, None
+        return (
+            AnswerResult.CORRECT_SLOPPY,
+            f"Right word, but not the shape this sentence takes: it "
+            f"harmonises with what comes before it — {correct_answer}.",
+        )
 
     def normalize(self, text: str) -> str:
         """Strip whitespace and lowercase using Turkish casing rules."""

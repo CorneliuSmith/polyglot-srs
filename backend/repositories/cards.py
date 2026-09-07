@@ -23,13 +23,13 @@ from backend.services.auto_translate import (
 )
 from backend.services.cell_glosses import cell_gloss
 from backend.services.drill_notes import split_note
-from backend.services.extract import ANSWER_MARKER, make_cloze
+from backend.services.extract import ANSWER_MARKER, find_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.locale_guard import mark_locale_mismatches
-from backend.services.nlp.thai import answer_span as _thai_answer_span
 from backend.services.readings import sentence_phonetics, sentence_reading
 from backend.services.references import clean_references
+from backend.services.span_finders import span_finder
 from backend.services.srs_stages import stage_for
 from backend.services.topic_taxonomy import HIDDEN_TOPICS
 
@@ -555,16 +555,12 @@ def _pick_index(
     return pool[_stable_pick(len(pool), key)]
 
 
-# Thai has no spaces, so `make_cloze`'s word-boundary match cannot work there:
-# it accepted 311 of 4,335 rows and 35 of those blanked across word edges
-# (`แก` out of `แก้ม`). Segmentation finds the word properly — 3,675 rows, and
-# top-2,000 words with no showable sentence fall from 1,085 to 110 (CHECKS
-# §29). Every other course keeps the regex; None means "use it".
-_SPAN_FINDERS = {"th": _thai_answer_span}
-
-
+# Thai has no spaces (segmentation finds the word — CHECKS §29) and Turkish
+# has a dotless ı that the regex's IGNORECASE folds onto i, so "Var mı?"
+# blanked for the `mi` card. One registry for every consumer of make_cloze:
+# backend/services/span_finders.py. None means "use the regex".
 def _span_finder(language_code: str | None):
-    return _SPAN_FINDERS.get(language_code or "")
+    return span_finder(language_code)
 
 
 def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
@@ -580,6 +576,15 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     definition -> type-the-word prompt when nothing clozes.
     """
     word = r["word"]
+    # A word with linked spellings (`alternatives`: Turkish mi/mı/mu/mü, one
+    # particle; Jamaican likkle/little) is ONE card, and each sentence carries
+    # one of its shapes. That shape is the answer the sentence fixes — "Var
+    # ___?" is mı and nothing else — so the card blanks whichever form is
+    # there, expects THAT form back, and hands the grader the other forms as
+    # alternatives (Turkish grades them sloppy, with the rule; see
+    # nlp/turkish.py). Before this the four spellings were four headwords
+    # sharing one definition, and no card could say which to type.
+    forms = [word, *[a for a in (r["alternatives"] or []) if a != word]]
     sentences = r["example_sentences"] or []
     translations = r["example_translations"] or []
     glosses = r["example_glosses"] or []
@@ -588,24 +593,27 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     find_span = _span_finder(r["language_code"])
     candidates = []
     for i, raw in enumerate(sentences):
-        cloze = make_cloze(raw, word, find_span)
-        if cloze:
+        found = find_cloze(raw, forms, find_span)
+        if found:
+            cloze, form = found
             candidates.append((
                 cloze,
                 translations[i] if i < len(translations) else None,
                 glosses[i] if i < len(glosses) else None,
                 translits[i] if i < len(translits) else None,
                 locales[i] if i < len(locales) else None,
+                form,
             ))
     sentence, translation, hint = (r["definition"] or word), None, None
     gloss, transliteration, translation_locale = None, None, None
     phonetics = None
+    answer = word
     if candidates:
         idx = _pick_index(
             [c[0] for c in candidates], r["last_prompt"], stats, _rotation_key(r)
         )
         (sentence, translation, gloss, transliteration,
-         translation_locale) = candidates[idx]
+         translation_locale, answer) = candidates[idx]
         hint = r["definition"]
         # The stored column is empty for most of the non-Latin corpus — ru, hi,
         # el, ko and th have no sentence romanisation at all, and he/fa have it
@@ -629,7 +637,7 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     return {
         **_srs_fields(r),
         "sentence": sentence,
-        "correct_answer": word,
+        "correct_answer": answer,
         "hint": hint,
         "translation": translation,
         # The language the translation above is actually written in, and a
@@ -646,7 +654,13 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
         "transliteration": transliteration,
         "phonetics": phonetics,
         "morphology": r["morphology"],
-        "alternatives": r["alternatives"],
+        # The OTHER shapes of the word — the headword itself when the sentence
+        # carried a variant — so the grader can tell "same word, wrong shape"
+        # from "different word".
+        "alternatives": (
+            [f for f in forms if f != answer] if len(forms) > 1
+            else r["alternatives"]
+        ),
         # 'letter' marks an alphabet-deck card; the input surfaces switch to
         # letter mode (no ㅇ-seat for a lone Korean vowel, no Thai อ carrier).
         "part_of_speech": r["part_of_speech"],
@@ -1831,15 +1845,22 @@ async def get_card_details_bulk(
             # First-check quiz: the first sentence where the word clozes.
             v = vocab_by_id.get(e["vocabulary_id"])
             if v is not None and e["vocabulary_id"] not in vocab_quiz:
-                cloze = make_cloze(e["sentence"], v["word"],
+                # Same rule as `_vocab_card`: the sentence fixes which
+                # linked spelling is the answer, the rest are alternatives.
+                forms = [v["word"],
+                         *[a for a in (v["alternatives"] or []) if a != v["word"]]]
+                found = find_cloze(e["sentence"], forms,
                                    _span_finder(v["language_code"]))
-                if cloze:
+                if found:
+                    cloze, form = found
                     vocab_quiz[e["vocabulary_id"]] = {
                         "sentence": cloze,
                         "translation": e["translation"],
                         "gloss": e["gloss"],
                         "transliteration": e["transliteration"],
                         "hint": v["definition"],
+                        "answer": form,
+                        "alternatives": [f for f in forms if f != form],
                     }
 
     grammar_by_id: dict = {}
@@ -1951,10 +1972,10 @@ async def get_card_details_bulk(
                 "references": [],
                 "examples": vocab_examples.get(c["card_id"], []),
                 "quiz": {
-                    **quiz,
                     "answer": v["word"],
-                    "morphology": v["morphology"],
                     "alternatives": v["alternatives"] or [],
+                    **quiz,
+                    "morphology": v["morphology"],
                 },
             }
         elif c["card_type"] == "grammar":

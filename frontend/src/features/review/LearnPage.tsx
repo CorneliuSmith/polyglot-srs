@@ -476,6 +476,7 @@ function LearnInner() {
           card_type: lesson.card_type === 'grammar' ? 'grammar' : 'vocabulary',
           morphology: lesson.quiz.morphology ?? {},
           alternatives: lesson.quiz.alternatives ?? [],
+          sentence: lesson.quiz.sentence,
         },
       },
       {

@@ -278,6 +278,23 @@ class BaseNLP(ABC):
         alternatives = (card_context or {}).get("answer_alternatives") or []
         return all(self.normalize(a) != norm_user for a in alternatives)
 
+    def alternative_result(
+        self,
+        alternative: str,
+        correct_answer: str,
+        card_context: dict | None,
+    ) -> tuple[AnswerResult, str | None]:
+        """What it means that the learner typed one of the card's alternatives.
+
+        By default an alternative is another right answer — a regional
+        spelling (colour/color, likkle/little), an aspect partner the card
+        accepts — and grades CORRECT. A language whose alternatives are the
+        shapes of ONE word that the sentence chooses between (Turkish vowel
+        harmony) overrides this: the learner named the word but did not
+        compute its shape, which is CORRECT_SLOPPY and worth saying.
+        """
+        return AnswerResult.CORRECT, None
+
     def check_answer(
         self,
         user_input: str,
@@ -444,7 +461,7 @@ class BaseNLP(ABC):
         for alt in alternatives:
             norm_alt = self.normalize(unicodedata.normalize("NFC", alt).strip())
             if norm_user == norm_alt:
-                return AnswerResult.CORRECT, None
+                return self.alternative_result(alt, correct_answer, card_context)
 
         # Default. A near-miss (a couple of letters off — usually a DIFFERENT
         # real word, слышать for слушать) previously failed with no feedback

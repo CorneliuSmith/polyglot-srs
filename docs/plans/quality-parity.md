@@ -1023,6 +1023,16 @@ rows, 121 findings) are, and no amount of further English polish changes that.
 
 ### Phase 2e — Grader collisions: shipped guard, queued repairs (from CHECKS §3)
 
+**Shipped 7 Sep — Turkish harmony sets are one card (owner decision; CHECKS
+§30).** `mi/mı/mu/mü`, `de/da`, `ta/te` linked through the frequency file's
+`alt` column → `vocabulary.alternatives`; the sentence fixes the shape and a
+wrong shape grades CORRECT_SLOPPY with the rule. Exposed and fixed the class
+underneath: Python's IGNORECASE folds dotless ı onto i, so the cloze regex
+blanked the wrong letter on 13 rows and hid three mis-cased headwords
+(`işık`, `irak`, `ii`). One span-finder registry now serves the card, the
+audit, the gate and the prune. Korean's 받침 pairs deliberately stay two
+cards (`ko.md`). Owner-run: `seeder.run -l tr` before `reconcile --apply`.
+
 The collision guard is live: a fold-only match grades `WRONG_FORM` when what
 was typed is itself another course word (`el`/`él`, `все`/`всё`,
 `liber`/`līber`), with per-language ceilings ratcheted in

@@ -18,7 +18,7 @@ command line. Run from the repository root.
 ### 1. The migration that makes the retire step work
 
 Migration `20261016_vocabulary_retired` adds `vocabulary.retired_at`. Until
-it lands, every exclusion this week made — 862 words — is still served, and
+it lands, every exclusion this week made — 868 words — is still served, and
 step 3 below reports "skipped".
 
 ```bash
@@ -34,10 +34,25 @@ teach at all. Add-only; nothing is touched that exists.
 .venv/bin/python -m backend.services.seeder.run -l en
 ```
 
+### 2b. Turkish: the linked harmony spellings (added 7 Sep, evening)
+
+`mi/mı/mu/mü`, `de/da` and `ta/te` are one card each now (your decision;
+CHECKS §30). The seeder is what writes the linked spellings to
+`vocabulary.alternatives` and loads the 13 re-tagged sentences under the head
+spelling — `reconcile` does not carry either — so this runs BEFORE step 3,
+which then retires the five variant rows and `ii`. Add-only for everything
+else; the Turkish file also renames `irak` → `ırak` (the old row is left in
+place and can be retired later — it is a proper noun at rank 3,117).
+
+```bash
+.venv/bin/python -m backend.services.seeder.run -l tr
+```
+
 ### 3. Corrections and retirements — the big one
 
-This applies the Phase 2d definitions (1,602 rows across all 27 courses)
-AND retires the 862 excluded words. Dry run first, read the `retire` count,
+This applies the Phase 2d definitions (1,602 rows across all 27 courses; the
+three Turkish particles now state the harmony rule instead of the outcome)
+AND retires the 868 excluded words. Dry run first, read the `retire` count,
 then apply. The rollback file is written before anything changes.
 
 ```bash
@@ -75,6 +90,10 @@ exercise steps 2, 3 and 4. Full detail: `docs/quality/refeed.md`.
 ## Part 2 — Decisions only you can make
 
 ### A. Turkish `mi / mı / mu / mü` — four cards or one?
+
+**Decided, 7 Sep evening: one card, linked, showing the parity the sentence
+takes — shipped (CHECKS §30, `tr.md`). Nothing left to decide here; the only
+action is step 2b above.**
 
 They are one morpheme, the yes/no question particle, in four spellings
 that vowel harmony chooses. The vocabulary file has always carried them as

@@ -49,7 +49,8 @@ from pathlib import Path
 # Single source of truth for the Arabic combining-mark ranges: the grader folds
 # them the same way, and a checker that disagreed with the grader about what
 # "the same word" means would flag content the app accepts.
-from backend.services.extract import make_cloze
+from backend.services.extract import find_cloze
+from backend.services.linked_forms import forms_of
 from backend.services.nlp.arabic_script import _TASHKEEL as _ARABIC_MARKS
 
 # backend/services/quality/audit_content.py -> repo root. Never absolutise this:
@@ -764,13 +765,10 @@ def _audit_circular_glosses(code: str) -> list[str]:
 
 
 def _card_span_finder(code: str):
-    """Thai has no word boundaries, so the card finds its blank by segmenting
-    (CHECKS §29). Import lazily: the audit is the fast every-commit gate and
-    must not pay for the lexicon on a language that never needs it."""
-    if code != "th":
-        return None
-    from backend.services.nlp.thai import answer_span
-    return answer_span
+    """How the card finds its blank in this language — the shared registry
+    (`span_finders.py`), imported lazily there so the audit stays fast."""
+    from backend.services.span_finders import span_finder
+    return span_finder(code)
 
 
 def _audit_sentence_cards(code: str) -> tuple[list[str], list[str]]:
@@ -820,9 +818,11 @@ def _audit_sentence_cards(code: str) -> tuple[list[str], list[str]]:
             seen.add((word, sentence))
             tally = per_word.setdefault(word, [0, 0])
             tally[0] += 1
-            cloze = make_cloze(sentence, word, find_span)
-            if cloze is None:
+            # Every shape of the word counts — "Var mı?" teaches `mi`.
+            found = find_cloze(sentence, forms_of(word, code), find_span)
+            if found is None:
                 continue
+            cloze = found[0]
             tally[1] += 1
             frames.setdefault(cloze.casefold(), set()).add(word.casefold())
 

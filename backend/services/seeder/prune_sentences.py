@@ -45,6 +45,10 @@ from pathlib import Path
 
 import asyncpg
 
+from backend.services.extract import find_cloze
+from backend.services.linked_forms import forms_of
+from backend.services.span_finders import span_finder
+
 REPO = Path(__file__).resolve().parents[3]
 DATA_DIR = REPO / "data"
 ROLLBACK_DIR = REPO / "out"
@@ -98,6 +102,37 @@ def _below_floor(sentence: str, code: str) -> bool:
     if code in UNSPACED:
         return False
     return len(sentence_tokens(sentence)) < FLOOR
+
+
+def shape_keeps(word: str, survivors: list, candidates: list, code: str) -> list:
+    """Which of *candidates* must stay so that no SHAPE of *word* is stranded.
+
+    A word with linked spellings (Turkish mi/mı/mu/mü — `alt` column →
+    vocabulary.alternatives, CHECKS §30) is one card whose sentences each
+    carry one shape, and the card exists to show the shape the sentence
+    takes. So each shape keeps its best row even below the floor ("Var mı?"
+    is a whole sentence; the particle's sentences are short by nature): for
+    every shape no survivor carries, the longest candidate that carries it.
+    Rows are dicts with a "sentence" key. Empty for an unlinked word.
+    """
+    forms = forms_of(word, code)
+    if len(forms) < 2:
+        return []
+    finder = span_finder(code)
+
+    def shape(r):
+        found = find_cloze(r["sentence"], forms, finder)
+        return found[1] if found else None
+
+    covered = {shape(r) for r in survivors}
+    keeps = []
+    for form in forms:
+        if form in covered:
+            continue
+        own = [r for r in candidates if shape(r) == form]
+        if own:
+            keeps.append(max(own, key=lambda r: len(sentence_tokens(r["sentence"]))))
+    return keeps
 
 
 def _context_free(sentence: str, word: str) -> bool:
@@ -188,6 +223,10 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
             # Deleting these would leave the word with nothing at all.
             kept_empty.append(word)
             continue
+        # Never strand a SHAPE either (CHECKS §30) — same predicate as the
+        # file-side floor script and its test.
+        for r in shape_keeps(word, survivors, candidates, code):
+            candidates.remove(r)
         delete.extend(candidates)
     # `protected` must mean "kept ONLY because of its source", so it counts
     # exempt rows that SURVIVE. Counting every exempt row overlapped `delete`

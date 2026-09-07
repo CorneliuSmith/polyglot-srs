@@ -595,6 +595,30 @@ task output, because the journal has held the full result every time the
 task file came back empty. The order of operations, per course, is
 `docs/quality/refeed.md`.
 
+### One word, several spellings: the sentence fixes the shape
+
+Turkish writes its yes/no particle `mi`, `mı`, `mu` or `mü` to agree with
+the vowel before it — one word, four shapes. Making each shape its own
+vocabulary card gives the learner four cards that share a definition and
+cannot say which spelling to type; making the definition say "after a or ı"
+hands over the one computation the language asks for. The pattern that
+works (CHECKS §30): one headword; the other shapes in the frequency file's
+`alt` column, which the seeder writes to `vocabulary.alternatives`;
+`extract.find_cloze` blanks whichever shape the sentence carries and makes
+THAT the expected answer; and the grader's layer 6 asks the language what an
+alternative means — another right answer by default, "right word, wrong
+shape" in Turkish. The rule for anything that asks "is this word in this
+sentence" — the card, the audit, the authored-sentence gate, the prune — is
+that it asks about every shape, through `backend/services/linked_forms.py`.
+
+A second thing this taught: **case-insensitive is language-specific.**
+Python's `re.IGNORECASE` folds dotless `ı` onto `i` (and `İ`, `ſ`, the
+Kelvin sign), so a Turkish sentence matched the wrong letter for months.
+Languages that find a word by something other than the regex — Thai
+(segmentation), Turkish (Turkish casing) — register a span finder in ONE
+module, `backend/services/span_finders.py`, and every consumer of
+`make_cloze` reads it there rather than keeping its own dict.
+
 ## Frontend
 
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +
