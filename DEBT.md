@@ -644,6 +644,23 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
+## `reconcile --apply` is one round trip per row, and silent while it runs (7 Sep 2026)
+
+The owner's apply of 7 Sep — 1,594 definitions, 3,370 parts of speech, 23
+morphologies, 191 sentence layers, 848 retirements — ran as ~6,000
+single-row `UPDATE`s inside one transaction over the Supabase pooler,
+printed nothing after "rollback written first", and took about twenty
+minutes. It looked stuck; it was not (checked read-only in
+`pg_stat_activity`: the session alternated between `active` and `idle in
+transaction / ClientRead`, i.e. waiting for the next statement). The
+seeder learned this lesson already — `BaseSeeder.load` batches with
+`UNNEST` because "one round trip per row over a pooled connection turns a
+seed into hours". Do the same in `reconcile.apply` (one `UPDATE … FROM
+unnest($1::uuid[], $2::text[])` per change kind, or chunks of 500) and
+print a line per kind as it lands. Until then `docs/quality/refeed.md`
+says to expect the silence. Ctrl-C mid-run is safe: one transaction, so
+nothing partial commits and the run can simply be repeated.
+
 ## 27 override rows name a word no frequency file has (7 Sep 2026)
 
 An override never invents a word, so these ship nowhere: `ar ء`; `ca è`;
