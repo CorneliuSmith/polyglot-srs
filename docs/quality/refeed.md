@@ -119,6 +119,14 @@ A loop for several courses, as the owner ran it on 31 Aug:
 for c in ru ar; do .venv/bin/python -m backend.services.seeder.prune_sentences -l $c --apply; done
 ```
 
+**What the apply looks like while it runs.** After "rollback written first:
+…" it prints nothing until the summary line — one transaction, one
+statement per changed row, over the pooler. The 7 Sep apply (about 6,000
+rows) took twenty minutes of silence. It is not stuck; check with a
+read-only `SELECT state, wait_event, now()-xact_start FROM pg_stat_activity`
+if in doubt. Ctrl-C rolls the whole transaction back and the run can be
+repeated. DEBT has the fix (batch with UNNEST, print per kind).
+
 ## Rolling back
 
 | step | how |
