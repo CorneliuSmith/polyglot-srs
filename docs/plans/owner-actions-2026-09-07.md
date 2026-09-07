@@ -1,8 +1,40 @@
-# What you still need to do — 7 September 2026
+# What the owner still has to run — 7 September 2026
 
-Everything below is either a command only you can run (production writes)
-or a decision only you can make. Nothing here is code work; that continues
-without you. Read top to bottom: the order matters.
+**Everything on this list is DONE except one small reconcile.** Recorded
+here 7 Sep, late evening, after the runs finished:
+
+| step | state |
+|---|---|
+| backup | done, 96 MB dump |
+| `supabase db push` (migration 20261016) | done — `retired_at` present |
+| `seeder.run -l tr` (linked harmony spellings) | done |
+| `reconcile -l all --apply` | done 23:26 — 535 words retired, 2 glosses, 1 part of speech, in 55 seconds |
+| `seed_grammar` for all 27 | done, Korean re-run on its own after #436 |
+| `prune_sentences` loop | done 03:03 — 91,774 rows; a dry run now finds 10 |
+
+**The one thing left**, once PR #438 (56 committed-file headword repairs)
+is merged and pulled:
+
+```bash
+git pull origin main
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all
+```
+
+Expect roughly `gloss 56 · retire 55`. Then:
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all --apply
+```
+
+Still yours to decide, and not blocking anything: **decision B** (the
+abbreviations, now 27 of them), **decision C** (Korean's duplicate points),
+and what remains of **decision D** (the 223 twin pairs that are two real
+words and want file rows, and the 39,004-row tail).
+
+---
 
 ## STOP — read this first (7 Sep, late evening)
 

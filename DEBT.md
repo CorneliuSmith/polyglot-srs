@@ -682,16 +682,22 @@ pass should rewrite them to `___`; until then the card fix is load-bearing.
 No guard forbids the marker in the data on purpose — a test that failed on
 1,612 committed rows would have to be born red.
 
-## 27 override rows name a word no frequency file has (7 Sep 2026)
+## A dormant override fires the day someone adds the headword (7 Sep 2026)
 
-An override never invents a word, so these ship nowhere: `ar ء`; `ca è`;
-`de d k l m w`; `it r`; `la cur dies filius non nos` + 1 (the file carries the
-macron forms `cūr`, `diēs`, `fīlius`, `nōn`, `nōs`); `pt l`; `tr yüksel`;
-`yo ajayi awọn bi ki ko` + 6 (the file carries tone-marked forms). Found by
-the review of #431. The Latin and Yoruba ones are probably good definitions
-under a stale key — re-key them to the marked headword if the definition
-still fits, delete the rest. `scripts/apply_gloss_overrides.py` refuses such
-rows today; these predate the gate or outlived their headword.
+FIXED the same evening, recorded because the failure mode is not obvious.
+`gloss_overrides.tsv` had 28 rows naming a word its course's frequency file
+did not carry. They shipped nothing, so they read as harmless — until
+Yoruba `n` was restored to the file (a real 1SG pronoun an early junk sweep
+had deleted) and woke an override written for `ń`, the progressive marker.
+Production served the pronoun as "is/are doing" until a read-back caught it.
+
+The six Latin rows were the opposite of junk — full definitions where the
+file had one-word stubs ("not", "day", "son", "we", "if", "why") — so they
+were re-keyed to `nōn`, `diēs`, `fīlius`, `nōs`, `sī`, `cūr`, which also
+repairs six top-50 Latin cards. The other 22 were superseded by better
+glosses on the marked headword, or were alphabet-letter debris, and went.
+`test_reconcile_overrides.py::TestNoDormantOverrides` now makes the state
+impossible rather than merely recorded.
 
 ## 101 committed sentence rows now point at a retired word (7 Sep 2026)
 

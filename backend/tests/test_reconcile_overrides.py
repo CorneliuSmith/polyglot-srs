@@ -259,3 +259,46 @@ class TestGoneMeansUngoverned:
         silently widens `gone` back to the old, wrong number."""
         for code in reconcile.OTHER_SOURCES:
             assert reconcile.words_from_other_sources(code), code
+
+
+class TestNoDormantOverrides:
+    """Every override row names a word its course actually carries.
+
+    An override for a word the frequency file lacks ships nothing — until
+    someone ADDS that word, and then it fires. That happened on 7 Sep 2026:
+    restoring Yoruba `n` (the 1SG subject pronoun, deleted by an early junk
+    sweep) woke a dormant override written for the progressive marker `ń`,
+    and production served `n` as "is/are doing" until it was caught. 28 rows
+    were dormant at that moment, most of them toneless or unmacronised keys
+    from passes whose headwords have since been re-marked.
+
+    The six Latin ones were the opposite of junk — full definitions where
+    the file had one-word stubs ("not", "day", "son") — so they were
+    re-keyed to `nōn`, `diēs`, `fīlius` and the rest rather than deleted.
+    """
+
+    def test_no_override_names_a_word_its_file_does_not_have(self):
+        import csv as _csv
+        from collections import defaultdict
+
+        from backend.services.seeder.reconcile import DATA as _DATA
+        repo_data = _DATA if (_DATA / "gloss_overrides.tsv").exists() else None
+        assert repo_data is not None, "run from the repo, not a tmp fixture"
+        by_course = defaultdict(set)
+        with (repo_data / "gloss_overrides.tsv").open(encoding="utf-8-sig",
+                                                      newline="") as handle:
+            for row in _csv.DictReader(handle, delimiter="\t"):
+                by_course[row["language"].strip()].add(row["word"].strip())
+        dormant = []
+        for code, words in sorted(by_course.items()):
+            path = repo_data / f"{code}_frequency.tsv"
+            if not path.exists():
+                continue
+            with path.open(encoding="utf-8-sig", newline="") as handle:
+                have = {r["word"].strip()
+                        for r in _csv.DictReader(handle, delimiter="\t")}
+            dormant += [(code, w) for w in sorted(words - have)]
+        assert dormant == [], (
+            "dormant override rows — they ship nothing today and fire the day "
+            f"someone adds the headword: {dormant[:12]}"
+        )
