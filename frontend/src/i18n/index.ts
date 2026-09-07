@@ -29,11 +29,15 @@ import es from './locales/es.json'
 import fr from './locales/fr.json'
 import pt from './locales/pt.json'
 import ru from './locales/ru.json'
+import tr from './locales/tr.json'
 
 /** Priority order per the rollout plan: Arabic, Spanish, Russian, French,
- * Portuguese — English first as the default. `native` is each language's
- * own name for itself, so a lost user can always find theirs (the reason
- * the switcher is a globe with names, not country flags). */
+ * Portuguese — English first as the default. Turkish came later, on the
+ * owner's ask (5 Sep 2026); it is a course language with a large diaspora
+ * that reaches B1 through family and stalls, which is the wedge the launch
+ * plan names. `native` is each language's own name for itself, so a lost
+ * user can always find theirs (the reason the switcher is a globe with
+ * names, not country flags). */
 export const UI_LANGUAGES = [
   { code: 'en', native: 'English' },
   { code: 'ar', native: 'العربية' },
@@ -41,6 +45,7 @@ export const UI_LANGUAGES = [
   { code: 'ru', native: 'Русский' },
   { code: 'fr', native: 'Français' },
   { code: 'pt', native: 'Português' },
+  { code: 'tr', native: 'Türkçe' },
 ] as const
 
 export type UiLanguageCode = (typeof UI_LANGUAGES)[number]['code']
@@ -136,6 +141,7 @@ void i18n.use(initReactI18next).init({
     ru: { translation: ru },
     fr: { translation: fr },
     pt: { translation: pt },
+    tr: { translation: tr },
   },
   lng: detectUiLanguage(),
   fallbackLng: 'en',

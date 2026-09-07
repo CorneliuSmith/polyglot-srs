@@ -401,6 +401,7 @@
     "layerPhonetics": "Pronunciation",
     "layerGloss": "Word by word",
     "layerTranslation": "Translation",
+    "layerContext": "Note",
     "layerHint": "Hint",
     "cramTopupNote": "Brand-new sentences, just for you — a moment while they're drafted.",
     "draftingFresh": "Drafting a few fresh sentences…",

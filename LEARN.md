@@ -239,9 +239,13 @@ headings). Plain blocks are untouched, so nothing in the existing corpus
 moved; `backend/tests/test_content_markdown_guard.py` pins the seed at
 zero markers so a marker in data/ is a deliberate entry in its `ALLOWED`
 set. The server cleans the same column on the way in
-(`services/markdown.py`: raw tags out, unsafe link schemes out) at every
-writer — the editor, the seeder, the AI — because the renderer is the last
-line, not the only one. Underscores are never a signal: "___" is how the
+(`services/markdown.py`: raw tags out, unsafe link schemes out) at the
+editor and the AI generator — **not** in `seed_grammar.py`, which trusts
+the committed file; a script that writes markdown into `data/grammar/`
+must call `clean_markdown` itself (the markdown-explanations plan does) —
+because the renderer is the last line, not the only one. And only
+`explanation` renders markdown: culture and function notes are plain
+text on every surface. Underscores are never a signal: "___" is how the
 cards write a blank.
 
 The append-only AI tables are pruned daily by `services/retention.py`
@@ -557,10 +561,97 @@ false and both lanes are open. The waiting room shows the count of cards
 needed when the gate needs more than one; with a one-card gate it falls
 back to the batch percentage so the bar visibly moves.
 
+### The content pipeline is add-only; deleting and gating are separate tools
+
+Every seeder UPSERTs and none deletes. `seeder.run` upserts vocabulary on
+`(language_id, word)`; `seed_grammar` UPDATEs a drill's hint, translation and
+gloss in place; `seed_sentences` inserts `ON CONFLICT DO NOTHING`. That is
+what makes `scripts/setup_db.sh` safe to re-run and what keeps a learner's
+`user_cards` from orphaning — and it means **a row removed from a file is
+still in production** until a tool that deletes is run on purpose:
+
+- `prune_sentences -l <code>` — file-authoritative: a sentence production
+  holds that no committed bank endorses goes. Dry run by default; `--apply`
+  writes `out/prune-<stamp>.sql` first and runs in one transaction; never
+  strands a word; `curated`/`ai` rows are exempt unless they are only the
+  headword. A bulk DELETE, so the owner runs it (CHECKS §18).
+- `reconcile -l <code>` — corrections (glosses, parts of speech, sentence
+  layers) with the same rollback-first shape. Never deletes a vocabulary
+  row.
+- `data/vocab_exclusions.tsv` — durable deletions at the FILE layer
+  (`source_data.apply_vocab_exclusions`), because a TSV-only deletion is
+  undone by the next regeneration. It has no production counterpart yet
+  (DEBT.md).
+
+Content produced by an in-session maker–checker pass never goes straight
+into a file either. Three gates sit between a run's output and the data
+directory, each a script with tests: `scripts/apply_drill_glosses.py`
+(cells == tokens, one `___` on the answer, folded no-leak),
+`scripts/apply_authored_sentences.py` (7–14 words, the word present, rank =
+the word's frequency rank, duplicates and frames rejected) and
+`scripts/enforce_sentence_floor.py` (a sub-five-token row goes only when its
+word has a longer one). Each reads a run's `journal.jsonl` as well as its
+task output, because the journal has held the full result every time the
+task file came back empty. The order of operations, per course, is
+`docs/quality/refeed.md`.
+
 ## Frontend
 
 React 19 + Vite 6 + TypeScript (~5.7, project-graph mode via `tsc -b`) +
 TanStack Query 5 + Zustand 5 + react-router-dom 7 + Tailwind CSS 4.
+
+**UI languages are catalogs, not code.** `frontend/src/i18n/` holds one
+JSON per language and a `UI_LANGUAGES` list; adding one is a new catalog,
+two lines in `index.ts`, and nothing else. Nothing on the server has an
+allow-list to update — `user_profiles.ui_language` is free text, and the
+API stores whatever the client sends — so a language ships or does not
+ship entirely on the frontend. Seven now: English, Arabic, Spanish,
+Russian, French, Portuguese and Turkish (5 Sep 2026).
+
+Two things make that easy to get wrong. i18next falls back to English for
+a **missing key, silently**, so a half-translated catalog does not break
+— it leaks English into an otherwise-Turkish page and nobody finds out.
+And **plural forms are not English's to decide**: Arabic needs six
+categories, Russian three, Turkish and English two, so a locale carrying
+`streak_few` where English has only `_one`/`_other` is correct. Worse,
+Arabic's `_one` reads "يوم واحد" — the numeral spelled as a word, with no
+`{{count}}` to interpolate at all. `__tests__/localeParity.test.ts`
+encodes exactly that: every English key must exist everywhere and be
+non-blank, extra keys are allowed only as plural variants, an invented
+placeholder is always an error, and a *dropped* placeholder is an error
+only outside plural forms. It found two keys missing from all five
+existing catalogs on its first run.
+
+**The fallback chain is the learner's locale, else English, never a third
+language** (owner, 6 Sep 2026). Every card query already implements the
+first two halves — `translation_locale IN ($locale, 'en')`, and a
+per-field `COALESCE` onto the authored English — so a third language can
+only reach a learner through a MISLABELLED row: Spanish text filed as
+`translation_locale='en'`, or written into `drill_sentences.translation`,
+which has no locale column because it is English by definition.
+
+`services/locale_guard.py` is what catches that at serve time, and it now
+answers two different questions. The original one is script-based: is
+this text written in the script the locale uses? That proves "not Arabic"
+and is blind between two Latin alphabets — which is exactly where the
+reported bug hid. So it gained a second, function-word test that answers
+only "is this provably NOT English", using closed-class words (articles,
+prepositions, copulas) that appear in any sentence of their language and
+are not borrowed into English prose.
+
+Both tests are deliberately one-sided: what they flag IS wrong, what they
+pass is merely not provably wrong. That asymmetry decides the outcome —
+a mismatched field that might be English is KEPT and labelled (it is the
+fallback, and on a cloze it is the learner's only semantic cue), while a
+provable third language is REMOVED and reported in `locale_withheld`.
+Undecidable text keeps its old behaviour, which matters because the
+English course's own drill translations are terse notes like "Introducing
+yourself." with no function words in them at all.
+
+A UI language is **not** a support locale, and shipping one translates no
+card content. `docs/seeding.md` has the table: a language code plays up to
+three independent roles (course, UI language, support locale), each with
+its own requirements, and only the UI one fails loudly.
 
 **One staff console.** Everything a contributor, reviewer, tester or
 admin does lives on the Workspace (`features/contribute/ContributorPage.tsx`,

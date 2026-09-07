@@ -37,5 +37,21 @@ export const PAGE_WIDE = 'max-w-2xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl'
  * Reading order stays top-to-bottom within a row (grid, not CSS columns):
  * on a page of settings, "the next card" should be the one beside it, not
  * one three screens down in an invisible first column.
+ *
+ * `grid-cols-1` is load-bearing and must not be dropped as redundant. It
+ * is not about the column count — one column is what a bare `grid` gives
+ * you anyway — it is about the TRACK. An implicit track is sized `auto`,
+ * and a grid item in an auto track takes its content-based minimum width,
+ * so the track cannot shrink below the widest thing inside it. The
+ * retention grid in the admin Insights panel is a nowrap table roughly
+ * 700px wide; it sits inside its own `overflow-x-auto`, but that wrapper
+ * still REPORTS the table's width to its ancestors, so on a phone the
+ * card grew past the viewport, took the page's scroll width with it, and
+ * left a band of bare body background down the right of every admin
+ * screen. Tailwind's `grid-cols-N` compiles to `minmax(0, 1fr)`: a zero
+ * minimum, which switches the automatic minimum size off and lets the
+ * card be viewport-wide with the table scrolling inside it, which is what
+ * the wrapper was for. `lg:grid-cols-2` was already safe for the same
+ * reason, which is why this only ever went wrong below `lg`.
  */
-export const CARD_COLUMNS = 'grid gap-4 lg:grid-cols-2 items-start'
+export const CARD_COLUMNS = 'grid grid-cols-1 gap-4 lg:grid-cols-2 items-start'

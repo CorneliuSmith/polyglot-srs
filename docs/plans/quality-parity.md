@@ -515,7 +515,50 @@ and `ERRORS.extracted.md` is still replaced wholesale rather than merged.
 
 ---
 
-## The plan — six phases, one PR each
+## The plan — the phases, and the order they run in
+
+**Read this section first; the phase write-ups below are in the order they
+were WRITTEN, which is no longer the order they run in.** The numbering is
+kept because CHECKS.md, DEBT.md, the decision log and the memory all cite it
+— renaming Phase 2d would break every reference for no gain. What follows is
+the authoritative sequence.
+
+**Re-ordered 6 Sep 2026, and the reason it moved.** The original order was
+"low-frequency courses first, clean AND populate, then the deep pass, then
+sentences for all 27" (owner, 20 Aug). Two measurements taken this week
+overturn its premise:
+
+* **A course's row count says nothing about what a learner meets.** Ranking
+  the 27 by the chance of drawing a bad card in the top-2,000 band — no
+  sentence at all, or the rotation landing on a fragment (CHECKS §26, §29)
+  — puts `yo` 88%, `ko` 82%, `xh` 70%, `th` 69% and `sw` 52% at the top,
+  while `it` (33,159 rows) sits at 24% and `en` at 2%. Size and harm are
+  nearly unrelated.
+* **The definition, not the sentence, is the cheapest fix.** Of 128 cards
+  that fail to determine their answer (CHECKS §28), the judges' cheapest
+  repair was the definition for 77, a form cue for 25, and a better
+  sentence for only 7.
+
+So the deep definition pass moves AHEAD of the bulk sentence authoring, and
+the guards move ahead of both — a guard written after a pass has to be paid
+for twice.
+
+| # | Phase | Why here |
+| --- | --- | --- |
+| **1** | **Guards and instruments** (the 6 Sep queue, items 1–8 of `docs/decisions/2026-09-06-review-pass.md`) | Cheap, code-only, and each one stops a later pass producing waste. `apply_authored_sentences.py` must require SURFACE presence before ANY authoring runs — the 31 Aug Russian pass accepted lemma presence and wrote rows the card cannot display. Then the `unclozable_rows` audit rule, the retire step for exclusions, the English `context` label with its six locales. |
+| **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. |
+| **3** | **Phase 8 — example-sentence fitness** | The authoring queue, worst-first: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro` → the rest. `pt es de nl fr la ru en ha jam` are already under 15% bad cards and need nothing here. |
+| **4** | **Phase 2e — grader collisions** (judgment repairs) and **Phase 2c** gloss completion | Both are bounded lists with the mechanical half already shipped. |
+| **5** | **Phase 3 — grammar and hint debt**, closing with the markdown pass over explanations | Same files, one PR and one reseed per course. |
+| **6** | **Phase 4 — Gym parity** | Owner asked lessons to point at the Gym (#397); the manifests are the remaining half. |
+| **7** | **Phase 5 — extraction leverage** | Facts only, session only. Feeds 2d and 8 for the courses that have sources. |
+| **8** | **Phase 6 — verification** | The full gate and a re-measure of every table in this plan. `docs/quality/refeed.md` is written; the rest is the sweep. |
+| **9** | **Phase 7 — Topic Lens** | Owner decision, 30 Aug: LAST. It reads the glosses Phase 2d rewrites, so classifying earlier means reviewing twice. |
+
+**What is already done** (do not re-plan it): Phase 0; the prune reaching
+thin rows (§24a) and the Thai cloze (§29), both 6 Sep; the drill-gloss pass
+to 73%; the ru/ar authoring to §23; the English thinning.
+
 
 ### Phase 0 — Instruments first (measure before touching) — SHIPPED (#292)
 
@@ -995,6 +1038,19 @@ Remaining, in order:
   speaker stays held and stays written down.
 - Refresh stale docs (ko.md, sw.md, en.md, README agreement_feature row).
 - Baseline ratchets DOWN with each fix; never up.
+- The finding count is whatever `audit_content` prints on the day — 920 was
+  the 19 Aug figure (D4), 663 on 31 Aug. Do not plan against a frozen number
+  (rule 31).
+- **Closing step, per language: the markdown pass over `explanation`**
+  (`docs/plans/markdown-explanations.md`, corrected 6 Sep). In the same PR
+  as that language's Phase 3 grammar-file work — the pass edits
+  `points[].explanation`, everything else in flight edits `drills[]` —
+  so one PR and one `seed_grammar` run per course. `explanation` only
+  (culture and function notes render plain); in-session export/apply,
+  no key; French first; ko after its dedupe; ru/en topped up after Phase
+  5. Placed here because it is editorial grammar work with no other home
+  now the 26 Aug gate is gone, and because Phases 7–8 touch no grammar
+  JSON so nothing waits on it.
 
 ### Phase 4 — Gym parity
 
@@ -1005,6 +1061,14 @@ Remaining, in order:
 - Copy pass on early manifests to the later house style.
 - `-k drills-topup` CLI implemented and tested (the DB run itself is the
   owner's, in the runbook).
+- **Lessons point at the Gym (#397, 5 Sep 2026).** A lesson payload carries
+  the manifest entry for its point (`gym: {label, usage, example, column,
+  drills}`) and `GrammarPathPage` links to `/gym` under the examples — the
+  owner's *futur simple* screenshot: a conjugation is too broad to enumerate
+  on a lesson page, so the lesson names the drill set instead. **Left out:**
+  `path.practiseForms` / `path.drillCount` exist only in `en.json`; ar, es,
+  fr, pt and ru fall back to English on that one line. Add the five keys
+  with the next frontend change (DEBT.md).
 
 ### Phase 5 — Extraction leverage (session-only, facts-only)
 
@@ -1022,11 +1086,20 @@ Remaining, in order:
 
 - Full gates: audit (baseline equal-or-down), backend tests, ruff,
   frontend build + vitest, adversarial QA sweep over all new content.
-- `docs/quality/refeed.md` + chat summary: exact per-language reseed
-  order (`seed_english` → `run.py` → `seed_sentences` → `seed_grammar` →
-  `morphology_charts` → `seed_alphabet`), which DB-side passes to run
-  afterwards (`review_translations` offline mode, `review_hints`,
-  gym top-up, example diversity) and what each costs.
+- ~~`docs/quality/refeed.md`~~ — **written 6 Sep 2026**, from the sequence
+  the owner actually ran on 30 Aug and the prunes since: backup →
+  migrations → `run` (vocabulary + alphabet decks) → `reconcile` →
+  `seed_grammar` → `seed_sentences` → `prune_sentences`, per course, every
+  command without the DSN, rollback for the two that write one. Still to
+  add as they become real: the DB-side passes (`review_translations`
+  offline mode, `review_hints`, gym top-up, example diversity) and a
+  measured cost per course.
+- **Exclusions have no production write path.** `vocab_exclusions.tsv` is
+  applied by the FILE loader (`source_data.apply_vocab_exclusions`); no
+  seeder deletes a vocabulary row (learner cards would orphan), so the 723
+  excluded rows — and the 37 the `em` card added — remain in production
+  until a retire step exists. CHECKS §12's class, one more time. See the
+  6 Sep handover for the design.
 
 ### Phase 8 — Example-sentence fitness, all 27 courses (owner, 30 Aug 2026)
 
@@ -1082,6 +1155,144 @@ reading still hides the answer and looks like a reading.
 **Order.** (1) and (3) are deletions and can run with the prune, per course.
 (2) needs a decision per pair — retag the sentence to the word it actually
 contains, or drop it. (4) needs a check written before it can be counted.
+
+#### Where Phase 8 stands, 6 Sep 2026 (review pass, no implementation)
+
+Re-measured on the committed banks after the 31 Aug–5 Sep passes:
+
+* **(1) 2,671 → 378 bare-headword rows remain** (ko 74, th 64, ca 29, en 26,
+  el 25, tr 21, ar 18, es 15, the rest under 15). Every one is now the ONLY
+  sentence its word has — the floor rule (§24) keeps a thin row until
+  something better exists — and Thai's 64 sit outside the floor entirely
+  (§22). These are an authoring list, not a deletion list.
+* **(2) done** for the 963 measured: 856 were the writing system (§25),
+  49 retagged, 58 dropped.
+* **(3) 10 → 44** with the pattern widened to the corpus naming itself:
+  "Benvinguts a Tatoeba", "'Tatoeba' significa 'per exemple' en japonès"
+  — ca 11, nl 8, es 4, en/fr/ro 3, de/id/it/tl 2, ar/pt/th/tr 1. Drop, and
+  add `tatoeba` to `prune_sentences._context_free` / the floor script so it
+  cannot return.
+* **(5)** the owner has run `prune_sentences --apply` for `en` (127,363
+  rows), `ru` and `ar` (twice each). 24 courses remain; the runbook is
+  `docs/quality/refeed.md`.
+* **ru and ar are at the bar on SUPPLY** — 6,517 and 1,137 authored
+  sentences, 6 and 18 top-2,000 words without a §23 sentence — and it made
+  almost no difference to the card, which is item 6.
+
+Three defects the owner's 5 Sep screenshots added, each measured on all 27:
+
+**6 · The learner meets fragments the prune could not reach — CHECKS §26,
+§24a. FIXED 6 Sep; needs a re-prune per course.** "We are ___." for `human`
+while the bank held real sentences. Not a draw-order defect (the card
+rotates over every clozable sentence; there is no "first" — the original
+diagnosis in this item was wrong and §26 records why). The cause was
+**15,802 rows under five tokens in PRODUCTION**, 48% of every `ai` row,
+protected by `prune_sentences`' source exemption: `human` had 48 `ai` rows
+against 4 in the bank. The floor is now a prune predicate shared with
+`enforce_sentence_floor.py`, so the files and the database follow one rule.
+Dry runs after the change: en 3,436 → 4,247, ru 0 → 2,853, ar 31 → 3,270,
+es 9,171, tr 10,015, th 52 (exempt). **Every course needs a prune pass,
+including the three already pruned.**
+
+**7 · The English course renders its usage note as the translation —
+CHECKS §27.** "do — the participle." under TRANSLATION. The convention is
+deliberate (`en.md` note 0: 19 locale files carry the real translations),
+the label is wrong for an English-UI learner, and 11 of the 266 notes are
+cue-shaped duplicates of the hint. Scoped to `en`; 0 elsewhere (9 hits
+inspected). Fix: a `context` field rendered under its own label in six
+locales, 11 notes rewritten, a check.
+
+**8a · What the card actually has AFTER the prune (measured 6 Sep).** The
+committed bank is what remains, so this is the real state of every course
+once the owner's prune lands. Top-2,000 words, counting only sentences
+`make_cloze` can blank (Thai via its segmenter):
+
+| code | words with NO sentence | only 1 | avg | fragments (<5 tok) | under 7 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| he | 146 | 697 | 2.1 | **53%** | 90% |
+| tr | 229 | 696 | 2.0 | **50%** | 89% |
+| th | 806 | 327 | 2.4 | **50%** | 80% |
+| ko | 1,359 | 379 | 1.6 | **49%** | 88% |
+| el | 215 | 596 | 2.0 | 28% | 71% |
+| it | 91 | 499 | 2.2 | 26% | 70% |
+| id | 396 | 612 | 1.9 | 18% | 64% |
+| tl | 600 | 451 | 2.1 | 18% | 57% |
+| yo | 1,401 | 140 | 1.4 | 16% | 54% |
+| pt | 81 | 434 | 2.2 | 14% | 60% |
+| es | 32 | 469 | 2.2 | 13% | 57% |
+| xh | 769 | 246 | 1.9 | 12% | 42% |
+| ro ca sw | 227/526/926 | ~540 | 2.0 | 11% | 41–52% |
+| de nl | 39/29 | ~360 | 2.3 | 10% | 54–56% |
+| fr | 65 | 328 | 2.4 | 6% | 37% |
+| fa | 621 | 563 | 1.9 | 5% | 46% |
+| hi | 391 | 493 | 2.1 | 4% | 11% |
+| **en ru ar ha jam la mi** | 28/42/492/9/0/40/276 | 35–218 | 2.2–3.8 | **0%** | 7–42% |
+
+**Three things this settles.**
+
+1. **The courses that lose most to the prune are not the ones in trouble.**
+   `it` 11,696, `tr` 10,028, `pt` 9,716 and `es` 9,176 rows go — but that is
+   an unendorsed Tatoeba surplus, and afterwards `es` (13%) and `pt` (14%)
+   are healthy. `tr` at 50% and `it` at 26% are not, and no amount of
+   pruning changes that: those banks are thin, not polluted.
+2. **The method works where it has run.** en, ru, ar, ha, jam, la and mi are
+   at **0% fragments** — the courses that got the floor pass, the curation,
+   or the 31 Aug authoring. That is the strongest evidence the programme has
+   that authoring to §23 is the fix rather than a hope.
+3. **The Phase 8 order below predates this measurement and disagrees with
+   it.** `he`, `tr`, `ko` and `th` are the worst courses a learner can pick
+   today, and only `he` is early in that order. `tr` is in the last group.
+   Either the order changes or the reason it should not is written down.
+
+**8 · The supply queue, by course.** Top-2,000 words with sentences but
+none in the §23 band (§26, right-hand column): tr 1,617 · he 1,538 · it
+1,065 · el 1,042 · ko 1,018 · id 802 · es 784 · pt 782 · de 738 · nl 683 ·
+ro 666 · tl 620 · ca 509 · fa 448 · sw 414 · fr 398 · hi 320 · xh 298 · yo
+128 · en 75 · ar 18 · mi 15 · ha 7 · ru 6 · jam 1 · la 0. Plus the 378 bare
+rows from (1). **Order re-set 6 Sep** by the harm ranking in "The plan" above, replacing
+the 20 Aug order: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi
+ro` → the rest. Ten courses need nothing here (`pt es de nl fr la ru en ha
+jam`, all under 15% bad cards). Thai is IN now that its cloze works (§29),
+but its sentences are judged by segment count, not whitespace (§22). Method stays `apply_authored_sentences.py` — 7–14 words,
+presence check, `difficulty_rank` = the word's frequency rank (rule 41).
+
+**10 · The prompt must determine the form — CHECKS §28.** The `do` card.
+Judged on all 27 (14 top-2,000 cards each, refuted): 128 of 377 do not
+determine their answer — sw/th 64%, ko 54%, en/id/nl 50%, down to fr 7%.
+Causes: another word fits 69, inflection 24, definition wrong 21, vague
+12. The cheapest fix is the DEFINITION in 77 of 128 — so this is Phase 2d
+(override depth) measured from the card's side, not a new pass. Build
+`frame_collision` in `audit_content.py` (report-level; 26 courses);
+decide the grading policy (§28: stop scolding for a form the card never
+named); then let 2d's override work carry the rule "definition + sentence
+determine one string" (§23).
+
+**11 · Rows the card can never blank — CHECKS §29. Thai SHIPPED 6 Sep.** `make_cloze` matches
+the surface headword whole-word; a row with only an inflection, a stem, a
+toneless twin or an unspaced run is skipped, and a word with no clozable
+row silently serves the definition-only prompt. Measured with the
+production function: th 93% of rows (1,085 top-2,000 words with none),
+ko 54% (566), ar 47% (491), yo 50% (182), la 34%, tr 16%, ru 13%, sw 11%.
+**Every coverage number in items 1–8 counted these rows as coverage; for
+th/ko/ar/yo they are not.** Order, by learner impact:
+~~Thai cloze through `thai.segment`~~ **done — 311 → 3,675 clozable rows,
+1,085 → 110 dead words, and 35 blanks that were landing across word edges
+withdrawn** → surface form stored as the row's answer for inflecting
+courses (migration, owner-applied; ko/ru/sw/la/tr/ha/xh/hi) → Arabic reader
+pass over 6,048 rows → Yoruba headword tones → 22 junk Thai headwords to
+`vocab_exclusions.tsv` → an `unclozable_rows` audit rule that ratchets. And
+a rule for the applier from now on: SURFACE presence, never
+lemma presence — the 31 Aug Russian pass shipped rows the card cannot use.
+
+**9 · English vocabulary the seeder never inserts.** `EnglishSeeder` stops
+at 8,600 of 10,000 headwords: ~1,400 have no WordNet gloss and are skipped,
+and they include `what`, `how`, `because` — absent from production today.
+Diagnosed 5 Sep, not fixed: either gloss them from `gloss_overrides.tsv`
+(the mechanism already exists) or lift the cap and let `circular_gloss`
+gate them. And `fix/en-symbol-glosses` (pushed, unmerged) removes 37
+headwords WordNet glossed as chemical symbols, printing terms or clitics
+(`em` → quad, `er` → erbium, `ya`, `wanna`) — the `em` card. Merging it
+does not remove them from production (Phase 6 note above).
 
 ### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
 

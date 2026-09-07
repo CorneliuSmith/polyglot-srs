@@ -118,11 +118,17 @@ export default function AnalyticsPanel() {
           <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-1">
             Retention · signup cohorts × weeks since
           </h3>
+          {/* Eight week columns plus two labels do not fit a phone, and are
+              not meant to: the grid scrolls sideways INSIDE the card. The
+              cohort column stays put while it does, because a retention
+              number you cannot trace back to a row is not a number. */}
           <div className="overflow-x-auto">
             <table className="w-full text-xs whitespace-nowrap">
               <thead>
                 <tr className="text-start text-gray-500 uppercase tracking-wide text-[10px]">
-                  <th className="py-1 pe-2">Joined week of</th>
+                  <th className="sticky start-0 z-10 bg-white py-1 pe-2 text-start">
+                    Joined week of
+                  </th>
                   <th className="py-1 pe-2 text-end">Size</th>
                   {Array.from({ length: 8 }, (_, i) => (
                     <th key={i} className="py-1 px-1 text-center">w{i}</th>
@@ -132,7 +138,9 @@ export default function AnalyticsPanel() {
               <tbody>
                 {cohorts.map((c) => (
                   <tr key={c.cohort_week} className="border-t border-gray-50">
-                    <td className="py-1 pe-2 text-gray-700">{c.cohort_week}</td>
+                    <td className="sticky start-0 z-10 bg-white py-1 pe-2 text-gray-700">
+                      {c.cohort_week}
+                    </td>
                     <td className="py-1 pe-2 text-end tabular-nums text-gray-500">
                       {c.size}
                     </td>

@@ -31,14 +31,19 @@ flipping the flag; that's your call to make when the hold lifts. If you ever
 audit the codebase and find payment code that looks unreachable, this is
 why.
 
-### The production push is gated on two things, and has been for a while
+### Production data is pushed by the owner, by hand, and the push has run
 
-Per `docs/decisions/2026-08-26-owner-decisions.md`: no `supabase db push` /
-reconcile sequence runs until (1) the Gym level is finished and (2) the
-grammar concepts have had a *comprehensive* review, not just a
-defect-free one. Worth re-reading before assuming "the code is ready, why
-isn't it deployed" — the repository has been ahead of the deployed app for a
-while on purpose.
+Until 30 Aug 2026 the repository was deliberately ahead of the deployed
+app — `docs/decisions/2026-08-26-owner-decisions.md` gated the content push
+on the Gym level and a comprehensive grammar review. The owner released that
+gate by running the sequence themselves on 30 Aug, and has run
+`prune_sentences --apply` for en/ru/ar since. What remains true, and is
+easy to get wrong from either direction: **code deploys itself from
+`main`; data does not.** A merged TSV or grammar JSON changes nothing a
+learner sees until the owner runs `docs/quality/refeed.md` for that course,
+and this agent must not run it (a bulk DELETE attempt was blocked by the
+auto-mode classifier). 24 courses have never been pruned, so their cards can
+still serve sentences no committed bank endorses (CHECKS §18).
 
 ### `trial_reviewer` in the database, "Tester" on screen
 
@@ -146,6 +151,125 @@ Two things that pass the tests but are not finished:
   points — the whole point of generating it is that it lists them all.
 
 
+### The prune's source exemption shielded thin rows (fixed 6 Sep 2026)
+
+Kept as the reason, not the problem: `prune_sentences` exempted `curated`
+and `ai` rows because no rebuild reproduces them, which left **15,802 rows
+under five tokens** in production — 48% of every `ai` row — including the
+"You are human." / "I am human." set behind the owner's `human` card. The
+files had carried §24's floor since 31 Aug; production had not, which is why
+pruning ru and ar reported 0 and 31 rows while thousands of thin ones
+stayed. Now `FLOOR`, the tokenizer and the Thai exemption live in
+`prune_sentences.py` and `scripts/enforce_sentence_floor.py` imports them,
+so the file pass and the production prune cannot drift. **The rows only
+leave production when the owner re-runs the prune per course**
+(`docs/quality/refeed.md`) — every course needs a second pass, including
+en/ru/ar which were pruned before this existed.
+
+### The English course shows its drill usage note under "Translation"
+
+By convention (`docs/quality/en.md` note 0) an English drill's
+`translation` field holds a usage note and the real translations live in
+`data/grammar/en_drill_hints.<locale>.json`. With an English UI locale no
+`drill_hint_translations` row exists, `COALESCE(dht.translation,
+ds.translation)` falls through, and the note renders under the "Translation"
+heading — "do — the participle." (CHECKS §27). Fix is a `context` field
+under its own label in all six locales, plus 11 notes that merely restate
+the hint. Not a data bug; do not "fix" it by writing English-for-English
+translations, which hand over the answer.
+
+### Exclusions have no production write path
+
+`data/vocab_exclusions.tsv` (727 rows; 764 once `fix/en-symbol-glosses` merges) is applied by the FILE loader
+(`source_data.apply_vocab_exclusions`), and no seeder deletes a vocabulary
+row because `user_cards` references it. So every excluded word — the 645
+"a male given name" cards retired on 25 Aug, and the 37 in
+`fix/en-symbol-glosses` (`em` glossed as a printer's quad, `er` as erbium,
+`ya`, `wanna`) — is still served in production. What is needed: a
+`vocabulary.retired_at` column (migration, owner-applied; readers degrade),
+a retire step in `reconcile` that sets it from the exclusions file, and the
+card draw / lesson intake filtering it while keeping the learner's
+`user_cards` row. CHECKS §12's class: a layer with no write path.
+
+Two more things the retire step has to cover, from the owner's second `em`
+screenshot (6 Sep, Spanish UI): the wrong gloss was faithfully translated —
+`translations(vocabulary_id, locale='es', definition='eme')`, the letter M
+— so the locale rows of a retired word must be hidden with it, and
+`auto_translate` must skip retired words rather than keep glossing them.
+And `prune_sentences` **keeps** a retired word's sentences on purpose: its
+"never strand a word" guard leaves every row of a word whose whole set
+would go ("Kill 'em." survives the English prune for exactly that reason).
+Retire first, and let the prune treat retired words as prunable to zero.
+
+### `EnglishSeeder` stops at 8,600 of 10,000 headwords
+
+~1,400 English headwords have no WordNet gloss and are skipped rather than
+inserted, and they include `what`, `how` and `because` — absent from
+production today while `en_frequency.tsv` lists them. Diagnosed 5 Sep,
+not fixed. Two routes: gloss them through `gloss_overrides.tsv` (the
+mechanism exists and `circular_gloss` gates it) or lift the cap and let
+the audit decide. Either way the count to watch is production `en` rows
+against the file's 10,000 (9,963 once `fix/en-symbol-glosses` merges).
+
+### Written abbreviations as vocabulary: 12 held, and the judges disagreed
+
+A sweep of every single-character and letterless headword across 24 courses
+(851 candidates, judged then defended) removed 94 that are letters,
+punctuation, bare diacritics or extraction artefacts. **12 are held**, not
+because they are defensible but because the pass judged them
+inconsistently: Portuguese `s` (segundo), `h` (hora), `d` (Dom), `c`, `n`,
+`q` were called abbreviations and condemned, while the Spanish equivalents
+— `s` (sur), `m` (metro), `x` (por), `d`, `c`, `n`, `t`, `i` — were defended
+as written abbreviations a learner meets. Both readings are reasonable and
+they cannot both be the standard.
+
+Also held: Arabic `ي` and `ت` and Korean `잡`, `갖`, `걷`, `찢`, called
+clitics or bare verb stems that never stand alone.
+
+**The decision needed is one rule, not twelve verdicts:** is a written
+abbreviation a vocabulary card? A card asks the learner to PRODUCE the
+string from a definition, and "por, in texting" → `x` is a poor card by
+that test — but it is a real thing Spanish writers write. Whichever way it
+goes, it must apply to every course at once (quality rule 1).
+
+### Rows the card can never show, and a fallback that hides it
+
+`make_cloze` (`backend/services/extract.py`) whole-word-matches the surface
+headword; `cards.py` skips any example row it rejects and, when every row of
+a word is rejected, silently serves the definition-only prompt. Korean (54% of rows — dictionary-form
+headwords), Arabic (47% — stem headwords) and Yoruba (50% — toneless
+headwords) are mostly in that state: 566 / 491 / 182 top-2,000 words with no
+usable sentence. **Thai is fixed** (6 Sep): segmentation replaced the
+boundary regex, 311 → 3,675 rows, 110 words left — CHECKS §29.
+No log, no metric, no test says so. The 31 Aug Russian authoring applier
+made it worse by accepting LEMMA presence (pymorphy3), so an unknown share
+of its 6,517 rows are dead on arrival. Fix design and order in CHECKS §29;
+the `unclozable_rows` audit rule is the instrument that has to exist before
+any coverage table is believed for those four courses.
+
+### Vocabulary grading scolds for a form the card never specified
+
+`nlp/base.py` layer 3 grades a lemma match on a vocabulary card
+`CORRECT_SLOPPY` with "Correct meaning, but check the exact form" — right
+when the card named the form, wrong when it did not, and CHECKS §28 found
+a third of top-band cards do not. Until the content carries the form (or
+the grader checks whether it does), that string blames the learner for
+the card's gap. `frame_collision` — the mechanical half of the §28 check
+— is designed, not built; it belongs beside `ar_register` in
+`audit_content.py`.
+
+### `prune_sentences` keeps a word's fragments rather than empty it
+
+The "never strand a word" guard leaves every row of a word whose whole set
+would go. On 6 Sep that was 100 Russian and 72 Arabic words — names
+(`лиза`, `донна`, `كارلوس`), slang (`чё`, `бля`), inflected forms
+(`родился`), letters (`ن`, `ج`) — each still showing a bare fragment in
+production because the committed bank has nothing for them. Two ways out,
+neither built: exclude and retire them (the DEBT entry above), or a
+`--allow-strand` that prunes to zero, since a definition-only card is an
+honest fallback and "И?" is not. Until then a `stranded` count in the dry
+run is a list to act on, not a number to ignore (`docs/quality/refeed.md`).
+
 ### The Workspace chrome is translated; its 42 panels are not
 
 Since 4 Sep 2026 the Workspace (`/contribute`) is the only staff console
@@ -240,6 +364,127 @@ quietly offers no Edit button.
 ---
 
 ## Real gotchas — already hit once, will bite again if forgotten
+
+### A wrong-language row can still be STORED; it is only hidden at serve time
+
+Since 6 Sep 2026 a card never shows a third language: `locale_guard`
+strips a field that is provably neither the learner's locale nor English.
+That fixes what the learner sees. **It does not fix the row.** The Spanish
+sitting in an `example_sentences` row filed as `translation_locale='en'`
+— or in `drill_sentences.translation`, which has no locale column at all —
+is still there, still counts as filled, and so still suppresses the
+demand queue that would otherwise translate it properly.
+
+`services/quality/audit_locale_rows.py` now finds them (`_foreign_latin`,
+reusing the same conservative function-word test), so the fix is: run the
+audit against the deployment, and correct or delete what it lists. Until
+someone does, affected cards show no translation line where they used to
+show a wrong one — better, but not right.
+
+The detector is a heuristic and says so: two closed-class function-word
+hits and a margin over English. It will not catch a short mislabelled
+string with no function words ("Buenos días."), and it knows nothing
+about languages outside its ten-language table. Both are deliberate — the
+cost of a false positive is a deleted English cue, so it is tuned to stay
+quiet when unsure.
+
+### The two translation lanes disagree about what a support locale is
+
+`fill_start_batch` (the inline, session-time fill) resolves the locale with
+a LEFT JOIN on `languages` and carries on when there is no row, naming the
+locale by its code. `discover_pairs` (the background sweep) INNER JOINs the
+same table and drops the pair entirely. Both are in
+`services/auto_translate.py`.
+
+So a support locale that is not also a course language translates the
+session a learner is sitting in and **never fills its backlog** — and
+`translation_status`, the readout built precisely so this feature cannot
+fail silently, does not cover it: it reports courses with
+`auto_translate_enabled` off, but never a locale it could not resolve. The
+admin sees an empty pair list and a green panel.
+
+Nothing is broken today because all seven UI languages are also course
+languages. It breaks the first time one is not — a UI language for a
+market whose language the app does not teach is the obvious case, and is
+exactly the kind of thing that gets added without touching this file.
+
+Two fixes, both small, neither done: make the sweep LEFT JOIN like the
+inline fill so the lanes agree, and add an "unresolved locale" line to
+`translation_status` so the panel says so either way. Surfaced 5 Sep 2026
+while answering why Turkish content was still English (it was not this —
+see `docs/seeding.md`, "The three roles one language code plays").
+
+### The Turkish catalog is a machine translation nobody has read
+
+All 1,491 strings of `frontend/src/i18n/locales/tr.json` were translated
+in one session on 5 Sep 2026, against the choices the five existing
+catalogs had already made for the product's own vocabulary (Deck →
+Deste, Gym → Antrenman, Review → Tekrar, Tutor → Öğretmen). It is
+structurally sound — parity, placeholders, tags and the Gym's
+course-language affixes are all pinned by tests — but **no Turkish
+speaker has read it**, and structure is not idiom. Expect the wrong
+register somewhere, and expect the grammar terminology in `gymForms`
+(262 labels: `Belirtme durumu`, `İstek kipi`, `Bitmemiş geçmiş`) to be
+the part a teacher argues with, since Turkish grammar names its own
+categories and those names do not always map onto the Latin ones the
+labels were written in.
+
+The fix is a reading, not a rewrite: hand `tr.json` to one Turkish
+speaker beside a running app. Until that happens, treat a Turkish
+learner's complaint about wording as probably right. The same caveat
+applies to any future catalog produced this way — which is why this
+entry is about the process, not just this file.
+
+### On a phone, whatever CAN shrink pays for whatever cannot
+
+Two reports a day apart, same shape, different CSS. A row or grid is
+wider than the viewport; one part of it is pinned (`shrink-0`, or an
+implicit `auto` grid track); so the *other* part absorbs the entire
+shortfall, and past zero the overflow spills anyway. You get two symptoms
+from one cause — something important vanishes, AND the page still
+overflows — which is why it reads as two bugs.
+
+- **5 Sep, Language visibility** (`LanguageVisibilityPanel`): the control
+  cluster — swap, review badge, open-reports count, "Auto-translate" and
+  "Visible" toggles, settings — was `shrink-0` beside a `min-w-0` name
+  button. Every row rendered as a flag and some checkboxes with **no
+  language name on it**, and the settings icon still sat outside the
+  card. Fixed by letting the row wrap: the name takes its own line below
+  `sm`, controls wrap underneath, single row from `sm` up.
+- **4 Sep, admin Insights** (`CARD_COLUMNS`): the entry below.
+
+**The rule when adding a row of controls:** on a phone, ask what gives.
+If the answer is "the label", the row needs to wrap, not to shrink — a
+truncated name is a worse outcome than a second line. `shrink-0` is right
+for two or three icons and wrong for a cluster carrying text labels.
+
+jsdom does no layout, so neither of these can be caught by measuring;
+both regressions are pinned by asserting the class decisions instead
+(`LanguageVisibilityPanel.test.tsx`, `pageWidth.test.ts`). That is weaker
+than a real check and worth replacing if visual testing ever arrives.
+
+### A grid track without an explicit `grid-cols-*` floors at its content width
+
+Cost an hour on 5 Sep 2026, and will again: the admin Insights page
+scrolled sideways on a phone, showing a band of bare body background down
+the right of the screen. The retention table was already inside an
+`overflow-x-auto` wrapper, which is what makes this one hard to see — the
+wrapper scrolls the table, but it still REPORTS the table's full width to
+its ancestors, and the card was a grid item.
+
+`CARD_COLUMNS` read `grid gap-4 lg:grid-cols-2`. Below `lg` that is an
+IMPLICIT track, sized `auto`, and a grid item in an auto track takes its
+content-based minimum width — so the column could not shrink below the
+~700px table, the card grew past the viewport, and the page's scroll
+width went with it. `lg:grid-cols-2` was never affected, which is why it
+only ever broke on small screens: Tailwind's `grid-cols-N` compiles to
+`minmax(0, 1fr)`, and that zero minimum is what switches the automatic
+minimum size off.
+
+**Writing any new grid: name the base track (`grid-cols-1`), not just the
+breakpoint variants.** The same trap exists for flex — a flex item needs
+`min-w-0` for the identical reason. `pageWidth.test.ts` pins
+`CARD_COLUMNS`; it cannot pin a grid someone writes inline tomorrow.
 
 ### RateLimiter's cached Redis client can point at a dead event loop
 

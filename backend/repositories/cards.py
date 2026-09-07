@@ -21,10 +21,12 @@ from backend.services.auto_translate import (
     table_present,
 )
 from backend.services.cell_glosses import cell_gloss
+from backend.services.drill_notes import split_note
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.locale_guard import mark_locale_mismatches
+from backend.services.nlp.thai import answer_span as _thai_answer_span
 from backend.services.readings import sentence_phonetics, sentence_reading
 from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
@@ -282,6 +284,7 @@ async def get_due_cards(
             d.answers                       AS drill_answers,
             d.hints                         AS drill_hints,
             d.translations                  AS drill_translations,
+            d.base_translations             AS drill_base_translations,
             d.glosses                       AS drill_glosses,
             d.transliterations              AS drill_transliterations,
             lp.prompt_sentence              AS last_prompt,
@@ -307,6 +310,10 @@ async def get_due_cards(
                           ORDER BY ds.display_order, ds.id) AS hints,
                 array_agg(COALESCE(dht.translation, ds.translation)
                           ORDER BY ds.display_order, ds.id) AS translations,
+                -- The authored field alone, so the card can tell a
+                -- translation from an English usage note (CHECKS §27).
+                array_agg(ds.translation
+                          ORDER BY ds.display_order, ds.id) AS base_translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
                 array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
             FROM drill_sentences ds
@@ -541,6 +548,18 @@ def _pick_index(
     return pool[_stable_pick(len(pool), key)]
 
 
+# Thai has no spaces, so `make_cloze`'s word-boundary match cannot work there:
+# it accepted 311 of 4,335 rows and 35 of those blanked across word edges
+# (`แก` out of `แก้ม`). Segmentation finds the word properly — 3,675 rows, and
+# top-2,000 words with no showable sentence fall from 1,085 to 110 (CHECKS
+# §29). Every other course keeps the regex; None means "use it".
+_SPAN_FINDERS = {"th": _thai_answer_span}
+
+
+def _span_finder(language_code: str | None):
+    return _SPAN_FINDERS.get(language_code or "")
+
+
 def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
                 eff_locale: str = "en") -> dict:
     """Shape a vocabulary row into a card, preferring a cloze example sentence.
@@ -559,9 +578,10 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     glosses = r["example_glosses"] or []
     translits = r["example_transliterations"] or []
     locales = r.get("example_translation_locales") or []
+    find_span = _span_finder(r["language_code"])
     candidates = []
     for i, raw in enumerate(sentences):
-        cloze = make_cloze(raw, word)
+        cloze = make_cloze(raw, word, find_span)
         if cloze:
             candidates.append((
                 cloze,
@@ -638,7 +658,7 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     drills, so this shouldn't be reachable for fresh content.
     """
     drills = r["drill_sentences"] or []
-    gloss, transliteration = None, None
+    gloss, transliteration, context = None, None, None
     if drills:
         idx = _pick_index(list(drills), r["last_prompt"], stats, _rotation_key(r))
         sentence = drills[idx]
@@ -647,6 +667,9 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         translation = (r["drill_translations"] or [None] * len(drills))[idx]
         gloss = (r["drill_glosses"] or [None] * len(drills))[idx]
         transliteration = (r["drill_transliterations"] or [None] * len(drills))[idx]
+        translation, context = split_note(
+            r["language_code"], translation,
+            (r["drill_base_translations"] or [None] * len(drills))[idx])
     else:
         sentence, answer, hint, translation = r["title"], r["title"], None, None
     return {
@@ -655,6 +678,7 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         "correct_answer": answer,
         "hint": hint,
         "translation": translation,
+        "context": context,
         "gloss": gloss,
         "transliteration": transliteration,
         "morphology": None,
@@ -1724,9 +1748,10 @@ async def get_card_details_bulk(
         for v in await conn.fetch(
             """
             SELECT v.id, v.word, v.reading, v.part_of_speech, v.usage_note,
-                   v.morphology, v.alternatives,
+                   v.morphology, v.alternatives, l.code AS language_code,
                    COALESCE(t.definition, t_en.definition) AS definition
             FROM vocabulary v
+            JOIN languages l ON l.id = v.language_id
             LEFT JOIN translations t
                    ON v.id = t.vocabulary_id AND t.locale = $2
             LEFT JOIN translations t_en
@@ -1779,7 +1804,8 @@ async def get_card_details_bulk(
             # First-check quiz: the first sentence where the word clozes.
             v = vocab_by_id.get(e["vocabulary_id"])
             if v is not None and e["vocabulary_id"] not in vocab_quiz:
-                cloze = make_cloze(e["sentence"], v["word"])
+                cloze = make_cloze(e["sentence"], v["word"],
+                                   _span_finder(v["language_code"]))
                 if cloze:
                     vocab_quiz[e["vocabulary_id"]] = {
                         "sentence": cloze,

@@ -48,6 +48,19 @@ describe('page width', () => {
     expect(CARD_COLUMNS).toContain('items-start')
   })
 
+  it('every track has a zero minimum, so one wide card cannot widen the page', () => {
+    // The mobile bug this pins: an IMPLICIT grid track is sized `auto`,
+    // which floors the column at its content's minimum width. The admin
+    // retention table is ~700px and nowrap, so on a phone the Insights
+    // card grew past the viewport and the whole page scrolled sideways —
+    // a band of bare body background down the right of every admin
+    // screen. `grid-cols-N` compiles to `minmax(0, 1fr)`; the zero
+    // minimum is the fix, and it is needed at EVERY breakpoint the grid
+    // is used at, not only the two-column one.
+    expect(CARD_COLUMNS).toMatch(/(^|\s)grid-cols-1(\s|$)/)
+    expect(CARD_COLUMNS).not.toMatch(/(^|\s)grid(\s+gap|\s+items|\s*$)/)
+  })
+
   const READING = [
     // The answer-a-card and read-a-text surfaces. Measured, not wide.
     'features/review/ReviewSessionPage.tsx',

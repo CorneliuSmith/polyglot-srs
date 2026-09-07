@@ -10,9 +10,12 @@ curated 70,975, so a learner opening the card for "I" was shown "I am.",
 
 **What it will not do.**
 
-* It never touches a row whose source is not `tatoeba`. `curated` and `ai`
-  rows are human-authored or human-reviewed and are not reproducible from a
-  file; the bulk corpus is.
+* It never touches a row whose source is not `tatoeba` — UNLESS that row is
+  one the exemption exists to protect nothing in: a sentence that is only
+  the word it teaches (`_context_free`), or one below the five-token floor
+  when the word keeps a longer survivor (`_below_floor`, CHECKS §24).
+  `curated` and `ai` rows are otherwise human-authored or human-reviewed and
+  are not reproducible from a file; the bulk corpus is.
 * It never leaves a word with no example sentence. A word whose every row
   would be deleted keeps its rows and is reported instead.
 * It matches on (word, SENTENCE) — never on the translation locale. The file
@@ -36,6 +39,7 @@ import argparse
 import asyncio
 import csv
 import os
+import unicodedata
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -48,6 +52,52 @@ ROLLBACK_DIR = REPO / "out"
 # Only the bulk corpus is reproducible from a committed file. Everything else
 # represents work a human did that no rebuild would bring back.
 PRUNABLE_SOURCES = ("tatoeba",)
+
+# The deletion floor, CHECKS §24 — the same number and the same tokenizer the
+# FILE pass uses (`scripts/enforce_sentence_floor.py` imports both from here,
+# so the two cannot drift). Thai writes without spaces, so counting tokens
+# says nothing about how much sentence is there (§22).
+FLOOR = 5
+UNSPACED = {"th"}
+
+
+def sentence_tokens(sentence: str) -> list[str]:
+    r"""Letters-plus-marks words, so Devanagari and Arabic vowel signs stay
+    attached to their letter — Python's ``\w`` drops them and turns नहीं
+    into नह (quality rule 39)."""
+    out: list[str] = []
+    cur = ""
+    for ch in sentence or "":
+        if unicodedata.category(ch).startswith(("L", "M")) or (cur and ch in "'\u2019-"):
+            cur += ch
+        else:
+            if cur:
+                out.append(cur)
+                cur = ""
+    if cur:
+        out.append(cur)
+    return out
+
+
+def _below_floor(sentence: str, code: str) -> bool:
+    """True when the sentence is too thin to teach (CHECKS §24).
+
+    Candidacy only — the caller's never-strand rule still refuses to empty a
+    word, so a word whose every sentence is thin keeps them all.
+
+    This exists because the source exemption was shielding exactly the rows
+    the owner kept meeting. The English card for `human` served "You are
+    human.", "I am human." and "She is human." — 48 rows, source `ai`, none
+    of them in any committed bank — while the bank held "Every language that
+    dies out takes a piece of human history with it." `_context_free` did not
+    reach them: they are not BARE headwords, they are three-token frames. The
+    file banks had this floor applied on 31 Aug; production never did, which
+    is why pruning `ru` and `ar` left 2,822 and 3,123 thin protected rows
+    behind. (Quality rule 42, second instance.)
+    """
+    if code in UNSPACED:
+        return False
+    return len(sentence_tokens(sentence)) < FLOOR
 
 
 def _context_free(sentence: str, word: str) -> bool:
@@ -64,7 +114,6 @@ def _context_free(sentence: str, word: str) -> bool:
     sentence to the headword rather than counting whitespace tokens, which is
     meaningless for Thai and misleading for Korean (CHECKS §22).
     """
-    import unicodedata
 
     bare = "".join(
         c for c in (sentence or "")
@@ -107,7 +156,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
         """,
         code,
     )
-    protected = sum(1 for r in rows if r["source"] not in PRUNABLE_SOURCES)
+    exempt_rows = [r for r in rows if r["source"] not in PRUNABLE_SOURCES]
     # Group by word so the "never strand a word" rule can be applied per word.
     by_word: dict[str, list] = {}
     for r in rows:
@@ -122,6 +171,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
             return (
                 r["source"] in PRUNABLE_SOURCES
                 or _context_free(r["sentence"], word)
+                or _below_floor(r["sentence"], code)
             )
 
         survivors = [
@@ -139,9 +189,16 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
             kept_empty.append(word)
             continue
         delete.extend(candidates)
+    # `protected` must mean "kept ONLY because of its source", so it counts
+    # exempt rows that SURVIVE. Counting every exempt row overlapped `delete`
+    # the moment thin rows lost the exemption (§24a), and the columns then
+    # did not reconcile for a reader deciding whether to --apply.
+    exempt_deleted = sum(1 for r in delete
+                         if r["source"] not in PRUNABLE_SOURCES)
+    protected = len(exempt_rows) - exempt_deleted
     return {"code": code, "skipped": None, "delete": delete,
-            "protected": protected, "kept_empty": kept_empty,
-            "total": len(rows)}
+            "protected": protected, "exempt_deleted": exempt_deleted,
+            "kept_empty": kept_empty, "total": len(rows)}
 
 
 def write_rollback(reports: list[dict], stamp: str) -> Path:
@@ -193,23 +250,29 @@ async def apply(conn: asyncpg.Connection, reports: list[dict]) -> int:
 
 
 def print_report(reports: list[dict]) -> None:
-    print(f"{'lang':<6}{'db':>9}{'delete':>9}{'keeps':>8}{'protected':>11}{'stranded':>10}")
-    print("-" * 53)
-    tot_d = tot_p = 0
+    print(f"{'lang':<6}{'db':>9}{'delete':>9}{'thin':>8}"
+          f"{'keeps':>8}{'protected':>11}{'stranded':>10}")
+    print("-" * 61)
+    tot_d = tot_p = tot_x = 0
     for rep in reports:
         if rep.get("skipped"):
             continue
         d = len(rep["delete"])
+        x = rep.get("exempt_deleted", 0)
         tot_d += d
         tot_p += rep["protected"]
-        print(f"{rep['code']:<6}{rep['total']:>9,}{d:>9,}"
+        tot_x += x
+        print(f"{rep['code']:<6}{rep['total']:>9,}{d:>9,}{x:>8,}"
               f"{rep['total'] - d:>8,}{rep['protected']:>11,}"
               f"{len(rep['kept_empty']):>10,}")
-    print("-" * 53)
-    print(f"{'all':<6}{'':>9}{tot_d:>9,}{'':>8}{tot_p:>11,}")
-    print("\ndelete    tatoeba rows the committed bank no longer endorses")
-    print("keeps     rows that remain (curated/ai are never candidates)")
-    print("protected rows exempt by source — curated or ai")
+    print("-" * 61)
+    print(f"{'all':<6}{'':>9}{tot_d:>9,}{tot_x:>8,}{'':>8}{tot_p:>11,}")
+    print("\ndelete    rows no committed bank endorses: the bulk corpus, plus")
+    print("          any row that is only its headword or below the five-token")
+    print("          floor whatever its source (CHECKS §18a, §24a)")
+    print("thin      of those, the ones a curated/ai exemption used to shield")
+    print("keeps     rows that remain")
+    print("protected rows kept ONLY because they are curated or ai")
     print("stranded  words whose every row would go; left untouched instead")
 
 

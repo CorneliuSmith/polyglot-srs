@@ -413,6 +413,7 @@
     "layerPhonetics": "Произношение",
     "layerGloss": "Слово за словом",
     "layerTranslation": "Перевод",
+    "layerContext": "Примечание",
     "layerHint": "Подсказка",
     "cramTopupNote": "Совершенно новые предложения, специально для вас, — секунду, пока они пишутся.",
     "draftingFresh": "Пишем несколько свежих предложений…",
@@ -903,7 +904,9 @@
     "addToReviews": "Добавить в мои повторения",
     "adding": "Добавляем…",
     "alreadyInReviews": "Уже в ваших повторениях — карточка будет возвращаться по своему расписанию FSRS.",
-    "otherLevel": "Прочее"
+    "otherLevel": "Прочее",
+    "practiseForms": "Отработать {{label}} в тренажёре",
+    "drillCount": "{{count}} упражнений"
   },
   "recos": {
     "mediaTypes": {

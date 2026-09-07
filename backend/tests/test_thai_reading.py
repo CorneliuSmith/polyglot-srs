@@ -196,3 +196,55 @@ def test_every_row_has_a_phonetics_form():
     assert all("phonetics" in r for r in rows)
     filled = [r for r in rows if (r.get("phonetics") or "").strip()]
     assert len(filled) == len(rows), f"{len(rows) - len(filled)} rows lost the tone"
+
+
+class TestThaiCloze:
+    """CHECKS §29. Thai writes without spaces, so `make_cloze`'s word-boundary
+    match could never fire correctly: it accepted 311 of 4,335 committed rows
+    and 35 of those blanked across word edges, because Python's ``\\w`` drops
+    the vowel marks that would have stopped it (quality rule 39). Every other
+    Thai card fell back to a definition-only prompt — 1,085 of the top 2,000
+    words had no sentence a card could show."""
+
+    def test_it_blanks_a_word_inside_an_unspaced_run(self):
+        from backend.services.nlp.thai import answer_span
+        assert answer_span("ฉันโอเค", "ฉัน") == (0, 3)
+        assert answer_span("ฉันโอเค", "โอเค") == (3, 7)
+
+    def test_it_refuses_a_word_that_only_looks_present(self):
+        """`มาน` occurs inside `มานี่` (= มา + นี่). A substring search would
+        blank half of two other words; the answer must BE a segment."""
+        from backend.services.nlp.thai import answer_span
+        assert answer_span("มานี่", "มาน") is None
+
+    def test_it_refuses_the_false_blanks_the_regex_accepted(self):
+        """These are real rows from the committed bank: `แก` carved out of
+        `แก้ม` ("cheek"), `กี` out of `กี่`."""
+        from backend.services.nlp.thai import answer_span
+        assert answer_span("ผู้หญิงมีแก้มสวย", "แก") is None
+        assert answer_span("ฉันมีเพื่อนไม่กี่คน", "กี") is None
+
+    def test_a_single_letter_is_not_a_word(self):
+        """`th_frequency.tsv` lists 22 headwords that are one Thai letter or a
+        bare tone mark. In a segmentation lexicon they let greedy match
+        "parse" a run it does not understand, and they let the cloze blank a
+        letter as if it were a word."""
+        from backend.services.nlp.thai import answer_span, cloze_lexicon
+        lexicon = cloze_lexicon()
+        assert not any(len(w) < 2 for w in lexicon)
+        assert answer_span("ทอมเป็นลูกบุญธรรม", "ร") is None
+
+    def test_it_declines_when_the_parse_is_not_clean(self):
+        """Greedy longest-match leaves unknown leftovers when it mis-carves a
+        run, and those are exactly the accidental hits. Same stance as the
+        reading layer: nothing rather than a partial."""
+        from backend.services.nlp.thai import answer_span, segment
+        # A word the lexicon does not know cannot anchor a span.
+        assert answer_span("ฉันโอเค", "ไม่มีคำนี้") is None
+        assert segment("ฉันโอเค", {"ฉัน", "โอเค"}) == ["ฉัน", "โอเค"]
+
+    def test_the_cloze_uses_it_end_to_end(self):
+        from backend.services.extract import make_cloze
+        from backend.services.nlp.thai import answer_span
+        assert make_cloze("ฉันโอเค", "โอเค", answer_span) == "ฉัน{{answer}}"
+        assert make_cloze("ผู้หญิงมีแก้มสวย", "แก", answer_span) is None

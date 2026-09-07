@@ -171,6 +171,61 @@ None of these are needed for a language to work; each fills in depth.
 The Gym needs no seeding at all — its manifests are read from
 `data/gym/<code>.json` at request time.
 
+## The three roles one language code plays
+
+Added because the owner asked, on 5 Sep 2026, why Turkish card content was
+still English right after Turkish shipped as a UI language. Nothing was
+broken; the question was which of three separate things a code like `tr`
+had actually been given, because they are wired independently and each
+fails silently on its own.
+
+| Role | What it means | What it needs | Fails how |
+|---|---|---|---|
+| **Course** | People can study it | A `languages` row (migration), then the seeders on this page | "Language not found", or an empty grammar path |
+| **UI language** | The chrome is in it | `frontend/src/i18n/locales/<code>.json` + two lines in `i18n/index.ts` | Never partially: `localeParity.test.ts` fails the build |
+| **Support locale** | Cards are *translated into* it | A `languages` row with that code, **and** `auto_translate_enabled` on the COURSE being studied | Silently: the learner just keeps reading English |
+
+They are not a ladder and holding one grants none of the others. The most
+confusing consequence: **shipping a UI language does not start translating
+any content into it.** The catalog is the app's own words; card text is
+per-learner demand filled by the maker–checker into
+`explanation_translations`, `drill_hint_translations` and the rest.
+
+### The support-locale chain, in the order it breaks
+
+1. **`auto_translate_enabled` on the course defaults to `false`**
+   (migration 20260913) and is per COURSE, not per locale. Nobody
+   studying French gets translated anything, in any locale, until an
+   admin turns French on — Workspace → Admin → Languages.
+2. **The locale must be a row in `languages`.** `discover_pairs`
+   (`services/auto_translate.py`) resolves the locale name for the
+   translation prompt with `JOIN languages loc ON loc.code = …`. That
+   table is the course list doing double duty as the locale registry, so
+   a support locale that is not also a course simply produces no pair.
+3. **Then it is a backlog, not a switch.** The sweep runs on a per-cycle
+   word budget; a locale that went live an hour ago has nothing filled
+   yet. The inline fill covers the session you are in, in reading order.
+
+### Read the panel before guessing
+
+All four failure modes — no provider key, sweep not running, migration
+missing, course switched off — look identical from the app. **Workspace →
+Admin → Languages** carries a readout that names the actual one, and the
+`auto_translate_enabled` toggle sits beside it. Check that first; it is
+faster than any reasoning from the code, this section included.
+
+### One known blind spot in that readout
+
+The two lanes disagree about what a locale is, and the panel does not say
+so. `fill_start_batch` LEFT JOINs `languages` for the locale and carries
+on when there is no row (naming the locale by its code); `discover_pairs`
+INNER JOINs and drops the pair. So a support locale with no `languages`
+row translates the session you are sitting in and **never fills its
+backlog**, while the status panel — which reports switched-off courses
+but never an unresolved locale — stays green. Every UI language shipped
+so far is also a course, so this has not bitten yet. It will the first
+time one is not. See `DEBT.md`.
+
 ## Verifying
 
 ```sql

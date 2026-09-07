@@ -46,10 +46,17 @@ class TestSurveyRules:
 
     def test_curated_and_ai_rows_are_never_candidates(self, monkeypatch):
         """Those are human-authored or human-reviewed; no rebuild brings
-        them back, so the file's silence is not evidence against them."""
-        rows = [_row(sentence="hand written", source=s)
+        them back, so the file's silence is not evidence against them.
+
+        The sentences here are deliberately ABOVE the five-token floor and
+        the word keeps an endorsed row, so the only thing that can save them
+        is the source exemption itself. With a thin sentence this test went
+        on passing after the floor landed — via the never-strand rule — which
+        is a test passing for a reason it does not name (quality rule 14)."""
+        rows = [_row(sentence="I am the one who wrote this by hand.", source=s)
                 for s in ("curated", "ai")]
-        rep = self._survey(rows, {("other", "unrelated.")}, monkeypatch)
+        rows.append(_row(sentence="I think he did it."))
+        rep = self._survey(rows, {("i", "I think he did it.")}, monkeypatch)
         assert rep["delete"] == []
         assert rep["protected"] == 2
 
@@ -99,6 +106,102 @@ def test_an_empty_committed_bank_deletes_nothing(monkeypatch):
     rep = asyncio.run(ps.survey(_Conn(), "en"))
     assert rep["skipped"] == "no committed bank"
     assert rep["delete"] == []
+
+
+class TestThinRowsLoseTheirExemption:
+    """CHECKS §24a. The source exemption was also shielding rows that are
+    merely THIN rather than bare, which `_context_free` does not reach: the
+    English card for `human` served "You are human.", "I am human." and
+    "She is human." — source `ai`, none in any committed bank — while the
+    bank held a real sentence. The file banks got this floor on 31 Aug;
+    production never did, so pruning ru and ar left 2,822 and 3,123 thin
+    protected rows behind."""
+
+    def _survey(self, rows, keep, monkeypatch, code="en"):
+        monkeypatch.setattr(ps, "file_pairs", lambda c: keep)
+
+        class _Conn:
+            async def fetch(self, *a, **k):
+                return rows
+        import asyncio
+        return asyncio.run(ps.survey(_Conn(), code))
+
+    def test_a_thin_ai_row_goes_when_the_word_has_a_real_one(self, monkeypatch):
+        rows = [
+            _row(word="human", sentence="You are human.", source="ai"),
+            _row(word="human", sentence="I am human.", source="ai"),
+            _row(word="human",
+                 sentence="Every language that dies out takes a piece of "
+                          "human history with it.",
+                 source="tatoeba"),
+        ]
+        keep = {("human", "Every language that dies out takes a piece of "
+                          "human history with it.")}
+        rep = self._survey(rows, keep, monkeypatch)
+        assert sorted(r["sentence"] for r in rep["delete"]) == \
+            ["I am human.", "You are human."]
+
+    def test_a_thin_row_stays_when_it_is_all_the_word_has(self, monkeypatch):
+        """The never-strand rule outranks the floor: a definition-only card
+        is the fallback, and it is worse than a thin sentence."""
+        rows = [_row(word="xh1", sentence="Ndiyaqonda ngoku.", source="ai"),
+                _row(word="xh1", sentence="Ewe kakhulu.", source="ai")]
+        rep = self._survey(rows, {("other", "unrelated.")}, monkeypatch)
+        assert rep["delete"] == []
+        assert rep["kept_empty"] == ["xh1"]
+
+    def test_the_report_columns_reconcile(self, monkeypatch):
+        """`protected` means "kept ONLY because of its source", so it must
+        exclude exempt rows that are being deleted. Counting every exempt row
+        overlapped `delete` the moment thin rows lost the exemption, and the
+        owner reads these columns to decide whether to --apply."""
+        rows = [
+            # exempt + thin -> deleted, so NOT protected
+            _row(word="human", sentence="You are human.", source="ai"),
+            # exempt + long -> survives on its source alone
+            _row(word="human",
+                 sentence="I have always wanted to meet a human like you.",
+                 source="ai"),
+            # bulk corpus, unendorsed -> deleted the ordinary way
+            _row(word="human", sentence="A human being walks.",
+                 source="tatoeba"),
+            # endorsed -> survives, and keeps the word off the stranded list
+            _row(word="human",
+                 sentence="Every language that dies out takes a piece of "
+                          "human history with it.",
+                 source="tatoeba"),
+        ]
+        keep = {("human", "Every language that dies out takes a piece of "
+                          "human history with it.")}
+        rep = self._survey(rows, keep, monkeypatch)
+        assert len(rep["delete"]) == 2
+        assert rep["exempt_deleted"] == 1          # the thin ai row
+        assert rep["protected"] == 1               # the long ai row only
+        assert rep["total"] - len(rep["delete"]) == 2
+
+    def test_a_thin_row_the_file_endorses_is_kept(self, monkeypatch):
+        """File-authoritative, still: the bank may legitimately hold a short
+        sentence, and the floor never overrules an endorsement."""
+        rows = [_row(word="da", sentence="Da, konechno.", source="ai"),
+                _row(word="da", sentence="On skazal chto pridet zavtra utrom.",
+                     source="tatoeba")]
+        keep = {("da", "Da, konechno."),
+                ("da", "On skazal chto pridet zavtra utrom.")}
+        rep = self._survey(rows, keep, monkeypatch)
+        assert rep["delete"] == []
+
+    def test_thai_is_exempt_because_it_has_no_whitespace_tokens(self):
+        """§22: counting tokens in an unspaced script says nothing about how
+        much sentence is there, so the floor must not fire at all."""
+        assert ps._below_floor("You are human.", "en")
+        assert not ps._below_floor("You are human.", "th")
+        assert not ps._below_floor("ฉันโอเค", "th")
+
+    def test_the_floor_counts_marks_as_part_of_their_letter(self):
+        """Quality rule 39: \\w drops Mn/Mc, turning नहीं into नह and
+        inflating the token count of every Devanagari and Arabic sentence."""
+        assert ps.sentence_tokens("नहीं आया") == ["नहीं", "आया"]
+        assert len(ps.sentence_tokens("مرحبا بك في بيتنا الجديد")) == 5
 
 
 class TestContextFreeRowsLoseTheirExemption:

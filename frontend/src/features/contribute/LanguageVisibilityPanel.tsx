@@ -169,11 +169,19 @@ export default function LanguageVisibilityPanel() {
                 : null
           return (
             <div key={lang.id} className="py-2">
-            <div className="flex items-center justify-between gap-3">
+            {/* The controls are genuinely wider than a phone. They used to
+                be `shrink-0` beside a `min-w-0` name, so the name absorbed
+                the whole shortfall and collapsed to nothing — every row
+                read as a flag and some checkboxes, with no language on it
+                — and the row STILL overflowed, pushing the settings icon
+                past the card edge. Below `sm` the name takes its own line
+                and the controls wrap underneath; from `sm` up the original
+                single row comes back. */}
+            <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
               <button
                 type="button"
                 onClick={() => setActiveLanguageId(lang.id)}
-                className="flex items-center gap-2 text-start hover:underline min-w-0"
+                className="flex basis-full items-center gap-2 text-start hover:underline min-w-0 sm:basis-auto sm:flex-1"
                 title={`Switch to ${lang.name}`}
               >
                 <CircleFlag code={lang.code} size={18} />
@@ -189,7 +197,7 @@ export default function LanguageVisibilityPanel() {
                   </span>
                 )}
               </button>
-              <div className="flex items-center gap-3 shrink-0">
+              <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1.5">
                 {lang.id !== activeLanguageId && (
                   <button
                     type="button"
@@ -223,7 +231,7 @@ export default function LanguageVisibilityPanel() {
                   </span>
                 )}
                 <label
-                  className="flex items-center gap-2 text-xs text-gray-500"
+                  className="flex items-center gap-2 whitespace-nowrap text-xs text-gray-500"
                   title="Opt this course into the FULL backlog fill. Off still serves learners: what they wait on translates on demand, and recent real use buys a usage-scaled starter corpus. Rejects go to the review queue either way; no learner allowance is drawn."
                 >
                   Auto-translate
@@ -240,7 +248,7 @@ export default function LanguageVisibilityPanel() {
                     className="rounded border-gray-300"
                   />
                 </label>
-                <label className="flex items-center gap-2 text-xs text-gray-500">
+                <label className="flex items-center gap-2 whitespace-nowrap text-xs text-gray-500">
                   {lang.is_visible ? 'Visible' : 'Hidden'}
                   <input
                     type="checkbox"

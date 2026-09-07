@@ -192,6 +192,31 @@ describe('LanguageVisibilityPanel', () => {
     ).toBeNull()
   })
 
+  it('keeps the language name on a phone instead of crushing it to nothing', async () => {
+    /* The reported bug: on a phone every row read as a flag and some
+     * checkboxes, with no language on it, and the settings icon sat
+     * outside the card. The control cluster was `shrink-0` while the name
+     * button was `min-w-0`, so the name absorbed the whole shortfall and
+     * collapsed — and the row still overflowed.
+     *
+     * jsdom does no layout, so this pins the two class decisions that
+     * cause it rather than a measured width: the row must be allowed to
+     * WRAP, and the controls must not refuse to shrink. */
+    renderPanel()
+    const name = await screen.findByText('Hebrew')
+    const button = name.closest('button')!
+    const row = button.parentElement!
+    expect(row.className).toContain('flex-wrap')
+    // The name takes its own line below `sm`, so it never competes with
+    // the controls for width on a phone.
+    expect(button.className).toContain('basis-full')
+    expect(button.className).toContain('sm:basis-auto')
+
+    const controls = row.querySelector(':scope > div')!
+    expect(controls.className).not.toContain('shrink-0')
+    expect(controls.className).toContain('flex-wrap')
+  })
+
   describe('release gate (owner: "released after review")', () => {
     it('badges the outstanding review backlog per language', async () => {
       mockReadiness.mockResolvedValue([

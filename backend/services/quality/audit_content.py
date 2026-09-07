@@ -49,6 +49,7 @@ from pathlib import Path
 # Single source of truth for the Arabic combining-mark ranges: the grader folds
 # them the same way, and a checker that disagreed with the grader about what
 # "the same word" means would flag content the app accepts.
+from backend.services.extract import make_cloze
 from backend.services.nlp.arabic_script import _TASHKEEL as _ARABIC_MARKS
 
 # backend/services/quality/audit_content.py -> repo root. Never absolutise this:
@@ -77,7 +78,12 @@ FAIL_RULES = (
 WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "structural")
 # Measured and printed, never scored: "how often do noun hints mark gender" is
 # a number to drive editorial work, not a threshold anyone can set honestly.
-REPORT_RULES = ("gender_marking",)
+REPORT_RULES = ("gender_marking", "unclozable_rows", "frame_collision")
+
+# The top band a learner actually reaches in the first months. Both card
+# rules below are scoped to it: a defect on rank 8,000 is real and nobody
+# meets it.
+CARD_RULE_BAND = 2000
 ALL_RULES = FAIL_RULES + WARN_RULES + REPORT_RULES
 
 # Languages whose learners need gender on every noun. `de` carries it as an
@@ -721,6 +727,84 @@ def _audit_circular_glosses(code: str) -> list[str]:
     return problems
 
 
+def _card_span_finder(code: str):
+    """Thai has no word boundaries, so the card finds its blank by segmenting
+    (CHECKS §29). Import lazily: the audit is the fast every-commit gate and
+    must not pay for the lexicon on a language that never needs it."""
+    if code != "th":
+        return None
+    from backend.services.nlp.thai import answer_span
+    return answer_span
+
+
+def _audit_sentence_cards(code: str) -> tuple[list[str], list[str]]:
+    """Two card-level rules, over one read of the sentence bank.
+
+    `unclozable_rows` — words whose every sentence the card cannot blank, so
+    the card falls back to a definition-only prompt without saying so. This
+    is the instrument CHECKS §29 asks for: coverage counted rows the learner
+    could never be shown, and for th/ko/ar/yo most of the bank was that.
+
+    `frame_collision` — one blanked sentence with several different answers.
+    The corpus proving its own prompt does not determine an answer, which is
+    the mechanical half of CHECKS §28 (the owner's `do` card: "What ___ you
+    do?"). It cannot catch the other half — `did` is not a headword, so no
+    second row exists to collide with — and that is written down rather than
+    implied by a clean number.
+
+    Both are report-level. They measure supply and ambiguity, which move with
+    editorial work rather than with a bug, so a threshold on either would be
+    a number nobody could set honestly (the `gender_marking` argument).
+    """
+    path = DATA / f"{code}_sentences.tsv"
+    if not path.exists():
+        return [], []
+    ranks: dict[str, int] = {}
+    freq = DATA / f"{code}_frequency.tsv"
+    if freq.exists():
+        with freq.open(encoding="utf-8-sig", newline="") as handle:
+            for row in csv.DictReader(handle, delimiter="\t"):
+                word = (row.get("word") or "").strip()
+                try:
+                    rank = int(row.get("rank") or 0)
+                except ValueError:
+                    continue
+                if word and 0 < rank <= CARD_RULE_BAND:
+                    ranks[word] = rank
+    find_span = _card_span_finder(code)
+    seen: set[tuple[str, str]] = set()
+    per_word: dict[str, list[int]] = {}
+    frames: dict[str, set[str]] = {}
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            word = (row.get("word") or "").strip()
+            sentence = (row.get("sentence") or "").strip()
+            if not (word and sentence) or (word, sentence) in seen:
+                continue
+            seen.add((word, sentence))
+            tally = per_word.setdefault(word, [0, 0])
+            tally[0] += 1
+            cloze = make_cloze(sentence, word, find_span)
+            if cloze is None:
+                continue
+            tally[1] += 1
+            frames.setdefault(cloze.casefold(), set()).add(word.casefold())
+
+    unclozable = [
+        f"rank {ranks[word]} '{word}': {tally[0]} sentences, none the card "
+        f"can blank — it serves the definition alone"
+        for word, tally in per_word.items()
+        if tally[1] == 0 and word in ranks
+    ]
+    collisions = [
+        f"{len(answers)} answers share one prompt: \"{frame[:60]}\" "
+        f"— {', '.join(sorted(answers)[:4])}"
+        for frame, answers in frames.items()
+        if len(answers) > 1
+    ]
+    return sorted(unclozable), sorted(collisions, reverse=True)
+
+
 def audit_language(code: str) -> dict:
     """Every rule for one language. Returns findings, counts and notes."""
     points = load_grammar(code)
@@ -730,6 +814,9 @@ def audit_language(code: str) -> dict:
     findings["gender_marking"] = _audit_gender_marking(code, points or [], morphology)
     findings["wrong_sense_gloss"] = _audit_wrong_sense_glosses(code)
     findings["circular_gloss"] = _audit_circular_glosses(code)
+    findings["unclozable_rows"], findings["frame_collision"] = (
+        _audit_sentence_cards(code)
+    )
     if code == "ar":
         findings["ar_register"] += _audit_arabic_sentences()
 

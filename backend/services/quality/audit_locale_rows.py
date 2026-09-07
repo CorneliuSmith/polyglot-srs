@@ -38,7 +38,12 @@ import os
 
 import asyncpg
 
-from backend.services.locale_guard import has_letters, script_of, script_ratio
+from backend.services.locale_guard import (
+    has_letters,
+    probable_latin_language,
+    script_of,
+    script_ratio,
+)
 
 # Scripts we can positively identify. A locale whose script isn't here (any
 # Latin-written language) can't be judged this way — the guard is one-sided
@@ -105,6 +110,19 @@ async def check_user(conn, email: str) -> None:
               "(Settings, or the picker in a session) clears it.")
 
 
+def _foreign_latin(text: str | None) -> str | None:
+    """"looks like Spanish", for a column that is supposed to be English.
+
+    `foreign_script` can only prove a text is Arabic, Cyrillic or Greek —
+    it is blind between two Latin alphabets, which is exactly where the
+    last one of these hid. Conservative on purpose (see locale_guard): it
+    names a language only when the closed-class function words say so, so
+    this reports rows worth reading rather than every terse note.
+    """
+    lang = probable_latin_language(text)
+    return f"looks like {lang}" if lang else None
+
+
 async def scan_content(conn, code: str | None, limit: int) -> int:
     """Rows whose text is in a different script from the locale they claim."""
     langs = await conn.fetch(
@@ -127,6 +145,13 @@ async def scan_content(conn, code: str | None, limit: int) -> int:
             lang["id"], limit,
         ):
             bad = foreign_script(r["text"], r["locale"])
+            if not bad and r["locale"] == "en":
+                # The Latin-to-Latin case the script test cannot reach: a
+                # SPANISH row filed as 'en' is served to every learner as
+                # the English fallback, and reads as English to every other
+                # check in this file. That is how "El bebé llora mucho por
+                # la noche." reached an Arabic-support account (6 Sep 2026).
+                bad = _foreign_latin(r["text"])
             if bad:
                 findings.append(("example_sentences", str(r["id"]),
                                  f"locale={r['locale']} but {bad}", r["text"]))
@@ -144,7 +169,7 @@ async def scan_content(conn, code: str | None, limit: int) -> int:
             # A drill's translation column has no locale label: it IS the
             # English, by definition. Anything non-Latin in it reaches every
             # learner of this course whatever their profile says.
-            bad = foreign_script(r["text"], "en")
+            bad = foreign_script(r["text"], "en") or _foreign_latin(r["text"])
             if bad:
                 findings.append(("drill_sentences", str(r["id"]),
                                  f"English column but {bad}", r["text"]))
