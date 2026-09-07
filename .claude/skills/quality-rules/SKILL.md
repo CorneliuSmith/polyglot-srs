@@ -303,6 +303,18 @@ rate, say so — that result matters more than the phase closing quietly.
     not useless but WRONG — it was blanking `แก` out of `แก้ม` — so
     segmentation replaces it rather than backing it up. (CHECKS §29)
 
+47. **A gate belongs to the data it governs — test it against the whole
+    corpus before trusting it.** `apply_gloss_overrides` shipped with two
+    rules borrowed from the English audit and applied to all 27: they
+    refused 864 existing overrides, none of them defects, because off
+    English a definition is in a DIFFERENT language from its headword and a
+    match is a translation (Catalan `ha` = "has"). A two-word floor and a
+    160-character cap refused 495 more, against a corpus whose median is 76
+    characters and whose longest is 414. Both thresholds were taste; the
+    corpus was the evidence. Running the gate over everything already
+    shipped is what separated the 5 real findings from the 1,359 false
+    ones. (CHECKS §28)
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
