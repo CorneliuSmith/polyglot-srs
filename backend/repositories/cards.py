@@ -21,6 +21,7 @@ from backend.services.auto_translate import (
     table_present,
 )
 from backend.services.cell_glosses import cell_gloss
+from backend.services.drill_notes import split_note
 from backend.services.extract import ANSWER_MARKER, make_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
@@ -283,6 +284,7 @@ async def get_due_cards(
             d.answers                       AS drill_answers,
             d.hints                         AS drill_hints,
             d.translations                  AS drill_translations,
+            d.base_translations             AS drill_base_translations,
             d.glosses                       AS drill_glosses,
             d.transliterations              AS drill_transliterations,
             lp.prompt_sentence              AS last_prompt,
@@ -308,6 +310,10 @@ async def get_due_cards(
                           ORDER BY ds.display_order, ds.id) AS hints,
                 array_agg(COALESCE(dht.translation, ds.translation)
                           ORDER BY ds.display_order, ds.id) AS translations,
+                -- The authored field alone, so the card can tell a
+                -- translation from an English usage note (CHECKS §27).
+                array_agg(ds.translation
+                          ORDER BY ds.display_order, ds.id) AS base_translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
                 array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
             FROM drill_sentences ds
@@ -652,7 +658,7 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     drills, so this shouldn't be reachable for fresh content.
     """
     drills = r["drill_sentences"] or []
-    gloss, transliteration = None, None
+    gloss, transliteration, context = None, None, None
     if drills:
         idx = _pick_index(list(drills), r["last_prompt"], stats, _rotation_key(r))
         sentence = drills[idx]
@@ -661,6 +667,9 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         translation = (r["drill_translations"] or [None] * len(drills))[idx]
         gloss = (r["drill_glosses"] or [None] * len(drills))[idx]
         transliteration = (r["drill_transliterations"] or [None] * len(drills))[idx]
+        translation, context = split_note(
+            r["language_code"], translation,
+            (r["drill_base_translations"] or [None] * len(drills))[idx])
     else:
         sentence, answer, hint, translation = r["title"], r["title"], None, None
     return {
@@ -669,6 +678,7 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         "correct_answer": answer,
         "hint": hint,
         "translation": translation,
+        "context": context,
         "gloss": gloss,
         "transliteration": transliteration,
         "morphology": None,

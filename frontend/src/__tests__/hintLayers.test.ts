@@ -299,3 +299,45 @@ describe('the gloss is an account setting, off by default', () => {
     expect(hintLayersFor('es', noGloss, { showGlosses: false }).length).toBe(2)
   })
 })
+
+describe('the English usage note gets its own label (CHECKS §27)', () => {
+  // On the English course the authored `translation` is a usage NOTE, and the
+  // real translations live per locale. With an English UI there is no locale
+  // row, so the card used to print "do — the participle." under the heading
+  // Translation. The server now sends it as `context` instead.
+  const card = {
+    sentence: 'What would you have {{answer}} in my position?',
+    correct_answer: 'done',
+    hint: 'do — participle',
+  }
+
+  it('shows the note under its own label, not Translation', () => {
+    const layers = hintLayersFor('en', { ...card, translation: null, context: 'do — the participle.' })
+    const fields = layers.map((l) => l.field)
+    expect(fields).toContain('context')
+    expect(fields).not.toContain('translation')
+    const note = layers.find((l) => l.field === 'context')
+    expect(note?.text).toBe('do — the participle.')
+    expect(note?.label).not.toBe('Translation')
+  })
+
+  it('still shows a real translation when the learner has one', () => {
+    const layers = hintLayersFor('en', {
+      ...card,
+      translation: 'Ayer fui al mercado.',
+      context: 'The past of eat.',
+    })
+    const fields = layers.map((l) => l.field)
+    expect(fields).toContain('translation')
+    expect(fields).toContain('context')
+  })
+
+  it('changes nothing for a course that sends no note', () => {
+    const layers = hintLayersFor('es', {
+      sentence: 'El gato {{answer}} en la ventana.',
+      correct_answer: 'duerme',
+      translation: 'The cat sleeps in the window.',
+    })
+    expect(layers.map((l) => l.field)).not.toContain('context')
+  })
+})
