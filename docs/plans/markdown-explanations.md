@@ -1,6 +1,13 @@
 # Markdown pass over the seed explanations — plan (4 Sep 2026)
 
-**Status:** planned, not started. Reviewed against the code on 6 Sep 2026
+**Status: the tooling is built (7 Sep 2026); the editorial pass has not
+started.** `scripts/apply_grammar_explanations.py` is the export/apply pair
+the corrections below call for, and `test_content_markdown_guard.py` has
+been reshaped so a formatted explanation is legal while a construct the card
+cannot render is not (see "The gate", below). What remains is the read
+itself: 27 in-session runs over 1,378 texts, in the order this plan sets.
+
+**Status was:** planned, not started. Reviewed against the code on 6 Sep 2026
 (a workflow agent, every claim cited to file:line) and corrected below;
 the sections that follow are the original design with the wrong lines
 struck. **Placement: `docs/plans/quality-parity.md` Phase 3, as its closing
@@ -52,6 +59,40 @@ per-language step** — see "Where it sits" at the end.
 9. **`seed_grammar.py` does not call `clean_markdown`** (the editor and
    the AI generator do). The apply step's own call is the only cleaner
    between the file and production; it stays.
+
+## The gate (built 7 Sep 2026)
+
+```bash
+.venv/bin/python -m scripts.apply_grammar_explanations --export tr --out tr.json
+.venv/bin/python -m scripts.apply_grammar_explanations --apply tr.edited.json --dry-run
+```
+
+The export half writes one task per non-empty explanation (index, title,
+level, function, text). The apply half refuses anything the card cannot
+render, and only that — taste stays with the reader:
+
+| refused | because |
+|---|---|
+| a heading | `CardMarkdown`'s sanitiser has no `h1`-`h6`; the card title is the heading |
+| an image, a horizontal rule, raw HTML, a non-http link | not in the allow-list — dropped silently or printed literally |
+| a table whose rows disagree with its header | GFM renders it as a paragraph of pipes, worse than the prose it replaced |
+| `___` inside a markdown block | that is how cards write a blank; inside markdown GFM reads it as emphasis |
+| a text sharing no word with the one it replaces | what an off-by-one in the round trip looks like |
+| a text past 3x or under 40% of the original | formatting does not triple a paragraph, and truncation is otherwise silent |
+
+Tested against the corpus it governs (rule 47): every one of the 1,378
+shipped texts passes its own gate, and a test pins that none carries
+markdown yet, so the first formatted course shows as a real change rather
+than as drift. `has_markdown` mirrors `ExplanationView.hasMarkdown`, and a
+test reads the TSX to keep the two in step.
+
+**The old guard could not have survived this pass.** It forbade markdown in
+`explanation` outright with an ALLOWED set of exceptions — 1,378 lines of
+exceptions, one per text, and a list that long is not read. It now checks
+the renderer-supported subset instead, and keeps the zero rule for the
+fields that render plain (`culture_note`, `function`). It had been naming
+`function_note`, which is not the seed key, so that field was never
+actually guarded — correction 1 in this plan, now fixed.
 
 ## What it is, and what it is not
 

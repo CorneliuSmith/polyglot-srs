@@ -38,27 +38,62 @@ MARKERS = {
     "link": re.compile(r"\[[^\]]+\]\([^)]+\)"),
 }
 
-# Rows that carry a marker on purpose: (file stem, point title, marker).
-# Add here, deliberately, when an explanation is meant to render as
-# markdown. Empty today.
-ALLOWED: set[tuple[str, str, str]] = set()
+# Fields that render PLAIN wherever they appear (`GrammarPathPage.tsx`,
+# `LearnPage.tsx`, `ReviewDetail.tsx` all put them in a bare <p>), so a
+# marker in one prints literally. `explanation` is not among them: it is
+# the one field that reaches `ExplanationView` -> `CardMarkdown`.
+#
+# The seed key is `function`, not `function_note`. This guard named the
+# latter for months and was therefore vacuous on that field — the plan
+# `docs/plans/markdown-explanations.md` (correction 1) found it, and
+# `function` is what REFERENCE.md renders from, so it matters.
+PLAIN_FIELDS = ("culture_note", "function", "function_note")
 
 
 @pytest.mark.parametrize("path", GRAMMAR, ids=lambda p: p.stem)
-def test_seed_explanations_carry_no_markdown_markers(path):
+def test_plain_fields_carry_no_markdown_markers(path):
+    """A marker in a field nothing routes to the renderer prints literally."""
     data = json.loads(path.read_text(encoding="utf-8"))
     points = data["points"] if isinstance(data, dict) else data
-    found = []
-    for p in points:
-        for field in ("explanation", "culture_note", "function_note"):
-            text = p.get(field) or ""
-            for name, rx in MARKERS.items():
-                if rx.search(text) and (path.stem, p["title"], name) not in ALLOWED:
-                    found.append((p["title"], field, name))
+    found = [
+        (p["title"], field, name)
+        for p in points
+        for field in PLAIN_FIELDS
+        for name, rx in MARKERS.items()
+        if rx.search(p.get(field) or "")
+    ]
     assert found == [], (
-        f"{path.name}: markdown markers in the seed — these blocks now RENDER "
-        f"as markdown for every learner. Either strip them or list them in "
-        f"ALLOWED on purpose: {found[:10]}"
+        f"{path.name}: markdown markers in a field that renders PLAIN — these "
+        f"print literally on the card. Strip them: {found[:10]}"
+    )
+
+
+@pytest.mark.parametrize("path", GRAMMAR, ids=lambda p: p.stem)
+def test_explanations_only_carry_markdown_the_renderer_supports(path):
+    """`explanation` MAY carry markdown — since 4 Sep 2026 the card renders
+    it, and the editorial pass in `docs/plans/markdown-explanations.md` is
+    filling it in course by course. What it may not carry is a construct
+    `CardMarkdown`'s sanitiser drops: a heading (no h1-h6 in `tagNames`), an
+    image, a rule, raw HTML, a non-http link, a table whose rows disagree
+    with its header, or a `___` blank inside a markdown block.
+
+    This replaced a rule that forbade markdown outright and kept an ALLOWED
+    set of exceptions. That shape could not survive the pass: 1,378 texts
+    would each need a line in it, and a list that long is not read.
+    """
+    from scripts.apply_grammar_explanations import check
+
+    data = json.loads(path.read_text(encoding="utf-8"))
+    points = data["points"] if isinstance(data, dict) else data
+    bad = [
+        (p["title"], why)
+        for p in points
+        if (p.get("explanation") or "").strip()
+        and (why := check(p["explanation"], p["explanation"]))
+    ]
+    assert bad == [], (
+        f"{path.name}: an explanation carries markdown the card cannot "
+        f"render — it is dropped or printed literally: {bad[:5]}"
     )
 
 
