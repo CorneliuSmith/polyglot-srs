@@ -79,9 +79,18 @@ def test_thai_is_segmented_not_split_on_whitespace():
     """Thai writes without spaces, so a whole sentence is ONE whitespace
     token and a correct three-cell gloss looks like a count error. 100
     correct Thai glosses were rejected that way before the gate learned to
-    segment, which it does by borrowing the reading pipeline's own
-    segmentation — the same one the learner sees under the sentence."""
-    assert adg.tokenize("ผม{{answer}}ข้าว", "th") == ["phom", "{{answer}}", "khao"]
+    segment.
+
+    It segments with `nlp.thai.segment` over `cloze_lexicon` — the same
+    boundaries the CLOZE uses to find its blank. It used to borrow the
+    reading pipeline's split instead, which returned romanised tokens and,
+    more to the point, disagreed with the cloze on 48 of 151 drills. Only
+    the COUNT and the marker's position matter to the gate, but they have to
+    be the counts the rest of the pipeline believes in."""
+    tokens = adg.tokenize("ผม{{answer}}ข้าว", "th")
+    assert len(tokens) == 3
+    assert tokens[1] == "{{answer}}"
+    assert tokens == ["ผม", "{{answer}}", "ข้าว"]
     assert adg.check("1SG.M · ___ · rice", "ผม{{answer}}ข้าว", "กิน", "th") is None
 
 
