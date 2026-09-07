@@ -17,6 +17,7 @@ from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.repositories.gym import get_gym_progress
 from backend.repositories.pool import savepoint
 from backend.services.auto_translate import (
+    column_present,
     note_missing_content,
     table_present,
 )
@@ -153,6 +154,7 @@ async def get_due_cards(
     else:
         due_clause = "uc.next_review <= now()"
         due_args = ()
+    retired_clause = await _retired_clause(conn)
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
     # out (cloze), with its translation as a hint. All of the word's sentences
@@ -258,6 +260,11 @@ async def get_due_cards(
         WHERE uc.language_id = $1
           AND uc.card_type = 'vocabulary'
           AND {due_clause}
+          -- A word the courses no longer teach stops being DRAWN, while the
+          -- learner's card, history and schedule stay exactly as they were
+          -- (migration 20261016). Deleting the row instead would orphan
+          -- their progress: this query INNER JOINs vocabulary.
+          {retired_clause}
           AND uc.is_suspended = false
         ORDER BY uc.next_review ASC
         LIMIT $2
@@ -795,6 +802,20 @@ def _spread_word_types(rows: list, limit: int) -> list:
     return [r["id"] for r in picked]
 
 
+async def _retired_clause(conn: asyncpg.Connection, alias: str = "v") -> str:
+    """`AND <alias>.retired_at IS NULL`, or nothing on a database that has not
+    had migration 20261016 yet.
+
+    Probed rather than caught (decision 0001, and `table_present`'s reason):
+    every pooled connection runs inside one transaction, so a query naming a
+    missing column does not merely fail — it aborts the transaction and every
+    later query in the same request. The review draw is the hot path.
+    """
+    if await column_present(conn, "vocabulary", "retired_at"):
+        return f"AND {alias}.retired_at IS NULL"
+    return ""
+
+
 async def _vocab_candidates(
     conn: asyncpg.Connection,
     user_id: str,
@@ -805,6 +826,7 @@ async def _vocab_candidates(
     explicit_filter: bool,
     topic: str | None = None,
 ) -> list:
+    retired_clause = await _retired_clause(conn)
     explicit_clause = (
         """
               -- Slurs and strong profanity are frequent (Spanish *puta* is
@@ -858,6 +880,7 @@ async def _vocab_candidates(
                         AND NOT (is_suspended AND repetitions = 0)
                   )
                   {explicit_clause}
+                  {retired_clause}
             ),
             ranked AS (
                 SELECT id, part_of_speech,
@@ -872,7 +895,8 @@ async def _vocab_candidates(
             FROM ranked
             ORDER BY rn ASC, part_of_speech ASC NULLS LAST
             LIMIT $3
-            """.replace("{explicit_clause}", explicit_clause),
+            """.replace("{explicit_clause}", explicit_clause)
+                .replace("{retired_clause}", retired_clause),
             user_id,
             language_id,
             batch_size * 3,
@@ -910,6 +934,8 @@ async def _vocab_candidates(
                     AND NOT (is_suspended AND repetitions = 0)
               )
               {explicit_clause}
+              -- Never OFFER a word the courses no longer teach (20261016).
+              {retired_clause}
         ),
         ranked AS (
             SELECT id, level,
@@ -923,7 +949,8 @@ async def _vocab_candidates(
         FROM ranked
         ORDER BY rn ASC, level ASC NULLS LAST
         LIMIT $3
-        """.replace("{explicit_clause}", explicit_clause),
+        """.replace("{explicit_clause}", explicit_clause)
+            .replace("{retired_clause}", retired_clause),
         user_id,
         language_id,
         batch_size,

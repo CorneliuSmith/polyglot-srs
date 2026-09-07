@@ -716,6 +716,13 @@ async def pending_words(
     not an oracle and the alternative was a word stuck in English forever.
     """
     gate = ""
+    # A retired word must not be glossed into 19 more languages. The Spanish
+    # UI showed "eme" for the English headword `em` — the wrong gloss (a
+    # printer's quad) translated faithfully into the letter M. The guards in
+    # translate_checks cannot catch that: the pipeline did its job on an input
+    # that should never have entered it (CHECKS §27, migration 20261016).
+    if await column_present(conn, "vocabulary", "retired_at"):
+        gate += "\n          AND v.retired_at IS NULL"
     if backoff:
         gate += _backoff_sql("v.id", "word")
     if skip_reviewed and not backoff:

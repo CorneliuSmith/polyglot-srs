@@ -44,10 +44,21 @@ supabase db push
 .venv/bin/python -m backend.services.seeder.reconcile -l <code>
 .venv/bin/python -m backend.services.seeder.reconcile -l <code> --apply
 ```
-3. **Corrections.** Dry run prints what would change (glosses, parts of
-   speech, sentence layers — the `s-layer` column); `--apply` writes
-   `out/reconcile-<stamp>.sql` FIRST, then applies in one transaction.
-   `--detail` lists every gloss change. Never deletes a vocabulary row.
+3. **Corrections, and retirements.** Dry run prints what would change
+   (glosses, parts of speech, sentence layers — the `s-layer` column);
+   `--apply` writes `out/reconcile-<stamp>.sql` FIRST, then applies in one
+   transaction. `--detail` lists every gloss change. Never deletes a
+   vocabulary row.
+
+   Since migration 20261016 it also **retires** words listed in
+   `data/vocab_exclusions.tsv` — 858 of them: alphabet letters glossed as
+   vocabulary, Arabic punctuation, English words WordNet matched to a
+   chemical symbol (`em` is a printer's quad), and the 645 given names. A
+   retired word stops being drawn in Review and offered in Learn, keeps the
+   learner's card, history and schedule, and stops being translated into
+   further locales. Deleting a line from the file un-retires the word on the
+   next run, so the file stays the source of truth in both directions. On a
+   database without the column the step is skipped, not failed.
 
 ```bash
 .venv/bin/python -m backend.services.seeder.seed_grammar -l <code>
