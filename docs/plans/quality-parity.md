@@ -1159,6 +1159,48 @@ cue-shaped duplicates of the hint. Scoped to `en`; 0 elsewhere (9 hits
 inspected). Fix: a `context` field rendered under its own label in six
 locales, 11 notes rewritten, a check.
 
+**8a · What the card actually has AFTER the prune (measured 6 Sep).** The
+committed bank is what remains, so this is the real state of every course
+once the owner's prune lands. Top-2,000 words, counting only sentences
+`make_cloze` can blank (Thai via its segmenter):
+
+| code | words with NO sentence | only 1 | avg | fragments (<5 tok) | under 7 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| he | 146 | 697 | 2.1 | **53%** | 90% |
+| tr | 229 | 696 | 2.0 | **50%** | 89% |
+| th | 806 | 327 | 2.4 | **50%** | 80% |
+| ko | 1,359 | 379 | 1.6 | **49%** | 88% |
+| el | 215 | 596 | 2.0 | 28% | 71% |
+| it | 91 | 499 | 2.2 | 26% | 70% |
+| id | 396 | 612 | 1.9 | 18% | 64% |
+| tl | 600 | 451 | 2.1 | 18% | 57% |
+| yo | 1,401 | 140 | 1.4 | 16% | 54% |
+| pt | 81 | 434 | 2.2 | 14% | 60% |
+| es | 32 | 469 | 2.2 | 13% | 57% |
+| xh | 769 | 246 | 1.9 | 12% | 42% |
+| ro ca sw | 227/526/926 | ~540 | 2.0 | 11% | 41–52% |
+| de nl | 39/29 | ~360 | 2.3 | 10% | 54–56% |
+| fr | 65 | 328 | 2.4 | 6% | 37% |
+| fa | 621 | 563 | 1.9 | 5% | 46% |
+| hi | 391 | 493 | 2.1 | 4% | 11% |
+| **en ru ar ha jam la mi** | 28/42/492/9/0/40/276 | 35–218 | 2.2–3.8 | **0%** | 7–42% |
+
+**Three things this settles.**
+
+1. **The courses that lose most to the prune are not the ones in trouble.**
+   `it` 11,696, `tr` 10,028, `pt` 9,716 and `es` 9,176 rows go — but that is
+   an unendorsed Tatoeba surplus, and afterwards `es` (13%) and `pt` (14%)
+   are healthy. `tr` at 50% and `it` at 26% are not, and no amount of
+   pruning changes that: those banks are thin, not polluted.
+2. **The method works where it has run.** en, ru, ar, ha, jam, la and mi are
+   at **0% fragments** — the courses that got the floor pass, the curation,
+   or the 31 Aug authoring. That is the strongest evidence the programme has
+   that authoring to §23 is the fix rather than a hope.
+3. **The Phase 8 order below predates this measurement and disagrees with
+   it.** `he`, `tr`, `ko` and `th` are the worst courses a learner can pick
+   today, and only `he` is early in that order. `tr` is in the last group.
+   Either the order changes or the reason it should not is written down.
+
 **8 · The supply queue, by course.** Top-2,000 words with sentences but
 none in the §23 band (§26, right-hand column): tr 1,617 · he 1,538 · it
 1,065 · el 1,042 · ko 1,018 · id 802 · es 784 · pt 782 · de 738 · nl 683 ·
