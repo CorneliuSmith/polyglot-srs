@@ -184,6 +184,15 @@ writers really write. Both readings are reasonable and they cannot both be
 the rule. Is a written abbreviation a vocabulary card? Whichever way, it
 applies to every course at once. Details in DEBT.md.
 
+**Fifteen more joined this decision on 7 Sep**, all found by the
+letter-debris sweep and held rather than excluded: French `7e 8e 9e 10e 12e
+13e 14e 18e 19e 20e 21e` (ordinal abbreviations — real written French, but
+is an abbreviation a vocabulary card?), Russian `в.` (east) and `р.`
+(river), Spanish `a-` (a bound prefix, not a word a learner types), French
+`è` (glossed "contraction of elle + est", which is eye-dialect). Same
+question as the original twelve: a written abbreviation is real, and a card
+that asks a learner to type one is not obviously teaching anything.
+
 ### D. 40,683 production rows no committed file governs (new, 7 Sep)
 
 Rows in the database that no committed source owns — reported by the
@@ -217,7 +226,17 @@ Options, cheapest first:
 4. Retire every ungoverned row — 40,683 cards out of the decks, about 37% of
    Russian's. Not recommended without 3 first.
 
-Recommendation: **2 now, 3 next** (a maker–checker pass is running in-session
+**Option 2 is done (7 Sep, night):** 149 of the 165 letter-debris rows are
+in `vocab_exclusions.tsv` and your next reconcile dry run will show them as
+`retire 149`. Three readers checked the list first and refused one row —
+Yoruba `n`, which is the 1SG subject pronoun, deleted from the file by an
+early junk sweep and left live glossed as an alphabet letter; it is
+restored (`yo.md`). Fifteen more are held for **decision B**: eleven French
+ordinal abbreviations (`7e`, `10e`, `21e`…), Russian `в.` (east) and `р.`
+(river), Spanish `a-` (a bound prefix), and French `è` (an eye-dialect
+contraction).
+
+Recommendation: **3 next** (a maker–checker pass is running in-session
 and its verdicts will be attached here), 4 only after 3 has said which twins
 are the better form. Lists: session scratchpad `decision_d_glyphs.json`,
 `decision_d_twins.json`, `departed.json`.

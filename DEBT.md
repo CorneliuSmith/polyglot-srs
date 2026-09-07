@@ -683,6 +683,25 @@ under a stale key — re-key them to the marked headword if the definition
 still fits, delete the rest. `scripts/apply_gloss_overrides.py` refuses such
 rows today; these predate the gate or outlived their headword.
 
+## Two content defects found while auditing something else (7 Sep 2026)
+
+Both surfaced when a checker read the letter-debris sweep; neither is in
+its scope, and neither is fixed.
+
+- **Romanian rank 4 `si` is glossed "si (musical note B)".** Rank 4 of a
+  shipped course cannot be a musical note: the frequency belongs to `și`
+  ("and"), typed without its comma-below. Same class as the ro rows already
+  in `vocab_exclusions.tsv` ("the stated meaning cannot carry this rank"),
+  but this one is IN the file, so it needs a definition and possibly a
+  re-spelling, not an exclusion. Rank 211 `i` glossed "and" is archaic
+  Romanian and probably the same fault.
+- **Catalan has no apostrophe headwords at all.** `data/ca_frequency.tsv`
+  carries none of `l'`, `d'`, `m'`, `t'`, `s'`, `n'`, `'l`, `'m`, `'s`,
+  `'ns` in 469 KB, while French and Italian carry theirs in the top 60.
+  `ca.md` names elision and clitic clusters as one of the three features
+  that dominate drill quality and calls the apostrophe the character
+  authors get wrong most. A coverage gap, not debris.
+
 ## Rows production serves that no committed file governs (7 Sep 2026)
 
 40,683 vocabulary rows are in production and owned by no committed source:
