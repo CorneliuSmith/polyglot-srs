@@ -119,6 +119,18 @@ A loop for several courses, as the owner ran it on 31 Aug:
 for c in ru ar; do .venv/bin/python -m backend.services.seeder.prune_sentences -l $c --apply; done
 ```
 
+**Run the grammar seeder one course at a time.** `seed_grammar -l all`
+hung for two hours on 7 Sep after its fifth course when the pooler dropped
+its session; a loop makes a hang cost one course and shows which:
+
+```bash
+for c in ar ca de el en es fa fr ha he hi id it jam ko la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
+```
+
+Every statement is an upsert, so rerunning a course that was cut off is
+safe. Since 7 Sep every content tool's connection has a five-minute
+command timeout, so a dropped session now fails loudly instead of waiting.
+
 **What the apply looks like while it runs.** After "rollback written first:
 …" it prints nothing until the summary line — one transaction, one
 statement per changed row, over the pooler. The 7 Sep apply (about 6,000

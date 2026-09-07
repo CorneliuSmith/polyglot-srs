@@ -47,6 +47,7 @@ import asyncpg
 
 from backend.services.extract import find_cloze
 from backend.services.linked_forms import forms_of
+from backend.services.seeder.base import COMMAND_TIMEOUT
 from backend.services.span_finders import span_finder
 
 REPO = Path(__file__).resolve().parents[3]
@@ -326,7 +327,7 @@ async def main() -> None:
     if not args.db_url:
         print("ERROR: DATABASE_URL not set. Pass --db-url or set DATABASE_URL.")
         return
-    conn = await asyncpg.connect(args.db_url)
+    conn = await asyncpg.connect(args.db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         if args.rollback:
             await conn.execute(Path(args.rollback).read_text(encoding="utf-8"))

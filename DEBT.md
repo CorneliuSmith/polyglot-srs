@@ -644,6 +644,22 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
+## A content tool can hang for ever on a dropped pooler session (7 Sep 2026)
+
+`seed_grammar -l all` printed "OK en" and then nothing for two hours. On
+this machine: the process asleep at 0% CPU with one ESTABLISHED socket to
+the pooler; on the server: no statement from it, and the pooled backend it
+had used `RESET` minutes earlier. asyncpg has no default command timeout,
+so a session the pooler drops mid-reply is waited on indefinitely, and
+from the terminal it is indistinguishable from a slow course. Fixed by a
+bounded wait — `COMMAND_TIMEOUT` (300 s) on every production connect in
+the seeder package, guarded by `test_seeder_command_timeout.py` — so it
+becomes an error the operator sees and a per-course rerun recovers. What
+is NOT fixed: the underlying drop (pooler side; not reproducible on
+demand), and `seed_grammar` writes without a transaction, so a course cut
+off midway is partially written until rerun — harmless, every statement is
+an upsert. Run grammar per course (`refeed.md`) so a hang costs one course.
+
 ## `reconcile --apply` is one round trip per row, and silent while it runs (7 Sep 2026)
 
 The owner's apply of 7 Sep — 1,594 definitions, 3,370 parts of speech, 23
