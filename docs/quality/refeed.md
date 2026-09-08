@@ -179,6 +179,13 @@ delete it. The path is printed at the end of every `--apply`.
   7 Sep (CHECKS §31). Now `reconcile` compares against the file WITH the
   overrides laid over it and `--apply` writes them; the seeders lay the
   same overlay over their records.
+* **Retire a grammar point — it can, since 8 Sep 2026.** `data/grammar_
+  exclusions.tsv` (language, title, reason) is the source of truth in both
+  directions; `reconcile` sets and clears `grammar_points.retired_at`
+  (migration 20261017) and prints a `gp-ret` column. A retired point leaves
+  Learn, the path and the deck counts; a learner who already holds its card
+  keeps it. Remove the point from the grammar JSON in the same change so
+  `seed_grammar` stops touching it.
 * **Carry linked spellings or re-tagged sentences.** `reconcile` syncs
   definitions, part of speech and retirements only. A course whose frequency
   file gained an `alt` column (`vocabulary.alternatives` — Turkish harmony,

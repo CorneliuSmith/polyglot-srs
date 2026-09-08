@@ -227,6 +227,53 @@ def excluded_words(code: str) -> set[str]:
     return out
 
 
+def excluded_points(code: str) -> set[str]:
+    """Grammar-point titles `data/grammar_exclusions.tsv` says this course
+    must not teach — the four Korean topics taught twice, and whatever a
+    later pass adds. Titles, not ids: the file is edited by people, and a
+    point's title is what a reader recognises.
+    """
+    path = DATA / "grammar_exclusions.tsv"
+    if not path.exists():
+        return set()
+    out: set[str] = set()
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            if (row.get("language") or "").strip() == code:
+                title = (row.get("title") or "").strip()
+                if title:
+                    out.add(title)
+    return out
+
+
+async def survey_point_retirements(conn, code: str, lang_id) -> dict:
+    """Which grammar points should stop being drawn, and which should start
+    again. Same shape and same both-directions rule as `survey_retirements`
+    for vocabulary: deleting a line from the file restores the point.
+
+    Returns empty lists when the column is missing — a database behind
+    migration 20261017 rather than an error.
+    """
+    excluded = excluded_points(code)
+    try:
+        rows = await conn.fetch(
+            "SELECT id, title, retired_at FROM grammar_points "
+            "WHERE language_id = $1",
+            lang_id,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        return {"retire_points": [], "unretire_points": [],
+                "point_retire_skipped": "no grammar_points.retired_at column"}
+    retire = [{"id": r["id"], "title": r["title"]}
+              for r in rows
+              if r["title"] in excluded and r["retired_at"] is None]
+    unretire = [{"id": r["id"], "title": r["title"]}
+                for r in rows
+                if r["title"] not in excluded and r["retired_at"] is not None]
+    return {"retire_points": retire, "unretire_points": unretire,
+            "point_retire_skipped": None}
+
+
 async def survey_retirements(conn, code: str, lang_id) -> dict:
     """Which rows should stop being drawn, and which should start again.
 
@@ -351,6 +398,7 @@ async def survey(conn, code: str) -> dict:
             w for w in set(tsv) - db_words if (tsv[w].get("en") or "").strip()
         ),
         **await survey_retirements(conn, code, lang_id),
+        **await survey_point_retirements(conn, code, lang_id),
     }
 
 
@@ -397,6 +445,14 @@ def write_rollback(reports: list[dict], stamp: str) -> Path:
             lines.append(
                 f"UPDATE vocabulary SET morphology = {_sql_str(c['old'])}::jsonb "
                 f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']} chips restored")
+        for c in rep.get("retire_points", []):
+            lines.append(
+                f"UPDATE grammar_points SET retired_at = NULL "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} point {c['title']}")
+        for c in rep.get("unretire_points", []):
+            lines.append(
+                f"UPDATE grammar_points SET retired_at = now() "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} point {c['title']}")
         for c in rep.get("retire", []):
             lines.append(
                 f"UPDATE vocabulary SET retired_at = NULL "
@@ -439,7 +495,8 @@ async def apply(conn, reports: list[dict], progress=None) -> dict:
     says what it is doing instead of printing nothing for twenty minutes.
     """
     counts = {"gloss": 0, "pos": 0, "morphology": 0, "added_translation": 0,
-               "sentence_layers": 0, "retired": 0, "unretired": 0}
+               "sentence_layers": 0, "retired": 0, "unretired": 0,
+               "points_retired": 0, "points_unretired": 0}
 
     def note(kind: str, n: int) -> None:
         if n and progress is not None:
@@ -524,13 +581,31 @@ async def apply(conn, reports: list[dict], progress=None) -> dict:
                 rep.get("unretire", []), "id")
             counts["unretired"] += n
             note(f"{code} unretired", n)
+
+            # Grammar points, same rule and the same both-directions file.
+            n = await _apply_batched(
+                conn,
+                "UPDATE grammar_points SET retired_at = now() "
+                "WHERE id = ANY($1::uuid[])",
+                rep.get("retire_points", []), "id")
+            counts["points_retired"] += n
+            note(f"{code} grammar points retired", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE grammar_points SET retired_at = NULL "
+                "WHERE id = ANY($1::uuid[])",
+                rep.get("unretire_points", []), "id")
+            counts["points_unretired"] += n
+            note(f"{code} grammar points unretired", n)
     return counts
 
 
 def print_report(reports: list[dict], detail: bool) -> None:
     print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
-          f"{'gone':>6}{'other':>7}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}")
-    print("-" * 81)
+          f"{'gone':>6}{'other':>7}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}"
+          f"{'gp-ret':>8}")
+    print("-" * 89)
     tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0,
            "re": 0, "un": 0, "oe": 0}
     for rep in reports:
@@ -543,6 +618,10 @@ def print_report(reports: list[dict], detail: bool) -> None:
         # printed — the operator was told to "read the retire count" of a
         # dry run that had no such column (7 Sep 2026).
         re_, un = len(rep.get("retire", [])), len(rep.get("unretire", []))
+        gp = len(rep.get("retire_points", []))
+        gp_col = (f"{gp:>8}" if not rep.get("point_retire_skipped")
+                  else f"{'-':>8}")
+        tot["gp"] = tot.get("gp", 0) + gp
         oe = len(rep.get("owned_elsewhere", []))
         re_col = (f"{re_:>8}{un:>6}" if not rep.get("retire_skipped")
                   else f"{'-':>8}{'-':>6}")
@@ -562,11 +641,11 @@ def print_report(reports: list[dict], detail: bool) -> None:
         tot["un"] += un
         tot["oe"] += oe
         print(f"{rep['code']:<6}{rep['db_rows']:>7}{rep['tsv_rows']:>7}"
-              f"{g:>7}{p:>6}{t:>7}{d:>6}{oe:>7}{n:>6}{sl:>8}{re_col}")
-    print("-" * 81)
+              f"{g:>7}{p:>6}{t:>7}{d:>6}{oe:>7}{n:>6}{sl:>8}{re_col}{gp_col}")
+    print("-" * 89)
     print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['pos']:>6}{tot['tr']:>7}"
           f"{tot['gone']:>6}{tot['oe']:>7}{tot['new']:>6}{tot['sl']:>8}"
-          f"{tot['re']:>8}{tot['un']:>6}")
+          f"{tot['re']:>8}{tot['un']:>6}{tot.get('gp', 0):>8}")
     print("\ngloss  definitions this would CORRECT — the file's column with "
           "gloss_overrides.tsv laid over it")
     print("pos    parts of speech this would correct (a word leaving the nominal set")
@@ -583,6 +662,8 @@ def print_report(reports: list[dict], detail: bool) -> None:
     print("retire rows listed in vocab_exclusions.tsv that are still drawn — hidden,")
     print("       progress kept, reversible ('-' = database behind migration 20261016)")
     print("unret  rows retired earlier whose exclusion line was since removed — restored")
+    print("gp-ret grammar POINTS listed in grammar_exclusions.tsv that are still")
+    print("       drawn — hidden, learner progress kept ('-' = behind migration 20261017)")
 
     if detail:
         for rep in reports:
@@ -654,7 +735,9 @@ async def main() -> int:
               f"({counts['morphology']} with nominal chips stripped), "
               f"{counts['sentence_layers']} sentence layers filled, "
               f"{counts['retired']} words retired, "
-              f"{counts['unretired']} unretired")
+              f"{counts['unretired']} unretired, "
+              f"{counts['points_retired']} grammar points retired, "
+              f"{counts['points_unretired']} restored")
         print(f"undo with: python -m backend.services.seeder.reconcile "
               f"--rollback {path}")
         return 0

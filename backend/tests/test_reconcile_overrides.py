@@ -64,6 +64,8 @@ class TestSurveySeesTheOverride:
                 return "lang"
 
             async def fetch(self, sql, *a, **k):
+                if "grammar_points" in sql:
+                    return []
                 if "retired_at" in sql:
                     if not column:
                         import asyncpg
@@ -128,7 +130,8 @@ class TestSurveySeesTheOverride:
         table = out.getvalue()
         assert "retire" in table.splitlines()[0]
         row = next(line for line in table.splitlines() if line.startswith("tr "))
-        assert row.split()[-2:] == ["1", "0"]
+        # …retire unret gp-ret — the grammar-point column is last now
+        assert row.split()[-3:] == ["1", "0", "0"]
 
     def test_a_database_behind_the_migration_keeps_its_row_in_the_table(self, data, monkeypatch):
         rep = self._survey([{"id": "1", "word": "mi", "part_of_speech": "particle",
@@ -138,7 +141,7 @@ class TestSurveySeesTheOverride:
         with redirect_stdout(out):
             reconcile.print_report([rep], detail=False)
         row = next(line for line in out.getvalue().splitlines() if line.startswith("tr "))
-        assert row.split()[-2:] == ["-", "-"]
+        assert row.split()[-3:-1] == ["-", "-"]
 
 
 class TestEverySeederOverlaysTheOverrides:
@@ -208,6 +211,8 @@ class TestGoneMeansUngoverned:
                 return "lang"
 
             async def fetch(self, sql, *a, **k):
+                if "grammar_points" in sql:
+                    return []
                 if "retired_at" in sql:
                     return [{"id": r["id"], "word": r["word"], "retired_at": None}
                             for r in db_rows]

@@ -6817,92 +6817,6 @@
       ]
     },
     {
-      "title": "동안 – 'for' a period of time",
-      "level": "A1",
-      "function": "Say how long an action lasts.",
-      "explanation": "동안 is placed after a duration: 2 분 동안 (for 2 minutes), 이틀 동안 (for two days), 세 시간 동안 (for three hours). No particle is added after 동안 — learners expect 에, but it is not used. Literally you are saying 'for that period of time': 저는 30 분 동안 공부했어요 = I studied for (a period of) 30 minutes. (동안 can later also mean 'while' another action occurs.) Spacing: if the number is written as a word, leave a space (십 분 동안); with a numeral, a space is optional.",
-      "culture_note": "",
-      "source": "pending",
-      "reviewed": false,
-      "display_order": 29,
-      "references": [
-        {
-          "title": "Unit 1, Lesson 11 – 동안",
-          "book": "How to Study Korean – Unit 1",
-          "page": "114"
-        }
-      ],
-      "related": [],
-      "drills": [
-        {
-          "sentence": "저는 10 분 {{answer}} 걸었어요.",
-          "answer": "동안",
-          "translation": "I walked for 10 minutes.",
-          "hint": "marks the length of the period",
-          "gloss": "I.TOP · ten · minute · ___ · walk.PST.POL",
-          "transliteration": "jeoneun sip bun ___ georeosseoyo.",
-          "cell": null,
-          "display_order": 1
-        },
-        {
-          "sentence": "저는 이틀 {{answer}} 안 잤어요.",
-          "answer": "동안",
-          "translation": "I didn't sleep for two days.",
-          "hint": "marks the length of the period",
-          "gloss": "1SG.TOP · two.day · ___ · NEG · sleep.PST.POL",
-          "transliteration": "jeoneun iteul ___ an jasseoyo.",
-          "cell": null,
-          "display_order": 2
-        },
-        {
-          "sentence": "저는 30 분 {{answer}} 공부했어요.",
-          "answer": "동안",
-          "translation": "I studied for 30 minutes.",
-          "hint": "marks the length of the period",
-          "gloss": "1SG.TOP · thirty · minute · ___ · study.PST.POL",
-          "transliteration": "jeoneun samsip bun ___ gongbuhaesseoyo.",
-          "cell": null,
-          "display_order": 3
-        },
-        {
-          "sentence": "몇 분 {{answer}} 기다렸어요?",
-          "answer": "동안",
-          "translation": "How many minutes did you wait?",
-          "hint": "asks across how long the waiting stretched — nothing is added after it",
-          "display_order": 4,
-          "transliteration": "myeot bun {{answer}} gidaryeosseoyo?",
-          "gloss": "how.many · minute · ___ · wait.PST.POL"
-        },
-        {
-          "sentence": "저는 일주일 {{answer}} 부산에 있을 거예요.",
-          "answer": "동안",
-          "translation": "I will be in Busan for a week.",
-          "hint": "goes straight after the length of the stay; learners wrongly add 에 to it",
-          "display_order": 5,
-          "transliteration": "jeoneun iljuil {{answer}} busane isseul geoyeyo.",
-          "gloss": "1SG.TOP · one.week · ___ · Busan.LOC · exist.FUT · thing.be.POL"
-        },
-        {
-          "sentence": "아이들은 한 시간 {{answer}} 텔레비전을 봐요.",
-          "answer": "동안",
-          "translation": "The children watch TV for an hour.",
-          "hint": "follows the stated length to say how long the watching lasts",
-          "display_order": 6,
-          "transliteration": "aideureun han sigan {{answer}} tellebijeoneul bwayo.",
-          "gloss": "child.PL.TOP · one · hour · ___ · television.ACC · watch.POL"
-        },
-        {
-          "sentence": "어제 비가 두 시간 {{answer}} 왔어요.",
-          "answer": "동안",
-          "translation": "It rained for two hours yesterday.",
-          "hint": "placed after the two-hour stretch to say how long the rain kept up",
-          "display_order": 7,
-          "transliteration": "eoje biga du sigan {{answer}} wasseoyo.",
-          "gloss": "yesterday · rain.NOM · two · hour · ___ · come.PST.POL"
-        }
-      ]
-    },
-    {
       "title": "Counting hours: 시간 vs 시",
       "level": "A2",
       "function": "Distinguish the hour on the clock from an amount of hours.",
@@ -7931,193 +7845,6 @@
         "개월 – months (Sino-Korean)",
         "살 – age (pure Korean)",
         "번 – times (pure Korean)"
-      ]
-    },
-    {
-      "title": "Passive verbs with ~아/어 있다 (describing a state)",
-      "level": "A2",
-      "function": "Say that something is currently in a resulting state (on, off, open, closed, locked) rather than that an event happened.",
-      "explanation": "Take a passive verb (켜지다, 꺼지다, 잠기다, 닫히다…), attach ~아/어 to the stem and add 있다: 켜져 있다, 꺜져 있다 → 꺼져 있다, 잠겨 있다, 닫혀 있다. The subject of such a sentence normally takes ~이/가, not ~은/는 or ~을/를, because a passive verb can never act on an object. Compare: 문이 닫혔어요 (at some point the door got closed — an event) vs 문이 닫혀 있어요 (right now the door is in the state of closed). All three tenses exist for both readings: 닫혔어요 / 닫혀 있었어요, 닫혀요 / 닫혀 있어요, 닫힐 거예요 / 닫혀 있을 거예요. ~아/어 있다 is only possible when the result of the verb is a lasting state; it does not work with verbs like 속다 (once you are tricked, you are simply tricked, so 속아 있다 makes no sense).",
-      "culture_note": "",
-      "source": "pending",
-      "reviewed": false,
-      "display_order": 38,
-      "references": [
-        {
-          "title": "How to Study Korean, Unit 1 Lesson 14",
-          "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-9-16/lesson-14/"
-        }
-      ],
-      "related": [],
-      "drills": [
-        {
-          "sentence": "가게 문이 {{answer}}.",
-          "answer": "닫혔어요",
-          "translation": "The shop door was closed (someone/something closed it).",
-          "hint": "past polite passive of 'to shut'",
-          "gloss": "shop · door.NOM · ___",
-          "transliteration": "gage muni ___.",
-          "cell": "past, event",
-          "display_order": 1
-        },
-        {
-          "sentence": "창문이 바람에 {{answer}}.",
-          "answer": "닫혔어요",
-          "translation": "The window was closed by the wind.",
-          "hint": "past polite passive of 'to shut'",
-          "gloss": "window.NOM · wind.INS · ___",
-          "transliteration": "changmuni barame ___.",
-          "cell": "past, event",
-          "display_order": 2
-        },
-        {
-          "sentence": "제가 도착했을 때 가게 문이 {{answer}}.",
-          "answer": "닫혀 있었어요",
-          "translation": "When I arrived, the shop door was (in the state of) closed.",
-          "hint": "past polite state form with 있다",
-          "gloss": "1SG.NOM · arrive.PST.PTCP · time · shop · door.NOM · ___",
-          "transliteration": "jega dochakhaesseul ttae gage muni ___.",
-          "cell": "past, state",
-          "display_order": 3
-        },
-        {
-          "sentence": "어제 아침에 창문이 {{answer}}.",
-          "answer": "닫혀 있었어요",
-          "translation": "Yesterday morning the window was (in the state of) closed.",
-          "hint": "past polite state form with 있다",
-          "gloss": "yesterday · morning.LOC · window.NOM · ___",
-          "transliteration": "eoje achime changmuni ___.",
-          "cell": "past, state",
-          "display_order": 4
-        },
-        {
-          "sentence": "이 문은 매일 밤 9시에 {{answer}}.",
-          "answer": "닫혀요",
-          "translation": "This door closes every night at 9 o'clock.",
-          "hint": "present polite passive of 'to shut'",
-          "gloss": "this · door.TOP · every.day · night · nine.o'clock.LOC · ___",
-          "transliteration": "i muneun maeil bam ahopsie ___.",
-          "cell": "present, event",
-          "display_order": 5
-        },
-        {
-          "sentence": "지하철 문이 곧 {{answer}}.",
-          "answer": "닫혀요",
-          "translation": "The subway door closes in a moment.",
-          "hint": "present polite passive of 'to shut'",
-          "gloss": "subway · door.NOM · soon · ___",
-          "transliteration": "jihacheol muni got ___.",
-          "cell": "present, event",
-          "display_order": 6
-        },
-        {
-          "sentence": "지금 창문이 {{answer}}.",
-          "answer": "닫혀 있어요",
-          "translation": "The window is closed right now.",
-          "hint": "present polite state form with 있다",
-          "gloss": "now · window.NOM · ___",
-          "transliteration": "jigeum changmuni ___.",
-          "cell": "present, state",
-          "display_order": 7
-        },
-        {
-          "sentence": "은행 문이 {{answer}}.",
-          "answer": "닫혀 있어요",
-          "translation": "The bank's door is closed.",
-          "hint": "present polite state form with 있다",
-          "gloss": "bank · door.NOM · ___",
-          "transliteration": "eunhaeng muni ___.",
-          "cell": "present, state",
-          "display_order": 8
-        },
-        {
-          "sentence": "문이 곧 {{answer}}.",
-          "answer": "닫힐 거예요",
-          "translation": "The door will close soon.",
-          "hint": "future polite passive of 'to shut'",
-          "gloss": "door.NOM · soon · ___",
-          "transliteration": "muni got ___.",
-          "cell": "future, event",
-          "display_order": 9
-        },
-        {
-          "sentence": "그 문은 저절로 {{answer}}.",
-          "answer": "닫힐 거예요",
-          "translation": "That door will close by itself.",
-          "hint": "future polite passive of 'to shut'",
-          "gloss": "that · door.TOP · by.itself · ___",
-          "transliteration": "geu muneun jeojeollo ___.",
-          "cell": "future, event",
-          "display_order": 10
-        },
-        {
-          "sentence": "내일 아침에 가게 문이 {{answer}}.",
-          "answer": "닫혀 있을 거예요",
-          "translation": "Tomorrow morning the shop door will be (in the state of) closed.",
-          "hint": "future polite state form with 있다",
-          "gloss": "tomorrow · morning.LOC · shop · door.NOM · ___",
-          "transliteration": "naeil achime gage muni ___.",
-          "cell": "future, state",
-          "display_order": 11
-        },
-        {
-          "sentence": "제가 갈 때 창문이 {{answer}}.",
-          "answer": "닫혀 있을 거예요",
-          "translation": "When I go, the window will be (in the state of) closed.",
-          "hint": "future polite state form with 있다",
-          "gloss": "1SG.NOM · go.FUT.PTCP · when · window.NOM · ___",
-          "transliteration": "jega gal ttae changmuni ___.",
-          "cell": "future, state",
-          "display_order": 12
-        },
-        {
-          "sentence": "제 컴퓨터가 {{answer}} 있어요.",
-          "answer": "켜져",
-          "translation": "My computer is (in the state of) on.",
-          "hint": "passive stem of 'to switch on' plus ~어",
-          "gloss": "1SG.GEN · computer.NOM · ___ · exist.PRS.POL",
-          "transliteration": "je keompyuteoga ___ isseoyo.",
-          "cell": null,
-          "display_order": 13
-        },
-        {
-          "sentence": "TV가 {{answer}} 있어요.",
-          "answer": "꺼져",
-          "translation": "The TV is (in the state of) off.",
-          "hint": "passive stem of 'to switch off' plus ~어",
-          "gloss": "tv.NOM · ___ · exist.PRS.POL",
-          "transliteration": "TV-ga ___ isseoyo.",
-          "cell": null,
-          "display_order": 14
-        },
-        {
-          "sentence": "문이 {{answer}} 있어요.",
-          "answer": "잠겨",
-          "translation": "The door is (in the state of) locked.",
-          "hint": "passive stem of 'to lock' plus ~어",
-          "gloss": "door.NOM · ___ · exist.PRS.POL",
-          "transliteration": "muni ___ isseoyo.",
-          "cell": null,
-          "display_order": 15
-        },
-        {
-          "sentence": "제가 왔을 때 문이 닫혀 {{answer}}.",
-          "answer": "있었어요",
-          "translation": "When I came, the door was closed.",
-          "hint": "past polite of the existence verb",
-          "gloss": "1SG.NOM · come.PST.PTCP · when · door.NOM · close.PASS.INF · ___",
-          "transliteration": "jega wasseul ttae muni dachyeo ___.",
-          "cell": null,
-          "display_order": 16
-        }
-      ],
-      "paradigm": [
-        "past, event",
-        "past, state",
-        "present, event",
-        "present, state",
-        "future, event",
-        "future, state"
       ]
     },
     {
@@ -10373,6 +10100,36 @@
           "transliteration": "eoje chingudeulgwa meogeun jeonyeok siksaneun gapdo ssago matdo joaseo aju ___.",
           "cell": "만족스럽다 – past",
           "display_order": 18
+        },
+        {
+          "sentence": "그것은 {{answer}} 대답이었어요.",
+          "answer": "만족스러운",
+          "translation": "That was a satisfactory answer.",
+          "hint": "form that describes an upcoming noun",
+          "gloss": "that.thing.TOP · ___ · reply.be.PST.POL",
+          "transliteration": "geugeoseun {{answer}} daedabieosseoyo.",
+          "cell": null,
+          "display_order": 19
+        },
+        {
+          "sentence": "우리 딸은 {{answer}} 여자예요. (사랑스럽다 + ~ㄴ/은)",
+          "answer": "사랑스러운",
+          "translation": "Our daughter is a lovely girl.",
+          "hint": "noun-modifying form of the adjective 'loveable'",
+          "gloss": "1PL · daughter.TOP · ___ · woman.be.POL · (love.ADJZ.INF · + · ~PTCP)",
+          "transliteration": "uri ttareun {{answer}} yeojayeyo.",
+          "cell": null,
+          "display_order": 20
+        },
+        {
+          "sentence": "일기에 '이번 결과는 {{answer}}'라고 썼어요.",
+          "answer": "만족스럽다",
+          "translation": "In my diary I wrote, 'These results are satisfactory.'",
+          "hint": "plain dictionary form of the adjective meaning 'satisfactory'",
+          "gloss": "diary.LOC · this.time · result.TOP · ___ · write.PST.POL",
+          "transliteration": "ilgie 'ibeon gyeolgwaneun {{answer}}'rago sseosseoyo.",
+          "cell": null,
+          "display_order": 21
         }
       ],
       "prerequisites": [
@@ -10477,167 +10234,6 @@
       ],
       "prerequisites": [
         "Korean suffix: ~스럽다"
-      ]
-    },
-    {
-      "title": "Adjectives with ~스럽다",
-      "level": "B1",
-      "function": "Turn a noun into an adjective meaning 'having the properties of that noun'.",
-      "explanation": "Adding ~스럽다 to a noun (실망, 만족, 사랑, 자랑, 자연) creates an adjective describing something that has the properties of that noun: 실망스럽다 = disappointing, 만족스럽다 = satisfactory, 사랑스럽다 = lovely, 자랑스럽다 = proud(-making), 자연스럽다 = natural. The ~하다 counterpart (실망하다, 만족하다, 사랑하다, 자랑하다) is a verb that describes a person's emotion or acts on an object, while the ~스럽다 form is an adjective describing the thing itself. ~스럽다 adjectives are frequently used in the Subject – Object – Adjective pattern (저는 결과가 만족스러웠어요 = I was satisfied with the results), and the object may be dropped (저는 만족스러웠어요). All ~스럽다 words are ㅂ-irregular adjectives (…스러워요, …스러웠어요) and can modify a following noun with ~ㄴ/은 → ~스러운.",
-      "culture_note": "",
-      "source": "ai",
-      "reviewed": false,
-      "display_order": 39,
-      "references": [
-        {
-          "title": "HowtoStudyKorean Unit 1 Lesson 17",
-          "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-17-25/unit-1-lesson-17/"
-        },
-        {
-          "title": "HowtoStudyKorean.com Unit 1",
-          "book": "HowtoStudyKorean Unit 1 Workbook",
-          "page": "181-183"
-        }
-      ],
-      "related": [],
-      "drills": [
-        {
-          "sentence": "일기에 '이번 결과는 {{answer}}'라고 썼어요.",
-          "answer": "만족스럽다",
-          "translation": "In my diary I wrote, 'These results are satisfactory.'",
-          "hint": "plain dictionary form of the adjective meaning 'satisfactory'",
-          "gloss": "diary.LOC · this.time · result.TOP · ___ · write.PST.POL",
-          "transliteration": "ilgie 'ibeon gyeolgwaneun {{answer}}'rago sseosseoyo.",
-          "cell": "dictionary form",
-          "display_order": 1
-        },
-        {
-          "sentence": "저는 새 교육 방법이 {{answer}}.",
-          "answer": "만족스러워요",
-          "translation": "I am satisfied with the new education method.",
-          "hint": "polite present form of 'to be satisfactory' (ㅂ irregular)",
-          "gloss": "1SG.TOP · new · education · method.NOM · ___",
-          "transliteration": "jeoneun sae gyoyuk bangbeobi {{answer}}.",
-          "cell": "present polite (~어요)",
-          "display_order": 2
-        },
-        {
-          "sentence": "고객들은 이 가게가 {{answer}}.",
-          "answer": "만족스러워요",
-          "translation": "The customers are satisfied with this store.",
-          "hint": "polite present, ㅂ becomes 워",
-          "gloss": "customer.PL.TOP · this · store.NOM · ___",
-          "transliteration": "gogaekdeureun i gagega {{answer}}.",
-          "cell": "present polite (~어요)",
-          "display_order": 3
-        },
-        {
-          "sentence": "저는 어제 먹은 음식이 {{answer}}.",
-          "answer": "만족스러웠어요",
-          "translation": "I was satisfied with the food I ate yesterday.",
-          "hint": "polite past form of 'to be satisfactory'",
-          "gloss": "1SG.TOP · yesterday · eat.PST.PTCP · food.NOM · ___",
-          "transliteration": "jeoneun eoje meogeun eumsigi {{answer}}.",
-          "cell": "past polite (~었어요)",
-          "display_order": 4
-        },
-        {
-          "sentence": "시험 점수가 아주 {{answer}}.",
-          "answer": "만족스러웠어요",
-          "translation": "The exam score was very satisfactory.",
-          "hint": "polite past, ㅂ irregular",
-          "gloss": "exam · score.NOM · very · ___",
-          "transliteration": "siheom jeomsuga aju {{answer}}.",
-          "cell": "past polite (~었어요)",
-          "display_order": 5
-        },
-        {
-          "sentence": "그것은 {{answer}} 대답이었어요.",
-          "answer": "만족스러운",
-          "translation": "That was a satisfactory answer.",
-          "hint": "form that describes an upcoming noun",
-          "gloss": "that.thing.TOP · ___ · reply.be.PST.POL",
-          "transliteration": "geugeoseun {{answer}} daedabieosseoyo.",
-          "cell": "noun-modifying (~스러운)",
-          "display_order": 6
-        },
-        {
-          "sentence": "우리는 {{answer}} 결과를 원해요.",
-          "answer": "만족스러운",
-          "translation": "We want a satisfactory result.",
-          "hint": "adjective form placed before a noun",
-          "gloss": "1PL.TOP · ___ · result.ACC · want.POL",
-          "transliteration": "urineun {{answer}} gyeolgwareul wonhaeyo.",
-          "cell": "noun-modifying (~스러운)",
-          "display_order": 7
-        },
-        {
-          "sentence": "저는 일을 {{answer}} 끝냈어요.",
-          "answer": "만족스럽게",
-          "translation": "I finished the work satisfactorily.",
-          "hint": "adverb form describing how the action was done",
-          "gloss": "1SG.TOP · work.ACC · ___ · finish.PST.POL",
-          "transliteration": "jeoneun ireul {{answer}} kkeutnaesseoyo.",
-          "cell": "adverb (~스럽게)",
-          "display_order": 8
-        },
-        {
-          "sentence": "그는 시험을 {{answer}} 봤어요.",
-          "answer": "만족스럽게",
-          "translation": "He took the exam in a satisfactory way.",
-          "hint": "adverb ending added to the adjective stem",
-          "gloss": "3SG.TOP · exam.ACC · ___ · see.PST.POL",
-          "transliteration": "geuneun siheomeul {{answer}} bwasseoyo.",
-          "cell": "adverb (~스럽게)",
-          "display_order": 9
-        },
-        {
-          "sentence": "그 영화는 조금 {{answer}}. (실망스럽다, past polite)",
-          "answer": "실망스러웠어요",
-          "translation": "The movie was a little bit disappointing.",
-          "hint": "polite past of the adjective 'disappointing'",
-          "gloss": "that · movie.TOP · a.little · ___ · (disappointment.ADJZ.INF, · past · polite)",
-          "transliteration": "geu yeonghwaneun jogeum {{answer}}.",
-          "cell": null,
-          "display_order": 10
-        },
-        {
-          "sentence": "저는 저의 딸이 아주 {{answer}}. (자랑스럽다, present polite)",
-          "answer": "자랑스러워요",
-          "translation": "I am very proud of my daughter.",
-          "hint": "polite present of the adjective for feeling pride",
-          "gloss": "1SG.TOP · 1SG.GEN · daughter.NOM · very · ___ · (pride.ADJZ.INF, · present · polite)",
-          "transliteration": "jeoneun jeoui ttari aju {{answer}}.",
-          "cell": null,
-          "display_order": 11
-        },
-        {
-          "sentence": "우리 딸은 {{answer}} 여자예요. (사랑스럽다 + ~ㄴ/은)",
-          "answer": "사랑스러운",
-          "translation": "Our daughter is a lovely girl.",
-          "hint": "noun-modifying form of the adjective 'loveable'",
-          "gloss": "1PL · daughter.TOP · ___ · woman.be.POL · (love.ADJZ.INF · + · ~PTCP)",
-          "transliteration": "uri ttareun {{answer}} yeojayeyo.",
-          "cell": null,
-          "display_order": 12
-        },
-        {
-          "sentence": "일기장에 이렇게 적었다: 오늘 하루는 참 {{answer}}.",
-          "answer": "만족스럽다",
-          "translation": "I wrote this in my diary: Today was really satisfying.",
-          "hint": "Use the plain written (dictionary) form of the adjective meaning 'to be satisfying/gratifying'.",
-          "gloss": "diary.book.LOC · thus · write.down.PST · today · day.TOP · truly · ___",
-          "transliteration": "ilgijang-e ireoke jeogeotda: oneul haru-neun cham ___.",
-          "cell": "dictionary form",
-          "display_order": 13
-        }
-      ],
-      "paradigm": [
-        "dictionary form",
-        "present polite (~어요)",
-        "past polite (~었어요)",
-        "noun-modifying (~스러운)",
-        "adverb (~스럽게)"
       ]
     },
     {
@@ -11050,228 +10646,6 @@
       ]
     },
     {
-      "title": "~이/가 and ~는/은 Revisited",
-      "level": "B1",
-      "function": "Choose between the topic and subject particle: general fact vs. newly noticed specific situation.",
-      "explanation": "Besides its comparison function, ~는/은 marks a general fact or statement: 로키 산은 높아요 (as a well-known general truth); 산은 높다 ≈ 'in general, mountains are high'. ~이/가 is not used for general facts; it points to a specific situation the speaker has just noticed or observed: 와! 산이 높다! ≈ 'this mountain I'm looking at is high!'. In comparison sentences (often joined with ~고), ~는/은 is attached to both items being compared: 이 산은 높고 저 산은 낮아요; 문법은 어렵고 단어는 쉬워요. The difference is one of nuance, not of English translation.",
-      "culture_note": "",
-      "source": "ai",
-      "reviewed": false,
-      "display_order": 41,
-      "references": [
-        {
-          "title": "HowtoStudyKorean Unit 1 Lesson 17",
-          "url": "https://www.howtostudykorean.com/unit1/unit-1-lessons-17-25/unit-1-lesson-17/"
-        }
-      ],
-      "related": [],
-      "drills": [
-        {
-          "sentence": "{{answer}} 높고 강은 길어요.",
-          "answer": "산은",
-          "translation": "Mountains are high and rivers are long.",
-          "hint": "'mountain' plus the topic/comparison particle",
-          "gloss": "___ · high.CONN · river.TOP · long.PRS.POL",
-          "transliteration": "{{answer}} nopgo gangeun gireoyo.",
-          "cell": "general fact / comparison (~은)",
-          "display_order": 1
-        },
-        {
-          "sentence": "로키 {{answer}} 아주 높아요.",
-          "answer": "산은",
-          "translation": "The Rocky Mountains are very high.",
-          "hint": "'mountain' with the particle used for general facts",
-          "gloss": "Rocky · ___ · very · high.PRS.POL",
-          "transliteration": "roki {{answer}} aju nopayo.",
-          "cell": "general fact / comparison (~은)",
-          "display_order": 2
-        },
-        {
-          "sentence": "와! {{answer}} 높다!",
-          "answer": "산이",
-          "translation": "Wow! The mountain is high!",
-          "hint": "'mountain' with the particle used for something just noticed",
-          "gloss": "wow · ___ · high.PRS",
-          "transliteration": "wa! {{answer}} nopda!",
-          "cell": "newly observed situation (~이)",
-          "display_order": 3
-        },
-        {
-          "sentence": "문법{{answer}} 어렵고 단어는 쉬워요.",
-          "answer": "은",
-          "translation": "Grammar is hard, but words are easy.",
-          "hint": "particle attached to both compared items",
-          "gloss": "___ · difficult.CONN · word.TOP · easy.PRS.POL",
-          "transliteration": "munbeop{{answer}} eoryeopgo daneoneun swiwoyo.",
-          "cell": null,
-          "display_order": 4
-        },
-        {
-          "sentence": "와! 날씨{{answer}} 따뜻하다!",
-          "answer": "가",
-          "translation": "Wow! The weather is warm!",
-          "hint": "particle for something the speaker has just noticed",
-          "gloss": "wow · ___ · warm.PRS",
-          "transliteration": "wa! nalssi{{answer}} ttatteuthada!",
-          "cell": null,
-          "display_order": 5
-        },
-        {
-          "sentence": "와, 안개가 걷히니까 저기 {{answer}} 보이네!",
-          "answer": "산이",
-          "translation": "Wow, now that the fog has lifted, there's a mountain visible over there!",
-          "hint": "새로 알게 된 사실을 감탄하며 말하는 형태입니다. 높고 험한 지형을 뜻하는 말에 '~이'가 붙습니다.",
-          "gloss": "wow · fog.NOM · lift.PASS.REASON · there · ___ · see.PASS.EXCL",
-          "transliteration": "wa, angaega geochinikka jeogi ___ boine!",
-          "cell": "newly observed situation (~이)",
-          "display_order": 6
-        }
-      ],
-      "prerequisites": [
-        "Connecting Particle ~고"
-      ],
-      "paradigm": [
-        "general fact / comparison (~은)",
-        "newly observed situation (~이)"
-      ]
-    },
-    {
-      "title": "~는/은 vs ~이/가: general statements and immediate experience",
-      "level": "B1",
-      "function": "Choose the topic particle or the subject particle according to the nuance you want.",
-      "explanation": "~는/은 (는 after a vowel, 은 after a consonant) marks a noun as the topic. It is typical of general statements ('mountains are high', 'summer weather is good', 'diamonds are hard') and of comparisons ('the food here isn't good, but the weather is'). ~이/가 (가 after a vowel, 이 after a consonant) marks the subject and is typical when the speaker describes one specific thing that he is experiencing or has just noticed right now (날씨가 좋다 = the weather I am feeling right now is good). The same sentence can be correct with either particle; only the situation tells you which nuance is meant. Neither particle has an English translation.",
-      "culture_note": "",
-      "source": "pending",
-      "reviewed": false,
-      "display_order": 42,
-      "references": [
-        {
-          "title": "Unit 1, Lesson 17–18 (~이/가 and ~는/은)",
-          "book": "HowtoStudyKorean.com Unit 1",
-          "page": "196-198"
-        }
-      ],
-      "related": [],
-      "drills": [
-        {
-          "sentence": "바나나{{answer}} 값이 싸요.",
-          "answer": "는",
-          "translation": "Bananas are cheap (in general).",
-          "hint": "topic particle used after a vowel",
-          "gloss": "___ · price.NOM · cheap.PRS.POL",
-          "transliteration": "banana{{answer}} gapsi ssayo.",
-          "cell": "topic, vowel-final noun",
-          "display_order": 1
-        },
-        {
-          "sentence": "라면{{answer}} 맛있어요.",
-          "answer": "는",
-          "translation": "Instant noodles are delicious (in general).",
-          "hint": "topic particle used after a vowel",
-          "gloss": "___ · taste-exist.PRS.POL",
-          "transliteration": "ramyeon{{answer}} masisseoyo.",
-          "cell": "topic, vowel-final noun",
-          "display_order": 2
-        },
-        {
-          "sentence": "다이아몬드{{answer}} 딱딱해요.",
-          "answer": "은",
-          "translation": "Diamonds are hard (in general).",
-          "hint": "topic particle used after a consonant",
-          "gloss": "___ · hard.PRS.POL",
-          "transliteration": "daiamondeu{{answer}} ttakttakhaeyo.",
-          "cell": "topic, consonant-final noun",
-          "display_order": 3
-        },
-        {
-          "sentence": "책상{{answer}} 아주 넓어요.",
-          "answer": "은",
-          "translation": "The desk is very wide.",
-          "hint": "topic particle used after a consonant",
-          "gloss": "___ · very · wide.PRS.POL",
-          "transliteration": "chaeksang{{answer}} aju neolbeoyo.",
-          "cell": "topic, consonant-final noun",
-          "display_order": 4
-        },
-        {
-          "sentence": "비{{answer}} 와요.",
-          "answer": "가",
-          "translation": "It is raining.",
-          "hint": "subject particle used after a vowel",
-          "gloss": "___ · come.POL",
-          "transliteration": "bi{{answer}} wayo.",
-          "cell": "subject, vowel-final noun",
-          "display_order": 5
-        },
-        {
-          "sentence": "지도{{answer}} 여기에 있어요.",
-          "answer": "가",
-          "translation": "The map is here.",
-          "hint": "subject particle used after a vowel",
-          "gloss": "___ · here.LOC · exist.POL",
-          "transliteration": "jido{{answer}} yeogie isseoyo.",
-          "cell": "subject, vowel-final noun",
-          "display_order": 6
-        },
-        {
-          "sentence": "청구서{{answer}} 어제 왔어요.",
-          "answer": "이",
-          "translation": "The bill came yesterday.",
-          "hint": "subject particle used after a consonant",
-          "gloss": "___ · yesterday · come.PST.POL",
-          "transliteration": "cheongguseo{{answer}} eoje wasseoyo.",
-          "cell": "subject, consonant-final noun",
-          "display_order": 7
-        },
-        {
-          "sentence": "밥{{answer}} 너무 딱딱해요.",
-          "answer": "이",
-          "translation": "This rice is too hard.",
-          "hint": "subject particle used after a consonant",
-          "gloss": "___ · too · hard.POL",
-          "transliteration": "bap{{answer}} neomu ttakttakhaeyo.",
-          "cell": "subject, consonant-final noun",
-          "display_order": 8
-        },
-        {
-          "sentence": "지금 밖에 비{{answer}} 와요.",
-          "answer": "가",
-          "translation": "It is raining outside right now.",
-          "hint": "particle marking what is happening right now",
-          "gloss": "now · outside.LOC · ___ · come.POL",
-          "transliteration": "jigeum bakke bi{{answer}} wayo.",
-          "cell": null,
-          "display_order": 9
-        },
-        {
-          "sentence": "다이아몬드{{answer}} 딱딱해요. (a general fact)",
-          "answer": "는",
-          "translation": "Diamonds are hard.",
-          "hint": "particle for general statements after a vowel",
-          "gloss": "___ · hard.POL · (a · general · fact)",
-          "transliteration": "daiamondeu{{answer}} ttakttakhaeyo.",
-          "cell": null,
-          "display_order": 10
-        },
-        {
-          "sentence": "여기 음식{{answer}} 맛이 없어요. 하지만 날씨는 좋아요.",
-          "answer": "이",
-          "translation": "The food here isn't delicious, but the weather is good.",
-          "hint": "particle marking the subject after a consonant",
-          "gloss": "here · ___ · taste.NOM · exist.NEG.POL · but · weather.TOP · good.POL",
-          "transliteration": "yeogi eumsig{{answer}} masi eopseoyo. hajiman nalssineun joayo.",
-          "cell": null,
-          "display_order": 11
-        }
-      ],
-      "paradigm": [
-        "topic, vowel-final noun",
-        "topic, consonant-final noun",
-        "subject, vowel-final noun",
-        "subject, consonant-final noun"
-      ]
-    },
-    {
       "title": "Present Progressive: ~고 있다",
       "level": "A2",
       "function": "Say that someone is currently in the middle of doing an action ('I am ~ing').",
@@ -11605,6 +10979,26 @@
           "transliteration": "bang-e bur-i {{answer}}. amudo eomna bwayo.",
           "cell": "꺼지다 (to be turned off)",
           "display_order": 15
+        },
+        {
+          "sentence": "제가 도착했을 때 가게 문이 {{answer}}.",
+          "answer": "닫혀 있었어요",
+          "translation": "When I arrived, the shop door was (in the state of) closed.",
+          "hint": "past polite state form with 있다",
+          "gloss": "1SG.NOM · arrive.PST.PTCP · time · shop · door.NOM · ___",
+          "transliteration": "jega dochakhaesseul ttae gage muni ___.",
+          "cell": "past, state",
+          "display_order": 16
+        },
+        {
+          "sentence": "내일 아침에 가게 문이 {{answer}}.",
+          "answer": "닫혀 있을 거예요",
+          "translation": "Tomorrow morning the shop door will be (in the state of) closed.",
+          "hint": "future polite state form with 있다",
+          "gloss": "tomorrow · morning.LOC · shop · door.NOM · ___",
+          "transliteration": "naeil achime gage muni ___.",
+          "cell": "future, state",
+          "display_order": 17
         }
       ],
       "prerequisites": [
@@ -15542,12 +14936,12 @@
           "display_order": 3
         },
         {
-          "sentence": "여름 날씨{{answer}} 좋다.",
+          "sentence": "문법{{answer}} 어렵고 단어는 쉬워요.",
           "answer": "은",
-          "translation": "Summer weather is nice.",
-          "hint": "topic particle in a general statement (word ends in a vowel sound? no — consonant-final noun)",
-          "gloss": "summer · ___ · good.PRS",
-          "transliteration": "yeoreum nalssi{{answer}} jota.",
+          "translation": "Grammar is hard, but words are easy.",
+          "hint": "particle attached to both compared items",
+          "gloss": "___ · difficult.CONN · word.TOP · easy.PRS.POL",
+          "transliteration": "munbeop{{answer}} eoryeopgo daneoneun swiwoyo.",
           "cell": "topic, after a consonant",
           "display_order": 4
         },
@@ -15630,6 +15024,26 @@
           "transliteration": "jeoneun haksaeng{{answer}} anieyo.",
           "cell": null,
           "display_order": 12
+        },
+        {
+          "sentence": "바나나{{answer}} 값이 싸요.",
+          "answer": "는",
+          "translation": "Bananas are cheap (in general).",
+          "hint": "topic particle used after a vowel",
+          "gloss": "___ · price.NOM · cheap.PRS.POL",
+          "transliteration": "banana{{answer}} gapsi ssayo.",
+          "cell": "topic, after a vowel",
+          "display_order": 13
+        },
+        {
+          "sentence": "밥{{answer}} 너무 딱딱해요.",
+          "answer": "이",
+          "translation": "This rice is too hard.",
+          "hint": "subject particle used after a consonant",
+          "gloss": "___ · too · hard.POL",
+          "transliteration": "bap{{answer}} neomu ttakttakhaeyo.",
+          "cell": "subject, after a consonant",
+          "display_order": 14
         }
       ],
       "prerequisites": [

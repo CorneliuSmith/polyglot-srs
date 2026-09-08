@@ -20,6 +20,17 @@ from backend.services.references import clean_references
 from backend.services.srs_stages import stage_for
 
 
+async def _point_retired_clause(conn, alias: str = "gp") -> str:
+    """`AND <alias>.retired_at IS NULL`, or nothing on a database behind
+    migration 20261017. Probed, not caught: a query naming a missing column
+    aborts the whole pooled transaction (`cards._retired_clause`)."""
+    from backend.services.auto_translate import column_present
+
+    if await column_present(conn, "grammar_points", "retired_at"):
+        return f"AND {alias}.retired_at IS NULL"
+    return ""
+
+
 async def resolve_related(
     conn: asyncpg.Connection, language_id: str, raw_related
 ) -> list[dict]:
@@ -160,6 +171,7 @@ async def get_curriculum(
         "$4",
     )
     staff = await staff_sees_all(conn, user_id, language_id)
+    point_retired = await _point_retired_clause(conn)
     rows = await conn.fetch(
         f"""
         SELECT
@@ -184,6 +196,7 @@ async def get_curriculum(
                     WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
                     WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
                     ELSE gp.reviewed END)
+          {point_retired}
         ORDER BY gp.level ASC NULLS LAST, gp.display_order ASC, gp.title ASC
         """,
         user_id,
@@ -427,8 +440,9 @@ async def search_content(
     user_cards join is RLS-scoped to the caller).
     """
     pattern = f"%{_like_escape(q)}%"
+    point_retired = await _point_retired_clause(conn)
     grammar = await conn.fetch(
-        """
+        f"""
         SELECT gp.id, gp.title, gp.level, gp.function_note,
                (uc.id IS NOT NULL) AS learned
         FROM grammar_points gp
@@ -443,6 +457,7 @@ async def search_content(
                     WHEN 'both' THEN (gp.reviewed AND gp.ai_check_status = 'pass')
                     WHEN 'ai_ok' THEN (gp.reviewed OR gp.ai_check_status = 'pass')
                     ELSE gp.reviewed END)
+          {point_retired}
           AND (gp.title ILIKE $2 OR gp.function_note ILIKE $2)
         ORDER BY gp.level NULLS LAST, gp.title
         LIMIT $4
