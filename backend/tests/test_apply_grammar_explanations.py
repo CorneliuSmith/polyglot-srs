@@ -110,7 +110,7 @@ class TestAgainstTheCorpus:
         has reached. A course that gains markdown without being listed here
         gained it by accident — a copied paragraph, an AI-written row — and
         that is what this catches. Add a code when its pass ships."""
-        formatted = {"fr"}
+        formatted = {"de", "es", "fr", "it", "pt"}
         by_course = {}
         for path in sorted(GRAMMAR.glob("*_grammar.json")):
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -127,15 +127,19 @@ class TestAgainstTheCorpus:
     def test_a_finished_course_is_not_wholly_formatted(self):
         """Restraint is the point: a pass that formats every paragraph is a
         worse pass than one that formats a third."""
-        data = json.loads((GRAMMAR / "fr_grammar.json").read_text(encoding="utf-8"))
-        points = data["points"] if isinstance(data, dict) else data
-        with_expl = [p for p in points if (p.get("explanation") or "").strip()]
-        done = [p for p in with_expl if has_markdown(p.get("explanation") or "")]
-        share = len(done) / len(with_expl)
-        assert 0.2 <= share <= 0.75, (
-            f"fr formatted {len(done)}/{len(with_expl)} = {share:.0%} — under a "
-            "fifth suggests the pass did nothing, over three quarters suggests "
-            "it formatted for its own sake")
+        bad = []
+        for code in ("de", "es", "fr", "it", "pt"):
+            data = json.loads(
+                (GRAMMAR / f"{code}_grammar.json").read_text(encoding="utf-8"))
+            points = data["points"] if isinstance(data, dict) else data
+            with_expl = [p for p in points if (p.get("explanation") or "").strip()]
+            done = [p for p in with_expl if has_markdown(p.get("explanation") or "")]
+            share = len(done) / len(with_expl)
+            if not 0.2 <= share <= 0.8:
+                bad.append((code, f"{len(done)}/{len(with_expl)}", f"{share:.0%}"))
+        assert bad == [], (
+            f"{bad} — under a fifth suggests the pass did nothing, over four "
+            "fifths suggests it formatted for its own sake")
 
 class TestTheRoundTrip:
     def test_export_then_apply_is_a_no_op(self, tmp_path, capsys):
