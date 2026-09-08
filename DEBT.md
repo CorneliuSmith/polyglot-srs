@@ -383,6 +383,33 @@ about languages outside its ten-language table. Both are deliberate — the
 cost of a false positive is a deleted English cue, so it is tuned to stay
 quiet when unsure.
 
+### A fill predicate stricter than the serve predicate is a permanent English row
+
+Fixed twice on 8 Sep 2026 (examples: `reviewed` alone versus the review
+page's `reviewed OR ai_ok/all`; drills: "any overlay row" versus field by
+field — LEARN.md → *What is pending is exactly what is served*). What is
+still true: the **learn-page** readers are stricter than the review page.
+`get_card_details_bulk`, `get_card_detail` and the word-detail read in
+`repositories/cards.py` take example sentences with `es.reviewed` alone,
+while `get_due_cards` (the review session) also serves generated
+sentences when the course's `grammar_review_policy` lets AI content
+through. So on an `ai_ok` course a learner meets a generated example on a
+review card that was not on the learn card for the same word. The fill
+now follows the more permissive read (the sentence is served *somewhere*),
+so nothing stays English — but the two pages disagree about what a learner
+may see, and that is a product decision, not a predicate to align
+silently: either the learn page adopts `served_example_sql` too, or the
+review page stops serving drafts. Not done here because it changes what
+learners are shown, and the owner has not chosen.
+
+Related and unchanged: the sweep's baseline lane (`baseline_pairs`) counts
+*words* only. A switched-off course whose starter-corpus allowance is
+spent drops out of the sweep entirely, sentence layer included; those rows
+reach a learner only through the demand lane (recorded on every card read
+they appear in) and the inline fill. That is by design — the toggle
+governs bulk spend — but it means "the sweep has the rest" in the inline
+fill's status is only true for switched-on courses.
+
 ### The two translation lanes disagree about what a support locale is
 
 `fill_start_batch` (the inline, session-time fill) resolves the locale with

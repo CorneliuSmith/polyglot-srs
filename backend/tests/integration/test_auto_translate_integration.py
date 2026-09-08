@@ -815,3 +815,156 @@ async def test_one_provider_error_does_not_end_the_cycle(pool, monkeypatch):
         assert await conn.fetchval(
             "SELECT count(*) FROM explanation_translations "
             "WHERE grammar_point_id = $1 AND locale = 'de2'", gp) == 1
+
+
+async def _policy(pool, code: str, policy: str) -> None:
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "UPDATE languages SET grammar_review_policy = $2 WHERE code = $1",
+            code, policy)
+
+
+async def _ai_example(pool, lang: str, vid: str, sentence: str,
+                      meaning: str) -> None:
+    """A generated English example: reviewed=false, so it is served only
+    where the course's policy lets AI content through."""
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "INSERT INTO example_sentences (language_id, vocabulary_id, "
+            "sentence, translation, translation_locale, source, reviewed) "
+            "VALUES ($1, $2, $3, $4, 'en', 'ai', false)",
+            lang, vid, sentence, meaning,
+        )
+
+
+async def test_the_fill_translates_every_example_the_card_serves(pool, monkeypatch):
+    """The French learner's Spanish card: gloss in French, all three "in
+    context" lines and the cloze under them in English — and nothing ever
+    changed it.
+
+    The review page serves an example when it is reviewed OR the course's
+    policy lets AI content through (ai_ok / all). Every fill predicate —
+    the demand detector, pending_examples, the readiness score — required
+    ``reviewed`` alone. So on an ai_ok course a generated sentence was on
+    the card and, to every lane, not work. One clause now
+    (visibility.served_example_sql), and the locale sibling inherits the
+    source's review state rather than being promoted past it.
+    """
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at15", "Servedish", auto=True)
+    await _policy(pool, "at15", "ai_ok")
+    await _lang(pool, "fr7", "French7", auto=False)
+    await _learner(pool, "fr@at15", course, "fr7")
+    decoy = await _word(pool, course, "decoy", 1, "decoy")
+    word = await _word(pool, course, "habitación", 2, "room")
+    async with pool.privileged_connection() as conn:
+        for vid, gloss in ((decoy, "leurre"), (word, "pièce")):
+            await conn.execute(
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "VALUES ($1, 'fr7', $2)", vid, gloss)
+    # The mock rejects the first item of every batch; the decoy takes it.
+    await _ai_example(pool, course, decoy, "Decoy one.", "The decoy.")
+    await _ai_example(pool, course, word, "¿Hay alguien en la habitación?",
+                      "Is there anyone in the room?")
+
+    async with pool.privileged_connection() as conn:
+        await note_missing_content(conn, "fr7", vocab_ids=[decoy, word])
+        demanded = {
+            str(r["ref_id"]) for r in await conn.fetch(
+                "SELECT ref_id FROM translation_demand "
+                "WHERE locale = 'fr7' AND kind = 'example'")}
+    assert demanded == {decoy, word}, \
+        "a served-but-unreviewed example must count as demand"
+
+    await _cycle(pool)
+
+    async with pool.privileged_connection() as conn:
+        sib = await conn.fetchrow(
+            "SELECT translation, reviewed FROM example_sentences "
+            "WHERE vocabulary_id = $1 AND translation_locale = 'fr7'", word)
+        assert sib is not None, "the served example was never translated"
+        assert sib["translation"] == "[French7] Is there anyone in the room?"
+        # A draft beside a draft: hides with its source if the policy is
+        # tightened, and the sweep's visibility repair leaves it alone.
+        assert sib["reviewed"] is False
+        assert not await words_with_pending_examples(
+            conn, course, "fr7", [word])
+
+    await _cycle(pool)
+    async with pool.privileged_connection() as conn:
+        assert await conn.fetchval(
+            "SELECT reviewed FROM example_sentences "
+            "WHERE vocabulary_id = $1 AND translation_locale = 'fr7'",
+            word) is False
+
+    # On a course that does NOT serve AI content the same row is invisible
+    # to the learner, and so — still — not work.
+    await _policy(pool, "at15", "human_only")
+    async with pool.privileged_connection() as conn:
+        await conn.execute(
+            "DELETE FROM translation_demand WHERE locale = 'fr7'")
+        await note_missing_content(conn, "fr7", vocab_ids=[decoy])
+        assert await conn.fetchval(
+            "SELECT count(*) FROM translation_demand WHERE locale = 'fr7'") == 0
+
+
+async def test_a_half_rendered_drill_is_demanded_again(pool, monkeypatch):
+    """Two of five drill lines under a French learner's Spanish grammar
+    point still read in English.
+
+    The checker can approve a drill's HINT and refuse its TRANSLATION; the
+    row is written with the hint alone. pending_drills reads that row
+    field by field and still wants the translation — but the demand
+    detector asked only "is there a row?", so the card read never recorded
+    demand for it again, and on a switched-off course nothing else would
+    ever re-read it. The detector is field-level now.
+    """
+    _mock_ai(monkeypatch)
+    course = await _lang(pool, "at16", "Halfish", auto=False)
+    await _lang(pool, "fr8", "French8", auto=False)
+    await _learner(pool, "fr@at16", course, "fr8")
+    async with pool.privileged_connection() as conn:
+        gp = await conn.fetchval(
+            "INSERT INTO grammar_points (language_id, title, level, reviewed, "
+            "display_order, explanation) VALUES ($1, 'Articles', 'A1', true, 1, "
+            "'Indefinite articles.') RETURNING id", course)
+        drills = []
+        for n, (en, hint) in enumerate((("I have a dog.", "masculine"),
+                                        ("It is a big house.", "feminine"))):
+            did = await conn.fetchval(
+                "INSERT INTO drill_sentences (grammar_point_id, sentence, "
+                "answer, source, reviewed, display_order, translation, hint) "
+                "VALUES ($1, 'Tengo ___ perro.', 'un', 'ai', true, $2, $3, $4) "
+                "RETURNING id", gp, n, en, hint)
+            # The hint rendered on an earlier pass; the translation did not.
+            await conn.execute(
+                "INSERT INTO drill_hint_translations (drill_id, locale, hint, "
+                "translation, reviewed) VALUES ($1, 'fr8', $2, NULL, false)",
+                did, f"[French8] {hint}")
+            drills.append(str(did))
+
+    async with pool.privileged_connection() as conn:
+        await note_missing_content(conn, "fr8", grammar_ids=[gp])
+        demanded = {
+            str(r["ref_id"]) for r in await conn.fetch(
+                "SELECT ref_id FROM translation_demand "
+                "WHERE locale = 'fr8' AND kind = 'drill'")}
+    assert demanded == set(drills), "a hint-only row is not a finished drill"
+
+    stats = await _cycle(pool)
+    assert stats["demand"] >= 1
+
+    async with pool.privileged_connection() as conn:
+        rows = {str(r["drill_id"]): r for r in await conn.fetch(
+            "SELECT drill_id, translation, hint FROM drill_hint_translations "
+            "WHERE locale = 'fr8'")}
+        # The mock refuses the first item of the batch; the second lands,
+        # filling the missing field without touching the hint.
+        landed = [d for d in drills if rows[d]["translation"]]
+        assert landed == [drills[1]], rows
+        assert rows[drills[1]]["translation"] == "[French8] It is a big house."
+        assert rows[drills[1]]["hint"] == "[French8] feminine"
+        # The refused one is back in the ledger, not retired.
+        assert await conn.fetchval(
+            "SELECT attempts FROM translation_attempts WHERE kind = 'drill' "
+            "AND ref_id = $1 AND locale = 'fr8'", drills[0]) >= 1

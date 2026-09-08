@@ -32,6 +32,7 @@ from backend.services.references import clean_references
 from backend.services.span_finders import span_finder
 from backend.services.srs_stages import stage_for
 from backend.services.topic_taxonomy import HIDDEN_TOPICS
+from backend.services.visibility import served_example_sql
 
 # What a romanised/phonetic line shows where the hidden word sits. Matches
 # the blank the sentence renders and the "___" cell an interlinear gloss
@@ -1355,16 +1356,18 @@ async def session_readiness(
                 list(vocab_ids), locale) or 0)
             ready += glossed
             cards_ready += glossed
-            # Words with nothing left to translate — phrased as "no reviewed
+            # Words with nothing left to translate — phrased as "no served
             # English example is missing its locale sibling" so a word that
             # simply HAS no examples counts as done, rather than holding the
-            # score below 100% forever. Mirrors the demand detector exactly.
+            # score below 100% forever. Mirrors the demand detector exactly,
+            # including what "served" means (served_example_sql).
             ready += 0 if not scores_examples else int(await conn.fetchval(
-                """SELECT count(*) FROM unnest($1::uuid[]) AS w(id)
+                f"""SELECT count(*) FROM unnest($1::uuid[]) AS w(id)
                     WHERE NOT EXISTS (
                         SELECT 1 FROM example_sentences es
                          WHERE es.vocabulary_id = w.id
-                           AND es.translation_locale = 'en' AND es.reviewed
+                           AND es.translation_locale = 'en'
+                           AND {served_example_sql("es")}
                            AND es.translation IS NOT NULL AND es.translation <> ''
                            AND NOT EXISTS (
                                SELECT 1 FROM example_sentences es2
