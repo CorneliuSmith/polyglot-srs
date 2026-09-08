@@ -14,7 +14,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "I, you, he, she, it, we, they. English never drops the pronoun — every sentence needs its subject.\n\n'I' is always capitalized, 'you' covers one person or many, and things and animals are usually 'it'.",
+      "explanation": "English never drops the pronoun — every statement needs its subject. Only a command leaves it out: Close the door.\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | I | we |\n| 2nd | you | you |\n| 3rd | he, she, it | they |\n\n'I' is always capitalized, 'you' covers one person or many, and things and animals are usually 'it'.",
       "culture_note": "There is no formal 'you' in modern English — politeness lives in phrasing ('Could you…?'), not pronouns.",
       "references": [
         {
@@ -96,7 +96,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Three forms in the present: I am, he/she/it is, you/we/they are.\n\nContractions rule everyday English: I'm, he's, they're.\n\nUnlike many languages, the verb can never be dropped: she IS a doctor.",
+      "explanation": "Three forms in the present, and everyday English contracts every one of them:\n\n| Subject | Form | Contraction |\n| --- | --- | --- |\n| I | am | I'm |\n| he / she / it | is | he's, she's, it's |\n| you / we / they | are | you're, we're, they're |\n\nUnlike many languages, the verb can never be dropped: she IS a doctor.",
       "culture_note": "",
       "references": [
         {
@@ -318,7 +318,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Most nouns add -s (books); nouns ending in -s, -sh, -ch, -x add -es (buses, watches); consonant + y becomes -ies (family → families).\n\nA few are irregular and unavoidable: child → children, man → men, woman → women, foot → feet, person → people.",
+      "explanation": "Three spellings cover almost every plural:\n\n- most nouns add `-s`: books\n- nouns ending in `-s`, `-sh`, `-ch` or `-x` add `-es`: buses, watches\n- consonant + y becomes `-ies`: family → families\n\nA few are irregular and unavoidable: child → children, man → men, woman → women, foot → feet, person → people.",
       "culture_note": "",
       "references": [
         {
@@ -466,7 +466,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "With he, she, and it, the present simple adds -s: she works, he plays.\n\nSpelling follows the plural rules: go → goes, watch → watches, study → studies.\n\nOne tiny letter — and the most forgotten one in all of English.",
+      "explanation": "With he, she, and it, the present simple adds `-s`: she works, he plays.\n\nSpelling follows the plural rules, and a verb ending in -o joins the -es group: go → goes, watch → watches, study → studies.\n\nOne tiny letter — and the most forgotten one in all of English.",
       "culture_note": "Native listeners barely notice a missing article, but a missing third-person -s ('she work') registers instantly. Worth drilling.",
       "references": [
         {
@@ -540,7 +540,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "English borrows 'do' to build questions and negatives: Do you speak English? She does not (doesn't) work here.\n\nWith he/she/it use does — and then the main verb LOSES its -s: does she work (not 'does she works').",
+      "explanation": "English borrows 'do' to build questions and negatives: Do you speak English? She does not work here.\n\n| Subject | Question | Negative |\n| --- | --- | --- |\n| I / you / we / they | do | don't |\n| he / she / it | does | doesn't |\n\nWith he, she or it the main verb LOSES its -s: does she work (not 'does she works').",
       "culture_note": "",
       "references": [
         {
@@ -720,7 +720,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "There is + singular (there is a book), there are + plural (there are two cafés). Questions flip: Is there a bank near here?\n\nNegatives: there is no milk / there aren't any questions.",
+      "explanation": "There is + singular, there are + plural: the verb agrees with the noun that follows. Questions flip the order, and negatives take no or any.\n\n| Type | Singular | Plural |\n| --- | --- | --- |\n| statement | there is a book | there are two cafés |\n| question | is there a bank? | are there any questions? |\n| negative | there is no milk | there aren't any questions |",
       "culture_note": "",
       "references": [
         {
@@ -794,7 +794,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "What, where, when, who, why, how — question word first, then the helper: Where do you live? What is your name?\n\nHow old are you? (age uses how + old, never 'how many years have you').",
+      "explanation": "Question word first, then the helper: Where do you live? What is your name?\n\n- what — a thing\n- where — a place\n- when — a time\n- who — a person\n- why — a reason\n- how — the way, or a degree when an adjective follows\n\nHow old are you? (age uses how + old, never 'how many years have you').",
       "culture_note": "",
       "references": [
         {
@@ -868,7 +868,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "My, your, his, her, its, our, their — they never change for the thing owned: my book, my books. People take 's: my brother's car.\n\nWatch its (possessive) vs it's (= it is) — natives get this wrong too.",
+      "explanation": "The possessive never changes for the thing owned: my book, my books.\n\n| Subject | Possessive |\n| --- | --- |\n| I | my |\n| you | your |\n| he | his |\n| she | her |\n| it | its |\n| we | our |\n| they | their |\n\nPeople take `'s`: my brother's car. Watch its (possessive) vs it's (= it is) — natives get this wrong too.",
       "culture_note": "",
       "references": [
         {
@@ -1024,7 +1024,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The continuous (am/is/are + -ing) is for NOW or around now: I'm reading. The simple is for habits and facts: I read every night.\n\nCues: at the moment, right now → continuous; always, every day, usually → simple.",
+      "explanation": "The continuous (am/is/are + `-ing`) is for NOW or around now: I'm reading. The simple is for habits and facts: I read every night.\n\n| Cue | Tense |\n| --- | --- |\n| at the moment, right now | continuous |\n| always, every day, usually | simple |",
       "culture_note": "",
       "references": [
         {
@@ -1090,7 +1090,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Short adjectives: -er / the -est (older, the oldest). Long adjectives: more / the most (more expensive, the most expensive).\n\nIrregulars: good → better → the best; bad → worse → the worst; far → further.",
+      "explanation": "Short adjectives take `-er` / the `-est` (older, the oldest). Long adjectives take more / the most (more expensive, the most expensive).\n\nIrregulars, learned whole:\n\n| Adjective | Comparative | Superlative |\n| --- | --- | --- |\n| good | better | the best |\n| bad | worse | the worst |\n| far | further | the furthest |",
       "culture_note": "",
       "references": [
         {
@@ -1156,7 +1156,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "be going to = a plan or something you can already see coming: I'm going to study tonight. Look — it's going to rain.\n\nwill = a decision made now, a promise, or an opinion about the future: I'll help you. It will be fine.",
+      "explanation": "**be going to** = a plan or something you can already see coming: I'm going to study tonight. Look — it's going to rain.\n\n**will** = a decision made now, a promise, or an opinion about the future: I'll help you. It will be fine. In speech will contracts to `'ll` after a pronoun.",
       "culture_note": "",
       "references": [
         {
@@ -1222,7 +1222,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "some in positives and offers: some water, some friends. any in negatives and questions: not any milk, any questions?\n\nmuch with uncountables (much time), many with countables (many people) — mostly in negatives and questions.",
+      "explanation": "some and any pick the sentence type; much and many pick the noun:\n\n- some — positives and offers: some water, some friends\n- any — negatives and questions: not any milk, any questions?\n- much — with uncountables: much time\n- many — with countables: many people\n\nAn offer is a question that still takes some: Would you like some tea?\n\nmuch and many belong mostly to negatives and questions.",
       "culture_note": "",
       "references": [
         {
@@ -1288,7 +1288,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "always, usually, often, sometimes, rarely, never.\n\nThey sit BEFORE a main verb (I always walk) but AFTER be (she is always late).",
+      "explanation": "always (every time), usually (most times), often (many times), sometimes (now and then), rarely (almost never), never (not once).\n\nWhere the word goes:\n\n- before a main verb: I always walk\n- after be: she is always late\n- after an auxiliary: I have never been to Japan",
       "culture_note": "",
       "references": [
         {
@@ -1362,7 +1362,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "can = ability or permission now: I can swim. could = past ability or a polite request: Could you help me?\n\nhave to = obligation from outside: I have to work tomorrow. Negative don't have to = no obligation (different from mustn't!).",
+      "explanation": "- can — ability or permission now: I can swim\n- could — past ability or a polite request: Could you help me?\n- have to — obligation from outside: I have to work tomorrow\n\nThe negative don't have to = no obligation, which is not the same as mustn't — that one means don't do it.",
       "culture_note": "",
       "references": [
         {
@@ -1428,7 +1428,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "at + clock times and points: at six, at night, at the weekend (BrE).\n\non + days and dates: on Monday, on 4 July.\n\nin + longer periods: in May, in 2020, in the morning.",
+      "explanation": "- at + clock times and points: at six, at night, at the weekend (BrE)\n- on + days and dates: on Monday, on 4 July\n- in + longer periods: in May, in 2020, in the morning",
       "culture_note": "",
       "references": [
         {
@@ -1494,7 +1494,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Present perfect (have + past participle) links past to now: I've lost my keys (they're still lost). Experience: I've been to Peru. Cues: ever, never, just, already, yet, since, for.\n\nA finished time (yesterday, in 2019, last week) forces the past simple: I lost them yesterday.",
+      "explanation": "The **present perfect** (have + past participle) links past to now: I've lost my keys (they're still lost). Experience: I've been to Peru.\n\nCues: ever, never, just, already, yet, since, for.\n\nA finished time (yesterday, in 2019, last week) forces the **past simple**: I lost them yesterday.",
       "culture_note": "",
       "references": [
         {
@@ -1560,7 +1560,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "First (real): If it rains, we'll stay in — if + present, will + verb.\n\nSecond (imagined): If I had more time, I would travel — if + past, would + verb. The past form doesn't mean past time; it means 'not real'.",
+      "explanation": "| Conditional | if-clause | main clause |\n|---|---|---|\n| First | if + present | will + verb |\n| Second | if + past | would + verb |\n\nThe first is a real future: If it rains, we'll stay in. The second is an imagined present: If I had more time, I would travel — the past form doesn't mean past time, it means 'not real'.\n\nWith be, the unreal form is were for every person: If I were rich, I would buy an island. Casual speech also says was, but were is the form to learn.",
       "culture_note": "",
       "references": [
         {
@@ -1626,7 +1626,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "be + past participle: This cheese is made in France. The bridge was built in 1932.\n\nUse it when the doer is unknown, obvious, or unimportant. Name the doer with by only when it matters.",
+      "explanation": "**be + past participle**: This cheese is made in France. The bridge was built in 1932.\n\nUse it when the doer is unknown, obvious, or unimportant. Name the doer with by only when it matters.",
       "culture_note": "",
       "references": [
         {
@@ -1692,7 +1692,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "who for people, which for things, that for either (defining only), where for places, whose for possession.\n\nThe woman who lives next door. The book that changed my life. You can drop the pronoun when it's the object: the film (that) we saw.",
+      "explanation": "- who — people\n- which — things\n- that — either, but only in a defining clause\n- where — places\n- whose — possession\n\nA defining clause says which one you mean and takes no commas: the woman who lives next door, the book that changed my life. A clause between commas only adds extra information, and that cannot introduce one: The train, which was already late, then broke down.\n\nYou can drop the pronoun when it's the object: the film (that) we saw.",
       "culture_note": "",
       "references": [
         {
@@ -1758,7 +1758,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "used to + verb: I used to smoke (I don't now). There used to be a cinema here.\n\nNegative and question drop the d: didn't use to, Did you use to…? Don't confuse with be used to (= be accustomed to).",
+      "explanation": "**used to** + verb: I used to smoke (I don't now). There used to be a cinema here.\n\nNegative and question drop the d: didn't use to, Did you use to…? Don't confuse with be used to (= be accustomed to).",
       "culture_note": "",
       "references": [
         {
@@ -1824,7 +1824,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Statements step one tense back: 'I'm tired' → she said she was tired. 'I'll come' → he said he would come.\n\nQuestions use if/whether or the question word, with normal word order: she asked if I was ready; he asked where I lived.",
+      "explanation": "Statements step one tense back:\n\n| Direct | Reported |\n|---|---|\n| am, is | was |\n| will | would |\n| can | could |\n| bought | had bought |\n\n'I'm tired' → she said she was tired. 'I'll come' → he said he would come.\n\nQuestions use if/whether or the question word, with normal word order: she asked if I was ready; he asked where I lived.",
       "culture_note": "",
       "references": [
         {
@@ -1890,7 +1890,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Gerund (-ing) after enjoy, finish, avoid, mind, suggest: I enjoy cooking.\n\nInfinitive (to + verb) after want, decide, hope, plan, promise: I decided to leave.\n\nSome verbs take both with a meaning change: stop smoking (quit) vs stop to smoke (pause in order to).",
+      "explanation": "Gerund (`-ing`) after enjoy, finish, avoid, mind, suggest: I enjoy cooking.\n\nInfinitive (to + verb) after want, decide, hope, plan, promise: I decided to leave.\n\nSome verbs take both with a meaning change: stop smoking (quit) vs stop to smoke (pause in order to).",
       "culture_note": "",
       "references": [
         {
@@ -1956,7 +1956,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Third (unreal past): If I had known, I would have come — if + past perfect, would have + participle.\n\nMixed (past cause, present result): If I had saved money, I would be rich now.",
+      "explanation": "| Conditional | if-clause | main clause |\n|---|---|---|\n| Third | if + past perfect | would have + participle |\n| Mixed | if + past perfect | would + verb |\n\nThird (unreal past): If I had known, I would have come.\n\nMixed (past cause, present result): If I had saved money, I would be rich now. The condition is still past, but the result is now, so it takes would without have.",
       "culture_note": "",
       "references": [
         {
@@ -2022,7 +2022,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "must = almost certain it's true: she must be home, the lights are on. can't = almost certain it's false: that can't be right.\n\nmight/may/could = possible. For the past add have: he must have missed the train.",
+      "explanation": "- must — almost certain it's true: she must be home, the lights are on\n- can't — almost certain it's false: that can't be right\n- might, may, could — possible\n\nFor the past add have: he must have missed the train.",
       "culture_note": "",
       "references": [
         {
@@ -2154,7 +2154,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "wish + past = a present regret: I wish I knew. wish + past perfect = a past regret: I wish I had gone.\n\nwish + would = complaining about others: I wish you would listen.",
+      "explanation": "Three parallel patterns with the same shape (wish + X = regret) — a list. Two content holes: 'if only' is half the title and the answer to drill 4, and appeared nowhere in the text; and drill 5 (He wishes he were taller) drills the were form, which the text also never mentioned. Both added in the closing paragraph. The lead names the backshift that all three patterns share, with **wish** bolded on first appearance.",
       "culture_note": "",
       "references": [
         {
@@ -2220,7 +2220,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Separable: turn the light off / turn off the light — but a pronoun must split: turn it off (never turn off it).\n\nInseparable: look after the kids → look after them. You have to learn which is which.",
+      "explanation": "Left byte-identical. Two contrasted cases stay prose by house style, and every drill is covered: the pronoun split (drill 1, 'turn it off'), inseparable look after / take after (drills 2, 6), and the separable particles fill in, pick up, put off. The arrow in 'look after the kids → look after them' is one arrow, below the typesetter's two-arrow threshold, so the paragraph renders as prose exactly as it does today. Markdown would say nothing the prose does not.",
       "culture_note": "",
       "references": [
         {
@@ -2352,7 +2352,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "After negative openers the auxiliary comes before the subject: Never have I seen such a mess. Not only did he lie, he stole.\n\nOpeners: never, rarely, seldom, not only, no sooner … than, under no circumstances, only then.",
+      "explanation": "Left as prose. The second paragraph ('Openers: never, rarely, seldom…') is already the typesetter's label-plus-forms chip shape, so a markdown list there would replace a rendered chip with bullets and say nothing new — kept byte-identical. One content gap in the first paragraph: 'the auxiliary comes before the subject' assumes an auxiliary exists, but three of six drills (does, do, did) require inventing do-support, which the text never mentioned. Added one sentence for it.",
       "culture_note": "",
       "references": [
         {
@@ -2418,7 +2418,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "What-cleft: What I need is a holiday. It-cleft: It was Anna who broke the news.\n\nThe cleft turns one flat sentence into a focus and a background — essential for natural emphasis in writing.",
+      "explanation": "Two cleft types named, three drilled: drill 5 answers 'All' (All she wants is a little respect) and the All-cleft appeared nowhere. Three parallel types now render as a list. Two further gaps closed in prose: the pivot is a form of be (drill 3 answers 'is'), and the it-cleft link is who for a person, that otherwise (drills 2 and 6 answer 'who' and 'that' — the text showed only who). The original's register note about natural emphasis in writing is kept.",
       "culture_note": "",
       "references": [
         {
@@ -2484,7 +2484,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "English softens claims: it would seem that, this suggests, there appears to be, X tends to.\n\nThe passive distances further: it is believed that, it has been argued that. Essential for academic and professional register.",
+      "explanation": "Left byte-identical. Every one of the six drills has its pattern named in the text (seem, tend to, appears to be, suggests, is believed that, has been argued that), so there is nothing to correct, and the two paragraphs are already an inline menu of stock phrases: bulleting four comma-separated phrases would add vertical space and no information. Checked that neither paragraph accidentally trips the typesetter's chip detector — both render as plain prose.",
       "culture_note": "",
       "references": [
         {
@@ -2550,7 +2550,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Present participle for same-time actions: Walking home, I saw Ana. Perfect participle for earlier actions: Having finished the report, she left.\n\nThe implied subject must match the main clause — or you've written a dangling modifier.",
+      "explanation": "The clearest mid-run stop in the slice: the text names the present and perfect participles, but drills 3 and 6 answer 'Built' and 'Shocked' — past participles with passive meaning — and drill 4 answers 'knowing' behind a fronted 'Not'. Half the drilled forms had no rule. Four parallel cases now render as a list, and the dangling-modifier warning is kept as the closing prose, where it applies to all four.",
       "culture_note": "",
       "references": [
         {
@@ -2616,7 +2616,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "After demand, insist, recommend, suggest, essential, vital — formal English uses the bare form for all persons: they insisted that he BE present; it is vital that she ARRIVE on time.\n\nBritish English often uses should instead: insisted that he should be present.",
+      "explanation": "The trigger run 'demand, insist, recommend, suggest, essential, vital' read as one list of verbs, but the last two are adjectives and only work inside 'it is … that' — which is exactly the frame of drills 2 and 5. Split the two kinds. The shouted BE and ARRIVE become ordinary text with bold on **be**, its first appearance and the form the point is named for; that is typography, not content. The British 'should' alternative is kept — it is one of only two places the whole course names a variety (docs/quality/en.md).",
       "culture_note": "",
       "references": [
         {
@@ -2682,7 +2682,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "so/neither echo: I love jazz — So do I. He can't swim — Neither can I.\n\ndo so replaces a whole verb phrase in formal prose: asked to leave, he did so at once. if so / if not compress conditions.",
+      "explanation": "Four devices, four parallel cases — a list. Drill 6 answers 'have' in 'Nor have I', and 'nor' was named nowhere in the text, so a learner met it first in a drill. Added, alongside the rule drill 6 actually tests: in an echo the auxiliary comes back and stands before the subject. That is what makes the answer 'have' rather than 'I'. All the original's material (so/neither, do so, if so / if not) is preserved.",
       "culture_note": "",
       "references": [
         {
@@ -2814,7 +2814,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Regular verbs form the past with -ed: work → worked, play → played. Spelling: verbs ending in -e just add -d (live → lived); consonant + y becomes -ied (study → studied); short stressed vowels double the final consonant (stop → stopped).\n\nThe -ed has three sounds: /t/ after voiceless sounds (worked), /d/ after voiced sounds (lived), and /ɪd/ after t or d (wanted).\n\nQuestions and negatives use did + base verb — the -ed disappears: Did you work? I didn't work.",
+      "explanation": "The spelling rules were three semicolon-joined clauses inside a tail paragraph — now four list items, with inline code on the endings quoted as strings. Two corrections. The doubling rule read 'short stressed vowels double the final consonant', which as written predicts *helpped and *workked; it needs the single-final-consonant condition. And drill 5 ('We played football') tests vowel + y, which the -ied rule only implies — now stated. The first paragraph is deliberately left plain so the typesetter keeps rendering work → worked, play → played as its arrow table, and the three -ed sounds are left byte-identical because that paragraph already typesets as a two-column table.",
       "culture_note": "",
       "references": [
         {
@@ -2898,7 +2898,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 13,
-      "explanation": "Every subject pronoun has an object partner: I → me, you → you, he → him, she → her, it → it, we → us, they → them. Use the object form after a verb (She knows me) and after a preposition (with him, for us).\n\nEnglish word order does the work a case system would: subject before the verb, object after it.",
+      "explanation": "A seven-row person-by-case paradigm written as an inline arrow run. The typesetter already tables it, but without labels, so the learner sees fourteen forms and must infer which column is which — the labelled table says it. Header row Subject / Object, cells forms only; the usage prose (after a verb, after a preposition) and the word-order note follow as their own paragraphs. No content changed: every pair, both examples and the closing observation are the original's.",
       "culture_note": "",
       "references": [
         {
@@ -2978,7 +2978,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 14,
-      "explanation": "To tell someone to do something, use the base verb with no subject: Open the window. Come in. Add please to soften it.\n\nThe negative uses don't + base verb — for EVERY verb, including be: Don't worry. Don't be late.",
+      "explanation": "Bold on **don't**, the form the second half of the point teaches, on its first appearance. One content gap: the text says 'Add please to soften it' without saying where it goes, and the drills use both positions — 'Open the door, please' (drill 1) and 'Please sit down' (drill 6). Now stated. Left 'for EVERY verb' as it stands: capitals for emphasis are an existing house habit in this corpus (German's 'THREE genders'), and the one bold in the paragraph belongs on the form.",
       "culture_note": "Bare imperatives can sound abrupt in English — natives soften constantly: Could you open the window? rather than Open the window.",
       "references": [
         {

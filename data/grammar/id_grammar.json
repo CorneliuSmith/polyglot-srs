@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Indonesian verbs never change form for person, number, or tense — the same word mau means \"want,\" \"wants,\" and \"wanted,\" no matter who's speaking or when. Saya mau, kamu mau, dia mau, kami mau — same verb every time. Tense and aspect are shown by separate marker words instead of by changing the verb itself.",
+      "explanation": "Indonesian verbs never change form for person, number, or tense — the same word **mau** means \"want,\" \"wants,\" and \"wanted,\" no matter who's speaking or when.\n\n| Indonesian | English |\n| --- | --- |\n| Saya mau makan. | I want to eat. |\n| Dia mau makan. | He wants to eat. |\n| Kami mau makan. | We want to eat. |\n| Kemarin dia mau makan. | Yesterday he wanted to eat. |\n\nTense and aspect are shown by separate marker words instead of by changing the verb itself.",
       "drills": [
         {
           "sentence": "Saya {{answer}} makan.",
@@ -107,7 +107,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Indonesian adjectives come AFTER the noun they describe, the reverse of English: rumah besar, literally \"house big,\" means \"a big house,\" not \"big house.\" Buku baru = \"a new book,\" teman baik = \"a good friend.\"",
+      "explanation": "Indonesian adjectives come after the noun they describe, the reverse of English:\n\n- rumah besar — a big house, literally \"house big\"\n- buku baru — a new book\n- teman baik — a good friend\n\nThe adjective stays directly after its noun even when something else follows: teman baru saya \"my new friend,\" restoran kecil itu \"that small restaurant.\"",
       "drills": [
         {
           "sentence": "rumah {{answer}}",
@@ -233,7 +233,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "To show possession, Indonesian just places the owner right after the noun — no word for \"of\" and no apostrophe-s needed: rumah saya, literally \"house I,\" means \"my house.\" Buku dia = \"his/her book.\"",
+      "explanation": "To show possession, Indonesian just places the owner right after the noun — no word for \"of\" and no apostrophe-s needed: **rumah saya**, literally \"house I,\" means \"my house,\" and buku dia is \"his/her book.\"\n\nThe owner slot can itself be a noun with an owner of its own, in the same order: mobil ayah saya \"my father's car.\"",
       "drills": [
         {
           "sentence": "rumah {{answer}}",
@@ -292,7 +292,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Indonesian often shows plurality by doubling the whole word: buku (\"book\") → buku-buku (\"books\"); anak (\"child\") → anak-anak (\"children\"). Reduplication isn't required everywhere — a number or context already makes plurality clear — but it's the classic native way to say \"many\" of something.",
+      "explanation": "Indonesian shows plurality by doubling the whole word, and the hyphen is part of the spelling: **buku-buku**, never buku buku.\n\nbuku (\"book\") → buku-buku (\"books\"); anak (\"child\") → anak-anak (\"children\").\n\nReduplication isn't required everywhere. After a number the noun stays single — tiga buku \"three books,\" not tiga buku-buku — and context often carries the plural on its own; doubling is the classic native way to say \"many\" of something.",
       "drills": [
         {
           "sentence": "Di rumah ada {{answer}}.",
@@ -418,7 +418,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "The easiest way to ask a yes/no question is to place apakah at the very front of the sentence — the word order after it doesn't change at all: Apakah kamu mau makan? (\"Do you want to eat?\"), literally \"[question] you want eat?\" In casual speech, apakah is often dropped and rising intonation alone signals the question.",
+      "explanation": "The easiest way to ask a yes/no question is to place **apakah** at the very front of the sentence — the word order after it doesn't change at all: Apakah kamu mau makan? (\"Do you want to eat?\"), literally \"[question] you want eat?\" In casual speech, apakah is often dropped and rising intonation alone signals the question.",
       "drills": [
         {
           "sentence": "{{answer}} kamu mau makan?",
@@ -485,7 +485,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Indonesian pronouns encode social distinctions English doesn't: kamu is informal \"you,\" while anda is the formal, polite version used with strangers or in writing. \"We\" also splits in two: kita includes the person you're talking to, kami excludes them — a difference English simply doesn't mark.",
+      "explanation": "Indonesian pronouns encode two social distinctions English doesn't mark at all:\n\n| Pronoun | Meaning |\n| --- | --- |\n| kamu | you, informal |\n| Anda | you, formal |\n| kita | we, including the listener |\n| kami | we, excluding the listener |\n\nkamu is for friends, family and children; Anda for strangers and for writing, and it is conventionally spelled with a capital A wherever it stands in the sentence.",
       "drills": [
         {
           "sentence": "{{answer}} mau makan?",
@@ -552,7 +552,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "meN- is the standard active-verb prefix, and its nasal ADAPTS to the first sound of the root: b/p → mem- (baca → membaca, potong → memotong), d/t → men- (dengar → mendengar, tulis → menulis), g/k/vowel → meng- (ganggu → mengganggu, kirim → mengirim, ambil → mengambil), s → meny- (sewa → menyewa), and l/m/n/r/w/y → me- (lihat → melihat). With p, t, k, s the first letter usually DROPS: potong → memotong, not *mempotong. Dictionaries list the bare root, so recognising the pattern is how you look a word up.",
+      "explanation": "**meN-** is the standard active-verb prefix, and its nasal adapts to the first sound of the root:\n\n| Root begins with | Prefix | Example |\n| --- | --- | --- |\n| b, p | mem- | baca → membaca |\n| c, d, j, t | men- | tulis → menulis |\n| g, h, k, vowels | meng- | ambil → mengambil |\n| s | meny- | sewa → menyewa |\n| l, m, n, r, w, y | me- | lihat → melihat |\n\nWith p, t, k and s the first letter of the root usually drops: potong → memotong, not mempotong; tulis → menulis; kirim → mengirim; sewa → menyewa. b, c, d, g and j stay: baca → membaca, cari → mencari, jual → menjual.\n\nDictionaries list the bare root, so recognising the pattern is how you look a word up.",
       "drills": [
         {
           "sentence": "Saya {{answer}} buku setiap malam.",
@@ -619,7 +619,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "ber- makes verbs that take no object — activities (berjalan 'walk', berenang 'swim', bekerja 'work'), states (berdiri 'stand'), and 'having' (beranak 'have children', berambut panjang 'have long hair'). Before a root starting with r, and in a few fixed words, it shortens to be-: ber + renang → berenang, ber + kerja → bekerja. Where meN- points AT something, ber- doesn't.",
+      "explanation": "**ber-** makes verbs that take no object:\n\n- activities: berjalan \"walk,\" berenang \"swim,\" bekerja \"work\"\n- states: berdiri \"stand\"\n- having: beranak \"have children,\" berambut panjang \"have long hair\"\n\nBefore a root starting with r, and in a few fixed words, it shortens to be-: ber + renang → berenang, ber + kerja → bekerja. One old irregular swaps the r for an l instead: ber + ajar → belajar \"study.\" Where meN- takes an object, ber- doesn't.",
       "drills": [
         {
           "sentence": "Anak-anak {{answer}} di taman.",
@@ -678,7 +678,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 11,
-      "explanation": "Indonesian uses the passive far more than English. Swap meN- for di- and the object becomes the subject: Saya membaca buku itu → Buku itu dibaca (oleh saya). The agent is optional and marked with oleh. This is neutral, everyday word order — not the formal, evasive register English passive carries.",
+      "explanation": "Indonesian uses the passive far more than English, and it is neutral, everyday word order — not the formal, evasive register the English passive carries. Swap meN- for **di-** and the object becomes the subject; the agent is optional and follows oleh.\n\nRibuan orang membaca buku itu → Buku itu dibaca oleh ribuan orang.\n\nWith a first- or second-person agent, Indonesian normally avoids di- … oleh saya and uses the other passive instead: the pronoun goes straight in front of the bare root — Buku itu saya baca \"I read that book.\"",
       "drills": [
         {
           "sentence": "Buku itu {{answer}} oleh ribuan orang.",
@@ -745,7 +745,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 12,
-      "explanation": "lebih X (daripada Y) is 'more X (than Y)': Dia lebih tinggi daripada saya. For the superlative you have two choices — paling X (paling besar) or the prefix ter- (terbesar); they mean the same, ter- is tighter and commoner in writing. 'Less' is kurang, and 'as … as' is se-: setinggi 'as tall as'.",
+      "explanation": "Indonesian builds comparison out of a few small markers around the adjective:\n\n| Meaning | Marker | Example |\n| --- | --- | --- |\n| more … than | lebih … daripada | lebih tinggi daripada saya |\n| most | paling | paling besar |\n| most | ter- | terbesar |\n| as … as | se- | setinggi saya |\n| less | kurang | kurang tinggi |\n\npaling and ter- mean the same thing; ter- is tighter and commoner in writing. daripada introduces whatever the comparison is measured against. Beside setinggi saya, \"as tall as me\" can also be said in full as sama tinggi dengan saya.",
       "drills": [
         {
           "sentence": "Dia {{answer}} tinggi daripada saya.",
@@ -796,7 +796,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 13,
-      "explanation": "A number doesn't attach straight to a noun in careful Indonesian — a classifier sits between: orang for people (tiga orang guru), ekor for animals (dua ekor kucing), buah for things (lima buah rumah). Everyday speech often drops buah, but orang and ekor are alive and expected.",
+      "explanation": "A number doesn't attach straight to a noun in careful Indonesian — a classifier sits between the number and the noun:\n\n| Classifier | Counts | Example |\n| --- | --- | --- |\n| orang | people | tiga orang guru |\n| ekor | animals | dua ekor kucing |\n| buah | things | lima buah rumah |\n\nEveryday speech often drops buah, but orang and ekor are alive and expected. After berapa \"how many\" the classifier can stand on its own, with no noun behind it: untuk berapa orang? \"for how many people?\"",
       "drills": [
         {
           "sentence": "Ada tiga {{answer}} guru di sini.",
@@ -863,7 +863,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 14,
-      "explanation": "ada covers 'there is/are', 'to be present', and informally 'to have': Ada masalah 'There's a problem', Dia ada di kantor 'He's at the office', Saya ada uang 'I have money' (punya is the careful word for owning). Negated it becomes tidak ada.",
+      "explanation": "**ada** covers three jobs:\n\n- there is / there are: Ada masalah. \"There's a problem.\"\n- to be present: Dia ada di kantor. \"He's at the office.\"\n- to have, informally: Saya ada uang. \"I have money.\"\n\npunya is the careful word for owning. Negated, ada becomes tidak ada: Tidak ada orang di rumah \"There's nobody at home.\"",
       "drills": [
         {
           "sentence": "{{answer}} masalah dengan komputer ini.",
@@ -922,7 +922,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 15,
-      "explanation": "apa 'what', siapa 'who', di mana 'where', ke mana 'where to', kapan 'when', mengapa/kenapa 'why', bagaimana 'how', berapa 'how much/many'. Unlike English they usually stay where the answer would go: Kamu tinggal di mana? not *Di mana kamu tinggal? (though fronting is fine and common too).",
+      "explanation": "The question words are:\n\n| Question word | Meaning |\n| --- | --- |\n| apa | what |\n| siapa | who |\n| di mana | where |\n| ke mana | where to |\n| dari mana | where from |\n| kapan | when |\n| mengapa, kenapa | why |\n| bagaimana | how |\n| berapa | how much, how many |\n\nA question word usually stays in the slot the answer would fill rather than moving to the front: Kamu tinggal di mana? 'Where do you live?', Kamu sedang membaca apa? 'What are you reading?'. Fronting is grammatical too, and for the adverbial words it is the ordinary order: Kapan kamu datang?, Bagaimana cara pergi ke stasiun?. kenapa is the spoken form, mengapa the written one.",
       "drills": [
         {
           "sentence": "Kamu tinggal di {{answer}}?",
@@ -1056,7 +1056,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 17,
-      "explanation": "di 'at/in/on' (static), ke 'to' (motion toward), dari 'from' (origin). They combine with position nouns for detail: di atas meja 'on the table', di dalam kotak 'inside the box', di depan rumah 'in front of the house'. Keep di the preposition (written separate) apart from di- the passive prefix (written joined).",
+      "explanation": "Three prepositions, one for each relation:\n\n- di 'at, in, on' — static location\n- ke 'to' — motion toward\n- dari 'from' — origin\n\nThey combine with position nouns for detail: di atas meja 'on the table', di dalam kotak 'inside the box', di depan rumah 'in front of the house', di bawah kursi 'under the chair'. Keep di the preposition, written separate, apart from `di-` the passive prefix, written joined.",
       "drills": [
         {
           "sentence": "Buku itu ada {{answer}} atas meja.",
@@ -1123,7 +1123,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 18,
-      "explanation": "Indonesian marks aspect with free words before the verb, never on the verb: sedang/lagi 'in the middle of', masih 'still', sudah 'already', belum 'not yet', pernah 'have ever', baru (saja) 'just now', akan 'will'. belum and pernah are the pair English learners miss: Saya belum makan 'I haven't eaten YET' — the meal is still expected.",
+      "explanation": "Indonesian marks aspect with free words in front of the verb, never on the verb itself:\n\n| Marker | Meaning |\n| --- | --- |\n| sedang | in the middle of |\n| masih | still |\n| sudah | already |\n| belum | not yet |\n| pernah | ever, at some time |\n| baru | just now |\n| akan | will |\n\nIn casual speech lagi replaces sedang, and baru is usually reinforced by saja: Saya baru saja sampai 'I've just arrived'.\n\nbelum is the one English learners miss. Saya belum makan is 'I haven't eaten yet' — the meal is still expected — where Saya tidak makan would be 'I'm not eating'. Its answer is sudah, and belum pernah covers 'have never so far': Saya belum pernah makan durian.",
       "drills": [
         {
           "sentence": "Saya {{answer}} makan sekarang.",
@@ -1190,7 +1190,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 19,
-      "explanation": "-kan does two jobs. Causative: besar 'big' → membesarkan 'enlarge'; jatuh 'fall' → menjatuhkan 'drop'. Benefactive: membeli 'buy' → membelikan 'buy FOR someone' (Saya membelikan dia buku). It also makes an intransitive verb take an object: duduk 'sit' → mendudukkan 'seat someone'.",
+      "explanation": "`-kan` does two jobs. The first is causative: the subject makes something undergo the action, and a root that took no object gains one.\n\n| Root | With -kan | Meaning |\n| --- | --- | --- |\n| besar | membesarkan | enlarge |\n| jatuh | menjatuhkan | drop |\n| duduk | mendudukkan | seat someone |\n\nThe second is benefactive: the action is done for someone.\n\n| Root | With -kan | Meaning |\n| --- | --- | --- |\n| beli | membelikan | buy for someone |\n| ambil | mengambilkan | fetch for someone |\n\nSo Saya membelikan adik saya buku is 'I bought my sibling a book'. In an imperative the meN- prefix drops and the bare root keeps the suffix: Tolong bukakan pintu 'Please open the door for me'.",
       "drills": [
         {
           "sentence": "Saya {{answer}} adik saya sebuah buku.",
@@ -1249,7 +1249,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 20,
-      "explanation": "-i marks the object as a LOCATION or surface (duduk 'sit' → menduduki 'occupy'; datang 'come' → mendatangi 'go to'), or makes the action repeated/plural (pukul 'hit' → memukuli 'beat repeatedly'). Compare with -kan: menanamkan pohon 'plant a tree (cause it to be planted)' vs menanami kebun 'plant the garden (cover it)'.",
+      "explanation": "`-i` aims the verb at a place or a surface and makes it the direct object, so no di or ke follows:\n\n| Root | With -i | Meaning |\n| --- | --- | --- |\n| duduk | menduduki | occupy |\n| datang | mendatangi | come to |\n| naik | menaiki | climb |\n| hubung | menghubungi | contact |\n\nIt also marks an action done repeatedly or to many objects: from pukul 'hit', memukuli 'beat repeatedly'.\n\nCompare `-kan`, which puts the thing moved into object position: menanamkan pohon is 'plant a tree', menanami kebun is 'plant the garden' — the garden is what gets covered.",
       "drills": [
         {
           "sentence": "Tentara {{answer}} kota itu.",
@@ -1308,7 +1308,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 21,
-      "explanation": "peN- takes the same nasal changes as meN- and names the agent or instrument: baca → pembaca 'reader', tulis → penulis 'writer', kerja → pekerja 'worker', dingin → pendingin 'cooler'. Learn it beside meN- — same nasal rule, so one pattern buys you both.",
+      "explanation": "peN- names the person or the thing that does something, and it takes the same nasal changes as meN-, so the verb prefix you already know gives you the noun.\n\n| Root | peN- noun | Meaning |\n| --- | --- | --- |\n| baca | pembaca | reader |\n| tulis | penulis | writer |\n| jual | penjual | seller |\n| ajar | pengajar | teacher |\n| nyanyi | penyanyi | singer |\n| dingin | pendingin | cooler |\n| kerja | pekerja | worker |\n\npendingin is the instrument sense: a thing that cools rather than a person. kerja is the exception in the table — a small set of roots takes a plain pe- where meN- would nasalise: the verb is mengerjakan, but the noun is pekerja. Learn peN- beside meN-, and one nasal rule buys you both.",
       "drills": [
         {
           "sentence": "Dia seorang {{answer}} terkenal.",
@@ -1375,7 +1375,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 22,
-      "explanation": "ke-...-an makes abstractions and states: bebas 'free' → kebebasan 'freedom'; ada → keadaan 'situation'. It also makes accidental/adversative verbs: hujan → kehujanan 'get caught in the rain'. per-...-an names the process or the place: usaha → perusahaan 'company'; tani → pertanian 'agriculture'. These two build most of the abstract vocabulary in a newspaper.",
+      "explanation": "`ke-...-an` builds an abstract noun — a state or a quality — out of an adjective or a verb:\n\n| Root | Noun | Meaning |\n| --- | --- | --- |\n| bebas | kebebasan | freedom |\n| sehat | kesehatan | health |\n| sempat | kesempatan | chance |\n| ada | keadaan | situation |\n\nThe same circumfix also makes accidental or adversative verbs, where something happens to you: from hujan 'rain', kehujanan 'get caught in the rain'.\n\n`per-...-an` names a process, a field, or the place where it goes on:\n\n| Root | Noun | Meaning |\n| --- | --- | --- |\n| usaha | perusahaan | company |\n| tani | pertanian | agriculture |\n| pustaka | perpustakaan | library |\n\nBetween them these two build most of the abstract vocabulary in a newspaper.",
       "drills": [
         {
           "sentence": "Mereka memperjuangkan {{answer}}.",
@@ -1442,7 +1442,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 23,
-      "explanation": "yang links a noun to whatever describes it — a clause, an adjective, a whole phrase: orang yang tinggi 'the person who is tall', buku yang saya baca 'the book that I read'. It also nominalises on its own: yang merah 'the red one'. It is the single most frequent grammatical word in Indonesian prose.",
+      "explanation": "**yang** links a noun to whatever describes it:\n\n- an adjective: orang yang tinggi 'the person who is tall'\n- a clause: buku yang saya baca 'the book that I read'\n- a place phrase: rumah yang di sebelah kantor pos 'the house next to the post office'\n\nWith no noun in front of it, yang nominalises on its own: yang merah 'the red one', Mana yang lebih murah? 'Which one is cheaper?'. Where English can leave the relative pronoun out — 'the book I read' — Indonesian keeps yang. It is the single most frequent grammatical word in Indonesian prose.",
       "drills": [
         {
           "sentence": "Orang {{answer}} tinggi itu guru saya.",
@@ -1509,7 +1509,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 24,
-      "explanation": "Type 1 is di- + verb, for third persons: Buku itu dibaca oleh Ali. Type 2 drops di- and puts a FIRST or SECOND person pronoun straight before the bare root: Buku itu saya baca 'The book was read by me', Buku itu kamu baca. Saying *dibaca oleh saya is understood but marked — native speakers use type 2.",
+      "explanation": "Type 1 is di- + verb, used when the agent is third person or left unsaid: Buku itu dibaca oleh Ali. Oleh may be dropped when the agent follows the verb immediately: Kue ini dibuat nenek saya. Type 2 has no di-: a first or second person pronoun stands straight before the bare root, as in Buku itu saya baca 'The book was read by me' and Buku itu kamu baca. Nothing may come between that pronoun and the root, so an aspect marker or a modal goes in front of the pronoun: Nasi itu sudah kamu makan, Masalah ini harus kita selesaikan. Dibaca oleh saya is understood but marked — native speakers use type 2.",
       "drills": [
         {
           "sentence": "Surat itu {{answer}} baca kemarin.",
@@ -1568,7 +1568,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 25,
-      "explanation": "untuk + verb/noun is 'for, in order to' (Saya datang untuk belajar). supaya and agar introduce a purpose CLAUSE with its own subject (Saya belajar supaya bisa lulus 'so that I can pass'); agar is the more formal of the two. biar is the colloquial equivalent.",
+      "explanation": "Four ways to say what something is for, differing in what may follow and in register:\n\n| Word | What follows | Register |\n| --- | --- | --- |\n| untuk | a bare verb, or a noun | neutral |\n| supaya | a clause | everyday |\n| agar | a clause | formal, written |\n| biar | a clause | colloquial |\n\nuntuk is 'for, in order to': Saya datang untuk belajar 'I came to study', Ini untuk kamu 'This is for you'. It cannot introduce a subject of its own, so where the purpose clause has a different subject the sentence needs supaya or agar: Dia bekerja keras supaya anaknya bisa sekolah 'He works hard so his child can study'.",
       "drills": [
         {
           "sentence": "Saya datang {{answer}} belajar.",
@@ -1635,7 +1635,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 26,
-      "explanation": "kalau is the everyday 'if' and also 'as for' (Kalau saya, saya setuju). jika and bila are the written equivalents; apabila is stiffer still. Indonesian marks no unreality on the verb — seandainya/andaikan carry the counterfactual sense that English puts into 'if I were'.",
+      "explanation": "The plain conditionals differ by register, and two of them double as 'when':\n\n| Conjunction | Sense | Register |\n| --- | --- | --- |\n| kalau | if | everyday, spoken |\n| jika | if | written, formal |\n| bila | if, when | written, formal |\n| apabila | if, when | formal, stiffest |\n\nkalau has a second job: it fronts a topic — Kalau saya, harga itu terlalu mahal 'As for me, that price is too expensive'. Indonesian marks no unreality on the verb, so the conjunction has to carry it: seandainya and andaikan flag a condition as contrary to fact, which is what English puts into 'if I were'.",
       "drills": [
         {
           "sentence": "{{answer}} hujan, saya tidak pergi.",
@@ -1702,7 +1702,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 27,
-      "explanation": "se- means 'one' (sebuah, seorang, sehari 'one day'), 'same' (sekelas 'in the same class', sekantor 'in the same office'), 'as … as' on adjectives (sebesar 'as big as'), and 'the whole of' (seluruh dunia, sekeluarga 'the whole family'). One prefix, four jobs — context separates them.",
+      "explanation": "`se-` is one prefix doing four jobs, and context separates them:\n\n| Word | Job | Meaning |\n| --- | --- | --- |\n| seorang | one | one person |\n| sehari | one | one day |\n| sekelas | same | in the same class |\n| sekantor | same | in the same office |\n| sebesar | as … as | as big as |\n| sesulit | as … as | as hard as |\n| sekeluarga | whole | the whole family |\n\nIn front of a classifier it is simply 'a, one': sebuah buku 'a book', seorang tamu 'a guest'. In the 'as … as' job the yardstick follows the word: Rumahnya sebesar istana 'His house is as big as a palace'.",
       "drills": [
         {
           "sentence": "Kami {{answer}} di universitas.",
@@ -1769,7 +1769,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 28,
-      "explanation": "ter- is the prefix with no English single equivalent. Accidental: Saya terjatuh 'I fell (unintentionally)'; Dompet saya tertinggal 'I left my wallet behind'. Stative result: pintu terbuka 'the door is (standing) open' — a state, versus dibuka 'was opened' — an event. Capability, usually negated: tidak terangkat 'can't be lifted'. And the superlative you already met: terbesar.",
+      "explanation": "**ter-** is the prefix with no single English equivalent. It has four readings:\n\n- accidental — Saya terjatuh 'I fell (unintentionally)', Dompet saya tertinggal 'I left my wallet behind'\n- stative result — pintu terbuka 'the door is (standing) open', a state, versus dibuka 'was opened', an event\n- capability, usually negated — tidak terangkat 'can't be lifted'\n- superlative, the one you already met — terbesar",
       "drills": [
         {
           "sentence": "Saya {{answer}} di tangga.",
@@ -1836,7 +1836,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 29,
-      "explanation": "memper- + adjective means 'make more X': besar → memperbesar 'enlarge', baik → memperbaiki 'repair, improve', luas → memperluas 'widen'. Note memperbaiki takes -i as well. With nouns it means 'treat as': memperbudak 'enslave', memperistri 'take as a wife'. Formal registers reach for it constantly.",
+      "explanation": "**memper-** + adjective means 'make more X':\n\n- besar → memperbesar 'enlarge'\n- baik → memperbaiki 'repair, improve'\n- luas → memperluas 'widen'\n\nNote memperbaiki takes `-i` as well. With nouns the prefix means 'treat as': memperbudak 'enslave', memperistri 'take as a wife'. Formal registers reach for it constantly.",
       "drills": [
         {
           "sentence": "Kami akan {{answer}} kantor ini.",
@@ -1903,7 +1903,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 30,
-      "explanation": "Doubling isn't only plural. jalan-jalan 'go for a stroll' (casual, aimless), buah-buahan 'fruits of various kinds', sesekali 'now and then', tolong-menolong 'help one another', mata-mata 'spy' (lexicalised). The plural sense is only one reading, and it's dropped whenever a number or classifier already marks it: tiga buku, never *tiga buku-buku.",
+      "explanation": "Doubling isn't only plural:\n\n- casual, aimless activity — jalan-jalan 'go for a stroll'\n- variety, with `-an` — buah-buahan 'fruits of various kinds'\n- occasional — sesekali 'now and then'\n- reciprocal — tolong-menolong 'help one another'\n- manner, from an adjective — pelan-pelan 'slowly'\n- lexicalised, read whole — mata-mata 'spy'\n\nThe plural sense is only one reading, and it's dropped whenever a number or classifier already marks it: tiga buku, never *tiga buku-buku.",
       "drills": [
         {
           "sentence": "Kami {{answer}} di pantai kemarin.",
@@ -1970,7 +1970,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 31,
-      "explanation": "bahwa introduces a reported clause: Dia bilang bahwa dia sakit. Indonesian has NO tense shift — the reported verb keeps whatever marker it had. bahwa is often dropped in speech (Dia bilang dia sakit) but kept in writing. Use kata/bilang for 'say' informally and mengatakan/menyatakan formally.",
+      "explanation": "**bahwa** introduces a reported clause: Dia mengatakan bahwa dia sakit. Indonesian has NO tense shift — the reported verb keeps whatever marker it had. bahwa is often dropped in speech (Dia bilang dia sakit) but kept in writing. Use kata/bilang for 'say' informally and mengatakan/menyatakan formally.\n\nA reported yes/no question takes apakah instead: Dia bertanya apakah saya bisa datang.",
       "drills": [
         {
           "sentence": "Dia mengatakan {{answer}} dia akan datang.",
@@ -2029,7 +2029,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 32,
-      "explanation": "-lah softens an imperative or marks the focused word (Silakanlah masuk; Dialah yang salah 'HE is the one at fault'). -kah marks a yes/no question in formal or written style (Benarkah? 'Is that so?'). -pun means 'even, too' (Saya pun tidak tahu 'Even I don't know'). None translates directly; all three change the temperature of a sentence.",
+      "explanation": "None of the three translates directly; all change the temperature of a sentence.\n\n- `-lah` softens an imperative or marks the focused word: Silakanlah masuk; Dialah yang salah 'HE is the one at fault'\n- `-kah` marks a yes/no question in formal or written style: Benarkah? 'Is that so?'\n- `-pun` means 'even, too': Saya pun tidak tahu 'Even I don't know'\n\nThe first two are written joined to their host word. pun is not: it stands as a separate word — Saya pun, Adik saya pun — except inside a handful of frozen conjunctions such as meskipun, walaupun and ataupun.",
       "drills": [
         {
           "sentence": "Dia{{answer}} yang bertanggung jawab.",
@@ -2096,7 +2096,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 33,
-      "explanation": "Written Indonesian runs on connectors that rarely appear in speech: sehingga 'so that, with the result that', meskipun/walaupun 'although', namun 'however', oleh karena itu 'therefore', sedangkan 'whereas', selain itu 'besides that'. Learning ten of these is the fastest single step from conversational to readable.",
+      "explanation": "Written Indonesian runs on connectors that rarely appear in speech:\n\n- sehingga 'so that, with the result that'\n- meskipun/walaupun 'although'\n- namun 'however'\n- oleh karena itu 'therefore'\n- sedangkan 'whereas'\n- selain itu 'besides that'\n- bahkan 'even, what is more'\n\nPlacement is part of the word: namun, oleh karena itu and selain itu open a new sentence and take a comma after them; sehingga and sedangkan only join clauses inside one sentence; meskipun/walaupun do either. Learning ten of these is the fastest single step from conversational to readable.",
       "drills": [
         {
           "sentence": "Hujan deras, {{answer}} jalan banjir.",
@@ -2163,7 +2163,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 34,
-      "explanation": "The di- passive most often has NO agent at all — Rumah itu dijual 'The house is for sale/was sold' — and that is the neutral way to say it. When you do name the agent, oleh introduces it, and oleh itself is frequently dropped before a noun: dibaca (oleh) Ali. Indonesian reaches for the agentless passive where English would use an impersonal 'you' or 'they'.",
+      "explanation": "The `di-` passive most often has NO agent at all — Rumah itu dijual 'The house is for sale/was sold' — and that is the neutral way to say it. When you do name the agent, **oleh** introduces it, and oleh itself is frequently dropped before a noun: dibaca (oleh) Ali. Indonesian reaches for the agentless passive where English would use an impersonal 'you' or 'they'.",
       "drills": [
         {
           "sentence": "Rumah itu {{answer}} tahun lalu.",
@@ -2230,7 +2230,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 35,
-      "explanation": "Bahasa baku (the standard) and everyday Jakarta speech differ enough to feel like two languages. saya/anda become gue/lu; the -kan suffix becomes -in (bikinin for membuatkan); meN- is often dropped entirely (Dia beli buku, not membeli); tidak becomes nggak/gak; sudah becomes udah. Textbooks teach only the first column, so learners understand the news and miss the conversation.",
+      "explanation": "Bahasa baku (the standard) and everyday Jakarta speech differ enough to feel like two languages.\n\n| Baku | Jakarta |\n| --- | --- |\n| saya | gue |\n| Anda | lu |\n| tidak | nggak/gak |\n| sudah | udah |\n| sepertinya | kayaknya |\n| sekali | banget |\n\nThe verb changes too: the `-kan` suffix becomes `-in` (bikinin for membuatkan), and `meN-` is often dropped entirely (Dia beli buku, not membeli).\n\nTextbooks teach only the first column, so learners understand the news and miss the conversation.",
       "drills": [
         {
           "sentence": "{{answer}} nggak tahu.",
@@ -2297,7 +2297,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 36,
-      "explanation": "Formal Indonesian turns verbs into nouns far more than English: instead of 'the government decided', pengambilan keputusan oleh pemerintah 'the taking of the decision by the government'. peN-...-an names the process (pembangunan 'development', penelitian 'research'); ke-...-an names the state (kebijakan 'policy', keamanan 'security'). Official prose stacks these, and unpacking them is the C1 reading skill.",
+      "explanation": "Formal Indonesian turns verbs into nouns far more than English: instead of 'the government decided', pengambilan keputusan oleh pemerintah 'the taking of the decision by the government'. `peN-...-an` names the process (pembangunan 'development', penelitian 'research'); `ke-...-an` names the state (kebijakan 'policy', keamanan 'security'). Official prose stacks these, and unpacking them is the C1 reading skill.",
       "drills": [
         {
           "sentence": "{{answer}} jalan tol sedang berlangsung.",
@@ -2364,7 +2364,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 37,
-      "explanation": "The same root under different affixes gives related but distinct verbs, and no rule predicts the gap. mengajar 'teach (as an activity)' / mengajarkan 'teach (a subject)' / mengajari 'teach (a person)'. mendengar 'hear' / mendengarkan 'listen to'. menanam 'plant (something)' / menanami 'plant (a place)' / menanamkan 'instil'. These have to be learned as vocabulary, not derived.",
+      "explanation": "The same root under different affixes gives related but distinct verbs:\n\n- ajar — mengajar 'teach (as an activity)', mengajarkan 'teach (a subject)', mengajari 'teach (a person)'\n- dengar — mendengar 'hear', mendengarkan 'listen to'\n- tanam — menanam 'plant (something)', menanami 'plant (a place)', menanamkan 'instil'\n\nThere is a tendency behind the pairs: `-i` puts the place or the person affected into the object slot, `-kan` puts the thing itself there or makes the verb causative. How far a given verb has drifted from that is lexical, though, so they are checked one at a time rather than derived.",
       "drills": [
         {
           "sentence": "Dia {{answer}} matematika di sekolah.",
@@ -2490,7 +2490,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 39,
-      "explanation": "Many affixed words have drifted from their roots and must be read whole. mengerti 'understand' has no live root *erti for most speakers; kemarin 'yesterday' is not ke- + marin; pengaruh 'influence' looks like peN- + garuh but isn't; berhasil 'succeed' is not simply ber- + hasil 'result'. Trying to decompose these produces confident wrong guesses — which is exactly the C2 trap.",
+      "explanation": "Many affixed words have drifted from their roots and must be read whole:\n\n- mengerti 'understand' — no live root *erti for most speakers\n- kemarin 'yesterday' — not `ke-` + marin\n- pengaruh 'influence' — looks like `peN-` + garuh, but isn't\n- berhasil 'succeed' — not simply `ber-` + hasil 'result'\n- menurut 'according to' — wears `meN-`, but works as a preposition, not a verb\n\nTrying to decompose these produces confident wrong guesses — which is exactly the C2 trap.",
       "drills": [
         {
           "sentence": "Saya tidak {{answer}} maksud Anda.",
@@ -2541,7 +2541,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 40,
-      "explanation": "Indonesian journalism fronts the affected thing, leans on the passive, and drops pronouns wherever the reader can recover them. Headlines strip further still — articles, di-, even verbs go: 'Harga BBM Naik' (Fuel Prices Rise), 'Tersangka Ditangkap' (Suspect Arrested). Reading fluently means restoring what has been left out.",
+      "explanation": "Indonesian journalism fronts the affected thing, leans on the passive, and drops pronouns wherever the reader can recover them. Headlines strip further still — 'Harga BBM Naik' (Fuel Prices Rise), 'Tersangka Ditangkap' (Suspect Arrested):\n\n- `meN-` goes, leaving the bare root: 'Polisi Tangkap Tersangka' (Police Arrest Suspect)\n- `di-` stays — it is what still marks Ditangkap as a passive rather than an active\n- the verb itself can go: 'Presiden ke Papua Pekan Depan' (President to Visit Papua Next Week)\n- itu, ini and recoverable pronouns go\n\nReading fluently means restoring what has been left out.",
       "drills": [
         {
           "sentence": "Tersangka {{answer}} polisi tadi malam.",

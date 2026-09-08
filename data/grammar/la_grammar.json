@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Latin marks a noun's job in the sentence with its ENDING, not its position. The subject (who's doing it) takes the nominative case; the direct object (what's acted on) takes the accusative. Puella becomes puellam when it's the object: Puella puerum amat (\"The girl loves the boy\") vs. Puer puellam amat (\"The boy loves the girl\") — swap the endings and the meaning flips, even if you also swap the word order.",
+      "explanation": "Latin marks a noun's job in the sentence with its ENDING, not its position. The subject (who's doing it) takes the nominative case; the direct object (what's acted on) takes the accusative:\n\n| Case | girl | boy |\n| --- | --- | --- |\n| nominative | puella | puer |\n| accusative | puellam | puerum |\n\nPuella puerum amat (\"The girl loves the boy\") vs. Puer puellam amat (\"The boy loves the girl\") — swap the endings and the meaning flips, even if you also swap the word order.",
       "drills": [
         {
           "sentence": "Puella {{answer}} videt.",
@@ -107,7 +107,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Most first-declension nouns are feminine and end -a in the nominative singular (puella, aqua, terra, insula). The genitive singular ends -ae, which gives the whole declension its name and means \"of the ___\": puellae = \"of the girl\" / \"the girl's.\" The accusative singular ends -am: puella → puellam.",
+      "explanation": "Most first-declension nouns are feminine and end in `-a` in the nominative singular: puella, aqua, terra, insula. The genitive singular ends `-ae` — that is what gives the whole declension its name — and marks possession: puellae is \"of the girl,\" \"the girl's.\"\n\n| Case | Form |\n| --- | --- |\n| nominative singular | puella |\n| genitive singular | puellae |\n| accusative singular | puellam |\n| nominative plural | puellae |\n\nRead the last two rows together: `-ae` is the genitive singular and the nominative plural at once. Feminae in silva ambulant is \"the women are walking in the forest\"; nomen feminae is \"the woman's name.\"",
       "drills": [
         {
           "sentence": "{{answer}} in īnsulā habitat.",
@@ -166,7 +166,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Second-declension nouns end -us (masculine, like dominus) or -um (neuter, like bellum) in the nominative. Neuter nouns are special: their nominative and accusative forms are IDENTICAL — bellum stays bellum whether it's the subject or the object. Only masculine and feminine nouns change shape between the two.",
+      "explanation": "Second-declension nouns end in `-us` (masculine, like dominus) or `-um` (neuter, like bellum) in the nominative:\n\n| Case | masculine | neuter |\n| --- | --- | --- |\n| nominative | dominus | bellum |\n| accusative | dominum | bellum |\n\nNeuter nouns are special: their nominative and accusative forms are IDENTICAL — bellum stays bellum whether it's the subject or the object. Masculine and feminine nouns do change shape between the two: dominus becomes dominum. That leaves `-um` doing two jobs, masculine accusative and neuter nominative-or-accusative, so it is the nominative you have to know to tell them apart.",
       "drills": [
         {
           "sentence": "{{answer}} magnum est.",
@@ -233,7 +233,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Sum (\"I am\") is Latin's most irregular verb, just as \"to be\" is irregular in English: sum, es, est, sumus, estis, sunt. Sum takes no direct object — instead of an accusative, it links right back to the nominative: Puella bona est (\"The girl is good\"), not puellam.",
+      "explanation": "Sum (\"I am\") is Latin's most irregular verb, just as \"to be\" is irregular in English:\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | sum | sumus |\n| 2nd | es | estis |\n| 3rd | est | sunt |\n\nSum takes no direct object — instead of an accusative, it links right back to the nominative: Puella bona est (\"The girl is good\"), not puellam.",
       "drills": [
         {
           "sentence": "Puella bona {{answer}}.",
@@ -292,7 +292,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Verbs like amo (\"I love\") belong to the first conjugation, spotted by the -are infinitive (amare). The present tense endings are -o, -as, -at, -amus, -atis, -ant, added to the stem ama-: amo, amas, amat, amamus, amatis, amant. Because the ending already shows the person, Latin usually drops the pronoun.",
+      "explanation": "Verbs like amo (\"I love\") belong to the first conjugation, spotted by the `-are` infinitive (amare). The present endings `-o`, `-s`, `-t`, `-mus`, `-tis`, `-nt` go onto the stem ama-:\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | amo | amamus |\n| 2nd | amas | amatis |\n| 3rd | amat | amant |\n\nOnly the first person singular loses the stem vowel, before the `-o`: amo, never amao. Because the ending already shows the person, Latin usually drops the pronoun.",
       "drills": [
         {
           "sentence": "Puella puerum {{answer}}.",
@@ -359,7 +359,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Latin adjectives change their ending to match the noun's gender, number, and case: magnus (masculine), magna (feminine), and magnum (neuter) all mean \"big.\" Puella magna and dominus magnus both mean \"big,\" but the ending has to match the Latin noun, not the English word.",
+      "explanation": "Latin adjectives change their ending to match the noun's gender, number, and case: magnus, magna and magnum all mean \"big,\" and which one you write depends on the noun beside it.\n\n| Gender | Nominative singular | Accusative singular |\n| --- | --- | --- |\n| masculine | magnus | magnum |\n| feminine | magna | magnam |\n| neuter | magnum | magnum |\n\nSo dominus magnus is \"a big master\" and puella magna \"a big girl\"; make the girl the object and both words move together, puellam magnam. Number agrees too: pueri parvi, \"the small boys.\" The ending has to match the Latin noun, not the English word.",
       "drills": [
         {
           "sentence": "Puella {{answer}} est.",
@@ -418,7 +418,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "The preposition in changes meaning with the case that follows it: in + accusative means motion INTO (in insulam = \"into the island\"), while in + ablative means location IN or ON (in insula = \"on the island\"). Same preposition, different case, different meaning — a pattern Latin uses with several two-way prepositions.",
+      "explanation": "The preposition in changes meaning with the case that follows it: with the accusative it means motion INTO or onto something, with the ablative it means location in or on it.\n\n| Case after in | 1st declension | 2nd declension |\n| --- | --- | --- |\n| accusative | insulam | hortum |\n| ablative | insula | horto |\n\nSo Puer in insulam venit is \"the boy comes onto the island,\" while Puella in insula habitat is \"the girl lives on the island.\" Neuters play by the same rule: in templum is motion, in templo is location — it is only their nominative and accusative that look alike. Same preposition, different case, different meaning — a pattern Latin uses with several two-way prepositions.",
       "drills": [
         {
           "sentence": "Puella in {{answer}} habitat.",
@@ -477,7 +477,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Because endings — not position — show who does what, Latin word order is flexible for emphasis, though the neutral default is Subject-Object-Verb: Puella puerum amat, literally \"girl boy loves.\" Puerum puella amat and Amat puella puerum mean the same thing; only the endings, never the order, decide who loves whom.",
+      "explanation": "Because endings — not position — show who does what, Latin word order is flexible for emphasis, though the neutral default is Subject-Object-Verb. These three all mean \"the girl loves the boy\":\n\n- Puella puerum amat — the neutral order, literally \"girl boy loves\"\n- Puerum puella amat — the object moved to the front\n- Amat puella puerum — the verb moved to the front\n\nOnly the endings, never the order, decide who loves whom.",
       "drills": [
         {
           "sentence": "Puella puerum {{answer}}.",
@@ -546,7 +546,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Verbs like video (\"I see\") and habeo (\"I have\") belong to the second conjugation, spotted by the long -e- of the infinitive: videre, habere. The present endings are the familiar -o, -s, -t, -mus, -tis, -nt, but the -e- of the stem stays visible everywhere: video, vides, videt, videmus, videtis, vident. Compare first-conjugation amas/amat with second-conjugation vides/videt — the vowel before the ending tells you which family you are in.",
+      "explanation": "Verbs like video (\"I see\") and habeo (\"I have\") belong to the second conjugation, spotted by the long -e- of the infinitive: videre, habere. The present endings are the familiar `-o`, `-s`, `-t`, `-mus`, `-tis`, `-nt`, and the -e- of the stem stays visible in every one of them:\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | video | videmus |\n| 2nd | vides | videtis |\n| 3rd | videt | vident |\n\nCompare first-conjugation amas/amat with second-conjugation vides/videt — the vowel before the ending tells you which family you are in.",
       "drills": [
         {
           "sentence": "Puer puellam {{answer}}.",
@@ -623,7 +623,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Possum (\"I am able, I can\") is sum wearing a prefix: pot- + sum gives possum, potes, potest, possumus, potestis, possunt (t + s fuses to ss). Like English \"can,\" it takes an infinitive to name the action: Puella videre potest (\"The girl is able to see\"). Add non before it to say what someone cannot do: non possum (\"I cannot\").",
+      "explanation": "Possum (\"I am able, I can\") is sum wearing a prefix: pot- + sum, where t + s fuses to ss:\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | possum | possumus |\n| 2nd | potes | potestis |\n| 3rd | potest | possunt |\n\nLike English \"can,\" it takes an infinitive to name the action: Puella videre potest (\"The girl is able to see\"). Add non before it to say what someone cannot do: non possum (\"I cannot\").",
       "drills": [
         {
           "sentence": "Puella aquam vidēre {{answer}}.",
@@ -769,7 +769,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "First and second conjugations build the future with -b-: amabo, amabis, amabit, amabimus, amabitis, amabunt (\"I will love, you will love...\"), and likewise videbo, habebis. Third and fourth conjugations use a different set, -am, -es, -et: dicam, dices, dicet. Sum again goes its own way: ero, eris, erit, erimus, eritis, erunt.",
+      "explanation": "First and second conjugations build the future with a `-b-`: amabo \"I will love,\" videbo \"I will see,\" habebis \"you will have.\" Third and fourth conjugations use a different set instead, `-am`, `-es`, `-et`. Sum again goes its own way:\n\n| Person | 1st and 2nd conjugation | 3rd and 4th conjugation | sum |\n| --- | --- | --- | --- |\n| 1st singular | amabo | dicam | ero |\n| 2nd singular | amabis | dices | eris |\n| 3rd singular | amabit | dicet | erit |\n| 1st plural | amabimus | dicemus | erimus |\n| 2nd plural | amabitis | dicetis | eritis |\n| 3rd plural | amabunt | dicent | erunt |",
       "drills": [
         {
           "sentence": "Puella puerum crās {{answer}}.",
@@ -846,7 +846,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Third-declension nouns have unpredictable nominatives (rex \"king,\" urbs \"city,\" miles \"soldier\") but reliable endings on the stem you get from the genitive: reg-is, urb-is, milit-is. Learn every third-declension noun as a pair — rex, regis. The core singular endings are accusative -em (regem), genitive -is (regis), dative -i (regi), ablative -e (rege).",
+      "explanation": "Third-declension nouns have unpredictable nominatives — rex \"king,\" urbs \"city,\" miles \"soldier\" — but reliable endings, and the stem you add them to shows in the genitive: reg-is, urb-is, milit-is. That is why you learn every third-declension noun as a pair, rex, regis.\n\n| Case | king | city |\n| --- | --- | --- |\n| nominative | rex | urbs |\n| accusative | regem | urbem |\n| genitive | regis | urbis |\n| dative | regi | urbi |\n| ablative | rege | urbe |\n\nThe singular endings are the same however odd the nominative looks: accusative `-em`, genitive `-is`, dative `-i`, ablative `-e`.",
       "drills": [
         {
           "sentence": "{{answer}} in urbe habitat.",
@@ -923,7 +923,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Third-declension neuters like corpus (\"body\"), tempus (\"time\"), and nomen (\"name\") follow the universal neuter law: nominative and accusative are identical, in both numbers. Their stems appear in the genitive — corporis, temporis, nominis — and the nominative/accusative plural ends in -a: corpora, tempora, nomina. Do not let corpus and tempus fool you: the -us is not the second declension's -us.",
+      "explanation": "Third-declension neuters like corpus (\"body\"), tempus (\"time\") and nomen (\"name\") follow the universal neuter law: nominative and accusative are identical, in both numbers. Their stems appear in the genitive, and the nominative-accusative plural ends in `-a`:\n\n| Case | body | time | name |\n| --- | --- | --- | --- |\n| nominative and accusative singular | corpus | tempus | nomen |\n| genitive singular | corporis | temporis | nominis |\n| nominative and accusative plural | corpora | tempora | nomina |\n\nDo not let corpus and tempus fool you: that `-us` is not the second declension's `-us`.",
       "drills": [
         {
           "sentence": "{{answer}} puerī magnum est.",
@@ -1000,7 +1000,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Because verb endings already show the person, the nominative pronouns ego (\"I\"), tu (\"you\"), nos (\"we\"), vos (\"you all\") appear mainly for emphasis or contrast: Ego amo (\"I love — I, not you\"). Their object forms are me, te, nos, vos (accusative), and the datives are mihi, tibi, nobis, vobis (\"to me, to you...\"). Nos and vos look the same as subject and object — context and the verb decide.",
+      "explanation": "Because verb endings already show the person, the nominative pronouns appear mainly for emphasis or contrast: Ego amo (\"I love — I, not you\"). The accusative forms are the object ones, and the dative gives \"to me, to you.\"\n\n| Person | Nominative | Accusative | Dative |\n| --- | --- | --- | --- |\n| I | ego | me | mihi |\n| you | tu | te | tibi |\n| we | nos | nos | nobis |\n| you all | vos | vos | vobis |\n\nNos and vos are the same in the nominative and the accusative — context and the verb decide which one a sentence is using.",
       "drills": [
         {
           "sentence": "{{answer}} puellam amō.",
@@ -1077,7 +1077,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Hic, haec, hoc means \"this (near me)\"; ille, illa, illud means \"that (over there)\" — and ille is the ancestor of the Romance articles. Both agree with their noun in gender, number, and case: hic puer, haec puella, hoc bellum; accusatives hunc, hanc, hoc and illum, illam, illud. They also stand alone as pronouns: ille = \"that man, he.\"",
+      "explanation": "Hic, haec, hoc means \"this (near me)\"; ille, illa, illud means \"that (over there)\" — and ille is the ancestor of the Romance articles. Both agree with their noun in gender, number, and case: hic puer, haec puella, hoc bellum.\n\n| | masculine | feminine | neuter |\n| --- | --- | --- | --- |\n| this, nominative | hic | haec | hoc |\n| this, accusative | hunc | hanc | hoc |\n| that, nominative | ille | illa | illud |\n| that, accusative | illum | illam | illud |\n\nThey also stand alone as pronouns: ille on its own is \"that man, he.\"",
       "drills": [
         {
           "sentence": "{{answer}} puella bona est.",
@@ -1154,7 +1154,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The third conjugation (dico \"I say,\" mitto, duco; infinitive -ere with short e) runs dico, dicis, dicit, dicimus, dicitis, dicunt — a short, changeable vowel where the first two conjugations keep a steady -a- or -e-. The fourth conjugation (audio \"I hear,\" venio; infinitive -ire) keeps its -i-: audio, audis, audit, audimus, auditis, audiunt. Note the 3rd plural: dicunt but audiunt.",
+      "explanation": "The third conjugation (dico \"I say,\" mitto, duco) has an infinitive in `-ere` with a short e; the fourth (audio \"I hear,\" venio) has `-ire` and keeps its `-i-` right through.\n\n| Person | Third conjugation | Fourth conjugation |\n| --- | --- | --- |\n| I | dico | audio |\n| you | dicis | audis |\n| he, she, it | dicit | audit |\n| we | dicimus | audimus |\n| you all | dicitis | auditis |\n| they | dicunt | audiunt |\n\nWhere the first two conjugations keep a steady `-a-` or `-e-`, the third has a short vowel that changes from cell to cell. Watch the third person plural: dicunt but audiunt.",
       "drills": [
         {
           "sentence": "Puella verbum {{answer}}.",
@@ -1231,7 +1231,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The singular imperative is usually the bare present stem: ama! (\"love!\"), vide!, audi!; the plural adds -te: amate!, videte!, audite! Third-conjugation verbs use -e / -ite: mitte!, mittite! Four irregulars drop the vowel in the singular — dic! (\"say!\"), duc! (\"lead!\"), fac! (\"do!\"), fer! (\"carry!\"). The person commanded often appears in the vocative: Porta aquam, puer!",
+      "explanation": "The singular imperative is the bare present stem; the plural adds `-te`.\n\n| Conjugation | Singular | Plural |\n| --- | --- | --- |\n| first | ama | amate |\n| second | vide | videte |\n| third | mitte | mittite |\n| fourth | audi | audite |\n\nThird-conjugation verbs use `-e` in the singular and `-ite` in the plural. Four common verbs drop the final `-e` in the singular:\n\n- dic! (\"say!\")\n- duc! (\"lead!\")\n- fac! (\"do!\")\n- fer! (\"carry!\")\n\nThe person commanded often appears in the vocative: Porta aquam, puer!",
       "drills": [
         {
           "sentence": "{{answer}} aquam, puer!",
@@ -1308,7 +1308,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "A yes/no question hangs the little particle -ne on the first word, usually the verb: Videsne puellam? (\"Do you see the girl?\"). Question words do the rest: quis? (\"who?\"), quid? (\"what?\") — Quis aquam habet? (\"Who has the water?\"). Latin has no word for \"do\" in questions; the particle or the question word alone does the job.",
+      "explanation": "A yes/no question hangs the little particle `-ne` on the first word, usually the verb: Videsne puellam? (\"Do you see the girl?\"). Question words do the rest: quis? (\"who?\"), quid? (\"what?\") — Quis aquam habet? (\"Who has the water?\"). Latin has no word for \"do\" in questions; the particle or the question word alone does the job.",
       "drills": [
         {
           "sentence": "{{answer}} puellam?",
@@ -1385,7 +1385,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The genitive answers \"whose? of what?\": filius regis (\"the king's son, the son of the king\"). The dative marks the indirect object — the person to or for whom something is done: Puer puellae aquam dat (\"The boy gives water to the girl\"). First declension: genitive and dative singular both -ae; second declension: genitive -i, dative -o; third declension: genitive -is, dative -i.",
+      "explanation": "The genitive answers \"whose? of what?\": filius regis (\"the king's son, the son of the king\"). The dative marks the indirect object — the person to or for whom something is done: Puer puellae aquam dat (\"The boy gives water to the girl\").\n\n| Declension | Genitive singular | Dative singular |\n| --- | --- | --- |\n| first | -ae | -ae |\n| second | -i | -o |\n| third | -is | -i |",
       "drills": [
         {
           "sentence": "Puer {{answer}} aquam dat.",
@@ -1462,7 +1462,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The perfect states that something happened and is done: amavit — \"she loved, she has loved.\" It is built on the perfect stem, the third principal part you memorize with each verb: amo/amavi, video/vidi, dico/dixi, venio/veni. The endings are the same for every verb: -i, -isti, -it, -imus, -istis, -erunt. Sum's perfect is fui.",
+      "explanation": "The perfect states that something happened and is done: **amavit** — \"she loved, she has loved.\" It is built on the perfect stem, the third principal part you memorize with each verb.\n\n- amo, amavi\n- video, vidi\n- dico, dixi\n- venio, veni\n- scribo, scripsi\n- facio, feci\n- sum, fui\n\nThe endings on that stem are the same for every verb.\n\n| Person | Ending |\n| --- | --- |\n| I | -i |\n| you | -isti |\n| he, she, it | -it |\n| we | -imus |\n| you all | -istis |\n| they | -erunt |",
       "drills": [
         {
           "sentence": "Rēgīna rēgem {{answer}}.",
@@ -1539,7 +1539,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The pluperfect says an action was already complete before another past moment: amaveram — \"I had loved.\" The recipe is simple: perfect stem + the imperfect of sum as endings: amaveram, amaveras, amaverat, amaveramus, amaveratis, amaverant; likewise videram (\"I had seen\") and dixerat (\"he had said\").",
+      "explanation": "The pluperfect says an action was already complete before another past moment: **amaveram** — \"I had loved.\" The recipe is the perfect stem plus the imperfect of sum used as endings.\n\n| Person | Form |\n| --- | --- |\n| I | amaveram |\n| you | amaveras |\n| he, she, it | amaverat |\n| we | amaveramus |\n| you all | amaveratis |\n| they | amaverant |\n\nThe same endings go on any perfect stem: videram (\"I had seen\") from vidi, dixerat (\"he had said\") from dixi, and likewise from habui (habeo, \"have\") and legi (lego, \"read\").",
       "drills": [
         {
           "sentence": "Puella puerum diū {{answer}}.",
@@ -1608,7 +1608,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The fourth declension runs on -u-: manus (\"hand,\" feminine), manus, manui, manum, manu — its nominative and genitive singular look identical. The fifth runs on -e-: dies (\"day,\" usually masculine) and res (\"thing, matter\"): dies, diei, diem, die. These two families are small but their members are everywhere — manus, domus, dies, res, spes.",
+      "explanation": "The fourth declension runs on `-u-`: manus (\"hand,\" feminine). The fifth runs on `-e-`: dies (\"day,\" usually masculine) and res (\"thing, matter,\" feminine).\n\n| Case | Fourth declension | Fifth declension |\n| --- | --- | --- |\n| nominative | manus | dies |\n| genitive | manus | diei |\n| dative | manui | diei |\n| accusative | manum | diem |\n| ablative | manu | die |\n\nIn the fourth declension the nominative and genitive singular are written alike; in the fifth it is the genitive and dative. Both words write their nominative and accusative plural like the nominative singular — manus, dies. These two families are small but their members are everywhere: manus, domus, dies, res, spes.",
       "drills": [
         {
           "sentence": "{{answer}} longus est.",
@@ -1677,7 +1677,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The comparative adds -ior (neuter -ius) to the stem: altior (\"taller, rather tall\"), longius. The superlative adds -issimus, -a, -um: altissimus (\"tallest, very tall\"), fortissimus. To compare two things, use quam (\"than\"): Puella altior quam puer est (\"The girl is taller than the boy\") — or put the second item in the ablative with no quam at all.",
+      "explanation": "The comparative adds `-ior` to the stem, neuter `-ius`: altior (\"taller, rather tall\"), longius. The superlative adds `-issimus`, `-a`, `-um`: altissimus (\"tallest, very tall\"), fortissimus. To compare two things, use quam (\"than\"): Puella altior quam puer est (\"The girl is taller than the boy\") — or put the second item in the ablative with no quam at all.",
       "drills": [
         {
           "sentence": "Hic puer {{answer}} est.",
@@ -1754,7 +1754,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "First/second-declension adjectives make adverbs in -e: longe (\"far\") from longus; third-declension adjectives use -iter: fortiter (\"bravely\") from fortis, celeriter (\"quickly\") from celer. A few of the commonest are irregular: bene (\"well\") from bonus, male (\"badly\") from malus. Adverbs never change form — no agreement to worry about.",
+      "explanation": "An adjective's own declension decides which ending its adverb takes.\n\n- First- and second-declension adjectives take `-e`: longe (\"far\") from longus.\n- Third-declension adjectives take `-iter`: fortiter (\"bravely\") from fortis, celeriter (\"quickly\") from celer.\n- A few of the commonest are irregular: bene (\"well\") from bonus, male (\"badly\") from malus.\n\nAdverbs do not agree with anything — there is no gender, number or case to match.",
       "drills": [
         {
           "sentence": "Puella {{answer}} cantat.",
@@ -1815,7 +1815,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The passive swaps the endings: -or, -ris, -tur, -mur, -mini, -ntur. Amat (\"she loves\") becomes amatur (\"she is loved\"); vident becomes videntur. The doer, if named, goes in the ablative with a/ab: Puella a puero amatur (\"The girl is loved by the boy\") — ab before vowels.",
+      "explanation": "The passive swaps the personal endings — `-or`, `-ris`, `-tur`, `-mur`, `-mini`, `-ntur`. So amat (\"she loves\") becomes **amatur** (\"she is loved\"), and vident becomes videntur.\n\n| Person | Active | Passive |\n| --- | --- | --- |\n| I | amo | amor |\n| you | amas | amaris |\n| he, she, it | amat | amatur |\n| we | amamus | amamur |\n| you all | amatis | amamini |\n| they | amant | amantur |\n\nThe doer, if named, goes in the ablative with a: Puella a puero amatur (\"The girl is loved by the boy\"). Before a vowel it is ab.",
       "drills": [
         {
           "sentence": "Puella ā puerō {{answer}}.",
@@ -1892,7 +1892,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The fourth principal part gives the perfect passive participle: amatus, -a, -um (\"loved\"), visus (\"seen\"), captus (\"captured\"), portatus (\"carried\"). With the present of sum it builds the perfect passive: Urbs capta est (\"The city was captured\"). The participle agrees with the subject like any adjective — puella amata est, verba audita sunt.",
+      "explanation": "The fourth principal part gives the perfect passive participle: **amatus**, -a, -um (\"loved\"), visus (\"seen\"), captus (\"captured\"), portatus (\"carried\"), auditus (\"heard\"). With the present of sum it builds the perfect passive: Urbs capta est (\"The city was captured\").\n\nThe participle agrees with the subject like any adjective — puella amata est, verba audita sunt.\n\n| Subject | Ending |\n| --- | --- |\n| masculine singular | -us |\n| feminine singular | -a |\n| neuter singular | -um |\n| masculine plural | -i |\n| feminine plural | -ae |\n| neuter plural | -a |",
       "drills": [
         {
           "sentence": "Puella ā puerō {{answer}} est.",
@@ -1961,7 +1961,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The relative pronoun qui, quae, quod (\"who, which\") takes its gender and number from the noun it describes, but its CASE from its job inside its own clause: Puella, quae puerum amat (\"the girl who loves...\" — quae is subject) vs. Rex, quem puella amat (\"the king whom the girl loves\" — quem is object). Masculine qui/quem, feminine quae/quam, neuter quod/quod.",
+      "explanation": "The relative pronoun qui, quae, quod (\"who, which\") takes its gender and number from the noun it describes, but its CASE from its job inside its own clause: Puella, quae puerum amat (\"the girl who loves...\" — quae is subject) vs. Rex, quem puella amat (\"the king whom the girl loves\" — quem is object).\n\n| Case | Masculine | Feminine | Neuter |\n| --- | --- | --- | --- |\n| nominative | qui | quae | quod |\n| genitive | cuius | cuius | cuius |\n| dative | cui | cui | cui |\n| accusative | quem | quam | quod |\n| ablative | quo | qua | quo |",
       "drills": [
         {
           "sentence": "Puella, {{answer}} puerum amat, bona est.",
@@ -2038,7 +2038,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The present subjunctive swaps the conjugation's vowel — first conjugation takes -e- (amem, ames, amet: \"we shall see an -e- where amas has -a-\"), the others take -a- (videat, dicat, audiat); sum gives sim, sis, sit. The imperfect subjunctive is the easiest form in Latin: infinitive + endings — amarem, videret, essem. On its own the subjunctive expresses wishes and exhortations: Vivat rex! (\"Long live the king!\"), Amemus! (\"Let us love!\"), utinam veniat (\"if only she would come\").",
+      "explanation": "The present subjunctive swaps the conjugation's vowel:\n\n- first conjugation: `-e-` where the indicative has `-a-` — amem, ames, amet against amas\n- second, third and fourth conjugations: `-a-` — videat, dicat, audiat\n- sum: sim, sis, sit\n\nThe imperfect subjunctive is the easiest form in Latin: infinitive + endings — amarem, videret, essem.\n\nOn its own the subjunctive expresses wishes and exhortations: Vivat rex! (\"Long live the king!\"), Amemus! (\"Let us love!\"), utinam veniat (\"if only she would come\").",
       "drills": [
         {
           "sentence": "{{answer}} rēgīnam!",
@@ -2192,7 +2192,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "A signal word in the main clause — tam (\"so\"), tantus (\"so great\"), ita (\"in such a way\") — sets up ut + subjunctive for the outcome: Puella tam bona est ut puer eam amet (\"The girl is so good that the boy loves her\"). Unlike purpose clauses, a negative result keeps ut and adds non: ut non videat (\"that he does not see\").",
+      "explanation": "A signal word in the main clause sets up **ut** + subjunctive for the outcome:\n\n- tam (\"so\")\n- tantus (\"so great\")\n- ita (\"in such a way\")\n\nPuella tam bona est ut puer eam amet (\"The girl is so good that the boy loves her\"). Unlike purpose clauses, a negative result keeps ut and adds non: ut non videat (\"that he does not see\").",
       "drills": [
         {
           "sentence": "Puella tam bona est ut puer eam {{answer}}.",
@@ -2261,7 +2261,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "With the subjunctive, cum covers three ideas the context sorts out: circumstantial \"when\" (cum rex diceret — \"when the king was speaking\"), causal \"since\" (cum urbs magna sit — \"since the city is great\"), and concessive \"although,\" usually flagged by tamen (\"nevertheless\") in the main clause. Past cum-clauses take the imperfect subjunctive for same-time action and the pluperfect for prior action: cum venisset — \"when she had come.\"",
+      "explanation": "With the subjunctive, **cum** covers three ideas the context sorts out:\n\n- circumstantial \"when\": cum rex diceret (\"when the king was speaking\")\n- causal \"since\": cum urbs magna sit (\"since the city is great\")\n- concessive \"although\", usually flagged by tamen (\"nevertheless\") in the main clause\n\nPast cum-clauses take the imperfect subjunctive for same-time action and the pluperfect for prior action: cum venisset (\"when she had come\").",
       "drills": [
         {
           "sentence": "Cum rēx {{answer}}, populus tacēbat.",
@@ -2338,7 +2338,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "After verbs of saying, knowing, and thinking, Latin drops \"that\" entirely: the reported subject goes into the ACCUSATIVE and the verb becomes an INFINITIVE. Dicit puellam cantare — literally \"He says the girl to sing\" = \"He says that the girl is singing.\" The infinitive's tense is relative to the main verb: present cantare for same time, perfect portavisse for earlier time.",
+      "explanation": "After verbs of saying, knowing, and thinking, Latin drops \"that\" entirely: the reported subject goes into the ACCUSATIVE and the verb becomes an INFINITIVE. Dicit **puellam cantare** — literally \"He says the girl to sing\" = \"He says that the girl is singing.\" Anything agreeing with that reported subject — a predicate noun, an adjective — goes into the accusative with it.\n\nThe infinitive's tense is relative to the main verb: present cantare for same time, perfect portavisse for earlier time.",
       "drills": [
         {
           "sentence": "Puer dīcit puellam {{answer}}.",
@@ -2415,7 +2415,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "A noun and a participle, both in the ablative and grammatically detached from the rest of the sentence, set the scene: Urbe capta, milites venerunt (\"With the city captured / after the city was captured, the soldiers came\"). A perfect participle marks prior action (verbis dictis — \"the words having been said\"); a present participle marks simultaneous action (rege dicente — \"while the king is speaking\").",
+      "explanation": "A noun and a participle, both in the ablative and grammatically detached from the rest of the sentence, set the scene: **Urbe capta**, milites venerunt (\"With the city captured / after the city was captured, the soldiers came\"). A perfect participle marks prior action (verbis dictis — \"the words having been said\"); a present participle marks simultaneous action (rege dicente — \"while the king is speaking\").",
       "drills": [
         {
           "sentence": "Urbe {{answer}}, mīlitēs vēnērunt.",
@@ -2492,7 +2492,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Deponent verbs \"laid aside\" their active forms: they wear passive endings but mean something active. Loquor = \"I speak\" (not \"I am spoken\"), sequor = \"I follow,\" conor = \"I try.\" Conjugate them exactly like passives — loquitur (\"she speaks\"), sequuntur (\"they follow\"), loquimur (\"we speak\") — and translate them actively, always.",
+      "explanation": "Deponent verbs \"laid aside\" their active forms: they wear passive endings but mean something active.\n\n- loquor — \"I speak,\" not \"I am spoken\"\n- sequor — \"I follow\"\n- conor — \"I try\"\n\nConjugate them exactly like passives — loquitur (\"she speaks\"), sequuntur (\"they follow\"), loquimur (\"we speak\") — and translate them actively, always.",
       "drills": [
         {
           "sentence": "Puella cum puerō {{answer}}.",
@@ -2569,7 +2569,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "The gerund is the verb's noun form (-ndum): ars amandi — \"the art of loving.\" The gerundive is its adjective twin (-ndus, -a, -um), and with sum it forms the passive periphrastic of obligation: Carthago delenda est — \"Carthage must be destroyed,\" Cato's famous refrain. The person who must act goes in the dative: nobis — \"by us.\"",
+      "explanation": "The gerund is the verb's noun form, a neuter noun built on `-nd-` and declined: genitive `-ndi`, accusative `-ndum`, ablative `-ndo`. ars amandi (\"the art of loving\") shows the genitive.\n\nThe gerundive is its adjective twin (`-ndus`, `-a`, `-um`), and with sum it forms the passive periphrastic of obligation: **Carthago delenda est** — \"Carthage must be destroyed,\" Cato's famous refrain. The person who must act goes in the dative: nobis — \"by us.\"",
       "drills": [
         {
           "sentence": "Carthāgō {{answer}} est.",
@@ -2646,7 +2646,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "A question inside another verb — scio quid dicat, \"I know what she is saying\" — takes the SUBJUNCTIVE, and its tense obeys the sequence of tenses. After a primary (present/future) main verb: present subjunctive for same time (dicat), perfect for earlier (dixerit). After a secondary (past) main verb: imperfect for same time (diceret), pluperfect for earlier (cepisset).",
+      "explanation": "A question folded inside another verb — scio quid dicat (\"I know what she is saying\") — takes the SUBJUNCTIVE, and its tense obeys the sequence of tenses. After a primary main verb (present or future) the subjunctive is present for action at the same time and perfect for earlier action; after a secondary one (past) it is imperfect and pluperfect.\n\n| Main verb | Same time | Earlier |\n| --- | --- | --- |\n| primary | dicat | dixerit |\n| secondary | diceret | cepisset |",
       "drills": [
         {
           "sentence": "Sciō quid puella {{answer}}.",
@@ -2792,7 +2792,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Roman historians report entire speeches without quotation marks. In sustained oratio obliqua every main statement becomes accusative + infinitive, every subordinate clause slips into the subjunctive, and the speaker refers to himself with the reflexive se: Dixit se urbem cepisse — \"He said that he (himself) had captured the city.\" Reported futures use the future participle: se portaturum (esse) — \"that he would carry.\"",
+      "explanation": "Roman historians report entire speeches without quotation marks. In sustained oratio obliqua three shifts happen together:\n\n- every main statement becomes accusative + infinitive\n- every subordinate clause slips into the subjunctive\n- the speaker refers to himself with the reflexive se\n\nDixit se urbem cepisse — \"He said that he (himself) had captured the city.\" Reported futures use the future participle: se portaturum (esse) — \"that he would carry.\"",
       "drills": [
         {
           "sentence": "Caesar dīxit mīlitēs fortiter {{answer}}.",
@@ -2869,7 +2869,7 @@
           "url": "https://dcc.dickinson.edu/grammar/latin"
         }
       ],
-      "explanation": "Poets pull agreeing words apart (hyperbaton) and trust the endings to reunite them: in Vergil's opening, Troiae ... ab oris wraps the relative clause, and the meaning waits until the case endings click together. Reading verse means holding endings in memory until their partners arrive — the discipline the whole case system has been training. These drills use genuine lines: Vergil, Horace, Catullus, and Caesar's famous prose opening.",
+      "explanation": "Poets pull agreeing words apart (hyperbaton) and trust the endings to reunite them: in Vergil's opening, Troiae ... ab oris (\"from the shores of Troy\") is split around qui primus, and the meaning waits until the case endings click together. Reading verse means holding endings in memory until their partners arrive — the discipline the whole case system has been training. These drills use genuine lines: Vergil, Horace, Catullus, and Caesar's famous prose opening.",
       "drills": [
         {
           "sentence": "Arma virumque {{answer}}, Trōiae quī prīmus ab ōrīs.",

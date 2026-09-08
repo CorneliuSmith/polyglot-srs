@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Patois pronouns don't change form: mi = I/me/my, yu = you/your, im = he/she/him/her (both genders!), i = it, wi = we/us/our, unu = you all (a real plural 'you' English lacks), dem = they/them/their. So: Mi si im (I saw him), Im si mi (She saw me), A fi mi buk (It's my book). Spelling note: this course uses the Cassidy/JLU phonemic spelling (mi, yu, di); the everyday English-based spellings (me, yuh, de) are accepted in answers.",
+      "explanation": "Patois pronouns never change shape: one word covers subject, object and possessive.\n\n| Person | Patois | English |\n| --- | --- | --- |\n| 1 singular | mi | I, me, my |\n| 2 singular | yu | you, your |\n| 3 singular | im | he, she, him, her, his |\n| 3 singular, of a thing | i | it |\n| 1 plural | wi | we, us, our |\n| 2 plural | unu | you all |\n| 3 plural | dem | they, them, their |\n\nim covers both genders, and unu is a real plural 'you' that English lacks. So: Mi si im (I saw him), Im si mi (she saw me), A fi mi buk (it's my book). Spelling note: this course uses the Cassidy/JLU phonemic spelling (mi, yu, im); the everyday English-based spellings (me, yuh, him) are accepted in answers.",
       "culture_note": "unu is one of Patois's West African inheritances (Igbo unu). Hearing 'unu' vs 'yu' instantly tells a listener whether one person or several are meant.",
       "references": [
         {
@@ -121,7 +121,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "To link two nouns ('X is Y'), Patois uses a: Mi a di tiicha (I am the teacher), Im a dakta (she's a doctor), Dat a fi mi kyaar (that's my car). This little a is one of the busiest words in the language — it's also the progressive marker (next lessons) and the preposition 'to/at'. Context always tells you which one you're hearing.",
+      "explanation": "To link two nouns ('X is Y'), Patois uses **a**: Mi a di tiicha (I am the teacher), Im a dakta (she's a doctor), Dat a fi mi kyaar (that's my car). This little a is one of the busiest words in the language — it's also the progressive marker (next lessons) and the preposition 'to/at'. Context always tells you which one you're hearing.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -190,7 +190,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "For location, Patois switches from a to de: Im de a yaad (he's at home), Di buk de pan di tiebl (the book is on the table), Mi de ya (I'm here — also the classic reply to 'wa gwaan'). Equation takes a, location takes de — mixing them (Mi a ya) is the classic beginner slip. De also means 'there': di buk de-so (the book is right there).",
+      "explanation": "For location, Patois switches from a to **de**: Im de a yaad (he's at home), Di buk de pan di tiebl (the book is on the table), Mi de ya (I'm here — also the classic reply to 'wa gwaan'). Equation takes a, location takes de — mixing them (Mi a ya) is the classic beginner slip. De also means 'there': di buk de-so (the book is right there).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -328,7 +328,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Patois verbs never conjugate: mi ron, yu ron, im ron, wi ron. No -s, no -ed, no -ing on the verb itself. Tense and aspect come from little markers BEFORE the verb (a, did, don, wi — each gets its own lesson) or just from context: Mi si im yeside (I saw him yesterday — si stays bare, yeside does the work). Unlearning English endings is half the battle: im ronS and im ronED are both wrong.",
+      "explanation": "Patois verbs never conjugate: mi ron, yu ron, im ron, wi ron. No `-s`, no `-ed`, no `-ing` on the verb itself. Tense and aspect come from little markers BEFORE the verb (a, did, don, wi — each gets its own lesson) or just from context: Mi si im yeside (I saw him yesterday — si stays bare, yeside does the work). Unlearning English endings is half the battle: im ronS and im ronED are both wrong.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -397,7 +397,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "a before a verb = English '-ing': Mi a ron (I am running), Im a nyam (she's eating), Wa yu a du? (what are you doing?). No form of 'be' appears — the a does everything. Note the two a's stacking: Mi a go a toun (I'm going to town) — the first marks the -ing, the second means 'to'. The greeting Wa gwaan? is literally 'what's going on?' with gwaan absorbing its a.",
+      "explanation": "**a** before a verb = English `-ing`: Mi a ron (I am running), Im a nyam (she's eating), Wa yu a du? (what are you doing?). No form of 'be' appears — the a does everything. Note the two a's stacking: Mi a go a toun (I'm going to town) — the first marks the `-ing`, the second means 'to'. The greeting Wa gwaan? is literally 'what's going on?' with gwaan absorbing its a.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -466,7 +466,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Patois marks plural by putting dem AFTER the noun (with di): di pikni dem (the children), di mango dem (the mangoes), di tiicha dem (the teachers). No -s on the noun. With numbers or 'plenty' words the plural is already clear, so dem is dropped: faiv mango, nof pikni. Dem is also 'they/them', so di man dem = 'the men' but dem man de = 'those men'.",
+      "explanation": "Patois marks plural by putting **dem** AFTER the noun (with di): di pikni dem (the children), di mango dem (the mangoes), di tiicha dem (the teachers). No `-s` on the noun. With numbers or 'plenty' words the plural is already clear, so dem is dropped: faiv mango, nof pikni. Dem is also 'they/them', so di man dem = 'the men' but dem man de = 'those men'.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -608,7 +608,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Yes/no questions keep statement order and just rise in pitch: Yu a kom? (are you coming?). No do-support, no inversion. Question words: wa (what), we (where — also 'which/that' as a relative), uu (who), wen (when), ou (how), umoch (how much/many), wa mek (why — literally 'what makes'). They sit at the front: We yu a go? (where are you going?), Wa mek yu beks? (why are you angry?).",
+      "explanation": "Yes/no questions keep statement order and just rise in pitch: Yu a kom? (are you coming?). No do-support, no inversion. The question words:\n\n- wa — what\n- we — where, and also 'which/that' as a relative\n- uu — who\n- wen — when\n- ou — how\n- umoch — how much, how many\n- wa mek — why, literally 'what makes'\n\nThey sit at the front: We yu a go? (where are you going?), Wa mek yu beks? (why are you angry?).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -677,7 +677,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "di = 'the' (di buk, di uman). wan = 'a/an', literally 'one', used when it matters that there's one: Mi waan wan mango (I want a mango). But where English needs 'a', Patois often uses NO article at all: Im a tiicha (she's a teacher — no wan), Mi a nyam mango (I'm eating mango). General statements drop di too: Mango swiit (mangoes are sweet).",
+      "explanation": "Patois has three choices in front of a noun:\n\n- di — 'the': di buk, di uman\n- wan — 'a/an', literally 'one', used when it matters that there's one: Mi waan wan mango (I want a mango)\n- nothing at all — often where English needs 'a': Im a tiicha (she's a teacher, no wan), Mi a nyam mango (I'm eating mango)\n\nGeneral statements drop di too: Mango swiit (mangoes are sweet).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -746,7 +746,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "When the time isn't obvious, did before the verb marks past: Mi did si im (I saw him), Im did sik (she was sick — works on adjectives too!). Deep (basilectal) Patois uses en or ben the same way. But remember: with a time word, the bare verb is preferred — Mi nyam aredi (I ate already), not 'Mi did nyam aredi' unless you're stressing it. did + a = did a (was …-ing): Im did a ron (he was running).",
+      "explanation": "When the time isn't obvious, **did** before the verb marks past: Mi did si im (I saw him), Im did sik (she was sick — works on adjectives too!). Deep (basilectal) Patois uses en or ben the same way. Past marking is optional rather than required: where a time word or the context already puts the event in the past, the bare verb is enough — Mi si im yeside (I saw him yesterday). did is still normal alongside a time word when you want the past said out loud: Mi did si im laas wiik (I saw him last week). did + a = did a (was …-ing): Im did a ron (he was running).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -815,7 +815,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Two futures: wi = plain 'will' (Mi wi kom — I will come), and a go / ago = 'going to' for plans and predictions (Mi ago kom — I'm going to come; It ago rien — it's going to rain). Negatives: naa go (not going to), wian? no — 'won't' is usually naa or no wi. gwain is a common variant of ago (Mi gwain tel im).",
+      "explanation": "Two futures: wi = plain 'will' (Mi wi kom — I will come), and a go / ago = 'going to' for plans and predictions (Mi ago kom — I'm going to come; It ago rien — it's going to rain). The going-to future negates as naa go (Im naa go laik dis — he isn't going to like this); wi has no fused negative of its own, so 'won't' comes out as naa or no wi. gwain is a common variant of ago (Mi gwain tel im).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -884,7 +884,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "don marks completion: Mi don nyam (I've already eaten / I'm done eating), Di rien don faal (the rain has stopped), Im don gaan (he's already gone). It can front OR follow the verb phrase: Mi nyam don means 'I finished eating'. With did: Mi did don nyam wen im riich (I had already eaten when he arrived) — a pluperfect from two little words.",
+      "explanation": "**don** marks completion: Mi don nyam (I've already eaten / I'm done eating), Di rien don faal (the rain has stopped), Im don gaan (he's already gone). It can front OR follow the verb phrase: Mi nyam don means 'I finished eating'. With did: Mi did don nyam wen im riich (I had already eaten when he arrived) — a pluperfect from two little words.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -953,7 +953,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Ownership uses fi: fi mi = mine/my, fi yu = yours, fi im = his/hers, fi dem = theirs. A fi mi buk dat (that's MY book), Di kyaar a fi im (the car is his). For noun owners, simple juxtaposition works: Jan buk (John's book), mi mada yaad (my mother's house) — no 's, no 'of'. Asking: A fi uu dis? (whose is this?).",
+      "explanation": "Ownership uses **fi** in front of the pronoun:\n\n| Person | Patois | English |\n| --- | --- | --- |\n| 1 singular | fi mi | my, mine |\n| 2 singular | fi yu | your, yours |\n| 3 singular | fi im | his, her, hers |\n| 1 plural | fi wi | our, ours |\n| 2 plural | fi unu | your, yours |\n| 3 plural | fi dem | their, theirs |\n\nA fi mi buk dat (that's MY book), Di kyaar a fi im (the car is his). For noun owners, simple juxtaposition works: Jan buk (John's book), mi mada yaad (my mother's house) — no 's, no 'of'. Asking: A fi uu dis? (whose is this?).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1022,7 +1022,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "After verbs of saying, knowing, thinking, and hearing, se introduces the clause — like English 'that': Im tel mi se yu gaan (he told me that you left), Mi nuo se yu rait (I know you're right), Mi ier se di shap lack (I hear the shop is closed). It comes from the verb 'say' but works as pure grammar here — even Mi se se… ('I said that…') is possible in rapid speech.",
+      "explanation": "After verbs of saying, knowing, thinking, and hearing, **se** introduces the clause — like English 'that': Im tel mi se yu gaan (he told me that you left), Mi nuo se yu rait (I know you're right), Mi ier se di shap lak (I hear the shop is closed). It comes from the verb 'say' but works as pure grammar here — even Mi se se… ('I said that…') is possible in rapid speech.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1091,7 +1091,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "fi before a verb is 'to': Mi waan fi go (I want to go), Im laan fi swim (she learned to swim), Notn no de fi nyam (there's nothing to eat). It also carries obligation — 'supposed to': Yu fi lisn to yu mada (you should/are supposed to listen to your mother), Im no fi de ya (he shouldn't be here). In fast speech fi often drops after waan: Mi waan go.",
+      "explanation": "**fi** before a verb is 'to': Mi waan fi go (I want to go), Im laan fi swim (she learned to swim), Notn no de fi nyam (there's nothing to eat). It also carries obligation — 'supposed to': Yu fi lisn tu yu mada (you should/are supposed to listen to your mother), Im no fi de ya (he shouldn't be here). In fast speech fi often drops after waan: Mi waan go.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1160,7 +1160,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "For a past event that didn't happen, Patois prefers neva: Mi neva si im (I didn't see him — NOT 'never in my life', just plain didn't). Mi neva du it! (I didn't do it!). English speakers hear 'never' and over-read it; in Patois it's the ordinary past negative. For 'never ever', add emphasis: Mi neva-eva du dat. no + did also works: Mi no did nuo (I didn't know).",
+      "explanation": "For a past event that didn't happen, Patois prefers **neva**: Mi neva si im (I didn't see him — NOT 'never in my life', just plain didn't). Mi neva du it! (I didn't do it!). English speakers hear 'never' and over-read it; in Patois it's the ordinary past negative. For 'never ever', add emphasis: Mi neva-eva du dat. no + did also works: Mi no did nuo (I didn't know).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1229,7 +1229,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "kyan = can, kyaan = can't (the vowel length matters!): Mi kyan swim / Mi kyaan swim. hafi = have to: Mi hafi go nou (I have to go). mos = must: Yu mos taste dis (you must taste this). shuda = should, kuda = could, wuda = would — these stack with did for past: Mi shuda did lisn (I should have listened). mosi = 'must be/probably': Im mosi taiyad (he must be tired).",
+      "explanation": "kyan is can, kyaan is can't — the vowel length is the whole difference: Mi kyan swim / Mi kyaan swim. The rest of the set:\n\n- hafi — have to: Mi hafi go nou (I have to go)\n- mos — must: Yu mos taste dis (you must taste this)\n- mosi — must be, probably: Im mosi taiyad (he must be tired)\n- shuda — should, kuda — could, wuda — would\n\nshuda, kuda and wuda stack with did for a past reading: Mi shuda did lisn (I should have listened).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1309,7 +1309,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Patois strings verbs together with no 'and' or 'to': Ron go kaal im (run and call him), Tek it kom ya (bring it here — 'take it come here'), Kya di buk gaan (carry the book away). Direction verbs go and kom act like 'thither' and 'hither' at the end of the chain. This serial-verb pattern is a direct West African inheritance and one of the deepest structural differences from English.",
+      "explanation": "Patois strings verbs together with no 'and' and no 'to':\n\n- Ron go kaal im — run and call him\n- Tek it kom ya — bring it here ('take it come here')\n- Kya di buk gaan — carry the book away\n\ngo and kom are the direction verbs, 'thither' and 'hither', and gaan is 'away, off'. They follow the verb whose direction they give, and go is often not the last verb in the chain: Ron go kaal im, Sen di pikni go kaal di dakta (send the child to go call the doctor). This serial-verb pattern is a direct West African inheritance and one of the deepest structural differences from English.",
       "culture_note": "Serial verbs appear across the Atlantic creoles and their West African substrates (Akan, Ewe, Igbo) — the same 'take X come' pattern exists in Twi.",
       "references": [
         {
@@ -1379,7 +1379,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "To stress a verb, Patois fronts a copy of it with a: A tiif im tiif it (he STOLE it — stealing is what he did), A ron mi did a ron (I was RUNNING), A waak wi waak kom (we WALKED here). The pattern is a + verb-copy + subject + verb. It answers doubt: someone questions how, and the cleft insists. Adjectives cleft too: A sik im sik (he's really SICK).",
+      "explanation": "To stress a verb, Patois fronts a copy of it with **a**: A tiif im tiif it (he STOLE it — stealing is what he did), A ron mi did a ron (I was RUNNING), A waak wi waak kom (we WALKED here). The pattern is a + verb-copy + subject + verb. It insists on the action against doubt, or against a rival one: A ron dem a ron, no waak (they are RUNNING, not walking). Adjectives cleft too: A sik im sik (he's really SICK).",
       "references": [
         {
           "title": "Wikipedia: Jamaican Patois",
@@ -1448,7 +1448,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "mek covers make, let, and let's: Mek wi go (let's go), Mek mi si (let me see), Yu a mek mi liet (you're making me late), Mek im gwaan (let him carry on). Wa mek…? (why — 'what makes'). In causatives the pattern is mek + pronoun + verb, with everything bare as usual. Duon mek dem fuul yu (don't let them fool you).",
+      "explanation": "**mek** covers make, let and let's, and everything after it stays bare:\n\n- Mek wi go — let's go\n- Mek mi si — let me see\n- Mek im gwaan — let him carry on\n- Yu a mek mi liet — you're making me late\n\nThe causative frame is mek + subject + bare verb or adjective: Duon mek dem fuul yu (don't let them fool you), Yu a mek mi liet fi wok. Wa mek…? is 'why' — literally 'what makes'.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1517,7 +1517,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Doubling is productive grammar. With adjectives it intensifies or attenuates: gud-gud (very good), likl-likl (bit by bit), swiit-swiit (really sweet). With verbs it means repeated/ongoing action: taak-taak (talk on and on), luk-luk (keep looking around). Some doubled forms are their own words: was-was (wasps' nest area), fenke-fenke (feeble), soso (only/plain — soso rais, plain rice).",
+      "explanation": "Doubling is productive grammar:\n\n- With adjectives it intensifies: gud-gud (very good), swiit-swiit (really sweet). likl-likl spreads the quality out instead — 'bit by bit'.\n- With verbs it means repeated or ongoing action: taak-taak (talk on and on), luk-luk (keep looking around).\n- Some doubled forms are their own words: was-was (a wasp), fenke-fenke (feeble), soso (only/plain — soso rais, plain rice).",
       "references": [
         {
           "title": "Cassidy & Le Page, Dictionary of Jamaican English",
@@ -1586,7 +1586,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "The preverbal markers combine in fixed order: TENSE before ASPECT. did + a = was …-ing: Im did a ron (he was running), Wi did a nyam wen yu kaal (we were eating when you called). With the future: wi + a? No — future continuous is ago + verb or wi de + verb regionally. The full stack: did + don + a is rare but grammatical (did don a nyam — had already been eating). Learn did-a as one unit and the system opens up.",
+      "explanation": "The preverbal markers combine in a fixed order, tense before aspect. **did + a** is 'was …-ing': Im did a ron (he was running), Wi did a nyam wen yu kaal (we were eating when you called). The full stack did + don + a is rare but grammatical: did don a nyam (had already been eating). Learn did-a as one unit and the system opens up.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1655,7 +1655,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "ina = in/inside/into: ina di yaad (in the yard), ina di maanin (in the morning). pan = on/upon: pan di tiebl (on the table), also 'at' someone: no luk pan mi (don't look at me). outa = out of: outa di ous (out of the house), also 'from': im kom outa Kingston. a alone covers 'to/at' for places: go a skuul, de a chorch. Time phrases lean on ina and pan where English switches: pan Sondi (on Sunday).",
+      "explanation": "The everyday prepositions:\n\n- ina — in, inside, into: ina di yaad (in the yard), ina di maanin (in the morning)\n- pan — on, upon: pan di tiebl (on the table); also 'at' a person: no luk pan mi (don't look at me)\n- outa — out of: outa di ous (out of the house); also 'from': im kom outa Kingston\n- a — to/at, for places: go a skuul, de a chorch\n\nTime phrases split the same way English does: ina for a stretch of the day (ina di maanin), pan for a named day (pan Sondi, on Sunday).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1724,7 +1724,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Real condition: ef + plain clause: Ef it rien, wi stie a yaad (if it rains, we stay home). Unreal: ef + did …, wuda + verb: Ef mi did nuo, mi wuda kom (if I had known, I would have come). wuda did also appears for the 'would have': Mi wuda did tel yu. The tense logic rides entirely on did and wuda — no subjunctive forms, no 'were'.",
+      "explanation": "Patois has no subjunctive and no 'were' — the tense logic rides entirely on did and wuda.\n\n| Condition | If-clause | Main clause |\n| --- | --- | --- |\n| Real | ef + plain verb | plain verb |\n| Unreal | ef + did + verb | wuda + verb |\n\nEf rien faal, wi stie a yaad (if it rains, we stay home). Ef mi did nuo, mi wuda kom (if I had known, I would have come). wuda did also appears for the 'would have': Mi wuda did tel yu.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1793,7 +1793,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "The same a that clefts verbs fronts ANY focused element: A we yu a go? (where exactly are you going?), A yu mi a taak to (it's YOU I'm talking to), A tide di maakit kip (it's today the market is held), A fi mi it a fi mi! (it's MINE!). The pattern is a + focused-thing + rest of sentence, and it's everywhere in real speech — questions, accusations, corrections.",
+      "explanation": "The same **a** that clefts verbs fronts any focused element:\n\n- A we yu a go? — where exactly are you going?\n- A yu mi a taak to — it's YOU I'm talking to\n- A tide di maakit kip — it's today the market is held\n- A fi mi kyaar dat! — that car is MINE!\n\nThe pattern is a + focused element + the rest of the sentence, and it's everywhere in real speech — questions, accusations, corrections.",
       "references": [
         {
           "title": "Wikipedia: Jamaican Patois",
@@ -1862,7 +1862,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Patois seasons statements with agreement-seeking tags: no chuu? (isn't it true?), iihn? (right?/eh?), no? and nuh at the end soften or invite: Yu a kom, no? (you're coming, right?), Di fuud gud, iihn? Sentence-final man softens or emphasizes among peers (Chill, man). Sentence-final yaa/ya adds warmth to advice: Tek kier a yuself, yaa. These particles carry the social temperature of the sentence.",
+      "explanation": "Patois seasons statements with agreement-seeking tags:\n\n- no chuu? — isn't it true?: Di mango dem swiit, no chuu?\n- iihn? — right?, eh?: Di fuud gud, iihn?\n- no? — softens or invites: Yu a kom, no?\n- man — softens or emphasises among peers: Chil, man\n- yaa — adds warmth to advice: Tek kier a yuself, yaa\n\nThese particles carry the social temperature of the sentence.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -1931,7 +1931,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "'There is/are' has several forms: it av (it have): It av wan shap dong di ruod (there's a shop down the road); de + subject: Nof mango de pan di tri (there are lots of mangoes on the tree); or bare de-so constructions. Weather runs on verbs without 'it': Rien a faal (it's raining — 'rain is falling'), Son at (the sun is hot). Negative existential: notn no de (there's nothing).",
+      "explanation": "'There is/are' has more than one shape:\n\n- it av — It av wan shap dong di ruod (there's a shop down the road)\n- subject + de — Nof mango de pan di tri (there are lots of mangoes on the tree)\n- notn no de — the negative existential, 'there's nothing'\n\nWeather runs on verbs without 'it': Rien a faal (it's raining — 'rain is falling'), Son at (the sun is hot).",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",
@@ -2000,7 +2000,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Jamaican speech lives on a continuum from deep basilect (Im en a nyam) through mesolect (Im did a eat) to Jamaican Standard English (He was eating). Speakers shift by situation: yard and market talk sits deep, radio interviews sit high, and most daily speech floats between. The skill is HEARING where an utterance sits and matching it: answering deep Patwa in Standard English reads as distant; going deep in a job interview misfires. Watch the tells: en vs did vs was; nyam vs eat; unu vs you all; th-sounds appearing as the register rises (ting → thing).",
+      "explanation": "Jamaican speech lives on a continuum from deep basilect (Im en a nyam) through mesolect (Im did a iit) to Jamaican Standard English (He was eating). Speakers shift by situation: yard and market talk sits deep, radio interviews sit high, and most daily speech floats between. The skill is hearing where an utterance sits and matching it: answering deep Patwa in Standard English reads as distant; going deep in a job interview misfires. Watch the tells:\n\n| Feature | Basilect | Mesolect | Standard |\n| --- | --- | --- | --- |\n| past marker | en | did | was |\n| 'eat' | nyam | iit | eat |\n| plural 'you' | unu | yu | you all |\n\nAnd th-sounds come back as the register rises: ting becomes thing.",
       "culture_note": "The continuum is why 'is Patois broken English?' misses the point — it's a system with its own grammar that speakers navigate PLUS English, a bilingual skill, not a failed monolingual one.",
       "references": [
         {
@@ -2070,7 +2070,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Jamaican proverbs compress the culture. Wanti wanti kyaan getti, getti getti no wanti (those who want can't get; those who get don't want). Wan wan koko ful baskit (one by one fills the basket — patience). Chikin merry, hawk de near (rejoicing invites danger). Duppy know who fi frighten (bullies pick their targets). Yu shake man han, yu no shake im haat (a handshake isn't trust). Proverbs deploy mid-argument as complete reasoning — learn them whole, with their rhythm.",
+      "explanation": "Jamaican proverbs compress the culture into one sentence:\n\n- Wanti wanti kyaan getti, getti getti no wanti — those who want can't get; those who get don't want\n- Wan wan koko ful baskit — one by one fills the basket; patience\n- Chikin meri, haak de nier — rejoicing invites danger\n- Dopi nuo uu fi fraitn — the ghost knows whom to frighten; bullies pick their targets\n- Yu shiek man an, yu no shiek im aat — a handshake isn't trust\n- Ebri mikl mek a mokl — every little bit makes a lot\n\nProverbs deploy mid-argument as complete reasoning — learn them whole, with their rhythm.",
       "references": [
         {
           "title": "Cassidy & Le Page, Dictionary of Jamaican English",
@@ -2139,7 +2139,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Rastafari reshaped Jamaican speech on principle. I-an-I replaces mi/wi — the self and Jah are one, so the objectified 'me' is rejected. 'Downpressor' replaces 'oppressor' (why would pressing DOWN be 'op'?); 'overstand' replaces 'understand'; 'livication' replaces 'dedication' (no 'dead' in a living act). I- prefixing sacralizes: Ital (pure, natural food), Irie (blessed harmony), Iditation (meditation). This is conscious philosophy of language — sound-symbolism as theology — and it flows through reggae into global speech.",
+      "explanation": "Rastafari reshaped Jamaican speech on principle. **I-an-I** replaces mi/wi — the self and Jah are one, so the objectified 'me' is rejected. The remade words carry their reasoning on the surface:\n\n- downpressor for 'oppressor' — pressing goes DOWN, so why 'op'?\n- overstand for 'understand' — you stand OVER knowledge, not under it\n- livication for 'dedication' — no 'dead' in a living act\n\nI- prefixing sacralizes: Ital (pure, natural food), Irie (blessed harmony), Iditation (meditation). This is conscious philosophy of language — sound-symbolism as theology — and it flows through reggae into global speech.",
       "culture_note": "Treat Iyaric with respect: it's religious register, not slang. Using irie or ital casually is fine (they've entered general Patois); imitating I-an-I speech as an outsider can read as mockery.",
       "references": [
         {
@@ -2209,7 +2209,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Written Patois has two live conventions. The Cassidy/JLU system (used in this course) is phonemic: one sound, one spelling — di, likl, kyaan, uman. Ad-hoc English-based spelling is what most people actually type: de/di, likkle, cyaan, ooman. Louise Bennett-Coverley ('Miss Lou') legitimized written Patois with English-based spellings ('Colonization in Reverse'); dub poets (Linton Kwesi Johnson, Mutabaruka) push phonemic choices for political point; Di Jamiekan Nyuu Testiment (2012) is full Cassidy-JLU. Reading fluently means holding both systems — and noticing what each choice signals.",
+      "explanation": "Written Patois has two live conventions. The Cassidy/JLU system (used in this course) is phonemic: one sound, one spelling — di, likl, kyaan, uman. Ad-hoc English-based spelling is what most people actually type:\n\n| Cassidy-JLU | Popular spelling |\n| --- | --- |\n| likl | likkle |\n| kyaan | cyaan |\n| uman | ooman |\n\nLouise Bennett-Coverley ('Miss Lou') legitimized written Patois with English-based spellings ('Colonization in Reverse'); dub poets (Linton Kwesi Johnson, Mutabaruka) push phonemic choices for political point; Di Jamiekan Nyuu Testiment (2012) is full Cassidy-JLU. Reading fluently means holding both systems — and noticing what each choice signals.",
       "references": [
         {
           "title": "Jamaican Language Unit (UWI Mona)",

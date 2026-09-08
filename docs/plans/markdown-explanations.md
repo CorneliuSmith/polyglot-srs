@@ -1,6 +1,13 @@
 # Markdown pass over the seed explanations — plan (4 Sep 2026)
 
-**Status: SEVENTEEN COURSES DONE (7 Sep 2026)** — fr es it pt de nl ca ro
+**Status: 26 OF 27 COURSES DONE (8 Sep 2026).** Only Korean is left, held
+for its duplicate-point decision. 787 of 1,106 explanations render as
+markdown and **1,623 content defects** were corrected on the way through
+(five decision records). The pass found roughly one defect per explanation
+read, which is the result worth carrying forward: nobody had read this
+corpus end to end before.
+
+**Status was: SEVENTEEN COURSES DONE (7 Sep 2026)** — fr es it pt de nl ca ro
 el ru ar he fa hi th tr sw. 479 of 748 explanations render as markdown and
 **1,115 content defects** were corrected on the way through (four decision
 records, `2026-09-07-fr-markdown-pass.md` and `-batch-2/3/4.md`). 10 courses
