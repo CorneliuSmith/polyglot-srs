@@ -230,7 +230,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "First conjugation (читать): читаю, читаешь, читает, читаем, читаете, читают.\n\nSecond conjugation (говорить): говорю, говоришь, говорит, говорим, говорите, говорят.\n\nThe ending alone tells you the person, so pronouns are often kept for clarity but the verb does the work.",
+      "explanation": "Two patterns cover most verbs: the first conjugation (читать) and the second (говорить). жить takes the first-conjugation endings under stress, which is why they carry ё.\n\n| Person | читать | говорить | жить |\n| --- | --- | --- | --- |\n| я | читаю | говорю | живу |\n| ты | читаешь | говоришь | живёшь |\n| он / она | читает | говорит | живёт |\n| мы | читаем | говорим | живём |\n| вы | читаете | говорите | живёте |\n| они | читают | говорят | живут |\n\nработать, слушать and most other -ать verbs follow читать.\n\nThe ending already identifies the person, but Russian keeps the subject pronoun anyway in ordinary speech; it is dropped only where the context makes it unmistakable.",
       "culture_note": "",
       "references": [
         {
@@ -394,7 +394,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The prepositional case marks location after в (in) and на (on). It only ever appears after a preposition, which is why it is taught first among the cases: в Москве (in Moscow), на столе (on the table).\n\nSingular endings are usually -е.",
+      "explanation": "The prepositional case says where something is, or what a conversation is about. It is the one case that never appears without a preposition, which is why it is taught first:\n\n- в (in) — в Москве\n- на (on) — на столе\n- о (about) — о фильме\n\nSingular endings are usually `-е`; nouns ending in `-ия` or `-ие` take `-ии` instead (Россия → России).",
       "culture_note": "",
       "references": [
         {
@@ -484,7 +484,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The direct object takes the accusative.\n\nFeminine -а becomes -у (книга → книгу, газета → газету); masculine inanimate nouns don't change (читаю журнал).\n\nAnimate masculine nouns borrow the genitive form — that contrast comes at A2.",
+      "explanation": "The direct object takes the accusative.\n\n- feminine `-а`/`-я` becomes `-у`/`-ю`: книга → книгу, газета → газету\n- masculine inanimate does not change: читаю журнал\n- neuter does not change: она пишет письмо\n\nAnimate masculine nouns borrow the genitive form — that contrast comes at A2.",
       "culture_note": "",
       "references": [
         {
@@ -609,7 +609,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Possessives agree with the gender of the THING owned, not the owner: мой дом (m), моя книга (f), моё окно (n), мои книги (pl).\n\nThe same pattern covers твой (your), наш (our), ваш (your, formal/plural).\n\nThird-person possessives work differently: его (his/its), её (her) and их (their) NEVER change form, whatever the noun: его дом, его книга, его окно. No agreement at all — they are frozen forms.\n\nTwo things come later in the path: свой (one's own, B1) replaces these when the owner is the subject, and as you learn cases you'll see the мой-type possessives decline together with their noun.",
+      "explanation": "Possessives agree with the gender and number of the THING owned, not the owner:\n\n| Owner | Masculine | Feminine | Neuter | Plural |\n| --- | --- | --- | --- | --- |\n| я | мой | моя | моё | мои |\n| ты | твой | твоя | твоё | твои |\n| мы | наш | наша | наше | наши |\n| вы | ваш | ваша | ваше | ваши |\n\nSo мой дом but моя книга, and a single plural form for all three genders: мои книги, мои очки.\n\nваш is also the polite form for one person. Note наше and ваше — the ё of моё and твоё does not carry over.\n\nThird-person possessives work differently: его (his/its), её (her) and их (their) NEVER change form, whatever the noun: его дом, его книга, его окно. No agreement at all — they are frozen forms.\n\nTwo things come later in the path: свой (one's own, B1) replaces these when the owner is the subject, and as you learn cases you'll see the мой-type possessives decline together with their noun.",
       "culture_note": "",
       "references": [
         {
@@ -771,7 +771,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Drop -ть and add -л, then agree with the SUBJECT's gender: он читал, она читала, оно читало, они читали.\n\nEven 'to be' reappears in the past: он был, она была, они были.",
+      "explanation": "Drop -ть and add -л, then agree with the SUBJECT: gender in the singular, one form for the plural. There are no person endings, so я был and я была differ only in who is speaking.\n\n| Subject | читать | быть |\n| --- | --- | --- |\n| он | читал | был |\n| она | читала | была |\n| оно | читало | было |\n| они | читали | были |\n\nRussian has no present tense of 'to be', but the past says it out loud: Он был дома. Impersonal sentences use the neuter: Утром было холодно.",
       "culture_note": "The past tense agrees in gender, not person — a historical participle. A woman says 'я читала', a man 'я читал'.",
       "references": [
         {
@@ -893,7 +893,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Possession is 'у + person + есть': У меня есть брат (I have a brother). Absence is 'нет + genitive': У меня нет брата (I don't have a brother — брат takes genitive -а).\n\nThis у-construction is the everyday way to say 'have'; the verb иметь is bookish.",
+      "explanation": "Possession is у + person + есть, with the person itself in the genitive: У меня есть брат (I have a brother). Absence drops есть and puts the missing thing in the genitive after нет: У меня нет брата.\n\nIn the genitive singular, masculine and neuter nouns take `-а`/`-я` (брат → брата, молоко → молока) and feminine nouns take `-ы`/`-и` (машина → машины, работа → работы). A few words are irregular — время → времени, деньги → денег — and indeclinable loanwords never change. нет also works with no у at all: В городе нет метро.\n\nThis у-construction is the everyday way to say 'have'; the verb иметь is bookish.",
       "culture_note": "",
       "references": [
         {
@@ -987,7 +987,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The dative marks the receiver: даю брату книгу (I give my brother a book).\n\nMasculine and neuter singular take -у/-ю (брат → брату, окно → окну), feminine -а/-я becomes -е (сестра → сестре).\n\nSome everyday verbs always take the dative: помогать (help), звонить (call), отвечать (answer): Я помогаю маме.\n\nPronouns: мне, тебе, ему, ей, нам, вам, им.",
+      "explanation": "The dative marks the receiver: даю брату книгу (I give my brother a book).\n\nMasculine and neuter singular take -у/-ю (брат → брату, окно → окну), feminine -а/-я becomes -е (сестра → сестре).\n\nSome everyday verbs put the person in the dative where English has a plain object: помогать (help), звонить (call), отвечать (answer). Я помогаю маме.\n\nAge is dative too: Мне двадцать лет (I am twenty).\n\nThe dative pronouns:\n\n| Person | Dative |\n| --- | --- |\n| я | мне |\n| ты | тебе |\n| он / оно | ему |\n| она | ей |\n| мы | нам |\n| вы | вам |\n| они | им |",
       "culture_note": "Age is expressed with the dative: Мне двадцать лет — literally 'to me twenty years'.",
       "references": [
         {
@@ -1147,7 +1147,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The instrumental marks the tool or companion.\n\nEndings: masculine/neuter -ом/-ем (карандаш → карандашом), feminine -ой/-ей (ручка → ручкой).\n\nWith с it means 'together with': Я иду в кино с другом. Without a preposition it is the instrument: Я пишу ручкой (I write with a pen).\n\nAfter стать/быть it marks a role: Он хочет стать врачом (He wants to become a doctor). Заниматься takes the instrumental: заниматься спортом.",
+      "explanation": "The instrumental marks the tool or the companion.\n\n| Gender | Ending | Example |\n| --- | --- | --- |\n| masculine / neuter | -ом / -ем | карандаш → карандашом |\n| feminine | -ой / -ей | ручка → ручкой |\n\nFour everyday uses:\n\n- with no preposition, the instrument: Я пишу ручкой (I write with a pen)\n- after с, the companion: Я иду в кино с другом\n- after стать or быть, the role someone takes on: Он хочет стать врачом (He wants to become a doctor)\n- after a verb that governs it: заниматься спортом",
       "culture_note": "",
       "references": [
         {
@@ -1227,7 +1227,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Almost every Russian verb comes as a pair: imperfective for process, repetition, or the activity itself (читать, писать, делать), perfective for a single completed result (прочитать, написать, сделать).\n\nIn the past this is the key contrast: Вчера я читал книгу (spent time reading) vs Вчера я прочитал книгу (finished it). When you learn a verb, learn its partner with it — vocabulary cards here show both forms together.",
+      "explanation": "Almost every Russian verb comes as a pair: the imperfective for a process, a repetition, or the activity itself, the perfective for a single completed result.\n\n| Imperfective | Perfective |\n| --- | --- |\n| читать | прочитать |\n| писать | написать |\n| делать | сделать |\n\nIn the past this is the key contrast: Вчера я читал книгу (spent time reading) vs Вчера я прочитал книгу (finished it). When you learn a verb, learn its partner with it — vocabulary cards here show both forms together.",
       "culture_note": "There is no perfect/progressive tense system — aspect does that work. Learners who master the pair habit early save themselves years of confusion.",
       "references": [
         {
@@ -1307,7 +1307,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The imperfective future is буду/будешь/будет/будем/будете/будут + the imperfective infinitive: Завтра я буду работать (Tomorrow I will be working). Use it for processes, plans without a finish line, and repeated future actions: Я буду читать каждый день.",
+      "explanation": "The imperfective future is a form of буду plus an imperfective infinitive — буду never combines with a perfective one:\n\n| Person | Form |\n| --- | --- |\n| я | буду |\n| ты | будешь |\n| он / она | будет |\n| мы | будем |\n| вы | будете |\n| они | будут |\n\nЗавтра я буду работать (Tomorrow I will be working). Use it for processes, plans without a finish line, and repeated future actions: Я буду читать каждый день.",
       "culture_note": "",
       "references": [
         {
@@ -1467,7 +1467,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Going on foot uses TWO verbs: идти for one direction right now (Сейчас я иду в школу — I'm on my way to school) and ходить for repeated trips or motion in general (Каждый день я хожу в школу — I go to school every day). Past ходил(а) also means a completed round trip: Вчера мы ходили в кино (we went to the cinema — and came back).\n\nDestination takes в/на + accusative.",
+      "explanation": "Going on foot uses TWO verbs: идти for one direction right now (Сейчас я иду в школу — I'm on my way to school) and ходить for repeated trips or motion in general (Каждый день я хожу в школу — I go to school every day). Past ходил(а) also means a completed round trip: Вчера мы ходили в кино (we went to the cinema — and came back).\n\nThe present tense of both:\n\n| Person | идти | ходить |\n| --- | --- | --- |\n| я | иду | хожу |\n| ты | идёшь | ходишь |\n| он / она | идёт | ходит |\n| мы | идём | ходим |\n| вы | идёте | ходите |\n| они | идут | ходят |\n\nDestination takes в/на + accusative.",
       "culture_note": "This one-way/many-ways split runs through all Russian motion verbs — master it here and the rest of the family follows the same logic.",
       "references": [
         {
@@ -1547,7 +1547,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Motion by vehicle mirrors идти/ходить: ехать for one direction now (Мы едем в Москву — we're on our way to Moscow) and ездить for repeated or general trips (Каждое лето мы ездим на море).\n\nConjugation: еду, едешь, едет…; езжу, ездишь, ездит…\n\nThe means of transport takes на + prepositional: ехать на поезде, на автобусе.",
+      "explanation": "Motion by vehicle mirrors идти/ходить: ехать for one direction now (Мы едем в Москву — we're on our way to Moscow) and ездить for repeated or general trips (Каждое лето мы ездим на море — every summer we go to the seaside).\n\nThe present tense of both:\n\n| Person | ехать | ездить |\n| --- | --- | --- |\n| я | еду | езжу |\n| ты | едешь | ездишь |\n| он / она | едет | ездит |\n| мы | едем | ездим |\n| вы | едете | ездите |\n| они | едут | ездят |\n\nPast ездил(а), ездили is a completed round trip, exactly as ходил(а) is on foot.\n\nThe means of transport takes на + prepositional: ехать на поезде, на автобусе.",
       "culture_note": "",
       "references": [
         {
@@ -1627,7 +1627,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Form the imperative from the present stem: vowel stem + -й (читаю → читай), consonant stem + -и when stressed (говорю → говори).\n\nAdd -те for вы: читайте, говорите. Common commands: Слушай(те)!\n\nСмотри(те)! Скажи(те), пожалуйста…",
+      "explanation": "Take the они form of the present and drop the ending: читают → чита-, говорят → говор-, готовят → готов-.\n\nWhat you add depends on the stem and on where the stress falls in the я form:\n\n- vowel stem — `-й`: читай\n- one final consonant, stress on the ending (я говорю) — `-и`: говори\n- one final consonant, stress on the stem (я готовлю) — `-ь`: готовь\n- two final consonants — `-и` whatever the stress: помни, прыгни\n\nAdd `-те` for вы: читайте, говорите, готовьте.\n\nA few are irregular: дать → дай(те), пить → пей(те), есть → ешь(те).\n\nCommon commands: Слушай(те)! Смотри(те)! Скажи(те), пожалуйста…",
       "culture_note": "Adding пожалуйста or the -те form softens a command — bare imperatives to strangers sound abrupt.",
       "references": [
         {
@@ -1707,7 +1707,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Verbs in -ся conjugate normally and keep the particle: заниматься → занимаюсь, занимаешься; учиться → учусь, учишься.\n\nAfter a vowel -ся becomes -сь: занимаюсь, but занимался. Many everyday verbs are reflexive without any 'self' meaning: урок начинается (the lesson begins), магазин закрывается (the shop closes).",
+      "explanation": "Verbs in `-ся` conjugate normally and keep the particle, which is written `-сь` after a vowel and `-ся` after a consonant: занимаюсь, but занимался.\n\n| Person | заниматься | учиться |\n| --- | --- | --- |\n| я | занимаюсь | учусь |\n| ты | занимаешься | учишься |\n| он / она | занимается | учится |\n| мы | занимаемся | учимся |\n| вы | занимаетесь | учитесь |\n| они | занимаются | учатся |\n\nMany everyday verbs are reflexive without any 'self' meaning: урок начинается (the lesson begins), магазин закрывается (the shop closes).",
       "culture_note": "",
       "references": [
         {
@@ -1787,7 +1787,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Masculine nouns that name living beings borrow the GENITIVE form in the accusative: Я вижу брата (I see my brother), Она любит Ивана. Inanimate masculines stay unchanged (читаю журнал).\n\nFeminine nouns keep their own accusative (-у) whether animate or not: Я вижу сестру.",
+      "explanation": "In the accusative, what changes depends on gender — and for masculine nouns on animacy, whether the noun names a living being:\n\n- masculine animate — borrows the GENITIVE form: Я вижу брата (I see my brother), Она любит Ивана\n- masculine inanimate and neuter — unchanged: Я читаю журнал\n- feminine singular — its own ending `-у`, animate or not: Я вижу сестру\n- plural of any gender — animate borrows the genitive (Я вижу сестёр), inanimate is unchanged (Я читаю журналы)",
       "culture_note": "",
       "references": [
         {
@@ -1947,7 +1947,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The simple comparative adds -ее (or -ей): интересный → интереснее, красивый → красивее.\n\nA few are irregular and essential: хороший → лучше, плохой → хуже, большой → больше, маленький → меньше, старый → старше.\n\nCompare with чем: Москва больше, чем Тверь — or put the compared noun in the genitive: Москва больше Твери.",
+      "explanation": "The simple comparative adds -ее (or -ей) to the stem: интересный → интереснее, красивый → красивее.\n\nA stem ending in г, к, х, д or т takes -е instead, and the consonant changes: короткий → короче, дорогой → дороже, тихий → тише, молодой → моложе.\n\nA few are irregular and essential: хороший → лучше, плохой → хуже, большой → больше, маленький → меньше, старый → старше.\n\nThe same form serves as the comparative adverb: быстро → быстрее, медленно → медленнее.\n\nCompare with чем: Москва больше, чем Тверь — or put the compared noun in the genitive: Москва больше Твери.",
       "culture_note": "",
       "references": [
         {
@@ -2107,7 +2107,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Some adjectives have a short predicate form used only after 'to be': рад/рада/рады (glad), готов/готова/готовы (ready), занят/занята/заняты (busy), болен/больна (ill), должен/должна/должны (must, owe).\n\nThey agree in gender and number: Я рад тебя видеть. Она готова.\n\nМы должны работать.",
+      "explanation": "Some adjectives have a short form that works only as a predicate — after быть in the past and future, and with no verb at all in the present. It agrees with the subject in gender and number.\n\n| Meaning | Masculine | Feminine | Plural |\n| --- | --- | --- | --- |\n| glad | рад | рада | рады |\n| ready | готов | готова | готовы |\n| busy | занят | занята | заняты |\n| ill | болен | больна | больны |\n| must, owe | должен | должна | должны |\n\nЯ рад тебя видеть. Она готова. Мы должны работать.",
       "culture_note": "",
       "references": [
         {
@@ -2187,7 +2187,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Свой replaces мой/твой/его/её/наш/их when the owner is the SUBJECT of the sentence: Я люблю свою работу (I love my own job), Она читает свою книгу (her own book). Compare: Она читает её книгу = someone else's book.\n\nСвой declines like мой: свой, своя, своё, свои.",
+      "explanation": "Свой replaces мой/твой/его/её/наш/их when the owner is the SUBJECT of the sentence: Я люблю свою работу (I love my own job), Она читает свою книгу (her own book). Compare: Она читает её книгу = someone else's book.\n\nСвой declines like мой: свой (masculine), своя (feminine), своё (neuter), свои (plural).\n\nThe case comes from the noun's own role in the sentence: в своём городе (prepositional), о своей семье (prepositional), своих детей (animate plural, genitive form for the accusative).",
       "culture_note": "",
       "references": [
         {
@@ -2267,7 +2267,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "After 1 the noun is nominative singular (один год).\n\nAfter 2, 3, 4 — genitive SINGULAR: два года, три брата, четыре книги (две for feminine).\n\nAfter 5 and above — genitive PLURAL: пять лет, шесть книг, десять рублей.\n\nCompound numbers follow their last word: двадцать один год, двадцать два года, двадцать пять лет.",
+      "explanation": "The numeral fixes the case of the noun counted:\n\n- 1 — nominative singular: один год, одна книга\n- 2, 3, 4 — genitive SINGULAR: два года, три брата, четыре книги\n- 5 and above — genitive PLURAL: пять лет, шесть книг, десять рублей\n- compound numbers — whatever their last word takes: двадцать один год, двадцать два года, двадцать пять лет\n\nДве, not два, before a feminine noun: две книги, две сестры.\n\nThe genitive plural of год is лет: пять лет, тридцать лет.",
       "culture_note": "Prices and ages run on this system constantly — рубль/рубля/рублей is the everyday drill.",
       "references": [
         {
@@ -2347,7 +2347,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Dates use the NEUTER ordinal (agreeing with число, 'date'): Сегодня первое января (Today is the first of January) — the month goes in the genitive. 'On a date' puts the ordinal in the genitive too: Я родился второго марта (I was born on the second of March).\n\nYears use в + prepositional: в две тысячи двадцатом году.",
+      "explanation": "Dates use the NEUTER ordinal, agreeing with число ('date'), and the month stays in the genitive:\n\n- the date itself — nominative: Сегодня первое января (today is the first of January)\n- on that date — genitive: Я родился второго марта (I was born on the second of March)\n- in that year — в + prepositional: в две тысячи двадцатом году (in 2020)\n\nOutside dates an ordinal agrees with its noun like any adjective: первый урок, вторая книга, пятое место.",
       "culture_note": "",
       "references": [
         {
@@ -2427,7 +2427,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The conditional is simply past tense + бы: Я хотел бы кофе (I would like a coffee), Без тебя мы бы не справились.\n\nHypothetical conditions take если бы in both halves: Если бы у меня было время, я бы пришёл (If I had time, I would come).\n\nБы usually follows the verb or the word it highlights.",
+      "explanation": "The conditional is simply past tense + **бы**: Я хотел бы кофе (I would like a coffee), Без тебя мы бы не справились.\n\nA hypothetical condition takes если бы in the if-half and бы on its own in the result: Если бы у меня было время, я бы пришёл (If I had time, I would come).\n\nThe past form still agrees with the subject: я бы пришёл, я бы пришла, мы бы пришли.\n\nБы usually follows the verb or the word it highlights.",
       "culture_note": "Я хотел(а) бы… is the polite way to order or request — the Russian 'I would like'.",
       "references": [
         {
@@ -2507,7 +2507,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Который agrees with its noun in gender and number, but its CASE comes from its role in the relative clause: Вот дом, в котором я живу (the house I live in — prepositional after в). Девушка, которая работает здесь (who works here — subject, nominative).\n\nКнига, которую я читаю (which I'm reading — direct object, accusative).",
+      "explanation": "Который agrees with its noun in gender and number, but its CASE comes from its role in the relative clause:\n\n- subject — nominative: Девушка, которая работает здесь (the girl who works here), Люди, которые здесь работают\n- direct object — accusative: Книга, которую я читаю (the book I'm reading)\n- after a preposition — the case that preposition governs: Вот дом, в котором я живу (в + prepositional)\n- governed by the verb — the case that verb governs: Друг, которому я звоню (звонить + dative)\n\nA masculine inanimate object looks like the nominative, as it does for any noun: Фильм, который я смотрю.",
       "culture_note": "",
       "references": [
         {
@@ -2587,7 +2587,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "When the same person does both actions, purpose is чтобы + infinitive: Я учу русский, чтобы работать в Москве (I'm learning Russian in order to work in Moscow). After verbs of motion, чтобы is often optional but always correct: Мы пришли, чтобы поговорить.",
+      "explanation": "When the same person does both actions, purpose is **чтобы** + infinitive: Я учу русский, чтобы работать в Москве (I'm learning Russian in order to work in Moscow). After verbs of motion, чтобы is often optional but always correct: Мы пришли, чтобы поговорить.\n\nWhen the two subjects differ, чтобы takes a past-tense verb instead of the infinitive: Я хочу, чтобы ты пришёл (I want you to come).",
       "culture_note": "",
       "references": [
         {
@@ -2667,7 +2667,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Statements are reported with что, and the original tense is KEPT: Он сказал, что придёт завтра (He said he would come — Russian keeps the future). Questions with a question word keep it: Она спросила, где я живу.\n\nYes/no questions use ли after the verb: Он спросил, приду ли я.",
+      "explanation": "Reported speech keeps the original tense: Russian does not backshift the way English does, so a reported future stays future.\n\nThe link word depends on what is being reported:\n\n- Statement — что: Он сказал, что придёт завтра (He said he would come tomorrow).\n- Question with a question word — the word stays: Она спросила, где я живу (She asked where I live).\n- Yes/no question — ли after the verb: Он спросил, приду ли я (He asked whether I would come).",
       "culture_note": "No tense backshift — a relief after English. What was said is what is reported.",
       "references": [
         {
@@ -2747,7 +2747,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "These sentences have no grammatical subject — the person, if named, goes in the dative: Мне надо идти (I have to go), Здесь можно курить? (May one smoke here?), Нельзя опаздывать (One mustn't be late).\n\nStates work the same way: Мне холодно (I'm cold), Ему скучно. Past adds было: Надо было позвонить.",
+      "explanation": "These sentences have no grammatical subject — the person, if named, goes in the dative: Мне надо идти (necessity — I have to go), Здесь можно курить? (permission — May one smoke here?), Нельзя опаздывать (prohibition — One mustn't be late).\n\nStates work the same way: Мне холодно (I'm cold), Ему скучно (he is bored). Past adds было: Надо было позвонить.",
       "culture_note": "",
       "references": [
         {
@@ -2907,7 +2907,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Perfective imperatives request one completed act: Напиши мне! Купи хлеба!\n\nImperfective imperatives invite, encourage a process, or set a routine: Садитесь! (Do sit down), Пишите каждый день. Under negation the roles fix themselves: prohibitions are imperfective (Не опаздывай!\n\n— Don't be late), while perfective + не is a warning against an accident (Не забудь! Не упади!\n\n— Mind you don't forget/fall).",
+      "explanation": "The aspect of an imperative changes what it does, and under negation the roles swap:\n\n- Perfective — one completed act: Напиши мне! Купи хлеба!\n- Imperfective — an invitation, a process, or a routine: Садитесь! (Do sit down), Пишите каждый день.\n- не + imperfective — a prohibition: Не опаздывай! (Don't be late.)\n- не + perfective — a warning against an accident: Не забудь! Не упади! (Mind you don't forget, don't fall.)",
       "culture_note": "Садитесь, проходите, угощайтесь — imperfective imperatives are the language of hospitality.",
       "references": [
         {
@@ -2987,7 +2987,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Себя refers back to the subject and has no nominative: Он думает только о себе (about himself), Она купила себе платье (for herself), Посмотри на себя.\n\nСам stresses that the subject did it personally and agrees like an adjective: Она сама это сделала (she did it herself), Я сам виноват.",
+      "explanation": "**Себя** refers back to the subject of its own clause and has no nominative — it can never be the doer: Он думает только о себе (about himself), Она купила себе платье (for herself), Посмотри на себя, Возьми с собой воду.\n\n| Case | Form |\n| --- | --- |\n| Genitive, accusative | себя |\n| Dative, prepositional | себе |\n| Instrumental | собой |\n\n**Сам** stresses that the subject did it personally and agrees like an adjective: Она сама это сделала (she did it herself), Я сам виноват.",
       "culture_note": "Чувствуйте себя как дома — 'feel yourself at home' — is the standard welcome formula.",
       "references": [
         {
@@ -3147,7 +3147,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Drop -л from the past tense and add -вший: прочитал → прочитавший (who read/has read), живший (who lived), написавший.\n\nAgrees like an adjective: писатель, живший в Париже (the writer who lived in Paris).\n\nEquivalent to который + past: студент, сдавший экзамен = студент, который сдал экзамен.",
+      "explanation": "Drop -л from the past tense and add -вший: прочитал → прочитавший (who read/has read), жил → живший (who lived), написал → написавший.\n\nAgrees like an adjective: писатель, живший в Париже (the writer who lived in Paris).\n\nEquivalent to который + past: студент, сдавший экзамен = студент, который сдал экзамен.",
       "culture_note": "",
       "references": [
         {
@@ -3227,7 +3227,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Formed from perfective verbs: написать → написанный (written), прочитать → прочитанный, построить → построенный, закрыть → закрытый.\n\nAgrees like an adjective: письмо, написанное вчера (a letter written yesterday); дом, построенный в прошлом году.\n\nThe doer, if mentioned, takes the instrumental: роман, написанный Толстым.",
+      "explanation": "Formed from perfective verbs: написать → написанный (written), прочитать → прочитанный, построить → построенный, закрыть → закрытый.\n\nWhich suffix you get follows the infinitive: -ать verbs take -анный, -ить verbs take -енный, and a small group — mostly verbs in -ыть, -ять and -нуть — takes -тый. A stem ending in б, п, в, м or ф inserts -л- before the ending: купить → купленный.\n\nAgrees like an adjective: письмо, написанное вчера (a letter written yesterday); дом, построенный в прошлом году.\n\nThe doer, if mentioned, takes the instrumental: роман, написанный Толстым.",
       "culture_note": "",
       "references": [
         {
@@ -3307,7 +3307,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The short form of the past passive participle is the everyday passive: Дом построен (The house has been built), Письмо написано, Работа сделана, Магазин закрыт.\n\nIt agrees in gender and number: закрыт/закрыта/закрыто/закрыты. Past and future add быть: Работа была сделана вовремя.\n\nМагазин будет закрыт завтра.",
+      "explanation": "The short form of the past passive participle is the everyday passive: Дом построен (The house has been built), Письмо написано (The letter is written), Работа сделана (The work is done), Магазин закрыт (The shop is closed).\n\nIt agrees in gender and number: закрыт (m.), закрыта (f.), закрыто (n.), закрыты (pl.).\n\nPast and future add быть: Работа была сделана вовремя; Магазин будет закрыт завтра.",
       "culture_note": "",
       "references": [
         {
@@ -3387,7 +3387,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The imperfective gerund (-я/-а from the present stem: читая, говоря, слушая) means 'while doing': Читая книгу, я делаю заметки (While reading, I take notes).\n\nThe gerund's hidden subject must be the sentence subject. Reflexives keep -сь: занимаясь, улыбаясь.",
+      "explanation": "The imperfective gerund adds -я to the present stem: читая, говоря, слушая (after ж, ч, ш and щ it is -а: слыша, держа). It means 'while doing': Читая книгу, я делаю заметки (While reading, I take notes).\n\nThe gerund's hidden subject must be the sentence subject. Reflexives keep -сь: занимаясь, улыбаясь.",
       "culture_note": "",
       "references": [
         {
@@ -3467,7 +3467,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "The perfective gerund (-в from the past stem: прочитав, написав, купив) means 'having done': Прочитав книгу, я вернул её в библиотеку (Having read the book, I returned it).\n\nPrefixed motion verbs use -я: придя домой (having come home). Reflexives take -вшись: вернувшись, умывшись.",
+      "explanation": "The perfective gerund (-в from the past stem: прочитав, написав, купив) means 'having done': Прочитав книгу, я вернул её в библиотеку (Having read the book, I returned it).\n\nPrefixed motion verbs build theirs on the future stem with -я instead: приду → придя домой (having come home). Reflexives take -вшись: вернувшись, умывшись.",
       "culture_note": "",
       "references": [
         {
@@ -3547,7 +3547,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Prefixes carry meanings across the whole verb system: пере- = again or across (перечитать — reread, переписать — rewrite), до- = up to the end (дочитать до конца — read to the end), за- = start or drop in (записать — write down, зайти — pop in), раз-/рас- = apart or undo (рассказать — tell, раздать — hand out).\n\nLearn the prefix meanings once and hundreds of verbs decode themselves.",
+      "explanation": "Prefixes carry meanings across the whole verb system: пере- = again or across (перечитать — reread, переписать — rewrite), до- = up to the end (дочитать до конца — read to the end), за- = start, drop in, or record (заговорить — start talking, зайти — pop in, записать — write down), раз-/рас- = apart or undo (раздать — hand out, развязать — untie, рассказать — tell).\n\nLearn the prefix meanings once and hundreds of verbs decode themselves.",
       "culture_note": "",
       "references": [
         {
@@ -3627,7 +3627,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Negative pronouns REQUIRE не on the verb — double negation is obligatory: Никто не пришёл (Nobody came), Я ничего не знаю (I don't know anything), Он никогда не был в Москве.\n\nIn case forms a preposition splits the word: ни у кого, ни о чём.",
+      "explanation": "Negative pronouns require не on the verb — double negation is obligatory: Никто не пришёл (Nobody came), Я ничего не знаю (I don't know anything), Он никогда не был в Москве (He has never been to Moscow).\n\nНикто declines like кто: никого, никому, никем. A preposition splits the word in two and stands in the middle: ни у кого, ни о чём.",
       "culture_note": "Ничего is also the universal shrug — 'it's fine, no matter': Как дела? — Ничего.",
       "references": [
         {
@@ -3707,7 +3707,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Written Russian compresses который-clauses into participial phrases: студент, который сдал экзамен → студент, сдавший экзамен; вопросы, которые обсуждаются на собрании → вопросы, обсуждаемые на собрании.\n\nReflexive verbs give -щийся participles: дом, который строится → строящийся дом.\n\nMastering the transformation in both directions is the key reading skill for newspapers and academic texts.",
+      "explanation": "Written Russian compresses который-clauses into participial phrases:\n\n| Participle | Relative clause | Participial phrase |\n|---|---|---|\n| past active | студент, который сдал экзамен | студент, сдавший экзамен |\n| present passive | вопросы, которые обсуждаются на собрании | вопросы, обсуждаемые на собрании |\n| present active | дом, который строится | строящийся дом |\n\nA participle built on a reflexive verb keeps its -ся in every form: строится → строящийся, строился → строившийся.\n\nOnly a который that is the subject or the direct object of its clause converts; an oblique one has no participle, so дом, в котором я живу stays a clause.\n\nMastering the transformation in both directions is the key reading skill for newspapers and academic texts.",
       "culture_note": "Official and academic Russian stacks participles heavily; spoken Russian avoids them almost entirely. Register is the point.",
       "references": [
         {
@@ -3867,7 +3867,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "When the wanter and the doer are different people, чтобы takes a PAST-tense verb (the Russian subjunctive): Я хочу, чтобы ты пришёл (I want you to come), Она попросила, чтобы мы подождали.\n\nThe same pattern follows надо, важно, нельзя: Важно, чтобы все были готовы. Compare same-subject purpose, which keeps the infinitive: Я пришёл, чтобы поговорить.",
+      "explanation": "When the wanter and the doer are different people, **чтобы** takes a PAST-tense verb (the Russian subjunctive): Я хочу, чтобы ты пришёл (I want you to come), Она попросила, чтобы мы подождали.\n\nThe same pattern follows надо, важно, нельзя: Важно, чтобы все были готовы.\n\nWhen the subject does not change, чтобы drops out after хотеть and the verb stays in the infinitive: Я хочу поехать, not Я хочу, чтобы поехать. In a purpose clause чтобы does stay, with the infinitive: Я пришёл, чтобы поговорить.",
       "culture_note": "",
       "references": [
         {
@@ -4267,7 +4267,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Particles carry the tone natives take for granted. Же marks impatience or obviousness: Я же тебе говорил! (I TOLD you!).\n\nВедь appeals to what both speakers know: Ты ведь знаешь его (you know him, after all). Enclitic -то highlights the topic, often with a contrast lurking: Денег-то у него нет (money is exactly what he doesn't have).",
+      "explanation": "Particles carry the tone natives take for granted.\n\n- же marks impatience or obviousness: Я же тебе говорил! (I TOLD you!)\n- ведь appeals to what both speakers know: Ты ведь знаешь его (you know him, after all)\n- enclitic -то highlights the topic, often with a contrast lurking: Денег-то у него нет (money is exactly what he doesn't have)",
       "culture_note": "Particles are why literal translations of Russian dialogue feel flat — the attitude lives in these little words, not in the verbs.",
       "references": [
         {
@@ -4427,7 +4427,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Adjectives agree with their noun's gender and number. Hard-stem endings in the nominative: -ый (m), -ая (f), -ое (n), -ые (pl): новый дом, новая книга, новое окно, новые дома.\n\nTwo spelling twists: after к, г, х, ж, ш, щ, ч the masculine and plural switch to -ий/-ие (русский, хорошие), and a stressed masculine ending is -ой (большой). Soft-stem adjectives (синий, синяя, синее, синие) follow the same pattern with soft vowels.\n\nAdjectives also decline for case — you'll meet those forms as you learn each case.",
+      "explanation": "Adjectives agree with their noun's gender and number. Hard-stem endings in the nominative:\n\n| Gender | Ending | Example |\n|---|---|---|\n| masculine | -ый | новый дом |\n| feminine | -ая | новая книга |\n| neuter | -ое | новое окно |\n| plural | -ые | новые дома |\n\nThree spelling twists:\n\n- after к, г, х, ж, ш, щ, ч the masculine and plural are -ий/-ие: русский, хорошие\n- after ж, ш, щ, ч an unstressed neuter is -ее: хорошее, свежее\n- a stressed masculine ending is -ой: большой\n\nSoft-stem adjectives (синий, синяя, синее, синие) follow the same pattern with soft vowels.\n\nAdjectives also decline for case — you'll meet those forms as you learn each case.",
       "culture_note": "",
       "references": [
         {
@@ -4545,7 +4545,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "The core question words: кто (who), что (what), где (where), куда (where to), когда (when), почему (why), как (how), and какой (which / what kind — it agrees like an adjective).\n\nRussian questions keep normal word order — the question word simply comes first: Где ты живёшь? Кто это?",
+      "explanation": "The core question words: кто (who), что (what), где (where), куда (where to), когда (when), почему (why), как (how), какой (which / what kind — it agrees like an adjective).\n\nRussian questions keep normal word order — the question word simply comes first: Где ты живёшь? Кто это?",
       "culture_note": "",
       "references": [
         {
@@ -4631,7 +4631,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Three little words connect everything. и joins similar things: чай и кофе. но objects, like English but: маленькая, но уютная (small but cosy).\n\nThe one English lacks is а — it marks contrast or a switch of topic: Это Анна, а это Иван. Я не пью кофе, а чай.\n\nRule of thumb: same direction → и, obstacle → но, comparing two different things → а.",
+      "explanation": "Three little words connect everything.\n\n- и joins similar things: чай и кофе\n- но objects, like English but: маленькая, но уютная (small but cosy)\n- а marks contrast or a switch of topic — the one English has no single word for: Это Анна, а это Иван; Я не пью кофе, а чай\n\nRule of thumb: same direction → и, obstacle → но, comparing two different things → а.",
       "culture_note": "",
       "references": [
         {
@@ -4712,7 +4712,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 13,
-      "explanation": "The genitive links two nouns like English 'of' or 's — the owner goes second, in the genitive: книга брата (my brother's book), центр города (the center of the city).\n\nSingular endings: masculine and neuter take -а/-я (брат → брата, окно → окна, музей → музея); feminine takes -ы/-и (сестра → сестры, книга → книги).\n\nThe same forms follow the prepositions у, из, от, до, после, для, без: у брата, из Москвы, после работы, без сахара. You already know one use — у меня нет + genitive is this same case.",
+      "explanation": "The genitive links two nouns like English 'of' or 's — the owner goes second, in the genitive: книга брата (my brother's book), центр города (the centre of the city).\n\nSingular endings:\n\n| Gender | Ending | Example |\n|---|---|---|\n| masculine | -а / -я | брат → брата, музей → музея |\n| neuter | -а / -я | окно → окна |\n| feminine | -ы / -и | сестра → сестры, книга → книги |\n\nFeminine stems take -и rather than -ы after к, г, х, ж, ш, щ, ч (книга → книги) and when the stem is soft (неделя → недели).\n\nThe same forms follow the prepositions у, из, от, до, после, для, без: у брата, из Москвы, после работы, без сахара. You already know one use — у меня нет + genitive is this same case.",
       "culture_note": "",
       "references": [
         {

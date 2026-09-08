@@ -194,7 +194,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Romanian kept Latin's THREE genders.\n\nThe neuter is a shape-shifter: masculine in the singular, feminine in the plural (un scaun → două scaune).\n\nPlurals vary: -i (băiat → băieți), -e (casă → case), -uri (tren → trenuri) — learn each noun with its plural.",
+      "explanation": "Romanian kept Latin's THREE genders.\n\nThe neuter is a shape-shifter: masculine in the singular, feminine in the plural (un scaun → două scaune).\n\nPlurals vary; the ending goes with the gender, so learn each noun with its plural:\n\n- `-i` — masculines, and many feminines: băiat → băieți, carte → cărți\n- `-e` — feminines and many neuters: casă → case, scaun → scaune\n- `-uri` — mostly neuters: tren → trenuri",
       "culture_note": "The neuter covers most objects — a huge slice of everyday vocabulary follows the un…/două… pattern.",
       "references": [
         {
@@ -288,7 +288,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Un before masculine AND neuter singulars (un câine, un scaun), o before feminine (o casă). The gender shows again in 'two': doi câini but două scaune, două case.",
+      "explanation": "Un goes before masculine AND neuter singulars, o before feminines:\n\n| Gender | One | Two |\n| --- | --- | --- |\n| masculine | un câine | doi câini |\n| feminine | o casă | două case |\n| neuter | un scaun | două scaune |\n\nSo the article alone does not give you the gender — un covers two of the three. The word for 'two' does: doi is masculine, două is feminine and neuter.",
       "culture_note": "",
       "references": [
         {
@@ -362,7 +362,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Romanian is the only Romance language that GLUES 'the' onto the end of the noun: scaun (chair) → scaunul (THE chair), casă → casa, carte → cartea.\n\nMasculine/neuter take -ul or -le, feminines swap -ă for -a. One word, article included.",
+      "explanation": "Romanian is the only major Romance language that GLUES 'the' onto the end of the noun: scaun (chair) → scaunul (THE chair).\n\n| Noun | Suffix | With the article |\n| --- | --- | --- |\n| scaun | -ul | scaunul |\n| câine | -le | câinele |\n| casă | -a | casa |\n| carte | -ea | cartea |\n| cafea | -ua | cafeaua |\n\nMasculine and neuter nouns take `-ul` after a consonant and `-le` after `-e`; feminines swap `-ă` for `-a`, `-e` for `-ea`, and a stressed `-a` for `-ua`. One word, article included.",
       "culture_note": "This suffixed article is a Balkan areal feature Romanian shares with Bulgarian and Albanian — not something it inherited from Latin.",
       "references": [
         {
@@ -446,7 +446,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "A fi (to be): sunt, ești, este (e in speech), suntem, sunteți, sunt.\n\nSunt doubles for 'I am' and 'they are' — the pronoun or context disambiguates. Professions take no article: ea este profesoară.",
+      "explanation": "**A fi** (to be):\n\n| Person | Form |\n| --- | --- |\n| eu | sunt |\n| tu | ești |\n| el / ea | este |\n| noi | suntem |\n| voi | sunteți |\n| ei / ele | sunt |\n\nIn speech este usually shortens to e: ea e acasă.\n\nSunt doubles for 'I am' and 'they are' — the pronoun or context disambiguates. Professions take no article: ea este profesoară.",
       "culture_note": "",
       "references": [
         {
@@ -588,7 +588,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "A avea (to have): am, ai, are, avem, aveți, au.\n\nAge is HAD: am douăzeci de ani (I am twenty). So is being right: ai dreptate (you're right).",
+      "explanation": "**A avea** (to have):\n\n| Person | Form |\n| --- | --- |\n| eu | am |\n| tu | ai |\n| el / ea | are |\n| noi | avem |\n| voi | aveți |\n| ei / ele | au |\n\nAge is HAD: am douăzeci de ani (I am twenty). So is being right: ai dreptate (you're right).",
       "culture_note": "",
       "references": [
         {
@@ -730,7 +730,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "First-conjugation verbs end in -a.\n\nPlain type: a intra → intru, intri, intră, intrăm, intrați, intră.\n\nMany take -ez: a lucra → lucrez, lucrezi, lucrează.\n\nBoth are everywhere — learn each verb's type with the verb.",
+      "explanation": "First-conjugation verbs end in `-a`. Most take the plain endings; many insert `-ez`, but only in the singular and the third-person plural:\n\n| Person | a intra | a lucra |\n| --- | --- | --- |\n| eu | intru | lucrez |\n| tu | intri | lucrezi |\n| el / ea | intră | lucrează |\n| noi | intrăm | lucrăm |\n| voi | intrați | lucrați |\n| ei / ele | intră | lucrează |\n\nNoi and voi therefore look the same in both types: lucrăm, lucrați. Both types are everywhere — learn each verb's type with the verb.",
       "culture_note": "",
       "references": [
         {
@@ -1014,7 +1014,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Nu goes directly before the verb: nu vorbesc engleză, nu am timp. It's also the word for 'no' — one negator for everything.",
+      "explanation": "**Nu** goes directly before the verb: nu vorbesc engleză, nu am timp. It's also the word for 'no' — one negator for both jobs.\n\nNu stays even when another negative word is already there: nu văd nimic (I don't see anything), nu vine nimeni (nobody is coming).",
       "culture_note": "",
       "references": [
         {
@@ -1088,7 +1088,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Romanian just uses 'to be': Pe masă este o carte (On the table there is a book), În stradă sunt două cafenele. Singular este, plural sunt — no special phrase to memorize.",
+      "explanation": "Romanian just uses 'to be': Pe masă este o carte (On the table there is a book), În stradă sunt două cafenele (In the street there are two cafés). Singular este, plural sunt — no special phrase to memorize.",
       "culture_note": "",
       "references": [
         {
@@ -1162,7 +1162,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Unde (where), ce (what), când (when), cine (who), cum (how), de ce (why), cât/câți (how much/many). Question word first, verb next: Unde locuiești?",
+      "explanation": "Unde (where), ce (what), când (when), cine (who), cum (how), de ce (why), cât/câtă/câți/câte (how much/many). Question word first, verb next: Unde locuiești? Cât agrees with what it counts: câți frați, câte cărți.",
       "culture_note": "",
       "references": [
         {
@@ -1244,7 +1244,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Most adjectives have four forms: frumos, frumoasă, frumoși, frumoase.\n\nThey agree with the noun and usually FOLLOW it: o casă albă. Neuter nouns take masculine adjectives in the singular, feminine in the plural — the shape-shifting again.",
+      "explanation": "Most adjectives have four forms:\n\n| Number | Masculine | Feminine |\n| --- | --- | --- |\n| singular | frumos | frumoasă |\n| plural | frumoși | frumoase |\n\nSome have three, with one form for both plurals (mic, mică, mici), or two (mare, mari).\n\nThey agree with the noun and usually FOLLOW it: o casă albă. Neuter nouns take masculine adjectives in the singular, feminine in the plural — the shape-shifting again.",
       "culture_note": "",
       "references": [
         {
@@ -1348,7 +1348,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The everyday past is a compound: a short form of 'a avea' (to have) + the invariable past participle.\n\nThe auxiliary is special here — am, ai, a, am, ați, au — and never changes for the participle: eu am scris, tu ai scris, el a scris, noi am mers, voi ați văzut, ei au plecat.\n\nThe participle stays the same for everyone.",
+      "explanation": "The everyday past is a compound: a short form of 'a avea' (to have) plus the past participle.\n\n| Person | Auxiliary | Example |\n| --- | --- | --- |\n| eu | am | am scris |\n| tu | ai | ai scris |\n| el / ea | a | a scris |\n| noi | am | am mers |\n| voi | ați | ați văzut |\n| ei / ele | au | au plecat |\n\nThe auxiliary is not the ordinary present of a avea: the third person singular is a, not are, and voi takes ați, not aveți. Eu and noi share am.\n\nThe participle never changes — not for person, not for gender, not for number.",
       "culture_note": "",
       "references": [
         {
@@ -1486,7 +1486,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Romanian merges the genitive ('of') and dative ('to') into one case. For people's names it uses lui before masculine names (cartea lui Ion 'Ion's book') and an -i ending on feminine ones (Mariei).\n\nNouns show it through the article: băiatul → băiatului, fata → fetei, and the plural ending -lor (copiilor 'of/to the children').",
+      "explanation": "Romanian merges the genitive ('of') and the dative ('to') into one case. Before a man's name it uses lui: cartea lui Ion ('Ion's book').\n\nA woman's name swaps its final -a for -ei: Maria → Mariei, Ana → Anei.\n\nNouns show the case through the article: băiatul → băiatului, fata → fetei, copiii → copiilor. A feminine builds the form on its plural stem — hence surorii from sora, mării from marea — and every plural ends in -lor.\n\nThe indefinite article has case forms too: un → unui, o → unei. Am dat cadoul unui copil is 'I gave the gift to a child'.",
       "culture_note": "",
       "references": [
         {
@@ -1556,7 +1556,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Plural endings depend on gender: masculine usually adds -i (băiat → băieți, often with sound changes); feminine adds -e or -i (casă → case, floare → flori); neuter — nouns that are masculine in the singular but feminine in the plural — take -uri or -e (scaun → scaune, tren → trenuri).",
+      "explanation": "Plural endings depend on gender:\n\n| Gender | Plural ending | Example |\n| --- | --- | --- |\n| masculine | `-i` | băiat → băieți |\n| feminine | `-e` or `-i` | casă → case, floare → flori |\n| neuter | `-uri` or `-e` | tren → trenuri, scaun → scaune |\n\nThe neuter is masculine in the singular and feminine in the plural: un scaun nou, două scaune noi.\n\nMany plurals change a sound inside the word as well: frate → frați, carte → cărți, brad → brazi.",
       "culture_note": "",
       "references": [
         {
@@ -1626,7 +1626,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The imperfect sets a scene or describes a repeated/ongoing past action — English 'was …-ing' or 'used to'.\n\nIt has one set of endings for all conjugations: -am, -ai, -a, -am, -ați, -au (scriam 'I was writing', mergeam 'I used to go').\n\nContrast it with the perfect compound, which reports one completed act.",
+      "explanation": "The imperfect sets a scene or describes a repeated/ongoing past action — English 'was …-ing' or 'used to'.\n\nThe imperfect stem ends in `-a` for verbs in -a and in `-ea` for most verbs in -e or -i; the same person endings then follow for every verb:\n\n| Person | a cânta | a merge |\n| --- | --- | --- |\n| eu | cântam | mergeam |\n| tu | cântai | mergeai |\n| el/ea | cânta | mergea |\n| noi | cântam | mergeam |\n| voi | cântați | mergeați |\n| ei/ele | cântau | mergeau |\n\nThe eu and noi forms are identical: mergeam is both 'I was going' and 'we were going'.\n\nContrast it with the perfect compound, which reports one completed act.",
       "culture_note": "",
       "references": [
         {
@@ -1696,7 +1696,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Romanian has two common futures. The formal one is voi/vei/va/vom/veți/vor + the infinitive: voi scrie 'I will write'.\n\nThe everyday spoken one is o să + subjunctive: o să scriu. Both mean the same; o să is more colloquial and invariable (o să scriu, o să scrii, o să scrie…).",
+      "explanation": "Romanian has two common futures.\n\nThe formal one is an auxiliary plus the infinitive without a:\n\n| Person | Auxiliary | Example |\n| --- | --- | --- |\n| eu | voi | voi scrie |\n| tu | vei | vei scrie |\n| el/ea | va | va scrie |\n| noi | vom | vom scrie |\n| voi | veți | veți scrie |\n| ei/ele | vor | vor scrie |\n\nThe everyday spoken one is o să + subjunctive: o să scriu 'I will write'. Both mean the same. The o never changes for person — only the verb does: o să scriu, o să scrii, o să scrie, o să scriem.",
       "culture_note": "",
       "references": [
         {
@@ -1766,7 +1766,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "A known direct object becomes a weak pronoun before the verb: mă (me), te (you), îl (him/it m.), o (her/it f.), ne (us), vă (you pl.), îi/le (them).\n\nÎl văd 'I see him', o cunosc 'I know her'. In the perfect, most attach as l-am, te-am, iar 'o' goes after: am văzut-o.",
+      "explanation": "A known direct object becomes a weak pronoun before the verb: mă (me), te (you), îl (him/it m.), o (her/it f.), ne (us), vă (you pl.), îi (them m.), le (them f.).\n\nÎl văd 'I see him', o cunosc 'I know her'. In the perfect most of them contract with the auxiliary — l-am văzut, te-am văzut — while o follows the participle: am văzut-o.",
       "culture_note": "",
       "references": [
         {
@@ -1836,7 +1836,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The comparative is mai + adjective + decât 'than': mai mare decât 'bigger than'. The superlative adds the article cel/cea/cei/cele before mai: cel mai mare 'the biggest'.\n\nThe article agrees in gender and number with the noun.",
+      "explanation": "The comparative is mai + adjective + decât 'than': mai mare decât 'bigger than'. The superlative adds an article before mai: cel mai mare 'the biggest'.\n\nThe article agrees with the noun in gender and number:\n\n| Gender and number | Article |\n| --- | --- |\n| masculine singular | cel |\n| feminine singular | cea |\n| masculine plural | cei |\n| feminine plural | cele |\n\nA neuter noun follows its usual split: cel in the singular, cele in the plural.",
       "culture_note": "",
       "references": [
         {
@@ -1906,7 +1906,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Common prepositions: în 'in', la 'at/to', cu 'with', de 'of/from', pentru 'for', fără 'without'.\n\nAfter most, a singular noun DROPS its definite article (în oraș 'in town'). The preposition pe also marks a definite personal direct object: îl văd pe Ion 'I see Ion'.",
+      "explanation": "Common prepositions:\n\n| Preposition | Meaning | Example |\n| --- | --- | --- |\n| în | in | în oraș |\n| la | at, to | la școală |\n| cu | with | cu prietenii mei |\n| de | of, from | profesor de română |\n| pentru | for | pentru mama |\n| fără | without | fără cafea |\n| pe | on | pe masă |\n\nAfter most prepositions a singular noun drops its definite article: în oraș 'in town', la școală 'at school'. It keeps the article when a modifier follows (în orașul meu 'in my town') and after cu for a means of transport (cu mașina 'by car').\n\nThe preposition pe also marks a definite personal direct object, doubled by the clitic: îl văd pe Ion 'I see Ion'.",
       "culture_note": "",
       "references": [
         {
@@ -2046,7 +2046,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Reflexive verbs carry a pronoun that matches the subject: mă, te, se, ne, vă, se — placed before the verb.\n\nMă spăl 'I wash (myself)', te trezești 'you wake up', se odihnește 'he/she rests'. Many everyday verbs are reflexive in Romanian (a se gândi 'to think', a se simți 'to feel').",
+      "explanation": "Reflexive verbs carry a pronoun that matches the subject and stands before the verb:\n\n| Person | Pronoun |\n| --- | --- |\n| eu | mă |\n| tu | te |\n| el/ea | se |\n| noi | ne |\n| voi | vă |\n| ei/ele | se |\n\nMă spăl 'I wash (myself)', te trezești 'you wake up', se odihnește 'he/she rests'. Many everyday verbs are reflexive in Romanian (a se gândi 'to think', a se simți 'to feel').",
       "culture_note": "",
       "references": [
         {
@@ -2122,7 +2122,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Romanian rarely uses the infinitive after another verb — instead it uses să + subjunctive, agreeing with the subject: vreau să plec 'I want to leave', trebuie să înveți 'you must study'.\n\nIn the 3rd person the subjunctive has its own form: el merge → să meargă, ea face → să facă, este → să fie.\n\nNegate the second verb with să nu.",
+      "explanation": "Romanian rarely uses the infinitive after another verb — instead it uses să + subjunctive, agreeing with the subject: vreau să plec 'I want to leave', trebuie să înveți 'you must study'.\n\nOnly the 3rd person has a form of its own: el merge → să meargă, ea face → să facă, este → să fie.\n\nIn every other person the subjunctive is spelled exactly like the present — să plec, să înveți, să știu — so să is what marks the mood.\n\nA fi is the exception, with its own form throughout:\n\n| Person | a fi |\n| --- | --- |\n| eu | să fiu |\n| tu | să fii |\n| el/ea | să fie |\n| noi | să fim |\n| voi | să fiți |\n| ei/ele | să fie |\n\nNegate the second verb with să nu.",
       "culture_note": "",
       "references": [
         {
@@ -2192,7 +2192,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The singular command often equals the 'you' present form (scrii → scrie!, mergi → mergi!), while the plural uses the -ți form (scrieți!, mergeți!).\n\nNegative singular commands are special: nu + infinitive (nu scrie!, nu pleca!); negative plural uses nu + the -ți form (nu plecați!).",
+      "explanation": "A command has four shapes:\n\n| Command | Singular | Plural |\n| --- | --- | --- |\n| affirmative | deschide! | deschideți! |\n| negative | nu deschide! | nu deschideți! |\n\nThe singular command copies a present form: el deschide → deschide!, el vorbește → vorbește!, tu mergi → mergi!\n\nIt is the he/she form for most verbs and the you form for many intransitive ones; the plural is the voi present form (deschideți!, mergeți!).\n\nThe negative singular is not a command form at all — nu + the infinitive: nu deschide!, nu pleca! The negative plural keeps the plural command: nu plecați!\n\nA fi is irregular in both numbers: fii! and fiți!",
       "culture_note": "",
       "references": [
         {
@@ -2340,7 +2340,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The main relative is care, invariable for gender/number but taking pe when it's a personal object (omul pe care îl cunosc 'the man whom I know') and forms like căruia/căreia in the genitive-dative. ce means 'what/which' (tot ce știu 'all that I know'); cine means 'who' standing alone (cine știe 'who knows').",
+      "explanation": "The main relative is care 'who, which', invariable for gender and number. As the direct object of its own clause it takes pe and is doubled by the clitic, whether the referent is a person or a thing: omul pe care îl cunosc 'the man I know', filmul pe care l-am văzut 'the film I saw'.\n\nIn the genitive-dative it does inflect: căruia (m. sg.), căreia (f. sg.), cărora (pl.).\n\nThe other two are narrower: ce means 'what' (tot ce știu 'all that I know'), cine means 'who' standing alone (cine știe 'who knows').",
       "culture_note": "",
       "references": [
         {
@@ -2410,7 +2410,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The conditional is a special auxiliary — aș, ai, ar, am, ați, ar — plus the infinitive: aș merge 'I would go', ar veni 'he would come'. It expresses wishes and hypotheticals and is the polite way to ask: aș vrea un cafea 'I would like a coffee', ai putea să mă ajuți?\n\n'could you help me?'.",
+      "explanation": "The conditional is a special auxiliary plus the infinitive:\n\n| Person | Auxiliary | Example |\n| --- | --- | --- |\n| eu | aș | aș merge |\n| tu | ai | ai merge |\n| el/ea | ar | ar merge |\n| noi | am | am merge |\n| voi | ați | ați merge |\n| ei/ele | ar | ar merge |\n\nIt expresses wishes and hypotheticals, and is the polite way to ask: aș vrea o cafea 'I would like a coffee', ai putea să mă ajuți? 'could you help me?'.\n\nThe forms ai, am and ați are spelled like the perfect auxiliary; what follows tells them apart: ai venit 'you came' takes a participle, ai veni 'you would come' an infinitive.",
       "culture_note": "",
       "references": [
         {
@@ -2480,7 +2480,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "A set of prepositions takes the genitive-dative rather than the plain noun: datorită 'thanks to' + dative, contra / împotriva 'against' + genitive, and compound phrases with a possessive twist — în fața 'in front of', în jurul 'around', din cauza 'because of' — all followed by a genitive: în fața casei 'in front of the house'.",
+      "explanation": "A few prepositions take the genitive-dative form of the noun rather than the plain one:\n\n- datorită 'thanks to' takes the dative: datorită ajutorului tău 'thanks to your help'.\n- contra and împotriva 'against' take the genitive: împotriva propunerii 'against the proposal'.\n- the compounds în fața 'in front of', în jurul 'around' and din cauza 'because of' take the genitive: în fața casei 'in front of the house'.\n\nEach compound is a preposition plus a noun carrying the definite article — fața, jurul, cauza — and that noun is what the genitive hangs on.",
       "culture_note": "",
       "references": [
         {
@@ -2550,7 +2550,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Report a statement with că + a full clause: a spus că vine 'he said (that) he's coming'. Report a yes/no question with dacă 'whether': m-a întrebat dacă vin 'he asked me whether I'm coming'.\n\nA command becomes să + subjunctive: mi-a zis să aștept 'he told me to wait'. Romanian keeps the original tense.",
+      "explanation": "Romanian reports each kind of utterance with its own connector:\n\n- a statement — că + a full clause: a spus că vine 'he said (that) he's coming'\n- a yes/no question — dacă 'whether': m-a întrebat dacă vin 'he asked me whether I'm coming'\n- a command — să + subjunctive: mi-a zis să aștept 'he told me to wait'\n\nRomanian keeps the original tense, and că is never dropped the way English drops 'that'.",
       "culture_note": "",
       "references": [
         {
@@ -2690,7 +2690,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Real conditions use dacă + present/future: dacă înveți, vei reuși 'if you study, you'll succeed'.\n\nUnreal (hypothetical) conditions pair dacă + imperfect with the conditional: dacă aș avea timp, aș veni 'if I had time, I would come'.\n\nPast-unreal uses the past conditional in both: dacă aș fi știut, ți-aș fi spus.",
+      "explanation": "Romanian has three conditional patterns:\n\n- real — dacă + present, with the present or the future in the main clause: dacă înveți, vei reuși 'if you study, you'll succeed'\n- present-unreal — the conditional in both clauses: dacă aș avea timp, aș veni 'if I had time, I would come'\n- past-unreal — the past conditional in both clauses: dacă aș fi știut, ți-aș fi spus 'if I had known, I would have told you'\n\nIn speech the imperfect often stands in for the conditional in both clauses: dacă aveam timp, veneam 'if I'd had time, I'd have come'.",
       "culture_note": "",
       "references": [
         {
@@ -2830,7 +2830,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The supine looks like the past participle preceded by de (or a preposition): am ceva de scris 'I have something to write', e ușor de făcut 'it's easy to do', mașină de spălat 'washing machine'.\n\nIt names an action abstractly, like an English '…-ing' noun or a 'to-'infinitive, and never agrees.",
+      "explanation": "The supine looks like the past participle preceded by de, or by another preposition: am ceva de scris 'I have something to write', e ușor de făcut 'it's easy to do', mașină de spălat 'washing machine'.\n\nIt names an action abstractly, like an English '…-ing' noun or a 'to-'infinitive, and never agrees.",
       "culture_note": "",
       "references": [
         {
@@ -2900,7 +2900,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Impersonal expressions are followed by să + subjunctive: trebuie să 'one must', e posibil să 'it's possible that', e bine să 'it's good to', îmi pare rău că / să 'I'm sorry that'.\n\nThe subjunctive also follows conjunctions of purpose (ca să 'in order to') and doubt.",
+      "explanation": "Impersonal expressions are followed by să + subjunctive:\n\n- trebuie să — one must\n- e posibil să — it's possible that\n- e bine să — it's good to\n- îmi pare rău să — I'm sorry to\n\nÎmi pare rău takes că instead when what follows is a fact: îmi pare rău că pleci 'I'm sorry you're leaving'.\n\nSă also follows the purpose conjunction ca să 'in order to' and expressions of doubt: nu cred să vină 'I don't think he's coming'.",
       "culture_note": "",
       "references": [
         {
@@ -2970,7 +2970,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Beyond mai…decât, Romanian marks equality with (tot) atât de … ca / la fel de … ca 'as … as': e la fel de înalt ca mine 'he's as tall as me'. Gradual change uses din ce în ce mai 'more and more' (din ce în ce mai greu 'harder and harder') and cu cât … cu atât 'the more … the more'.",
+      "explanation": "Beyond mai … decât, Romanian has three more comparison frames:\n\n- equality — (tot) atât de … ca, la fel de … ca 'as … as': e la fel de înalt ca mine 'he's as tall as me'\n- gradual change — din ce în ce mai 'more and more': din ce în ce mai greu 'harder and harder'\n- proportion — cu cât … cu atât 'the more … the more': cu cât citești mai mult, cu atât înveți mai bine 'the more you read, the better you learn'",
       "culture_note": "",
       "references": [
         {
@@ -3040,7 +3040,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The pluperfect ('had done') is a single synthetic form — no auxiliary — with endings -sem, -seși, -se, -serăm, -serăți, -seră on the participle stem: scrisesem 'I had written', plecase 'he had left', veniserăm 'we had come'.\n\nIt marks an action completed before another past point.",
+      "explanation": "The pluperfect ('had done') is a single synthetic form — no auxiliary. Its endings attach to the past stem the perfectul simplu shows — scrise-, pleca-, veni- — not to the participle: scrisesem 'I had written', plecase 'he had left', veniserăm 'we had come'.\n\n| Person | Ending | a pleca |\n| --- | --- | --- |\n| eu | -sem | plecasem |\n| tu | -seși | plecaseși |\n| el / ea | -se | plecase |\n| noi | -serăm | plecaserăm |\n| voi | -serăți | plecaserăți |\n| ei / ele | -seră | plecaseră |\n\nIt marks an action completed before another past point.",
       "culture_note": "",
       "references": [
         {
@@ -3180,7 +3180,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Formal Romanian links clauses precisely: deși / cu toate că 'although', întrucât / deoarece 'because/since', astfel încât / așa încât 'so that (result)', pe măsură ce 'as', în timp ce 'while'.\n\nEach introduces a subordinate clause with its own verb.",
+      "explanation": "Formal Romanian links clauses precisely:\n\n- deși, cu toate că — although\n- întrucât, deoarece — because, since\n- astfel încât, așa încât — so that (result)\n- pe măsură ce — as, in step with\n- în timp ce — while\n\nEach introduces a subordinate clause with its own verb.",
       "culture_note": "",
       "references": [
         {
@@ -3250,7 +3250,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Romanian systematically 'doubles' a definite object with a clitic. A personal direct object takes pe and a matching accusative pronoun: pe Ion îl văd 'I see Ion', o cunosc pe Maria 'I know Maria'.\n\nAn indirect object is doubled with a dative pronoun: îi dau Mariei cartea 'I give Maria the book'. The doubling is obligatory, not emphatic.",
+      "explanation": "Romanian systematically 'doubles' a definite object with a clitic. A personal direct object takes pe and a matching accusative pronoun: pe Ion îl văd 'I see Ion', o cunosc pe Maria 'I know Maria'.\n\nAn indirect object is doubled with a dative pronoun: îi dau Mariei cartea 'I give Maria the book'. The doubling is obligatory, not emphatic — but only for a definite object: an indefinite one takes neither pe nor a clitic (caut un medic 'I'm looking for a doctor').",
       "culture_note": "",
       "references": [
         {
@@ -3320,7 +3320,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Written and literary Romanian differs from speech. The perfectul simplu (a synthetic past — scrise 'he wrote', merse 'he went') survives in literature and in Oltenian speech, where the compound past dominates elsewhere.\n\nFormal registers prefer connectors like așadar 'therefore', întrucât 'inasmuch as', precum și 'as well as', and fixed phrases (în ceea ce privește 'as regards').",
+      "explanation": "Written and literary Romanian differs from speech. The perfectul simplu (a synthetic past — scrise 'he wrote', merse 'he went') survives in literature and in Oltenian everyday speech; everywhere else the compound past has taken over.\n\nFormal registers prefer connectors like așadar 'therefore', întrucât 'inasmuch as', precum și 'as well as', and fixed phrases (în ceea ce privește 'as regards').",
       "culture_note": "",
       "references": [
         {
@@ -3390,7 +3390,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Before the noun: acest băiat, această carte, acești copii, aceste cărți (this/these) — and for distance acel om, acea casă, acei oameni, acele case (that/those).\n\nEveryday Romanian often puts the demonstrative AFTER a definite noun, with a final -a: cartea aceasta, omul acela. Same meaning, warmer register.",
+      "explanation": "| Gender and number | this / these | that / those |\n| --- | --- | --- |\n| masculine singular | acest băiat | acel om |\n| feminine singular | această carte | acea casă |\n| masculine plural | acești copii | acei oameni |\n| feminine plural | aceste cărți | acele case |\n\nA neuter noun takes the masculine forms in the singular and the feminine ones in the plural: acest tren, aceste trenuri.\n\nEveryday Romanian often puts the demonstrative AFTER a definite noun, with a final -a: cartea aceasta, omul acela. Same meaning, warmer register.",
       "culture_note": "",
       "references": [
         {
@@ -3470,7 +3470,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "The daily irregulars:\n\na vrea (to want): vreau, vrei, vrea, vrem, vreți, vor — yes, vor is also the future marker. a putea (can): pot, poți, poate, putem, puteți, pot. a ști (to know): știu, știi, știe, știm, știți, știu. a da (to give): dau, dai, dă, dăm, dați, dau. a lua (to take): iau, iei, ia, luăm, luați, iau.",
+      "explanation": "The daily irregulars, in the order eu, tu, el/ea, noi, voi, ei/ele:\n\n- a vrea (to want): vreau, vrei, vrea, vrem, vreți, vor\n- a putea (can): pot, poți, poate, putem, puteți, pot\n- a ști (to know): știu, știi, știe, știm, știți, știu\n- a da (to give): dau, dai, dă, dăm, dați, dau\n- a lua (to take): iau, iei, ia, luăm, luați, iau\n\nVor doubles as the 3rd-person plural of the future auxiliary (voi, vei, va, vom, veți, vor).",
       "culture_note": "",
       "references": [
         {

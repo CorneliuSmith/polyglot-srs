@@ -109,7 +109,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Dutch has two articles: de (common gender — about 75% of nouns, and ALL plurals) and het (neuter — including every diminutive on -je). Een is 'a/an' for both. There is no reliable rule: learn each noun with its article. Het-words matter later — they change adjective endings and pronouns.",
+      "explanation": "Dutch has two noun classes, and the definite article is what tells you which:\n\n| Noun class | Article | Example |\n| --- | --- | --- |\n| common | de | de man |\n| neuter | het | het huis |\n| any plural | de | de huizen |\n\nAbout 75% of nouns are common, and every diminutive on `-je` is neuter. Een is 'a, an' before either class.\n\nThere is no reliable rule: learn each noun with its article. Het-words matter later — they change adjective endings and pronouns.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -189,7 +189,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "ik (I), jij/je (you — informal), u (you — polite, singular AND plural), hij (he), zij/ze (she), het (it), wij/we (we), jullie (you all), zij/ze (they). The full forms (jij, zij, wij) add emphasis; the short ones (je, ze, we) are the everyday default. u takes the same verb form as jij.",
+      "explanation": "The subject pronouns, full form and everyday short form:\n\n| Person | Pronoun |\n| --- | --- |\n| I | ik |\n| you, informal | jij, je |\n| you, polite | u |\n| he | hij |\n| she | zij, ze |\n| it | het |\n| we | wij, we |\n| you all | jullie |\n| they | zij, ze |\n\nThe full forms (jij, zij, wij) carry emphasis; the short ones (je, ze, we) are the everyday default.\n\nu is both singular and plural. It takes the jij form of the verb but never drops the `-t`: werkt u? beside werk jij? — and with hebben both u hebt and u heeft are right.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -258,7 +258,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "zijn (to be): ik ben, jij bent (but: ben jij? — the -t drops when jij follows!), u bent, hij/zij/het is, wij/jullie/zij zijn. The jij-inversion rule (bent → ben) applies to every verb and only to jij/je.",
+      "explanation": "The verb **zijn** (to be) is irregular — learn the whole set:\n\n| Person | Form |\n| --- | --- |\n| ik | ben |\n| jij | bent |\n| u | bent |\n| hij / zij / het | is |\n| wij / jullie / zij | zijn |\n\nBefore jij the `-t` drops: ben jij? That inversion rule holds for every verb and only for jij/je — u keeps its -t: bent u?",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -338,7 +338,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "hebben (to have): ik heb, jij hebt (heb jij?), u hebt/heeft, hij/zij heeft, wij/jullie/zij hebben. It is also the engine of the perfect tense later, so these forms pay double.",
+      "explanation": "The verb **hebben** (to have) is irregular too:\n\n| Person | Form |\n| --- | --- |\n| ik | heb |\n| jij | hebt |\n| u | hebt, heeft |\n| hij / zij / het | heeft |\n| wij / jullie / zij | hebben |\n\nThe `-t` drops before jij: heb jij? Hebben is also the engine of the perfect tense later, so these forms pay double.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -407,7 +407,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Regular present: ik = the stem (werk), jij/u/hij/zij = stem+t (werkt), all plurals = the infinitive (werken). Inversion drops the -t for jij only: werk jij? Spelling keeps vowel length: schrijven → ik schrijf; komen → ik kom, hij komt.",
+      "explanation": "Regular present tense — three forms, with werken as the model:\n\n| Person | Form | Example |\n| --- | --- | --- |\n| ik | stem | werk |\n| jij, u, hij, zij, het | stem + t | werkt |\n| wij, jullie, zij | infinitive | werken |\n\nInversion drops the `-t` for jij only: werk jij? beside werkt u?\n\nSpelling protects the sound. A long vowel is written double in the short form (lopen → ik loop), and final v and z harden to f and s (schrijven → ik schrijf, lezen → ik lees). komen is the odd one out: its vowel goes short — ik kom, hij komt.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -487,7 +487,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Most nouns take -en (boek → boeken, huis → huizen — note s→z, f→v voicing). Nouns ending in unstressed -e, -el, -er, -en and most loanwords take -s (tafel → tafels, auto → auto's — apostrophe after a long vowel letter). All plurals use de, even het-words: het huis → de huizen.",
+      "explanation": "Most nouns take `-en`: boek → boeken, huis → huizen, brief → brieven — a final s or f voices to z or v before the ending.\n\nNouns ending in unstressed `-e`, `-el`, `-er` or `-en`, and most loanwords, take `-s`: tafel → tafels, auto → auto's. The apostrophe goes after a single a, i, o, u or y, to keep the vowel long.\n\nAll plurals take de, even for het-words: het huis → de huizen.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -556,7 +556,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "geen negates a noun with een or no article: Ik heb geen auto (I have no car), Ik drink geen koffie. niet negates everything else — verbs, adjectives, definite nouns — and gravitates toward the end: Ik werk vandaag niet, De auto is niet duur. If you could say 'not a/no X', it's geen; otherwise niet.",
+      "explanation": "**geen** negates a noun that has een or no article: Ik heb geen auto (I have no car), Ik drink geen koffie.\n\n**niet** negates everything else — verbs, adjectives, definite nouns — and gravitates toward the end: Ik werk vandaag niet, De auto is niet duur.\n\nIf you could say 'not a/no X', it's geen; otherwise niet.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -635,7 +635,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Yes/no questions just invert verb and subject: Jij werkt → Werk jij? (remember: no -t before jij). Question words come first, verb second: Waar woon je? (where do you live), Wat doe je? Wie (who), wat (what), waar (where), wanneer (when), waarom (why), hoe (how), welke/welk (which).",
+      "explanation": "Yes/no questions just invert verb and subject: Jij werkt → Werk jij? (remember: no -t before jij).\n\nQuestion words come first, verb second: Waar woon je? (where do you live), Wat doe je? (what are you doing).\n\nWie (who), wat (what), waar (where), wanneer (when), waarom (why), hoe (how), welke/welk (which). Welk goes before a singular het-word, welke everywhere else.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -704,7 +704,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "Before a noun, adjectives take -e: de grote man, het grote huis, de grote huizen. THE exception: een + het-word + singular = no -e: een groot huis (but: een grote man, because man is a de-word). After the noun, never inflected: het huis is groot.",
+      "explanation": "Before a noun an adjective takes `-e`:\n\n| Noun | Definite | Indefinite |\n| --- | --- | --- |\n| de man | de grote man | een grote man |\n| het huis | het grote huis | een groot huis |\n\nThe bare form shows up in one place only: a singular het-word that is not definite — after een, geen, elk or ieder, or with no article at all (een groot huis, geen groot huis, koud water).\n\nPlurals always take -e: de grote huizen. After the noun an adjective is never inflected: het huis is groot.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -773,7 +773,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 11,
-      "explanation": "mijn (my), jouw/je (your — informal), uw (your — polite), zijn (his), haar (her), ons/onze (our — ons before het-words singular, onze elsewhere!), jullie (your pl.), hun (their). Only ons/onze changes form.",
+      "explanation": "mijn (my), jouw/je (your — informal), uw (your — polite), zijn (his, its), haar (her), ons/onze (our), jullie (your pl.), hun (their). Only ons/onze changes form: ons before a singular het-word, onze everywhere else.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -911,7 +911,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Spoken Dutch uses the perfect for most past events: hebben/zijn + participle at the END. Regular participles: ge + stem + d/t — t after the 't kofschip consonants (t k f s ch p): gewerkt, but gespeeld. zijn goes with movement/change: Ik ben naar huis gegaan. Common irregulars: gedaan, gezien, geweest, gekocht.",
+      "explanation": "Spoken Dutch uses the perfect for most past events: hebben or zijn plus the participle at the END of the clause.\n\nA regular participle is `ge-` + stem + `-d`, or `-t` when the stem ends in one of the 't kofschip consonants (t, k, f, s, ch, p): gewerkt, but gespeeld. Take that stem from the infinitive minus `-en`, not from the ik-form: reizen gives reiz-, so gereisd, not gereist.\n\nzijn goes with movement or change of state: Ik ben naar huis gegaan.\n\nCommon irregulars: doen → gedaan, zien → gezien, zijn → geweest, kopen → gekocht.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -980,7 +980,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "The imperfect (simple past) carries stories and descriptions: stem + de(n)/te(n) — te after 't kofschip: werkte, maar speelde. Irregular verbs change vowel: gaan → ging, komen → kwam, zijn → was/waren, hebben → had/hadden. Rule of thumb: single events in speech → perfect; background and narration → imperfect.",
+      "explanation": "The imperfect (simple past) carries stories and descriptions. Regular verbs add `-te` or `-de` to the stem (`-ten`/`-den` in the plural), with `-te` after a 't kofschip consonant: werkte, but speelde.\n\nIrregular verbs change their vowel:\n\n| Infinitive | Singular | Plural |\n| --- | --- | --- |\n| gaan | ging | gingen |\n| komen | kwam | kwamen |\n| zijn | was | waren |\n| hebben | had | hadden |\n\nRule of thumb: single events in speech → perfect; background and narration → imperfect.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1049,7 +1049,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Modals conjugate irregularly and send the main verb (infinitive) to the END: Ik kan morgen komen. kunnen (can): ik kan, hij kan, wij kunnen. moeten (must). mogen (may): ik mag. willen (want): ik wil. zullen (shall/will) drives the future and polite offers: Zal ik helpen?",
+      "explanation": "Modals conjugate irregularly and send the main verb, an infinitive, to the END: Ik kan morgen komen. The five are kunnen (can), moeten (must), mogen (may), willen (want) and zullen (shall, will).\n\n| Person | kunnen | moeten | mogen | willen | zullen |\n| --- | --- | --- | --- | --- | --- |\n| ik | kan | moet | mag | wil | zal |\n| jij, u | kunt | moet | mag | wilt | zult |\n| hij, zij, het | kan | moet | mag | wil | zal |\n| wij, jullie, zij | kunnen | moeten | mogen | willen | zullen |\n\nModals take no `-t` in the third person singular: hij kan, hij mag, hij wil. After inversion the jij forms drop theirs: kun je, zul je, wil je. zullen also drives the future and polite offers: Zal ik helpen?",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1118,7 +1118,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Verbs like opstaan (get up), meekomen (come along), aankomen (arrive) split in main clauses: Ik sta om zeven uur op — the prefix flies to the end. In the perfect, ge- slots INSIDE: opgestaan. With modals they stay whole: Ik moet vroeg opstaan.",
+      "explanation": "Verbs like opstaan (get up), meekomen (come along), aankomen (arrive) carry a stressed prefix that does not stay put.\n\n- main clause — the prefix flies to the end: Ik sta om zeven uur op.\n- subclause — the verb is whole again, at the end: omdat ik vroeg opsta.\n- perfect — `ge-` slots inside: opgestaan.\n- after a modal — the verb stays whole: Ik moet vroeg opstaan.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1187,7 +1187,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "In a subclause the conjugated verb moves to the END: Ik blijf thuis omdat ik ziek ben (…because I sick am). Same after dat (that), als (if/when), terwijl (while), toen (when-past). This end-verb rule plus V2 in main clauses IS Dutch word order.",
+      "explanation": "In a subclause the conjugated verb moves to the END: Ik blijf thuis omdat ik ziek ben (…because I sick am).\n\nThe same happens after dat (that), als (if/when), terwijl (while), toen (when-past).\n\nWhen the subclause comes first, the main clause inverts: Als het regent, blijven we binnen. This end-verb rule plus V2 in main clauses IS Dutch word order.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1256,7 +1256,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Everyday future = gaan + infinitive at the end: Ik ga morgen werken. zullen adds promise/prediction/proposal: Ik zal het doen (I'll do it), Het zal regenen. And Dutch loves plain present + time word: Ik kom morgen — perfectly future.",
+      "explanation": "Three ways to point at the future:\n\n- gaan + infinitive at the end, for plans and intentions: Ik ga morgen werken. Forms: ik ga, jij gaat, hij gaat, wij gaan.\n- zullen + infinitive, for a promise, a prediction or a proposal: Ik zal het doen (I'll do it), Het zal regenen, Zullen we samen eten? Forms: ik zal, jij zult, hij zal, wij zullen.\n- the plain present with a time word, which Dutch loves: Ik kom morgen is already future.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1325,7 +1325,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "groot → groter → grootst. -r words insert d: duur → duurder. Compare with dan: groter dan ik (bigger than me) — colloquial 'groter als' is widely heard, widely corrected. Irregulars: goed → beter → best, veel → meer → meest, graag → liever → liefst.",
+      "explanation": "Comparative `-er`, superlative `-st`: groot, groter, grootst. An adjective ending in `-r` inserts a d before `-er`: duur, duurder. Compare with dan: groter dan ik (bigger than me) — colloquial 'groter als' is widely heard, widely corrected.\n\n| Base form | Comparative | Superlative |\n| --- | --- | --- |\n| goed | beter | best |\n| veel | meer | meest |\n| weinig | minder | minst |\n| graag | liever | liefst |\n\nBefore a noun the superlative always adds `-e`: het hoogste gebouw, het beste idee.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1394,7 +1394,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Dutch shrinks everything: huis → huisje, boom → boompje, tafel → tafeltje. The ending depends on the final sound (-je, -tje, -etje, -pje, -kje) — and EVERY diminutive becomes a het-word: het meisje (the girl — literally 'little maid'). Diminutives soften, endear, and sometimes change meaning: biertje (a beer, the normal way to order one).",
+      "explanation": "Dutch shrinks everything: huis → huisje, boom → boompje, tafel → tafeltje. EVERY diminutive is a het-word, whatever the noun it came from: het meisje (the girl — literally 'little maid').\n\n- `-je` after most consonants: huisje, boekje, momentje.\n- `-tje` after a vowel, and after `-l`, `-n`, `-r`, `-w` following a long vowel, a diphthong or an unstressed syllable: tafeltje, vogeltje, biertje.\n- `-etje` after `-l`, `-m`, `-n`, `-ng`, `-r` following a short stressed vowel: balletje, ommetje, mannetje.\n- `-pje` after any other `-m`: boompje, armpje, bezempje.\n- `-kje` after unstressed `-ing`: koninkje, woninkje.\n\nDiminutives soften, endear, and sometimes change meaning: biertje (a beer, the normal way to order one).",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1532,7 +1532,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "The imperative is just the stem: Kom hier! Kijk uit! (watch out). Polite version adds u and -t: Komt u binnen (do come in). Softeners make it friendly: Kom maar, Ga even zitten, Doe eens rustig — maar/even/eens turn commands into invitations.",
+      "explanation": "The imperative is just the stem: Kom hier! Kijk uit! (watch out).\n\n- with u it takes `-t`: Komt u binnen (do come in).\n- a separable verb sends its prefix to the end: Trek je jas aan!\n- maar, even and eens turn the command into an invitation: Kom maar, Ga even zitten, Doe eens rustig.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1601,7 +1601,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Beyond er is/er zijn: (1) place — Ik woon er al jaren (I've lived THERE for years). (2) quantity — Hoeveel kinderen heb je? Ik heb er drie (I have three OF THEM). (3) preposition fusion — over het boek → erover (about it): Ik denk erover na. (4) passive subject-filler — Er wordt gebeld (someone's ringing). Dutch speakers sprinkle er everywhere; learners leave it out and sound abrupt.",
+      "explanation": "**er** is one word doing five jobs:\n\n1. existence: Er is koffie, Er zijn nog kaartjes.\n2. place: Ik woon er al jaren (I have lived there for years).\n3. quantity: Ik heb er drie (I have three of them).\n4. fusion with a preposition — over het boek becomes erover: Ik denk erover na.\n5. filler subject in the passive: Er wordt gebeld (someone is ringing).\n\nDutch speakers sprinkle er everywhere; learners leave it out and sound abrupt.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1670,7 +1670,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "de-words take die: de man die daar loopt. het-words take dat: het boek dat ik lees. After a preposition, people take wie (de man met wie ik werk) and things take waar+preposition fused: het huis waarin ik woon / waar ik in woon. The verb goes to the end — it's a subclause.",
+      "explanation": "A relative clause is a subclause: its verb goes to the end. de man die daar loopt, het boek dat ik lees.\n\n| Antecedent | Relative pronoun |\n| --- | --- |\n| de-word | die |\n| het-word | dat |\n| any plural | die |\n| person after a preposition | wie |\n| thing after a preposition | waarin, waarmee, waarover |\n\nde collega met wie ik werk; het huis waarin ik woon — and the fused form may split: waar ik in woon.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1750,7 +1750,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "me/mij (ik), je (jij), zich (hij/zij/u/zij-plural), ons (wij), je (jullie): Ik vergis me (I'm mistaken), Hij voelt zich goed, Wij herinneren ons die dag. Some verbs are always reflexive in Dutch though never in English: zich vervelen (be bored), zich haasten (hurry).",
+      "explanation": "A reflexive pronoun points back at the subject: Ik vergis me (I'm mistaken).\n\n| Person | Reflexive |\n| --- | --- |\n| ik | me, mij |\n| jij | je |\n| hij, zij, het, u | zich |\n| wij | ons |\n| jullie | je |\n\nHij voelt zich goed, Wij herinneren ons die dag, Zij haasten zich — the plural zij takes zich as well.\n\nAlways reflexive in Dutch though never in English: zich vergissen (be mistaken), zich vervelen (be bored), zich haasten (hurry).",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1819,7 +1819,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Ongoing passive = worden + participle: De brug wordt gerepareerd (is being repaired). Result state = zijn: De brug is gerepareerd (has been / is repaired). Past: werd gerepareerd. The doer takes door: door de gemeente (by the city).",
+      "explanation": "Ongoing passive = worden + participle: De brug wordt gerepareerd (is being repaired). Past: De brug werd gerepareerd. Result state = zijn: De brug is gerepareerd (has been / is repaired). The doer takes door: door de gemeente (by the city). With nothing to promote to subject, er opens the sentence: Er wordt hier veel gebouwd (a lot is being built here).",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1888,7 +1888,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "want (for/because) is a COORDINATOR — normal V2 order follows: Ik blijf thuis, want ik ben ziek. omdat is a SUBORDINATOR — verb to the end: …omdat ik ziek ben. Same meaning, different grammar. dus (so) and maar (but) also keep main-clause order. Pick your 'because' by the word order you want.",
+      "explanation": "want (for/because) is a COORDINATOR — normal V2 order follows: Ik blijf thuis, want ik ben ziek. omdat is a SUBORDINATOR — verb to the end: …omdat ik ziek ben. Close in meaning, different grammar: want joins two main clauses and cannot open the sentence, while an omdat-clause can come first — and then the main clause inverts: Omdat ik ziek ben, blijf ik thuis. dus (so) and maar (but) also keep main-clause order. Pick your 'because' by the word order you want.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -1957,7 +1957,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Modals and laten/gaan/komen/zien/horen take a bare infinitive: Ik kan zwemmen, Ik laat mijn fiets repareren. Most other verbs need te: Ik probeer te slapen, Je hoeft niet te komen (hoeven = need not, only in negation!), Hij belooft te helpen. Vergeet niet te bellen!",
+      "explanation": "Modals and laten/gaan/komen/zien/horen take a bare infinitive: Ik kan zwemmen, Ik laat mijn fiets repareren. Most other verbs need **te**: Ik probeer te slapen, Hij belooft te helpen, Vergeet niet te bellen! hoeven is the negative twin of moeten: it needs niet, geen, nooit or alleen maar beside it — Je hoeft niet te komen, Je hoeft geen geld mee te nemen.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -2026,7 +2026,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "zou/zouden (past of zullen) covers: polite requests — Zou je me kunnen helpen? (could you help me); hypotheticals — Ik zou een huis kopen (I would buy a house); advice — Je zou meer moeten slapen (you should sleep more); hearsay — Hij zou rijk zijn (he is said to be rich).",
+      "explanation": "**zou** is the past of zullen, and it does four jobs:\n\n- polite requests — Zou je me kunnen helpen? (could you help me)\n- hypotheticals — Ik zou een huis kopen (I would buy a house)\n- advice — Je zou meer moeten slapen (you should sleep more)\n- hearsay — Hij zou rijk zijn (he is said to be rich)\n\nzou goes with a singular subject, zouden with a plural one: Zouden wij samen kunnen lunchen?",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -2164,7 +2164,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Untranslatable but essential: wel contradicts softly (Het is wel lekker — it IS nice, actually); toch seeks agreement or marks 'after all' (Je komt toch?); maar softens commands (Ga maar zitten); even makes things quick and casual (Ik bel je even); eens adds 'just/sometime' (Kom eens kijken!). Stack them: Kom maar eens even kijken.",
+      "explanation": "Untranslatable but essential:\n\n- wel contradicts softly — Het is wel lekker (it IS nice, actually)\n- toch seeks agreement or marks 'after all' — Je komt toch?\n- maar softens commands — Ga maar zitten\n- even makes things quick and casual — Ik bel je even\n- eens adds 'just/sometime' — Kom eens kijken!\n\nStack them: Kom maar eens even kijken.",
       "references": [
         {
           "title": "Taalunie — Algemene Nederlandse Spraakkunst",
@@ -2233,7 +2233,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "had/waren + participle: Ik had al gegeten toen zij kwam (I had already eaten when she came). Movement/change verbs take waren: Zij waren al vertrokken. In stories the past perfect sets the pre-history, the imperfect carries the narrative, and toen (when — one past moment) pairs with it constantly.",
+      "explanation": "The past perfect is the past of hebben or zijn plus a participle: Ik had al gegeten toen zij kwam (I had already eaten when she came).\n\n| Subject | hebben | zijn |\n|---|---|---|\n| singular | had | was |\n| plural | hadden | waren |\n\nVerbs of change — of place or of state — take zijn: De trein was al vertrokken, Het feest was al begonnen. Manner-of-movement verbs like lopen and fietsen join them only when a destination is named.\n\nIn stories the past perfect sets the pre-history, the imperfect carries the narrative, and toen (when — one past moment) pairs with it constantly.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -2371,7 +2371,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Dutch marks 'busy doing' with aan het + infinitive: Ik ben aan het koken (I'm cooking). The posture verbs add flavour AND te: Hij zit te lezen (he sits reading), Zij staat te wachten, Ze liggen te slapen. Pick the posture that's literally true — Dutch does.",
+      "explanation": "Dutch marks 'busy doing' with **aan het** + infinitive: Ik ben aan het koken (I'm cooking).\n\nThe posture verbs add flavour AND te:\n\n- Hij zit te lezen (he sits reading)\n- Zij staat te wachten\n- Ze liggen te slapen\n\nPick the posture that's literally true — Dutch does.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -2440,7 +2440,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Prepositions never combine with het/dat/wat directly — they fuse: over het → erover, over dat → daarover, over wat → waarover. Waar denk je aan? (what are you thinking about — splittable!), Ik ben het ermee eens (I agree with it), Daar heb ik geen zin in. met becomes -mee, tot becomes -toe.",
+      "explanation": "A preposition never takes the pronouns het (it), dat (that) or wat (what) as its object — the two fuse instead: over het → erover, over dat → daarover, over wat → waarover. Waar denk je aan? (what are you thinking about — splittable!), Ik ben het ermee eens (I agree with it), Daar heb ik geen zin in. met becomes -mee, tot becomes -toe.",
       "references": [
         {
           "title": "Taalunie — Algemene Nederlandse Spraakkunst",
@@ -2509,7 +2509,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Real: Als het regent, blijven we thuis. Hypothetical: Als ik rijk was/zou zijn, zou ik reizen (if I were rich I would travel). Missed past: Als ik het had geweten, was ik gekomen / zou ik gekomen zijn (if I had known…). The als-clause is verb-final; the main clause often starts with dan.",
+      "explanation": "Three if-worlds, each with its own tense:\n\n- real — Als het regent, blijven we thuis\n- hypothetical — Als ik rijk was (or zou zijn), zou ik reizen (if I were rich I would travel)\n- missed past — Als ik het had geweten, was ik gekomen, or zou ik gekomen zijn (if I had known…)\n\nThe als-clause is verb-final. The main clause then inverts, verb before subject, and often opens with dan: Als het regent, dan blijven we thuis.",
       "references": [
         {
           "title": "Wikipedia: Dutch grammar",
@@ -2647,7 +2647,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Any infinitive nominalizes with het: het reizen (travelling), het leren van een taal. -heid builds qualities: vrijheid (freedom), snelheid. ge- + stem makes (often annoyed) activity nouns: dat gepraat (all that talking), het geloop. Formal prose leans on these; conversation prefers verbs.",
+      "explanation": "Three ways to turn an action or a quality into a thing:\n\n- het + infinitive — het reizen (travelling), het leren van een taal\n- `-heid` builds qualities — vrijheid (freedom), snelheid\n- `ge-` + stem makes activity nouns, often annoyed ones — dat gepraat (all that talking), het geloop\n\nThe form fixes the article: a `-heid` noun is a de-word, while a nominalized infinitive and a `ge-` noun are het-words. Formal prose leans on these; conversation prefers verbs.",
       "references": [
         {
           "title": "Taalunie — Algemene Nederlandse Spraakkunst",
@@ -2716,7 +2716,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "The conjugated verb (position 2) and everything verbal at the end form a 'tang' (pincer) that brackets the middle: Ik heb gisteren met mijn moeder over de vakantie gebeld. Long middles are fine; breaking the bracket is not. Exception — extraposition: prepositional phrases may follow the end-verb (…gebeld over de vakantie), which relaxed prose uses for breath.",
+      "explanation": "In a main clause the conjugated verb (position 2) and everything verbal at the end form a 'tang' (pincer) that brackets the middle: Ik heb gisteren met mijn moeder over de vakantie gebeld. Long middles are fine; breaking the bracket is not. Exception — extraposition: prepositional phrases may follow the end-verb (…gebeld over de vakantie), which relaxed prose uses for breath.",
       "references": [
         {
           "title": "Taalunie — Algemene Nederlandse Spraakkunst",
@@ -2785,7 +2785,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Dutch locates things by posture: De fles staat op tafel (bottle stands — upright), Het boek ligt op tafel (lies — flat), De sleutels zitten in mijn zak (sit — contained). Hangen for hanging things, lopen for ongoing processes (Het loopt goed). Using zijn instead is grammatical but instantly foreign.",
+      "explanation": "Dutch locates things by posture: De fles staat op tafel (bottle stands — upright), Het boek ligt op tafel (lies — flat), Amsterdam ligt aan het IJ (lies — places on the map too), De sleutels zitten in mijn zak (sit — contained). Hangen for hanging things, lopen for ongoing processes (Het loopt goed). Using zijn instead is grammatical but instantly foreign.",
       "references": [
         {
           "title": "Taalunie — Algemene Nederlandse Spraakkunst",
@@ -2865,7 +2865,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Standard Dutch is shared; flavour differs. Belgian Dutch keeps ge/gij (you) colloquially, prefers u warmth, and has its own lexicon: goesting (zin — desire), plezant (leuk), hesp (ham), proper (schoon — clean); 'schoon' itself means BEAUTIFUL in Flanders. Pronunciation is softer (the 'zachte g'). Official register ('VRT-Nederlands') aligns with the north, but tussentaal — the in-between — rules Flemish daily life.",
+      "explanation": "Standard Dutch is shared; the flavour differs. Belgian Dutch keeps ge/gij (you) in colloquial speech, stays with u longer and more warmly, and has a lexicon of its own:\n\n| Flemish | Northern Dutch | English |\n|---|---|---|\n| goesting | zin | desire |\n| plezant | leuk | fun |\n| hesp | ham | ham |\n| proper | schoon | clean |\n| schoon | mooi | beautiful |\n\nThe last two rows are the trap: schoon is clean in the north and beautiful in the south. Pronunciation is softer (the 'zachte g'). The official register ('VRT-Nederlands') aligns with the north, but tussentaal — the in-between — rules Flemish daily life.",
       "references": [
         {
           "title": "Taalunie — Algemene Nederlandse Spraakkunst",
