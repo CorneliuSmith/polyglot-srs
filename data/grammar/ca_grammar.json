@@ -14,7 +14,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Jo (I), tu (you, informal), ell/ella (he/she), vostè (you, formal), nosaltres (we), vosaltres (you all), ells/elles (they). The verb ending already names the person, so Catalan usually drops the pronoun — parlo català — and uses it only for emphasis or contrast.",
+      "explanation": "Jo (I), tu (you, informal), ell/ella (he/she), vostè (you, formal), nosaltres (we), vosaltres (you all), vostès (you all, formal), ells/elles (they). The verb ending already names the person, so Catalan usually drops the pronoun — parlo català — and uses it only for emphasis or contrast.",
       "culture_note": "Vostè takes third-person verb forms, like Spanish usted — but Catalans reach for it less often than Spaniards do.",
       "references": [
         {
@@ -194,7 +194,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Nouns are masculine or feminine; feminines often end in -a (casa), masculines in a consonant or -e (llibre, gat).\n\nPlural adds -s, with -a becoming -es (casa → cases).\n\nWatch the spelling shifts that keep pronunciation: plaça → places.",
+      "explanation": "Every noun is masculine or feminine, and the ending is only a clue; feminines often end in -a (casa), masculines in a consonant or -e (gat, llibre). El dia and el problema are masculine, and consonant endings go both ways (el sol, la sal), so learn each noun with its article.\n\n| Singular ends in | Plural | Example |\n| --- | --- | --- |\n| unstressed -a | -es | casa → cases |\n| a stressed vowel | -ns | jardí → jardins |\n| a stressed -s, -ç, -x, -tx | -os | gos → gossos |\n| anything else | -s | llibre → llibres |\n\nSpelling shifts keep the sound in the -es plurals: plaça → places, amiga → amigues. A few borrowings just add -s: cafè → cafès.",
       "culture_note": "",
       "references": [
         {
@@ -278,7 +278,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "El (masculine), la (feminine), els and les in the plural. Before a vowel both singulars become l' (l'amic, l'escola).\n\nCatalan even puts an article before people's names in speech: la Maria, en Joan.",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| el | masculine singular | el llibre |\n| la | feminine singular | la casa |\n| els | masculine plural | els llibres |\n| les | feminine plural | les cases |\n\nBefore a vowel or an h both singulars shrink to **l'** (l'amic, l'escola, l'home) — except that la keeps its full form before an unstressed i- or u-: la idea, la universitat.\n\nCatalan even puts an article before people's names in speech: la Maria, en Joan.",
       "culture_note": "The 'personal article' (en/na or el/la before names) is a very Catalan touch — la Núria arriba demà.",
       "references": [
         {
@@ -382,7 +382,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Un for masculine (un gos), una for feminine (una casa). The plurals uns/unes mean 'some': uns amics.\n\nNo elision here — una idea keeps its article whole.",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| un | masculine singular | un gos |\n| una | feminine singular | una casa |\n| uns | masculine plural | uns amics |\n| unes | feminine plural | unes cases |\n\nUns and unes mean 'some'. No elision here — una idea and una hora keep the article whole.",
       "culture_note": "",
       "references": [
         {
@@ -456,7 +456,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Ser (to be): soc, ets, és, som, sou, són.\n\nSince the 2016 spelling reform, soc has no accent — but és and són keep theirs to stay distinct from other words. Professions take no article: ella és professora.",
+      "explanation": "**Ser** (to be):\n\n| Person | Form |\n| --- | --- |\n| jo | soc |\n| tu | ets |\n| ell / ella | és |\n| nosaltres | som |\n| vosaltres | sou |\n| ells / elles | són |\n\nSince the 2016 spelling reform, soc has no accent; és and són keep theirs to stay apart from es (the reflexive pronoun) and son ('sleepiness').\n\nProfessions take no article: ella és professora. Location can take ser too — són a casa 'they are at home'.",
       "culture_note": "",
       "references": [
         {
@@ -598,7 +598,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Tenir (to have): tinc, tens, té, tenim, teniu, tenen.\n\nCatalan HAS its states: tenir gana (be hungry), tenir set (thirsty), tenir raó (be right), tenir vint anys (be twenty).",
+      "explanation": "**Tenir** (to have):\n\n| Person | Form |\n| --- | --- |\n| jo | tinc |\n| tu | tens |\n| ell / ella | té |\n| nosaltres | tenim |\n| vosaltres | teniu |\n| ells / elles | tenen |\n\nCatalan HAS its states: tenir gana (be hungry), tenir set (be thirsty), tenir raó (be right), tenir vint anys (be twenty).",
       "culture_note": "",
       "references": [
         {
@@ -740,7 +740,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The biggest family.\n\nDrop -ar, add: -o, -es, -a, -em, -eu, -en (parlar → parlo, parles, parla, parlem, parleu, parlen).\n\nThe ending names the person, so the pronoun usually stays home.",
+      "explanation": "The biggest family.\n\nDrop `-ar` and add:\n\n| Person | Ending | parlar |\n| --- | --- | --- |\n| jo | -o | parlo |\n| tu | -es | parles |\n| ell / ella | -a | parla |\n| nosaltres | -em | parlem |\n| vosaltres | -eu | parleu |\n| ells / elles | -en | parlen |\n\nThe ending names the person, so the pronoun usually stays home.\n\nVerbs in -car, -gar, -çar and -jar respell the stem before an e: buscar → busques, jugar → jugues, començar → comences, menjar → menges.",
       "culture_note": "",
       "references": [
         {
@@ -882,7 +882,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "-re verbs: perdre → perdo, perds, perd, perdem, perdeu, perden.\n\n-ir verbs come plain (dormir → dormo) or with -eix- in the singular and third plural (llegir → llegeixo, llegeixes, llegeix… but llegim, llegiu).\n\nPreferir takes -eix- too.",
+      "explanation": "| Person | perdre | dormir | llegir |\n| --- | --- | --- | --- |\n| jo | perdo | dormo | llegeixo |\n| tu | perds | dorms | llegeixes |\n| ell / ella | perd | dorm | llegeix |\n| nosaltres | perdem | dormim | llegim |\n| vosaltres | perdeu | dormiu | llegiu |\n| ells / elles | perden | dormen | llegeixen |\n\nThe `-eix-` of llegir drops out in the nosaltres and vosaltres forms. Preferir follows llegir; sentir follows dormir.\n\nMany verbs of this family take -c in the jo form: prendre → prenc, escriure → escric. Escriure keeps a v in escrivim and escriviu, but not in escriuen.",
       "culture_note": "",
       "references": [
         {
@@ -1098,7 +1098,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Hi ha covers 'there is' and 'there are' — invariable: hi ha un llibre, hi ha dos cafès. Negative: no hi ha pa.\n\nThe little hi is the same locative pronoun that makes Catalan Catalan.",
+      "explanation": "Hi ha covers 'there is' and 'there are' — invariable: hi ha un llibre, hi ha dos cafès. Negative: no hi ha pa. Never hi han, however often you hear it.\n\nThe little hi is the same locative pronoun that makes Catalan Catalan.",
       "culture_note": "",
       "references": [
         {
@@ -1172,7 +1172,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "On (where), com (how), què (what), quan (when), per què (why), quant/quants (how much/many), qui (who). Question word first, verb next: On vius?",
+      "explanation": "On (where), com (how), què (what), quan (when), per què (why), quant/quanta/quants/quantes (how much/many), qui (who). Question word first, verb next: On vius? Per què asks the question; perquè, written as one word, means 'because'.",
       "culture_note": "",
       "references": [
         {
@@ -1254,7 +1254,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Four-form adjectives follow the noun pattern: nou, nova, nous, noves.\n\nSome have one singular form for both genders (amable, gran). Adjectives usually FOLLOW the noun: una casa blanca.",
+      "explanation": "Four-form adjectives follow the noun pattern:\n\n| Number | Masculine | Feminine |\n| --- | --- | --- |\n| singular | nou | nova |\n| plural | nous | noves |\n\nOthers keep one singular form for both genders (amable, gran), but a consonant ending is no guarantee of that: calent, net and blau all take a feminine in -a (calenta, neta, blava).\n\nAdjectives usually follow the noun: una casa blanca.",
       "culture_note": "",
       "references": [
         {
@@ -1374,7 +1374,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The perfet = the present of haver + the past participle: he menjat 'I have eaten'.\n\nParticiples: -ar → -at, -re/-er → -ut, -ir → -it. haver is conjugated (he, has, ha, hem, heu, han).\n\nCatalan uses the perfet for a recent or today's action, and the periphrastic past for earlier ones.",
+      "explanation": "The perfet = the present of **haver** + the past participle: he menjat 'I have eaten'.\n\n| Person | Form |\n| --- | --- |\n| jo | he |\n| tu | has |\n| ell / ella | ha |\n| nosaltres | hem |\n| vosaltres | heu |\n| ells / elles | han |\n\nParticiples: -ar → -at, -re/-er → -ut, -ir → -it.\n\nCommon irregulars: fer → fet, dir → dit, veure → vist, escriure → escrit, obrir → obert.\n\nCatalan uses the perfet for a recent or today's action, and the periphrastic past for earlier ones.",
       "culture_note": "",
       "references": [
         {
@@ -1512,7 +1512,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Catalan's most characteristic tense: the past is built with the auxiliary 'vaig, vas, va, vam, vau, van' + the INFINITIVE, not a participle — vaig menjar 'I ate', va anar 'he went'.\n\nIt's the normal past for earlier actions, unlike Spanish or French.",
+      "explanation": "Catalan's most characteristic tense: the past is built from an auxiliary plus the infinitive, not a participle — vaig menjar 'I ate', va anar 'he went'.\n\n| Person | Auxiliary |\n| --- | --- |\n| jo | vaig |\n| tu | vas |\n| ell / ella | va |\n| nosaltres | vam |\n| vosaltres | vau |\n| ells / elles | van |\n\nThe auxiliary is the present of anar, except that nosaltres and vosaltres take vam and vau, not anem and aneu. Vam, vau and van also appear as vàrem, vàreu and varen.\n\nIt's the normal past for earlier actions, unlike Spanish or French.",
       "culture_note": "",
       "references": [
         {
@@ -1650,7 +1650,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The imperfet describes a past that was ongoing, repeated, or a background — English 'was …-ing' / 'used to'. Endings: -ava/-ia (menjava 'I was eating', dormia 'he used to sleep'). ser is irregular (era).\n\nContrast with the periphrastic past, which reports one completed act.",
+      "explanation": "The **imperfet** describes a past that was ongoing, repeated, or a background — English 'was …-ing' / 'used to'. Contrast it with the periphrastic past, which reports one completed act.\n\nVerbs in -ar take the first set of endings; verbs in -re, -er and -ir take the second.\n\n| person | menjar | dormir |\n| --- | --- | --- |\n| I | menjava | dormia |\n| you (sg.) | menjaves | dormies |\n| he / she | menjava | dormia |\n| we | menjàvem | dormíem |\n| you (pl.) | menjàveu | dormíeu |\n| they | menjaven | dormien |\n\nA handful of verbs build it on an irregular stem: ser → era, fer → feia, dir → deia, veure → veia, dur → duia.",
       "culture_note": "",
       "references": [
         {
@@ -1720,7 +1720,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The future adds -é, -às, -à, -em, -eu, -an to the infinitive: menjaré 'I will eat', dormirà 'he will sleep'.\n\nIrregular stems: ser → ser-, tenir → tindr-, anar → anir-/anar-, fer → far-, venir → vindr-.",
+      "explanation": "The **futur** adds one set of endings to the infinitive: menjaré 'I will eat', dormirà 'he will sleep'. A verb in -re drops that final -e first: perdre gives perdré, veure gives veurem.\n\n| person | ending | menjar |\n| --- | --- | --- |\n| I | -é | menjaré |\n| you (sg.) | -às | menjaràs |\n| he / she | -à | menjarà |\n| we | -em | menjarem |\n| you (pl.) | -eu | menjareu |\n| they | -an | menjaran |\n\nSome verbs replace the infinitive with an irregular stem: anar → aniré, tenir → tindré, venir → vindré, fer → faré, poder → podré, voler → voldré.",
       "culture_note": "",
       "references": [
         {
@@ -1790,7 +1790,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "A known direct object becomes a weak pronoun before the verb: el (him/it m.), la (her/it f.), els (them m.), les (them f.), em, et, ens, us.\n\nEl veig 'I see him'. Before a vowel el/la elide to l': l'he vist.\n\nAfter a verb they attach with a hyphen: mira'l 'look at him'.",
+      "explanation": "A known direct object becomes a weak pronoun standing before the verb: El veig 'I see him'.\n\n| object | pronoun |\n| --- | --- |\n| me | em |\n| you (sg.) | et |\n| him, it (m.) | el |\n| her, it (f.) | la |\n| us | ens |\n| you (pl.) | us |\n| them (m.) | els |\n| them (f.) | les |\n\nBefore a vowel or h, em, et and el elide: m'ajuda, t'espero, l'he vist. la elides too, except before an unstressed i- or u- (la imitem); ens, us, els and les never elide.\n\nAfter the verb the pronoun attaches to it, with a hyphen (rentar-lo, renta-la) or, after a vowel where a shortened form exists, with an apostrophe (mira'l 'look at him', renta'ls).",
       "culture_note": "",
       "references": [
         {
@@ -1860,7 +1860,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "en replaces de + something or a quantity: en vull 'I want some', en tinc tres 'I have three of them'. hi replaces a place or a + a thing: hi vaig 'I go there', no hi penso 'I don't think about it'.\n\nBoth are very common and often untranslated in English.",
+      "explanation": "en replaces de + something, or a quantity: en vull 'I want some', en tinc tres 'I have three of them'. Before a vowel it elides to n': n'he comprat un quilo 'I've bought a kilo of them'.\n\nhi replaces a place, or a complement introduced by a, en or amb: hi vaig 'I go there', no hi penso 'I don't think about it' (from pensar en), no hi estic d'acord 'I don't agree with it'. hi never elides.\n\nBoth are very common and often untranslated in English.",
       "culture_note": "",
       "references": [
         {
@@ -1930,7 +1930,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The comparative uses més / menys + adjective + que 'than': més gran que 'bigger than'. The superlative adds the article: el més gran 'the biggest'.\n\nIrregulars: bo → millor 'better', dolent → pitjor 'worse'.",
+      "explanation": "The comparative uses més 'more' or menys 'less' + adjective + que 'than': més gran que 'bigger than'.\n\nThe superlative adds the definite article, which agrees with the noun: el més gran, la més gran 'the biggest'. When the adjective follows its noun the article is not repeated, and the group compared against takes de: el cafè més bo de la ciutat 'the best café in town'.\n\nIrregulars: bo → millor 'better', dolent → pitjor 'worse'.",
       "culture_note": "",
       "references": [
         {
@@ -2000,7 +2000,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Reflexive verbs carry a weak pronoun matching the subject: em, et, es, ens, us, es, before the verb.\n\nEm rento 'I wash (myself)', es lleva 'he gets up', ens quedem 'we stay'. Before a vowel em/et/es elide (m'aixeco).\n\nMany daily-routine verbs are reflexive.",
+      "explanation": "A reflexive verb carries a weak pronoun matching its subject, placed before the verb.\n\n| person | pronoun |\n| --- | --- |\n| I | em |\n| you (sg.) | et |\n| he / she | es |\n| we | ens |\n| you (pl.) | us |\n| they | es |\n\nEm rento 'I wash (myself)', es lleva 'he gets up', ens quedem 'we stay'. Before a vowel em, et and es elide (m'aixeco, t'aixeques, s'aixeca); ens and us do not. The infinitive carries the pronoun after it, joined by a hyphen: rentar-se, llevar-se.\n\nMany daily-routine verbs are reflexive.",
       "culture_note": "",
       "references": [
         {
@@ -2146,7 +2146,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Possessives take the article and agree with the thing owned: el meu llibre, la meva casa, els meus amics, les meves germanes.\n\nDemonstratives: aquest/aquesta 'this', aquell/aquella 'that', agreeing in gender and number.",
+      "explanation": "Possessives take the definite article and agree with the thing owned, not the owner: el meu llibre, les meves germanes.\n\n| owner | m. sg. | f. sg. | m. pl. | f. pl. |\n| --- | --- | --- | --- | --- |\n| my | meu | meva | meus | meves |\n| your (sg.) | teu | teva | teus | teves |\n| his, her, its, their | seu | seva | seus | seves |\n| our | nostre | nostra | nostres | nostres |\n| your (pl.) | vostre | vostra | vostres | vostres |\n\nDemonstratives take no article and agree in gender and number: aquest, aquesta, aquests, aquestes 'this'; aquell, aquella, aquells, aquelles 'that'.",
       "culture_note": "",
       "references": [
         {
@@ -2232,7 +2232,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "After verbs of wish, doubt, emotion, or need — vull que, dubto que, m'alegro que, cal que, encara que — Catalan uses the subjunctive.\n\nPresent forms: -ar → -i (que jo parli), -re/-er/-ir → -i (que jo perdi, que jo dormi).\n\nKey irregulars: ser (sigui), haver (hagi), fer (faci), anar (vagi).",
+      "explanation": "After verbs of wish, doubt, emotion or need — vull que, dubto que, m'alegro que, cal que — Catalan uses the subjunctive. So do the conjunctions encara que 'although', abans que 'before' and perquè 'so that'.\n\n| person | parlar | perdre | dormir |\n| --- | --- | --- | --- |\n| I | parli | perdi | dormi |\n| you (sg.) | parlis | perdis | dormis |\n| he / she | parli | perdi | dormi |\n| we | parlem | perdem | dormim |\n| you (pl.) | parleu | perdeu | dormiu |\n| they | parlin | perdin | dormin |\n\nKey irregulars: ser (sigui), haver (hagi), fer (faci), anar (vagi), poder (pugui), tenir (tingui), venir (vingui), dir (digui), voler (vulgui), saber (sàpiga).",
       "culture_note": "",
       "references": [
         {
@@ -2302,7 +2302,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The conditional endings are -ria, -ries, -ria, -ríem, -ríeu, -rien on the future stem: menjaria 'I would eat', vindria 'he would come'. It softens requests (voldria 'I would like', podries 'could you') and states hypotheticals.",
+      "explanation": "The **condicional** puts the imperfect endings -ia, -ies, -ia, -íem, -íeu, -ien on the stem the future uses: the infinitive for regular verbs, the irregular stem for the rest.\n\n| person | menjar | venir |\n| --- | --- | --- |\n| I | menjaria | vindria |\n| you (sg.) | menjaries | vindries |\n| he / she | menjaria | vindria |\n| we | menjaríem | vindríem |\n| you (pl.) | menjaríeu | vindríeu |\n| they | menjarien | vindrien |\n\nIt softens requests (voldria 'I would like', podries 'could you') and states hypotheticals.",
       "culture_note": "",
       "references": [
         {
@@ -2372,7 +2372,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Catalan is famous for stacking weak pronouns. Indirect + direct: me'l dones 'you give it to me', te'l porto 'I bring it to you'.\n\nThe pair li + el becomes l'hi: l'hi dono 'I give it to him'. en combines too: se'n va 'he goes away', me'n dones 'you give me some'.",
+      "explanation": "Catalan is famous for stacking weak pronouns. The indirect one comes first, and before another pronoun em, et and es take the forms me, te and se.\n\n| pronouns | combined |\n| --- | --- |\n| em + el | me'l |\n| et + el | te'l |\n| li + el | l'hi |\n| li + la | l'hi |\n| em + en | me'n |\n| es + en | se'n |\n\nMe'l dones 'you give it to me', te'l porto 'I bring it to you', l'hi dono 'I give it to him', se'n va 'he goes away'.",
       "culture_note": "",
       "references": [
         {
@@ -2442,7 +2442,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "que is the all-purpose relative for subject and object: l'home que parla, el llibre que llegeixo. After a preposition, use qui for people and què for things: la persona amb qui parlo, la taula sobre què escric. on means 'where': la ciutat on visc.",
+      "explanation": "que is the all-purpose relative for subject and object, people and things: l'home que parla, el llibre que llegeixo. After a preposition it gives way to one of:\n\n- qui — a person (la persona amb qui parlo)\n- què — a thing (la taula sobre què escric)\n- el qual, la qual, els quals, les quals — the formal choice, agreeing with what it refers back to (la raó per la qual soc aquí)\n\non means 'where': la ciutat on visc.",
       "culture_note": "",
       "references": [
         {
@@ -2512,7 +2512,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The informal command (tu) has its own form (parla! 'speak!', obre!\n\n'open!'). The polite command (vostè) uses the subjunctive (parli!, obri!).\n\nNegative commands ALWAYS use the subjunctive: no parlis! 'don't speak!', no ho facis!\n\n'don't do it!'.",
+      "explanation": "The command has a form of its own for each addressee, and the negative always uses the subjunctive.\n\n| addressee | affirmative | negative |\n| --- | --- | --- |\n| tu | parla | no parlis |\n| vostè | parli | no parli |\n| vosaltres | parleu | no parleu |\n| vostès | parlin | no parlin |\n\nThe tu form is the third-person singular of the present indicative (parla! 'speak!', obre! 'open!'); vosaltres uses the second-person plural (parleu!, obriu!); vostè and vostès use the subjunctive (parli!, obri!).\n\nA few tu forms are irregular: ser → sigues, tenir → tingues, fer → fes, dir → digues, venir → vine, anar → ves.",
       "culture_note": "",
       "references": [
         {
@@ -2593,7 +2593,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The plusquamperfet ('had done') = the imperfet of haver + the past participle: havia menjat 'I had eaten', havien marxat 'they had left'. It marks an action completed before another past moment.\n\nUnlike the perfet, it always uses haver (never ser).",
+      "explanation": "The **plusquamperfet** ('had done') is the imperfet of haver plus the past participle. It marks an action completed before another past moment: quan vas arribar, jo ja havia sopat.\n\n| person | form |\n| --- | --- |\n| I | havia menjat |\n| you (sg.) | havies menjat |\n| he / she | havia menjat |\n| we | havíem menjat |\n| you (pl.) | havíeu menjat |\n| they | havien menjat |\n\nCatalan builds every compound tense with haver — there is no ser auxiliary as in French or Italian, and the participle does not change with the subject.",
       "culture_note": "",
       "references": [
         {
@@ -2663,7 +2663,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Report a statement with que: diu que ve 'he says he's coming'. Report a yes/no question with si 'whether': pregunta si véns.\n\nWhen the reporting verb is past, tenses shift back (present → imperfet, futur → condicional): va dir que vindria.",
+      "explanation": "Report a statement with que: diu que ve 'he says he's coming'. Report a yes/no question with si 'whether': pregunta si vens.\n\nWhen the reporting verb is past, tenses shift back (present → imperfet, futur → condicional): va dir que vindria.",
       "culture_note": "",
       "references": [
         {
@@ -2733,7 +2733,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The passive = ser + past participle, which AGREES with the subject: la carta és escrita, les cases són construïdes. The agent follows per: pintat per Miró.\n\nEveryday Catalan prefers the reflexive passive with es: aquí es ven pa 'bread is sold here', es diu que… 'it is said that…'.",
+      "explanation": "The passive = **ser** + past participle, which AGREES with the subject: la carta és escrita, les cases són construïdes. The agent follows per: pintat per Miró.\n\nEveryday Catalan prefers the reflexive passive with es: aquí es ven pa 'bread is sold here', es diu que… 'it is said that…'.",
       "culture_note": "",
       "references": [
         {
@@ -2873,7 +2873,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The gerund ends in -ant (-ar) or -ent (-re/-er/-ir): menjant 'eating', llegint 'reading'. Alone it means 'while / by …-ing': s'aprèn viatjant 'you learn by travelling'.\n\nWith estar it makes the progressive: estic menjant 'I'm eating'. (Avoid the gerund of consequence — it's an error.)",
+      "explanation": "The gerund ending follows the verb's conjugation:\n\n- Verbs in `-ar` take `-ant`: menjant 'eating'\n- Verbs in `-er` and `-re` take `-ent`: perdent 'losing'\n- Verbs in `-ir` take `-int`: llegint 'reading'\n\nAlone it means 'while / by …-ing': s'aprèn viatjant 'you learn by travelling'.\n\nWith estar it makes the progressive: estic menjant 'I'm eating'. (Avoid the gerund of consequence — it's an error.)",
       "culture_note": "",
       "references": [
         {
@@ -2943,7 +2943,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Certain conjunctions always take the subjunctive: encara que / per bé que 'although', perquè (purpose) / a fi que 'so that', abans que 'before', a condició que 'provided that', sense que 'without'.\n\nEncara que plogui, sortim 'although it's raining, we go out'.",
+      "explanation": "Certain conjunctions always take the subjunctive:\n\n| Conjunction | Meaning |\n| --- | --- |\n| a fi que | so that |\n| abans que | before |\n| a condició que | provided that |\n| sense que | without |\n\nPerquè joins them in its purpose sense 'so that'; meaning 'because' it takes the indicative.\n\nEncara que and per bé que 'although' take the subjunctive for something hypothetical (Encara que plogui, sortim 'even if it rains, we go out') and the indicative for a fact already known (Encara que plou, sortim 'although it's raining, we go out').",
       "culture_note": "",
       "references": [
         {
@@ -3013,7 +3013,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The adjective bo → millor 'better' (agrees: millors); dolent → pitjor 'worse'.\n\nThe adverb bé → millor 'better'; malament → pitjor 'worse'.\n\nAquest pastís és millor; ella canta millor que jo.",
+      "explanation": "Bo and dolent, bé and malament make their comparatives irregularly:\n\n| Base | Class | Comparative | Meaning |\n| --- | --- | --- | --- |\n| bo | adjective | millor | better |\n| dolent | adjective | pitjor | worse |\n| bé | adverb | millor | better |\n| malament | adverb | pitjor | worse |\n\nThe adjectives agree in number (millors, pitjors); the adverbs never change.\n\nAquest pastís és millor; ella canta millor que jo.",
       "culture_note": "",
       "references": [
         {
@@ -3083,7 +3083,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Formal Catalan links ideas with connectors: per tant / doncs 'so/therefore', tanmateix / però 'however', ja que / atès que 'because/since', a més 'moreover', en canvi 'on the other hand'.\n\nThey structure an argument.",
+      "explanation": "Formal Catalan links ideas with connectors:\n\n| Connectors | Meaning |\n| --- | --- |\n| per tant / doncs | so, therefore |\n| tanmateix / però | however |\n| ja que / atès que | because, since |\n| a més | moreover |\n| en canvi | on the other hand |\n\nThey structure an argument.",
       "culture_note": "",
       "references": [
         {
@@ -3223,7 +3223,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The subjunctive has past forms. The perfect subjunctive (que hagi fet) follows a present main verb about an earlier action: crec que ja hagi menjat.\n\nAfter a PAST main verb, use the imperfect or pluperfect subjunctive: pensava que vingués / hagués vingut. This is the concordança dels temps.",
+      "explanation": "The subjunctive has past forms. The perfect subjunctive (que hagi fet) follows a present main verb about an earlier action, when the main verb is one that takes the subjunctive: no crec que hagi menjat encara 'I don't think he has eaten yet'. Affirmative crec que takes the indicative: crec que ja ha menjat.\n\nAfter a PAST main verb those same triggers move to the imperfect or pluperfect subjunctive: volia que vingués, no pensava que hagués vingut. This is the concordança dels temps.",
       "culture_note": "",
       "references": [
         {
@@ -3293,7 +3293,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Beside the everyday periphrastic past, Catalan has a synthetic simple past (passat simple), now mostly literary: -ar → cantà, cantaren; irregulars: ser → fou, fer → féu, dir → digué, venir → vingué.\n\nYou mainly need to read it (in older texts and formal prose).",
+      "explanation": "Beside the everyday periphrastic past, Catalan has a synthetic simple past (passat simple), now mostly literary:\n\n| Person | cantar |\n| --- | --- |\n| jo | cantí |\n| tu | cantares |\n| ell / ella | cantà |\n| nosaltres | cantàrem |\n| vosaltres | cantàreu |\n| ells / elles | cantaren |\n\nThe irregulars you meet most are third-person singular: ser → fou, fer → feu, dir → digué, venir → vingué.\n\nYou mainly need to read it (in older texts and formal prose).",
       "culture_note": "",
       "references": [
         {
@@ -3433,7 +3433,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Formal Catalan prefers connectors like tanmateix, per consegüent 'consequently', no obstant això 'nevertheless', sempre que 'as long as' (+ subjunctive), and the polite vostè with the subjunctive imperative. Fixed phrases (al meu parer 'in my opinion', en tot cas 'in any case') mark tone.",
+      "explanation": "Formal Catalan prefers heavier connectors:\n\n| Connector | Meaning |\n| --- | --- |\n| tanmateix | however |\n| per consegüent | consequently |\n| no obstant això | nevertheless |\n| sempre que | as long as |\n\nSempre que takes the subjunctive, and the polite vostè uses the subjunctive as its imperative.\n\nFixed phrases (al meu parer 'in my opinion', en tot cas 'in any case') mark tone.",
       "culture_note": "",
       "references": [
         {
@@ -3503,7 +3503,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "The daily irregulars:\n\nanar (to go): vaig, vas, va, anem, aneu, van — the SAME forms that build the passat perifràstic, so context decides: Vaig a casa (present) vs Vaig anar a casa (past). fer (to do/make): faig, fas, fa, fem, feu, fan. poder (can): puc, pots, pot, podem, podeu, poden. voler (to want): vull, vols, vol, volem, voleu, volen. venir (to come): vinc, véns, ve, venim, veniu, vénen. dir (to say): dic, dius, diu, diem, dieu, diuen.",
+      "explanation": "The daily irregulars, in the order jo, tu, ell/ella, nosaltres, vosaltres, ells/elles:\n\n- anar (to go): vaig, vas, va, anem, aneu, van\n- fer (to do/make): faig, fas, fa, fem, feu, fan\n- poder (can): puc, pots, pot, podem, podeu, poden\n- voler (to want): vull, vols, vol, volem, voleu, volen\n- venir (to come): vinc, vens, ve, venim, veniu, venen\n- dir (to say): dic, dius, diu, diem, dieu, diuen\n\nAnar's present is the SAME set of forms that builds the passat perifràstic, so context decides: Vaig a casa (present) vs Vaig anar a casa (past).",
       "culture_note": "",
       "references": [
         {
@@ -3579,7 +3579,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "estar: estic, estàs, està, estem, esteu, estan.\n\nUse it for temporary states and conditions (Estic cansat, La Maria està malalta) and for where someone is right now (Els nens estan a l'escola). Identity, origin, and permanent qualities stay with ser: Soc de Barcelona. És alta.\n\nestar + gerundi says what's happening right now: Estic llegint.",
+      "explanation": "**Estar**:\n\n| Person | Form |\n| --- | --- |\n| jo | estic |\n| tu | estàs |\n| ell / ella | està |\n| nosaltres | estem |\n| vosaltres | esteu |\n| ells / elles | estan |\n\nUse it for temporary states and conditions (Estic cansat, La Maria està malalta) and for where someone is right now (Els nens estan a l'escola). Identity, origin, and permanent qualities stay with ser: Soc de Barcelona. És alta.\n\nestar + gerundi says what's happening right now: Estic llegint.",
       "culture_note": "Catalan draws the ser/estar line differently from Spanish — location of things often takes ser (El llibre és a la taula), while people right now take estar.",
       "references": [
         {

@@ -210,7 +210,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Three genders, visible in the endings: masculine -ος (ο δρόμος), feminine -α/-η (η μέρα, η αγάπη), neuter -ο/-ι (το βιβλίο, το παιδί).\n\nPlurals: -ος → -οι, -α/-η → -ες, -ο → -α, -ι → -ιά (βιβλίο → βιβλία, παιδί → παιδιά).",
+      "explanation": "Three genders, each visible in the noun's ending:\n\n| Gender | Singular | Plural | Example |\n| --- | --- | --- | --- |\n| masculine | -ος | -οι | ο δρόμος → οι δρόμοι |\n| masculine | -ας | -ες | ο άντρας → οι άντρες |\n| masculine | -ης | -ες | ο μαθητής → οι μαθητές |\n| feminine | -α | -ες | η μέρα → οι μέρες |\n| feminine | -η | -ες | η αγάπη → οι αγάπες |\n| neuter | -ο | -α | το βιβλίο → τα βιβλία |\n| neuter | -ι | -ια | το παιδί → τα παιδιά |\n\nThe neuter plural is `-ια` and the stress stays where it was: παιδί → παιδιά, τραπέζι → τραπέζια. A few masculine nouns add `-δ-`: ο καφές → οι καφέδες.",
       "culture_note": "",
       "references": [
         {
@@ -311,7 +311,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Ο for masculine (ο δρόμος), η for feminine (η μέρα), το for neuter (το βιβλίο); plurals οι, οι, τα. Greek uses the article even before names: η Μαρία, ο Γιώργος.",
+      "explanation": "The article agrees with its noun in gender and number:\n\n| Gender | Singular | Plural |\n| --- | --- | --- |\n| masculine | ο | οι |\n| feminine | η | οι |\n| neuter | το | τα |\n\nSo ο δρόμος, η μέρα, το βιβλίο — and in the plural οι δρόμοι, οι μέρες, τα βιβλία.\n\nGreek uses the article even before names: η Μαρία, ο Γιώργος.",
       "culture_note": "",
       "references": [
         {
@@ -402,7 +402,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Ένας for masculine (ένας κήπος), μία/μια for feminine (μία μέρα), ένα for neuter (ένα σπίτι). They double as the number 'one' — no plural form exists.",
+      "explanation": "The indefinite article has one shape per gender:\n\n| Gender | Article | Example |\n| --- | --- | --- |\n| masculine | ένας | ένας κήπος |\n| feminine | μία / μια | μία μέρα |\n| neuter | ένα | ένα σπίτι |\n\nThey double as the number 'one' — no plural form exists.",
       "culture_note": "",
       "references": [
         {
@@ -493,7 +493,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Είμαι (I am), είσαι, είναι, είμαστε, είστε, είναι — note είναι serves he/she/it AND they. Professions take no article: είναι δασκάλα.",
+      "explanation": "The present of είμαι:\n\n| Person | Form |\n| --- | --- |\n| I | είμαι |\n| you (singular) | είσαι |\n| he / she / it | είναι |\n| we | είμαστε |\n| you (plural) | είστε |\n| they | είναι |\n\nΕίναι serves he/she/it AND they; είστε is the plural and also the polite singular.\n\nProfessions take no article: είναι δασκάλα.",
       "culture_note": "",
       "references": [
         {
@@ -647,7 +647,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Έχω (to have): έχω, έχεις, έχει, έχουμε, έχετε, έχουν.\n\nBeing right is HAD: έχεις δίκιο. But age uses 'to be': είμαι είκοσι χρονών — Greek sides with English there.",
+      "explanation": "The present of έχω (to have):\n\n| Person | Form |\n| --- | --- |\n| I | έχω |\n| you (singular) | έχεις |\n| he / she / it | έχει |\n| we | έχουμε |\n| you (plural) | έχετε |\n| they | έχουν |\n\nΈχετε is the plural and also the polite way to address one person.\n\nBeing right is HAD: έχεις δίκιο. But age uses 'to be': είμαι είκοσι χρονών — Greek sides with English there.",
       "culture_note": "",
       "references": [
         {
@@ -801,7 +801,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The core pattern: μένω, μένεις, μένει, μένουμε, μένετε, μένουν (to live/stay).\n\nThe Greek present covers both English presents: μένω = I live AND I am living.",
+      "explanation": "The core pattern, on μένω (to live/stay):\n\n| Person | Ending | Form |\n| --- | --- | --- |\n| I | -ω | μένω |\n| you (singular) | -εις | μένεις |\n| he / she / it | -ει | μένει |\n| we | -ουμε | μένουμε |\n| you (plural) | -ετε | μένετε |\n| they | -ουν | μένουν |\n\nA few very common verbs shorten these endings: ακούω, ακούς, ακούει, ακούμε, ακούτε, ακούν.\n\nThe Greek present covers both English presents: μένω = I live AND I am living.",
       "culture_note": "",
       "references": [
         {
@@ -955,7 +955,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Objects take the accusative — mostly visible in the article: ο → τον, η → την, το stays το.\n\nMasculine nouns also drop the final -ς: ο δρόμος → βλέπω τον δρόμο.\n\nKeep the ν on τον for masculine so it never sounds neuter; feminine την keeps ν only before vowels and hard stops.",
+      "explanation": "Objects take the accusative, mostly visible in the article:\n\n| Gender | Subject | Object |\n| --- | --- | --- |\n| masculine | ο | τον |\n| feminine | η | την / τη |\n| neuter | το | το |\n\nMasculine nouns also drop the final `-ς`: ο δρόμος → βλέπω τον δρόμο.\n\nKeep the ν on τον, so it never sounds neuter. Feminine την keeps its ν before a vowel and before κ, π, τ, μπ, ντ, γκ, τσ, τζ, ξ, ψ, and drops it elsewhere: την πόρτα, but τη μέρα.",
       "culture_note": "",
       "references": [
         {
@@ -1046,7 +1046,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Δεν goes directly before the verb: δεν μιλάω αγγλικά, δεν έχω χρόνο. (Commands use μην instead — that comes later.)",
+      "explanation": "**Δεν** goes directly before the verb: δεν μιλάω αγγλικά, δεν έχω χρόνο. (Commands use μην instead — that comes later.)",
       "culture_note": "",
       "references": [
         {
@@ -1286,7 +1286,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Adjectives take the noun's gender, number, and case: καλός, καλή, καλό (good m/f/n), plurals καλοί, καλές, καλά.\n\nThey usually come BEFORE the noun, article first: ο καλός φίλος.",
+      "explanation": "Adjectives take the noun's gender, number and case — καλός (good):\n\n| Gender | Singular | Plural |\n| --- | --- | --- |\n| masculine | καλός | καλοί |\n| feminine | καλή | καλές |\n| neuter | καλό | καλά |\n\nNot all of them follow καλός: after a vowel the feminine ends `-α` (ωραίος, ωραία, ωραίο), and a few formal ones keep participle endings (ενδιαφέρων, ενδιαφέρουσα, ενδιαφέρον).\n\nThey usually come BEFORE the noun, article first: ο καλός φίλος.",
       "culture_note": "",
       "references": [
         {
@@ -1440,7 +1440,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The aorist is the plain past ('I wrote').\n\nIt's built on the verb's perfective stem with past endings and, when needed, a stressed augment ε- at the front: γράφω → έγραψα, έγραψες, έγραψε, γράψαμε, γράψατε, έγραψαν.\n\nThe stress falls on the third syllable from the end, which is why singular forms take the augment but γράψαμε/γράψατε don't need it.",
+      "explanation": "The aorist is the plain past ('I wrote').\n\nIt's built on the verb's perfective stem with past endings and, when needed, a stressed augment `ε-` at the front. From γράφω:\n\n| Person | Form |\n| --- | --- |\n| I | έγραψα |\n| you (singular) | έγραψες |\n| he / she / it | έγραψε |\n| we | γράψαμε |\n| you (plural) | γράψατε |\n| they | έγραψαν |\n\nThe stress falls on the third syllable from the end, which is why the singular forms take the augment but γράψαμε and γράψατε don't need it.\n\nA few very common verbs have their own aorist stem: πίνω → ήπια, τρώω → έφαγα, πάω → πήγα.",
       "culture_note": "",
       "references": [
         {
@@ -1590,7 +1590,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The genitive marks 'of' — possession, belonging, quantity.\n\nThe article changes: ο→του, η→της, το→του, οι/τα→των, and the noun ending shifts (ο φίλος → του φίλου, η μητέρα → της μητέρας, το παιδί → του παιδιού).\n\nThe possessor follows the thing possessed: το βιβλίο του φοιτητή 'the student's book'.",
+      "explanation": "The genitive marks 'of' — possession, belonging, quantity.\n\nThe article changes:\n\n| Gender | Singular | Plural |\n| --- | --- | --- |\n| masculine | του | των |\n| feminine | της | των |\n| neuter | του | των |\n\nThe noun ending shifts too: ο φίλος → του φίλου, η μητέρα → της μητέρας, το παιδί → του παιδιού.\n\nThe possessor follows the thing possessed: το βιβλίο του φοιτητή 'the student's book'.",
       "culture_note": "",
       "references": [
         {
@@ -1672,7 +1672,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Plurals depend on gender: masculine -ος → -οι (ο φίλος → οι φίλοι), feminine -α/-η → -ες (η πόρτα → οι πόρτες, η νίκη → οι νίκες), neuter -ο → -α (το βιβλίο → τα βιβλία) and -ι → -ια (το παιδί → τα παιδιά).\n\nThe article becomes οι (masc/fem) or τα (neut).",
+      "explanation": "Plurals depend on gender:\n\n| Gender | Singular | Plural | Example |\n| --- | --- | --- | --- |\n| masculine | -ος | -οι | ο φίλος → οι φίλοι |\n| masculine | -ας | -ες | ο άντρας → οι άντρες |\n| masculine | -ης | -ες | ο μαθητής → οι μαθητές |\n| feminine | -α | -ες | η πόρτα → οι πόρτες |\n| feminine | -η | -ες | η νίκη → οι νίκες |\n| neuter | -ο | -α | το βιβλίο → τα βιβλία |\n| neuter | -ι | -ια | το παιδί → τα παιδιά |\n\nThe article becomes οι for masculine and feminine, τα for neuter.",
       "culture_note": "",
       "references": [
         {
@@ -1748,7 +1748,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The imperfect describes a past action that was ongoing, repeated, or a background state — English 'was ...-ing' or 'used to'.\n\nIt's built on the present (imperfective) stem with past endings: γράφω → έγραφα 'I was writing', έτρωγα 'I used to eat'.\n\nContrast the aorist έγραψα (one completed act) with the imperfect έγραφα (ongoing).",
+      "explanation": "The imperfect describes a past action that was ongoing, repeated, or a background state — English 'was ...-ing' or 'used to'.\n\nIt is built on the present (imperfective) stem with past endings. From γράφω comes **έγραφα** 'I was writing':\n\n| Person | Form |\n| --- | --- |\n| εγώ | έγραφα |\n| εσύ | έγραφες |\n| αυτός / αυτή | έγραφε |\n| εμείς | γράφαμε |\n| εσείς | γράφατε |\n| αυτοί / αυτές | έγραφαν |\n\nAs in the aorist, the augment `ε-` is only there to carry the stress three syllables from the end: έγραφα takes it, γράφαμε does not need it, and a longer verb never does (διάβαζα, from διαβάζω).\n\nContrast the aorist έγραψα (one completed act) with the imperfect έγραφα (ongoing).",
       "culture_note": "",
       "references": [
         {
@@ -1824,7 +1824,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The future is simply θα + verb. θα + the perfective (aorist) stem is a single future act: θα γράψω 'I will write'; θα + the present stem is a continuous or habitual future: θα γράφω 'I will be writing'. Negate with δεν θα.",
+      "explanation": "The future is simply **θα** + verb. θα + the perfective (aorist) stem is a single future act: θα γράψω 'I will write'; θα + the present stem is a continuous or habitual future: θα γράφω 'I will be writing'. Negate with δεν θα.",
       "culture_note": "",
       "references": [
         {
@@ -1900,7 +1900,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "A known object becomes a weak pronoun placed BEFORE the verb: τον (him), την (her), το (it), τους/τις/τα (them), με (me), σε (you), μας/σας (us/you).\n\nΤον βλέπω 'I see him'. In commands it follows the verb (δώσε μου).\n\nThese are accusative forms — the indirect object uses genitive (μου, σου, του…).",
+      "explanation": "A known object becomes a weak pronoun, and it goes before the verb: Τον βλέπω 'I see him'.\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | με | μας |\n| 2nd | σε | σας |\n| 3rd masculine | τον | τους |\n| 3rd feminine | την | τις |\n| 3rd neuter | το | τα |\n\nσας is the plural 'you' and also the polite singular. In a command the pronoun follows the verb instead: δες τον 'look at him'.\n\nThese are accusative forms — the indirect object uses genitive (μου, σου, του…).",
       "culture_note": "",
       "references": [
         {
@@ -1982,7 +1982,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The comparative puts πιο before the adjective + από 'than': πιο μεγάλος από 'bigger than'. The superlative makes it definite: ο πιο μεγάλος 'the biggest'.\n\nMany adjectives also have a one-word form in -τερος/-τατος (μεγαλύτερος), but πιο works everywhere.",
+      "explanation": "The comparative puts **πιο** before the adjective, with από 'than' before the thing compared: πιο μεγάλος από 'bigger than'. The superlative adds the definite article: ο πιο μεγάλος 'the biggest'.\n\nMany adjectives also have a one-word comparative in `-ότερος` or `-ύτερος` (μεγάλος → μεγαλύτερος), but πιο works everywhere. The ending `-τατος` is a different thing: μεγαλύτατος means 'very big', an emphatic form that never takes από.",
       "culture_note": "",
       "references": [
         {
@@ -2058,7 +2058,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Modern Greek prepositions take the accusative: σε 'in/to/at' (often fused with the article: στο, στη), από 'from', με 'with', για 'for/about', χωρίς 'without', προς 'towards'. σε + accusative covers both location and motion.",
+      "explanation": "The everyday prepositions all take the accusative:\n\n| Preposition | Meaning |\n| --- | --- |\n| σε | in, to, at |\n| από | from |\n| με | with |\n| για | for, about |\n| χωρίς | without |\n| προς | towards |\n\nσε fuses with a following definite article: σε + το → στο, σε + τη → στη, σε + τον → στον. It covers both location and motion.",
       "culture_note": "",
       "references": [
         {
@@ -2134,7 +2134,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Possession is shown by a weak genitive pronoun placed AFTER the noun: μου (my), σου (your), του/της (his/her), μας (our), σας (your), τους (their).\n\nΤο βιβλίο μου 'my book', το σπίτι τους 'their house'. The noun keeps its article: η μητέρα μου.",
+      "explanation": "Possession is shown by a weak genitive pronoun that follows the noun, never precedes it:\n\n| Person | Singular | Plural |\n| --- | --- | --- |\n| 1st | μου | μας |\n| 2nd | σου | σας |\n| 3rd masculine | του | τους |\n| 3rd feminine | της | τους |\n| 3rd neuter | του | τους |\n\nThe noun keeps its article: το βιβλίο μου 'my book', το σπίτι τους 'their house', η μητέρα μου 'my mother'.\n\nσας is the plural 'your' and also the polite singular. A noun stressed on its third syllable from the end takes a second accent when the pronoun joins it: το αυτοκίνητό μου, οι γείτονές μας.",
       "culture_note": "",
       "references": [
         {
@@ -2216,7 +2216,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Greek has no infinitive — after θέλω 'want', μπορώ 'can', πρέπει 'must', you use να + a verb agreeing with the subject: θέλω να φύγω 'I want to leave', πρέπει να διαβάσεις 'you must study', μπορεί να βρέξει 'it may rain'.\n\nNegate the second verb with να μην.",
+      "explanation": "Greek has no infinitive. After θέλω 'want', μπορώ 'can' and πρέπει 'must' you use **να** plus a verb that agrees with the subject:\n\n- θέλω να φύγω — I want to leave\n- πρέπει να διαβάσεις — you must study\n- μπορεί να βρέξει — it may rain\n\nNegate the second verb with να μην.",
       "culture_note": "",
       "references": [
         {
@@ -2368,7 +2368,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The positive command has its own form: singular γράψε, plural γράψτε (from the aorist stem for a single act; present stem γράφε for a continuous one). Negative commands don't use it — they use μην + subjunctive: μην γράφεις 'don't write', μην ανησυχείς 'don't worry'.",
+      "explanation": "The positive command has its own form, built from the aorist stem for a single act and from the present stem for a continuous one:\n\n| Command | Singular | Plural |\n| --- | --- | --- |\n| one act | γράψε | γράψτε |\n| ongoing | γράφε | γράφετε |\n\nVerbs in `-άω` build the singular command from the present stem, ending in `-α`: μίλα 'speak', κοίτα 'look', ρώτα 'ask'.\n\nNegative commands do not use these forms — they use μην + the subjunctive: μην γράφεις 'don't write', μην ανησυχείς 'don't worry'. Keep the ν of μην before a vowel and before κ, π, τ, ξ, ψ, μπ, ντ, γκ, τσ, τζ; elsewhere write μη (μη μιλάς).",
       "culture_note": "",
       "references": [
         {
@@ -2452,7 +2452,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "When a verb has both an indirect object (to whom) and a direct one (what), two weak pronouns cluster before the verb in the order genitive + accusative: μου το έδωσε 'he gave it to me', σου τα στέλνω 'I'm sending them to you', της το είπα 'I told it to her'.",
+      "explanation": "When a verb has both an indirect object (to whom) and a direct one (what), the two weak pronouns cluster before the verb, genitive first and accusative second:\n\n- μου το έδωσε — he gave it to me\n- σου τα στέλνω — I'm sending them to you\n- της το είπα — I told it to her\n\nIn a command the pair follows the verb, in that same order: δώσε μου το 'give it to me'.",
       "culture_note": "",
       "references": [
         {
@@ -2528,7 +2528,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The all-purpose relative is που, invariable, for people and things alike: ο άντρας που ήρθε 'the man who came', το βιβλίο που διάβασα 'the book that I read'. The formal alternative ο οποίος / η οποία / το οποίο agrees in gender, number, and case, and is used in writing or to avoid ambiguity.",
+      "explanation": "The all-purpose relative is **που** — invariable, and used for people and things alike: ο άντρας που ήρθε 'the man who came', το βιβλίο που διάβασα 'the book that I read'. For a place there is όπου: το σπίτι όπου μεγάλωσα 'the house where I grew up'.\n\nThe formal alternative ο οποίος / η οποία / το οποίο agrees in gender, number and case. It appears:\n\n- in writing and in formal speech\n- where που would be ambiguous\n- after a preposition, which που cannot follow: η εταιρεία για την οποία δουλεύω 'the company I work for'",
       "culture_note": "",
       "references": [
         {
@@ -2604,7 +2604,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "A second set of endings, -ομαι, -εσαι, -εται, -όμαστε, -εστε, -ονται, makes verbs passive, reflexive, or 'deponent' (mediopassive in form, active in meaning): πλένομαι 'I wash (myself)', ονομάζομαι 'I am named', έρχομαι 'I come', χρειάζομαι 'I need'.\n\nMany common verbs exist only in this set.",
+      "explanation": "A second set of endings makes a verb passive, reflexive, or 'deponent' — mediopassive in form, active in meaning:\n\n| Person | Ending | πλένω |\n| --- | --- | --- |\n| εγώ | -ομαι | πλένομαι |\n| εσύ | -εσαι | πλένεσαι |\n| αυτός / αυτή | -εται | πλένεται |\n| εμείς | -όμαστε | πλενόμαστε |\n| εσείς | -εστε | πλένεστε |\n| αυτοί / αυτές | -ονται | πλένονται |\n\nπλένομαι is 'I wash (myself)', ονομάζομαι 'I am named', κλείνονται 'they are closed'.\n\nMany common verbs exist only in this set: έρχομαι 'I come', χρειάζομαι 'I need', κάθομαι 'I sit'. Not every English self-directed verb joins them, though — ξυπνάω 'I wake up' is an ordinary active verb.",
       "culture_note": "",
       "references": [
         {
@@ -2680,7 +2680,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The perfect is έχω + an invariable non-finite form (the 'aparémfato', always ending -ει): έχω γράψει 'I have written', έχεις δει 'you have seen', έχουμε φάει 'we have eaten'.\n\nThe second part never changes for person or number — only έχω is conjugated. It reports a past act that still matters now.",
+      "explanation": "The perfect is έχω plus an invariable non-finite form (the 'aparémfato'), which always ends in `-ει`:\n\n- έχω γράψει — I have written\n- έχεις δει — you have seen\n- έχουμε φάει — we have eaten\n\nThe second part never changes for person or number — only έχω is conjugated. It reports a past act that still matters now.",
       "culture_note": "",
       "references": [
         {
@@ -2756,7 +2756,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "For a real or likely condition, αν + present/perfective introduces the 'if' clause, and the result takes θα: αν διαβάσεις, θα περάσεις 'if you study, you'll pass'. αν + present can also give a general truth: αν βρέξει, μένουμε σπίτι 'if it rains, we stay home'.\n\nNegate the condition with αν δεν.",
+      "explanation": "For a real or likely condition, **αν** + present/perfective introduces the 'if' clause, and the result takes θα: αν διαβάσεις, θα περάσεις 'if you study, you'll pass'. αν + present can also give a general truth: αν βρέχει, μένουμε σπίτι 'if it rains, we stay home'.\n\nNegate the condition with αν δεν.",
       "culture_note": "",
       "references": [
         {
@@ -2832,7 +2832,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The mediopassive has its own past: the passive aorist, endings -ηκα, -ηκες, -ηκε, -ήκαμε, -ήκατε, -ηκαν on a passive stem — πλένομαι → πλύθηκα 'I was washed', γράφομαι → γράφτηκε 'it was written', χάνομαι → χάθηκε 'it was lost'.\n\nIt reports one completed passive event.",
+      "explanation": "The mediopassive has its own past, the **passive aorist**: one set of endings on a passive stem.\n\n| Person | Ending |\n| --- | --- |\n| I | -ηκα |\n| you | -ηκες |\n| he, she, it | -ηκε |\n| we | -ήκαμε |\n| you (plural) | -ήκατε |\n| they | -ηκαν |\n\nπλένομαι → πλύθηκα 'I was washed', γράφομαι → γράφτηκε 'it was written', χάνομαι → χάθηκε 'it was lost'.\n\nIt reports one completed passive event.",
       "culture_note": "",
       "references": [
         {
@@ -2908,7 +2908,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "For a hypothetical or counterfactual condition, αn + past tense pairs with θα + past in the result: αν είχα χρόνο, θα ερχόμουν 'if I had time, I would come/have come'; αν το ήξερα, θα σου το έλεγα 'if I had known, I'd have told you'.\n\nBoth clauses sit in the past; θα carries the 'would'.",
+      "explanation": "For a hypothetical or counterfactual condition, **αν** + the imperfect pairs with θα + the imperfect in the result: αν είχα χρόνο, θα ερχόμουν 'if I had time, I would come/have come'; αν το ήξερα, θα σου το έλεγα 'if I had known, I'd have told you'.\n\nBoth clauses sit in the imperfect — not the aorist — and θα carries the 'would'; for an unreal past both halves can go to the pluperfect (αν είχα φύγει, θα σε είχα δει).",
       "culture_note": "",
       "references": [
         {
@@ -2984,7 +2984,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "A large group of verbs stresses the ending and has two interchangeable present forms, -άω and -ώ: αγαπάω/αγαπώ 'I love', μιλάω/μιλώ 'I speak', ρωτάω/ρωτώ 'I ask'.\n\nThe endings differ from plain -ω verbs: -άς, -άει/-ά, -άμε, -άτε, -άνε/-ούν.\n\nSome (μπορώ, ζω) use only the -ώ set.",
+      "explanation": "A large group of verbs stresses the ending and has two interchangeable present forms, `-άω` and `-ώ`: αγαπάω/αγαπώ 'I love', μιλάω/μιλώ 'I speak', ρωτάω/ρωτώ 'I ask'.\n\nThe whole present differs from that of a plain `-ω` verb:\n\n| Person | Ending |\n| --- | --- |\n| I | -άω / -ώ |\n| you | -άς |\n| he, she, it | -άει / -ά |\n| we | -άμε |\n| you (plural) | -άτε |\n| they | -άνε / -ούν |\n\nTwo common verbs, μπορώ and ζω, are not this class: they belong to a second contracted group with no `-άω` variant and endings of their own — μπορείς, μπορεί, μπορούμε, μπορείτε, μπορούν.",
       "culture_note": "",
       "references": [
         {
@@ -3060,7 +3060,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Besides πιο, adjectives form a one-word comparative in -ότερος/-ύτερος and a superlative with the article: μεγάλος → μεγαλύτερος → ο μεγαλύτερος.\n\nA few are irregular: καλός → καλύτερος 'better', κακός → χειρότερος 'worse', πολύς → περισσότερος 'more'.",
+      "explanation": "Besides πιο, adjectives form a one-word comparative: `-ότερος` on most of them (ψηλός → ψηλότερος), `-ύτερος` on adjectives in `-ύς` and on a few common ones (βαθύς → βαθύτερος, μεγάλος → μεγαλύτερος). The superlative is that same form with the article: ο μεγαλύτερος.\n\nA few are irregular: καλός → καλύτερος 'better', κακός → χειρότερος 'worse', πολύς → περισσότερος 'more'.",
       "culture_note": "",
       "references": [
         {
@@ -3136,7 +3136,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The active participle in -οντας is invariable and means 'while …-ing': τρέχοντας 'running', χαμογελώντας 'smiling'.\n\nThe passive perfect participle in -μένος agrees like an adjective and means '…-ed / having been …': γραμμένος 'written', κουρασμένος 'tired', κλειστός → κλεισμένος 'closed'.",
+      "explanation": "The active participle in `-οντας` is invariable and means 'while …-ing': τρέχοντας 'running', χαμογελώντας 'smiling' — a verb that stresses its ending gives `-ώντας`.\n\nThe passive perfect participle in `-μένος` agrees like an adjective and means '…-ed / having been …': γραμμένος 'written', κουρασμένος 'tired', κλεισμένος 'closed' (the plain adjective is κλειστός).",
       "culture_note": "",
       "references": [
         {
@@ -3212,7 +3212,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Report a statement with ότι/πως + a full clause: είπε ότι θα έρθει 'he said (that) he will come'. Report a command or request with να: μου είπε να περιμένω 'he told me to wait'.\n\nGreek keeps the original tense — no backshift as in English.",
+      "explanation": "Report a statement with ότι/πως + a full clause: είπε ότι θα έρθει 'he said (that) he will come'. Report a command or request with να: μου είπε να περιμένω 'he told me to wait'.\n\nGreek keeps the original tense — no backshift as in English.\n\nThe πως of reported speech carries no accent; accented πώς is the question word 'how'.",
       "culture_note": "",
       "references": [
         {
@@ -3288,7 +3288,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The pluperfect είχα + aparémfato marks an action completed before another past point: είχα φύγει πριν έρθεις 'I had left before you came'. The future perfect θα έχω + aparémfato marks something that will be finished by a future point: θα έχω τελειώσει ως τότε 'I'll have finished by then'.",
+      "explanation": "The pluperfect pairs είχα with the απαρέμφατο, the invariable form in `-ει`: it marks an action completed before another past point — είχα φύγει πριν έρθεις 'I had left before you came'.\n\nThe future perfect is θα έχω with the same invariable form, for something that will be finished by a future point: θα έχω τελειώσει ως τότε 'I'll have finished by then'.",
       "culture_note": "",
       "references": [
         {
@@ -3364,7 +3364,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Several everyday verbs are deponent (passive form, active meaning) and have suppletive aorists you must know: έρχομαι 'come' → ήρθα, γίνομαι 'become' → έγινα, κάθομαι 'sit' → κάθισα, φοβάμαι 'fear' → φοβήθηκα.\n\nTheir aorists don't follow the present stem at all.",
+      "explanation": "Several everyday verbs are deponent (passive form, active meaning) and their aorists have to be learned one by one: έρχομαι 'come' → ήρθα, γίνομαι 'become' → έγινα, κάθομαι 'sit' → κάθισα, φοβάμαι 'fear' → φοβήθηκα.\n\nOnly ήρθα leaves the present stem behind. The others keep it: φοβήθηκα is a regular passive aorist, while έγινα and κάθισα take active endings although the present is passive in form.",
       "culture_note": "",
       "references": [
         {
@@ -3440,7 +3440,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Written and formal Greek links clauses precisely: επειδή / διότι 'because', ενώ 'while/whereas', αν και / παρόλο που 'although', ώστε / έτσι ώστε 'so that / with the result that', εφόσον 'as long as / since'.\n\nEach introduces a subordinate clause with its own subject and verb.",
+      "explanation": "Greek links clauses with a precise set of connectors, each introducing a subordinate clause with its own subject and verb:\n\n- επειδή / διότι — because\n- ενώ — while, whereas\n- αν και / παρόλο που — although\n- ώστε / έτσι ώστε — so that, with the result that\n- εφόσον — as long as, since\n\nOf these, διότι and εφόσον belong to the written register; επειδή, ενώ and αν και are ordinary in speech.",
       "culture_note": "",
       "references": [
         {
@@ -3516,7 +3516,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Greek word order is flexible for emphasis.\n\nA fronted (topicalized) object is often 'doubled' by a matching weak pronoun on the verb: τον Γιάννη τον ξέρω καλά 'John, I know him well', της Μαρίας της το είπα 'to Maria, I told her'.\n\nThis foregrounds the topic — very common in speech.",
+      "explanation": "Greek word order is flexible for emphasis.\n\nA fronted (topicalized) object is often 'doubled' by a matching weak pronoun on the verb: τον Γιάννη τον ξέρω καλά 'John, I know him well', της Μαρίας της το είπα 'Maria, I told her about it'.\n\nThis foregrounds the topic — very common in speech.",
       "culture_note": "",
       "references": [
         {
@@ -3592,7 +3592,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Modern Greek carries a learned layer (from Katharévousa) alongside everyday speech. Formal registers prefer words like δύναται 'is able', οφείλω 'I ought', εντούτοις 'nevertheless', καθότι 'since', while speech uses μπορεί, πρέπει, ωστόσο, γιατί.\n\nFixed phrases (εν πάση περιπτώσει 'in any case', κατά τη γνώμη μου 'in my opinion') mark tone.",
+      "explanation": "Modern Greek carries a learned layer (from Katharévousa) alongside everyday speech. Both words usually exist side by side:\n\n| Formal | Everyday | Meaning |\n| --- | --- | --- |\n| δύναται | μπορεί | is able |\n| οφείλω | πρέπει | I ought |\n| εντούτοις | ωστόσο | nevertheless |\n| καθότι | γιατί | because, since |\n\nFixed phrases (εν πάση περιπτώσει 'in any case', κατά τη γνώμη μου 'in my opinion') mark tone.",
       "culture_note": "",
       "references": [
         {
@@ -3668,7 +3668,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Greek demonstratives keep the article: αυτό ΤΟ βιβλίο (this book — literally 'this the book'). αυτός/αυτή/αυτό for near, εκείνος/εκείνη/εκείνο for far — both agree with the noun in gender, number, and case: αυτόν τον άντρα (accusative).\n\nWithout a noun they stand alone as pronouns: Θέλω αυτό. Προτιμώ εκείνα.",
+      "explanation": "Greek demonstratives keep the article: αυτό **το** βιβλίο (this book — literally 'this the book').\n\nThe near set is αυτός 'this', the far set εκείνος 'that'; both agree with the noun in gender, number and case. The nominative singular forms are:\n\n| Gender | This | That |\n| --- | --- | --- |\n| masculine | αυτός | εκείνος |\n| feminine | αυτή | εκείνη |\n| neuter | αυτό | εκείνο |\n\nIn another case the demonstrative changes with the noun: αυτόν τον άντρα (accusative).\n\nWithout a noun they stand alone as pronouns: Θέλω αυτό 'I want this one', Προτιμώ εκείνα 'I prefer those'.",
       "culture_note": "",
       "references": [
         {
