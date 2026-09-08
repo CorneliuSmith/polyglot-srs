@@ -2137,7 +2137,7 @@
           "sentence": "Она уже {{answer}} к экзамену.",
           "answer": "готова",
           "translation": "She is already ready for the exam.",
-          "hint": "готов — feminine",
+          "hint": "prepared — short form, feminine subject",
           "display_order": 2,
           "transliteration": "Ona uzhe ___ k e'kzamenu.",
           "gloss": "3SG.F.NOM · already · ___ · to · exam.DAT.SG"

@@ -293,7 +293,7 @@
           "sentence": "Inja enye, {{answer}} ezimbini.",
           "answer": "izinja",
           "translation": "One dog, two dogs.",
-          "hint": "izin- plural",
+          "hint": "inja → class 10 plural",
           "display_order": 1,
           "gloss": "CL9.dog · CL9.one · ___ · CL10.two"
         },
@@ -317,7 +317,7 @@
           "sentence": "Indlu enye, {{answer}} ezimbini.",
           "answer": "izindlu",
           "translation": "One house, two houses.",
-          "hint": "indlu → izin- plural",
+          "hint": "indlu → class 10 plural",
           "display_order": 4,
           "gloss": "CL9.house · CL9.one · ___ · CL10.two"
         },

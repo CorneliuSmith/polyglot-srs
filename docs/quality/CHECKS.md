@@ -1712,6 +1712,64 @@ three card paths, that the sentence keeps its marker, and a measurement of the
 corpus the fix protects, plus a check that those five courses really do show a
 reading layer (what makes it a defect rather than dead data).
 
+## §33 The hint that spells the answer's own stem (owner, 7 Sep 2026)
+
+**Status: all 27** — a REPORT rule, deliberately, and the reason is the rule.
+
+**What the owner saw.** A Spanish grammar card: sentence `Los ___ son nuevos.`,
+answer `coches`, hint **"coche, plural"**. The learner adds an `s`. "Please tell
+me these things are in the list of upcoming fixes?" They were not.
+
+**Why four hint rules all missed it.** `leak_hard` matches the answer as a WHOLE
+word, and `coches` is not in the hint — only its stem is. `self_answering` wants
+the hint to open with the answer and a dash. `giveaway_by_gloss` wants the hint
+inside the drill's translation, and "The cars are new" does not contain it.
+`agreement_feature` wants a hint that is a feature and nothing else, and this one
+carries a lemma too. Four rules, four misses, on a drill that tests nothing.
+
+**Measured across the 27 grammar files: 78 candidates** (es 13, ro 13, mi 12,
+ko 10, pt 7, ru 4, de/it/nl 3 each, the rest 1–2), English excluded because an
+English hint word prefixing an English answer is a collision, not a leak.
+
+**Judged, because the shape alone does not decide.** A reader per language group
+against that course's own hint standards, a second reader overturning both ways
+(9 overturns): **35 giveaways, 40 legitimate citations.** The line is whether the
+operation the hint names is one the learner could perform knowing no language at
+all:
+
+| | | |
+|---|---|---|
+| es `coche, plural` → coches | **giveaway** | Spanish vowel-final nouns take +s, always. No choice to make. |
+| nl `plural of boek` → boeken | legitimate | the learner must choose `-en` over `-s`. |
+| ro `chairs (scaun, neuter)` → scaune | legitimate | neuter plural is `-e` or `-uri`; choosing is the drill. |
+| pt `sold — they (vender)` → venderam | legitimate | naming the infinitive says WHICH verb; the preterite is the work. |
+| it `it-to-him (glie + lo)` → glielo | **giveaway** | the hint spells the concatenation. |
+
+**35 hints rewritten**, in ten courses. The replacement names the same word by its
+ENGLISH gloss and the same operation: "car (m.), plural". Each was checked
+mechanically before it was written — one reader's replacement still carried the
+stem (`cuyo` for `cuyos`) and was refused and rewritten by hand.
+
+**Why it reports rather than fails.** The table above is the argument: the same
+shape is a defect in Spanish and correct teaching in Dutch, and a regex cannot
+know whether the language offers a choice at that point. Tried and measured — a
+rule keyed on an operation word plus the stem caught 26 of 35 and produced 7
+false positives, including the Dutch and Romanian rows above. A gate that cannot
+separate the classes names candidates for a reader; it does not fail a build
+(the `gender_marking` argument, applied to hints).
+
+**One filter flaw, recorded because it cost a card.** The candidate sweep dropped
+any stem that is an English headword, to avoid collisions — and `casa` is in
+`en_frequency.tsv` at rank 9,290, so `plural of casa` → `casas` was not judged
+even though its five siblings in the same point were. The audit rule uses the
+much smaller `ENGLISH_FUNCTION_WORDS` and caught it; the hint is fixed. A filter
+built to remove noise removed a signal.
+
+**Verified:** `backend/tests/test_stem_in_hint.py` — the owner's card, the
+replacement, the other shapes of the fault, the collision case, the registration
+as a report rule, and a test that spells out why the same shape is a giveaway in
+one language and teaching in another.
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

@@ -1410,7 +1410,7 @@
           "sentence": "Wij wonen in een klein {{answer}}.",
           "answer": "huisje",
           "translation": "We live in a little house.",
-          "hint": "huis + je",
+          "hint": "the noun meaning house, as a diminutive",
           "display_order": 1,
           "gloss": "1PL · live.PRS.1PL · in · INDF · small · ___"
         },
@@ -1434,7 +1434,7 @@
           "sentence": "Er zit een {{answer}} in de boom.",
           "answer": "vogeltje",
           "translation": "There is a little bird in the tree.",
-          "hint": "vogel + tje",
+          "hint": "the noun meaning bird, as a diminutive",
           "display_order": 4,
           "gloss": "there · sit.PRS.3SG · INDF · ___ · in · DEF.C · tree"
         },

@@ -327,7 +327,7 @@
           "sentence": "{{answer}} bahçede.",
           "answer": "Çocuklar",
           "translation": "The children are in the garden.",
-          "hint": "çocuk + back-vowel plural",
+          "hint": "child + plural — harmonize with the last vowel",
           "display_order": 2,
           "gloss": "___ · garden.LOC"
         },
