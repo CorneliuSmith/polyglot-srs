@@ -14,7 +14,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "أنا (I), أنت (you — masculine anta, feminine anti), هو (he), هي (she), نحن (we), هم (they). Arabic distinguishes masculine and feminine 'you' by the final vowel — same letters, different sound.",
+      "explanation": "Arabic has one subject pronoun per person, and in the singular both the second and the third person split by gender.\n\n| Person | Pronoun |\n| --- | --- |\n| I | أنا |\n| you, masculine | أنتَ |\n| you, feminine | أنتِ |\n| he | هو |\n| she | هي |\n| we | نحن |\n| you, plural | أنتم |\n| they | هم |\n\nThe two singular 'you' forms are the same three letters — only the final vowel differs, anta to a man and anti to a woman — so unvowelled both are written أنت, and the sentence has to say which is meant.",
       "culture_note": "",
       "references": [
         {
@@ -290,7 +290,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "ال attaches to the noun: بيت (a house) → البيت (the house).\n\nBefore 'sun letters' (ت، د، س، ش، ص، ن…) the ل assimilates in speech: الشارع sounds ash-shāriʿ, not al-shāriʿ. Before 'moon letters' (ب، ك، م، ق…) the ل is pronounced: القمر = al-qamar.\n\nWriting never changes — only the sound.",
+      "explanation": "**ال** attaches to the noun: بيت (a house) → البيت (the house).\n\nBefore 'sun letters' (ت، د، س، ش، ص، ن…) the ل assimilates in speech: الشارع sounds ash-shāriʿ, not al-shāriʿ. Before 'moon letters' (ب، ك، م، ق…) the ل is pronounced: القمر = al-qamar.\n\nWriting never changes — only the sound.",
       "culture_note": "The names come from الشمس (the sun — assimilating) and القمر (the moon — not). The alphabet splits exactly in half: 14 sun, 14 moon.",
       "references": [
         {
@@ -480,7 +480,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "هذا (this — masculine), هذه (this — feminine, and for the ة words). With an indefinite noun it makes a sentence: هذا كتاب (this is a book); with a definite noun it points: هذا الكتاب (this book…).\n\nFor things farther away: ذلك (m) and تلك (f) — ذلك الكتاب (that book), تلك المدينة (that city).",
+      "explanation": "| Pointing | Masculine | Feminine |\n| --- | --- | --- |\n| this, near | هذا | هذه |\n| that, far | ذلك | تلك |\n\nهذه is also the form used with the ة words. With an indefinite noun a demonstrative makes a whole sentence: هذا كتاب (this is a book); with a definite noun it points inside a phrase: هذا الكتاب (this book…), ذلك الكتاب (that book), تلك المدينة (that city).",
       "culture_note": "",
       "references": [
         {
@@ -588,7 +588,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The adjective FOLLOWS the noun and copies it in gender AND definiteness: بيت كبير (a big house), البيت الكبير (the big house), سيارة جديدة (a new car — feminine ة on both).\n\nTwo words, matching uniforms.",
+      "explanation": "The adjective FOLLOWS the noun and matches it, feature by feature:\n\n- gender: سيارة جديدة (a new car), the ة on both words\n- definiteness: بيت كبير (a big house), البيت الكبير (the big house) — ال on both or on neither\n- case: أقرأ كتاباً جديداً (I am reading a new book), the accusative ending on both\n\nTwo words, matching uniforms.",
       "culture_note": "",
       "references": [
         {
@@ -828,7 +828,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Possessives attach to the noun: كتابي (my book), كتابك (your book), كتابه (his), كتابها (her).\n\nFeminine ة opens into ت before the suffix: سيارة → سيارتي (my car).\n\nThe pattern is iḍāfa again — with a pronoun as the owner.",
+      "explanation": "Possessives attach to the noun, one suffix per owner:\n\n| Owner | Suffix | Example |\n| --- | --- | --- |\n| my | ي | كتابي |\n| your, masculine | ك | كتابك |\n| his | ه | كتابه |\n| her | ها | كتابها |\n| our | نا | كتابنا |\n\nFeminine ة opens into ت before the suffix: سيارة → سيارتي (my car).\n\nThe pattern is iḍāfa again — with a pronoun as the owner.",
       "culture_note": "",
       "references": [
         {
@@ -1135,7 +1135,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Two negators, two jobs: لا before a present verb (لا أفهم — I don't understand), and ليس for nominal sentences (هو ليس هنا — he is not here). ليس conjugates: لستُ (I'm not), ليست (she's not).",
+      "explanation": "Two negators cover the present, one for each sentence type: لا goes before a present-tense verb (لا أفهم — I don't understand), and ليس negates a nominal sentence (هو ليس هنا — he is not here). ليس is itself a verb and conjugates:\n\n| Person | Form |\n| --- | --- |\n| I | لستُ |\n| he | ليس |\n| she | ليست |\n\nليس also puts its predicate in the accusative: البيت ليس كبيراً (the house is not big). The other tenses have their own negators — لم for the past, لن for the future.",
       "culture_note": "",
       "references": [
         {
@@ -1257,7 +1257,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "ما (what), من (who), أين (where), متى (when), كيف (how) — and هل, which turns any statement into a yes/no question: هل تدرس العربية؟ (Do you study Arabic?). Question word first, sentence unchanged after it.",
+      "explanation": "ما (what, before a noun: ما اسمك؟), ماذا (what, before a verb: ماذا تفعل؟), من (who), أين (where), متى (when), كيف (how), لماذا (why) — and هل, which turns any statement into a yes/no question: هل تدرس العربية؟ (Do you study Arabic?). Question word first, sentence unchanged after it.",
       "culture_note": "",
       "references": [
         {
@@ -1560,7 +1560,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The sound masculine plural adds ـون (-ūn) in the subject case and ـين (-īn) elsewhere, mostly for male humans: مُعَلِّم → مُعَلِّمون.\n\nThe sound feminine plural replaces ة with ـات (-āt): مُعَلِّمة → مُعَلِّمات, and works for many non-human nouns too (سيّارات cars).\n\nIrregular nouns take a broken plural instead.",
+      "explanation": "The sound masculine plural leaves the singular whole and adds `ـون` (-ūn) in the subject case, `ـين` (-īn) everywhere else: مُعَلِّم → مُعَلِّمون, رأيتُ المُعَلِّمين. It is mostly for male humans.\n\nThe sound feminine plural replaces ة with `ـات` (-āt): مُعَلِّمة → مُعَلِّمات. It also covers many non-human nouns — سيّارات cars, مجلّات magazines — and unlike the masculine it is written the same in every case.\n\nA noun that takes neither ending has a broken plural instead.",
       "culture_note": "",
       "references": [
         {
@@ -1636,7 +1636,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Most Arabic nouns pluralize by reshaping the word around the root rather than adding a suffix — the 'broken' plural.\n\nThere are fixed patterns: كِتاب → كُتُب (kitāb → kutub), وَلَد → أَوْلاد (walad → awlād), بَيْت → بُيوت (bayt → buyūt), قَلَم → أَقْلام (qalam → aqlām).\n\nYou memorize the plural with each noun, but the patterns recur.",
+      "explanation": "Most Arabic nouns pluralize by reshaping the word around the root rather than adding a suffix — the 'broken' plural.\n\nThe patterns are fixed and recur:\n\n| singular | plural | romanisation |\n| --- | --- | --- |\n| كِتاب | كُتُب | kitāb → kutub |\n| وَلَد | أَوْلاد | walad → awlād |\n| بَيْت | بُيوت | bayt → buyūt |\n| قَلَم | أَقْلام | qalam → aqlām |\n| رَجُل | رِجال | rajul → rijāl |\n| مَدينة | مُدُن | madīna → mudun |\n\nYou still memorize the plural with each noun, but the shapes come back: وَلَد and قَلَم take the same one.",
       "culture_note": "",
       "references": [
         {
@@ -1712,7 +1712,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Arabic has a distinct form for exactly two: add ـان (-ān) in the subject case or ـين (-ayn) elsewhere — كِتاب → كِتابان (two books), طالِب → طالِبان (two students).\n\nFeminine nouns keep the ة before the ending: سيّارة → سيّارَتان.\n\nVerbs and adjectives agree in the dual too.",
+      "explanation": "Arabic has a distinct form for exactly two: `ـان` (-ān) in the subject case, `ـين` (-ayn) everywhere else.\n\n| singular | subject case | other cases |\n| --- | --- | --- |\n| كِتاب | كِتابان | كِتابَيْن |\n| طالِب | طالِبان | طالِبَيْن |\n| سيّارة | سيّارَتان | سيّارَتَيْن |\n\nA feminine ة opens to ت before the ending: سيّارة → سيّارَتان.\n\nVerbs and adjectives agree in the dual too: كِتابان جديدان.",
       "culture_note": "",
       "references": [
         {
@@ -1788,7 +1788,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Prepositions (ḥurūf al-jarr) put the following noun in the genitive (-i / -in).\n\nThe core set: في fī 'in', على ʿalā 'on', من min 'from', إلى ilā 'to', عن ʿan 'about', مع maʿa 'with', and the attached بـ bi- 'with/by' and لـ li- 'for/to'.\n\nMany verbs pair with a fixed preposition.",
+      "explanation": "Prepositions (ḥurūf al-jarr) put the following noun in the genitive (-i / -in).\n\n| preposition | romanisation | meaning |\n| --- | --- | --- |\n| في | fī | in |\n| على | ʿalā | on |\n| مِن | min | from |\n| إلى | ilā | to |\n| عن | ʿan | about |\n| مع | maʿa | with |\n| بـ | bi- | with, by |\n| لـ | li- | for, to |\n\nThe last two are written onto the word that follows: بالقلم 'with the pen', للمدرسة 'to the school'.\n\nMany verbs pair with a fixed preposition: تحدّث عن 'talk about', ذهب إلى 'go to'.",
       "culture_note": "",
       "references": [
         {
@@ -1864,7 +1864,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "The comparative uses the pattern أَفْعَل (afʿal) from the adjective's root, invariable for gender, followed by مِن 'than': كبير → أَكْبَر مِن 'bigger than'.\n\nThe same form becomes a superlative when it's made definite or heads an iḍāfa: الأَكْبَر / أَكْبَر مدينة 'the biggest / the biggest city'.",
+      "explanation": "The comparative uses the pattern **أَفْعَل** (afʿal) from the adjective's root, invariable for gender, followed by مِن 'than': كبير → أَكْبَر مِن 'bigger than'.\n\nTwo root shapes contract — a doubled root writes its twin letters together, a final weak letter becomes ى: مُهِمّ → أَهَمّ 'more important', ذَكِيّ → أَذْكى 'cleverer'.\n\nThe same form becomes a superlative when it's made definite or heads an iḍāfa: الأَكْبَر / أَكْبَر مدينة 'the biggest / the biggest city'.",
       "culture_note": "",
       "references": [
         {
@@ -1940,7 +1940,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "A verbless sentence is put in the past with كان kāna.\n\nIt keeps the subject in the nominative but makes the predicate accusative (its 'khabar'): الطقسُ جميلٌ → كان الطقسُ جميلاً 'the weather was nice'. كان agrees with the subject: كان (he), كانت (she), كانوا (they).",
+      "explanation": "A verbless sentence is put in the past with **كان** kāna. It keeps the subject nominative but makes the predicate — its khabar — accusative: الطقسُ جميلٌ → كان الطقسُ جميلاً 'the weather was nice'.\n\n| subject | form |\n| --- | --- |\n| هو | كان |\n| هي | كانت |\n| هم | كانوا |\n\nكان always agrees with its subject in gender, but in number only when the subject is a pronoun or stands ahead of it: هم كانوا متعبين, الطلابُ كانوا متعبين — with the verb first it stays singular, كان الطلابُ متعبين.",
       "culture_note": "",
       "references": [
         {
@@ -2027,7 +2027,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "The object of a verb can attach to it as a suffix instead of a separate word: رأى raʾā 'he saw' → رآه raʾāhu 'he saw him', رآها raʾāhā 'saw her', رآهم raʾāhum 'saw them', رآني raʾānī 'saw me', رآك raʾāka 'saw you'.\n\nThe suffixes are the same object pronouns used after nouns and prepositions.",
+      "explanation": "The object of a verb can attach to it as a suffix instead of standing as a separate word. With رأى raʾā 'he saw':\n\n| object | suffix | verb |\n| --- | --- | --- |\n| me | ـني | رآني raʾānī |\n| you (m.) | ـك | رآك raʾāka |\n| him | ـه | رآه raʾāhu |\n| her | ـها | رآها raʾāhā |\n| them | ـهم | رآهم raʾāhum |\n\nThe same suffixes mark possession on a noun and follow a preposition, with one change: 'me' is ـي there (كتابي 'my book', لي 'for me') but ـني on a verb.",
       "culture_note": "",
       "references": [
         {
@@ -2114,7 +2114,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "For 3–10 the counted noun is a plural in the genitive, and the number shows reverse gender agreement (polarity): a masculine noun takes the feminine number and vice versa — ثلاثة كُتُب thalāthat kutub (3 masc. books, feminine number) but ثلاث بنات thalāth banāt (3 fem. girls, masculine number).\n\nThe number 'eats' the ة against the noun's gender.",
+      "explanation": "From 3 to 10 the counted noun is a plural in the genitive, and the number carries the OPPOSITE gender to it — polarity:\n\n| gender of the singular | number | example |\n| --- | --- | --- |\n| masculine | ثلاثة | ثلاثة كُتُب thalāthat kutub |\n| feminine | ثلاث | ثلاث بنات thalāth banāt |\n\nSo the ة sits on the number when the thing counted is masculine, and comes off when it is feminine.\n\nRead the gender off the singular, not off the plural: بِنت is feminine, so ثلاث بنات; إصبع is feminine too, so خمس أصابع.",
       "culture_note": "",
       "references": [
         {
@@ -2190,7 +2190,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "After أَنْ (that), لَنْ (will not), حَتّى / كَيْ / لِـ (so that, in order to), the present verb goes into the subjunctive: the final ُ becomes َ (يَكْتُبُ → أن يَكْتُبَ), and the 'five verbs' — plural/dual and 2nd-fem-sing — drop their final ن (يَكْتُبونَ → أن يَكْتُبوا). لَنْ is the standard future negation.",
+      "explanation": "The subjunctive follows أَنْ 'that', لَنْ 'will not', and حَتّى, كَيْ or لِـ 'so that, in order to'. The verb's final ُ becomes َ: يَكْتُبُ → أن يَكْتُبَ.\n\nFive forms end in ن instead, and that ن drops:\n\n| person | indicative | subjunctive |\n| --- | --- | --- |\n| هما | يَكْتُبانِ | يَكْتُبا |\n| أنتما | تَكْتُبانِ | تَكْتُبا |\n| هم | يَكْتُبونَ | يَكْتُبوا |\n| أنتم | تَكْتُبونَ | تَكْتُبوا |\n| أنتِ | تَكْتُبينَ | تَكْتُبي |\n\nThe feminine plural يَكْتُبْنَ is not one of them: its ن is the subject pronoun and never drops.\n\nلَنْ is the standard future negation.",
       "culture_note": "",
       "references": [
         {
@@ -2266,7 +2266,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "لَمْ + the jussive negates the past: لَمْ يَذْهَبْ 'he did not go' (present form, past meaning). In the jussive the final ُ becomes sukūn ْ, and the five verbs drop their ن (لم يَذهَبوا). لِـ + jussive gives a third-person command ('let…'): لِيَذْهَبْ 'let him go'.",
+      "explanation": "**لَمْ** + the jussive negates the past: لَمْ يَذْهَبْ 'he did not go' — a present-tense form with past meaning.\n\nIn the jussive the final ُ becomes sukūn ْ, and the same five forms that lose their ن in the subjunctive lose it here too: لم يَذهَبوا, لم تَذهَبي.\n\nلِـ + the jussive gives a third-person command: لِيَذْهَبْ 'let him go'.",
       "culture_note": "",
       "references": [
         {
@@ -2342,7 +2342,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "إِنَّ (indeed) and her 'sisters' — أَنَّ (that), لَكِنَّ (but), لِأَنَّ (because), كَأَنَّ (as if), لَعَلَّ (perhaps), لَيْتَ (if only) — begin a nominal sentence and put its subject in the accusative: البيتُ كبيرٌ → إنَّ البيتَ كبيرٌ.\n\nThe predicate stays nominative.",
+      "explanation": "إِنَّ and her 'sisters' begin a nominal sentence and put its subject in the accusative: البيتُ كبيرٌ → إنَّ البيتَ كبيرٌ.\n\n| particle | meaning |\n| --- | --- |\n| إِنَّ | indeed |\n| أَنَّ | that |\n| لَكِنَّ | but |\n| لِأَنَّ | because |\n| كَأَنَّ | as if |\n| لَعَلَّ | perhaps |\n| لَيْتَ | if only |\n\nThe predicate stays nominative.",
       "culture_note": "",
       "references": [
         {
@@ -2418,7 +2418,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The command is built from the jussive by dropping the present prefix and, if that leaves a cluster, adding a helping أ: يَكْتُبُ → اُكْتُبْ 'write!'.\n\nIt agrees with the addressee: اُكْتُبْ (to a man), اُكْتُبي (to a woman), اُكْتُبوا (to a group).\n\nNegative commands use لا + jussive (لا تَكْتُبْ 'don't write').",
+      "explanation": "The command is built from the jussive: drop the present prefix, and where that leaves a cluster, put a helping alif in front — يَكْتُبُ → اُكْتُبْ 'write!'. The alif is vowelled u when the stem vowel is u, i otherwise: اُكْتُبْ, but اِجْلِسْ and اِفْتَحْ.\n\n| addressee | imperative |\n| --- | --- |\n| a man | اُكْتُبْ |\n| a woman | اُكْتُبي |\n| a group of men | اُكْتُبوا |\n| a group of women | اُكْتُبْنَ |\n\nA few everyday verbs are irregular and take no helping alif: تَعالَ / تَعالي 'come'.\n\nNegative commands use لا + jussive: لا تَكْتُبْ 'don't write'.",
       "culture_note": "",
       "references": [
         {
@@ -2505,7 +2505,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The maṣdar names the action itself — English 'reading', 'the study of', 'to travel'.\n\nEach verb has one, often on a fixed pattern: قَرَأ → قِراءة (reading), دَرَسَ → دِراسة (study), سافَرَ → سَفَر / مُسافَرة (travel).\n\nIt behaves as an ordinary noun (takes ال, iḍāfa, cases) and often replaces an 'أن + verb' clause.",
+      "explanation": "The maṣdar names the action itself — English 'reading', 'the study of', 'to travel'.\n\nA Form I maṣdar is learned with the verb: قَرَأ → قِراءة (reading), دَرَسَ → دِراسة (study), طَبَخَ → طَبْخ (cooking).\n\nThe derived forms are predictable:\n\n| form | maṣdar pattern | example |\n| --- | --- | --- |\n| II | تَفْعيل | دَرَّسَ → تَدْريس |\n| III | مُفاعَلة | سافَرَ → مُسافَرة |\n| V | تَفَعُّل | تَأَمَّلَ → تَأَمُّل |\n| X | اِسْتِفْعال | اِسْتَيْقَظَ → اِسْتيقاظ |\n\nBeside مُسافَرة, سَفَر is the everyday word for the travelling itself.\n\nThe maṣdar behaves as an ordinary noun (takes ال, iḍāfa, cases) and often replaces an 'أن + verb' clause.",
       "culture_note": "",
       "references": [
         {
@@ -2581,7 +2581,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The active participle (ism al-fāʿil) names the doer — كَتَبَ → كاتِب 'writer/writing', on the pattern فاعِل for form-I verbs.\n\nThe passive participle (ism al-mafʿūl) names the thing acted upon — كُتِبَ → مَكْتوب 'written', on the pattern مَفْعول.\n\nBoth work as nouns or adjectives and agree in gender and number.",
+      "explanation": "The active participle (ism al-fāʿil) names the doer — كَتَبَ → كاتِب 'writer/writing', on the pattern **فاعِل** for form-I verbs.\n\nThe passive participle (ism al-mafʿūl) names the thing acted upon — كُتِبَ → مَكْتوب 'written', on the pattern **مَفْعول**.\n\nBoth work as nouns or adjectives and agree in gender and number, the feminine in ـة: كاتِبة، مَكْتوبة.\n\nIn a hollow root the middle و or ي surfaces as hamza: نامَ → نائِم 'sleeping', باعَ → بائِع 'seller'.",
       "culture_note": "",
       "references": [
         {
@@ -2657,7 +2657,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "A definite noun takes a relative pronoun agreeing in gender and number: الَّذي (m.s.), الَّتي (f.s.), الَّذينَ (m.pl.) — الرجلُ الَّذي جاء 'the man who came'.\n\nThe clause usually carries a resumptive pronoun referring back (الكتابُ الَّذي قرأتُهُ 'the book that I read it'). After an indefinite noun, no relative pronoun is used at all.",
+      "explanation": "A definite noun takes a relative pronoun agreeing with it in gender and number — الرجلُ الَّذي جاء 'the man who came'.\n\n| Gender and number | Pronoun |\n| --- | --- |\n| m. sg. | الَّذي |\n| f. sg. | الَّتي |\n| m. pl. | الَّذينَ |\n| f. pl. | اللَّاتي |\n| m. dual | اللَّذانِ |\n| f. dual | اللَّتانِ |\n\nOnly the duals change for case: اللَّذَيْنِ، اللَّتَيْنِ.\n\nThe clause carries a resumptive pronoun whenever the noun is not the subject of that clause: الكتابُ الَّذي قرأتُهُ 'the book that I read', with the ـهُ that English drops. Where the noun is the subject, none appears — الَّذي جاء. After an indefinite noun no relative pronoun is used at all: رجلٌ جاء 'a man who came'.",
       "culture_note": "",
       "references": [
         {
@@ -2809,7 +2809,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Beyond the base (form I), roots take augmented patterns with new meaning.\n\nForm II فَعَّل (doubled middle) intensifies or makes causative: دَرَسَ 'study' → دَرَّسَ 'teach'.\n\nForm III فاعَل (added alif) is done to/with someone: كَتَبَ → كاتَبَ 'correspond with'.\n\nForm IV أَفْعَل (prefix أ) is causative: خَرَجَ 'go out' → أَخْرَجَ 'take out, produce'.",
+      "explanation": "Beyond the base (form I), roots take augmented patterns with new meaning.\n\n- Form II فَعَّل doubles the middle root letter and makes the verb causative or intensive: دَرَسَ 'study' → دَرَّسَ 'teach'.\n- Form III فاعَل adds an alif after the first root letter and aims the action at someone: كَتَبَ 'write' → كاتَبَ 'correspond with'.\n- Form IV أَفْعَل prefixes أ and is causative: خَرَجَ 'go out' → أَخْرَجَ 'take out, produce'.\n\nAll three take a u vowel on the present prefix: يُدَرِّس، يُكاتِب، يُخْرِج.",
       "culture_note": "",
       "references": [
         {
@@ -2885,7 +2885,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Form V تَفَعَّل is the reflexive of II: عَلَّم 'teach' → تَعَلَّم 'learn (for oneself)'.\n\nForm VII اِنْفَعَل is passive/resultative: كَسَر 'break' → اِنْكَسَر 'break (intr.)'.\n\nForm VIII اِفْتَعَل (infixed ت) often reflexive/mutual: جَمَع → اِجْتَمَع 'gather, meet'.\n\nForm X اِسْتَفْعَل means seek or consider: خَدَم → اِسْتَخْدَم 'use', غَفَر → اِسْتَغْفَر 'ask forgiveness'.",
+      "explanation": "Each of the higher forms rebuilds the root with a prefix or an infix.\n\n- Form V تَفَعَّل is the reflexive of II: عَلَّم 'teach' → تَعَلَّم 'learn (for oneself)'.\n- Form VI تَفاعَل is the reciprocal of III: كاتَبَ 'correspond with' → تَكاتَبَ 'write to each other'.\n- Form VII اِنْفَعَل is passive or resultative: كَسَر 'break' → اِنْكَسَر 'break (intr.)'.\n- Form VIII اِفْتَعَل infixes ت and is often reflexive or mutual: جَمَع 'gather' → اِجْتَمَع 'gather, meet'.\n- Form X اِسْتَفْعَل means seek or consider: خَدَم 'serve' → اِسْتَخْدَم 'use', غَفَر 'forgive' → اِسْتَغْفَر 'ask forgiveness'.\n\nForm IX اِفْعَلَّ is rare and confined to colours and defects: اِحْمَرَّ 'turn red'.",
       "culture_note": "",
       "references": [
         {
@@ -2961,7 +2961,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "إذا + past states a likely future condition: إذا دَرَسْتَ نَجَحْتَ 'if you study, you'll pass'. إِنْ + jussive is the formal equivalent: إن تَدْرُسْ تَنْجَحْ. لَوْ + past is counterfactual (it didn't happen), and its answer clause takes لـ: لَوْ دَرَسْتَ لَنَجَحْتَ 'had you studied, you'd have passed'.",
+      "explanation": "- إذا + past states a likely future condition, and the answer clause is past in form too though its sense is future: إذا دَرَسْتَ نَجَحْتَ 'if you study, you'll pass'.\n- إِنْ + jussive is the formal equivalent: إن تَدْرُسْ تَنْجَحْ.\n- لَوْ + past is counterfactual — it didn't happen — and its answer clause opens with لـ: لَوْ دَرَسْتَ لَنَجَحْتَ 'had you studied, you'd have passed'.\n\nThat لـ drops when the answer clause is negative: لَوْ دَرَسْتَ ما رَسَبْتَ 'had you studied, you would not have failed'.",
       "culture_note": "",
       "references": [
         {
@@ -3037,7 +3037,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The ḥāl is an accusative word describing the subject's or object's state while the main action happens — English '…ing' or 'while…': جاء الولدُ راكِضًا 'the boy came running', شَرِبْتُ القهوةَ ساخِنةً 'I drank the coffee hot'. It's indefinite, accusative (ـًا), and agrees with its owner in gender and number.",
+      "explanation": "The ḥāl is an accusative word describing the subject's or object's state while the main action happens — English '…ing' or 'while…': جاء الولدُ راكِضًا 'the boy came running', شَرِبْتُ القهوةَ ساخِنةً 'I drank the coffee hot'.\n\nIt is indefinite and agrees with its owner in gender and number, so the accusative surfaces as a different ending on each shape:\n\n| Owner | Ending | Example |\n| --- | --- | --- |\n| m. sg. | ـًا | راكِضًا |\n| f. sg. | ـةً | ساخِنةً |\n| m. pl. | ـينَ | مُسْرِعينَ |\n| f. pl. | ـاتٍ | مُسْرِعاتٍ |",
       "culture_note": "",
       "references": [
         {
@@ -3113,7 +3113,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The tamyīz is an accusative noun that specifies what a vague amount or comparison refers to — English 'in…', 'of…', '…-wise': اِمْتَلأَ الكوبُ ماءً 'the cup filled with water', اِزْدادَ الطالبُ عِلمًا 'the student grew in knowledge', أنتَ أكثرُ مِنّي مالًا 'you are richer than me in money'.\n\nIt's singular, indefinite, accusative.",
+      "explanation": "The tamyīz is an accusative noun that specifies what a vague amount or comparison refers to — English 'in…', 'of…', '…-wise'. It is singular, indefinite and accusative, and it follows three things:\n\n- a verb of filling or increase: اِمْتَلأَ الكوبُ ماءً 'the cup filled with water', اِزْدادَ الطالبُ عِلمًا 'the student grew in knowledge'\n- a comparative: أنتَ أكثرُ مِنّي مالًا 'you are richer than me in money'\n- a measure or a number: اِشْتَرَيْتُ رِطْلًا عِنَبًا 'I bought a pound of grapes', عِشْرونَ كِتابًا 'twenty books'",
       "culture_note": "",
       "references": [
         {
@@ -3189,7 +3189,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Roots containing و or ي behave irregularly. Assimilated (مثال, initial و): وَصَلَ 'arrive' drops the و in the present — يَصِل.\n\nHollow (أجوف, middle و/ي): قالَ → يَقول → the vowel shortens in the jussive/command قُلْ.\n\nDefective (ناقص, final و/ي): دَعا → يَدْعو, مَشى → يَمْشي, and the weak letter drops in the jussive: لم يَدْعُ.",
+      "explanation": "Roots containing و or ي behave irregularly.\n\n- Assimilated (مثال, initial و): the و drops in the present — وَصَلَ 'arrive' → يَصِل.\n- Hollow (أجوف, middle و/ي): قالَ → يَقول. The long vowel shortens in the jussive and the command — قُلْ — and before a consonant ending in the past: عادَ → عُدْتُ 'I returned'.\n- Defective (ناقص, final و/ي): دَعا → يَدْعو, مَشى → يَمْشي, and the weak letter drops in the jussive: لم يَدْعُ، لم يَمْشِ.",
       "culture_note": "",
       "references": [
         {
@@ -3265,7 +3265,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "إلّا excludes one item from a whole: جاء الطلابُ إلّا واحِدًا 'the students came except one' — the excepted noun is accusative after a full affirmative. In a negative sentence it takes the case its role demands: ما نَجَحَ إلّا طالِبٌ 'only one student passed'. غَيْر and سِوى do the same job as nouns, putting what follows in the genitive: غَيْرُ طالِبٍ.",
+      "explanation": "إلّا excludes one item from a whole: جاء الطلابُ إلّا واحِدًا 'the students came except one' — after a full affirmative sentence the excepted noun is accusative. In a negative sentence it takes the case its own role demands: ما نَجَحَ إلّا طالِبٌ 'no one passed but a student', where طالِبٌ is the subject of the verb.\n\nغَيْر and سِوى do the same job as nouns: what follows them is genitive, and they themselves take the case the excepted noun would have had after إلّا — جاء الطلابُ غَيْرَ واحِدٍ. سِوى never shows its ending.",
       "culture_note": "",
       "references": [
         {
@@ -3341,7 +3341,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Address someone with يا: يا طالِبُ (single word, nominative-like), or the formal يا أيُّها + noun for 'O you…': يا أيُّها الناسُ 'O people', يا أيَّتُها السيّدةُ.\n\nFor strong emphasis, the energetic نون attaches to the verb after a swearing لـ: لأَكْتُبَنَّ 'I shall certainly write', واللهِ لأَنجَحَنَّ 'by God, I will surely succeed'.",
+      "explanation": "Address someone with يا:\n\n- يا + a single noun: يا طالِبُ 'O student' — the noun takes a nominative-like ending and no tanwīn.\n- يا أيُّها + a masculine noun with الـ: يا أيُّها الناسُ 'O people'.\n- يا أيَّتُها + a feminine noun with الـ: يا أيَّتُها السيّدةُ 'O madam'.\n\nFor strong emphasis the energetic نون attaches to the verb after the لـ of an oath: لأَكْتُبَنَّ 'I shall certainly write', واللهِ لأَنجَحَنَّ 'by God, I will surely succeed'.",
       "culture_note": "",
       "references": [
         {
@@ -3416,7 +3416,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Arabic's default verb-first order can be reordered for emphasis by fronting (taqdīm): putting the object or a prepositional phrase first highlights it — إيّاكَ نَعْبُدُ 'You alone we worship', في البيتِ رجلٌ 'in the house is a man'. Restriction ('only') is expressed with إِنَّما or with ما … إلّا: إِنَّما المؤمنونَ إخوةٌ 'the believers are but brothers'.",
+      "explanation": "Arabic's default verb-first order can be reordered for emphasis by fronting (taqdīm): putting the object or a prepositional phrase first highlights it — إيّاكَ نَعْبُدُ 'You alone we worship', في البيتِ رجلٌ 'in the house is a man'. A fronted object pronoun appears in its إيّا- form, because a suffixed pronoun cannot stand at the head of the sentence.\n\nRestriction ('only') is expressed with إِنَّما or with ما … إلّا: إِنَّما المؤمنونَ إخوةٌ 'the believers are but brothers', ما نَجَحَ إلّا المُجتَهِدُ 'none succeeded but the diligent'.",
       "culture_note": "",
       "references": [
         {
@@ -3492,7 +3492,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Elevated Arabic organizes discourse with fixed devices. أمّا … فـ picks out and comments on a topic: أمّا الطُّلابُ فَمُجْتَهِدونَ 'as for the students, they are diligent' — the فـ is obligatory. قَدْ + past asserts an action definitely happened (قد وَصَلَ 'he has indeed arrived'); لَقَدْ intensifies it. قَدْ + present means 'may/sometimes'.",
+      "explanation": "Elevated Arabic organizes discourse with fixed devices.\n\n- أمّا … فـ picks out a topic and comments on it: أمّا الطُّلابُ فَمُجْتَهِدونَ 'as for the students, they are diligent'. The فـ is obligatory.\n- قَدْ + past asserts that the action definitely happened: قد وَصَلَ 'he has indeed arrived'. لَقَدْ intensifies it.\n- قَدْ + present means 'may' or 'sometimes': قد يُخْطِئُ الإنسانُ 'a person sometimes errs'.",
       "culture_note": "",
       "references": [
         {

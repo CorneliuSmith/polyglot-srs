@@ -111,7 +111,8 @@ class TestAgainstTheCorpus:
         has reached. A course that gains markdown without being listed here
         gained it by accident — a copied paragraph, an AI-written row — and
         that is what this catches. Add a code when its pass ships."""
-        formatted = {"ca", "de", "el", "es", "fr", "it", "nl", "pt", "ro", "ru"}
+        formatted = {"ar", "ca", "de", "el", "es", "fa", "fr", "he", "hi", "it", "nl", "pt",
+                     "ro", "ru", "sw", "th", "tr"}
         by_course = {}
         for path in sorted(GRAMMAR.glob("*_grammar.json")):
             data = json.loads(path.read_text(encoding="utf-8"))
@@ -143,7 +144,8 @@ class TestAgainstTheCorpus:
         table = re.compile(r"(^|\n)\s*\|.*\|")
         bullet = re.compile(r"(^|\n)\s*([-*+]|\d+\.)\s+")
         bad = []
-        for code in ("ca", "de", "el", "es", "fr", "it", "nl", "pt", "ro", "ru"):
+        for code in ("ar", "ca", "de", "el", "es", "fa", "fr", "he", "hi", "it",
+                     "nl", "pt", "ro", "ru", "sw", "th", "tr"):
             data = json.loads(
                 (GRAMMAR / f"{code}_grammar.json").read_text(encoding="utf-8"))
             points = data["points"] if isinstance(data, dict) else data
