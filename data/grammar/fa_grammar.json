@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Persian's \"to be\" changes with the subject just like English: man hastam (\"I am\"), to hasti (\"you are\"), oo ast (\"he/she/it is\"), ma hastim (\"we are\"). In casual speech ast often shortens to -e attached to the previous word, but the full است is standard written Persian.",
+      "explanation": "Persian's \"to be\" changes with the subject just like English: man hastam (\"I am\"), to hasti (\"you are\"), oo ast (\"he/she/it is\"), ma hastim (\"we are\"), shoma hastid (\"you are,\" polite or plural), anha hastand (\"they are\"). In casual speech ast often shortens to -e attached to the previous word, but the full است is standard written Persian. The negative is a word of its own, built on nist- with the same endings: nistam (\"I am not\"), nisti, nist, nistim, nistid, nistand.",
       "drills": [
         {
           "sentence": "من {{answer}}.",
@@ -114,7 +114,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Persian sentences are Subject-Object-Verb: the verb comes LAST, unlike English's Subject-Verb-Object. Man chai mikhaham, literally \"I tea want,\" means \"I want tea.\" Whatever else is in the sentence, the conjugated verb sits at the very end.",
+      "explanation": "Persian sentences are Subject-Object-Verb: the verb comes LAST, unlike English's Subject-Verb-Object. Man chai mikhaham, literally \"I tea want,\" means \"I want tea.\" Times, places and objects all stack up in front of it, and the conjugated verb closes its own clause — what can follow it is a further clause, usually one opened by که.",
       "drills": [
         {
           "sentence": "من چای {{answer}}.",
@@ -188,7 +188,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Persian present-tense verbs take personal endings on the stem: -am (I), -i (you), -ad (he/she/it), -im (we), -id (you pl.), -and (they). Mikonam (I do) shares the same pattern as miravam (I go) → miravi (you go) → miravad (he/she/it goes) — same stem, different ending.",
+      "explanation": "Persian present-tense verbs take personal endings on the stem: -am (I), -i (you sg.), -ad (he/she/it), -im (we), -id (you pl.), -and (they). The stem itself does not change: miravam (I go), miravi (you go), miravad (he/she/it goes) all keep rav- and differ only at the end. The same six endings sit on any other present stem: mikonam, mikoni, mikonad from kardan (\"to do\").",
       "drills": [
         {
           "sentence": "تو {{answer}}.",
@@ -262,7 +262,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "To negate a Persian verb, prefix نمی‌ (for the present tense) directly onto it: می‌دانم (\"I know\") → نمی‌دانم (\"I don't know\"); می‌خواهم (\"I want\") → نمی‌خواهم (\"I don't want\"). The negative prefix always attaches right before the verb.",
+      "explanation": "The negative is the single letter **نـ** on the very front of the verb — never a separate word. Where it lands depends on what is already there:\n\n- with the present-tense می‌ it fuses into نمی‌: می‌دانم (\"I know\") → نمی‌دانم (\"I don't know\"), می‌خواهم (\"I want\") → نمی‌خواهم (\"I don't want\")\n- on a verb that takes no می‌ at all, straight onto the stem: دارم (\"I have\") → ندارم (\"I don't have\")\n- on a two-word verb, on the verb half and never on the noun in front of it: زندگی می‌کند (\"he lives\") → زندگی نمی‌کند (\"he doesn't live\")",
       "drills": [
         {
           "sentence": "من {{answer}}.",
@@ -336,7 +336,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Unlike English, Persian adjectives come AFTER the noun they describe: ketab khoob, literally \"book good,\" means \"a good book,\" not \"good book\" in English word order. There's a linking vowel between the two in speech (the ezafe), but with most consonant-final nouns like کتاب, nothing extra is written — the two words simply sit side by side.",
+      "explanation": "Unlike English, Persian adjectives come AFTER the noun they describe: **ketab khoob** is literally \"book good\" and means \"a good book\" — the mirror of the English order. A linking vowel joins the two in speech (the ezafe, ketab-e khoob), but after a consonant-final noun like کتاب nothing extra is written; the two words simply sit side by side.",
       "drills": [
         {
           "sentence": "کتاب {{answer}}.",
@@ -410,7 +410,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Persian doesn't invert word order or add a helper word to ask a yes/no question — spoken Persian just rises in pitch at the end, and written Persian adds a question mark: می‌روی؟ (\"Are you going?\") looks exactly like the statement می‌روی (\"You're going\") except for the ؟.",
+      "explanation": "Persian doesn't invert word order or add a helper verb to ask a yes/no question — spoken Persian just rises in pitch at the end, and written Persian adds a question mark: می‌روی؟ (\"Are you going?\") looks exactly like the statement می‌روی (\"You're going\") except for the ؟. Formal writing may put آیا in front of the whole sentence to announce a question, but nothing else moves.",
       "drills": [
         {
           "sentence": "تو {{answer}}؟",
@@ -484,7 +484,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "The plural suffix -hâ attaches to a noun to make it plural: ketab (\"book\") → ketab-hâ (\"books\"). It's often written joined to the noun with a thin connector, but many typed texts write it as a separate word instead — both are common. Persian doesn't require a plural marker on every noun the way English does: after a number, the noun stays singular (se ketab = \"three book,\" not \"three books\").",
+      "explanation": "The plural suffix `-hâ` attaches to a noun to make it plural: ketab (\"book\") → ketab-hâ (\"books\"). In writing it is attached to the noun — with a thin connector after a letter that would otherwise join to it (کتاب‌ها), and straight on where the letter cannot join anyway (کلیدها); typing it as a separate word is common but is not the written standard. Persian doesn't require a plural marker on every noun the way English does: after a number the noun stays singular (se ketab = \"three book,\" not \"three books\").",
       "drills": [
         {
           "sentence": "کتاب {{answer}}.",
@@ -558,7 +558,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "را is a postposition (it comes AFTER its noun) that marks a DEFINITE direct object — something specific you already know about: کتاب را می‌خوانم (\"I'm reading THE book\") vs. کتاب می‌خوانم (\"I'm reading a book / reading in general\"). An object left unmarked is indefinite or generic.",
+      "explanation": "**را** is a postposition — it comes after the object, and after the whole object phrase rather than just its first word: این کتاب را می‌خوانم (\"I'm reading this book\"). What it marks is a DEFINITE direct object, something specific already in view: کتاب را می‌خوانم (\"I'm reading THE book\") vs. کتاب می‌خوانم (\"I'm reading a book / reading in general\"). A pronoun object is definite by nature and always takes it — او را می‌شناسم (\"I know him\") — while an object left unmarked is indefinite or generic.",
       "drills": [
         {
           "sentence": "کتاب {{answer}} می‌خواهم.",
@@ -623,7 +623,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Persian links a thing to its owner with the ezafe, an unwritten -e vowel between the two words: کتاب من is read ketab-e man, \"the book of me\" = \"my book.\" Nothing is added in writing after a consonant — the words simply sit side by side, owner second. After a word ending in the silent ه the ezafe IS written, as a small hamza on top: خانهٔ من (khane-ye man, \"my house\").",
+      "explanation": "Persian links a thing to its owner with the ezafe, an unwritten -e vowel between the two words: کتاب من is read ketab-e man, \"the book of me\" = \"my book.\" The possessed thing comes first, the owner second. What reaches the page depends on the last letter of the first word:\n\n- after a consonant, nothing at all: کتاب من (ketab-e man, \"my book\")\n- after the silent ه, a small hamza on top: خانهٔ من (khane-ye man, \"my house\")\n- after ا or و, a full ی: غذای من (ghaza-ye man, \"my food\")",
       "drills": [
         {
           "sentence": "این کتاب {{answer}} است.",
@@ -688,7 +688,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "Instead of a separate pronoun, Persian can hang the owner directly on the noun: -am (my), -at (your), -ash (his/her), -eman (our), -etan (your pl.), -eshan (their). کتاب becomes کتابم (ketabam, \"my book\"). It is the everyday equivalent of کتاب من. After the silent ه the ending is joined with a thin connector: خانه becomes خانه‌ام (khane-am).",
+      "explanation": "Instead of a separate pronoun, Persian can hang the owner directly on the noun:\n\n| Owner | Ending |\n| --- | --- |\n| my | -am |\n| your (sg.) | -at |\n| his/her | -ash |\n| our | -eman |\n| your (pl.) | -etan |\n| their | -eshan |\n\nکتاب becomes کتابم (ketabam, \"my book\"), the everyday equivalent of کتاب من. After the silent ه the ending is joined with a thin connector: خانه becomes خانه‌ام (khane-am).",
       "drills": [
         {
           "sentence": "{{answer}} روی میز است.",
@@ -762,7 +762,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 11,
-      "explanation": "داشتن (\"to have\") is conjugated دارم، داری، دارد، داریم، دارید، دارند. It is one of the few verbs that takes NO می‌ prefix in the present — دارم, never می‌دارم. The negative is built with ن‌ on the front: ندارم (\"I don't have\").",
+      "explanation": "**داشتن** (\"to have\") is conjugated in the present like this:\n\n| Person | Form |\n| --- | --- |\n| I | دارم |\n| you (sg.) | داری |\n| he/she/it | دارد |\n| we | داریم |\n| you (pl.) | دارید |\n| they | دارند |\n\nIt is one of the few verbs that takes NO می‌ prefix in the present — دارم, never می‌دارم. The negative is the bare نـ on the front: ندارم (\"I don't have\").",
       "drills": [
         {
           "sentence": "من یک کتاب {{answer}}.",
@@ -836,7 +836,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "The past tense is built on the past stem, which is the infinitive minus its final ن: رفتن → رفت, دیدن → دید, خوردن → خورد. Add the personal endings straight onto it: رفتم (I went), رفتی (you went), رفت (he/she went), رفتیم، رفتید، رفتند. Note that the third person singular takes NO ending at all — the bare stem رفت already means \"he went.\"",
+      "explanation": "The past tense is built on the past stem, which is the infinitive minus its final ن: رفتن → رفت, دیدن → دید, خوردن → خورد.\n\nThe personal endings go straight onto that stem:\n\n| Person | Form |\n| --- | --- |\n| I | رفتم |\n| you (sg.) | رفتی |\n| he/she/it | رفت |\n| we | رفتیم |\n| you (pl.) | رفتید |\n| they | رفتند |\n\nThe third person singular takes NO ending at all — the bare stem رفت already means \"he went.\"",
       "drills": [
         {
           "sentence": "من دیروز به مدرسه {{answer}}.",
@@ -910,7 +910,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Every Persian verb has TWO stems, and they often look nothing alike: رفتن has رو in the present (می‌روم) and رفت in the past (رفتم); گفتن has گو and گفت; دیدن has بین and دید; خواندن has خوان and خواند. The past stem is always predictable (infinitive minus ن); the present stem has to be learned with the verb. Once you have the pair, everything else follows.",
+      "explanation": "Every Persian verb has TWO stems, and they often look nothing alike:\n\n| Infinitive | Present stem | Past stem |\n| --- | --- | --- |\n| رفتن | رو | رفت |\n| گفتن | گو | گفت |\n| دیدن | بین | دید |\n| خواندن | خوان | خواند |\n\nThe present stem is the one that carries می‌ in the present tense (می‌روم); the past stem stands on its own in the past (رفتم). The past stem is always predictable — the infinitive minus its ن — but the present stem has to be learned with the verb. Once you have the pair, everything else follows.",
       "drills": [
         {
           "sentence": "دیروز او را {{answer}}.",
@@ -975,7 +975,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Past verbs are negated with ن‌ on the front — NOT with نمی‌, which belongs to the present: رفتم → نرفتم (\"I didn't go\"), دیدم → ندیدم (\"I didn't see\"). The prefix goes before the past stem and the endings stay exactly the same.",
+      "explanation": "The simple past is negated with نـ on the front, and the personal endings stay exactly as they are: رفتم → نرفتم (\"I didn't go\"), دیدم → ندیدم (\"I didn't see\"), گفتیم → نگفتیم (\"we didn't say\").\n\nنمی‌ is not the past's negative: it belongs to any form built with می‌, which in the past is the habitual می‌رفتم → نمی‌رفتم (\"I wasn't going\").",
       "drills": [
         {
           "sentence": "من دیروز به مدرسه {{answer}}.",
@@ -1031,7 +1031,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "The present perfect pairs a past participle (past stem + ه: رفته، دیده، خورده) with short forms of \"to be\": رفته‌ام (I have gone), رفته‌ای، رفته است، رفته‌ایم، رفته‌اید، رفته‌اند. Like English \"I have seen,\" it reports a past event whose result still matters now — which is why it is the natural tense for \"have you ever…?\"",
+      "explanation": "The present perfect pairs a past participle — the past stem plus `ه`, giving رفته، دیده، خورده — with the short forms of \"to be\", as in **رفته‌ام** (\"I have gone\"):\n\n| person | form |\n| --- | --- |\n| 1sg | رفته‌ام |\n| 2sg | رفته‌ای |\n| 3sg | رفته است |\n| 1pl | رفته‌ایم |\n| 2pl | رفته‌اید |\n| 3pl | رفته‌اند |\n\nOnly the third person singular keeps است as a separate word; the others join on. Like English \"I have seen,\" it reports a past event whose result still matters now — which is why it is the natural tense for \"have you ever…?\"",
       "drills": [
         {
           "sentence": "من این فیلم را {{answer}}.",
@@ -1087,7 +1087,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Add ‌تر for \"more\" and ‌ترین for \"most\": بزرگ → بزرگ‌تر (bigger), بزرگ‌ترین (biggest). The comparison partner follows از (\"than\"): تهران از اصفهان بزرگ‌تر است. Word order differs between the two: a comparative FOLLOWS its noun, but a superlative goes BEFORE it — بزرگ‌ترین شهر (\"the biggest city\"). خوب has the irregular pair بهتر / بهترین, written solid.",
+      "explanation": "Add `‌تر` for \"more\" and `‌ترین` for \"most\", and the comparison partner follows از (\"than\"): تهران از اصفهان بزرگ‌تر است.\n\n| adjective | comparative | superlative |\n| --- | --- | --- |\n| بزرگ | بزرگ‌تر | بزرگ‌ترین |\n| کوچک | کوچک‌تر | کوچک‌ترین |\n| خوب | بهتر | بهترین |\n\nخوب is irregular, and its two forms are written solid, with no break before the suffix. Word order differs between the two: a comparative FOLLOWS its noun, but a superlative goes BEFORE it — بزرگ‌ترین شهر (\"the biggest city\"). A comparative also works as an adverb next to a verb: از من سریع‌تر می‌دود (\"he runs faster than I do\").",
       "drills": [
         {
           "sentence": "این کتاب از آن کتاب {{answer}} است.",
@@ -1161,7 +1161,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Instead of او را دیدم, Persian often hangs the object pronoun straight on the verb: دیدمش (\"I saw him\"), دیدمت (\"I saw you\"), دیدیمش (\"we saw him\"). The endings are the same set as the possessives — ـم، ـت، ـش، ـمان، ـتان، ـشان — but here they mean me/you/him, not my/your/his. Word order tells you which: on a noun they possess, on a verb they are the object.",
+      "explanation": "Instead of او را دیدم, Persian often hangs the object pronoun straight on the verb: **دیدمش** (\"I saw him\"), دیدمت (\"I saw you\"), دیدیمش (\"we saw him\"). The endings are the same set as the possessives:\n\n| person | clitic |\n| --- | --- |\n| 1sg | ـم |\n| 2sg | ـت |\n| 3sg | ـش |\n| 1pl | ـمان |\n| 2pl | ـتان |\n| 3pl | ـشان |\n\nOn a verb they mean me, you, him, not my, your, his. The word they sit on tells you which: on a noun they possess, on a verb they are the object.",
       "drills": [
         {
           "sentence": "دیروز {{answer}}.",
@@ -1226,7 +1226,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "A Persian question word does not jump to the front the way English's does — it simply stands where the answer would stand, and the verb still comes last: تو کجا می‌روی؟ is literally \"you where go?\" The core set is کجا (where), کی (who; also when), چرا (why), چطور (how) and چه/چی (what), with چیست as the written \"what is…?\"",
+      "explanation": "A Persian question word does not jump to the front the way English's does — it simply stands where the answer would stand, and the verb still comes last: تو کجا می‌روی؟ is literally \"you where go?\" The core set is کجا (where), چرا (why), چطور (how), چه (what) and کی, which spells two different words, \"who\" and \"when\", told apart by context alone. چیست is the written \"what is…?\", and چی is the spoken counterpart of چه.",
       "drills": [
         {
           "sentence": "تو {{answer}} می‌روی؟",
@@ -1300,7 +1300,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Put می‌ on a simple past and you get the habitual or ongoing past — English \"used to go\" or \"was going\": رفتم (\"I went\") → می‌رفتم (\"I used to go\"). It is the tense for routines, backgrounds and descriptions in a story. The negative is نمی‌: نمی‌رفتم.",
+      "explanation": "Put `می‌` on a simple past and you get the habitual or ongoing past — English \"used to go\" or \"was going\": رفتم (\"I went\") → **می‌رفتم** (\"I used to go\"). It is the tense for routines, backgrounds and descriptions in a story. The negative is `نمی‌`, which replaces the می‌ rather than stacking in front of it: نمی‌رفتم.",
       "drills": [
         {
           "sentence": "من هر روز به مدرسه {{answer}}.",
@@ -1374,7 +1374,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Most everyday Persian verbs are two pieces: a fixed noun or adjective plus a light verb — کار کردن (\"to work,\" literally \"work do\"), حرف زدن (\"to speak,\" \"word hit\"), گوش دادن (\"to listen,\" \"ear give\"), تماشا کردن (\"to watch\"). Only the light verb conjugates; the first piece never changes: کار می‌کنم، کار کردم، کار خواهم کرد.",
+      "explanation": "Most everyday Persian verbs are two pieces: a fixed noun or adjective plus a light verb, as in **کار کردن**, literally \"work do\".\n\n| compound | literally | meaning |\n| --- | --- | --- |\n| کار کردن | work do | to work |\n| حرف زدن | word hit | to speak |\n| گوش دادن | ear give | to listen |\n| تماشا کردن | watching do | to watch |\n| دوست شدن | friend become | to become friends |\n\nOnly the light verb conjugates, and it carries the negation too; the first piece never changes: کار می‌کنم، کار کردم، کار خواهم کرد، تلفن نکردم. کردن، زدن، دادن and شدن do most of this work.",
       "drills": [
         {
           "sentence": "من در تهران کار {{answer}}.",
@@ -1448,7 +1448,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "After a number the Persian noun stays SINGULAR: سه کتاب, literally \"three book.\" In ordinary speech and writing a counter تا usually sits between the number and the noun for countable things: سه تا کتاب. The numbers themselves are یک، دو، سه، چهار، پنج، شش، هفت، هشت، نه، ده.",
+      "explanation": "After a number the Persian noun stays SINGULAR: سه کتاب, literally \"three book.\" Between the number and the noun a counter **تا** usually sits when the thing counted is countable: سه تا کتاب. It follows چند (\"how many\") in the same way: چند تا کتاب؟ The counter is optional — سه کتاب on its own is correct, and formal writing often prefers it.\n\n| number | Persian |\n| --- | --- |\n| 1 | یک |\n| 2 | دو |\n| 3 | سه |\n| 4 | چهار |\n| 5 | پنج |\n| 6 | شش |\n| 7 | هفت |\n| 8 | هشت |\n| 9 | نه |\n| 10 | ده |",
       "drills": [
         {
           "sentence": "من سه {{answer}} کتاب دارم.",
@@ -1522,7 +1522,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "For anything not presented as fact — a wish, an obligation, a possibility — Persian uses the subjunctive: بـ + present stem + endings, with NO می‌. رفتن gives بروم، بروی، برود. It follows می‌خواهم (\"I want to…\"), باید (\"must\"), شاید (\"maybe\") and similar: می‌خواهم بروم, باید بروم, شاید برود.",
+      "explanation": "For anything not presented as fact — a wish, an obligation, a possibility — Persian uses the subjunctive: `بـ` plus the present stem plus the personal endings, and no `می‌`. رفتن gives **بروم**:\n\n| person | form |\n| --- | --- |\n| 1sg | بروم |\n| 2sg | بروی |\n| 3sg | برود |\n| 1pl | برویم |\n| 2pl | بروید |\n| 3pl | بروند |\n\nThe present stem is often not the one the infinitive shows: نوشتن has نویس, hence بنویسم. Two verbs build the subjunctive without بـ — بودن says باشم and داشتن says داشته باشم — and the negative نـ takes the place of بـ: نروم, نباشد. The form follows می‌خواهم (\"I want to…\"), باید (\"must\"), شاید (\"maybe\"), لازم است (\"it is necessary\") and similar: می‌خواهم بروم, باید بروم, شاید برود.",
       "drills": [
         {
           "sentence": "می‌خواهم به خانه {{answer}}.",
@@ -1596,7 +1596,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Formal and written Persian marks the future with خواهم/خواهی/خواهد/خواهیم/خواهید/خواهند followed by the SHORT infinitive — the bare past stem, unchanged for person: خواهم رفت (\"I will go\"), خواهد آمد (\"he will come\"). Everyday speech simply uses the present tense with a time word (فردا می‌روم), so this pattern belongs mostly to writing and formal registers.",
+      "explanation": "Formal and written Persian marks the future with an auxiliary followed by the SHORT infinitive — the bare past stem, unchanged for person: **خواهم رفت** (\"I will go\"), خواهد آمد (\"he will come\").\n\n| person | auxiliary |\n| --- | --- |\n| 1sg | خواهم |\n| 2sg | خواهی |\n| 3sg | خواهد |\n| 1pl | خواهیم |\n| 2pl | خواهید |\n| 3pl | خواهند |\n\nThe negative نـ goes on the auxiliary and nowhere else: نخواهم رفت. Everyday speech simply uses the present tense with a time word (فردا می‌روم), so this pattern belongs mostly to writing and formal registers.",
       "drills": [
         {
           "sentence": "من فردا به تهران {{answer}} رفت.",
@@ -1670,7 +1670,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "For a condition that may well come true, اگر takes the SUBJUNCTIVE and the result clause stays in the ordinary present: اگر به تهران بروی، او را می‌بینی (\"if you go to Tehran, you'll see him\"). English uses a present tense in the if-clause; Persian uses the بـ form.",
+      "explanation": "For a condition that may well come true, **اگر** takes the SUBJUNCTIVE and the result clause stays in the ordinary present: اگر به تهران بروی، او را می‌بینی (\"if you go to Tehran, you'll see him\"). English uses a present tense in the if-clause; Persian uses the `بـ` form. Two things stand where that بـ would: بودن and داشتن build the subjunctive without it (اگر وقت داشته باشم), and a negative puts نـ in its place (اگر نخوابیم).",
       "drills": [
         {
           "sentence": "اگر به تهران {{answer}}، او را می‌بینی.",
@@ -1744,7 +1744,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "که introduces every relative clause — it covers English who, which and that all at once, and it is never dropped. The noun it describes usually carries an indefinite ـی: مردی که دیدم (\"the man I saw\"), کتابی که خواندم (\"the book I read\"). The relative clause sits right after that noun, and its own verb still comes last.",
+      "explanation": "**که** introduces every relative clause — it covers English who, which and that all at once, and it is never dropped. The noun it describes usually carries a `ـی`: مردی که دیدم (\"the man I saw\"), کتابی که خواندم (\"the book I read\"). It is the same letter as the indefinite `ـی`, though the phrase can still be definite in English, and after a silent ه it is written `ـای`: خانه‌ای که در آن زندگی می‌کنم (\"the house I live in\"). The relative clause sits right after that noun, and its own verb still comes last.",
       "drills": [
         {
           "sentence": "کتابی {{answer}} خواندم خوب بود.",
@@ -1818,7 +1818,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Reported speech is introduced by که, and — unlike English — Persian does NOT shift the tense backwards. گفت که می‌آید is literally \"he said that he comes,\" but translates as \"he said he was coming.\" Keep the tense the speaker actually used and let که do the work.",
+      "explanation": "Reported speech is introduced by **که**, and — unlike English — Persian does NOT shift the tense backwards. گفت که می‌آید is literally \"he said that he comes,\" but translates as \"he said he was coming.\" Keep the tense the speaker actually used and let که do the work.",
       "drills": [
         {
           "sentence": "او گفت {{answer}} می‌آید.",
@@ -1892,7 +1892,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Ezafe links can chain: در خانهٔ دوستم is dar-e khane-ye dustam, \"the door of the house of my friend.\" Each word in the chain carries an ezafe onto the next, and only the LAST element is the ultimate owner. Nothing is written after a consonant; after the silent ه the link appears as the hamza (خانهٔ), and after ا or و it appears as ی.",
+      "explanation": "Ezafe links can chain: در خانهٔ دوستم is dar-e khane-ye dustam, \"the door of the house of my friend.\" Each word in the chain carries an ezafe onto the next, and only the LAST element is the ultimate owner. How that link is written depends on the sound the word ends in:\n\n- after a consonant nothing is written: در خانه\n- after the silent ه a hamza sits on top: خانهٔ دوستم\n- after ا or و a ی is added: آقای رضایی",
       "drills": [
         {
           "sentence": "در {{answer}} دوستم باز است.",
@@ -1957,7 +1957,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "The Persian infinitive (past stem + ن: رفتن، خواندن، نوشتن) doubles as a noun, covering English's \"-ing\" forms: خواندن کتاب خوب است (\"reading books is good\"), از رفتن می‌ترسم (\"I'm afraid of going\"). It takes ezafe, را and prepositions exactly like any other noun.",
+      "explanation": "The Persian infinitive — the past stem plus `ن` — gives رفتن، خواندن، نوشتن, and doubles as a noun, covering English's \"-ing\" forms: خواندن کتاب خوب است (\"reading books is good\"), از رفتن می‌ترسم (\"I'm afraid of going\"). It takes ezafe, را and prepositions exactly like any other noun.",
       "drills": [
         {
           "sentence": "{{answer}} کتاب خوب است.",
@@ -2031,7 +2031,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "توانستن (\"to be able\") is conjugated normally and is followed by a SUBJUNCTIVE, not an infinitive: می‌توانم بروم, literally \"I can I-go.\" Both verbs carry the person. The negative is نمی‌توانم, and the past is توانستم / نتوانستم.",
+      "explanation": "**توانستن** (\"to be able\") is conjugated normally and is followed by a SUBJUNCTIVE, not an infinitive: می‌توانم بروم, literally \"I can I-go.\" Both verbs carry the person. The negative is نمی‌توانم, and the past is توانستم / نتوانستم.",
       "drills": [
         {
           "sentence": "من {{answer}} فارسی حرف بزنم.",
@@ -2105,7 +2105,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "The past perfect is the participle plus the past of بودن: رفته بودم (\"I had gone\"), دیده بودی، خورده بود، رفته بودیم. It marks the earlier of two past events — وقتی رسیدم، او رفته بود (\"when I arrived, he had already left\").",
+      "explanation": "The past perfect is the past participle plus the past of **بودن**, and it marks the earlier of two past events: وقتی رسیدم، او رفته بود (\"when I arrived, he had already left\").\n\n| Person | Form |\n| --- | --- |\n| I | رفته بودم |\n| you (singular) | رفته بودی |\n| he/she | رفته بود |\n| we | رفته بودیم |\n| you (plural) | رفته بودید |\n| they | رفته بودند |\n\nThe negative goes on the participle, never on بودن: نرفته بودیم (\"we had not gone\"), نشنیده بود (\"he had not heard\").",
       "drills": [
         {
           "sentence": "وقتی رسیدم، او {{answer}} بود.",
@@ -2179,7 +2179,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "For a condition contrary to fact, BOTH halves go into the habitual past (می‌ + past): اگر پول داشتم، این خانه را می‌خریدم — \"if I had money, I would buy this house.\" The same pattern also covers the past-unreal reading (\"if I had had money, I would have bought…\"); context decides which one English needs.",
+      "explanation": "For a condition contrary to fact, BOTH halves go into the habitual past — `می‌` plus the past: اگر پول داشتم، این خانه را می‌خریدم (\"if I had money, I would buy this house\"). داشتن and بودن are the exception: they have no `می‌` form at all, so their plain past carries the unreal meaning by itself — اگر پول داشتم (\"if I had money\") and حالا خسته نبودم (\"I would not be tired now\"). The same pattern also covers the past-unreal reading (\"if I had had money, I would have bought…\"); context decides which one English needs.",
       "drills": [
         {
           "sentence": "اگر پول {{answer}}، این خانه را می‌خریدم.",
@@ -2253,7 +2253,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "The passive is the past participle plus شدن: نوشته شد (\"it was written\"), ساخته شد (\"it was built\"), خوانده می‌شود (\"it is read\"). Persian uses it far less than English and normally leaves the agent out altogether — if you want to name the doer, an active sentence is the natural choice.",
+      "explanation": "The passive is the past participle plus شدن: نوشته شد (\"it was written\"), ساخته شد (\"it was built\"), خوانده می‌شود (\"it is read\"). Persian uses it far less than English and normally leaves the agent out altogether — if you want to name the doer, an active sentence is the natural choice. شدن carries the tense, the agreement and the negative: نامه‌ها فرستاده شدند, حرف من شنیده نشد.",
       "drills": [
         {
           "sentence": "این نامه دیروز {{answer}} شد.",
@@ -2401,7 +2401,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "تا does two jobs. With a following SUBJUNCTIVE it means \"in order to / so that\": به تهران رفتم تا او را ببینم. With an indicative — or a plain time phrase — it means \"until\": تا فردا صبر کن, منتظر ماندم تا او آمد. The mood of the second verb tells the two readings apart.",
+      "explanation": "**تا** does two jobs. With a following SUBJUNCTIVE it means \"in order to / so that\": به تهران رفتم تا او را ببینم. With an indicative — or a plain time phrase — it means \"until\": تا فردا صبر کن, منتظر ماندم تا او آمد. An indicative rules the purpose reading out; a subjunctive does not settle it on its own, because an \"until\" clause whose event has not happened yet takes the subjunctive too — صبر کن تا او بیاید (\"wait until he comes\").",
       "drills": [
         {
           "sentence": "به تهران رفتم {{answer}} او را ببینم.",
@@ -2466,7 +2466,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Written Persian and Tehrani speech differ systematically: می‌روم is said miram, می‌خواهم is mikham, می‌گوید is mige, آن is un, این is in, را is ro, است shrinks to a suffixed ـه. Everything here is written in the standard form — recognize the spoken equivalents when you hear them, but keep writing the full ones.",
+      "explanation": "Written Persian and Tehrani speech differ systematically:\n\n| Written | Spoken |\n| --- | --- |\n| می‌روم | miram |\n| می‌خواهم | mikham |\n| می‌گوید | mige |\n| می‌آیند | miyan |\n| آن | un |\n| را | ro |\n\nاست shrinks to a suffixed ـه: بزرگ است is said bozorge. Everything here is written in the standard form — recognize the spoken equivalents when you hear them, but keep writing the full ones.",
       "drills": [
         {
           "sentence": "من فردا به خانه {{answer}}.",
@@ -2531,7 +2531,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Official Persian has its own vocabulary for ordinary verbs: گردید or گشت for شد, نمود for کرد, می‌باشد for است, جهت for برای, and ایشان with a PLURAL verb for a single respected person. فرمودن replaces گفتن and کردن in polite requests: تکمیل فرمایید. Style guides criticize می‌باشد, but you will meet it constantly in letters and forms.",
+      "explanation": "Official Persian has its own vocabulary for ordinary verbs and prepositions:\n\n| Official | Everyday |\n| --- | --- |\n| گردید، گشت | شد |\n| نمود | کرد |\n| می‌باشد | است |\n| جهت | برای |\n| فرمودن | گفتن، کردن |\n\nایشان takes a PLURAL verb for a single respected person, and فرمودن is the verb of a polite request: تکمیل فرمایید. Style guides criticize می‌باشد, but you will meet it constantly in letters and forms.",
       "drills": [
         {
           "sentence": "این نامه برای شما ارسال {{answer}}.",
@@ -2605,7 +2605,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Alongside ـها, formal Persian keeps Arabic \"broken\" plurals, which reshape the word instead of adding a suffix: کتاب → کتب, عالم → علما, خبر → اخبار, نکته → نکات, مقاله → مقالات, عضو → اعضا, شخص → اشخاص. They belong to written and elevated style; the plain ـها plural is always available and often preferable.",
+      "explanation": "Alongside ـها, formal Persian keeps Arabic \"broken\" plurals, which reshape the word instead of adding a suffix: کتاب → کتب, عالم → علما, خبر → اخبار, عضو → اعضا, شخص → اشخاص.\n\nNouns of Arabic origin ending in ـه take the Arabic suffix ـات instead, which adds to the word rather than reshaping it: نکته → نکات, مقاله → مقالات.\n\nBoth belong to written and elevated style; the plain ـها plural is always available and often preferable.",
       "drills": [
         {
           "sentence": "{{answer}} این نویسنده معروف است.",
@@ -2679,7 +2679,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Classical and literary Persian prefixes بـ to a plain past verb for narrative colour: برفت (\"he went\"), بگفت (\"he said\"), بدید (\"he saw\") — same meaning as رفت، گفت، دید, just an older register. The particle همی marks a continuous past where modern Persian would use می‌: همی رفت = می‌رفت. Both are for reading, not for writing modern prose.",
+      "explanation": "Classical and literary Persian prefixes `بـ` to a plain past verb for narrative colour, with no change of meaning.\n\nبرفت (\"he went\"), بگفت (\"he said\"), بدید (\"he saw\"). These are رفت، گفت، دید in an older register.\n\nThe particle همی marks a continuous past where modern Persian would use `می‌`: همی رفت = می‌رفت. برخاست is not this prefix: it is the past of برخاستن (\"to rise\"), whose بر belongs to the verb. All of it is for reading, not for writing modern prose.",
       "drills": [
         {
           "sentence": "او {{answer}} و بازنگشت.",
@@ -2744,7 +2744,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Classical verse keeps forms that modern prose has dropped: بود is read bovad and can mean \"is\"; ز stands for از; ـند closes a plural predicate (پیکرند = \"they are one body\"); and word order bends freely to the metre. Two lines every Persian speaker knows: Ferdowsi's توانا بود هر که دانا بود (\"whoever is wise is strong\") and Saadi's بنی‌آدم اعضای یک پیکرند / که در آفرینش ز یک گوهرند.",
+      "explanation": "Classical verse keeps forms modern prose has dropped, and leans on others it still uses:\n\n- بود is read bovad and can mean \"is\"\n- ز stands for از\n- ـند closes a plural predicate: پیکرند is \"they are one body\"\n- word order bends freely to the metre\n\nTwo lines every Persian speaker knows: Ferdowsi's توانا بود هر که دانا بود (\"whoever is wise is strong\") and Saadi's بنی‌آدم اعضای یک پیکرند / که در آفرینش ز یک گوهرند (\"the children of Adam are limbs of one body, of one essence in creation\").",
       "drills": [
         {
           "sentence": "{{answer}} بود هر که دانا بود.",
@@ -2818,7 +2818,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "At this level the compound verbs stop being transparent. از دست دادن is \"to lose,\" not \"to give from the hand\"; دلم تنگ شده is \"I miss (someone),\" literally \"my heart has grown narrow\"; سر در آوردن (از) is \"to make sense of\"; دست به کار شدن is \"to get down to it\"; باور کردن is \"to believe.\" Learn each compound whole — the pieces will not add up.",
+      "explanation": "At this level the compound verbs stop being transparent — learn each one whole, because the pieces will not add up:\n\n- از دست دادن — \"to lose,\" not \"to give from the hand\"\n- دلم تنگ شده — \"I miss (someone),\" literally \"my heart has grown narrow\"\n- سر در آوردن (از) — \"to make sense of\"\n- دست به کار شدن — \"to get down to it\"\n\nباور کردن (\"to believe\") is the transparent kind — باور is \"belief,\" کردن does the work — but at this level that is the exception, not the rule.",
       "drills": [
         {
           "sentence": "کتابم را از دست {{answer}}.",
@@ -2892,7 +2892,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Persian grades politeness through the verb itself. Deferential: ایشان with a plural verb, فرمودن for گفتن, تشریف داشتن/آوردن for بودن/آمدن, بفرمایید as the all-purpose invitation. Neutral: شما plus a plural verb, ordinary vocabulary. Intimate: تو with a singular verb. The same message reshapes completely — چه فرمودید؟ / چه گفتید؟ / چی گفتی؟",
+      "explanation": "Persian grades politeness through the verb itself:\n\n- Deferential: ایشان with a plural verb, فرمودن for گفتن, تشریف داشتن/آوردن for بودن/آمدن, and بفرمایید as the all-purpose invitation\n- Neutral: شما with a plural verb and ordinary vocabulary\n- Intimate: تو with a singular verb\n\nThe same message reshapes completely — چه فرمودید؟ / چه گفتید؟ / چی گفتی؟",
       "drills": [
         {
           "sentence": "شما دیروز چه {{answer}}؟",

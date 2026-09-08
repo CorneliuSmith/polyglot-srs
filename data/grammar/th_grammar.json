@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Thai words NEVER change form: no conjugation, no plural, no gender endings. ผมกินข้าว (I eat rice) works for eat/ate/will eat — time comes from context or little marker words. Modifiers FOLLOW their noun: บ้านใหญ่ (house big = a big house), รถสีแดง (car colour red).",
+      "explanation": "Thai words NEVER change form: no conjugation, no plural, no gender endings. The order is subject–verb–object and stays that way: ผมกินข้าว (I eat rice) covers eat, ate and will eat — time comes from context or from a little marker word. Modifiers FOLLOW their noun: บ้านใหญ่ (house big = a big house), รถสีแดง (car colour red = a red car).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -131,7 +131,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Politeness is a particle at the end, chosen by the SPEAKER's gender: men say ครับ (khráp), women say ค่ะ (khâ) in statements and คะ (rising) in questions. สวัสดีครับ / สวัสดีค่ะ (hello). Omitting them with strangers sounds curt; with friends they relax away.",
+      "explanation": "Politeness is a particle at the end of the sentence, chosen by the SPEAKER's own gender — never the listener's:\n\n| Speaker | Statement | Question |\n| --- | --- | --- |\n| male | ครับ | ครับ |\n| female | ค่ะ | คะ |\n\nA man uses ครับ (khráp) whatever the sentence type; a woman splits hers, ค่ะ (khâ) with a falling tone and คะ with a high tone, so the tone mark is the whole difference between her two forms.\n\nสวัสดีครับ / สวัสดีค่ะ (hello). Omitting the particle with a stranger sounds curt; among friends it relaxes away.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -333,7 +333,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "เป็น links roles and categories: ผมเป็นครู (I am a teacher). คือ defines and equates: นี่คือบ้านของผม (this is my house — pointing/defining). อยู่ locates: เขาอยู่ที่บ้าน (he is at home). With adjectives use NONE: อาหารอร่อย (the food [is] delicious).",
+      "explanation": "English 'is' splits three ways in Thai:\n\n- เป็น links roles and categories: ผมเป็นครู (I am a teacher)\n- คือ defines and equates: นี่คือบ้านของผม (this is my house — pointing, defining)\n- อยู่ locates: เขาอยู่ที่บ้าน (he is at home)\n\nWith an adjective you use none of them: อาหารอร่อย (the food [is] delicious).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -433,7 +433,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Add ไหม (mái) to make a yes/no question: ไปไหม (going?). หรือเปล่า (…or not?) is its everyday cousin: กินหรือเปล่า. Thai has no words for yes/no — you echo the verb: ไป (going = yes) / ไม่ไป (not going = no). ใช่ไหม asks 'right?'.",
+      "explanation": "Thai turns a statement into a yes/no question by adding a word at the end:\n\n- ไหม (mái) — the plain question marker: ไปไหม (going?)\n- หรือเปล่า — 'or not?', its everyday cousin: กินหรือเปล่า (eaten or not?)\n- ใช่ไหม — tags a statement you expect agreement with: 'right?'\n\nThere is no all-purpose yes or no. You answer by echoing the verb — ไป (going = yes), ไม่ไป (not going = no) — and a ใช่ไหม question is answered ใช่ or ไม่ใช่.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -524,7 +524,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "ไม่ (mâi) goes directly before the verb or adjective: ไม่กิน (don't eat), ไม่แพง (not expensive), ไม่สวย (not beautiful). 'To not be' a thing: ไม่ใช่ + noun — เขาไม่ใช่ครู (he's not a teacher; NOT ไม่เป็น). Don't do it: อย่า — อย่าไป (don't go).",
+      "explanation": "Which negator you use depends on what is being negated:\n\n- ไม่ (mâi) — before a verb or adjective: ไม่กิน (don't eat), ไม่แพง (not expensive), ไม่สวย (not beautiful)\n- ไม่ใช่ — before a noun, for 'is not that thing': เขาไม่ใช่ครู (he's not a teacher), never ไม่เป็น\n- อย่า — before a verb, for telling someone not to: อย่าไป (don't go)\n\nEach one sits directly in front of what it negates, and nothing else in the sentence changes.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -605,7 +605,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "มี = have: ผมมีพี่ชายสองคน (I have two older brothers). Sentence-initial, it means 'there is/are': มีร้านอาหารใกล้ๆ (there's a restaurant nearby). Negative: ไม่มี (don't have / there isn't) — also the answer to 'do you have…?': มีไหม — ไม่มี.",
+      "explanation": "**มี** = have: ผมมีพี่ชายสองคน (I have two older brothers). At the front of a sentence it means 'there is / there are': มีร้านอาหารใกล้ๆ (there's a restaurant nearby). The negative ไม่มี covers both senses (don't have, there isn't), and it is how you answer a มีไหม question: มีไหม — ไม่มี.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -695,7 +695,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Thai counts with classifiers: noun + number + classifier. เพื่อนสองคน (friend two person = two friends), แมวสามตัว (cats three bodies), หนังสือหนึ่งเล่ม (book one volume). คน for people, ตัว for animals/clothes, เล่ม for books, อัน for small things, ที่ for orders in restaurants. Wrong classifier = instantly noticeable.",
+      "explanation": "Thai counts with a classifier — the order is noun + number + classifier. เพื่อนสองคน (friend two person = two friends), แมวสามตัว (cat three body = three cats), หนังสือหนึ่งเล่ม (book one volume).\n\n| Classifier | Counts |\n| --- | --- |\n| คน | people |\n| ตัว | animals, clothes |\n| เล่ม | books |\n| อัน | small objects |\n| ที่ | orders of food |\n\nThe classifier belongs to the noun, not to the number, and a wrong one is instantly noticeable.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -787,7 +787,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Question words stay in the answer's position (no fronting): กินอะไร (eat WHAT), ไปที่ไหน (go WHERE), ใครมา (WHO comes), เมื่อไหร่ (when), ทำไม (why), อย่างไร/ยังไง (how), เท่าไหร่ (how much — prices!).",
+      "explanation": "Question words stay in the answer's position (no fronting): กินอะไร (eat WHAT), ไปที่ไหน (go WHERE), ใครมา (WHO comes), เมื่อไหร่ (when), ทำไม (why), อย่างไร/ยังไง (how), เท่าไหร่ (how much — prices!).\n\nทำไม is the exception — it usually comes first, as in ทำไมไม่มา (why didn't you come?). เมื่อไหร่ works at either end: เมื่อไหร่จะไป or จะไปเมื่อไหร่.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -877,7 +877,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "Thai adjectives work like verbs: อาหารอร่อย (food delicious = the food is delicious), อากาศร้อน (weather hot). They negate like verbs (ไม่ร้อน) and question like verbs (ร้อนไหม). Intensify with มาก after: อร่อยมาก (very delicious).",
+      "explanation": "Thai adjectives work like verbs: อาหารอร่อย (food delicious = the food is delicious), อากาศร้อน (weather hot = the weather is hot). They negate like verbs (ไม่ร้อน) and question like verbs (ร้อนไหม). Intensify with มาก after: อร่อยมาก (very delicious).\n\nBecause the adjective is doing the verb's work, บ้านใหญ่ carries both readings: 'a big house' as a phrase, 'the house is big' as a whole sentence.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -968,7 +968,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 11,
-      "explanation": "จะ before the verb marks intention/future: ผมจะไป (I will go), ฝนจะตก (it's going to rain). Negative: จะไม่ไป (won't go) or more commonly ไม่ไป with a time word. คงจะ = probably will.",
+      "explanation": "จะ before the verb marks intention/future: ผมจะไป (I will go), ฝนจะตก (it's going to rain). The negative is จะไม่ไป (won't go), though a time word with a plain verb is commoner: พรุ่งนี้ไม่ไป (not going tomorrow). คงจะ = probably will.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1049,7 +1049,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 12,
-      "explanation": "Possession: thing + ของ + owner: บ้านของผม (house of me = my house), รถของเขา. In casual speech ของ drops: บ้านผม, แม่ฉัน. 'Whose?': ของใคร. 'Mine': ของผม/ของฉัน standing alone.",
+      "explanation": "Possession is thing + **ของ** + owner: บ้านของผม (house of me = my house), รถของเขา. In casual speech ของ drops out: บ้านผม, แม่ฉัน. 'Whose?' is ของใคร, and 'mine' is ของผม or ของฉัน standing alone.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1139,7 +1139,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "แล้ว after the verb phrase marks done/already: กินแล้ว (eaten already — the natural answer to 'have you eaten?'), เขาไปแล้ว (he's already gone). It also chains events: อาบน้ำแล้วนอน (shower, then sleep). กำลัง…อยู่แล้ว combos come next lesson.",
+      "explanation": "แล้ว after the verb phrase marks done/already: กินแล้ว (eaten already — the natural answer to 'have you eaten?'), เขาไปแล้ว (he's already gone). It also chains events: อาบน้ำแล้วนอน (shower, then sleep). It is what answers a …หรือยัง question (…yet?): กินข้าวหรือยัง — แล้ว (already) or ยัง (not yet).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1230,7 +1230,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "กำลัง before the verb, อยู่ after — use either or both: ผมกำลังกินข้าวอยู่ (I am eating right now). กำลังจะ = about to: เรากำลังจะออก (we're about to leave). อยู่ alone after a verb also works: ทำงานอยู่ (working at the moment).",
+      "explanation": "Thai frames the verb to say 'right now' — กำลัง in front, อยู่ behind, either half or both:\n\n- กำลัง + verb: กำลังกินข้าว (eating)\n- verb + อยู่: ทำงานอยู่ (working at the moment)\n- both together: ผมกำลังกินข้าวอยู่ (I am eating right now)\n\nกำลังจะ is 'about to': เรากำลังจะออก (we're about to leave).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1321,7 +1321,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "AFTER the verb = can/ability: พูดไทยได้ (can speak Thai), กินเผ็ดไม่ได้ (can't eat spicy). BEFORE the verb = got to/did (attainment past): ผมได้ไปเชียงใหม่ (I got to go / went to Chiang Mai). In requests: ได้ไหม = may I / is it OK? — ขอนั่งได้ไหม.",
+      "explanation": "**ได้** does three jobs, and its position decides which.\n\n- After the verb — can, ability: พูดไทยได้ (can speak Thai), กินเผ็ดไม่ได้ (can't eat spicy).\n- Before the verb — got to, did (attainment past): ผมได้ไปเชียงใหม่ (I got to go / went to Chiang Mai).\n- ได้ไหม closing a question — may I, or can you: ขอนั่งได้ไหม (may I sit here?), กินเผ็ดได้ไหม (can you eat spicy food?).\n\nThe negative splits the same way: before the verb, ไม่ได้ says the action did not happen (ไม่ได้บอกใคร — I didn't tell anyone); after the verb, it says it was impossible (กินไม่ได้ — can't eat).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1412,7 +1412,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "All sit before the verb: ต้องไป (must go), ควรพัก (should rest), อยากกิน (want to eat — for wanting THINGS use อยากได้). Negatives: ไม่ต้อง (don't have to!), ไม่ควร (shouldn't), ไม่อยาก (don't want to). ต้องการ is the formal 'need'.",
+      "explanation": "All sit before the verb: ต้องไป (must go), ควรพัก (should rest), อยากกิน (want to eat).\n\n| meaning | before the verb | negated |\n| --- | --- | --- |\n| must | ต้อง | ไม่ต้อง |\n| should | ควร | ไม่ควร |\n| want to | อยาก | ไม่อยาก |\n\nไม่ต้อง is 'don't have to', never 'must not' — that is อย่า before the verb. For wanting a THING rather than an action use อยากได้; ต้องการ is the formal 'need'.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1613,7 +1613,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Plain verb: give — เขาให้เงินฉัน (he gave me money). Benefactive: verb + ให้ = do FOR someone: แม่ทำอาหารให้ (mum cooks for me), เปิดประตูให้หน่อย (open the door for me). Causative: ให้ + person + verb = have/let someone do: หมอให้ผมพัก (the doctor had me rest).",
+      "explanation": "**ให้** does three jobs.\n\n- Plain verb, give: เขาให้เงินฉัน (he gave me money).\n- Benefactive, verb + ให้ — do it FOR someone: แม่ทำอาหารให้ (mum cooks for me), เปิดประตูให้หน่อย (open the door for me).\n- Causative, ให้ + person + verb — have or let someone do it: หมอให้ผมพัก (the doctor had me rest).\n\nNegated, the causative withholds permission: พ่อไม่ให้ผมไปคนเดียว (dad won't let me go alone).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1704,7 +1704,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Comparative: adjective + กว่า — แพงกว่า (more expensive), ใหญ่กว่าบ้านผม (bigger than my house). Superlative: adjective + ที่สุด — อร่อยที่สุด (the most delicious). Equality: เท่ากัน (equal) / เหมือนกัน (same).",
+      "explanation": "- Comparative — adjective + กว่า: แพงกว่า (more expensive), ใหญ่กว่าบ้านผม (bigger than my house).\n- Superlative — adjective + ที่สุด: อร่อยที่สุด (the most delicious).\n- Equality — เท่ากัน (equal), เหมือนกัน (same).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1795,7 +1795,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "เคย before the verb = have ever / used to: ผมเคยไปภูเก็ต (I've been to Phuket), เขาเคยสอนที่นี่ (he used to teach here). Question: เคย…ไหม (ever…?). Negative: ไม่เคย (never): ฉันไม่เคยกินทุเรียน (I've never eaten durian).",
+      "explanation": "**เคย** before the verb = have ever / used to.\n\n- Statement: ผมเคยไปภูเก็ต (I've been to Phuket), เขาเคยสอนที่นี่ (he used to teach here).\n- Question: เคย…ไหม (ever…?).\n- Negative: ไม่เคย (never) — ฉันไม่เคยกินทุเรียน (I've never eaten durian).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1884,7 +1884,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "ขอ + noun + หน่อย asks for things: ขอน้ำหน่อย (some water, please). ช่วย + verb + หน่อย asks for actions: ช่วยเปิดหน้าต่างหน่อย (please open the window). หน่อย ('a little') is the pillow that softens it; add ครับ/ค่ะ and you're fully polite.",
+      "explanation": "- ขอ + noun + หน่อย asks for a thing: ขอน้ำหน่อย (some water, please).\n- ขอ + verb asks leave to do something yourself: ขอลองใส่หน่อย (let me try it on).\n- ช่วย + verb + หน่อย asks the other person to act: ช่วยเปิดหน้าต่างหน่อย (please open the window).\n\nหน่อย ('a little') is the pillow that softens all three; add ครับ/ค่ะ and you're fully polite.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -1972,7 +1972,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "ก็ (gɔ̂ɔ) links topic to comment: ถ้าฝนตก เราก็ไม่ไป (if it rains, then we don't go); softens answers: ก็ดีนะ (well, that's nice); means 'also': ผมก็หิว (I'm hungry too); and fills pauses: ก็… (well…). Learn its rhythm and Thai starts flowing.",
+      "explanation": "**ก็** (gɔ̂ɔ) links topic to comment. It stands right before the verb, after the subject — and at the head of the clause when the subject is left out.\n\n- Then, so: ถ้าฝนตก เราก็ไม่ไป (if it rains, then we don't go).\n- Also, too: ผมก็หิว (I'm hungry too).\n- Softening an answer: ก็ดีนะ (well, that's nice).\n- Filling a pause: ก็… (well…).\n\nLearn its rhythm and Thai starts flowing.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2152,7 +2152,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "After verbs of saying/thinking/knowing, ว่า opens the clause: คิดว่า… (think that), บอกว่า… (say that), รู้ว่า… (know that), ได้ยินว่า… (hear that). Questions embed with ว่า + question word: ไม่รู้ว่าเขาอยู่ไหน (don't know where he is).",
+      "explanation": "After verbs of saying/thinking/knowing, ว่า opens the clause: คิดว่า… (think that), บอกว่า… (say that), รู้ว่า… (know that), ได้ยินว่า… (hear that). Questions embed with ว่า + question word: ไม่รู้ว่าเขาอยู่ไหน (don't know where he is). A yes/no question embeds the same way, with หรือเปล่า closing it: ไม่แน่ใจว่าเขาจะมาหรือเปล่า (not sure whether he's coming).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2506,7 +2506,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "ทำให้ + (someone) + state = make/cause: ข่าวนี้ทำให้ผมดีใจ (this news makes me happy), ฝนทำให้รถติด (rain causes traffic). Person-on-person: เขาทำให้ฉันหัวเราะ (he makes me laugh). Contrast with plain ให้-causative (have someone do) — ทำให้ is about RESULTS.",
+      "explanation": "ทำให้ names the cause of a state: cause + ทำให้ + whoever or whatever is affected + the resulting state.\n\nข่าวนี้ทำให้ผมดีใจ (this news makes me happy), ฝนทำให้รถติด (rain causes traffic jams), เขาทำให้ฉันหัวเราะ (he makes me laugh).\n\nThe cause can be a thing, an event or a person, and a question word can stand in its place: อะไรทำให้คุณเปลี่ยนใจ (what made you change your mind?).\n\nDo not confuse it with plain ให้, the other causative: ให้ + person + verb has someone DO something — แม่ให้ผมไปซื้อของ (mother has me go shopping). ทำให้ is about the result instead.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2597,7 +2597,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "ยัง + verb = still: เขายังทำงานอยู่ (he's still working). ยังไม่ + verb = not yet: ผมยังไม่ได้กิน (I haven't eaten yet). The classic exchange: กินข้าวหรือยัง (eaten yet?) — ยัง (not yet — one word suffices!) or กินแล้ว (already have).",
+      "explanation": "**ยัง** sits before the verb and says the situation has not moved on yet — 'still' in a positive sentence, 'not yet' in a negative one.\n\n- ยัง + verb, usually closed by อยู่ = still: เขายังทำงานอยู่ (he's still working)\n- ยังไม่ + verb = not yet: ผมยังไม่ได้กิน (I haven't eaten yet)\n- …หรือยัง on the end of a question = '…yet?': กินข้าวหรือยัง (have you eaten yet?)\n\nOne word answers that question: ยัง (not yet) or กินแล้ว (I have).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2686,7 +2686,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "เพราะ(ว่า) = because: ผมไม่ไปเพราะฝนตก. เลย = so/therefore (and 'completely' as an intensifier): ฝนตก เลยไม่ไป (it rained, so [I] didn't go). ดังนั้น is the formal 'therefore'. เพราะฉะนั้น bridges speech and writing.",
+      "explanation": "Thai marks cause and consequence with different words; the everyday spoken pair is เพราะ … เลย.\n\n- เพราะ, fuller เพราะว่า — because, in front of the reason: ผมไม่ไปเพราะฝนตก (I'm not going because it's raining)\n- เลย — so, therefore, heading the consequence clause, often as ก็เลย: ฝนตก เลยไม่ไป (it rained, so I didn't go)\n- ดังนั้น — the formal therefore, for writing and speeches\n- เพราะฉะนั้น — so, therefore; at home in speech and writing alike\n\nเลย also intensifies, sitting after what it strengthens: อร่อยมากเลย (so delicious!), ไม่ชอบเลย (don't like it at all).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2767,7 +2767,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "นะ softens and warms: ไปนะ (I'm off, okay?), อร่อยนะ (tasty, isn't it). สิ urges: มาสิ (come on!), นั่งสิ (do sit). ล่ะ asks 'and…?/what about': แล้วคุณล่ะ (and you?). หรอก corrects gently in negatives: ไม่แพงหรอก (it's not expensive, really). Mastering these is mastering spoken Thai.",
+      "explanation": "Thai puts the emotional temperature of a sentence in the particle at its very end:\n\n- นะ softens and warms: ไปนะ (I'm off, okay?), อร่อยนะ (tasty, isn't it)\n- สิ urges: มาสิ (come on!), นั่งสิ (do sit)\n- ล่ะ asks 'and…? / what about…?': แล้วคุณล่ะ (and you?)\n- หรอก gently contradicts what the other person assumed, most often after a negative: ไม่แพงหรอก (it's not expensive, really)\n\nThey follow the verb phrase and come before ครับ/ค่ะ, so the polite version simply adds the politeness particle: ไม่แพงหรอกครับ. Mastering these is mastering spoken Thai.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2859,7 +2859,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "กัน after the verb = together/each other: ไปกัน (let's go — together), รักกัน (love each other), เจอกันพรุ่งนี้ (see each other tomorrow). ช่วยกัน (help each other/all pitch in), ด้วยกัน (together with — stressed). กันเอง = among ourselves/informal.",
+      "explanation": "กัน comes after the verb and makes the action mutual or joint — 'each other', or 'together'.\n\nไปกัน (let's go, together), รักกัน (love each other), เจอกันพรุ่งนี้ (see each other tomorrow), ช่วยกัน (help each other, all pitch in).\n\nTwo fixed forms build on it: ด้วยกัน is the emphatic 'together as a group', and กันเอง means 'among ourselves' — informal, no outsiders present.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -2940,7 +2940,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Thai loves topic-comment: เรื่องนี้ ผมไม่รู้ (this matter — I don't know), อาหารไทย ฉันชอบมาก (Thai food — I like a lot). The fronted topic needs no linking word; a pause (or นะ/เนี่ย in speech) does the work. This is why word-for-word translation from English sounds stiff.",
+      "explanation": "Thai loves topic-comment: เรื่องนี้ ผมไม่รู้ (this matter — I don't know), อาหารไทย ฉันชอบมาก (Thai food — I like a lot). The fronted topic needs no linking word; a pause (or นะ/เนี่ย in speech) does the work, and in writing that pause is a space — one of the few places Thai uses one. This is why word-for-word translation from English sounds stiff.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3020,7 +3020,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "การ + verb = the act of: การเรียน (studying), การเดินทาง (travelling). ความ + adjective/feeling = the quality of: ความสุข (happiness), ความรัก (love), ความจริง (truth). Wrong prefix is a classic error: การสุข ✗, ความเรียน ✗.",
+      "explanation": "Two prefixes make abstract nouns out of other words, and they are not interchangeable.\n\nการ goes on an action verb and names the activity itself: การเรียน (studying), การเดินทาง (travelling), การประชุม (a meeting), การออกกำลังกาย (exercising).\n\nความ goes on an adjective, or on a verb of feeling or thinking, and names the quality or state: ความสุข (happiness), ความรัก (love), ความจริง (truth), ความคิด (a thought).\n\nSo the split is not simply verb against adjective — รัก and คิด are verbs too, but they are verbs of the mind, so they take ความ. Using the wrong prefix is a classic error: การสุข ✗, ความเรียน ✗.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3120,7 +3120,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "The repeat sign ๆ (ไม้ยมก) doubles the word before it. Nouns → plural-ish/collective: เด็กๆ (kids). Adjectives → softened: เร็วๆ (quickish/quickly now!), ใกล้ๆ (nearby). Adverbs of manner: ช้าๆ (slowly), ดีๆ (properly). Tone-changed doubling intensifies in speech.",
+      "explanation": "The repeat sign **ๆ** (ไม้ยมก) doubles the word in front of it, and what the doubling does depends on the word:\n\n- a noun goes plural or collective: เด็กๆ (kids), ผู้ใหญ่ๆ (the grown-ups)\n- an adjective is softened or made approximate: ใกล้ๆ (nearby), แดงๆ (reddish)\n- an adverb of manner is doubled in instructions: พูดช้าๆ (speak slowly), ฟังดีๆ (listen properly), เร็วๆเข้า (get a move on)\n- a quantifier spreads out into 'various different ones': หลายๆ คน (several different people)\n\nIn speech the first copy can be raised to a high tone for emphasis, and the spelling follows: ดี๊ดี (really good).",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3211,7 +3211,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Thai vocabulary comes in register sets. 'Eat': กิน (plain) → ทาน (polite) → รับประทาน (formal). 'I': กู (crude) → ฉัน/ผม (standard) → ดิฉัน/กระผม (formal). Choosing the rung IS the politeness — particles alone can't rescue a crude verb. Restaurants and hosts say ทาน; announcements say รับประทาน.",
+      "explanation": "Thai vocabulary comes in register sets: one meaning, several words, each pitched at a different level. Choosing the rung IS the politeness — a particle on the end cannot rescue a verb from the wrong one.\n\n| Rung | 'to eat' |\n| --- | --- |\n| plain | กิน |\n| polite | ทาน |\n| formal | รับประทาน |\n\nRestaurants and hosts say ทาน; announcements and medicine labels say รับประทาน.\n\nThe pronouns run the same ladder: กู is the crude rung, ผม (a man speaking) and ฉัน (a woman speaking) are the everyday standard, and กระผม and ดิฉัน are the formal counterparts you use to introduce yourself at a meeting.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3311,7 +3311,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Real Thai talk swaps I/you for kinship and names: พี่ (older sibling — to/by anyone slightly older), น้อง (younger — also to waiters), ลุง/ป้า (uncle/auntie — older folks), หนู ('mouse' — young women/children about themselves), ครู/หมอ (teachers/doctors as 'I'), and one's own NICKNAME as 'I'. Reading who calls whom what is reading the whole social map.",
+      "explanation": "Real Thai conversation swaps I and you for kinship terms, titles and names. One word covers both persons — who is meant comes from who is speaking:\n\n- พี่ — older sibling, to or by anyone a little older than you\n- น้อง — younger sibling, and how you address waiters and shop staff\n- ลุง / ป้า — uncle and auntie, for people of your parents' age\n- หนู — literally 'mouse': a child or a young woman saying I, and an adult saying you to a child\n- ครู / หมอ — a teacher or a doctor referring to themselves by profession\n\nSpeakers also use their own nickname where English says I. Reading who calls whom what is reading the whole social map.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3402,7 +3402,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Elevated Thai loves four-syllable compounds that pair near-synonyms for rhythm: สะดวกสบาย (convenient-comfortable), เรียบร้อย (neat and proper), ปลอดภัย…​ pairs like ถูกต้องเหมาะสม (correct and appropriate), บ้านเรือน (houses-homes = housing). Using them signals education; overusing them signals a textbook.",
+      "explanation": "Polished Thai pairs two near-synonyms into a single compound. Four syllables is the classic length, but two-syllable pairs work the same way and are just as common:\n\n- สะดวกสบาย — convenient and comfortable\n- ถูกต้องเหมาะสม — correct and appropriate\n- ความสุขความเจริญ — happiness and prosperity, the standard blessing\n- เรียบร้อย — neat and proper\n- เงียบสงบ — quiet and peaceful\n- บ้านเรือน — houses and homes, so housing\n\nThe same taste for length runs through formal set phrases: เดินทางโดยสวัสดิภาพ (travel in safety). Using them signals an educated speaker; using them constantly signals a textbook.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3491,7 +3491,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Thai keeps a separate royal register (ราชาศัพท์) for royalty and, partly, monks: เสวย (eat), บรรทม (sleep), เสด็จ (go), พระราชทาน (give), สวรรคต (die). News about the royal family uses it exclusively — learners need recognition, not production. Monk-language overlaps: ฉัน (a monk eating!), จำวัด (a monk sleeping).",
+      "explanation": "Thai keeps a separate royal register, ราชาศัพท์, for the royal family, with a partly overlapping set for monks. Palace news uses it throughout, so what a learner needs is recognition, not production.\n\n| Everyday | Royal | Meaning |\n| --- | --- | --- |\n| กิน | เสวย | eat |\n| นอน | บรรทม | sleep |\n| ไป | เสด็จ | go |\n| ให้ | พระราชทาน | give |\n| ตาย | สวรรคต | die |\n\nGiving has a direction, and each direction has its own verb: พระราชทาน is a royal giving down to a commoner, ถวาย is a commoner offering up to a king or a monk. สวรรคต belongs to the king and queen; other ranks of the family have verbs of their own.\n\nThe monks' vocabulary overlaps without matching: ฉัน is a monk eating — the same shape as the ordinary pronoun ฉัน — and จำวัด is a monk sleeping.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",
@@ -3575,7 +3575,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Written Thai runs words together; SPACES separate clauses and sentences, not words. Abbreviation marks: ฯ clips long names (กรุงเทพฯ), ฯลฯ = etc., ๆ repeats. Numbers: Thai digits ๑๒๓ survive in formal documents. Vowels wrap consonants (เ- comes BEFORE its consonant) — so scanning, not spelling-out, is the reading skill; segmentation comes from vocabulary, which is why reading fluency tracks word knowledge almost perfectly.",
+      "explanation": "Written Thai runs its words together. A space is punctuation: it separates clauses and sentences, never words, so the reader segments from vocabulary — which is why reading speed tracks how many words you know almost exactly.\n\nThree marks do the abbreviating and the repeating:\n\n- ฯ (ไปยาลน้อย) clips a long name: กรุงเทพฯ for กรุงเทพมหานคร\n- ฯลฯ (ไปยาลใหญ่) is 'and so on, etc.'\n- ๆ (ไม้ยมก) repeats the word in front of it: เด็กๆ\n\nThai digits (๐ ๑ ๒ ๓ …) survive in formal documents, dates and page numbers alongside the Arabic ones.\n\nFive vowel signs are written BEFORE the consonant they are pronounced after — เ, แ, โ, ใ, ไ — as in เมา, so reading Thai is scanning whole shapes rather than spelling out letters in order.",
       "references": [
         {
           "title": "Wikipedia: Thai grammar",

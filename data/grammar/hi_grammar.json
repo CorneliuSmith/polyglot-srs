@@ -40,7 +40,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Hindi sentences put the verb at the end: मैं सेब खाता हूँ (I apple eat-am) = 'I eat an apple.' Everything else — time, place, objects — comes before the verb, usually in the order subject, time, place, object, verb. There is no word for 'a' or 'the': किताब can mean 'a book' or 'the book' depending on context.",
+      "explanation": "Hindi sentences put the verb at the end: **मैं सेब खाता हूँ** (I apple eat-am) = 'I eat an apple.' Everything else — time, place, objects — comes before the verb, usually in the order subject, time, place, object, verb.\n\nThere is no word for 'a' or 'the': किताब can mean 'a book' or 'the book' depending on context.",
       "culture_note": "Because the verb carries person and gender endings, Hindi often drops pronouns once the subject is clear — context does the work.",
       "references": [
         {
@@ -116,7 +116,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Hindi has three words for 'you': तू (intimate — small children, God, very close friends; easily rude), तुम (informal — friends, younger people; takes plural-style verb forms), and आप (respectful — elders, strangers, teachers; takes plural verb forms). The other pronouns: मैं (I), हम (we), यह/ये (this/these, he/she nearby), वह/वे (that/those, he/she far). Hindi has no separate 'he' vs 'she' — यह and वह cover both; the VERB ending shows gender.",
+      "explanation": "Hindi has three words for 'you':\n\n- तू — intimate: small children, God, very close friends; easily rude\n- तुम — informal: friends, younger people; takes plural-style verb forms\n- आप — respectful: elders, strangers, teachers; takes plural verb forms\n\nThe other pronouns: मैं (I), हम (we), यह/ये (this/these, he/she nearby), वह/वे (that/those, he/she far).\n\nHindi has no separate 'he' vs 'she' — यह and वह cover both; the VERB ending shows gender.",
       "culture_note": "When in doubt, use आप. Using तू with a stranger is genuinely offensive, and many families use आप even with each other.",
       "references": [
         {
@@ -203,7 +203,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "होना (to be) in the present: मैं हूँ (I am), यह/वह है (he/she/it is), तुम हो (you are, informal), हम/आप/ये/वे हैं (we/you-formal/they are). Unlike Russian or Arabic, Hindi NEVER drops the copula: 'I student' is wrong; you must say मैं छात्र हूँ. The nasal marks matter: हूँ and हैं are nasalized, है is not.",
+      "explanation": "होना (to be) in the present:\n\n| Person | Pronoun | Form |\n| --- | --- | --- |\n| I | मैं | हूँ |\n| you, intimate | तू | है |\n| he / she / it | यह / वह | है |\n| you, informal | तुम | हो |\n| we | हम | हैं |\n| you, respectful | आप | हैं |\n| they | ये / वे | हैं |\n\nUnlike Russian or Arabic, Hindi NEVER drops the copula: 'I student' is wrong; you must say मैं छात्र हूँ.\n\nThe nasal marks matter: हूँ and हैं are nasalized, है is not.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -289,7 +289,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Every Hindi noun is masculine or feminine. Rules of thumb: nouns ending in -ा are usually masculine (लड़का boy, कमरा room), nouns ending in -ी are usually feminine (लड़की girl, कुर्सी chair). But many nouns end in neither (घर house — masc., किताब book — fem., मेज़ table — fem.) and must be memorized with their gender. Gender controls verb endings and adjective endings, so it is not decoration — खाता हूँ (male speaker) vs खाती हूँ (female speaker).",
+      "explanation": "Every Hindi noun is masculine or feminine. Rules of thumb:\n\n| Ending | Gender | Examples |\n| --- | --- | --- |\n| -ा | usually masculine | लड़का boy, कमरा room |\n| -ी | usually feminine | लड़की girl, कुर्सी chair |\n\nBut many nouns end in neither (घर house — masc., किताब book — fem., मेज़ table — fem.) and must be memorized with their gender.\n\nGender controls verb endings and adjective endings, so it is not decoration — खाता हूँ (male speaker) vs खाती हूँ (female speaker).",
       "culture_note": "Loanwords get genders too: ट्रेन (train) is feminine, फ़ोन masculine. Native speakers disagree about some recent loans.",
       "references": [
         {
@@ -365,7 +365,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Masculine -ा nouns change to -े: लड़का → लड़के (boys), कमरा → कमरे. Masculine nouns NOT ending in -ा stay the same: घर → घर (houses). Feminine -ी nouns take -ियाँ: लड़की → लड़कियाँ (girls). Other feminine nouns take -ें: किताब → किताबें (books), मेज़ → मेज़ें. Adjectives and verbs agree: अच्छे लड़के (good boys), अच्छी लड़कियाँ (good girls).",
+      "explanation": "How a noun forms its plural depends on its gender and its ending:\n\n| Noun type | Plural ending | Examples |\n| --- | --- | --- |\n| masculine in -ा | -े | लड़का → लड़के, कमरा → कमरे |\n| masculine, any other ending | unchanged | घर → घर |\n| feminine in -ी | -ियाँ | लड़की → लड़कियाँ, कुर्सी → कुर्सियाँ |\n| feminine, any other ending | -ें | किताब → किताबें, मेज़ → मेज़ें |\n\nAdjectives and verbs agree: अच्छे लड़के (good boys), अच्छी लड़कियाँ (good girls).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -440,7 +440,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Where English has prepositions, Hindi has POSTpositions — they follow the noun: घर में (in the house), मेज़ पर (on the table), दिल्ली से (from Delhi), राम को (to Ram). The big four: में (in), पर (on/at), से (from/with/by), को (to — marks the receiver, and specific objects). The noun before a postposition changes to its oblique form — covered in its own lesson soon.",
+      "explanation": "Where English has prepositions, Hindi has POSTpositions — they follow the noun: घर में (in the house), मेज़ पर (on the table), दिल्ली से (from Delhi), राम को (to Ram).\n\nThe big four: में (in), पर (on/at), से (from/with/by), को (to — marks the receiver, and specific objects).\n\nThe noun before a postposition changes to its oblique form — covered in its own lesson soon.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -515,7 +515,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "'X's Y' is X का/के/की Y. The form agrees with the thing OWNED (Y), not the owner: राम का घर (Ram's house — masc. sing.), राम के घर (Ram's houses — masc. pl., and also before postpositions), राम की किताब (Ram's book — fem.). Personal pronouns have their own forms: मेरा/मेरे/मेरी (my), हमारा (our), तुम्हारा (your), आपका (your — respectful), उसका (his/her), उनका (their).",
+      "explanation": "'X's Y' is X का/के/की Y. The form agrees with the thing OWNED (Y), not the owner:\n\n| Form | The thing owned is | Example |\n| --- | --- | --- |\n| का | masculine singular | राम का घर |\n| के | masculine plural, or masculine singular before a postposition | राम के घर |\n| की | feminine, singular or plural | राम की किताब |\n\nPersonal pronouns have their own forms: मेरा/मेरे/मेरी (my), हमारा (our), तुम्हारा (your), आपका (your — respectful), उसका (his/her), उनका (their).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -601,7 +601,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "The habitual present = verb stem + ता/ती/ते + the matching form of होना: मैं खाता हूँ (I eat — male), मैं खाती हूँ (I eat — female), वह खाता है (he eats), वह खाती है (she eats), हम खाते हैं (we eat), वे खाती हैं (they eat — all female). The participle agrees in GENDER and NUMBER with the subject; होना agrees in person. Use it for routines (मैं रोज़ चलता हूँ — I walk every day) and facts.",
+      "explanation": "The habitual present = verb stem + `ता`/`ती`/`ते` + the matching form of होना:\n\n| Subject | Form |\n| --- | --- |\n| I, male | मैं खाता हूँ |\n| I, female | मैं खाती हूँ |\n| he | वह खाता है |\n| she | वह खाती है |\n| you, informal | तुम खाते हो |\n| you, respectful | आप खाते हैं |\n| we | हम खाते हैं |\n| they, all female | वे खाती हैं |\n\nThe participle agrees in GENDER and NUMBER with the subject; होना agrees in person.\n\nUse it for routines (मैं रोज़ चलता हूँ — I walk every day) and facts.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -687,7 +687,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "नहीं goes right before the verb: मैं मांस नहीं खाता (I don't eat meat). In the habitual present, the final होना is usually dropped under negation: वह नहीं आता (he doesn't come — no है needed). For negative commands use मत: मत जाओ (don't go). ना is a softer 'don't' used with polite requests and in casual speech.",
+      "explanation": "Hindi has three negators:\n\n- नहीं — the everyday 'not', right before the verb: मैं मांस नहीं खाता (I don't eat meat)\n- मत — for negative commands: मत जाओ (don't go)\n- ना — a softer 'don't', for polite requests and casual speech\n\nIn the habitual present the final होना is usually dropped under negation: वह नहीं आता (he doesn't come — no है needed).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -762,7 +762,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "Sentence-initial क्या turns a statement into a yes/no question without changing word order: क्या आप चाय पीएँगे? (Will you have tea?). In speech, rising intonation alone also works. The question words sit where the answer would sit (usually just before the verb): क्या (what), कौन (who), कहाँ (where), कब (when), क्यों (why), कैसा/कैसे (how), कितना (how much), कौन-सा (which).",
+      "explanation": "Sentence-initial क्या turns a statement into a yes/no question without changing word order: क्या आप चाय पीएँगे? (Will you have tea?). In speech, rising intonation alone also works.\n\nThe question words sit where the answer would sit (usually just before the verb): क्या (what), कौन (who), कहाँ (where), कब (when), क्यों (why), कैसा/कैसे (how), कितना (how much), कौन-सा (which).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -837,7 +837,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 11,
-      "explanation": "Each 'you' has its own command form. तुम: stem + ओ — बैठो (sit), आओ (come), करो (do). आप: stem + इए — बैठिए (please sit), कीजिए (please do), दीजिए (please give); irregulars: करना → कीजिए, देना → दीजिए, लेना → लीजिए, पीना → पीजिए. Adding ज़रा (just/kindly) or कृपया (please, formal) softens further. The bare stem is the तू command (बैठ!) — too blunt for learners to need.",
+      "explanation": "Each 'you' has its own command form.\n\nतुम commands are stem + ओ: बैठो (sit), आओ (come), करो (do).\n\nआप commands are stem + इए: बैठिए (please sit), कीजिए (please do), दीजिए (please give).\n\nFour common आप forms are irregular: करना → कीजिए, देना → दीजिए, लेना → लीजिए, पीना → पीजिए.\n\nAdding ज़रा (just/kindly) or कृपया (please, formal) softens further.\n\nThe bare stem is the तू command (बैठ!) — too blunt for learners to need.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -922,7 +922,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 12,
-      "explanation": "For possessions you can pick up: X के पास Y है — मेरे पास एक गाड़ी है (I have a car; literally 'near me a car is'). For relatives and body parts: का/के/की — राम के दो भाई हैं (Ram has two brothers). For states, feelings, and illnesses: को — मुझे बुख़ार है (I have a fever; 'to-me fever is'). Choosing the right one is the whole lesson: possessions → के पास, people → के, states → को.",
+      "explanation": "Three constructions share the job:\n\n- things you can pick up: X के पास Y है — मेरे पास एक गाड़ी है (I have a car; literally 'near me a car is')\n- relatives and body parts: का/के/की — राम के दो भाई हैं (Ram has two brothers)\n- states, feelings and illnesses: को — मुझे बुख़ार है (I have a fever; 'to-me fever is')\n\nChoosing the right one is the whole lesson: possessions → के पास, relatives → का/के/की, states → को.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -997,7 +997,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Any noun directly followed by a postposition switches to its OBLIQUE form. Masculine -ा nouns: -ा → -े (कमरा → कमरे में, in the room; लड़का → लड़के को, to the boy). Their plurals: -े → -ों (लड़कों को, to the boys). Feminine nouns don't change in the singular (लड़की को) but take -ों in the plural (लड़कियों को). Unmarked nouns: singular unchanged, plural -ों (घरों में). Adjectives and possessives shift too: मेरा → मेरे (मेरे घर में), बड़ा → बड़े (बड़े कमरे में).",
+      "explanation": "Any noun directly followed by a postposition switches to its OBLIQUE form: कमरा → कमरे में (in the room), लड़का → लड़के को (to the boy).\n\n| Noun type | Oblique singular | Oblique plural |\n| --- | --- | --- |\n| masculine in -ा | लड़के को | लड़कों को |\n| masculine, any other ending | घर में | घरों में |\n| feminine | लड़की को | लड़कियों को |\n\nMasculine -ा nouns take `-े` in the singular, and every plural takes `-ों` whatever the noun's type; feminine and unmarked singulars keep their direct form.\n\nAdjectives and possessives shift too: मेरा → मेरे (मेरे घर में), बड़ा → बड़े (बड़े कमरे में).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1072,7 +1072,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "The past of होना agrees in gender and number: था (masc. sing.), थी (fem. sing.), थे (masc. pl. / आप), थीं (fem. pl.): मैं वहाँ था (I was there — male), वह ख़ुश थी (she was happy), हम दोस्त थे (we were friends), वे अध्यापिकाएँ थीं (they were teachers — female). Combine with the habitual participle for 'used to': मैं रोज़ दौड़ता था (I used to run every day).",
+      "explanation": "The past of होना agrees in gender and number:\n\n| Gender | Singular | Plural |\n| --- | --- | --- |\n| masculine | था | थे |\n| feminine | थी | थीं |\n\nThe plural forms double as the respectful singular — थे for a man spoken to or about with respect (आप कहाँ थे?), and थीं for one respected woman.\n\nIn sentences: मैं वहाँ था (I was there — male), वह ख़ुश थी (she was happy), हम दोस्त थे (we were friends), वे अध्यापिकाएँ थीं (they were teachers — female).\n\nCombine with the habitual participle for 'used to': मैं रोज़ दौड़ता था (I used to run every day).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1147,7 +1147,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Stem + रहा/रही/रहे + होना: मैं खा रहा हूँ (I am eating — male), वह सो रही है (she is sleeping), हम पढ़ रहे हैं (we are studying). रहा agrees with the subject's gender and number; the stem never changes. Contrast with the habitual: मैं चाय पीता हूँ (I drink tea — in general) vs मैं चाय पी रहा हूँ (I am drinking tea — right now).",
+      "explanation": "Stem + रहा/रही/रहे + होना: मैं खा रहा हूँ (I am eating — male), वह सो रही है (she is sleeping), हम पढ़ रहे हैं (we are studying). रहा agrees with the subject's gender and number; the stem never changes. The feminine marker रही covers both numbers, so it is होना that shows the number: लड़कियाँ खेल रही हैं (the girls are playing). Contrast with the habitual: मैं चाय पीता हूँ (I drink tea — in general) vs मैं चाय पी रहा हूँ (I am drinking tea — right now).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1233,7 +1233,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "For verbs without an object (go, come, arrive, sleep), the perfective is the stem + -ा/-ई/-ए agreeing with the subject: वह गया (he went), वह गई (she went), हम आए (we came), वे पहुँचीं (they arrived — female). Irregulars to memorize: जाना → गया, करना → किया, देना → दिया, लेना → लिया, पीना → पिया, होना → हुआ. Transitive verbs work differently (the ने lesson is next — this one sets it up).",
+      "explanation": "For verbs with no object (go, come, arrive, sleep), the perfective is the stem plus `-ा`, `-ी`, `-े` or `-ीं`, agreeing with the subject:\n\n- masculine singular: वह गया (he went)\n- feminine singular: वह गई (she went)\n- masculine plural: हम आए (we came)\n- feminine plural: वे पहुँचीं (they arrived — women)\n\nIrregulars to memorize: जाना → गया, करना → किया, देना → दिया, लेना → लिया, पीना → पिया, होना → हुआ.\n\nTransitive verbs work differently — the ने lesson is next, and this one sets it up.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1308,7 +1308,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "With a TRANSITIVE verb in the perfective (completed) past, the subject takes ने and the verb agrees with the OBJECT, not the subject: मैंने किताब पढ़ी (I read the book — पढ़ी is feminine because किताब is feminine, regardless of who reads). राम ने आम खाया (Ram ate a mango — खाया masc. for आम). Pronouns fuse: मैं+ने → मैंने, उस+ने → उसने, किस+ने → किसने; तुम → तुमने, आप → आपने. If the object carries को, the verb goes to neutral masculine singular: मैंने सीता को देखा.",
+      "explanation": "With a TRANSITIVE verb in the perfective (completed) past, the subject takes ने and the verb agrees with the OBJECT, not the subject: मैंने किताब पढ़ी (I read the book — पढ़ी is feminine because किताब is feminine, regardless of who reads), राम ने आम खाया (Ram ate a mango — खाया masc. for आम).\n\nThe subject pronouns fuse with ने:\n\n| Subject | With ने |\n| --- | --- |\n| मैं | मैंने |\n| तुम | तुमने |\n| आप | आपने |\n| हम | हमने |\n| वह | उसने |\n| वे | उन्होंने |\n| कौन | किसने |\n\nIf the object carries को, the verb gives up agreement and goes to neutral masculine singular: मैंने सीता को देखा (I saw Sita).",
       "culture_note": "This split-ergative pattern is shared with Punjabi, Gujarati and Marathi — mastering it in Hindi buys you three more languages.",
       "references": [
         {
@@ -1384,7 +1384,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Future endings attach straight to the stem and agree in person AND gender: मैं जाऊँगा/जाऊँगी (I will go — m/f), तू जाएगा/जाएगी, वह करेगा/करेगी (he/she will do), तुम जाओगे/जाओगी, हम/वे जाएँगे/जाएँगी, आप जाएँगे. The pattern is the subjunctive stem + गा/गी/गे. Common irregular stems: होना → होगा (will be), देना → देगा, लेना → लेगा.",
+      "explanation": "Future endings attach straight to the stem and agree in person AND gender — जाना right through:\n\n| Person | Masculine | Feminine |\n| --- | --- | --- |\n| मैं | जाऊँगा | जाऊँगी |\n| तू | जाएगा | जाएगी |\n| वह | जाएगा | जाएगी |\n| तुम | जाओगे | जाओगी |\n| हम / वे | जाएँगे | जाएँगी |\n| आप | जाएँगे | जाएँगी |\n\nEvery verb takes the same endings: वह करेगी (she will do), हम शाम को मिलेंगे (we will meet in the evening).\n\nThe form is the subjunctive plus गा/गी/गे, so the irregular subjunctives carry straight over: होना → होगा (will be), देना → देगा (will give), लेना → लेगा (will take).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1620,7 +1620,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Hindi compares with से: X, Y से बड़ा है = 'X is bigger than Y' (literally 'X, from Y, is big') — the adjective itself never changes: दिल्ली मुंबई से बड़ी है? No '-er', no 'more'. The superlative is सबसे (than all): सबसे अच्छा (the best), सबसे लंबी सड़क (the longest road). ज़्यादा (more) and कम (less) appear when there is no adjective: मुझे चाय से ज़्यादा कॉफ़ी पसंद है.",
+      "explanation": "Hindi has no '-er' and no 'more': it compares with **से**. X, Y से बड़ा है = 'X is bigger than Y', literally 'X, from Y, is big'. The adjective has no comparative form of its own, but it still agrees with its noun: दिल्ली मुंबई से बड़ी है (Delhi is bigger than Mumbai — बड़ी is feminine for दिल्ली).\n\nThe superlative is सबसे, 'than all': सबसे अच्छा (the best), सबसे लंबी सड़क (the longest road).\n\nज़्यादा (more) and कम (less) step in where there is no adjective: मुझे चाय से ज़्यादा कॉफ़ी पसंद है (I like coffee more than tea).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1694,7 +1694,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "The subjunctive is the future minus गा/गी/गे: चलें (let's go), बैठें (let's sit), मैं आऊँ? (may I come?), क्या मैं यह लूँ? (may I take this?). It appears in suggestions (चाय पिएँ? — shall we have tea?), permission requests, and after क़ि/ताकि, चाहना: मैं चाहता हूँ कि तुम आओ (I want you to come — literally 'I want that you come').",
+      "explanation": "The subjunctive is the future minus गा/गी/गे: जाऊँगा → जाऊँ, चलेंगे → चलें, लूँगा → लूँ.\n\nIt does three jobs:\n\n- suggestions and offers: चलें (let's go), बैठें (let's sit), चाय पिएँ? (shall we have tea?)\n- permission: मैं आऊँ? (may I come?), क्या मैं यह लूँ? (may I take this?)\n- after कि and ताकि, and after चाहना: मैं चाहता हूँ कि तुम आओ (I want you to come — literally 'I want that you come')",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1769,7 +1769,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "A main verb stem + a 'vector' verb adds aspect and colour. लेना (toward self / for one's own benefit): खा लेना (eat up), पढ़ लेना (read through). देना (away / for another): दे देना (give away), बता देना (tell). जाना (completion / change of state): सो जाना (fall asleep), मर जाना (die), आ जाना (arrive/turn up). डालना (do decisively/violently), बैठना (do something regrettable). The vector loses its literal meaning; the first stem stays bare.",
+      "explanation": "A main verb stem plus a 'vector' verb adds aspect and colour:\n\n- लेना — towards the doer, for one's own benefit: खा लेना (eat up), पढ़ लेना (read through)\n- देना — away from the doer, for someone else: दे देना (give away), बता देना (tell)\n- जाना — completion or change of state: सो जाना (fall asleep), मर जाना (die), आ जाना (turn up)\n- डालना — doing it decisively or violently: कर डालना (get it done)\n- बैठना — doing something you regret: कह बैठना (blurt it out)\n\nजाना and आना keep their literal direction in the pair ले जाना (take away) and ले आना (bring).\n\nOtherwise the vector loses its literal meaning, and the first verb stays a bare stem: खा लिया, never खाया लिया.",
       "references": [
         {
           "title": "Wikipedia: Hindustani verbs",
@@ -1844,7 +1844,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Present perfect = perfective participle + present होना: वह आया है (he has come), मैंने खाया है (I have eaten). Past perfect = perfective participle + था: वह आया था (he had come). A cleaner 'already done' is stem + चुकना: मैं खा चुका हूँ (I have already eaten), फ़िल्म शुरू हो चुकी है (the film has already begun). चुकना stresses completion and can't take an object with ने.",
+      "explanation": "Three ways to say a thing is done:\n\n- present perfect: perfective participle + the present of होना — वह आया है (he has come), मैंने खाया है (I have eaten)\n- past perfect: the same participle + था, थी, थे or थीं — वह आया था (he had come)\n- 'already done': stem + चुकना — मैं खा चुका हूँ (I have already eaten), फ़िल्म शुरू हो चुकी है (the film has already begun)\n\nचुकना stresses completion, and its clause never takes ने even with a transitive verb: मैं खाना खा चुका हूँ, not मैंने. With था it gives 'had already': वह जा चुका था (he had already left).",
       "references": [
         {
           "title": "Wikipedia: Hindustani verbs",
@@ -1919,7 +1919,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Rising force: (1) infinitive + चाहिए = should/ought — मुझे जाना चाहिए (I should go). (2) infinitive + होना = am to / supposed to — मुझे कल जाना है (I have to go tomorrow, it's arranged). (3) infinitive + पड़ना = forced to by circumstance — मुझे जाना पड़ा (I had to go, no choice). The subject takes को (मुझे, उसे…), and the infinitive agrees with the object: मुझे यह किताब पढ़नी है (पढ़नी fem. for किताब).",
+      "explanation": "Three strengths of obligation, in rising order:\n\n1. infinitive + चाहिए — should, ought: मुझे जाना चाहिए (I should go)\n2. infinitive + होना — am to, it is arranged: मुझे कल जाना है (I have to go tomorrow)\n3. infinitive + पड़ना — forced to by circumstance, no choice: मुझे जाना पड़ा (I had to go)\n\nThe subject takes को — मुझे, तुम्हें, उसे, हमें, आपको — and the infinitive agrees with the object: मुझे यह किताब पढ़नी है (पढ़नी is feminine for किताब).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -1994,7 +1994,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Hindi links clauses with paired words rather than a single 'which/when'. जो… वह (the one who / that which… that): जो लड़का वहाँ खड़ा है, वह मेरा भाई है (the boy who is standing there, he is my brother). Other pairs: जब… तब (when… then), जहाँ… वहाँ (where… there), जैसा… वैसा (as… so), जितना… उतना (as much as… that much), जितने… उतने. The जो-clause usually comes FIRST; the correlative (वह/तब/वहाँ) picks it up in the main clause.",
+      "explanation": "Hindi links clauses with paired words rather than a single 'which' or 'when': जो लड़का वहाँ खड़ा है, वह मेरा भाई है (the boy who is standing there is my brother).\n\n| Relative | Correlative | Sense |\n| --- | --- | --- |\n| जो | वह | the one who, that which |\n| जब | तब | when, then |\n| जहाँ | वहाँ | where, there |\n| जैसा | वैसा | as, so |\n| जितना | उतना | as much as, that much |\n\nजितना and जैसा change form like adjectives and the correlative matches them: जितने… उतने for a plural.\n\nThe जो-clause usually comes FIRST, and the correlative — वह, तब, वहाँ — picks it up in the main clause.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -2069,7 +2069,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Real/open condition: अगर (or यदि) … तो with future or present: अगर बारिश होगी तो हम नहीं जाएँगे (if it rains, we won't go). Unreal/contrary-to-fact: both clauses use the imperfective participle + होता: अगर मैं अमीर होता तो घर ख़रीदता (if I were rich, I would buy a house — but I'm not). तो ('then') opens the main clause and is often kept even when अगर is dropped.",
+      "explanation": "Conditions are built on **अगर … तो** (यदि is the formal अगर), and what the two clauses do with tense says whether the condition is real or imagined:\n\n- real and open — future or present in both clauses: अगर बारिश होगी तो हम नहीं जाएँगे (if it rains, we won't go)\n- unreal now — the imperfective `-ता` participle in both clauses: अगर मैं अमीर होता तो घर ख़रीदता (if I were rich, I would buy a house — but I'm not)\n- unreal in the past — perfective participle + होता in the अगर-clause: अगर तुमने बताया होता तो मैं मदद करता (if you had told me, I would have helped)\n\nतो ('then') opens the main clause and is often kept even when अगर is dropped.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -2144,7 +2144,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Passive = perfective participle + जाना (conjugated): यहाँ हिंदी बोली जाती है (Hindi is spoken here), खाना बनाया जाता है (food is made), दरवाज़ा खोला गया (the door was opened). The participle agrees with the grammatical subject (बोली fem. for हिंदी). The agent, if named, takes के द्वारा or से. Passive of ability/incapacity: मुझसे यह नहीं खाया जाता (I can't (bring myself to) eat this).",
+      "explanation": "Passive = perfective participle + जाना, conjugated for the tense: यहाँ हिंदी बोली जाती है (Hindi is spoken here), खाना बनाया जाता है (food is made), दरवाज़ा खोला गया (the door was opened), पत्र कल भेजा जाएगा (the letter will be sent tomorrow). The participle agrees with the grammatical subject: बोली is feminine for हिंदी, भेजा masculine for पत्र. The agent, if it is named at all, takes के द्वारा or से. The same shape with से expresses incapacity: मुझसे यह नहीं खाया जाता (I can't bring myself to eat this).",
       "references": [
         {
           "title": "Wikipedia: Hindustani verbs",
@@ -2219,7 +2219,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Turn an adjective into an adverb with से: ध्यान से (attentively), आराम से (comfortably), जल्दी से (quickly). The conjunctive participle stem + कर (or के) means 'having done…, then…', chaining actions with one shared subject: खाना खाकर मैं सोया (having eaten, I slept), नहाकर वह गया (he bathed and left). की तरह = 'like' (शेर की तरह — like a lion); के बारे में = 'about'.",
+      "explanation": "Three constructions cover manner and chaining:\n\n- से turns a noun into a manner adverb: ध्यान से (attentively), आराम से (comfortably), जल्दी से (quickly).\n- The verb stem + कर (or के) is the conjunctive participle, 'having done…, then…': it chains actions that share one subject — खाना खाकर मैं सोया (having eaten, I slept), नहाकर वह गया (he bathed and left).\n- की तरह means 'like' (शेर की तरह — like a lion), and के बारे में 'about'.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -2294,7 +2294,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Many feeling/perception verbs make the experiencer take को (मुझे, तुम्हें, उसे…) and agree with the THING felt: मुझे यह पसंद है (I like this — 'to-me this is pleasing'), मुझे भूख लगी है (I'm hungry), मुझे लगता है कि… (I think that…), मुझे मालूम है (I know), उसे ग़ुस्सा आया (he got angry), मुझे हिंदी आती है (I know Hindi — 'Hindi comes to me'). What you like/know is the grammatical subject, so it drives the verb's gender.",
+      "explanation": "Many feeling/perception verbs make the experiencer take को (मुझे, तुम्हें, उसे…) and agree with the THING felt: मुझे यह पसंद है (I like this — 'to-me this is pleasing'), मुझे भूख लगी है (I'm hungry), मुझे लगता है कि… (I think that…), मुझे मालूम है (I know), उसे ग़ुस्सा आया (he got angry), मुझे हिंदी आती है (I know Hindi — 'Hindi comes to me'). What you like/know is the grammatical subject, so it drives the verb's gender and number.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -2369,7 +2369,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Hindi derives causatives systematically. Direct causative (I make X happen): often -ा-: बनना (to be made) → बनाना (to make), पढ़ना (to read) → पढ़ाना (to teach = cause to read), उठना (to rise) → उठाना (to lift). Indirect/second causative (I have it done via an agent): -वा-: बनवाना (to have made), पढ़वाना (to have taught), कटवाना (to get cut). The agent takes से: मैंने दर्ज़ी से कमीज़ सिलवाई (I had the tailor sew a shirt).",
+      "explanation": "Hindi builds causatives from one root in two steps. The direct causative inserts `-ा-` and makes you the one who acts: पढ़ना is to read, पढ़ाना to teach — to make someone read. The second causative inserts `-वा-` and puts an agent in between: पढ़वाना is to have someone taught, and that agent takes से — मैंने दर्ज़ी से कमीज़ सिलवाई (I had the tailor sew a shirt).\n\n| Verb | Direct causative | Second causative |\n| --- | --- | --- |\n| बनना | बनाना | बनवाना |\n| पढ़ना | पढ़ाना | पढ़वाना |\n| उठना | उठाना | उठवाना |\n| काटना | कटाना | कटवाना |\n| करना | कराना | करवाना |\n| खाना | खिलाना | खिलवाना |\n\nTwo adjustments recur: a long root vowel shortens before the suffix (काटना → कटाना, देखना → दिखाना), and a root that ends in a vowel takes `-ल-` (खाना → खिलाना, to feed; सोना → सुलाना, to put to sleep).",
       "references": [
         {
           "title": "Wikipedia: Hindustani verbs",
@@ -2518,7 +2518,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Beyond simple tenses, light verbs mark aspect. Stem-oblique + लगना = to start/begin: वह रोने लगा (he began to cry), बारिश होने लगी. Stem + रहना (with the -ता participle it's habitual continuity; as a vector it's persistence): पढ़ता रहा (kept studying), वह बैठा रहा (he remained seated). Present/past + जाना for gradual change: बड़ा होता जाता है (keeps getting bigger). किए जाना = keep on doing: वह बोले जा रहा था (he kept on talking).",
+      "explanation": "Beyond the simple tenses, a second verb marks aspect, and each one fixes the shape of the verb in front of it:\n\n- लगना, after the oblique infinitive, means 'begin': वह रोने लगा (he began to cry), बारिश होने लगी (it began to rain).\n- रहना, after a participle, means 'keep on': पढ़ता रहा (kept studying) with the imperfective, वह बैठा रहा (he remained seated) with the perfective.\n- चुकना, after the bare stem, says the action is already over: वह खाना खा चुका है (he has already eaten).\n- जाना, after the imperfective participle, marks gradual change: बड़ा होता जाता है (keeps getting bigger). After the perfective participle it means keeping on — the किए जाना pattern: वह बोले जा रहा था (he kept on talking).",
       "references": [
         {
           "title": "Wikipedia: Hindustani verbs",
@@ -2593,7 +2593,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Hindi reports speech with कि but does NOT shift tense or pronoun the way English does — it quotes almost directly: उसने कहा कि मैं आऊँगा (he said that 'I will come', i.e. he said he'd come — मैं stays first person!). This trips up English speakers: राम ने कहा कि वह थका है (Ram said that he is tired). कि also follows verbs of thinking/knowing/fearing: मुझे डर है कि… (I'm afraid that…), मुझे उम्मीद है कि… (I hope that…).",
+      "explanation": "Hindi reports speech with **कि**, but it does not move the tense the way English does: the clause keeps the tense the words had when they were spoken.\n\nThe pronoun often stays unshifted too, so the report reads as a near-direct quote: उसने कहा कि मैं आऊँगा (he said he would come — literally 'he said that I will come'). Shifting it is ordinary as well: राम ने कहा कि वह थका है (Ram said that he was tired — 'he is tired', the present he spoke in).\n\nकि also follows verbs of thinking, knowing, hoping and fearing: मुझे डर है कि… (I'm afraid that…), मुझे उम्मीद है कि… (I hope that…).",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -2668,7 +2668,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "The imperfective participle + हुए means 'while ­-ing': घर आते हुए मैंने उसे देखा (while coming home, I saw him), मुस्कुराते हुए (smilingly). The perfective participle + हुए describes a resulting state: कुर्सी पर बैठा हुआ आदमी (a man seated on a chair), थका हुआ (tired). Doubling a participle stresses duration: बैठे-बैठे थक गया (got tired just from sitting), सोचते-सोचते (while pondering on and on). All agree in gender/number with what they modify.",
+      "explanation": "The imperfective participle + हुए means 'while -ing': घर आते हुए मैंने उसे देखा (while coming home, I saw him), मुस्कुराते हुए (smilingly).\n\nThe perfective participle + हुआ describes a resulting state: कुर्सी पर बैठा हुआ आदमी (a man seated on a chair), मेज़ पर रखी हुई किताबें (books lying on the table), थका हुआ (tired).\n\nDoubling a participle stresses duration: बैठे-बैठे थक गया (got tired just from sitting), सोचते-सोचते (while pondering on and on).\n\nThe participles that modify a noun agree with it in gender and number (बैठा हुआ आदमी, रखी हुई किताबें), while the adverbial 'while -ing' phrase usually stays frozen in -ते हुए whatever the subject's gender: वह मुस्कुराते हुए अंदर आई (she came in smiling).",
       "references": [
         {
           "title": "Wikipedia: Hindustani verbs",
@@ -2818,7 +2818,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Hindi–Urdu share a grammar but draw vocabulary from two wells. Sanskritic (तत्सम) words dominate formal, literary, and governmental Hindi: धन्यवाद (thanks), प्रश्न (question), विद्यालय (school), समाचार (news). Perso-Arabic words dominate everyday speech, poetry, and Urdu: शुक्रिया (thanks), सवाल (question), स्कूल, ख़बर. A fluent speaker code-switches by audience: a news anchor says प्रश्न, a friend says सवाल. Choosing the wrong register sounds stilted or, conversely, too colloquial for the setting.",
+      "explanation": "Hindi–Urdu share a grammar but draw vocabulary from two wells. The Sanskritic (तत्सम) layer dominates formal, literary and governmental Hindi; the Perso-Arabic layer dominates everyday speech, poetry and Urdu.\n\n| Meaning | Sanskritic | Perso-Arabic |\n| --- | --- | --- |\n| thanks | धन्यवाद | शुक्रिया |\n| question | प्रश्न | सवाल |\n| news | समाचार | ख़बर |\n| book | पुस्तक | किताब |\n\nA fluent speaker code-switches by audience: a news anchor says प्रश्न, a friend says सवाल. Everyday speech also reaches for English, which belongs to neither well — विद्यालय is the formal word for school, स्कूल the one people actually say. Choosing the wrong register sounds stilted or, conversely, too colloquial for the setting.",
       "culture_note": "The nuqta (ख़, ग़, ज़, फ़, क़) marks Perso-Arabic sounds; dropping it (खबर for ख़बर) is common in casual writing but changes the 'correct' pronunciation.",
       "references": [
         {
@@ -2968,7 +2968,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Fluent Hindi runs on fixed expressions that don't translate literally. मन (mind/heart) drives desire: मेरा मन करता है (I feel like), मन लगना (to feel settled/engaged). दिल for emotion: दिल टूटना (heart to break). सिर for burdens: सिर पर सवार होना (to be obsessed with). Verbs like पड़ना, आना, लगना build hundreds: याद आना (to remember), नींद आना (to feel sleepy), काम आना (to be of use), हाथ लगना (to obtain). These experiencer idioms take को and are non-negotiable for sounding natural.",
+      "explanation": "Fluent Hindi runs on fixed expressions that don't translate literally. A body part supplies the seat of the feeling:\n\n- मन (mind/heart) drives desire and engagement: मेरा मन करता है (I feel like), मन लगना (to feel settled).\n- दिल carries emotion: दिल टूटना (for a heart to break).\n- सिर carries burdens: सिर पर सवार होना (to be obsessed with).\n\nA few verbs — आना, लगना, पड़ना — build hundreds more: याद आना (to remember), नींद आना (to feel sleepy), काम आना (to be of use), हाथ लगना (to obtain).\n\nThe आना and लगना idioms mark the experiencer with को (मुझे याद आया, बच्चे को नींद आ गई); the ones built on a body part take a possessive instead (मेरा मन करता है, उसका मन नहीं लगा). Either way, they are non-negotiable for sounding natural.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -3043,7 +3043,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Untranslatable particles do heavy lifting. तो marks contrast/topic/emphasis (मैं तो जा रहा हूँ — as for me, I'm going). ही = 'only/exactly/the very' (आज ही — this very day, वही — that exact one). भी = 'also/even' (मैं भी, एक भी नहीं — not even one). न softens or seeks agreement (चलो न — come on, आप आएँगे न? — you'll come, right?). वाला forms 'the one that/who' and imminence (जाने वाला — about to go, दूधवाला — the milkman, लाल वाली — the red one). Placement changes scope, so these reward careful ear-training.",
+      "explanation": "Untranslatable particles do heavy lifting.\n\n- तो marks contrast or topic: मैं तो जा रहा हूँ (as for me, I'm going).\n- ही is 'only, exactly, the very': आज ही (this very day), वही (that exact one).\n- भी is 'also, even': मैं भी (me too), एक भी नहीं (not even one).\n- न softens a command or seeks agreement: चलो न (come on), आप आएँगे न? (you'll come, right?).\n- वाला forms 'the one that/who' and marks imminence: लाल वाली किताब (the red book), दूधवाला (the milkman), ट्रेन आने वाली है (the train is about to arrive).\n\nवाला is the one of the five that inflects: वाला, वाली, वाले agree with the noun. Placement changes scope, so these reward careful ear-training.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -3118,7 +3118,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "The ने rule has real exceptions that even heritage speakers slip on. Some transitive verbs NEVER take ने: लाना (to bring — मैं किताब लाया, not लाई with ने), भूलना (to forget), बोलना and मिलना in many uses. Conjunct verbs split: बात करना takes ने (मैंने बात की) but the light-verb choice matters. When both a को-marked object and ने appear, the verb defaults to masculine singular (मैंने लड़कियों को देखा — देखा, not देखीं). Compound verbs with intransitive vectors can suppress ने (वह किताब पढ़ गया). Mastery means knowing which verbs opt out.",
+      "explanation": "The ने rule has real exceptions that even heritage speakers slip on.\n\n- A few transitive verbs never take ने at all: लाना, भूलना, बोलना. The verb then agrees with the subject — मैं किताब लाया (I brought a book, a man speaking), not मैंने किताब लाई. मिलना is often listed here too, but it is intransitive to begin with (मुझे किताब मिली), so ने was never on offer.\n- A conjunct verb follows its light verb: बात करना takes ने and agrees with बात (मैंने बात की), while a conjunct on होना never does (मुझसे ग़लती हुई).\n- When a को-marked object appears alongside ने, agreement switches off and the verb sits in the masculine singular: मैंने लड़कियों को देखा, not देखीं.\n- A transitive verb under an intransitive vector loses ने with it: वह पूरी किताब पढ़ गया, माँ बच्चे को डाँट बैठी.",
       "references": [
         {
           "title": "Wikipedia: Hindustani grammar",
@@ -3193,7 +3193,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Elevated registers bend the everyday rules. Word order inverts for emphasis or metre — the verb may precede its subject, objects front: सुना है लोगों से (I've heard from people…). The Persian izāfat (-e-) links noun to modifier in Urdu-heritage phrases: शमा-ए-महफ़िल (the gathering's flame), तर्ज़-ए-बयाँ (manner of expression). Postpositions and even the copula drop in verse (दिल है कि मानता नहीं). Compound Persian/Sanskrit tatpuruṣa formations pack whole phrases into single words. Comprehension here rests on recognizing when the standard grammar is being deliberately suspended.",
+      "explanation": "Elevated registers bend the everyday rules.\n\n- Word order inverts for emphasis or metre: the verb may precede its subject, and objects front — सुना है लोगों से (I've heard from people…).\n- The Persian izāfat (-e-) links noun to modifier in Urdu-heritage phrases: शमा-ए-महफ़िल (the gathering's flame), तर्ज़-ए-बयाँ (manner of expression). It does the work का does in ordinary Hindi.\n- Verse drops what prose spells out — a postposition, or the copula after a negative: दिल है कि मानता नहीं, where prose would close with मानता नहीं है.\n- Compound Persian and Sanskrit tatpuruṣa formations pack whole phrases into single words.\n\nComprehension here rests on recognizing when the standard grammar is being deliberately suspended.",
       "culture_note": "Bollywood lyrics are the mass-culture gateway to this register — a single film song can carry izāfat, inversion, and dropped copulas in one line.",
       "references": [
         {

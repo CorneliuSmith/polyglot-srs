@@ -24,6 +24,7 @@ which also carries the template.
 Not ADRs: standing instructions from the owner, and end-of-pass handovers
 written for the next session. Read the newest first.
 
+- [2026-09-07](2026-09-07-markdown-batch-4.md) — ar, he, fa, hi, th, tr, sw: 207 of 310 formatted, 539 content corrections, 20 refusals mostly invented rules
 - [2026-09-07](2026-09-07-markdown-batch-3.md) — nl, ca, ro, el, ru: 148 of 222 formatted, 412 content corrections, and the restraint guard rebuilt on the right signal
 - [2026-09-07](2026-09-07-markdown-batch-2.md) — es, it, pt, de through the markdown pass: 104 of 174 explanations formatted, 151 content corrections
 - [2026-09-07](2026-09-07-fr-markdown-pass.md) — French explanations formatted and corrected: 20 of 42 render as markdown, 13 content fixes, four paradigms had no vous form

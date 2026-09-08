@@ -1,6 +1,12 @@
 # Markdown pass over the seed explanations — plan (4 Sep 2026)
 
-**Status: TEN COURSES DONE (7 Sep 2026)** — fr, es, it, pt, de, nl, ca,
+**Status: SEVENTEEN COURSES DONE (7 Sep 2026)** — fr es it pt de nl ca ro
+el ru ar he fa hi th tr sw. 479 of 748 explanations render as markdown and
+**1,115 content defects** were corrected on the way through (four decision
+records, `2026-09-07-fr-markdown-pass.md` and `-batch-2/3/4.md`). 10 courses
+to go: en, ha, id, jam, ko, la, mi, tl, xh, yo.
+
+**Status was: TEN COURSES DONE (7 Sep 2026)** — fr, es, it, pt, de, nl, ca,
 ro, el, ru. 272 of 438 explanations render as markdown and **576 content
 defects** were corrected on the way through (`2026-09-07-fr-markdown-pass.md`,
 `-batch-2.md`, `-batch-3.md`). 17 courses to go.
