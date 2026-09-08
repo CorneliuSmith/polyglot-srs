@@ -583,7 +583,6 @@ fica	Com qual mulher você fica?	Which woman do you stay with?	263
 ajudar	Posso te ajudar de alguma forma?	Can I help you?	264
 ajudar	"""Alguém pode me ajudar?"" ""Eu posso."""	"""Can somebody help me?"" ""I will."""	264
 tarde	Eu vou sair à tarde.	I'm going to go out this afternoon.	265
-á	O que você faz á tarde?	What do you do in the evening?	265
 momento	Qual é o momento certo?	What is the exact time?	266
 momento	Era o momento de ir embora.	It was time to leave.	266
 tal	Por que ele fez tal coisa?	Why did he do such a thing?	267
@@ -797,7 +796,6 @@ usar	Ele sabe como usar bem o seu tempo.	He knows how to make good use of his ti
 usar	Você pode usar o meu carro.	You may use my car.	367
 usar	Você pode usar o meu carro hoje.	You can use my car today.	367
 significa	O que significa G.N.P.?	What does G.N.P. stand for?	368
-y	Se X significa Y, o que significa Z?	If X means Y, what does Z mean?	368
 acredito	Eu acredito em você.	I believe you.	369
 acredito	Acredito que seja verdade.	I believe it to be true.	369
 acredito	Eu não acredito mais.	I no longer believe it.	369
@@ -1742,7 +1740,6 @@ telemóvel	Onde está o meu telemóvel?	Where's my cell phone?	828
 reunião	Por favor, me diga quando será a próxima reunião.	Please tell me when the next meeting will be held.	829
 reunião	Eu vou para a reunião.	I'm going to attend the meeting.	829
 reunião	Ele não tem nem ideia de como essa reunião é importante.	He doesn't have any idea how important this meeting is.	829
-á	Ele irá á reunião em meu lugar.	He will go to the meeting instead of me.	829
 prova	Eu queria que não tivesse uma prova.	I wish there were no examination.	830
 prova	A prova é às 16h00.	The test is at 4 p.m.	830
 percebi	Pra falar a verdade, eu não percebi.	To tell the truth, I didn't notice it.	832
@@ -5040,7 +5037,6 @@ bicicleta	A bicicleta dele é azul.	His bicycle is blue.	2493
 andam	Tom e Maria andam de bicicleta todos os dias.	Tom and Mary ride their bicycles every day.	2493
 andam	Eles andam de bicicleta em todos os lugares.	They ride their bicycles everywhere.	2493
 alternativa	Sem problemas. Se X acontecer, temos Y como alternativa B.	No problem. If X happens, we have Y as a backup.	2494
-y	Sem problemas. Se X acontecer, temos Y como alternativa B.	No problem. If X happens, we have Y as a backup.	2494
 alternativa	Os livros são minha realidade alternativa.	Books are my alternate reality.	2494
 alternativa	Não temos alternativa além de trabalhar.	We have no alternative but to work.	2494
 vidro	Tenho um olho de vidro.	I have a glass eye.	2495
@@ -7239,7 +7235,6 @@ aumento	Eles me deram um outro aumento.	They gave me another raise.	3592
 letra	Se você olhar para a letra, ela não significa muito.	If you look at the lyrics, they don't really mean much.	3593
 letra	Ele tem uma letra muito bonita.	She has beautiful handwriting.	3593
 letra	Eu posso cantar esta canção sem olhar a letra.	I can sing this song without looking at the lyrics.	3593
-y	Quantos países começam com a letra y?	"How many countries have names that start with the letter ""Y""?"	3593
 convidar	Eu vou convidar quem quiser vir.	I'll invite whoever wants to come.	3595
 convidar	Você pode convidar quem você quiser.	You may invite whomever you like.	3595
 convidar	Gostaria de te convidar à festa.	I'd like to invite you to the party.	3595
@@ -17643,7 +17638,6 @@ esgoto	Se não fosse pelo problema do esgoto, nós já teríamos construído a c
 veículo	A velocidade máxima atingida pelo veículo era de cinco quilômetros por hora.	The maximum speed reached by the vehicle was 5 kilometers per hour.	19999
 máxima	A velocidade máxima atingida pelo veículo era de cinco quilômetros por hora.	The maximum speed reached by the vehicle was 5 kilometers per hour.	19999
 punho	Ela ergueu o seu punho como se fosse me bater.	She raised her fist as if to hit me.	19999
-t	'Tammi' com dois m's. Então é T-A-M-M-I.	'Tammi' with two m's. So that's T-A-M-M-I.	19999
 s	'Tammi' com dois m's. Então é T-A-M-M-I.	'Tammi' with two m's. So that's T-A-M-M-I.	19999
 exagero	Ele tem uma tendência ao exagero.	He has a tendency toward exaggeration.	19999
 percurso	Eu corri todo o percurso; caso contrário eu não teria pegado o trem.	I ran all the way, otherwise I could not have caught the train.	19999
@@ -18094,7 +18088,6 @@ design	Estou estudando francês e web design.	I'm studying French and web design
 circulação	Vamos tirar os livros perigosos de circulação. Começando pela bíblia, que se espalhou pelo mundo todo.	Let's remove harmful books from circulation. Starting first with the bibles that have spread all over the world.	19999
 impor	Não é legal impor nossos ideais aos outros.	It's not good to force our ideas on others.	19999
 unidade	O metro por segundo é a unidade de velocidade no SI. Seu símbolo é m/s.	The meter per second is the SI unit for velocity. Its symbol is m/s.	19999
-t	É isso aí, mostra para a gente as suas t... raduções...	Yeah, show us your t... ranslations...	19999
 sétimo	No sétimo andar, encontram-se quatro restaurantes de luxo.	On the seventh floor, you can find four luxury restaurants.	19999
 matrícula	Não consegui renovar a matrícula.	I wasn't able to reenroll.	19999
 selva	Posso viver numa selva por meses.	I can live in a jungle for months.	19999
@@ -18495,7 +18488,6 @@ ilegalmente	Tom cruzou a fronteira ilegalmente.	Tom crossed the border illegally
 assistentes	Tom é um dos meus assistentes.	Tom is one of my assistants.	19999
 ponhas	Não ponhas a faca na boca.	Don't put the knife in your mouth.	19999
 armadas	Ele quer desenvolver mais as forças armadas do país durante os próximos anos.	He wants to develop the country's military more during the next few years.	19999
-t	Agora, no Latim existem 23 letras: a, b, c, d, e, f, g, h, i, k, l, m, n, o, p, q, r, s, t, u, x, y e z.	Now, in Latin there are twenty-three letters: a, b, c, d, e, f, g, h, i, k, l, m, n, o, p, q, r, s, t, u, x, y, z.	19999
 u	Agora, no Latim existem 23 letras: a, b, c, d, e, f, g, h, i, k, l, m, n, o, p, q, r, s, t, u, x, y e z.	Now, in Latin there are twenty-three letters: a, b, c, d, e, f, g, h, i, k, l, m, n, o, p, q, r, s, t, u, x, y, z.	19999
 calmamente	Tom falou calmamente com Mary.	Tom talked to Mary quietly.	19999
 contes	Não contes ao meu namorado.	Don't tell my boyfriend.	19999

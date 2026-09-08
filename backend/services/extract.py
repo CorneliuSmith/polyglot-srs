@@ -28,21 +28,60 @@ def tokenize(sentence: str) -> list[str]:
     return _WORD.findall(sentence)
 
 
-def make_cloze(sentence: str, answer: str) -> str | None:
-    """Replace the first whole-word occurrence of *answer* with the blank.
+def make_cloze(sentence: str, answer: str, find_span=None) -> str | None:
+    r"""Replace the first whole-word occurrence of *answer* with the blank.
 
     Case-insensitive match on the surface word. Returns None if the answer
     isn't a standalone word in the sentence.
+
+    *find_span* REPLACES the boundary match for scripts where a word boundary
+    is not a character: a callable ``(sentence, answer) -> (start, end) |
+    None``, supplied by the caller that knows the language, exactly as this
+    module's normalize/lemmatize functions are.
+
+    It replaces rather than backs up the regex because for such a script the
+    regex is not merely useless, it is WRONG. Thai writes without spaces, so
+    the lookarounds below can only ever succeed — and Python's ``\w`` drops
+    Mn marks (quality rule 39), so `มาน` "matched" inside `มานี่` (= มา +
+    นี่) and the blank landed across two other words. 35 of the 311 Thai
+    rows this function accepted were that: `แก` carved out of `แก้ม`
+    ("cheek"), `กี` out of `กี่`. Segmentation finds 3,675 instead, and
+    refuses those (CHECKS §29).
     """
     answer = answer.strip()
     if not answer:
         return None
+    if find_span is not None:
+        span = find_span(sentence, answer)
+        if span is None:
+            return None
+        start, end = span
+        return sentence[:start] + ANSWER_MARKER + sentence[end:]
     pattern = re.compile(
         rf"(?<![^\W\d_]){re.escape(answer)}(?![^\W\d_])",
         re.IGNORECASE | re.UNICODE,
     )
     new, n = pattern.subn(ANSWER_MARKER, sentence, count=1)
     return new if n else None
+
+
+def find_cloze(
+    sentence: str, forms: list[str], find_span=None,
+) -> tuple[str, str] | None:
+    """Blank whichever of *forms* the sentence carries; say which one it was.
+
+    A word with linked spellings (Turkish mi/mı/mu/mü, Jamaican likkle/little
+    — `vocabulary.alternatives`) appears in a sentence as ONE of them, and
+    that one is the answer the sentence fixes: "Var ___?" takes mı and
+    nothing else. Tries the forms in order (headword first), so a sentence
+    that carries the headword blanks the headword. Returns (cloze, form), or
+    None when no form is a standalone word in the sentence.
+    """
+    for form in forms:
+        cloze = make_cloze(sentence, form, find_span)
+        if cloze is not None:
+            return cloze, form
+    return None
 
 
 def classify_words(

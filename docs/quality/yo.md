@@ -268,3 +268,61 @@ symptom of the untoned vocabulary, not a new defect — and it makes the defect
 visible instead of hidden, which is the better failure.
 
 They are the first list to check against any external tone source that arrives.
+
+## Phase 2d–3 pass (7 September 2026)
+
+Measured and changed in the quality-parity passes of 6–7 September; figures
+re-measured from the repository on 7 September.
+
+- **Definitions.** The top 200 were read by a reader of Yoruba and
+  **48 repaired** through `scripts/apply_gloss_overrides.py`; a second
+  reader accepted or corrected every one it saw. Faults found: wrong sense 26, reaches a synonym 18, not a definition 3.
+  67 of the top 200 now carry a hand-written definition — a low
+  count means the extracted glosses were already right, not that the band
+  was skipped.
+- **Hints.** **23 drill hints** that gave away their answer — sitting
+  inside their own translation, or only the agreement feature the drill
+  tests — rewritten through `scripts/apply_drill_hints.py`.
+- **Headwords.** **0 removed** to `vocab_exclusions.tsv` (letters,
+  punctuation, extraction debris, rare twins of common words). Production
+  retires them on the next `reconcile --apply` (migration 20261016).
+- **State.** 23% of the top 1,000 have a sentence the card can
+  actually blank; 100% of drills carry an interlinear gloss;
+  0 fail-level audit findings; a top-2,000 card is bad — no
+  usable sentence, or a fragment drawn — 88% of the time.
+
+Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
+rows whatever their source), §26 (the card rotates — a fragment's exposure is
+its share of the pool), §28 (definition plus sentence must determine one
+string), §29 (a sentence the card cannot blank is not coverage).
+
+## The 1SG pronoun `n` was deleted from the file and left live in production (7 Sep 2026)
+
+An early junk sweep removed bare single letters from the frequency files.
+One of them was a word: **`n`, the first-person singular subject pronoun** —
+the form used after the subjunctive `kí` and before the negator `kò`. The
+row stayed in production, glossed "the fifteenth letter of the Yoruba
+alphabet, called ní", while the course's own bank writes it as 1SG four
+times (`Mo gbà ìwé rẹ̀ lánàá, ṣùgbọ́n n kò tíì kà á`, `kí n dúró di ọ̀la`,
+`ẹ jẹ́ kí n bá yín gbé e`) and a drill frame expects it. The file carried
+the same pronoun under three OTHER spellings — `ń` r43 (which is the
+progressive marker, not the pronoun), `mo` r183, `ng` r502, `m` r912 — but
+not the one the sentences make a learner read.
+
+Found by the checker on the letter-debris sweep, which refused to retire it.
+Restored at rank 11, the rank production already carries — a duplicate of
+`ṣé`'s rank, because the file was renumbered after the row was dropped and
+inventing a different rank would misstate its frequency. Ranks are slots
+here, not a queue (`tr` and `ru` already carry gaps from exclusions).
+
+**The price, taken deliberately:** `n` and `ń` fold together under the
+grader's mark-strip, so the collision ceiling rose 117 → 118. Typing the
+pronoun where the progressive marker belongs is now WRONG_FORM instead of a
+silent pass — the same trade the 25 Aug tone pass made for `o` / `ó` / `ò`.
+`m`'s gloss claimed it was "the standard spelling"; it now cross-references
+`n` and `ń` instead of contradicting the corpus.
+
+**Mid tone is not a missing mark.** `n` is fully marked as it stands, so the
+tone-policy rule that retires unaccented twins does not reach it — the
+distinction this course protects is `n` (1SG) against `ń` (progressive).
+

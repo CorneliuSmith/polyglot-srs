@@ -1916,7 +1916,7 @@
           "sentence": "Bu kitap {{answer}} ilginç.",
           "answer": "daha",
           "translation": "This book is more interesting.",
-          "hint": "more",
+          "hint": "no group is being ranked — the book is measured against an implied standard",
           "display_order": 3,
           "gloss": "this · book · ___ · interesting"
         },
@@ -2002,7 +2002,7 @@
           "sentence": "Sağlık {{answer}} spor yap.",
           "answer": "için",
           "translation": "Do sport for your health.",
-          "hint": "for",
+          "hint": "postposition marking the purpose the action serves, not a companion",
           "display_order": 4,
           "gloss": "health · ___ · sport · do.IMP.2SG"
         },
@@ -2010,7 +2010,7 @@
           "sentence": "Annem {{answer}} konuştum.",
           "answer": "ile",
           "translation": "I spoke with my mother.",
-          "hint": "with",
+          "hint": "postposition marking who accompanies the action, not why it is done",
           "display_order": 5,
           "gloss": "mother.POSS.1SG · ___ · speak.PST.1SG"
         },
@@ -2018,7 +2018,7 @@
           "sentence": "Senin {{answer}} her şeyi yaparım.",
           "answer": "için",
           "translation": "I would do anything for you.",
-          "hint": "for",
+          "hint": "the postposition marking the beneficiary, not the instrument",
           "display_order": 6,
           "gloss": "2SG.GEN · ___ · every · thing.ACC · do.HAB.1SG"
         },
@@ -2072,7 +2072,7 @@
           "sentence": "Yemekten {{answer}} ellerini yıka.",
           "answer": "önce",
           "translation": "Wash your hands before the meal.",
-          "hint": "before",
+          "hint": "sequencing postposition on the ablative — hands are already clean when eating starts",
           "display_order": 3,
           "gloss": "meal.ABL · ___ · hand.PL.2SG.POSS.ACC · wash.IMP"
         },
@@ -2080,7 +2080,7 @@
           "sentence": "Dersten {{answer}} eve gittim.",
           "answer": "sonra",
           "translation": "After the lesson I went home.",
-          "hint": "after",
+          "hint": "sequencing postposition on the ablative — home comes once the lesson has ended",
           "display_order": 4,
           "gloss": "lesson.ABL · ___ · house.DAT · go.PST.1SG"
         },
@@ -2088,7 +2088,7 @@
           "sentence": "İşten {{answer}} spor yaparım.",
           "answer": "sonra",
           "translation": "After work I do sport.",
-          "hint": "after",
+          "hint": "the sequencing postposition that puts the main clause later than the noun it follows",
           "display_order": 5,
           "gloss": "work.ABL · ___ · sport · do.AOR.1SG"
         },
@@ -2096,7 +2096,7 @@
           "sentence": "Sınavdan {{answer}} çok çalıştım.",
           "answer": "önce",
           "translation": "Before the exam I studied a lot.",
-          "hint": "before",
+          "hint": "the sequencing postposition that puts the main clause earlier than the noun it follows",
           "display_order": 6,
           "gloss": "exam.ABL · ___ · much · study.PST.1SG"
         },
@@ -2544,7 +2544,7 @@
           "sentence": "Buz {{answer}} soğuk.",
           "answer": "gibi",
           "translation": "Cold as ice.",
-          "hint": "like",
+          "hint": "postposition of resemblance, not of measured extent",
           "display_order": 3,
           "gloss": "ice · ___ · cold"
         },
@@ -2568,7 +2568,7 @@
           "sentence": "Melek {{answer}} bir insan.",
           "answer": "gibi",
           "translation": "A person like an angel.",
-          "hint": "like",
+          "hint": "the postposition of resemblance, not of degree",
           "display_order": 6,
           "gloss": "angel · ___ · INDF · person"
         },
@@ -3724,7 +3724,7 @@
           "sentence": "{{answer}} okuyorsun?",
           "answer": "Ne",
           "translation": "What are you reading?",
-          "hint": "what",
+          "hint": "interrogative asking after a thing, not a person or a place",
           "display_order": 1,
           "gloss": "___ · read.PROG.2SG"
         },

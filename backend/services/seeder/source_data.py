@@ -82,6 +82,8 @@ from backend.services.nlp.xhosa import XhosaNLP
 from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
 
+from .base import COMMAND_TIMEOUT
+
 # Languages sourced generically from a HermitDave frequency list
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
 # script-agnostic — ro/el/ar ride the same rails as the Latin five; it just
@@ -1051,7 +1053,7 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
     """Load a sentences TSV into example_sentences, linking by vocabulary word."""
     import asyncpg
 
-    conn = await asyncpg.connect(db_url)
+    conn = await asyncpg.connect(db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         language_id = await conn.fetchval(
             "SELECT id FROM languages WHERE code = $1", language_code

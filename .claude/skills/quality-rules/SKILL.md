@@ -27,13 +27,21 @@ working. Each rule exists because its absence already shipped a defect.
    fold merging 84 cards), write the price into the doc and leave the decision
    alone — surfacing it is the job, overruling it is not.
 
-## Order of work (owner decision, 20 Aug 2026)
+## Order of work (re-set 6 Sep 2026 — measured, supersedes 20 Aug)
 
-**Low-frequency courses first — clean AND populate** (`mi` step c, `ha`, `xh`,
-`yo`, `jam`, `id`, `tl`, `he`, `fa`). Several are not yet real courses: `tl`
-has 90 rows, `jam` 384. **Then** the deep pass on the well-resourced courses
-to `en`/`la` standard. **Then** sentences, for all 27 at once — no course
-reaches the sentence stage ahead of the others.
+**The authoritative sequence is the table at the top of
+`docs/plans/quality-parity.md`.** Guards first, then definitions (Phase 2d),
+then sentences (Phase 8), then grammar, Gym, extraction, verification, and
+Topic Lens last.
+
+The 20 Aug order — low-frequency courses first, then the deep pass, then
+sentences for all 27 at once — was written when row counts were the only
+number available. Two measurements retired it: **a course's size barely
+predicts what a learner meets** (`yo` 88% bad cards, `ko` 82%, `th` 69% vs
+`it` 24% on 33,159 rows), and **the definition is the cheapest fix for 60%
+of broken cards**, not the sentence. Per-course order everywhere is now the
+harm ranking: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro`
+→ the rest; `pt es de nl fr la ru en ha jam` are already under 15%.
 
 The expectation is that the deep pass will be lighter on the big courses
 because their data is better. Treat that as a prediction to test, not a fact:
@@ -173,6 +181,12 @@ rate, say so — that result matters more than the phase closing quietly.
     a TSV-only deletion is undone by the next regeneration — durable
     deletions go in `data/vocab_exclusions.tsv` (typo-mass rows like `citta`
     "Tuscan girl", rank inherited from `città`).
+    **And the committed file must have a WRITE PATH to production** (rule
+    13, again): `gloss_overrides.tsv` reached 25 courses only through a
+    file rebuild, so 1,611 corrected definitions sat unshipped until the
+    reconcile and every seeder learned to lay the overrides over the file
+    (CHECKS §31). A TSV-only deletion, likewise, leaves the row LIVE in
+    production for ever — 331 letters and 678 unmarked twins are (DEBT).
 
 ## Verification
 
@@ -256,6 +270,84 @@ rate, say so — that result matters more than the phase closing quietly.
     reproduces them, which is false for a row that is only the word it
     teaches. The exemption was preserving exactly the defect the owner
     reported from a card.
+
+43. **Ask what the reader is SHOWN, then find the population that dominates
+    it.** A card rotates over every clozable sentence a word has
+    (`_pick_index`: unseen first, then most-missed, else a stable hash) — so
+    exposure is a fragment's SHARE of the pool, not the minimum or the first
+    row. This rule replaces a wrong one: "the card draws the shortest first,
+    fix the ORDER BY" was measured in file order, at §23's 7-token bar
+    instead of §24's 5, over rows `make_cloze` rejects. The real cause was
+    15,802 thin rows in PRODUCTION that the prune's source exemption
+    protected. Read the code that does the choosing before writing the fix.
+    (CHECKS §26, §24a)
+
+44. **A label is a layer.** The English course's drill `translation` is a
+    usage note by convention (`en.md` note 0) — correct data that renders
+    under the heading "Translation" for an English-UI learner ("do — the
+    participle."). When a field's meaning differs per course, the renderer
+    has to know, or the convention becomes a defect the moment it reaches a
+    screen. And a note that restates the hint is not a note. (CHECKS §27)
+
+45. **The definition plus the sentence must determine ONE string.** The
+    `do` card: "to perform; also the question/negative helper" over "What
+    ___ you do?" — `did` is a perfect answer and was scolded. Judged on all
+    27 (377 cards, refuted): a third of top-band cards do not determine
+    their answer, and the cause is mostly ANOTHER WORD fitting (69) or a
+    wrong/vague definition (33), inflection only 24. Fix the definition
+    first, then a form cue; a longer sentence rarely does it. And grading
+    must not scold for a form the card never named. (CHECKS §28)
+46. **A sentence the card cannot BLANK is not coverage.** `make_cloze`
+    whole-word-matches the surface headword; a row carrying only an
+    inflection, a stem or a toneless twin is skipped and the card falls back
+    to definition-only, silently. Korean 54% of rows, Arabic 47%, Yoruba
+    50% — 566 / 491 / 182 top-2,000 words with no usable sentence. Require
+    SURFACE presence when authoring (the 31 Aug Russian applier accepted
+    lemma presence and shipped dead rows), and measure coverage with
+    `make_cloze` itself, not a regex of your own. Thai was the worst of
+    these (93%) and is fixed: for an unspaced script a boundary regex is
+    not useless but WRONG — it was blanking `แก` out of `แก้ม` — so
+    segmentation replaces it rather than backing it up. (CHECKS §29)
+
+47. **A gate belongs to the data it governs — test it against the whole
+    corpus before trusting it.** `apply_gloss_overrides` shipped with two
+    rules borrowed from the English audit and applied to all 27: they
+    refused 864 existing overrides, none of them defects, because off
+    English a definition is in a DIFFERENT language from its headword and a
+    match is a translation (Catalan `ha` = "has"). A two-word floor and a
+    160-character cap refused 495 more, against a corpus whose median is 76
+    characters and whose longest is 414. Both thresholds were taste; the
+    corpus was the evidence. Running the gate over everything already
+    shipped is what separated the 5 real findings from the 1,359 false
+    ones. (CHECKS §28)
+
+48. **One word with several spellings is ONE card; the sentence fixes the
+    shape.** Turkish `mi/mı/mu/mü` were four headwords sharing a definition,
+    then four definitions naming the vowel class (the outcome, forbidden by
+    `tr.md`). Link them (`alt` column → `alternatives`), let `find_cloze`
+    blank whichever shape the sentence carries, grade a wrong shape as the
+    right word graded sloppy, and make EVERY consumer that asks "is the word
+    here" ask about every shape (`linked_forms.py`). Korean's 받침 pairs stay
+    two cards — the condition is statable without the answer (CHECKS §30).
+49. **Case-insensitive is language-specific.** Python's `IGNORECASE` folds
+    dotless `ı` onto `i` (with `İ`, `ſ`, the Kelvin sign), so the cloze
+    blanked the wrong letter on 13 Turkish rows and hid three mis-cased
+    headwords. A language that needs its own casing or has no word
+    boundaries registers a span finder in `span_finders.py` — one registry,
+    read by the card, the audit, the gate and the prune (rule 13).
+
+50. **A course has more than one source; "not in the file" is not
+    "ungoverned".** The reconcile's `gone` column counted 166 alphabet-deck
+    cards (seeded from code, 17 held by learners) and 12 curated starter
+    words among rows it called orphaned, and the plan built on it would have
+    deleted seven alphabet decks. Before acting on a maintenance list, read
+    what is IN it — sample the rows, not the count (rule 43 for lists).
+
+51. **An override for a word the file does not carry is a landmine, not a
+    no-op.** It ships nothing until someone adds that headword, and then it
+    wins. Restoring Yoruba `n` woke an override written for `ń` and shipped
+    "is/are doing" as the 1SG pronoun within hours of the overlay starting
+    to work. Keep the two files in step (CHECKS §31, `TestNoDormantOverrides`).
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 

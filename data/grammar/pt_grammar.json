@@ -31,7 +31,7 @@
           "sentence": "{{answer}} sou do Brasil.",
           "answer": "Eu",
           "translation": "I am from Brazil.",
-          "hint": "I",
+          "hint": "subject pronoun naming the speaker themselves; check who the verb form fits",
           "cell": "eu",
           "display_order": 1,
           "gloss": "___ · be.PRS.1SG · of-DEF.M · Brazil"
@@ -40,7 +40,7 @@
           "sentence": "{{answer}} moro no Rio de Janeiro.",
           "answer": "Eu",
           "translation": "I live in Rio de Janeiro.",
-          "hint": "I",
+          "hint": "subject pronoun for the one who is speaking — match the verb ending",
           "cell": "eu",
           "display_order": 2,
           "gloss": "___ · live.PRS.1SG · in-DEF.M · Rio · of · Janeiro"
@@ -49,7 +49,7 @@
           "sentence": "{{answer}} fala inglês?",
           "answer": "Você",
           "translation": "Do you speak English?",
-          "hint": "you",
+          "hint": "subject pronoun for the person addressed — the one whose verb wears third-person endings",
           "cell": "você",
           "display_order": 3,
           "gloss": "___ · speak.PRS.3SG · English"
@@ -58,7 +58,7 @@
           "sentence": "{{answer}} trabalha aqui?",
           "answer": "Você",
           "translation": "Do you work here?",
-          "hint": "you",
+          "hint": "subject pronoun for the person being addressed",
           "cell": "você",
           "display_order": 4,
           "gloss": "___ · work.PRS.3SG · here"
@@ -67,7 +67,7 @@
           "sentence": "{{answer}} é meu irmão.",
           "answer": "Ele",
           "translation": "He is my brother.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "ele",
           "display_order": 5,
           "gloss": "___ · be.PRS.3SG · my.M · brother"
@@ -76,7 +76,7 @@
           "sentence": "{{answer}} chega amanhã de manhã.",
           "answer": "Ele",
           "translation": "He arrives tomorrow morning.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "ele",
           "display_order": 6,
           "gloss": "___ · arrive.PRS.3SG · tomorrow · of · morning"
@@ -85,7 +85,7 @@
           "sentence": "{{answer}} somos amigos.",
           "answer": "Nós",
           "translation": "We are friends.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker together with others",
           "cell": "nós",
           "display_order": 7,
           "gloss": "___ · be.PRS.1PL · friend.M-PL"
@@ -94,7 +94,7 @@
           "sentence": "{{answer}} moramos perto da praia.",
           "answer": "Nós",
           "translation": "We live near the beach.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker's own group",
           "cell": "nós",
           "display_order": 8,
           "gloss": "___ · live.PRS.1PL · near · of-DEF.F · beach"
@@ -121,7 +121,7 @@
           "sentence": "{{answer}} são da Bahia.",
           "answer": "Eles",
           "translation": "They are from Bahia.",
-          "hint": "they",
+          "hint": "third-person plural subject, an all-male or mixed group",
           "cell": "eles",
           "display_order": 11,
           "gloss": "___ · be.PRS.3PL · of-DEF.F · Bahia"
@@ -130,7 +130,7 @@
           "sentence": "{{answer}} jogam futebol no domingo.",
           "answer": "Eles",
           "translation": "They play football on Sundays.",
-          "hint": "they",
+          "hint": "third-person plural subject, a group that includes a male referent",
           "cell": "eles",
           "display_order": 12,
           "gloss": "___ · play.PRS.3PL · football · in-DEF.M · Sunday"
@@ -152,7 +152,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Every noun is masculine or feminine: -o is usually masculine (o livro), -a usually feminine (a casa); -ão is often masculine, -ção feminine.\n\nPlurals normally add -s (livro → livros); words in -ão vary (pão → pães, mão → mãos, coração → corações) and are learned per word.",
+      "explanation": "Every noun is masculine or feminine, and the ending is the strongest clue.\n\n| Ending | Usual gender | Example |\n| --- | --- | --- |\n| `-o` | masculine | o livro |\n| `-a` | feminine | a casa |\n| `-ão` | masculine | o pão |\n| `-ção` | feminine | a estação |\n\nThe clue is not a rule: a mão is feminine and o coração masculine, both against their ending.\n\nPlurals normally add -s (livro → livros).\n\nWords in -ão are learned one by one: pão → pães, mão → mãos, coração → corações.",
       "culture_note": "",
       "references": [
         {
@@ -222,7 +222,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Definite: o (m.), a (f.), os, as — Portuguese loves the article, even before names in Brazil (o João, a Maria).\n\nIndefinite: um (m.), uma (f.), uns, umas for 'some'.",
+      "explanation": "Every article agrees with its noun in gender and number.\n\n| Meaning | Masculine | Feminine |\n| --- | --- | --- |\n| the (singular) | o | a |\n| the (plural) | os | as |\n| a, an | um | uma |\n| some | uns | umas |\n\nPortuguese loves the article, even before names in Brazil (o João, a Maria).",
       "culture_note": "",
       "references": [
         {
@@ -292,7 +292,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "ser = permanent identity: profession, origin, character, time. eu sou, você/ele é, nós somos, vocês/eles são.\n\nSou professor 'I'm a teacher', ela é de São Paulo 'she's from São Paulo', são duas horas 'it's two o'clock'.",
+      "explanation": "**ser** = permanent identity: profession, origin, character, time.\n\n| Person | Form |\n| --- | --- |\n| eu | sou |\n| você/ele | é |\n| nós | somos |\n| vocês/eles | são |\n\nSou professor 'I'm a teacher', ela é de São Paulo 'she's from São Paulo', são duas horas 'it's two o'clock'.",
       "culture_note": "",
       "references": [
         {
@@ -392,7 +392,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "estar = temporary states and location: estou cansado 'I'm tired (now)', ela está em casa 'she's at home'. eu estou, você/ele está, nós estamos, vocês/eles estão.\n\nContrast with ser: ele é alegre (cheerful person) vs ele está alegre (happy right now).",
+      "explanation": "**estar** = temporary states and location: estou cansado 'I'm tired (now)', ela está em casa 'she's at home'.\n\n| Person | Form |\n| --- | --- |\n| eu | estou |\n| você/ele | está |\n| nós | estamos |\n| vocês/eles | estão |\n\nContrast with ser: ele é alegre (cheerful person) vs ele está alegre (happy right now).",
       "culture_note": "",
       "references": [
         {
@@ -492,7 +492,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "ter = to have: eu tenho, você/ele tem, nós temos, vocês/eles têm.\n\nPortuguese uses ter for age (tenho trinta anos 'I'm thirty') and for sensations (tenho sede 'I'm thirsty'). In spoken Brazil, tem also means 'there is' (see the Tem/Há point).",
+      "explanation": "**ter** = to have.\n\n| Person | Form |\n| --- | --- |\n| eu | tenho |\n| você/ele | tem |\n| nós | temos |\n| vocês/eles | têm |\n\nThe você/ele form tem and the vocês/eles form têm differ only by the circumflex.\n\nPortuguese uses ter for age (tenho trinta anos 'I'm thirty') and for sensations (tenho sede 'I'm thirsty'). In spoken Brazil, tem also means 'there is' (see the Tem/Há point).",
       "culture_note": "",
       "references": [
         {
@@ -592,7 +592,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Drop -ar, add -o, -a, -amos, -am: falar → falo, fala, falamos, falam.\n\nThe present covers habits (trabalho de segunda a sexta 'I work Monday to Friday') and near-future plans with a time word (viajo amanhã).",
+      "explanation": "Drop `-ar` and add the ending for the person.\n\n| Person | Ending | falar |\n| --- | --- | --- |\n| eu | `-o` | falo |\n| você/ele | `-a` | fala |\n| nós | `-amos` | falamos |\n| vocês/eles | `-am` | falam |\n\nThe present covers habits (trabalho de segunda a sexta 'I work Monday to Friday') and near-future plans with a time word (viajo amanhã).",
       "culture_note": "",
       "references": [
         {
@@ -692,7 +692,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "-er verbs: como, come, comemos, comem (comer).\n\n-ir verbs: abro, abre, abrimos, abrem (abrir) — identical to -er except nós -imos.\n\nCommon irregulars worth spotting early: fazer (faço), ir (vou), poder (posso), querer (quero).",
+      "explanation": "The other two families, with comer and abrir as models.\n\n| Person | `-er` | `-ir` |\n| --- | --- | --- |\n| eu | como | abro |\n| você/ele | come | abre |\n| nós | comemos | abrimos |\n| vocês/eles | comem | abrem |\n\nOnly the nós form separates them: -emos against -imos.\n\nCommon irregulars worth spotting early: fazer (faço), ir (vou), poder (posso), querer (quero).",
       "culture_note": "",
       "references": [
         {
@@ -832,7 +832,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "In spoken Brazil, tem does the job of 'there is/are': tem um mercado aqui perto 'there's a market nearby'. há is the formal/written equivalent (há muitas opções) and also means 'ago' with time: há dois anos 'two years ago'. Both are invariable — never 'têm' for existence.",
+      "explanation": "In spoken Brazil, **tem** does the job of 'there is/are': tem um mercado aqui perto 'there's a market nearby'.\n\n**há** is the formal/written equivalent (há muitas opções) and also means 'ago' with time: há dois anos 'two years ago'.\n\nBoth are invariable — never 'têm' for existence.",
       "culture_note": "",
       "references": [
         {
@@ -919,7 +919,7 @@
           "sentence": "{{answer}} fica a estação de metrô?",
           "answer": "Onde",
           "translation": "Where is the metro station?",
-          "hint": "where",
+          "hint": "interrogative asking for a location",
           "display_order": 1,
           "gloss": "___ · be_located.PRS.3SG · DEF.F.SG · station · of · metro"
         },
@@ -935,7 +935,7 @@
           "sentence": "{{answer}} começa o filme?",
           "answer": "Quando",
           "translation": "When does the film start?",
-          "hint": "when",
+          "hint": "interrogative asking for a point in time",
           "display_order": 3,
           "gloss": "___ · begin.PRS.3SG · DEF.M.SG · film"
         },
@@ -943,7 +943,7 @@
           "sentence": "{{answer}} é aquela moça?",
           "answer": "Quem",
           "translation": "Who is that young woman?",
-          "hint": "who",
+          "hint": "interrogative asking for someone's identity",
           "display_order": 4,
           "gloss": "___ · be.PRS.3SG · that.F.SG · girl"
         },
@@ -951,7 +951,7 @@
           "sentence": "{{answer}} se diz isso em português?",
           "answer": "Como",
           "translation": "How do you say that in Portuguese?",
-          "hint": "how",
+          "hint": "interrogative asking for manner or method",
           "display_order": 5,
           "gloss": "___ · PASS · say.PRS.3SG · that.N · in · Portuguese"
         },
@@ -959,7 +959,7 @@
           "sentence": "{{answer}} custa a passagem?",
           "answer": "Quanto",
           "translation": "How much does the ticket cost?",
-          "hint": "how much",
+          "hint": "interrogative asking for an amount or price",
           "display_order": 6,
           "gloss": "___ · cost.PRS.3SG · DEF.F.SG · ticket"
         },
@@ -988,7 +988,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Adjectives agree in gender and number and usually FOLLOW the noun: um carro novo, uma casa nova, carros novos, casas novas.\n\nAdjectives in -e or a consonant have one form for both genders (um filme interessante, uma aula interessante).",
+      "explanation": "Adjectives agree in gender and number and usually FOLLOW the noun.\n\n| Number | Masculine | Feminine |\n| --- | --- | --- |\n| Singular | um carro novo | uma casa nova |\n| Plural | carros novos | casas novas |\n\nAdjectives in -e or a consonant usually have one form for both genders (um filme interessante, uma aula interessante).\n\nThe common exceptions add -a: trabalhador → trabalhadora, português → portuguesa, espanhol → espanhola.",
       "culture_note": "",
       "references": [
         {
@@ -1058,7 +1058,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The perfeito reports one completed event: falei 'I spoke', comeu 'he ate'.\n\n-ar: falei, falou, falamos, falaram.\n\n-er: comi, comeu, comemos, comeram.\n\n-ir: abri, abriu, abrimos, abriram.\n\nTime cues like ontem (yesterday), na semana passada, anteontem call for the perfeito. você shares the ele form (você falou).",
+      "explanation": "The perfeito reports one completed event: falei 'I spoke', comeu 'he ate'.\n\nOne set of endings per family, on the models falar, comer and abrir:\n\n| Person | `-ar` | `-er` | `-ir` |\n| --- | --- | --- | --- |\n| eu | falei | comi | abri |\n| você/ele | falou | comeu | abriu |\n| nós | falamos | comemos | abrimos |\n| vocês/eles | falaram | comeram | abriram |\n\nTime cues call for the perfeito: ontem (yesterday), na semana passada (last week), anteontem (the day before yesterday).\n\nvocê shares the ele form (você falou).",
       "culture_note": "",
       "references": [
         {
@@ -1158,7 +1158,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The imperfeito paints background and habit: quando era criança, eu morava no interior 'when I was a child, I lived in the countryside'.\n\n-ar → -ava (falava, falávamos); -er/-ir → -ia (comia, abríamos).\n\nIrregulars: ser (era), ter (tinha), vir (vinha), pôr (punha).\n\nCues: antigamente, sempre, todo dia, quando era criança.",
+      "explanation": "The imperfeito paints background and habit: quando era criança, eu morava no interior 'when I was a child, I lived in the countryside'.\n\n`-ar` → `-ava` (falava, falávamos); `-er`/`-ir` → `-ia` (comia, abríamos).\n\nIrregulars: ser (era), ter (tinha), vir (vinha), pôr (punha).\n\nCues: antigamente, sempre, todo dia, quando era criança.",
       "culture_note": "",
       "references": [
         {
@@ -1228,7 +1228,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Brazil's everyday future is ir (present) + infinitive: vou viajar amanhã 'I'm going to travel tomorrow', vamos jantar fora 'we're going to eat out'. vou, vai, vamos, vão.\n\nThe one-word future (falarei) is formal/written — you'll read it, but conversation uses ir.",
+      "explanation": "Brazil's everyday future is ir (present) + infinitive: vou viajar amanhã 'I'm going to travel tomorrow', vamos jantar fora 'we're going to eat out'.\n\n| person | present of ir |\n| --- | --- |\n| eu | vou |\n| você, ele, ela | vai |\n| nós | vamos |\n| vocês, eles, elas | vão |\n\nThe one-word future (falarei) is formal/written — you'll read it, but conversation uses ir.",
       "culture_note": "",
       "references": [
         {
@@ -1398,7 +1398,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "me, te, o/a (him/her/it), nos, os/as. Brazilian Portuguese places them BEFORE the verb (ela me viu 'she saw me') and, in speech, often uses ele/ela instead of o/a (eu vi ele).\n\nLearn the standard forms — you'll need them in writing.",
+      "explanation": "| meaning | object pronoun |\n| --- | --- |\n| me | me |\n| you | te |\n| him, her, it | o, a |\n| us | nos |\n| them | os, as |\n\nBrazilian Portuguese places them BEFORE the verb (ela me viu 'she saw me') and, in speech, often uses ele/ela instead of o/a (eu vi ele).\n\nLearn the standard forms — you'll need them in writing.",
       "culture_note": "",
       "references": [
         {
@@ -1431,7 +1431,7 @@
           "sentence": "Conhece meu chefe? Eu {{answer}} respeito muito.",
           "answer": "o",
           "translation": "Do you know my boss? I respect him a lot.",
-          "hint": "him",
+          "hint": "direct-object clitic standing for the male person already named",
           "display_order": 3,
           "gloss": "know.PRS.3SG · 1SG.POSS.M.SG · boss · 1SG · ___ · respect.PRS.1SG · much"
         },
@@ -1439,7 +1439,7 @@
           "sentence": "A Maria? Eu {{answer}} encontrei na feira.",
           "answer": "a",
           "translation": "Maria? I met her at the street market.",
-          "hint": "her",
+          "hint": "direct-object clitic standing for the female person already named",
           "display_order": 4,
           "gloss": "DEF.F.SG · Maria · 1SG · ___ · meet.PST.1SG · in-DEF.F.SG · market"
         },
@@ -1447,7 +1447,7 @@
           "sentence": "Nossos amigos {{answer}} convidaram para jantar.",
           "answer": "nos",
           "translation": "Our friends invited us to dinner.",
-          "hint": "us",
+          "hint": "first-person plural object clitic — the speaker's own group as target",
           "display_order": 5,
           "gloss": "our.M.PL · friend.M.PL · ___ · invite.PST.3PL · to · dine.INF"
         },
@@ -1468,7 +1468,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "mais + adjective + (do) que: mais quente do que 'hotter than'; menos for 'less'; tão … quanto 'as … as'. Superlative adds the article: o mais alto 'the tallest'.\n\nIrregulars: bom → melhor, ruim → pior, grande → maior, pequeno → menor.",
+      "explanation": "Comparatives take three shapes:\n\n- mais + adjective + (do) que — mais quente do que 'hotter than'\n- menos + adjective + (do) que — 'less … than'\n- tão + adjective + quanto — 'as … as'\n\nSuperlative adds the article: o mais alto 'the tallest'.\n\nIrregulars: bom → melhor, ruim → pior, grande → maior, pequeno → menor.",
       "culture_note": "",
       "references": [
         {
@@ -1538,7 +1538,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "me, te, se, nos, se before the verb (Brazilian order): eu me levanto cedo 'I get up early', ela se chama Ana 'her name is Ana', nós nos falamos todo dia 'we talk every day'.\n\nSpoken Brazil drops some reflexives (eu levanto cedo) — both are heard.",
+      "explanation": "| person | reflexive |\n| --- | --- |\n| eu | me |\n| tu | te |\n| você, ele, ela | se |\n| nós | nos |\n| vocês, eles, elas | se |\n\nThe pronoun goes before the verb (Brazilian order): eu me levanto cedo 'I get up early', ela se chama Ana 'her name is Ana', nós nos falamos todo dia 'we talk every day'.\n\nSpoken Brazil drops some reflexives (eu levanto cedo) — both are heard.",
       "culture_note": "",
       "references": [
         {
@@ -1638,7 +1638,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "meu/minha, teu/tua, seu/sua, nosso/nossa agree with the THING owned: meu carro, minha casa.\n\nHere's the Brazilian twist: seu/sua usually means YOUR (de você); for his/her, Brazil says dele/dela after the noun — o carro dele 'his car', a bolsa dela 'her bag'.\n\nThat kills the ambiguity of seu.",
+      "explanation": "Possessives agree with the THING owned: meu carro, minha casa.\n\n| owner | masculine | feminine |\n| --- | --- | --- |\n| eu | meu | minha |\n| tu | teu | tua |\n| você | seu | sua |\n| nós | nosso | nossa |\n\nHere's the Brazilian twist: seu/sua usually means YOUR (de você); for his/her, Brazil says dele/dela after the noun — o carro dele 'his car', a bolsa dela 'her bag'.\n\nThat kills the ambiguity of seu.",
       "culture_note": "",
       "references": [
         {
@@ -1708,7 +1708,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Three distances: este/esta 'this (near me)', esse/essa 'that (near you)', aquele/aquela 'that over there'.\n\nNeuters isto/isso/aquilo for unnamed things. In spoken Brazil este and esse blur together — but aquele is always the far one.\n\nThey also contract: neste, nesse, naquele; disto, disso, daquilo.",
+      "explanation": "Three distances: este is 'this', esse and aquele are both 'that'.\n\n| distance | masculine | feminine | neuter |\n| --- | --- | --- | --- |\n| near me | este | esta | isto |\n| near you | esse | essa | isso |\n| over there | aquele | aquela | aquilo |\n\nNeuters isto/isso/aquilo for unnamed things. In spoken Brazil este and esse blur together — but aquele is always the far one.\n\nThey also contract: neste, nesse, naquele; disto, disso, daquilo.",
       "culture_note": "",
       "references": [
         {
@@ -2094,7 +2094,7 @@
           "sentence": "A cidade {{answer}} eu nasci fica no interior.",
           "answer": "onde",
           "translation": "The town where I was born is in the countryside.",
-          "hint": "where",
+          "hint": "relative introducing a clause about the place just named",
           "display_order": 2,
           "gloss": "DEF.F.SG · city · ___ · 1SG · be_born.PST.1SG · stay.PRS.3SG · in-DEF.M.SG · countryside"
         },
@@ -2110,7 +2110,7 @@
           "sentence": "As pessoas {{answer}} chegaram cedo pegaram lugar.",
           "answer": "que",
           "translation": "The people who arrived early got seats.",
-          "hint": "who",
+          "hint": "all-purpose relative as subject — Portuguese does not switch it for people",
           "display_order": 4,
           "gloss": "DEF.F.PL · person-PL · ___ · arrive.PST.3PL · early · get.PST.3PL · place"
         },
@@ -2139,7 +2139,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Add -ia to the infinitive: falaria 'would speak', comeria, abriria.\n\nIrregulars: fazer → faria, dizer → diria, trazer → traria. gostaria de 'I would like' is the polite request; spoken Brazil often uses the imperfeito instead (eu queria um café = eu gostaria de um café).",
+      "explanation": "Add -ia to the infinitive: falaria 'would speak', comeria, abriria.\n\n| person | ending |\n| --- | --- |\n| eu, você, ele, ela | -ia |\n| nós | -íamos |\n| vocês, eles, elas | -iam |\n\nIrregulars: fazer → faria, dizer → diria, trazer → traria.\n\ngostaria de 'I would like' is the polite request; spoken Brazil often uses the imperfeito instead (eu queria um café = eu gostaria de um café).",
       "culture_note": "",
       "references": [
         {
@@ -2279,7 +2279,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Statements: disse que + shifted tense (presente → imperfeito, perfeito → mais-que-perfeito composto, futuro → condicional): 'vou sair' → disse que ia sair.\n\nYes/no questions: perguntou se. Requests: pediu que + subjuntivo (pediu que eu esperasse).",
+      "explanation": "Statements take **disse que** and a shifted tense:\n\n| Direct | Reported |\n| --- | --- |\n| presente | imperfeito |\n| pretérito perfeito | mais-que-perfeito composto |\n| futuro | condicional |\n\n'vou sair' → disse que ia sair.\n\nYes/no questions: perguntou se. Requests: pediu que + imperfeito do subjuntivo (pediu que eu esperasse).",
       "culture_note": "",
       "references": [
         {
@@ -2349,7 +2349,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Portuguese alone among the Romance languages has a FUTURE subjunctive, and it's everywhere: after quando, se, enquanto, assim que, depois que pointing at the future.\n\nBuild it from the eles-perfeito minus -am: falaram → falar, quiseram → quiser, fizeram → fizer, forem (ir/ser).\n\nQuando eu CHEGAR, te ligo 'when I arrive, I'll call you'.",
+      "explanation": "Portuguese is the only Romance language that still uses a future subjunctive in everyday speech — Spanish and Galician keep one only in legal formulas and fixed sayings. Here it is everywhere: after quando, se, enquanto, assim que, depois que pointing at the future.\n\nBuild it from the eles-perfeito minus -am: falaram → falar, quiseram → quiser, fizeram → fizer, foram → for (ir/ser). It carries personal endings too: quando nós fizermos, quando eles fizerem.\n\nQuando eu CHEGAR, te ligo 'when I arrive, I'll call you'.",
       "culture_note": "",
       "references": [
         {
@@ -2419,7 +2419,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "For unreal or hypothetical conditions: se + imperfeito do subjuntivo pairs with the conditional (or, in speech, the imperfeito): se eu TIVESSE dinheiro, viajaria/viajava 'if I had money, I'd travel'.\n\nBuild from the eles-perfeito minus -ram + -sse: falaram → falasse, tiveram → tivesse, fossem (ser/ir).",
+      "explanation": "For unreal or hypothetical conditions: se + imperfeito do subjuntivo pairs with the conditional (or, in speech, the imperfeito): se eu TIVESSE dinheiro, viajaria/viajava 'if I had money, I'd travel'.\n\nBuild from the eles-perfeito minus -ram + -sse: falaram → falasse, tiveram → tivesse, foram → fosse (ser/ir). The nós form takes an accent — falássemos, tivéssemos — and eles ends in -ssem: falassem, tivessem.",
       "culture_note": "",
       "references": [
         {
@@ -2489,7 +2489,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The personal infinitive gives the infinitive endings so each doer is clear: para eu fazer, para você fazer, para nós fazermos, para eles fazerem.\n\nÉ melhor VOCÊS irem agora 'it's better for you all to go now'. Used after para, antes de, depois de, sem, até and impersonal expressions.\n\nUnique to Portuguese (and Galician).",
+      "explanation": "The personal infinitive gives the infinitive endings so each doer is clear:\n\n| Person | Form |\n| --- | --- |\n| eu | fazer |\n| você | fazer |\n| nós | fazermos |\n| eles | fazerem |\n\nÉ melhor VOCÊS irem agora 'it's better for you all to go now'. Used after para, antes de, depois de, sem, até and impersonal expressions.\n\nUnique to Portuguese (and Galician).",
       "culture_note": "",
       "references": [
         {
@@ -2627,7 +2627,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "ficar covers what several English verbs do: location (o hotel fica na praia 'the hotel is on the beach'), staying (fiquei em casa), becoming (fiquei feliz 'I got happy'), and ficar + gerúndio 'to keep doing' (fica reclamando 'keeps complaining'). ficar com = to keep/take.",
+      "explanation": "**ficar** covers what several English verbs do:\n\n- location: o hotel fica na praia 'the hotel is on the beach'\n- staying: fiquei em casa\n- becoming: fiquei feliz 'I got happy'\n- keeping on (ficar + gerúndio): fica reclamando 'keeps complaining'\n\nficar com = to keep/take.",
       "culture_note": "",
       "references": [
         {
@@ -2697,7 +2697,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "porém/no entanto 'however', portanto/por isso 'therefore', além disso 'besides', embora + SUBJUNTIVO 'although' (embora seja caro 'although it's expensive'), mesmo que + subjuntivo 'even if', já que 'since'.",
+      "explanation": "| Connector | Meaning |\n| --- | --- |\n| porém, no entanto | however |\n| portanto, por isso | therefore |\n| além disso | besides |\n| embora + subjuntivo | although |\n| mesmo que + subjuntivo | even if |\n| já que | since |\n\nThe two concessives take the subjunctive: embora seja caro 'although it's expensive'.",
       "culture_note": "",
       "references": [
         {
@@ -2722,7 +2722,7 @@
           "sentence": "O hotel é caro; {{answer}}, vale a pena.",
           "answer": "porém",
           "translation": "The hotel is expensive; however, it's worth it.",
-          "hint": "however",
+          "hint": "connector marking a contrast with the clause before it",
           "display_order": 2,
           "gloss": "DEF.M · hotel · be.PRS.3SG · expensive.M · ___ · worth.PRS.3SG · DEF.F · trouble"
         },
@@ -2754,7 +2754,7 @@
           "sentence": "Estudou muito; {{answer}}, passou fácil.",
           "answer": "portanto",
           "translation": "He studied hard; therefore, he passed easily.",
-          "hint": "therefore",
+          "hint": "connector marking the result that follows from the first clause",
           "display_order": 6,
           "gloss": "study.PST.PFV.3SG · much · ___ · pass.PST.PFV.3SG · easy"
         }
@@ -2837,7 +2837,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Crase (à) marks a + a colliding: vou à praia (a + a praia) but vou a São Paulo (no article). Never before verbs, masculine nouns, or most pronouns.\n\nRegência is which preposition a verb demands: assistir A um filme, gostar DE, precisar DE, depender DE, chegar A — spoken Brazil bends some of these, but writing expects them.",
+      "explanation": "Crase (**à**) marks a + a colliding: vou à praia (a + a praia) but vou a São Paulo (no article). Never before verbs, masculine nouns, or most pronouns.\n\nRegência is which preposition a verb demands, as in assistir a um filme:\n\n| Verb | Preposition |\n| --- | --- |\n| assistir | a |\n| gostar | de |\n| precisar | de |\n| depender | de |\n| chegar | a |\n\nSpoken Brazil bends some of these, but writing expects them.",
       "culture_note": "",
       "references": [
         {
@@ -2977,7 +2977,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Portuguese clefts with ser + que: foi ELE que quebrou o copo 'HE's the one who broke the glass', é HOJE que decide 'TODAY is when it's decided'. Question softener é que: onde é que você mora?\n\nSpoken Brazil also doubles the subject for topic ('o João, ele trabalha aqui') and uses 'que nem' for 'just like'.",
+      "explanation": "Portuguese clefts with ser + que: foi ELE que quebrou o copo 'HE's the one who broke the glass', é HOJE que se decide 'TODAY is when it's decided'. ser agrees with the focused phrase: SOU eu que pago 'I'M the one paying'. Question softener é que: onde é que você mora?\n\nSpoken Brazil also doubles the subject for topic ('o João, ele trabalha aqui') and uses 'que nem' for 'just like'.",
       "culture_note": "",
       "references": [
         {
@@ -3047,7 +3047,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Three registers to command: spoken Brazilian (você + proclitic pronouns, estar + -ndo, 'a gente' for we), European Portuguese (tu informal, estar a + infinitive, ênclise: dá-me), and the shared formal written norm (full relative cujo, mesóclise, connectors like todavia, não obstante, outrossim in legal prose).\n\nThe educated reader switches without blinking; know which room you're in.",
+      "explanation": "Three registers to command:\n\n- spoken Brazilian: você + proclitic pronouns, estar + -ndo, 'a gente' for we\n- European Portuguese: tu informal, estar a + infinitive, ênclise (dá-me)\n- the shared formal written norm: full relative cujo, mesóclise, connectors like todavia, não obstante, outrossim in legal prose\n\nThe educated reader switches without blinking; know which room you're in.",
       "culture_note": "",
       "references": [
         {
@@ -3117,7 +3117,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "A handful of essential verbs bend the present tense:\n\nir (to go): vou, vai, vamos, vão. fazer (to do/make): faço, faz, fazemos, fazem. poder (can): posso, pode, podemos, podem. querer (to want): quero, quer, queremos, querem.\n\nAlso worth knowing on sight: ver (vejo, vê), vir (venho, vem), dizer (digo, diz), saber (sei, sabe). Usually only the eu form (and sometimes the stem) is irregular — the endings stay familiar.",
+      "explanation": "A handful of essential verbs bend the present tense — ir 'to go', fazer 'to do/make', poder 'can', querer 'to want':\n\n| Verb | eu | você / ele | nós | vocês / eles |\n| --- | --- | --- | --- | --- |\n| ir | vou | vai | vamos | vão |\n| fazer | faço | faz | fazemos | fazem |\n| poder | posso | pode | podemos | podem |\n| querer | quero | quer | queremos | querem |\n\nAlso worth knowing on sight: ver (vejo, vê, vemos, veem), vir (venho, vem, vimos, vêm), dizer (digo, diz, dizemos, dizem), saber (sei, sabe, sabemos, sabem). Usually only the eu form (and sometimes the stem) is irregular — the endings stay familiar.",
       "culture_note": "",
       "references": [
         {
@@ -3193,7 +3193,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "The most common verbs have irregular pasts you simply learn:\n\nser AND ir share one past: fui, foi, fomos, foram (context decides: Fui médico / Fui ao Rio). fazer: fiz, fez, fizemos, fizeram. ter: tive, teve, tivemos, tiveram. estar: estive, esteve… poder: pude, pôde… querer: quis, quis… dizer: disse, disse…\n\nNo -ei/-ou endings here — these stems are their own little words.",
+      "explanation": "The most common verbs have irregular pasts you simply learn. ser and ir share one past — context decides: Fui médico / Fui ao Rio.\n\n| Verb | eu | você / ele | nós | vocês / eles |\n| --- | --- | --- | --- | --- |\n| ser, ir | fui | foi | fomos | foram |\n| fazer | fiz | fez | fizemos | fizeram |\n| ter | tive | teve | tivemos | tiveram |\n| estar | estive | esteve | estivemos | estiveram |\n| poder | pude | pôde | pudemos | puderam |\n| querer | quis | quis | quisemos | quiseram |\n| dizer | disse | disse | dissemos | disseram |\n\nNo -ei/-ou endings here — these stems are their own little words.",
       "culture_note": "",
       "references": [
         {

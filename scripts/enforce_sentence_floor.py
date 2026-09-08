@@ -27,31 +27,26 @@ import argparse
 import csv
 import io
 import sys
-import unicodedata
 from collections import defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO))
+
 DATA = REPO / "data"
-FLOOR = 5
-UNSPACED = {"th"}
 
-
-def tokens(sentence: str) -> list[str]:
-    """Letters-plus-marks, so Devanagari and Arabic vowel signs stay attached
-    to their letter — Python's \\w drops them and turns नहीं into नह."""
-    out: list[str] = []
-    cur = ""
-    for ch in sentence or "":
-        if unicodedata.category(ch).startswith(("L", "M")) or (cur and ch in "'’-"):
-            cur += ch
-        else:
-            if cur:
-                out.append(cur)
-                cur = ""
-    if cur:
-        out.append(cur)
-    return out
+# The floor, the tokenizer and the unspaced-script exemption live with the
+# PRODUCTION prune, and this pass imports them: the file bank and the database
+# must be thinned by the same rule or one of them drifts (they did — the files
+# got this floor on 31 Aug and production did not until CHECKS §24a).
+from backend.services.seeder.prune_sentences import (  # noqa: E402
+    FLOOR,
+    UNSPACED,
+    shape_keeps,
+)
+from backend.services.seeder.prune_sentences import (  # noqa: E402
+    sentence_tokens as tokens,
+)
 
 
 def main() -> int:
@@ -82,8 +77,12 @@ def main() -> int:
             if len(thin) == len(group):
                 stranded += 1          # nothing better exists; leave it alone
                 continue
+            # A linked spelling keeps its best row (Turkish harmony, §30).
+            full = [r for r in group if r not in thin]
+            kept = shape_keeps(_word, full, thin, code)
             for r in thin:
-                drop.add(id(r))
+                if not any(r is k for k in kept):
+                    drop.add(id(r))
             improved += 1
         total_dropped += len(drop)
         total_words += improved

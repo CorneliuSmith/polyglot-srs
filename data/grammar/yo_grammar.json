@@ -88,7 +88,7 @@
      "sentence": "{{answer}} fẹ́ omi tútù.",
      "answer": "A",
      "translation": "We want cold water.",
-     "hint": "we",
+     "hint": "subject pronoun — first person, the speaker together with others",
      "display_order": 5,
      "gloss": "___ · want · be.cold · water"
     },
@@ -96,7 +96,7 @@
      "sentence": "{{answer}} lọ sí ọjà.",
      "answer": "Ẹ",
      "translation": "You (plural) went to the market.",
-     "hint": "you (plural)",
+     "hint": "subject pronoun — more than one listener is being addressed",
      "display_order": 6,
      "gloss": "___ · go · to · market"
     }
@@ -594,7 +594,7 @@
      "sentence": "{{answer}} ni ọmọ yẹn?",
      "answer": "Ta",
      "translation": "Who is that child?",
-     "hint": "who",
+     "hint": "question word asking for the identity of a person",
      "display_order": 6,
      "gloss": "___ · COP · child · that"
     }
@@ -640,7 +640,7 @@
      "sentence": "Ilé {{answer}} wà ní Èkó.",
      "answer": "wa",
      "translation": "Our house is in Lagos.",
-     "hint": "our",
+     "hint": "possessive pronoun — the owner is the speaker's own group",
      "display_order": 3,
      "gloss": "house · ___ · be.at · at · Lagos"
     },
@@ -656,7 +656,7 @@
      "sentence": "Aṣọ {{answer}} dára.",
      "answer": "wọn",
      "translation": "Their clothes are nice.",
-     "hint": "their",
+     "hint": "possessive pronoun — several owners, neither speaker nor hearer",
      "display_order": 5,
      "gloss": "clothes · ___ · be.good"
     },
@@ -850,7 +850,7 @@
      "sentence": "Wọ́n rí {{answer}} ní ọjà.",
      "answer": "wa",
      "translation": "They saw us at the market.",
-     "hint": "us",
+     "hint": "object pronoun — the speaker's group is on the receiving end",
      "display_order": 3,
      "gloss": "3PL · see · ___ · at · market"
     },
@@ -866,7 +866,7 @@
      "sentence": "A fẹ́ràn {{answer}}.",
      "answer": "yín",
      "translation": "We love you (plural).",
-     "hint": "you (plural)",
+     "hint": "object pronoun — the group being addressed is the one affected",
      "display_order": 5,
      "gloss": "1PL · like · ___"
     },
@@ -874,7 +874,7 @@
      "sentence": "Bàbá pè {{answer}}.",
      "answer": "wọ́n",
      "translation": "Father called them.",
-     "hint": "them",
+     "hint": "object pronoun — third person, several people, not speaker or hearer",
      "display_order": 6,
      "gloss": "father · call · ___"
     }
@@ -990,7 +990,7 @@
      "sentence": "Ọjà {{answer}} jìnnà.",
      "answer": "yẹn",
      "translation": "That market is far away.",
-     "hint": "that",
+     "hint": "demonstrative marking the noun as distant from the speaker",
      "display_order": 3,
      "gloss": "market · ___ · be.far"
     },
@@ -998,7 +998,7 @@
      "sentence": "Aṣọ {{answer}} mọ́.",
      "answer": "yìí",
      "translation": "This cloth is clean.",
-     "hint": "this",
+     "hint": "demonstrative marking the noun as close to the speaker",
      "display_order": 4,
      "gloss": "cloth · ___ · be.clean"
     },
@@ -1006,7 +1006,7 @@
      "sentence": "Ilé {{answer}} ga.",
      "answer": "yẹn",
      "translation": "That house is tall.",
-     "hint": "that",
+     "hint": "demonstrative for something away from the speaker",
      "display_order": 5,
      "gloss": "house · ___ · be.tall"
     },
@@ -1014,7 +1014,7 @@
      "sentence": "Oúnjẹ {{answer}} dùn.",
      "answer": "yìí",
      "translation": "This food is delicious.",
-     "hint": "this",
+     "hint": "demonstrative for something near the speaker",
      "display_order": 6,
      "gloss": "food · ___ · be.sweet"
     }
@@ -1554,7 +1554,7 @@
      "sentence": "Ó rò {{answer}} mo ti lọ.",
      "answer": "pé",
      "translation": "He thought that I had gone.",
-     "hint": "that",
+     "hint": "complementiser introducing a reported clause after a verb of thinking",
      "display_order": 3,
      "gloss": "3SG · think · ___ · 1SG · PRF · go"
     },
@@ -1562,7 +1562,7 @@
      "sentence": "Wọ́n gbàgbọ́ {{answer}} òjò yóò rọ̀.",
      "answer": "pé",
      "translation": "They believe that it will rain.",
-     "hint": "that",
+     "hint": "complementiser after a speech/thought verb",
      "display_order": 4,
      "gloss": "3PL · believe · ___ · rain · FUT · fall"
     },
@@ -1570,7 +1570,7 @@
      "sentence": "Mo gbọ́ {{answer}} o ṣàìsàn.",
      "answer": "pé",
      "translation": "I heard that you were ill.",
-     "hint": "that",
+     "hint": "complementiser after a speech/thought verb",
      "display_order": 5,
      "gloss": "1SG · hear · ___ · 2SG · be.ill"
     },
@@ -1578,7 +1578,7 @@
      "sentence": "Ó sọ fún mi {{answer}} kí n dúró.",
      "answer": "pé",
      "translation": "He told me that I should wait.",
-     "hint": "that",
+     "hint": "complementiser after a speech/thought verb",
      "display_order": 6,
      "gloss": "3SG · say · to · 1SG · ___ · SBJV · 1SG · wait"
     }
@@ -1710,7 +1710,7 @@
      "sentence": "Ó ṣàìsàn; {{answer}}, ó lọ síbi iṣẹ́.",
      "answer": "síbẹ̀",
      "translation": "He was ill; nevertheless, he went to work.",
-     "hint": "nevertheless",
+     "hint": "connector marking the second clause as contrary to what the first suggests",
      "display_order": 5,
      "gloss": "3SG · be.ill · ___ · 3SG · go · to.place · work"
     },
@@ -1827,7 +1827,7 @@
      "sentence": "{{answer}} ni o ń gbé?",
      "answer": "Níbo",
      "translation": "Where do you live?",
-     "hint": "where",
+     "hint": "question word asking for a location",
      "cell": "níbo",
      "display_order": 2,
      "gloss": "___ · FOC · 2SG · PROG · live"
@@ -1845,7 +1845,7 @@
      "sentence": "{{answer}} ni ohun gbogbo?",
      "answer": "Báwo",
      "translation": "How is everything?",
-     "hint": "how",
+     "hint": "question word asking after manner or state",
      "cell": "báwo",
      "display_order": 4,
      "gloss": "___ · FOC · thing · all"
@@ -1881,7 +1881,7 @@
      "sentence": "{{answer}} ni wọ́n ti ń ṣiṣẹ́?",
      "answer": "Níbo",
      "translation": "Where do they work?",
-     "hint": "where",
+     "hint": "question word for a place",
      "cell": "níbo",
      "display_order": 8,
      "gloss": "___ · FOC · 3PL · LOC · PROG · work"
@@ -1890,7 +1890,7 @@
      "sentence": "{{answer}} ni iṣẹ́ ń lọ?",
      "answer": "Báwo",
      "translation": "How is work going?",
-     "hint": "how",
+     "hint": "question word for manner",
      "cell": "báwo",
      "display_order": 9,
      "gloss": "___ · FOC · work · PROG · go"
@@ -1972,7 +1972,7 @@
      "sentence": "O {{answer}} lọ sí ilé ìwé lónìí.",
      "answer": "gbọ́dọ̀",
      "translation": "You must go to school today.",
-     "hint": "must",
+     "hint": "modal expressing obligation rather than ability or desire",
      "display_order": 3,
      "gloss": "2SG · ___ · go · to · house · book · today"
     },
@@ -1996,7 +1996,7 @@
      "sentence": "A {{answer}} ṣiṣẹ́ kára.",
      "answer": "gbọ́dọ̀",
      "translation": "We must work hard.",
-     "hint": "must",
+     "hint": "obligation modal, before the verb",
      "display_order": 6,
      "gloss": "1PL · ___ · work · hard"
     }

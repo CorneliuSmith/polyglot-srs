@@ -213,3 +213,51 @@ would replace a correct gloss with a wrong one.
 | 565 | `arma` | the weapon, the gun (definite form of armă, f.: pune arma jos “put the g |
 | 604 | `echipa` | the team (definite form of echipă, f.: echipa noastră “our team”, echipa |
 | 612 | `stat` | stayed, stood, sat (past participle of a sta: cât ai stat? “how long did |
+
+## Phase 2d–3 pass (7 September 2026)
+
+Measured and changed in the quality-parity passes of 6–7 September; figures
+re-measured from the repository on 7 September.
+
+- **Definitions.** The top 200 were read by a reader of Romanian and
+  **87 repaired** through `scripts/apply_gloss_overrides.py`; a second
+  reader accepted or corrected every one it saw. Faults found: a part-of-speech label 45, reaches a synonym 19, not a definition 11.
+  116 of the top 200 now carry a hand-written definition — a low
+  count means the extracted glosses were already right, not that the band
+  was skipped.
+- **Hints.** **39 drill hints** that gave away their answer — sitting
+  inside their own translation, or only the agreement feature the drill
+  tests — rewritten through `scripts/apply_drill_hints.py`.
+- **Headwords.** **0 removed** to `vocab_exclusions.tsv` (letters,
+  punctuation, extraction debris, rare twins of common words). Production
+  retires them on the next `reconcile --apply` (migration 20261016).
+- **State.** 90% of the top 1,000 have a sentence the card can
+  actually blank; 100% of drills carry an interlinear gloss;
+  2 fail-level audit findings; a top-2,000 card is bad — no
+  usable sentence, or a fragment drawn — 20% of the time.
+
+Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
+rows whatever their source), §26 (the card rotates — a fragment's exposure is
+its share of the pool), §28 (definition plus sentence must determine one
+string), §29 (a sentence the card cannot blank is not coverage).
+
+## A feminine noun and a verb infinitive fold to one string (7 Sep 2026)
+
+Romanian writes the feminine singular noun with a final `ă` and the
+first-conjugation infinitive with a final `a`, so `uzină` (works, plant)
+and `a uzina` (to machine) are one string once the grader strips the mark.
+The same pair exists for `violență`/`a violenta`, `eclipsă`/`a eclipsa`,
+`expertiză`/`a expertiza`, `perlă`/`a perla`, `ramă`/`a rama` and
+`însuți`/`a însuti`.
+
+**The course can carry only one of each pair as a card.** A repair pass
+proposed keeping the noun and retiring the verb; the checker refused,
+because the verbs are real and several carry full conjugation charts in
+`ro_morphology.json`. Which member wins is a Romanian editorial decision
+about what a learner meets, not something a sweep can settle — and the
+rank the corpus measured belongs to both. Seven rows are left as they
+were, listed in `docs/decisions/2026-09-07-file-headword-repairs.md`.
+
+Related and still open (DEBT): rank 4 `si` is glossed "si (musical note
+B)" where the frequency plainly belongs to `și` ("and").
+

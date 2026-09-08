@@ -78,7 +78,7 @@
           "sentence": "{{answer}} canta muy bien.",
           "answer": "Ella",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "ella",
           "display_order": 3,
           "gloss": "___ · sing.3SG · very · well"
@@ -87,7 +87,7 @@
           "sentence": "{{answer}} somos estudiantes.",
           "answer": "Nosotros",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker's own group",
           "display_order": 4,
           "cell": "nosotros",
           "gloss": "___ · be.1PL · student.PL"
@@ -96,7 +96,7 @@
           "sentence": "{{answer}} trabaja en un banco.",
           "answer": "Él",
           "translation": "He works in a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "él",
           "display_order": 5,
           "gloss": "___ · work.3SG · in · INDF.M · bank"
@@ -150,7 +150,7 @@
           "sentence": "{{answer}} es mi hermana.",
           "answer": "Ella",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "display_order": 11,
           "cell": "ella",
           "gloss": "___ · be.3SG · 1SG.POSS · sister"
@@ -159,7 +159,7 @@
           "sentence": "{{answer}} hablo un poco de español.",
           "answer": "Yo",
           "translation": "I speak a little Spanish.",
-          "hint": "I",
+          "hint": "first-person singular subject — the verb ending marks the person",
           "cell": "yo",
           "display_order": 12,
           "gloss": "___ · speak.1SG · INDF.M · little · of · Spanish"
@@ -177,7 +177,7 @@
           "sentence": "{{answer}} vivimos en Madrid.",
           "answer": "Nosotros",
           "translation": "We live in Madrid.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker plus others",
           "cell": "nosotros",
           "display_order": 14,
           "gloss": "___ · live.1PL · in · Madrid"
@@ -248,7 +248,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Every Spanish noun is masculine or feminine. Most nouns in -o are masculine (libro) and most in -a are feminine (casa).\n\nPlurals add -s after a vowel (casa → casas) and -es after a consonant (ciudad → ciudades).\n\nGender and number ripple through the whole sentence — articles and adjectives must match the noun.",
+      "explanation": "Every Spanish noun is masculine or feminine. Most nouns in `-o` are masculine (libro) and most in `-a` are feminine (casa).\n\nPlurals add `-s` after a vowel (casa → casas) and `-es` after a consonant (ciudad → ciudades).\n\nGender and number ripple through the whole sentence — articles and adjectives must match the noun.",
       "culture_note": "",
       "references": [
         {
@@ -332,7 +332,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Spanish nouns have grammatical gender. Use 'el' before masculine singular nouns and 'la' before feminine singular nouns; the plurals are 'los' and 'las'.\n\nMost nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
+      "explanation": "Spanish nouns have grammatical gender, and the article matches the noun in gender and number:\n\n| Article | Before | Example |\n| --- | --- | --- |\n| el | masculine singular nouns | el libro |\n| la | feminine singular nouns | la casa |\n| los | masculine plurals | los libros |\n| las | feminine plurals | las casas |\n\nMost nouns ending in -o are masculine (el libro) and most ending in -a are feminine (la casa), but there are exceptions you learn word by word.",
       "culture_note": "Gender is grammatical, not literal — 'el mapa' (the map) is masculine despite ending in -a, a Greek-derived exception.",
       "references": [
         {
@@ -353,7 +353,7 @@
           "sentence": "{{answer}} casa es grande.",
           "answer": "la",
           "translation": "The house is big.",
-          "hint": "feminine singular",
+          "hint": "definite article — check the gender of the noun it introduces",
           "display_order": 1,
           "cell": "la",
           "gloss": "___ · house · be.3SG · big"
@@ -362,7 +362,7 @@
           "sentence": "{{answer}} libro es nuevo.",
           "answer": "el",
           "translation": "The book is new.",
-          "hint": "masculine singular",
+          "hint": "definite article — let the noun's gender decide the form",
           "display_order": 2,
           "cell": "el",
           "gloss": "___ · book · be.3SG · new.M.SG"
@@ -371,7 +371,7 @@
           "sentence": "{{answer}} casas son blancas.",
           "answer": "Las",
           "translation": "The houses are white.",
-          "hint": "feminine plural",
+          "hint": "definite article — match the noun in gender and number",
           "display_order": 3,
           "cell": "las",
           "gloss": "___ · house.PL · be.3PL · white.F.PL"
@@ -380,7 +380,7 @@
           "sentence": "{{answer}} profesor es simpático.",
           "answer": "El",
           "translation": "The teacher is nice.",
-          "hint": "masculine singular",
+          "hint": "the definite article — match the gender of the noun that follows",
           "display_order": 4,
           "cell": "el",
           "gloss": "___ · teacher · be.3SG · nice.M.SG"
@@ -389,7 +389,7 @@
           "sentence": "{{answer}} coches son rápidos.",
           "answer": "Los",
           "translation": "The cars are fast.",
-          "hint": "masculine plural",
+          "hint": "definite article — agree with the noun in gender and number",
           "display_order": 5,
           "cell": "los",
           "gloss": "___ · car.PL · be.3PL · fast.M.PL"
@@ -398,7 +398,7 @@
           "sentence": "{{answer}} escuela es grande.",
           "answer": "La",
           "translation": "The school is big.",
-          "hint": "feminine singular",
+          "hint": "the definite article — match the gender of the noun that follows",
           "display_order": 6,
           "cell": "la",
           "gloss": "___ · school · be.3SG · big"
@@ -446,7 +446,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "'Un' goes before masculine singular nouns and 'una' before feminine singular nouns: un perro, una casa. The plurals 'unos/unas' mean 'some'.\n\nUse the indefinite article to introduce something new; after that, switch to el/la because it is now known.",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| un | masculine singular nouns | un perro |\n| una | feminine singular nouns | una casa |\n| unos | masculine plurals | unos perros |\n| unas | feminine plurals | unas casas |\n\nThe plurals unos/unas mean 'some'. Use the indefinite article to introduce something new; after that, switch to el/la because it is now known.",
       "culture_note": "",
       "references": [
         {
@@ -467,7 +467,7 @@
           "sentence": "Tengo {{answer}} perro.",
           "answer": "un",
           "translation": "I have a dog.",
-          "hint": "masculine singular",
+          "hint": "indefinite article — the gender of the noun picks the form",
           "display_order": 1,
           "cell": "un",
           "gloss": "have.1SG · ___ · dog"
@@ -476,7 +476,7 @@
           "sentence": "Es {{answer}} casa grande.",
           "answer": "una",
           "translation": "It is a big house.",
-          "hint": "feminine singular",
+          "hint": "indefinite article — check the gender of the noun that follows",
           "display_order": 2,
           "cell": "una",
           "gloss": "be.3SG · ___ · house · big"
@@ -540,7 +540,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "'Ser' expresses permanent or defining qualities: identity, origin, profession.\n\nPresent forms: soy, eres, es, somos, sois, son.\n\nUse ser for who/what something is (Soy estudiante), and the separate verb estar for temporary states and location.",
+      "explanation": "**Ser** expresses permanent or defining qualities: identity, origin, profession.\n\n| Person | Form |\n| --- | --- |\n| yo | soy |\n| tú | eres |\n| él / ella / usted | es |\n| nosotros / nosotras | somos |\n| vosotros / vosotras | sois |\n| ellos / ellas / ustedes | son |\n\nUse ser for who/what something is (Soy estudiante), and the separate verb estar for temporary states and location.",
       "culture_note": "Spanish has two verbs for 'to be' — ser (essence) and estar (state). 'Es aburrido' = he is boring; 'está aburrido' = he is bored.",
       "references": [
         {
@@ -700,7 +700,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "'Estar' covers location and temporary states: estoy, estás, está, estamos, estáis, están.\n\nLocation ALWAYS takes estar, even for permanent places: 'Madrid está en España'. States that can change — tired, cold, happy — also take estar: 'Estoy cansado'.",
+      "explanation": "**Estar** covers location and temporary states.\n\n| Person | Form |\n| --- | --- |\n| yo | estoy |\n| tú | estás |\n| él / ella / usted | está |\n| nosotros / nosotras | estamos |\n| vosotros / vosotras | estáis |\n| ellos / ellas / ustedes | están |\n\nLocating a person or a thing ALWAYS takes estar, even for permanent places: 'Madrid está en España'. States that can change — tired, cold, happy — also take estar: 'Estoy cansado'.",
       "culture_note": "",
       "references": [
         {
@@ -856,7 +856,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Regular -ar verbs (hablar, estudiar, trabajar) drop -ar and add endings: -o, -as, -a, -amos, -áis, -an.\n\nSo hablar → hablo, hablas, habla, hablamos, habláis, hablan.",
+      "explanation": "Regular -ar verbs (hablar, estudiar, trabajar) drop `-ar` and add:\n\n| Person | Ending | hablar |\n| --- | --- | --- |\n| yo | -o | hablo |\n| tú | -as | hablas |\n| él / ella / usted | -a | habla |\n| nosotros / nosotras | -amos | hablamos |\n| vosotros / vosotras | -áis | habláis |\n| ellos / ellas / ustedes | -an | hablan |",
       "culture_note": "-ar verbs are the largest and most regular Spanish verb group, so mastering this pattern unlocks hundreds of verbs at once.",
       "references": [
         {
@@ -1012,7 +1012,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "-er verbs (comer, beber) take -o, -es, -e, -emos, -éis, -en; -ir verbs (vivir, escribir) are the same except nosotros/vosotros: -imos, -ís. So como, comes, come, comemos… and vivo, vives, vive, vivimos…",
+      "explanation": "-er verbs (comer, beber) and -ir verbs (vivir, escribir) take the same endings everywhere but two rows:\n\n| Person | comer | vivir |\n| --- | --- | --- |\n| yo | como | vivo |\n| tú | comes | vives |\n| él / ella / usted | come | vive |\n| nosotros / nosotras | comemos | vivimos |\n| vosotros / vosotras | coméis | vivís |\n| ellos / ellas / ustedes | comen | viven |\n\nOnly nosotros and vosotros differ: `-imos` and `-ís` against `-emos` and `-éis`.",
       "culture_note": "",
       "references": [
         {
@@ -1168,7 +1168,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Put 'no' directly before the conjugated verb: 'No tengo tiempo' (I don't have time), 'Ella no habla inglés'. Answering a question negatively often doubles it: '¿Hablas francés?\n\n— No, no hablo francés.'",
+      "explanation": "Put **no** directly before the conjugated verb: 'No tengo tiempo' (I don't have time), 'Ella no habla inglés'.\n\nAnswering a question negatively often doubles it: '¿Hablas francés? — No, no hablo francés.'",
       "culture_note": "",
       "references": [
         {
@@ -1252,7 +1252,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "'Hay' (from haber) is invariable: it means both 'there is' and 'there are'. 'Hay un libro en la mesa', 'Hay tres cafés', 'No hay leche'.\n\nUse hay for existence; use estar to locate something specific you already know about.",
+      "explanation": "**Hay** (from haber) is invariable: it means both 'there is' and 'there are'. 'Hay un libro en la mesa', 'Hay tres cafés', 'No hay leche'.\n\nUse hay for existence; use estar to locate something specific you already know about.",
       "culture_note": "",
       "references": [
         {
@@ -1273,7 +1273,7 @@
           "sentence": "{{answer}} un libro en la mesa.",
           "answer": "Hay",
           "translation": "There is a book on the table.",
-          "hint": "there is",
+          "hint": "impersonal existential verb — one form for singular and plural",
           "display_order": 1,
           "gloss": "___ · INDF.M · book · on · DEF.F · table"
         },
@@ -1373,7 +1373,7 @@
           "sentence": "¿{{answer}} es esto?",
           "answer": "Qué",
           "translation": "What is this?",
-          "hint": "what",
+          "hint": "question word asking for the identity of a thing",
           "display_order": 3,
           "gloss": "___ · be.3SG · this.N"
         },
@@ -1381,7 +1381,7 @@
           "sentence": "¿{{answer}} vives?",
           "answer": "Dónde",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "question word asking for a place",
           "display_order": 4,
           "gloss": "___ · live.2SG"
         },
@@ -1389,7 +1389,7 @@
           "sentence": "¿{{answer}} es tu cumpleaños?",
           "answer": "Cuándo",
           "translation": "When is your birthday?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 5,
           "gloss": "___ · be.3SG · POSS.2SG · birthday.M"
         },
@@ -1436,7 +1436,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Adjectives match their noun in gender and number: casa blanca, libros nuevos. Adjectives in -o have four forms (blanco/blanca/blancos/blancas); adjectives in -e or a consonant only change for number (grande/grandes, azul/azules).\n\nMost adjectives FOLLOW the noun.",
+      "explanation": "Adjectives match their noun in gender and number: casa blanca, libros nuevos.\n\n- Adjectives in `-o` have four forms: blanco/blanca/blancos/blancas\n- Adjectives in `-e` or most consonants change only for number: grande/grandes, azul/azules\n- Adjectives of nationality and those in `-dor` add `-a` for the feminine: español/española, trabajador/trabajadora\n\nMost adjectives FOLLOW the noun.",
       "culture_note": "",
       "references": [
         {
@@ -1550,7 +1550,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Reflexive verbs carry a pronoun that points back at the subject: me levanto (I get up), te duchas, se viste, nos acostamos.\n\nThe pronoun goes before the conjugated verb, and the infinitive keeps -se: levantarse.",
+      "explanation": "Reflexive verbs carry a pronoun that points back at the subject:\n\n| Person | Pronoun |\n| --- | --- |\n| yo | me |\n| tú | te |\n| él / ella / usted | se |\n| nosotros / nosotras | nos |\n| vosotros / vosotras | os |\n| ellos / ellas / ustedes | se |\n\nMe levanto (I get up), te duchas, se viste, nos acostamos.\n\nThe pronoun goes before the conjugated verb, and the infinitive keeps -se: levantarse.",
       "culture_note": "",
       "references": [
         {
@@ -1698,7 +1698,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The preterite reports completed past events: hablar → hablé, hablaste, habló, hablamos, hablasteis, hablaron; -er/-ir verbs share endings: comí, comiste, comió…\n\nAyer hablé con mi madre (Yesterday I spoke with my mother).",
+      "explanation": "The preterite reports completed past events, and -er and -ir verbs share one set of endings:\n\n| Person | hablar | comer |\n| --- | --- | --- |\n| yo | hablé | comí |\n| tú | hablaste | comiste |\n| él / ella / usted | habló | comió |\n| nosotros / nosotras | hablamos | comimos |\n| vosotros / vosotras | hablasteis | comisteis |\n| ellos / ellas / ustedes | hablaron | comieron |\n\nAyer hablé con mi madre (Yesterday I spoke with my mother).",
       "culture_note": "",
       "references": [
         {
@@ -1772,7 +1772,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The most frequent verbs are irregular in the preterite: ser/ir share fui, fuiste, fue…; hacer → hice, hizo; tener → tuve; estar → estuve; poder → pude.\n\nThey carry no written accent: fue, hizo.",
+      "explanation": "The most frequent verbs are irregular in the preterite:\n\n| Verb | I | you | he / she / you (formal) |\n| --- | --- | --- | --- |\n| ser / ir | fui | fuiste | fue |\n| hacer | hice | hiciste | hizo |\n| tener | tuve | tuviste | tuvo |\n| estar | estuve | estuviste | estuvo |\n| poder | pude | pudiste | pudo |\n\nThe plurals keep the same stem: fuimos, fuisteis, fueron; hicimos, hicisteis, hicieron.\n\nThey carry no written accent: fue, hizo.",
       "culture_note": "",
       "references": [
         {
@@ -1846,7 +1846,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The imperfect paints background and habits: -ar verbs take -aba (hablaba, jugaba), -er/-ir take -ía (comía, vivía).\n\nOnly three verbs are irregular: era, iba, veía.\n\nCuando era niño, jugaba mucho (When I was a child, I played a lot).",
+      "explanation": "The imperfect paints background and habits: -ar verbs take -aba (hablaba, jugaba), -er/-ir take -ía (comía, vivía).\n\nOnly three verbs are irregular: ser → era, ir → iba, ver → veía.\n\nCuando era niño, jugaba mucho (When I was a child, I played a lot).",
       "culture_note": "Preterite vs imperfect is THE Spanish past-tense contrast: what happened (preterite) against what was going on (imperfect).",
       "references": [
         {
@@ -1920,7 +1920,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Plans and near future use ir a + infinitive: Voy a viajar mañana (I'm going to travel tomorrow), Vamos a comer (We're going to eat). Only ir conjugates; the second verb stays an infinitive.",
+      "explanation": "Plans and near future use ir a + infinitive: Voy a viajar mañana (I'm going to travel tomorrow), Vamos a comer (We're going to eat). Only ir conjugates; the second verb stays an infinitive.\n\nThe present of ir is irregular:\n\n| person | form |\n|---|---|\n| yo | voy |\n| tú | vas |\n| él / ella / usted | va |\n| nosotros | vamos |\n| vosotros | vais |\n| ellos / ellas / ustedes | van |",
       "culture_note": "",
       "references": [
         {
@@ -2068,7 +2068,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Replace known direct objects with lo/la/los/las agreeing with the noun: ¿El libro? Lo tengo (I have it).\n\nThe pronoun goes before the conjugated verb, or attaches to an infinitive/gerund: quiero verla.",
+      "explanation": "Replace known direct objects with lo (masculine singular), la (feminine singular), los (masculine plural), las (feminine plural).\n\n¿El libro? Lo tengo (I have it). The pronoun goes before the conjugated verb, or attaches to an infinitive/gerund: quiero verla.",
       "culture_note": "",
       "references": [
         {
@@ -2105,7 +2105,7 @@
           "sentence": "¿La película? {{answer}} vimos anoche.",
           "answer": "La",
           "translation": "The film? We saw it last night.",
-          "hint": "feminine singular",
+          "hint": "direct object pronoun — agree with the noun it stands for",
           "display_order": 3,
           "gloss": "DEF.F.SG · film · ___ · see.PST.PFV.1PL · last_night"
         },
@@ -2113,7 +2113,7 @@
           "sentence": "¿Los libros? {{answer}} compré ayer.",
           "answer": "Los",
           "translation": "The books? I bought them yesterday.",
-          "hint": "masculine plural",
+          "hint": "direct object pronoun — copy the gender and number of what it replaces",
           "display_order": 4,
           "gloss": "DEF.M.PL · book.PL · ___ · buy.PST.PFV.1SG · yesterday"
         },
@@ -2121,7 +2121,7 @@
           "sentence": "¿El pan? No {{answer}} encuentro.",
           "answer": "lo",
           "translation": "The bread? I can't find it.",
-          "hint": "masculine singular",
+          "hint": "direct object pronoun — the noun referred back to sets the form",
           "display_order": 5,
           "gloss": "DEF.M.SG · bread · NEG · ___ · find.PRS.1SG"
         },
@@ -2129,7 +2129,7 @@
           "sentence": "¿Las fotos? {{answer}} tengo en el móvil.",
           "answer": "las",
           "translation": "The photos? I have them on my phone.",
-          "hint": "feminine plural",
+          "hint": "direct object pronoun — agree with the thing already named",
           "display_order": 6,
           "gloss": "DEF.F.PL · photo.PL · ___ · have.PRS.1SG · in · DEF.M.SG · phone"
         }
@@ -2142,7 +2142,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "The receiver is marked with me/te/le/nos/os/les, usually doubled with a + person: Le di el libro a Juan (I gave the book to Juan), Les escribí a mis padres. Le/les don't mark gender.",
+      "explanation": "The receiver is marked with me/te/le/nos/os/les, usually doubled with a + person: Le di el libro a Juan (I gave the book to Juan), Les escribí a mis padres (I wrote to my parents). Le/les don't mark gender.",
       "culture_note": "",
       "references": [
         {
@@ -2216,7 +2216,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "More/less: más/menos + adjective + que — Ella es más alta que yo. Equality: tan + adjective + como — Es tan alto como su padre.\n\nIrregulars: mejor (better), peor (worse), mayor, menor.",
+      "explanation": "More/less: más/menos + adjective + que — Ella es más alta que yo. Equality: tan + adjective + como — Es tan alto como su padre.\n\nIrregulars: bueno → mejor (better), malo → peor (worse), grande → mayor (older, greater), pequeño → menor (younger, lesser).",
       "culture_note": "",
       "references": [
         {
@@ -2290,7 +2290,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Haber (he, has, ha, hemos, habéis, han) + participle (-ado/-ido): Hoy he trabajado mucho (Today I've worked a lot).\n\nCommon irregular participles: hecho, dicho, visto, escrito, puesto, vuelto.",
+      "explanation": "The present perfect is **haber** in the present plus a participle — `-ado` for -ar verbs, `-ido` for -er/-ir: Hoy he trabajado mucho (Today I've worked a lot).\n\n| person | form |\n|---|---|\n| yo | he |\n| tú | has |\n| él / ella / usted | ha |\n| nosotros | hemos |\n| vosotros | habéis |\n| ellos / ellas / ustedes | han |\n\nCommon irregular participles: hacer → hecho, decir → dicho, ver → visto, escribir → escrito, poner → puesto, volver → vuelto.",
       "culture_note": "Spain uses the present perfect for today's events (hoy he comido); much of Latin America prefers the preterite (hoy comí). Both are correct.",
       "references": [
         {
@@ -2364,7 +2364,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Attach -é, -ás, -á, -emos, -éis, -án to the whole infinitive: hablaré, comerás, vivirá.\n\nA few stems change: tendré, haré, podré, saldré.\n\nIt also expresses guesses: Serán las diez (It must be around ten).",
+      "explanation": "The future keeps the whole infinitive and adds one set of endings: **hablaré**, comerás, vivirá.\n\n| person | ending |\n|---|---|\n| yo | -é |\n| tú | -ás |\n| él / ella / usted | -á |\n| nosotros | -emos |\n| vosotros | -éis |\n| ellos / ellas / ustedes | -án |\n\nA few verbs change the stem: tener → tendré, hacer → haré, poder → podré, salir → saldré, saber → sabré.\n\nIt also expresses guesses: Serán las diez (It must be around ten).",
       "culture_note": "",
       "references": [
         {
@@ -2586,7 +2586,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Affirmative tú = third-person present (¡Abre la puerta!), with irregulars ven, haz, di, pon, sal. NEGATIVE commands switch to the subjunctive: ¡No hagas eso!, ¡No vengas tarde!\n\nPronouns attach after affirmatives (dímelo) but precede negatives (no me lo digas).",
+      "explanation": "Affirmative tú = third-person present (¡Abre la puerta!).\n\nEight verbs are irregular: venir → ven, hacer → haz, decir → di, poner → pon, salir → sal, tener → ten, ser → sé, ir → ve.\n\nNegative commands switch to the subjunctive: ¡No hagas eso!, ¡No vengas tarde!\n\nPronouns attach after affirmatives (dímelo) but precede negatives (no me lo digas).",
       "culture_note": "",
       "references": [
         {
@@ -2660,7 +2660,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Para points forward: purpose, destination, deadline — Este regalo es para ti; Salgo para Madrid.\n\nPor looks at cause, exchange, movement through, and means — Gracias por tu ayuda; Pasamos por el parque; por teléfono.",
+      "explanation": "Para points forward: purpose (Estudio para trabajar), recipient (Este regalo es para ti), destination (Salgo para Madrid), deadline (Es para el lunes).\n\nPor looks at cause (Gracias por tu ayuda), exchange (Lo compré por diez euros), movement through (Pasamos por el parque), means (por teléfono).",
       "culture_note": "",
       "references": [
         {
@@ -2808,7 +2808,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Indirect before direct: me lo, te la…\n\nWhen both are third person, le/les becomes SE: Le di el libro → Se lo di (I gave it to him).\n\nOrder is fixed: se lo/la/los/las.",
+      "explanation": "Indirect before direct: me lo, te la…\n\nWhen both are third person, le/les becomes **se**: Le di el libro → Se lo di (I gave it to him).\n\nOrder is fixed: se lo/la/los/las.",
       "culture_note": "",
       "references": [
         {
@@ -2882,7 +2882,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Built from the ellos-preterite minus -ron plus -ra endings: hablara, tuviera, viniera (an -se variant exists).\n\nTriggered by past-tense wanting (Quería que vinieras) and unreal conditions (Si tuviera dinero…).",
+      "explanation": "Built from the ellos-preterite minus -ron plus -ra endings: hablaron → hablara, tuvieron → tuviera, vinieron → viniera. An -se variant exists (hablase, tuviese).\n\nTriggered by past-tense wanting (Quería que vinieras) and unreal conditions (Si tuviera dinero…).",
       "culture_note": "",
       "references": [
         {
@@ -2956,7 +2956,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Real: si + present → future (Si estudias, aprobarás).\n\nUnreal present: si + past subjunctive → conditional (Si tuviera, viajaría).\n\nUnreal past: si + pluperfect subjunctive → conditional perfect (Si hubiera sabido, no habría venido).",
+      "explanation": "- Real: si + present → future or a command (Si estudias, aprobarás; Si hace frío, cierra la ventana).\n- Unreal present: si + past subjunctive → conditional (Si tuviera dinero, viajaría).\n- Unreal past: si + pluperfect subjunctive → conditional perfect (Si hubiera sabido, no habría venido).",
       "culture_note": "",
       "references": [
         {
@@ -3030,7 +3030,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Había, habías… + participle marks a past before another past: Cuando llegué, ya había salido (When I arrived, she had already left).",
+      "explanation": "**Había** + participle marks a past before another past — the event that came first: Cuando llegué, ya había salido (When I arrived, she had already left).\n\n| person | auxiliary |\n| --- | --- |\n| yo | había |\n| tú | habías |\n| él/ella/usted | había |\n| nosotros | habíamos |\n| vosotros | habíais |\n| ellos/ellas/ustedes | habían |",
       "culture_note": "",
       "references": [
         {
@@ -3104,7 +3104,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Shifting into the past moves tenses back: 'Estoy cansado' → Dijo que estaba cansado; 'Vendré' → Dijo que vendría; commands become subjunctive: Me dijo que viniera.",
+      "explanation": "Shifting into the past moves the quoted tense back one step:\n\n| quoted | reported |\n| --- | --- |\n| Estoy cansado | Dijo que estaba cansado |\n| Vendré | Dijo que vendría |\n| Viví en Perú | Dijo que había vivido en Perú |\n| Ven | Me dijo que viniera |\n\nCommands become the subjunctive; the question word itself does not change: Preguntó dónde estaba el hospital.",
       "culture_note": "",
       "references": [
         {
@@ -3178,7 +3178,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Beyond que: quien(es) after prepositions for people (la mujer con quien hablé), cuyo/a/os/as = whose, agreeing with the THING owned (el autor cuyo libro leí), and el que / lo que for selection and ideas.",
+      "explanation": "Beyond **que**, three more relatives:\n\n- quien, quienes — people, after a preposition (la mujer con quien hablé) and in clefts (fue ella quien lo dijo)\n- cuyo/a/os/as — whose, agreeing with the THING owned and never with the owner (el autor cuyo libro leí)\n- el que / lo que — the one that (el que llegó tarde) and what (eso es lo que quiero)",
       "culture_note": "",
       "references": [
         {
@@ -3252,7 +3252,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Purpose always takes subjunctive: Te lo digo para que lo sepas (…so that you know).\n\nAunque + subjunctive concedes something unconfirmed: Aunque llueva, iremos (Even if it rains, we'll go) — with indicative it reports fact (Aunque llueve… = even though it IS raining).",
+      "explanation": "**Para que** always takes the subjunctive: Te lo digo para que lo sepas (…so that you know). When both verbs share one subject, Spanish drops que and uses the infinitive: Vengo para verte.\n\n**Aunque** + subjunctive concedes something unconfirmed: Aunque llueva, iremos (Even if it rains, we'll go) — with indicative it reports fact (Aunque llueve… = even though it IS raining).",
       "culture_note": "",
       "references": [
         {
@@ -3544,7 +3544,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Emphasis via ser + relative: Fue María quien lo dijo (It was María who said it), Es eso lo que me preocupa (That's what worries me), Fue en Madrid donde nos conocimos.",
+      "explanation": "Emphasis comes from **ser** + a relative, and the relative is chosen by what is in focus:\n\n- a person — quien: Fue María quien lo dijo (It was María who said it)\n- a thing or an idea — lo que: Es eso lo que me preocupa (That's what worries me)\n- a place — donde: Fue en Madrid donde nos conocimos (It was in Madrid that we met)\n- a time — cuando: Fue ayer cuando me enteré (It was yesterday that I found out)",
       "culture_note": "",
       "references": [
         {
@@ -3618,7 +3618,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "High-register concession runs on the subjunctive: Por más que insistas, no lo lograrás (However much you insist…); reduplicated subjunctive: Digan lo que digan, seguiré (Whatever they say, I'll carry on); sea como sea (be that as it may).",
+      "explanation": "High-register concession runs on the subjunctive:\n\n- **por más que**, por mucho que: Por más que insistas, no lo lograrás (However much you insist…)\n- a reduplicated subjunctive: Digan lo que digan, seguiré (Whatever they say, I'll carry on)\n- fixed formulas: sea como sea (be that as it may)\n\nWith the indicative instead, por más que reports a real, repeated effort: Por más que lo intento, no lo entiendo (However much I try, I don't understand it).",
       "culture_note": "",
       "references": [
         {
@@ -3832,7 +3832,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 13,
-      "explanation": "The short possessives go before the noun: mi, tu, su, nuestro/a, vuestro/a, su. They agree in NUMBER with the thing owned (mis libros), and only nuestro and vuestro also agree in gender: nuestra casa, vuestros amigos.\n\nsu covers his, her, its, their AND usted's — context decides. When it's ambiguous, Spanish says de él / de ella / de ustedes instead: la casa de ella.",
+      "explanation": "The short possessives go before the noun and agree in NUMBER with the thing owned, never with the owner:\n\n| owner | one thing | more than one |\n| --- | --- | --- |\n| yo | mi | mis |\n| tú | tu | tus |\n| él/ella/usted | su | sus |\n| nosotros | nuestro, nuestra | nuestros, nuestras |\n| vosotros | vuestro, vuestra | vuestros, vuestras |\n| ellos/ellas/ustedes | su | sus |\n\nOnly nuestro and vuestro also agree in gender: nuestra casa, vuestros amigos.\n\nsu covers his, her, its, their AND usted's — context decides. When it's ambiguous, Spanish says de él / de ella / de ustedes instead: la casa de ella.",
       "culture_note": "",
       "references": [
         {
@@ -3912,7 +3912,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Many core verbs change their stem vowel in the present — but only where the stress falls on the stem, so nosotros/vosotros keep the original vowel.\n\ne → ie: querer → quiero, quieres… queremos. Also pensar, empezar, preferir.\no → ue: poder → puedo, puedes… podemos. Also dormir, volver, costar.\ne → i (only -ir verbs): pedir → pido, pides… pedimos. Also servir, repetir.\n\nThe endings are perfectly regular — only the vowel dances.",
+      "explanation": "Many core verbs change their stem vowel in the present — but only where the stress falls on the stem, so nosotros/vosotros keep the original vowel.\n\n**querer** (`e → ie`), poder (`o → ue`) and pedir (`e → i`, only -ir verbs) show the three changes:\n\n| person | querer | poder | pedir |\n| --- | --- | --- | --- |\n| yo | quiero | puedo | pido |\n| tú | quieres | puedes | pides |\n| él/ella/usted | quiere | puede | pide |\n| nosotros | queremos | podemos | pedimos |\n| vosotros | queréis | podéis | pedís |\n| ellos/ellas/ustedes | quieren | pueden | piden |\n\nPensar, empezar and preferir go like querer; dormir, volver and costar like poder; servir and repetir like pedir.\n\nThe endings are perfectly regular — only the vowel dances.",
       "culture_note": "",
       "references": [
         {
@@ -4072,7 +4072,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 13,
-      "explanation": "When the direct object is a specific PERSON (or a beloved pet), Spanish inserts a: Veo a Juan. Llamo a mi madre. Things take no marker: Veo la película.\n\nIt also appears with alguien/nadie (No veo a nadie) — but not after hay/tener in their plain senses: Tengo dos hermanos.",
+      "explanation": "When the direct object is a specific PERSON (or a beloved pet), Spanish inserts **a**: Veo a Juan. Llamo a mi madre. Things take no marker: Veo la película.\n\nIt also appears with alguien/nadie (No veo a nadie) — but not after hay/tener in their plain senses: Tengo dos hermanos.",
       "culture_note": "",
       "references": [
         {

@@ -23,7 +23,7 @@ import os
 
 import asyncpg
 
-from .base import DATA_DIR
+from .base import COMMAND_TIMEOUT, DATA_DIR
 
 logger = logging.getLogger("seed_alphabet")
 
@@ -310,7 +310,7 @@ async def seed(db_url: str, code: str) -> int:
             code, ", ".join(sorted(ALPHABETS)), code,
         )
         return 0
-    conn = await asyncpg.connect(db_url)
+    conn = await asyncpg.connect(db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         lang_id = await conn.fetchval("SELECT id FROM languages WHERE code = $1", code)
         if not lang_id:

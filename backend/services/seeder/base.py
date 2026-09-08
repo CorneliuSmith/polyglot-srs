@@ -9,6 +9,19 @@ import asyncpg
 from backend.repositories.pool import savepoint
 from backend.services.content_filter import is_explicit_gloss
 
+from .gloss_overrides import apply_gloss_overrides_to_records
+
+# Every content tool talks to production through the Supabase pooler, and
+# a pooler can drop the server side of a session while the client still
+# waits for a reply. asyncpg's default is to wait for ever: on 7 Sep 2026
+# `seed_grammar -l all` sat two hours after "OK en" — asleep, 0% CPU, one
+# ESTABLISHED socket, no statement on the server, the pooled backend reset
+# minutes earlier. A bounded wait turns that into an error the operator can
+# see and a per-course rerun can recover from. Generous, because the
+# seeder's UNNEST chunks are real work; nothing here should take five
+# minutes on one statement.
+COMMAND_TIMEOUT = 300
+
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
 
 
@@ -136,13 +149,21 @@ class BaseSeeder(ABC):
             )
         return safe
 
-    async def load(self, records: list[dict]) -> int:
-        """UPSERT records into vocabulary + translations tables. Returns count."""
-        self._merge_morphology_charts(records)
-        # Sources can repeat a word (case variants, merged sense rows); a
-        # duplicate inside one UNNEST statement makes ON CONFLICT DO UPDATE
-        # fail with "cannot affect row a second time". Merge duplicates
-        # first: later fields win, translation dicts accumulate.
+    def prepare_records(self, records: list[dict]) -> list[dict]:
+        """What `load` writes: duplicates merged, hand definitions overlaid.
+
+        Sources can repeat a word (case variants, merged sense rows); a
+        duplicate inside one UNNEST statement makes ON CONFLICT DO UPDATE
+        fail with "cannot affect row a second time". Merge duplicates
+        first: later fields win, translation dicts accumulate.
+
+        Then `gloss_overrides.tsv` is laid over the result for EVERY course.
+        The English seeder always did this for itself; the other 26 read
+        their frequency file's `en` column as written, so a definition
+        corrected in the override file after the file was last rebuilt
+        reached neither the seeder nor production — and a re-seed silently
+        put the stale column back. See `apply_gloss_overrides_to_records`.
+        """
         merged: dict[str, dict] = {}
         for rec in records:
             prev = merged.get(rec["word"])
@@ -154,8 +175,23 @@ class BaseSeeder(ABC):
                 prev.update({k: v for k, v in rec.items() if v is not None})
                 prev["translations"] = translations
         records = list(merged.values())
+        applied = apply_gloss_overrides_to_records(self.language_code, records)
+        if applied:
+            self.logger.info("%s: %d definition override(s) applied from "
+                             "gloss_overrides.tsv", self.language_code, applied)
+        return records
 
-        conn = await asyncpg.connect(self.db_url)
+    async def load(self, records: list[dict]) -> int:
+        """UPSERT records into vocabulary + translations tables. Returns count."""
+        # Overlay first, charts second: `strip_nominal_chips` decides with the
+        # record's pos, and the override can move a word out of the nominal
+        # set (fr `son` noun → det). The other order wrote "Gender / Plural"
+        # chips onto 23 determiners, adverbs and verbs — the defect the
+        # strip exists to prevent (review of #431).
+        records = self.prepare_records(records)
+        self._merge_morphology_charts(records)
+
+        conn = await asyncpg.connect(self.db_url, command_timeout=COMMAND_TIMEOUT)
         try:
             # Look up language_id
             self.language_id = await conn.fetchval(

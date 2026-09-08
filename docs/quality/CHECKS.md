@@ -966,6 +966,9 @@ The bar, applied when authoring and enforced when checking:
 * **Native settings.** A dacha, a marshrutka, Ramadan, a souq — not English
   scenery with the nouns changed.
 * **Meaning-for-meaning translations**, never word-for-word.
+* **The definition plus the sentence determine ONE string** (§28, owner
+  6 Sep). Where the language inflects the headword, the sentence forces
+  the form or the definition names it.
 
 **Measured before the first pass (30 Aug):** 21% of Russian and 31% of
 Arabic sentences were three tokens or fewer. 151 Russian and 228 Arabic words
@@ -1041,6 +1044,673 @@ sentence onto a word that may already hold fragments.
 defect. Ask what the writing system treats as optional — Arabic short vowels,
 Russian ё, Hebrew niqqud are all omissible — and judge only what remains.
 89% of this sweep was the writing system doing what it normally does.
+
+## §26 The learner meets fragments because the PRUNE cannot reach them (6 Sep 2026, corrected same day)
+
+**This section first said the card draws a word's sentences in rank-then-id
+order and therefore shows the oldest, shortest one first. That was wrong,
+and it is worth keeping the error visible because the fix it implied — one
+`ORDER BY` in `get_due_cards` — would have changed nothing a learner sees.**
+
+**What the card actually does.** `_vocab_card` builds the candidate list from
+every clozable sentence the word has (no `LIMIT` anywhere in the LATERAL),
+then `_pick_index` chooses among them: unseen prompts first, then the ones
+the learner keeps missing, otherwise all of them — and inside that pool the
+index is `md5(card id, repetitions, lapses, last prompt) % len(pool)`. It is
+a gap-hunting rotation, stable across reloads, advancing when a review is
+recorded. **There is no "first".** The array order decides which sentence
+sits at which hash slot and nothing more, so ordering the SQL is a no-op.
+
+What follows from that is the real rule: **a learner's chance of meeting a
+fragment is the fragment's SHARE of that word's clozable sentences.** Not the
+minimum, not the first — the share. To fix the card you remove the fragments
+from the pool; you cannot outrank them.
+
+**Where the fragments are, and why the earlier measurement missed it.** The
+committed banks are already clean: `enforce_sentence_floor.py` dropped 69,473
+sub-five-token rows on 31 Aug, and re-run today it finds **nothing left to
+drop**. Expected fragment exposure computed from the FILES is 0% for ar, ru,
+ha, la, mi and jam, 1% for en, 8% for de. The first table in this section
+counted rows under SEVEN tokens (§23's authoring bar, not §24's deletion
+bar), in file order, including rows `make_cloze` rejects — three errors
+pointing the same way.
+
+**Production is a different corpus, and this is the defect.** 418,448 example
+sentences live there:
+
+| source | rows | under 5 tokens | |
+| --- | ---: | ---: | ---: |
+| `tatoeba` | 385,250 | 91,987 | 24% — prunable |
+| `ai` | 29,587 | 14,137 | **48% — exempt** |
+| `curated` | 3,218 | 1,665 | **52% — exempt** |
+| `authored` | 393 | 100 | 25% |
+
+`prune_sentences` never touched a row whose source is not `tatoeba`, because
+`curated` and `ai` are work no rebuild reproduces. **15,802 protected rows
+under five tokens** (Thai excluded) sat behind that exemption — ar 3,123,
+ru 2,822, es 2,410, tr 1,546, en 817, el 727, ca 622, pt 605, hi 576,
+sw 487, ko 341, ha/xh 240, mi 239, fa 201.
+
+The owner's screenshot is exactly this. English `human`: **48 rows in
+production, source `ai`** — "You are human.", "I am human.", "She is
+human.", "We are humans and we are from Earth." — and **four in the
+committed bank**, led by "Every language that dies out takes a piece of
+human history with it." A rotation over 48 rows of which most are three-word
+frames shows a three-word frame most of the time. The same population is why
+pruning `ru` and `ar` did not settle those courses: their next dry runs
+reported 0 and 31 rows to delete while 2,822 and 3,123 thin protected rows
+stayed.
+
+**Fixed (§24a):** the floor is now a prune predicate as well as a file pass,
+sharing one definition. See the next section.
+
+**The rule this leaves.** *Ask what the reader is actually shown, then find
+the population that dominates it.* A minimum, a first row, or a file-order
+statistic is not that. And when a measurement and a mechanism disagree,
+read the code that does the choosing before writing the fix — Rule 43,
+which this section originally got wrong.
+
+---
+
+## §24a The deletion floor belongs to the prune, not only to the files (6 Sep 2026)
+
+§24 set the deletion bar — *a sentence under five tokens goes when its word
+already has a longer one* — and shipped it as `scripts/enforce_sentence_floor.py`,
+which rewrites the committed TSVs. Production never got that rule. Both
+halves of the resulting gap were invisible from either side alone: the files
+looked clean because they are, and the prune looked complete because it
+deletes everything the files disown *among sources it is allowed to touch*.
+
+`_context_free` (§18a) already carved one hole in the source exemption, for
+rows that are only the headword — "Да.", "И?". It does not reach a row that
+is thin but not bare: "You are human." has context words, so it kept its
+exemption forever.
+
+**The fix.** `FLOOR = 5`, the tokenizer, and the unspaced-script exemption
+now live in `backend/services/seeder/prune_sentences.py`, and
+`scripts/enforce_sentence_floor.py` **imports them** — the file pass and the
+production prune cannot drift, which is the only way "the bank and the
+database follow the same rule" is structurally true rather than asserted.
+A row is a candidate whatever its source when it falls below the floor; the
+never-strand rule still refuses to empty a word, so a word whose every
+sentence is thin keeps them all. Thai is exempt entirely (§22).
+
+**What it reaches, measured on production the day it landed:**
+
+| course | before | after | course | before | after |
+| --- | ---: | ---: | --- | ---: | ---: |
+| en | 3,436 | **4,247** | es | — | 9,171 |
+| ru | 0 | **2,853** | tr | — | 10,015 |
+| ar | 31 | **3,270** | xh | — | 222 (145 stranded) |
+| th | 52 | 52 (exempt) | | | |
+
+Xhosa is the shape to expect in a thin course: 99% of its protected rows are
+under the floor, so 145 words hit the never-strand rule and keep what they
+have. That is the correct outcome and it is also the authoring queue.
+
+**Two tests exist because of how this was found.** The floor's own cases, and
+a repair to `test_curated_and_ai_rows_are_never_candidates`, which used a
+two-word sentence: once the floor landed that test still passed — via the
+never-strand rule, not the exemption it names. A test that passes for a
+reason it does not state is quality rule 14, and it was one edit away from
+hiding this.
+
+**Status: all — one predicate, Thai exempt by the same rule as §22.**
+Rule 43 (rewritten).
+
+---
+
+## §27 The English course renders its usage note under "Translation" (6 Sep 2026)
+
+The owner's screenshot: grammar card "What would you have ___ in my
+position?", TRANSLATION line reading `do — the participle.`
+
+Not a data corruption. `docs/quality/en.md` note 0 records the convention:
+on the English course the target language IS the metalanguage, so a drill's
+`translation` field holds a **usage note** ("Introducing yourself.", "The
+past of 'eat'.") and the real translations live in
+`data/grammar/en_drill_hints.<locale>.json` — 19 locales × 266 drills,
+attached by `seed_grammar` and read back as
+`COALESCE(dht.translation, ds.translation)` in `curriculum.py` and
+`cards.py`. A Spanish-locale learner sees *Ayer fui al mercado.* under
+Traducción. Correct.
+
+**The defect is the label, and it is only visible in one configuration:
+English course, English UI locale.** No `drill_hint_translations` row
+exists for locale `en`, the COALESCE falls through to the note, and the
+note renders under the heading "Translation" — a heading that promises a
+rendering of the sentence and delivers a remark about it. The owner reads
+the app in English, so the owner sees it on every English grammar card.
+
+Measured 6 Sep, all 27 grammar banks: **266 of 266 `en` drills carry a
+note** (the convention, not a defect); **0 other courses** — 9 regex hits
+outside `en` were inspected and all are real translations that happen to
+contain a grammar word ("One person, many people."). Scoped to `en` by the
+convention's own reason; no other course has the target language as
+metalanguage.
+
+Inside the 266, **11 are not usage notes but cue-shaped duplicates of the
+hint** — the `answer — explanation` template en.md rule 4 already bans for
+hints, now in the translation field: `do — the participle.` beside hint
+`do — participle`; `good — irregular comparative.` beside `good —
+comparative`; `Asking about a person.` beside `asking about a person`. Same
+text twice under two headings. Two points hold all eleven (Comparatives and
+superlatives ×5, The passive / conditionals / participle clauses ×4,
+Question words ×2). A note earns its place by adding the SCENE the hint
+lacks: `the participle` says nothing "Someone asks how you would have
+handled their situation" does.
+
+**Fix (design, not yet built):**
+
+1. Backend: on the `en` course return the note as `context` and
+   `translation` as the locale rendering only — `dht.translation`, null
+   when no locale row exists. Both `curriculum.py` (`examples`) and
+   `cards.py` (grammar examples). A Spanish learner keeps the translation
+   and gains nothing they cannot read; an English-UI learner gets the note
+   under an honest heading.
+2. Frontend: render `context` under a new label (`card.context`) in ALL six
+   locales — the Gym-link keys shipped in `en.json` alone (Phase 4) and that
+   mistake is not to be repeated.
+3. Data: rewrite the 11 cue-shaped notes as scenes in `en_grammar.json`.
+4. Check: `en` drill `translation` must not match `^\S+\s+[—–-]\s+` and must
+   not fold-equal its hint (`test_grammar_hints.py`). The other 26 courses
+   get the complementary check that `translation` is not one of the drill's
+   OWN fields restated — cheap, and it is the class.
+
+**Status: scoped to `en`** — the convention exists only where the target
+language is the metalanguage. Rule 44.
+
+---
+
+## §28 The prompt must determine the form (owner, 6 Sep 2026)
+
+The owner's card: English `do`, definition *to perform; also the
+question/negative helper*, cloze *What ___ you do?* The learner typed `did`
+— a perfect sentence — and was told *"Almost! Correct meaning, but check
+the exact form."* Nothing on the card says present tense. "This definition
+is not specific enough. This is something that should be monitored by all
+languages."
+
+**What a vocabulary card gives the learner to work from.** `cards.py`
+(`_shape_vocab_card`, the `hint = r["definition"]` line): the definition
+as the prompt, the cloze, and the translation — but only when the UI
+locale is not English, so an English-UI learner of English gets definition
+and cloze alone. No form cue exists on a vocabulary card; the hint layer
+belongs to grammar drills. And the grader is lenient on purpose: for
+vocabulary a lemma match grades `CORRECT_SLOPPY` (`nlp/base.py` layer 3,
+SM-2 quality 3 not 4) with that exact feedback string. So the learner was
+credited and then scolded for a form the card never specified. Two
+defects: the prompt under-determines the answer (content), and the
+feedback presumes it did (policy).
+
+**Measured 6 Sep on all 27 courses**: 14 top-2,000 cards per course as
+the learner meets them — definition, first-drawn cloze, translation —
+judged by a reader of the language ("list every string that fills the
+blank grammatically AND naturally"), then every flagged card handed to a
+skeptic told to refute. 377 cards; 160 flagged; **32 refuted; 128 stand
+(34%) — of which 26 are §29 rows (no blank on the sampled card), leaving
+102 (27%) that are this section's defect**. The refuters earned their keep: "Do you like ___?" (`cake`)
+survived only because the definition is the soap sense; `pure`'s "She has
+a ___ heart" was withdrawn once the adjective's definition was read
+against it.
+
+| code | sample | not determined | % | code | sample | not determined | % |
+| --- | ---: | ---: | ---: | --- | ---: | ---: | ---: |
+| sw | 14 | 9 | 64% | tr | 14 | 5 | 36% |
+| th | 14 | 9 | 64% | de | 14 | 5 | 36% |
+| ko | 13 | 7 | 54% | yo | 14 | 5 | 36% |
+| id | 14 | 7 | 50% | he | 14 | 5 | 36% |
+| en | 14 | 7 | 50% | ha | 14 | 4 | 29% |
+| nl | 14 | 7 | 50% | ca | 14 | 3 | 21% |
+| tl | 14 | 6 | 43% | el | 14 | 3 | 21% |
+| ru | 14 | 6 | 43% | la | 14 | 3 | 21% |
+| ar | 14 | 6 | 43% | it es ro pt xh jam | 14 | 2 | 14% |
+| fa hi mi | 14 | 6 | 43% | fr | 14 | 1 | 7% |
+
+§29 rows inside those counts (the sampled sentence had no blank): th 7,
+sw 6, ru 4, ko 3, tr 2, yo 2, ar 1, la 1. Net of them, sw and th drop to
+3 and 2 of 14; the well-resourced Latin-script courses are unchanged.
+
+A 14-card sample sets the scale, not the decimal: the honest reading is
+"between a fifth and two thirds of top-band cards, on every course, and no
+course is clean". **One correction the refuters forced:** some flags are
+§29 rows — the sampled sentence carried the headword only as an
+inflection, so it showed NO blank, and the judges counted the inflection
+as a competitor. On the real card those rows never appear (the card falls
+back to definition-only). They are marked below; §29 owns them.
+
+**The causes are not what the `do` card suggested.** Of the 128:
+
+* **69 — another WORD fits** (`other_word`). *I am sure of his ___* takes
+  `success`, `triumph`, `innocence`; *I know your brother ___ well* takes
+  every degree adverb; *___. What can I do?* takes any assent word; Thai
+  and Indonesian short sentences are bare frames. The definition then has
+  to do all the work, and a one-line WordNet/kaikki gloss describes the
+  synonym as well as the word.
+* **24 — another FORM of the same word fits** (`inflection`) — the `do`
+  class. Concentrated where the headword is a stem or a dictionary form:
+  Swahili 7 (agglutinated verbs), Russian 5 (aspect: `забрать` / `забирать`
+  both grammatical after `пойти`; past-tense gender), Korean, Turkish,
+  Yoruba 2 each.
+* **21 — the definition is WRONG for the sentence** (`definition_wrong`):
+  `movement` glossed as physical motion under *leader of the ___*; `cake`
+  as a block of soap; `jerry` as an ethnic slur under *Tom and ___*. Rule
+  D2c2 (definition ↔ example sense) measured, and it is one card in
+  eighteen.
+* **12 — the definition is VAGUE** (`definition_vague`): empty (`andy`),
+  or names a form without a lemma (Russian `мужчины` glossed only
+  *genitive singular*).
+* 2 fragments (§21).
+
+**Which layer fixes it** (the judges' cheapest fix, per card): definition
+77 · hint 25 · grading policy 19 · sentence 7. That order matters. The
+sentence is rarely the cheapest fix — a good sentence still admits
+synonyms — and the DEFINITION is the layer that decides, which is Phase 2d
+(override depth) from another direction.
+
+**Mechanical instrument, all 26 spaced-script courses: `frame_collision`.**
+The same blanked sentence appearing in a bank with different answers — a
+cloze that the corpus itself proves is not determined. Measured 6 Sep:
+
+| code | rows in colliding frames | top-2,000 words hit | worst frame |
+| --- | ---: | ---: | --- |
+| it | 2,388 | 397 | *sono ___.* ×78 |
+| tr | 1,560 | 398 | *o bir ___.* ×41 |
+| el | 1,018 | 265 | *είναι ___.* ×36 |
+| he | 981 | 471 | *תום ___.* ×57 |
+| en | 978 | 265 | *do you have a ___?* ×26 |
+| nl | 967 | 217 | *ik heb een ___ nodig.* ×28 |
+| pt | 870 | 189 | *tom é ___.* ×11 |
+| ru | 759 | 50 | *я ___.* ×23 |
+| fr | 715 | 165 | *c'est ___.* ×20 |
+| de | 694 | 157 | *das ist ___.* ×16 |
+| es 578 · ro 394 · hi 388 · tl 294 · ca 135 · ar 129 · id 127 · ko 92 · fa 17 · sw 12 · mi 10 · yo/jam/la/ha 4 · xh 2 | | | |
+
+Cheap, language-agnostic, and it catches exactly the "bare frame" half of
+`other_word`. It does NOT catch the `do` class — `did` is not a headword, so
+no second row exists to collide with; that half needs morphology per
+language (pymorphy3, the Gym charts, lemminflect) and is the same instrument
+§29 needs.
+
+**SHIPPED 6 Sep, report-level, in `audit_content` beside `unclozable_rows`
+off one read of each bank.** The numbers above were measured with a
+standalone script over every row; the rule measures **clozable rows only**,
+because a collision between two cards nobody can be shown is not a
+collision — which is why its counts are lower and are the ones to quote:
+**4,737** — it 824, tr 464, en 382, nl 351, pt 342, el 311, fr 297, de 293,
+ru 267, es 235, he 226, hi 163, ro 157, tl 118, th 116, ca 50, id 45,
+ar 41, ko 28, and single digits elsewhere.
+
+**The rule for authoring and checking** — added to §23: *the definition
+plus the sentence must determine ONE string.* Concretely: a definition
+names the sense the sentence uses (D2c2) and, where the language inflects
+the headword, either the sentence forces the form (an adverbial, an
+auxiliary, agreement) or the definition names it (*base form*, *past*,
+*perfective*). Vocabulary hints stay off the card; the card has two
+layers to say this with and must use them.
+
+**And the grading policy, which is the owner's call.** Where a card does
+NOT determine the form, an inflection the sentence accepts is a right
+answer, and "check the exact form" is wrong feedback. Options: (a) keep
+`CORRECT_SLOPPY` but say why — *"`did` also fits; the card wanted `do`"*;
+(b) grade `CORRECT` when the definition names no form; (c) leave grading
+and fix every card. (b) is the honest default until the content is fixed,
+and costs one condition in `base.py` layer 3.
+
+**Status: all — judged on 27, `frame_collision` measurable on 26 (Thai
+needs the segmenter, §22/§29).** Rule 45.
+
+---
+
+## §29 A sentence the card cannot blank is not a sentence (6 Sep 2026)
+
+Found while measuring §28: a Russian sample card for `сексуальный` had no
+blank, because its sentence contains only `сексуальные`. That is not a
+sample artefact — it is what production does with such a row, one step
+further along. `cards.py` builds a vocabulary card's cloze at draw time with
+`make_cloze(sentence, word)` (`backend/services/extract.py`), a
+case-insensitive **whole-word match on the surface headword**. A row whose
+sentence carries the word only as an inflection, a stem, a toneless twin,
+or inside an unspaced run is rejected, silently, and if every row of a
+word is rejected the card **falls back to the definition-only prompt** —
+no sentence, no context, exactly the card the owner keeps meeting.
+
+Measured 6 Sep with the production function itself, every committed bank:
+
+| code | rows | rejected | % | top-2,000 words with NO clozable row |
+| --- | ---: | ---: | ---: | ---: |
+| th | 4,335 | 4,024 → **660** | 93% → **15%** | ~~1,085~~ → **110** |
+| ko | 3,039 | 1,650 | 54% | **566** |
+| yo | 699 | 352 | 50% | 182 |
+| ar | 13,059 | 6,113 | 47% | **491** |
+| la | 1,932 | 665 | 34% | 40 |
+| tr | 17,958 | 2,790 | 16% | 221 |
+| ru | 23,360 | 3,114 | 13% | 41 |
+| sw | 2,797 | 317 | 11% | 131 |
+| xh | 932 | 53 | 6% | 28 |
+| ha | 4,283 | 230 | 5% | 9 |
+| hi | 6,866 | 153 | 2% | 17 |
+| en | 30,738 | 242 | 1% | 11 |
+| mi | 1,849 | 19 | 1% | 2 |
+| ca de el es fa fr he id it jam nl pt ro tl | — | 0 | 0% | 0 |
+
+**The first hypothesis was wrong, and the split is the useful part.** The
+matcher's boundary is `[^\W\d_]`, and rule 39 says `\w` drops combining
+marks, so the obvious reading was "Arabic tashkeel and Yoruba tone break
+the boundary". Re-run with a letters-PLUS-marks boundary: **0 rows
+recovered**. Folding optional diacritics (ar/he/fa, §25): 65. Everything
+else genuinely lacks the surface headword — five different reasons, one
+symptom:
+
+* **Lemma headword, inflected sentence** — ko (`있다` / `있어요`: a Korean
+  dictionary form never appears in a polite sentence), ru (`смотреть` /
+  `смотри`), sw (`fanya` / `akifanya`), ha, xh, la (`silva` / `silvā`), hi.
+* **Stem headword** — ar: `وجب` against `يجب`; the 30 Aug Arabic headwords
+  are stemmer output (CHECKS §3b). Non-concatenative, so no string test
+  separates "derived form present" from "word absent" — `إلى` sits on
+  a sentence about earning euros that contains no `إلى` at all. 6,048 rows
+  need a reader, not a regex.
+* **Toneless headword, toned sentence** — yo: `ẹkọ` against `ilé-ẹ́kọ́`.
+  The headword is the defect (the tone plan in `yo.md`); folding the tone
+  to make the match would launder the word (rule 10).
+* **Unspaced script** — th: `ฉัน` inside `ฉันโอเค` has a Thai letter on
+  its right, so a word-boundary match cannot exist. `thai.segment` already
+  segments for the reading layer; the cloze never used it. 93% of the Thai
+  bank, and 1,085 of the top 2,000 words, were definition-only cards from
+  the day the course shipped. **FIXED 6 Sep — and it was worse than "no
+  match".** The 311 rows the regex did accept include 35 blanked ACROSS
+  word edges: `แก` carved out of `แก้ม` ("cheek"), `กี` out of `กี่`,
+  `มาน` out of `มานี่` (= มา + นี่). Python's `\w` drops the vowel marks
+  that would have stopped the lookahead — quality rule 39, in the one place
+  where it silently produced wrong learner-facing content rather than a
+  wrong count. So for an unspaced script the boundary regex is not useless,
+  it is WRONG, and `make_cloze`'s new `find_span` hook REPLACES it rather
+  than backing it up.
+* **Junk headwords** — tr `ş`, `i`, `ki`; en `te`, `fre` (fragments of
+  names). Exclusion, not matching.
+
+**Self-inflicted, and worth saying plainly.** `scripts/apply_authored_sentences.py`
+verified Russian presence with pymorphy3 — LEMMA presence — because rule 38
+had shown that "target word absent" rejects were inflections. They were,
+and the card cannot use them either way: an authored row with `парня` for
+`парень` is correct Russian and dead on arrival. An unknown share of the
+6,517 Russian rows authored on 31 Aug is in the 3,114 above; the applier
+must require SURFACE presence, or write the surface form as the answer.
+
+**Fix design, in order of learner impact:**
+
+1. ~~**Thai cloze through the segmenter.**~~ **SHIPPED 6 Sep.**
+   `nlp.thai.answer_span` segments the sentence and returns the answer's
+   offsets when it falls out as a word of its own, and `make_cloze` takes it
+   through a `find_span` hook that `cards.py` supplies for `th` — on both
+   the Review and the Learn paths (the bulk query had to start selecting the
+   language code, or the walkthrough would have kept the buggy regex).
+
+   **Clozable Thai rows 311 → 3,594 (7% → 83%); top-2,000 words with no
+   showable sentence 1,085 → 132.** Three decisions worth keeping:
+
+   * **The lexicon is the union of the frequency list and the readings
+     table.** Measured separately over the 4,024 rejected rows: readings
+     alone recovered 91%, the frequency list alone 99% — but the frequency
+     list's extra hits were junk headwords (`แ`, `่`, `า`, `ร`, `ั`)
+     matching stray characters. Bigger is not better here, because greedy
+     longest-match changes what it carves as the lexicon grows.
+   * **The parse must be clean** — every segment a known word. That is what
+     rejects the accidental hits, and it is the same stance
+     `thai_reading._segment` already takes: no reading at all rather than a
+     partial one. It costs ~12 legitimate rows and refuses ~23 wrong blanks.
+
+   * **A single character is not a word, and the lexicon must say so.**
+     `th_frequency.tsv` lists 22 headwords that are one Thai letter or a
+     bare tone mark (`แ`, `โ`, `ณ`, `เ`, `ร`, `้`, `า`; 16 inside the top
+     2,000). While they were in the lexicon, greedy match could "parse" a
+     run it did not understand — `ทอมเป็นลูกบุญธรรม` came back as three real
+     words plus `บุ ญ ธ ร ร ม`, every chunk "known", so a clean-parse check
+     waved it through and a length check called it nine words. Filtering
+     them costs 81 clozable rows and adds 22 dead words — those 22 ARE the
+     junk headwords, which can no longer be blanked as though a letter were
+     a word. The right trade, and the numbers above already include it.
+
+   **Left over:** those same 22 headwords are still CARDS. They belong in
+   `vocab_exclusions.tsv` (the `tr` `ş`/`i` class, one course over), and
+   removing them from the file does not remove them from production until
+   the retire step exists.
+2. **Inflecting courses: blank the SURFACE form and make it the answer.**
+   A card for `смотреть` that shows `Не ___ на меня так.` and expects
+   `смотри` is a better card than a definition prompt — it teaches the
+   form in context, and grading's lemma layer (base.py layer 3) already
+   credits `смотреть` as CORRECT_SLOPPY. Needs the surface form stored per
+   row (`example_sentences.answer`, migration, owner-applied; loaders
+   degrade), filled at seed time by the same morphology the applier used
+   (pymorphy3 for ru; the Gym charts for the 14 courses that have them;
+   a checker pass for ko/ar). Until then those rows stay dead.
+3. **Arabic**: a reader pass over the 6,048 — retag to the surface word
+   where it is a real derived form, drop where the word is absent (§25's
+   method, larger set). Stem headwords themselves are §3b.
+4. **Yoruba**: tones on headwords, then re-measure — the bank is already
+   toned.
+5. ~~**A report-level audit rule, `unclozable_rows`.**~~ **SHIPPED 6 Sep.**
+   Per course, top-2,000 band, printed by `audit_content` beside
+   `frame_collision` (§28) off one read of each bank — 1.3s to 6.9s, which
+   is the price of measuring what a learner is shown rather than what the
+   file holds. **1,871 words today:** ko 566, ar 491, tr 221, yo 182,
+   th 132, sw 131, ru 41, la 40, xh 28, hi 17, en 11, ha 9, mi 2, zero
+   elsewhere. Coverage claims (§9, §23, §26) all counted rows the card can
+   never show, so every one of those tables is an overstatement for
+   th/ko/ar/yo until it is re-measured against this rule.
+
+**Status: all — the matcher is shared; the causes are per-language and
+named above.** Rule 46.
+
+---
+
+## §30 One word, several spellings: one card, and the sentence fixes the shape (owner, 7 Sep 2026)
+
+**Status: all 27** — the mechanism is generic (`alt` column → `vocabulary.alternatives`
+→ `find_cloze`); only Turkish and Jamaican carry the column today.
+
+**What the owner saw.** Turkish `mi`, `mı`, `mu`, `mü` were four headwords (r6, r16,
+r48, r163) with one definition, "Used to form interrogatives", four times. A learner
+on any of the four cards could not know which spelling to type; the grader then
+accepted whichever they typed, because Python's `IGNORECASE` treats dotless `ı` as
+a case of `i` (below). Phase 2d's first repair gave each spelling a definition
+naming its vowel class — "placed after a word whose last vowel is e or i" — which
+is `tr.md` hint standard 2's BAD shape exactly: it tells the learner which class
+won, which is the whole computation. The owner: "terms should be linked but show
+the vowel parity that applies."
+
+**The decision.** One card per morpheme. The commonest spelling keeps the row
+(`mi` r6, `de` r7, `ta` r408); the others go in the frequency file's `alt` column
+(semicolon-separated, the column Jamaican already had) and the seeder writes them
+to `vocabulary.alternatives`. The definition states the RULE and lists the shapes
+as one word. The retired spellings (`mı mu mü da te`) are in `vocab_exclusions.tsv`
+and leave production on `reconcile --apply`; their sentences were re-tagged to the
+head spelling — they still teach the particle.
+
+**How the card shows the parity.** Each sentence carries ONE shape, and that shape
+is the answer the sentence fixes — "Var ___?" is `mı` and nothing else. So:
+
+- `find_cloze(sentence, forms, find_span)` (`extract.py`) blanks whichever shape
+  the sentence carries, headword first, and says which. `_vocab_card` and the
+  Learn quiz set `correct_answer` to THAT shape and hand the grader the other
+  shapes as `alternatives`. The reveal after a miss shows the harmonised form.
+- Grading (`nlp/base.py` layer 6 → `alternative_result`): an alternative is by
+  default another right answer — colour/color, likkle/little — and grades
+  CORRECT. `TurkishNLP` overrides it: when the prompt was a sentence (the card
+  context now carries the shown prompt; the blank marker is the test), typing
+  another shape names the right word and skips the one computation the language
+  asks for → CORRECT_SLOPPY, "Right word, but not the shape this sentence takes:
+  it harmonises with what comes before it — mı." With no sentence (definition-
+  only prompt) no shape is fixed and any of them is the word → CORRECT.
+- Every other consumer asks about every shape too, or "Var mı?" reads as a row
+  the `mi` card cannot blank (rule 46): the audit's `unclozable_rows` and
+  `frame_collision`, the authored-sentence gate, and the prune — which now never
+  strands a SHAPE either: each shape keeps its longest row even below the
+  five-token floor, because the particle's sentences are short by nature and the
+  card exists to show the shape the sentence takes. One predicate,
+  `prune_sentences.shape_keeps`, serves the prune, the file-side floor script
+  and its test. Applied to the committed Turkish bank: 11 thin rows dropped
+  (`mi` 10 → 4, one per shape; `de` 4 → 2; `ışık` 4 → 1) and two proper-noun
+  rows under `ta` ("Taler nedir?") that no shape could blank.
+
+**The bug this exposed, and its class.** Python's `re.IGNORECASE` folds four
+non-ASCII letters onto ASCII — `ı`, `İ`, `ſ` and the Kelvin sign — so the cloze
+regex blanked `mı` for the `mi` card, and would carve `sik` out of a sentence for
+`sık`. Turkish now has a span finder (`nlp/turkish.py::answer_span`) that lowers
+both sides the Turkish way before an exact match, registered in ONE place,
+`backend/services/span_finders.py`, which the card, the audit, the gate and the
+prune all read (they each kept their own `{"th": …}` dict before — rule 13). Run
+over the whole bank: **13 of 17,958 rows** were blanked on the wrong letter — the
+three `mı` rows, and three mis-cased headwords the fold had been hiding: `işık`
+(3 sentence rows under a spelling that is not a headword; `ışık` r946 is) →
+re-tagged; `irak` r3117 → `ırak` (Iraq lowercases with dotless ı); `ii` r3778
+"abbreviation of iyi" → excluded (its rows are the Roman numeral in "II. Dünya
+Savaşı"). Cost, written down: `pin` r6014 (2 rows, "PIN kodu") and `instagram`
+r9193 (1 row) are foreign words whose capital I is a dotted i, and the Turkish
+rule now refuses them — 3 rows at ranks past 6,000, against 13 wrong blanks in
+the top 200. A fallback to the plain regex for "foreign-looking" words would
+re-admit exactly the mis-casings above; not taken.
+
+**Where the other courses stand.** Korean's `이/가`, `은/는`, `을/를` stay two
+cards each — `ko.md` hint standard 1 names the 받침 condition, and knowing that
+condition IS knowing the word; the pair differs by a consonant test the
+definition can state without handing over the answer. Jamaican's `alt` column
+(`likkle`/`little`) already flowed through the same `alternatives` column and
+keeps the base meaning (CORRECT). No other course's frequency file has an `alt`
+column; a language with harmony or sandhi alternants that arrive as separate
+headwords (none found in the top-200 audit of the other 25) follows Turkish.
+
+**Verified:** `backend/tests/test_linked_forms.py` (23 tests: `find_cloze`, the
+file, the seeder, the card, the grader in both cases, the audit, the gate, the
+prune, the dotless-i finder and the registry); `test_extract.py`, `test_readings.py`,
+`test_prune_sentences.py`, `test_audit_card_rules.py`, `test_apply_authored_sentences.py`
+unchanged and green. Owner-run: `seeder.run -l tr` (writes `alternatives`, loads the
+re-tagged rows) BEFORE `reconcile --apply` — `owner-actions-2026-09-07.md`.
+
+## §31 The override file had no write path for 25 courses (7 Sep 2026)
+
+**Status: all 27** — fixed in code; the owner's next `reconcile --apply` carries
+the backlog.
+
+**What the owner saw.** The dry run of `reconcile -l all` after a week of
+definition work: `gloss 73` for English, `gloss 0` for the other 26 courses,
+and no retire column at all. Production, probed read-only at the same time,
+still taught Turkish `mi` as "Used to form interrogatives." — after `seeder.run
+-l tr` had just run.
+
+**Why.** Three tools, three ideas of what a definition is. `source_data` folds
+`gloss_overrides.tsv` into the frequency file's `en` column when it REBUILDS
+the file. The English seeder overlays the override file itself. Every other
+seeder reads the `en` column as written, and `reconcile` compared production
+against that column alone. So an override written after the file's last
+rebuild reached nothing, and a re-seed reverted any definition the reconcile
+had once corrected. `scripts/apply_gloss_overrides.py`, this week's gate,
+writes only the override file — rule 13 broken by the tool built to satisfy
+rule 27. Measured, per course, against production:
+
+| in the override file | in the frequency file | in production | in neither |
+|---:|---:|---:|---:|
+| 4,297 | 2,537 | 2,686 | **1,611** |
+
+English: 368 of 368 in production. Every other course: the 2d pass and
+today's Turkish rule-stating definitions, all unshipped.
+
+**The fix.** One overlay, applied in both places: `gloss_overrides.
+apply_gloss_overrides_to_records` in `BaseSeeder.prepare_records` (every
+seeder, before the upsert) and `reconcile.expected_rows` (the file with the
+overrides laid over it). `print_report` now prints `retire` and `unret`
+columns, a dash when the database is behind migration 20261016 — and no
+longer drops the whole course from the table in that case, which is what the
+old `skipped` key did. `new` counts only words that carry a gloss, because no
+seeder creates one without (English's 1,267 → 66).
+
+**Also on the same dry run — rows the files no longer govern, and a count
+that was wrong.** `gone` read 40,861. It meant "not in the frequency file",
+which is not the same as "nothing owns it": **166 of those rows are
+alphabet-deck cards** (`seed_alphabet`, 8 courses, `part_of_speech =
+'letter'`, level A0 — 17 of them held by learners) and **12 are curated
+starter words** (`ar_seed.json` 9, `ru_starter.tsv`, `fr_vocabulary.csv`,
+`sw_vocabulary.csv`). Both are governed, just not by the list. The first
+version of owner decision D proposed retiring "the 331 letters, marks and
+digits nothing governs" mechanically — that would have deleted the Korean,
+Thai, Hindi, Hebrew, Persian, Greek and Russian alphabet decks. Caught by
+asking what the rows ARE before proposing what to do with them, which is
+rule 43 applied to a maintenance list rather than a card.
+
+`gone` now means ungoverned and a new `other` column counts what a second
+committed source owns (`words_from_other_sources`, plus `pos = 'letter'` —
+the flag the card layer already uses for an alphabet card). The real
+ungoverned set is **40,683**: 39,004 words an older generation of the
+big-course lists had (inside the file's rank range, not beyond it), 678
+unmarked twins of file words (Latin's entire departed set is `amo`/`amō`
+pairs), and 165 single letters glossed as "the fourth letter of the Catalan
+alphabet" — extraction debris, not decks, and never at level A0.
+
+**What the fixed tool measured** (read-only dry run against production, 7 Sep
+late evening): `gloss 1,594 · pos 3,370 · retire 848 · new 0 · s-layer 191`.
+The 1,611 above over-counts by the 27 override rows whose word is in no
+frequency file (DEBT) — the tool's number is the one to cite (rule 31).
+
+**Found by the adversarial review of #431, fixed in it:** the seeder merged
+morphology charts BEFORE the overlay, so `strip_nominal_chips` judged with
+the file's pos and 23 words the override moves out of the nominal set (fr
+`son` noun → det, `pas` noun → adv, es/ca `mira` noun → verb) would have kept
+"Gender / Plural" chips — the defect the strip exists for. Order swapped;
+and the reconcile, which is how those 23 pos changes reach production first,
+now strips the chips in the same step (`morphology_changes`, rolled back
+with the rest). Also recorded: the override now outranks `ar_seed.json` for
+the 26 Arabic words in both (`ar.md`).
+
+**And the apply stopped being silent.** It was one statement per row over the
+pooler — 6,000 round trips, twenty minutes, no output after the rollback path,
+which the owner reasonably read as a hang. Now UNNEST arrays in chunks of 500
+with a line per course and kind (`test_reconcile_apply_batched.py`). Third
+time this project has paid for one-round-trip-per-row; `seed_grammar` is the
+last tool that still does it (DEBT).
+
+**And the trap the fix armed.** Once the overlay works, an override row for
+a word the file does NOT carry stops being inert and becomes a landmine: it
+fires the day someone adds that headword. It went off within hours —
+restoring Yoruba `n` woke an override written for `ń` and production served
+the 1SG pronoun as "is/are doing". 28 rows were in that state; the six Latin
+ones were re-keyed to their macronised headwords (repairing six one-word
+top-50 glosses), 22 superseded rows were deleted, and the state is now
+impossible (`TestNoDormantOverrides`).
+
+**Verified:** `backend/tests/test_reconcile_overrides.py` (the overlay in
+`expected_rows`, the survey reporting an override as a correction, `new`
+glossed-only, the retire column printed, a migration-behind database keeping
+its row, `prepare_records` applying the override, the overlay-before-charts
+order, the chip strip on a pos change, and the shipped file carrying the
+Turkish particle).
+
+## §32 The grammar card printed the answer marker in its reading line (7 Sep 2026)
+
+**Status: all 27** — one card-layer fix; five courses carry the data
+(`ko` 921 drills, `th` 268, `hi` 248, `he` 88, `fa` 87).
+
+CHECKS §11 recorded this for the vocabulary card: the blank marker is Latin
+text, so every romaniser passes it through untouched and the learner reads
+`READING {{answer}}?` under a script they cannot yet decode. `_vocab_card`
+was fixed then — it blanks before it romanises. **The grammar card was not.**
+It serves whatever the drill row stored, and 1,612 committed drill rows store
+`{{answer}}` in their transliteration where the convention is `___`. Every one
+of those five courses has a layer order that shows the reading, so the marker
+was on screen.
+
+Found while fixing the Korean paradigm gap, by asking what ELSE the grammar
+files carry that the card renders without reading it first.
+
+**Fixed in the card, not the data** (`_blanked` in `repositories/cards.py`,
+applied on the review, learn-quiz and cram paths): the rows are already in
+production, so a data fix would need a reseed before a learner stopped seeing
+it, and the card fix costs nothing and covers both. The sentence keeps its
+marker — the input box is drawn by splitting on it.
+
+**Verified:** `backend/tests/test_drill_reading_marker.py` — the helper, the
+three card paths, that the sentence keeps its marker, and a measurement of the
+corpus the fix protects, plus a check that those five courses really do show a
+reading layer (what makes it a defect rather than dead data).
 
 ## Prompt ↔ rule parity
 

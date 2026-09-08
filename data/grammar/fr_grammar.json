@@ -35,7 +35,7 @@
           "sentence": "{{answer}} suis de Paris.",
           "answer": "Je",
           "translation": "I am from Paris.",
-          "hint": "I",
+          "hint": "subject pronoun — the one who is speaking",
           "display_order": 1,
           "cell": "je",
           "gloss": "___ · be.1SG · from · Paris"
@@ -53,7 +53,7 @@
           "sentence": "{{answer}} est ma sœur.",
           "answer": "Elle",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "subject pronoun — third-person singular subject, female referent",
           "display_order": 3,
           "cell": "elle",
           "gloss": "___ · be.3SG · 1SG.POSS.F · sister"
@@ -62,7 +62,7 @@
           "sentence": "{{answer}} sommes étudiants.",
           "answer": "Nous",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "subject pronoun — the speaker together with others, as subject",
           "display_order": 4,
           "cell": "nous",
           "gloss": "___ · be.1PL · student.M.PL"
@@ -89,7 +89,7 @@
           "sentence": "{{answer}} travaille à Paris.",
           "answer": "Il",
           "translation": "He works in Paris.",
-          "hint": "he",
+          "hint": "subject pronoun — third-person singular subject, male referent",
           "cell": "il",
           "display_order": 7,
           "gloss": "___ · work.3SG · at · Paris"
@@ -107,7 +107,7 @@
           "sentence": "{{answer}} parle un peu français.",
           "answer": "Je",
           "translation": "I speak a little French.",
-          "hint": "I",
+          "hint": "subject pronoun — the one who is speaking",
           "cell": "je",
           "display_order": 9,
           "gloss": "___ · speak.1SG · INDF.M · little · French"
@@ -125,7 +125,7 @@
           "sentence": "{{answer}} travaille dans une banque.",
           "answer": "Il",
           "translation": "He works in a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "cell": "il",
           "display_order": 11,
           "gloss": "___ · work.3SG · in · INDF.F · bank"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} chante très bien.",
           "answer": "Elle",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "cell": "elle",
           "display_order": 12,
           "gloss": "___ · sing.3SG · very · well"
@@ -143,7 +143,7 @@
           "sentence": "{{answer}} habitons à Lyon.",
           "answer": "Nous",
           "translation": "We live in Lyon.",
-          "hint": "we",
+          "hint": "first-person plural subject — the -ons ending confirms it",
           "cell": "nous",
           "display_order": 13,
           "gloss": "___ · live.1PL · at · Lyon"
@@ -194,7 +194,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you.\n\nThe plural usually adds a silent -s (livre → livres); since it isn't pronounced, the article carries the plural out loud.\n\nEndings give clues: -tion and -té are usually feminine, -age and -eau usually masculine.",
+      "explanation": "Every noun is masculine or feminine — learn each noun with its gender, because little about the word itself tells you.\n\nThe plural usually adds a silent `-s` (livre → livres); since it isn't pronounced, the article carries the plural out loud.\n\nEndings give clues: `-tion` and `-té` are usually feminine, `-age` and `-eau` usually masculine.",
       "culture_note": "",
       "references": [
         {
@@ -268,7 +268,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Le before masculine nouns (le livre), la before feminine (la maison), les for any plural (les livres). Before a vowel or silent h, le and la both shrink to l' (l'école).\n\nFrench uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| le | masculine nouns | le livre |\n| la | feminine nouns | la maison |\n| les | any plural | les livres |\n\nBefore a vowel or silent h, le and la both shrink to **l'** (l'école).\n\nFrench uses the definite article far more than English — also for general statements: j'aime le café (I like coffee).",
       "culture_note": "",
       "references": [
         {
@@ -289,7 +289,7 @@
           "sentence": "{{answer}} maison est grande.",
           "answer": "La",
           "translation": "The house is big.",
-          "hint": "feminine singular",
+          "hint": "the definite article — the noun that follows decides its gender",
           "display_order": 1,
           "cell": "la",
           "gloss": "___ · house · be.3SG · big.F.SG"
@@ -298,7 +298,7 @@
           "sentence": "{{answer}} livre est nouveau.",
           "answer": "Le",
           "translation": "The book is new.",
-          "hint": "masculine singular",
+          "hint": "the definite article — check the gender of the noun it introduces",
           "display_order": 2,
           "cell": "le",
           "gloss": "___ · book · be.3SG · new.M.SG"
@@ -307,7 +307,7 @@
           "sentence": "{{answer}} enfants jouent dehors.",
           "answer": "Les",
           "translation": "The children are playing outside.",
-          "hint": "plural",
+          "hint": "the definite article — check whether the following noun is one or many",
           "display_order": 3,
           "cell": "les",
           "gloss": "___ · child.PL · play.3PL · outside"
@@ -316,7 +316,7 @@
           "sentence": "{{answer}} café est chaud.",
           "answer": "Le",
           "translation": "The coffee is hot.",
-          "hint": "masculine singular",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 4,
           "cell": "le",
           "gloss": "___ · coffee · be.3SG · hot.M.SG"
@@ -325,7 +325,7 @@
           "sentence": "{{answer}} porte est ouverte.",
           "answer": "La",
           "translation": "The door is open.",
-          "hint": "feminine singular",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 5,
           "cell": "la",
           "gloss": "___ · door · be.3SG · open.F.SG"
@@ -334,7 +334,7 @@
           "sentence": "{{answer}} chiens sont dans le jardin.",
           "answer": "Les",
           "translation": "The dogs are in the garden.",
-          "hint": "plural",
+          "hint": "the definite article — check the noun's gender and number",
           "display_order": 6,
           "cell": "les",
           "gloss": "___ · dog.PL · be.3PL · in · DEF.M.SG · garden"
@@ -361,7 +361,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Un before masculine nouns (un chien), une before feminine (une maison), and — unlike English — a plural indefinite des (des amis, 'some friends'). Des is required where English just drops the article: j'ai des questions.",
+      "explanation": "| Article | Before | Example |\n| --- | --- | --- |\n| un | masculine nouns | un chien |\n| une | feminine nouns | une maison |\n| des | any plural | des amis |\n\nUnlike English, French has a plural indefinite article: **des** amis is 'some friends'. Des is required where English just drops the article: j'ai des questions.",
       "culture_note": "",
       "references": [
         {
@@ -382,7 +382,7 @@
           "sentence": "J'ai {{answer}} chien.",
           "answer": "un",
           "translation": "I have a dog.",
-          "hint": "masculine",
+          "hint": "the indefinite article — check the gender of the noun",
           "display_order": 1,
           "cell": "un",
           "gloss": "1SG-have.1SG · ___ · dog"
@@ -391,7 +391,7 @@
           "sentence": "C'est {{answer}} grande maison.",
           "answer": "une",
           "translation": "It is a big house.",
-          "hint": "feminine",
+          "hint": "the indefinite article — the noun's gender decides, not the adjective's",
           "display_order": 2,
           "cell": "une",
           "gloss": "this-be.3SG · ___ · big.F.SG · house"
@@ -409,7 +409,7 @@
           "sentence": "Nous avons {{answer}} amis à Lyon.",
           "answer": "des",
           "translation": "We have (some) friends in Lyon.",
-          "hint": "plural indefinite",
+          "hint": "the indefinite article — check the number of the noun that follows",
           "display_order": 4,
           "cell": "des",
           "gloss": "1PL · have.1PL · ___ · friend.PL · in · Lyon"
@@ -418,7 +418,7 @@
           "sentence": "C'est {{answer}} bon livre.",
           "answer": "un",
           "translation": "It is a good book.",
-          "hint": "masculine",
+          "hint": "the indefinite article — check the noun's gender and number",
           "display_order": 5,
           "cell": "un",
           "gloss": "this-be.3SG · ___ · good.M.SG · book"
@@ -427,7 +427,7 @@
           "sentence": "Elle achète {{answer}} pommes.",
           "answer": "des",
           "translation": "She is buying (some) apples.",
-          "hint": "plural indefinite",
+          "hint": "the indefinite article — check the noun's gender and number",
           "display_order": 6,
           "cell": "des",
           "gloss": "3SG.F · buy.3SG · ___ · apple.PL"
@@ -454,7 +454,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Être (to be) is wildly irregular and everywhere: je suis, tu es, il/elle est, nous sommes, vous êtes, ils/elles sont.\n\nProfessions take no article after être: elle est professeur.",
+      "explanation": "**Être** (to be) is wildly irregular and everywhere:\n\n| Person | Form |\n| --- | --- |\n| je | suis |\n| tu | es |\n| il / elle | est |\n| nous | sommes |\n| vous | êtes |\n| ils / elles | sont |\n\nProfessions take no article after être: elle est professeur.",
       "culture_note": "",
       "references": [
         {
@@ -596,7 +596,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Avoir (to have): j'ai, tu as, il/elle a, nous avons, vous avez, ils/elles ont.\n\nFrench uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
+      "explanation": "**Avoir** (to have):\n\n| Person | Form |\n| --- | --- |\n| j' | ai |\n| tu | as |\n| il / elle | a |\n| nous | avons |\n| vous | avez |\n| ils / elles | ont |\n\nFrench uses avoir where English uses 'to be' for states: avoir faim (be hungry), avoir soif (be thirsty), avoir vingt ans (be twenty), avoir raison (be right).",
       "culture_note": "Never say 'je suis vingt ans' — age is something you HAVE in French.",
       "references": [
         {
@@ -738,7 +738,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Ninety percent of French verbs end in -er and share one pattern.\n\nDrop -er, add: -e, -es, -e, -ons, -ez, -ent (parler → je parle, tu parles, il parle, nous parlons, vous parlez, ils parlent).\n\nFour of those six forms sound identical — the pronoun does the work in speech.",
+      "explanation": "Ninety percent of French verbs end in `-er` and share one pattern.\n\nDrop `-er` and add:\n\n| Person | Ending | parler |\n| --- | --- | --- |\n| je | -e | parle |\n| tu | -es | parles |\n| il / elle | -e | parle |\n| nous | -ons | parlons |\n| vous | -ez | parlez |\n| ils / elles | -ent | parlent |\n\nFour of those six forms sound identical — the pronoun does the work in speech.",
       "culture_note": "",
       "references": [
         {
@@ -880,7 +880,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "-ir verbs like finir: je finis, tu finis, il finit, nous finissons (note the -iss- in the plural), vous finissez, ils finissent.\n\n-re verbs like vendre: je vends, tu vends, il vend, nous vendons, vous vendez, ils vendent.\n\nAttendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
+      "explanation": "`-ir` verbs like finir, and `-re` verbs like vendre:\n\n| Person | finir | vendre |\n| --- | --- | --- |\n| je | finis | vends |\n| tu | finis | vends |\n| il / elle | finit | vend |\n| nous | finissons | vendons |\n| vous | finissez | vendez |\n| ils / elles | finissent | vendent |\n\nNote the `-iss-` in the plural of finir.\n\nAttendre (wait), entendre (hear), and choisir (choose) follow these patterns.",
       "culture_note": "",
       "references": [
         {
@@ -1178,7 +1178,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who).\n\nThree ways to build a question: intonation (tu viens ?), est-ce que (est-ce que tu viens ?), or inversion (viens-tu ?) — est-ce que is the everyday workhorse.",
+      "explanation": "Où (where), comment (how), quand (when), que/qu' (what), pourquoi (why), combien (how much/many), qui (who).\n\nThree ways to build a question:\n\n- intonation: tu viens ?\n- est-ce que: est-ce que tu viens ?\n- inversion: viens-tu ?\n\nEst-ce que is the everyday workhorse.",
       "culture_note": "",
       "references": [
         {
@@ -1199,7 +1199,7 @@
           "sentence": "{{answer}} habites-tu ?",
           "answer": "Où",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "question word asking for a place",
           "display_order": 1,
           "gloss": "___ · live.2SG-2SG · Q"
         },
@@ -1215,7 +1215,7 @@
           "sentence": "{{answer}} est ton anniversaire ?",
           "answer": "Quand",
           "translation": "When is your birthday?",
-          "hint": "when",
+          "hint": "question word asking for a point in time",
           "display_order": 3,
           "gloss": "___ · be.3SG · POSS.2SG.M · birthday · Q"
         },
@@ -1223,7 +1223,7 @@
           "sentence": "{{answer}} regardes-tu ?",
           "answer": "Que",
           "translation": "What are you watching?",
-          "hint": "what",
+          "hint": "question word standing in for the direct object of the verb",
           "display_order": 4,
           "gloss": "___ · watch.2SG-2SG · Q"
         },
@@ -1231,7 +1231,7 @@
           "sentence": "{{answer}} de frères as-tu ?",
           "answer": "Combien",
           "translation": "How many brothers do you have?",
-          "hint": "how many",
+          "hint": "question word asking for a quantity",
           "display_order": 5,
           "gloss": "___ · of · brother.PL · have.2SG-2SG · Q"
         },
@@ -1239,7 +1239,7 @@
           "sentence": "{{answer}} est-ce que tu pleures ?",
           "answer": "Pourquoi",
           "translation": "Why are you crying?",
-          "hint": "why",
+          "hint": "question word asking for a reason",
           "display_order": 6,
           "gloss": "___ · be.3SG-this · COMP · 2SG · cry.2SG · Q"
         },
@@ -1647,7 +1647,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, add -ais, -ais, -ait, -ions, -iez, -aient: mangeais 'I was eating', finissait 'he used to finish'. être is irregular (j'étais).\n\nContrast with the passé composé (one completed act).",
+      "explanation": "The imperfect describes a past that was ongoing, repeated, or a background state — English 'was …-ing' / 'used to'. Take the nous form of the present, drop -ons, and add:\n\n| person | ending |\n| --- | --- |\n| je | -ais |\n| tu | -ais |\n| il / elle | -ait |\n| nous | -ions |\n| vous | -iez |\n| ils / elles | -aient |\n\nJe mangeais 'I was eating', il finissait 'he used to finish'. être is irregular (j'étais).\n\nContrast with the passé composé (one completed act).",
       "culture_note": "",
       "references": [
         {
@@ -1725,7 +1725,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The simple future adds -ai, -as, -a, -ons, -ez, -ont to the infinitive (dropping a final -e of -re verbs): je mangerai 'I will eat', il finira 'he will finish'.\n\nSome stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
+      "explanation": "The simple future adds one set of endings to the infinitive (dropping a final -e of -re verbs):\n\n| person | ending |\n| --- | --- |\n| je | -ai |\n| tu | -as |\n| il / elle | -a |\n| nous | -ons |\n| vous | -ez |\n| ils / elles | -ont |\n\nJe mangerai 'I will eat', il finira 'he will finish'.\n\nSome stems are irregular: être → ser-, avoir → aur-, aller → ir-, faire → fer-, venir → viendr-.",
       "culture_note": "",
       "references": [
         {
@@ -1803,7 +1803,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "A known direct object becomes a pronoun placed before the verb: le (him/it m.), la (her/it f.), les (them), me, te, nous, vous.\n\nJe le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
+      "explanation": "A known direct object becomes a pronoun placed before the verb:\n\n| pronoun | meaning |\n| --- | --- |\n| me | me |\n| te | you (informal sg.) |\n| le | him, it (m.) |\n| la | her, it (f.) |\n| nous | us |\n| vous | you (pl. or formal sg.) |\n| les | them |\n\nJe le vois 'I see him', je les achète 'I'm buying them'. Before a vowel, me/te/le/la elide: je t'aime, je l'ai vu.",
       "culture_note": "",
       "references": [
         {
@@ -1820,7 +1820,7 @@
           "sentence": "Tu connais Marc? Oui, je {{answer}} connais bien.",
           "answer": "le",
           "translation": "Do you know Marc? Yes, I know him well.",
-          "hint": "him",
+          "hint": "direct object pronoun replacing Marc — that noun's own gender picks the form",
           "display_order": 1,
           "gloss": "2SG · know.PRS.2SG · Marc · yes · 1SG · ___ · know.PRS.1SG · well"
         },
@@ -1828,7 +1828,7 @@
           "sentence": "Où est Marie? Je ne {{answer}} vois pas.",
           "answer": "la",
           "translation": "Where is Marie? I don't see her.",
-          "hint": "her",
+          "hint": "direct object pronoun replacing Marie — that noun's own gender picks the form",
           "display_order": 2,
           "gloss": "where.Q · be.PRS.3SG · Marie · 1SG · NEG · ___ · see.PRS.1SG · NEG"
         },
@@ -1836,7 +1836,7 @@
           "sentence": "Ces livres sont bien; je {{answer}} lis maintenant.",
           "answer": "les",
           "translation": "These books are good; I'm reading them now.",
-          "hint": "them",
+          "hint": "direct object pronoun standing for the books just mentioned",
           "display_order": 3,
           "gloss": "this.PL · book.PL · be.PRS.3PL · good · 1SG · ___ · read.PRS.1SG · now"
         },
@@ -1852,7 +1852,7 @@
           "sentence": "Nous sommes là; tu {{answer}} entends?",
           "answer": "nous",
           "translation": "We're here; can you hear us?",
-          "hint": "us",
+          "hint": "direct object pronoun — the speaker's own group as object of the verb",
           "display_order": 5,
           "gloss": "1PL · be.PRS.1PL · there · 2SG · ___ · hear.PRS.2SG"
         },
@@ -1881,7 +1881,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "lui 'to him/her' and leur 'to them' replace à + a person: je lui parle 'I talk to him'. y replaces à + a thing or a place: j'y vais 'I go there'. en replaces de + something or a quantity: j'en veux 'I want some', j'en ai trois 'I have three of them'.",
+      "explanation": "- lui 'to him/her' and leur 'to them' replace à + a person: je lui parle 'I talk to him'.\n- y replaces à + a thing or a place: j'y vais 'I go there'.\n- en replaces de + something or a quantity: j'en veux 'I want some', j'en ai trois 'I have three of them'.",
       "culture_note": "",
       "references": [
         {
@@ -1906,7 +1906,7 @@
           "sentence": "Tu écris à tes parents? Oui, je {{answer}} écris souvent.",
           "answer": "leur",
           "translation": "Do you write to your parents? Yes, I write to them often.",
-          "hint": "to them",
+          "hint": "indirect object pronoun for the people being written to",
           "display_order": 2,
           "gloss": "2SG · write.PRS.2SG · DAT · POSS.2SG.PL · parent.PL · yes · 1SG · ___ · write.PRS.1SG · often"
         },
@@ -2037,7 +2037,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Reflexive verbs carry a pronoun matching the subject: me, te, se, nous, vous, se, before the verb.\n\nJe me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive.\n\nIn the passé composé they take être.",
+      "explanation": "Reflexive verbs carry a pronoun matching the subject, placed before the verb:\n\n| subject | pronoun |\n| --- | --- |\n| je | me |\n| tu | te |\n| il / elle | se |\n| nous | nous |\n| vous | vous |\n| ils / elles | se |\n\nJe me lave 'I wash (myself)', il se lève 'he gets up', nous nous reposons 'we rest'. Many daily-routine verbs are reflexive.\n\nIn the passé composé they take être.",
       "culture_note": "",
       "references": [
         {
@@ -2199,7 +2199,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Possessives agree with the thing owned, not the owner: mon/ma/mes 'my', ton/ta/tes 'your', son/sa/ses 'his/her', notre/nos, votre/vos, leur/leurs.\n\nBefore a feminine noun starting with a vowel, use mon/ton/son (mon amie).\n\nDemonstratives: ce/cet (m.), cette (f.), ces (pl.) 'this/these'.",
+      "explanation": "Possessives agree with the thing owned, not the owner:\n\n| owner | m. sg. | f. sg. | plural |\n| --- | --- | --- | --- |\n| my | mon | ma | mes |\n| your (informal sg.) | ton | ta | tes |\n| his / her | son | sa | ses |\n| our | notre | notre | nos |\n| your (pl. or formal sg.) | votre | votre | vos |\n| their | leur | leur | leurs |\n\nBefore a feminine noun starting with a vowel, use mon/ton/son (mon amie).\n\nDemonstratives 'this/these': ce (m.), cet (m., before a vowel), cette (f.), ces (pl.).",
       "culture_note": "",
       "references": [
         {
@@ -2272,7 +2272,7 @@
           "sentence": "{{answer}} école est grande.",
           "answer": "Notre",
           "translation": "Our school is big.",
-          "hint": "our",
+          "hint": "possessive adjective — the owner is the speaker's group, one thing owned",
           "display_order": 8,
           "gloss": "___ · school · be.PRS.3SG · big.F"
         },
@@ -2301,7 +2301,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, add -e, -es, -e, -ions, -iez, -ent: que je parle, que nous finissions.\n\nKey irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
+      "explanation": "After expressions of necessity, wish, emotion, or doubt — il faut que, je veux que, je suis content que, bien que — the verb goes into the subjunctive. For most verbs, take the ils form of the present, drop -ent, and add:\n\n| person | ending |\n| --- | --- |\n| je | -e |\n| tu | -es |\n| il / elle | -e |\n| nous | -ions |\n| vous | -iez |\n| ils / elles | -ent |\n\nQue je parle, que nous finissions.\n\nKey irregulars: être (sois), avoir (aie), faire (fasse), aller (aille).",
       "culture_note": "",
       "references": [
         {
@@ -2535,7 +2535,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "qui is the subject of the relative clause ('who/which' + verb): l'homme qui parle. que is the object ('whom/which/that' + subject): le livre que je lis. où means 'where/when': la ville où j'habite. dont replaces de + something ('whose/of which/about which'): le film dont je parle.",
+      "explanation": "- qui is the subject of the relative clause ('who/which' + verb): l'homme qui parle.\n- que is the object ('whom/which/that' + subject): le livre que je lis.\n- où means 'where/when': la ville où j'habite.\n- dont replaces de + something ('whose/of which/about which'): le film dont je parle.",
       "culture_note": "",
       "references": [
         {
@@ -2568,7 +2568,7 @@
           "sentence": "Voici la ville {{answer}} je suis né.",
           "answer": "où",
           "translation": "Here is the town where I was born.",
-          "hint": "where",
+          "hint": "relative pronoun linking back to a place as its antecedent",
           "display_order": 3,
           "gloss": "here_is · DEF.F.SG · town · ___ · 1SG · be.PRS.1SG · born.PTCP.M.SG"
         },
@@ -2769,7 +2769,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens.\n\nReport what/who with ce que / ce qui: je ne sais pas ce qu'il veut.\n\nWhen the main verb is past, tenses shift back (présent → imparfait, etc.).",
+      "explanation": "Report a statement with que: il dit qu'il vient 'he says he's coming'. Report a yes/no question with si 'whether': il demande si tu viens.\n\nReport 'what' with ce qui (subject) or ce que (object): je ne sais pas ce qu'il veut. For 'who', qui does the job alone: je ne sais pas qui vient.\n\nWhen the main verb is past, tenses shift back (présent → imparfait, etc.).",
       "culture_note": "",
       "references": [
         {
@@ -2794,7 +2794,7 @@
           "sentence": "Elle demande {{answer}} tu veux un café.",
           "answer": "si",
           "translation": "She asks whether you want a coffee.",
-          "hint": "whether",
+          "hint": "the conjunction that reports a yes-or-no question",
           "display_order": 2,
           "gloss": "3SG.F · ask.3SG · ___ · 2SG · want.2SG · INDF.M.SG · coffee"
         },
@@ -2826,7 +2826,7 @@
           "sentence": "Elle m'a demandé {{answer}} j'avais fini.",
           "answer": "si",
           "translation": "She asked me whether I had finished.",
-          "hint": "whether",
+          "hint": "the conjunction that reports a yes/no question",
           "display_order": 6,
           "gloss": "3SG.F · 1SG.OBJ-have.3SG · ask.PTCP · ___ · 1SG-have.PST.IPFV.1SG · finish.PTCP"
         },
@@ -2925,7 +2925,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "For an unreal or hypothetical present, si + imparfait pairs with the conditional: si j'avais le temps, je viendrais 'if I had time, I would come'. (For a real future condition it's si + présent → futur: si tu études, tu réussiras.) Never put the conditional directly after si.",
+      "explanation": "For an unreal or hypothetical present, si + imparfait pairs with the conditional: si j'avais le temps, je viendrais 'if I had time, I would come'. (For a real future condition it's si + présent → futur: si tu étudies, tu réussiras.) Never put the conditional directly after si.",
       "culture_note": "",
       "references": [
         {
@@ -3081,7 +3081,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Certain conjunctions always take the subjunctive: bien que / quoique 'although', pour que / afin que 'so that', avant que 'before', à condition que 'provided that', jusqu'à ce que 'until', sans que 'without'.\n\nBien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
+      "explanation": "Certain conjunctions always take the subjunctive:\n\n- bien que / quoique 'although'\n- pour que / afin que 'so that'\n- avant que 'before'\n- à condition que 'provided that'\n- jusqu'à ce que 'until'\n- sans que 'without'\n\nBien qu'il pleuve, nous sortons 'although it's raining, we go out'.",
       "culture_note": "",
       "references": [
         {
@@ -3237,7 +3237,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Written and spoken French links ideas with connectors: donc / alors 'so/therefore', pourtant / cependant / néanmoins 'however/yet', car / puisque 'because/since', d'ailleurs 'besides', en revanche 'on the other hand'.\n\nThey organize an argument and are worth deploying deliberately.",
+      "explanation": "Written and spoken French links ideas with connectors:\n\n- donc / alors 'so/therefore'\n- pourtant / cependant / néanmoins 'however/yet'\n- car / puisque 'because/since'\n- d'ailleurs 'besides'\n- en revanche 'on the other hand'\n\nThey organize an argument and are worth deploying deliberately.",
       "culture_note": "",
       "references": [
         {
@@ -3278,7 +3278,7 @@
           "sentence": "Il n'aime pas Paris; {{answer}}, il y travaille.",
           "answer": "cependant",
           "translation": "He doesn't like Paris; however, he works there.",
-          "hint": "however",
+          "hint": "connector marking contrast with the clause before it",
           "display_order": 4,
           "gloss": "3SG.M · NEG-like.3SG.PRS · NEG · Paris · ___ · 3SG.M · LOC · work.3SG.PRS"
         },
@@ -3294,7 +3294,7 @@
           "sentence": "Le café est cher; {{answer}}, le thé est bon marché.",
           "answer": "cependant",
           "translation": "Coffee is expensive; however, tea is cheap.",
-          "hint": "however",
+          "hint": "the connector marking contrast, formal register",
           "display_order": 6,
           "gloss": "DEF.M · coffee · be.3SG.PRS · expensive.M.SG · ___ · DEF.M · tea · be.3SG.PRS · good.M.SG · market"
         },
@@ -3549,7 +3549,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "French emphasizes a word by 'clefting' it. c'est … qui highlights a subject: c'est moi qui l'ai fait 'it's I who did it'. c'est … que highlights anything else: c'est à Paris que je vis 'it's in Paris that I live'. ce qui/ce que … c'est frames a whole idea: ce que je veux, c'est réussir 'what I want is to succeed'.",
+      "explanation": "French emphasizes a word by 'clefting' it.\n\n- c'est … qui highlights a subject: c'est moi qui l'ai fait 'it's I who did it'.\n- c'est … que highlights anything else: c'est à Paris que je vis 'it's in Paris that I live'.\n- ce qui/ce que … c'est frames a whole idea: ce que je veux, c'est réussir 'what I want is to succeed'.",
       "culture_note": "",
       "references": [
         {
@@ -3627,7 +3627,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, and comparisons: je crains qu'il ne vienne 'I fear he will come'.\n\nElevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous?).",
+      "explanation": "Formal/literary French keeps forms speech has dropped. The 'ne explétif' adds a meaningless ne after avant que, de peur que, the verbs of fearing (craindre que, avoir peur que), and comparisons: je crains qu'il ne vienne 'I fear he will come'.\n\nElevated register also prefers connectors like néanmoins, toutefois, quoique, en dépit de, and the inverted question (viendrez-vous ?).",
       "culture_note": "",
       "references": [
         {
@@ -3705,7 +3705,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "The most useful French verbs bend the present tense:\n\naller (to go): vais, vas, va, allons, allez, vont. faire (to do/make): fais, fait, faisons, faites, font. pouvoir (can): peux, peut, pouvons, peuvent. vouloir (to want): veux, veut, voulons, veulent. venir (to come): viens, vient, venons, viennent. prendre (to take): prends, prend, prenons, prennent.\n\nLearn them on sight — they carry half of daily conversation, and aller/venir also build the near future and recent past.",
+      "explanation": "The most useful French verbs bend the present tense. Each line below runs je, tu, il/elle, nous, vous, ils/elles:\n\n- aller (to go): vais, vas, va, allons, allez, vont\n- faire (to do/make): fais, fais, fait, faisons, faites, font\n- pouvoir (can): peux, peux, peut, pouvons, pouvez, peuvent\n- vouloir (to want): veux, veux, veut, voulons, voulez, veulent\n- venir (to come): viens, viens, vient, venons, venez, viennent\n- prendre (to take): prends, prends, prend, prenons, prenez, prennent\n\nLearn them on sight — they carry half of daily conversation, and aller/venir also build the near future and recent past.",
       "culture_note": "",
       "references": [
         {

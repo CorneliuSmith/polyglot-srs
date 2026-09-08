@@ -7,7 +7,6 @@ word	sentence	translation	difficulty_rank
 ع	اُكْتُبْ ما تَعْرِفُهُ.	Write what you know.	9
 أ	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
 إلى	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
-ة	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
 ف	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
 ي	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
 و	أَجْنِيْ مِئْةَ يُوْرَو فِيْ اليَوْم.	I make €100 a day.	15
@@ -16,7 +15,6 @@ word	sentence	translation	difficulty_rank
 ه	هذا أمرٌ مُسَلمٌ بِهِ.	It's an indisputable matter.	32
 هناك	ليس هناك ما يمكنني فعله.	There's nothing I can do.	35
 ان	يمكنني ان افعلها من اجلك	I can do it for you.	41
-ى	ليس لديك أي حُمّى.	You have no fever.	42
 أي	سأفعل أي شيء من أجلك.	I will do anything for you.	42
 وجب	الذي قلته كان يجب أن يقال.	What you said needed to be said.	47
 إلى	هل تريد أن تذهب إلى هناك؟	Do you want to go there?	48
@@ -170,7 +168,6 @@ word	sentence	translation	difficulty_rank
 إمكان	بإمكانك وضعها في أي مكان.	You can put it anywhere.	257
 حسنا	حسنا. لنرى ما بإمكاننا فعله.	Alright. Let's see what we can do.	257
 دون	لم أكن لأفعل ذلك من دون مساعدتك.	I couldn't have done it without you. Thank you.	258
-ى	أُرِيدُ أَنْ أَرَى الْغُرْفَةَ.	I should like to see the room.	259
 عليها	هي لم يكن عليها فعل هذا.	She shouldn't have done that.	260
 عليها	لماذا عليها أن تفعل هذا؟	Why does she need to do this?	260
 أقل	ألم أقل لك من قبل!	I told you before!	262
@@ -284,7 +281,6 @@ word	sentence	translation	difficulty_rank
 رجاء	هل بإمكانك أن تتوقف، رجاء؟	Would you stop, please?	386
 ثلاث	أنا الآن في الثلاثين من عمري.	I'm thirty now.	388
 الله	ساعد نفسك و سيساعدك الله.	God helps those who help themselves.	389
-ى	صَلَّى ٱللهُ عَلَيْهِ وَسَلَّمَ۔	Peace be upon him.	389
 أعد	لم أعد أتذكر ما حصل.	I don't remember what happened anymore.	390
 لاحق	من فضلك، حاول مرة أخرى في وقت لاحق.	Please try again later.	393
 لاحق	حاول مرة أخرى في وقت لاحق.	Please try again later.	393
@@ -297,7 +293,6 @@ word	sentence	translation	difficulty_rank
 انتظر	أنت هناك! انتظر من فضلك.	Hey you! Please wait.	399
 ذكر	كل شيء حولي يذكرني بك.	Everything around me reminds me of you.	400
 ود	ظننت أنك قد تود الذهاب معي.	I thought you might want to come along.	401
-إ	لَمْ يَأْتِ رَجُلٌ قَطُّ بِمِثْلِ مَا جِئْتَ بِهِ إِلَّا عُودِيَ.	Any man who came with something similar to what you have brought was treated with hostility.	401
 ود	لَمْ يَأْتِ رَجُلٌ قَطُّ بِمِثْلِ مَا جِئْتَ بِهِ إِلَّا عُودِيَ.	Any man who came with something similar to what you have brought was treated with hostility.	401
 سنوات	أنا أعيش هنا منذ 5 سنوات	I've been living here for five years.	403
 جزء	أنت الآن جزء من حياتي.	You're now part of my life.	404
@@ -4604,7 +4599,6 @@ word	sentence	translation	difficulty_rank
 رقد	بإمكان ليلى أن ترقد في سلام الآن.	Layla can rest in peace now.	4416
 عداء	بإمكان أسود الجبل أن تكون عدائية للغاية.	Mountain lions can be extremely aggressive.	4422
 أسطوانة	هذه هي الأسطوانة نفسها التي كنت أبحث عنها.	This is the very CD I've been looking for.	4423
-إ	إِذَا كَوَيْتَ سُويسْرَا ، لَأَصْبَحَتْ أَكْبَرَ مِنْ أَلْمَانِيَا.	If you ironed Switzerland, it would be bigger than Germany.	4427
 ويس	إِذَا كَوَيْتَ سُويسْرَا ، لَأَصْبَحَتْ أَكْبَرَ مِنْ أَلْمَانِيَا.	If you ironed Switzerland, it would be bigger than Germany.	4427
 ابتسامة	احب ابتسامة عينيك.	I love the smile of your eyes.	4428
 عنيفة	كانت ردّة فعل سامي عنيفة.	Sami reacted violently.	4430
@@ -9703,9 +9697,6 @@ word	sentence	translation	difficulty_rank
 طبخ	تطبخ أمي الملوخية كل جمعة، ورائحتها تملأ البيت من الصباح.	My mother cooks mulukhiyah every Friday, and its smell fills the house from early morning.	20681
 طبخ	طبخنا للجيران كلهم في أول ليلة من رمضان ووزعنا الطعام قبل الأذان.	We cooked for all the neighbours on the first night of Ramadan and handed the food out before the call to prayer.	20682
 طبخ	لن أطبخ اليوم، فقد تعبت من الوقوف أمام الموقد طوال الأسبوع.	I'm not cooking today — I'm worn out from standing over the stove all week.	20683
-،	اشترت أمي خبزاً، وجبناً، وزيتوناً من السوق، وعادت قبل المغرب.	My mother bought bread, cheese and olives at the market and got home before sunset.	1
-،	يا أستاذ، هل يمكنني تسليم البحث غداً بعد المحاضرة؟	Professor, may I hand the paper in tomorrow after the lecture?	1
-،	عندما رأيت البيت القديم، تذكرت جدي وبكيت في الطريق.	When I saw the old house, I remembered my grandfather and cried on the way back.	1
 على	وضعت جدتي الشاي على الطاولة، ثم جلست تنتظر عودتنا من المدرسة.	My grandmother set the tea down on the table, then sat waiting for us to get back from school.	7
 على	عليّ أن أنهي التقرير الليلة، وإلا سيغضب المدير في الصباح.	I have to finish the report tonight, or the manager will be furious in the morning.	7
 على	اعتمدت عائلتها كلها عليها بعد وفاة الأب، ولم تشتكِ يوماً واحداً.	Her whole family leaned on her after their father died, and she never complained once.	7
@@ -9808,9 +9799,6 @@ word	sentence	translation	difficulty_rank
 مجرد	لا تقلق، ما سمعته في الحديقة مجرد قط يبحث عن الطعام.	Don't worry, what you heard in the garden is just a cat looking for food.	235
 مجرد	رفض المدير اقتراحي وقال إنه مجرد كلام جميل بلا أرقام واضحة.	The manager turned down my proposal, saying it was just nice words with no hard figures.	235
 مجرد	لا أفهم الفن المجرد، لكن زوجتي تقف أمام اللوحة نصف ساعة.	I don't understand abstract art, but my wife will stand in front of one painting for half an hour.	235
-ظ	جلست ابنتي تكتب حرف ظ عشر مرات في دفتر الإملاء.	My daughter sat writing the letter ẓāʾ ten times in her spelling notebook.	255
-ظ	ينسى كثير من التلاميذ النقطة فوق حرف ظ، فيقرأ المعلم الكلمة خطأ.	Many pupils forget the dot above the letter ẓāʾ, so the teacher reads the word wrong.	255
-ظ	ما زلت أخطئ في نطق حرف ظ رغم عشر سنوات من الدراسة.	I still get the letter ẓāʾ wrong when I say it, after ten years of study.	255
 فكرة	خطرت لي فكرة أن نطبخ العشاء في الحديقة بدل المطبخ الحار.	It struck me that we could cook dinner in the garden instead of the sweltering kitchen.	257
 فكرة	عرضت فكرة المشروع على المستثمرين، فسألوني عن التكاليف قبل أن أكمل.	I presented the idea for the project to the investors, and they asked about costs before I had finished.	257
 فكرة	فكرة السفر وحدي إلى الصحراء تخيفني وتغريني في الوقت نفسه.	The idea of travelling to the desert alone both frightens and tempts me.	257
@@ -10351,9 +10339,6 @@ word	sentence	translation	difficulty_rank
 إنهاء	أصرّت أمي على إنهاء التنظيف قبل وصول الضيوف بساعة كاملة.	My mother insisted on finishing the cleaning a full hour before the guests arrived.	1563
 إنهاء	طلب المدير إنهاء التقرير قبل الظهر، وإلا خسرنا الصفقة كلها.	The manager asked us to finish the report before noon, otherwise we would lose the whole deal.	1563
 إنهاء	لم يكن إنهاء العلاقة سهلاً، لكنني تنفّستُ أخيراً حين أغلقت الباب.	Ending the relationship was not easy, but I could finally breathe once I shut the door.	1563
-ر	كتب ابني حرف «ر» مقلوباً، فمسحه ثلاث مرات قبل أن يبكي.	My son wrote the letter r backwards and rubbed it out three times before bursting into tears.	1569
-ر	في حساب الجُمَّل يساوي حرف «ر» مئتين، فحسبنا منه تاريخ البناء.	In the abjad reckoning the letter r stands for two hundred, so we worked the building's date out from it.	1569
-ر	أحب حرف «ر» في الخط الديواني، ينحني كأنه منجل صغير.	I love the letter r in Diwani script; it curves like a little sickle.	1569
 بنى	بنى أبي غرفة إضافية فوق السطح ليتزوج أخي الأكبر فيها.	My father built an extra room up on the roof so my eldest brother could marry and live there.	1581
 بنى	ظلّ العمال يبنون سور المدرسة أسبوعاً كاملاً، ثم هدمه المطر ليلاً.	The workmen spent a whole week building the school wall, and then the rain brought it down overnight.	1581
 بنى	بنينا هذه الشركة من الصفر، فلا تبِعْها بثمن بخس يا أخي.	We built this company up from nothing, so don't sell it off for a pittance, brother.	1581
@@ -10792,9 +10777,6 @@ word	sentence	translation	difficulty_rank
 ملبس	نشرت أمي الملابس على السطح قبل أن تهب رياح الغبار.	My mother hung the clothes out on the roof before the dust winds began to blow.	578
 ملبس	يفرض المصرف على موظفيه ملبسا رسميا حتى في أشد أيام الصيف حرا.	The bank requires formal dress of its employees, even on the hottest days of summer.	578
 ملبس	لم يكن يهتم بالملبس، ومع ذلك كان أنيقا في نظر الجميع.	He never cared about clothes, and yet everyone thought him elegant.	578
-؛	لم نسافر إلى القرية هذا الأسبوع؛ فقد أصيبت جدتي بالإنفلونزا فجأة.	We didn't travel to the village this week; my grandmother suddenly came down with flu.	587
-؛	تأجل الاجتماع إلى الأحد؛ لأن المدير سافر إلى القاهرة في مهمة عاجلة.	The meeting has been put off to Sunday; the manager has gone to Cairo on an urgent errand.	587
-؛	أحب الكتابة في الصباح؛ فالبيت هادئ، والأفكار تأتي دون عناء.	I love writing in the morning; the house is quiet and the ideas come effortlessly.	587
 قل	لما قلّ المطر هذا العام، باع جيراننا نصف الغنم قبل الشتاء.	When the rain grew scarce this year, our neighbours sold off half the flock before winter.	589
 قل	قلّ العمل في الورشة هذا الشهر، فاستغنى صاحبها عن ثلاثة عمال.	Work at the workshop fell off this month, so the owner let three workers go.	589
 قل	كلما قلّ كلام أبي على مائدة العشاء، عرفنا أن يومه كان صعباً.	Whenever my father went quiet at the dinner table, we knew his day had been hard.	589
@@ -11245,9 +11227,6 @@ word	sentence	translation	difficulty_rank
 شخصيا	سلمت الطلب شخصيا إلى مدير المكتب، لأن البريد يضيع كثيرا هنا.	I delivered the application to the office manager in person, because the mail often goes missing here.	1558
 شخصيا	أنا شخصيا لا أثق بالوعود التي تقال قبل الانتخابات بأسبوع.	Personally, I don't trust promises that get made a week before an election.	1558
 شخصيا	أشرف جدي شخصيا على شواء الخروف يوم العيد، ولم يترك أحدا يقترب.	My grandfather personally oversaw roasting the lamb on Eid day, and let nobody come near.	1558
-ا	رسمت المعلمة حرف ا طويلاً بالطباشير، وطلبت من التلاميذ أن يقلدوه.	The teacher drew a long alif in chalk and asked the pupils to copy it.	1562
-ا	في صف محو الأمية تعلمت جدتي حرف ا قبل أن تكتب اسمها.	In the adult literacy class my grandmother learned the letter alif before she could write her own name.	1562
-ا	يقول الخطاط إن حرف ا هو ميزان الحروف كلها في الخط العربي.	The calligrapher says the letter alif is the yardstick for every other letter in Arabic script.	1562
 أيس	أيس أبي من إصلاح الغسالة القديمة، فاشترى واحدة مستعملة من سوق الأحد.	My father gave up hope of fixing the old washing machine and bought a second-hand one at the Sunday market.	1565
 أيس	أيس الفلاحون من المطر هذا الموسم، فباعوا نصف الماشية بأبخس الأثمان.	The farmers despaired of rain this season and sold half their livestock for next to nothing.	1565
 أيس	لا يأيس الطبيب من مريضه مهما طالت ليالي العناية المركزة.	A doctor never gives up on his patient, however long the nights in intensive care drag on.	1565

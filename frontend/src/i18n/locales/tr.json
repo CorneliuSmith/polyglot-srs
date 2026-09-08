@@ -401,6 +401,7 @@
     "layerPhonetics": "Telaffuz",
     "layerGloss": "Kelime kelime",
     "layerTranslation": "Çeviri",
+    "layerContext": "Not",
     "layerHint": "İpucu",
     "cramTopupNote": "Yepyeni cümleler, yalnızca size özel — hazırlanırken bir dakika.",
     "draftingFresh": "Birkaç yeni cümle hazırlanıyor…",

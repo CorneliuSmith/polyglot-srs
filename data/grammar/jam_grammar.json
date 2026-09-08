@@ -62,7 +62,7 @@
           "sentence": "{{answer}} a go a skuul.",
           "answer": "Mi",
           "translation": "I am going to school.",
-          "hint": "I",
+          "hint": "subject pronoun, first person singular — the speaker themselves",
           "display_order": 1,
           "cell": "mi",
           "gloss": "___ · PROG · go · LOC · school"
@@ -145,7 +145,7 @@
           "sentence": "Im {{answer}} mi neba.",
           "answer": "a",
           "translation": "He is my neighbour.",
-          "hint": "is",
+          "hint": "the equative linker required before the noun predicate, not before an adjective",
           "display_order": 2,
           "gloss": "3SG · ___ · 1SG.POSS · neighbour"
         },
@@ -161,7 +161,7 @@
           "sentence": "Dem {{answer}} faama.",
           "answer": "a",
           "translation": "They are farmers.",
-          "hint": "are",
+          "hint": "equative copula before the noun predicate; never changes for person or number",
           "display_order": 4,
           "gloss": "3PL · ___ · farmer"
         },
@@ -177,7 +177,7 @@
           "sentence": "Mi mada {{answer}} nors.",
           "answer": "a",
           "translation": "My mother is a nurse.",
-          "hint": "is",
+          "hint": "the equative link between two noun phrases",
           "display_order": 6,
           "gloss": "1SG.POSS · mother · ___ · nurse"
         }
@@ -283,7 +283,7 @@
           "sentence": "Mi {{answer}} bad tide.",
           "answer": "taiyad",
           "translation": "I'm really tired today.",
-          "hint": "tired",
+          "hint": "predicate adjective standing with no copula — drained, needing sleep",
           "display_order": 2,
           "gloss": "1SG · ___ · INTENS · today"
         },
@@ -299,7 +299,7 @@
           "sentence": "Dem mango de {{answer}}.",
           "answer": "swiit",
           "translation": "Those mangoes are sweet.",
-          "hint": "sweet",
+          "hint": "predicate adjective with nothing linking it — tasting of sugar",
           "display_order": 4,
           "gloss": "DEM.PL · mango · DIST · ___"
         },
@@ -307,7 +307,7 @@
           "sentence": "Di pikni {{answer}}.",
           "answer": "ongri",
           "translation": "The child is hungry.",
-          "hint": "hungry",
+          "hint": "predicate adjective, no linking verb — wanting food",
           "display_order": 5,
           "gloss": "DEF · child · ___"
         },
@@ -315,7 +315,7 @@
           "sentence": "Yu fren {{answer}}, man.",
           "answer": "gud",
           "translation": "Your friend is good (alright).",
-          "hint": "good",
+          "hint": "predicate adjective directly after the subject — the opposite of bad",
           "display_order": 6,
           "gloss": "2SG.POSS · friend · ___ · man"
         }
@@ -376,7 +376,7 @@
           "sentence": "Yu {{answer}} tuu faas!",
           "answer": "taak",
           "translation": "You talk too fast!",
-          "hint": "talk",
+          "hint": "bare verb, no ending for person — producing speech",
           "display_order": 5,
           "gloss": "2SG · ___ · too · fast"
         },
@@ -384,7 +384,7 @@
           "sentence": "Wi {{answer}} haad evri die.",
           "answer": "wok",
           "translation": "We work hard every day.",
-          "hint": "work",
+          "hint": "uninflected verb — what you do for a living",
           "display_order": 6,
           "gloss": "1PL · ___ · hard · every · day"
         }
@@ -563,7 +563,7 @@
           "sentence": "Im {{answer}} de a yaad.",
           "answer": "no",
           "translation": "He is not at home.",
-          "hint": "not",
+          "hint": "the negator used before a verb in a statement rather than a command",
           "display_order": 2,
           "gloss": "3SG · ___ · be.LOC · at · home"
         },
@@ -624,7 +624,7 @@
           "sentence": "{{answer}} yu a du?",
           "answer": "Wa",
           "translation": "What are you doing?",
-          "hint": "what",
+          "hint": "question word asking for a thing or action, not a person or place",
           "display_order": 1,
           "gloss": "___ · 2SG · PROG · do"
         },
@@ -632,7 +632,7 @@
           "sentence": "{{answer}} yu de?",
           "answer": "We",
           "translation": "Where are you?",
-          "hint": "where",
+          "hint": "question word asking for a location",
           "display_order": 2,
           "gloss": "___ · 2SG · be.LOC"
         },
@@ -640,7 +640,7 @@
           "sentence": "{{answer}} dat de man?",
           "answer": "Uu",
           "translation": "Who is that man?",
-          "hint": "who",
+          "hint": "question word asking for a person's identity",
           "display_order": 3,
           "gloss": "___ · that · there · man"
         },
@@ -656,7 +656,7 @@
           "sentence": "{{answer}} di mango kaas?",
           "answer": "Umoch",
           "translation": "How much does the mango cost?",
-          "hint": "how much",
+          "hint": "question word asking for quantity or price",
           "display_order": 5,
           "gloss": "___ · DEF · mango · cost"
         },
@@ -664,7 +664,7 @@
           "sentence": "{{answer}} yu du dat?",
           "answer": "Ou",
           "translation": "How did you do that?",
-          "hint": "how",
+          "hint": "question word asking for manner or method",
           "display_order": 6,
           "gloss": "___ · 2SG · do · that"
         }
@@ -693,7 +693,7 @@
           "sentence": "{{answer}} pikni dem a plie.",
           "answer": "Di",
           "translation": "The children are playing.",
-          "hint": "the",
+          "hint": "the article for a noun already known to both speakers",
           "display_order": 1,
           "gloss": "___ · child · PL · PROG · play"
         },
@@ -709,7 +709,7 @@
           "sentence": "Pas mi {{answer}} buk pan di tiebl.",
           "answer": "di",
           "translation": "Pass me the book on the table.",
-          "hint": "the",
+          "hint": "marks the noun as one the listener can already identify",
           "display_order": 3,
           "gloss": "pass · 1SG · ___ · book · on · DEF · table"
         },
@@ -725,7 +725,7 @@
           "sentence": "{{answer}} son at tide.",
           "answer": "Di",
           "translation": "The sun is hot today.",
-          "hint": "the",
+          "hint": "marks the noun as one the listener can already identify",
           "display_order": 5,
           "gloss": "___ · sun · hot · today"
         },
@@ -733,7 +733,7 @@
           "sentence": "Mi waan {{answer}} glaas a wata.",
           "answer": "wan",
           "translation": "I want a glass of water.",
-          "hint": "a",
+          "hint": "the indefinite article — first mention of an unidentified item",
           "display_order": 6,
           "gloss": "1SG · want · ___ · glass · of · water"
         }
@@ -863,7 +863,7 @@
           "sentence": "Mi {{answer}} memba yu, man.",
           "answer": "wi",
           "translation": "I will remember you.",
-          "hint": "will",
+          "hint": "the preverbal future marker, plain prediction rather than 'going to'",
           "display_order": 5,
           "gloss": "1SG · ___ · remember · 2SG · man.VOC"
         },
@@ -916,7 +916,7 @@
           "sentence": "Im {{answer}} gaan a yaad.",
           "answer": "don",
           "translation": "He has already gone home.",
-          "hint": "already",
+          "hint": "the completive marker before the verb — the action is finished",
           "display_order": 3,
           "gloss": "3SG · ___ · go.PFV · LOC · home"
         },
@@ -1115,7 +1115,7 @@
           "sentence": "Im chrai {{answer}} elp wi.",
           "answer": "fi",
           "translation": "He tried to help us.",
-          "hint": "to",
+          "hint": "the infinitive particle linking one verb to another",
           "display_order": 2,
           "gloss": "3SG · try · ___ · help · 1PL"
         },
@@ -1131,7 +1131,7 @@
           "sentence": "Notn no de {{answer}} du ya so.",
           "answer": "fi",
           "translation": "There's nothing to do here.",
-          "hint": "to",
+          "hint": "the particle before the verb, marking purpose or intent",
           "display_order": 4,
           "gloss": "nothing · NEG · be.at · ___ · do · here · so"
         },
@@ -1147,7 +1147,7 @@
           "sentence": "Wi riedi {{answer}} go nou.",
           "answer": "fi",
           "translation": "We're ready to go now.",
-          "hint": "to",
+          "hint": "the particle before the verb, marking purpose or intent",
           "display_order": 6,
           "gloss": "1PL · ready · ___ · go · now"
         }
@@ -1250,7 +1250,7 @@
           "sentence": "Mi {{answer}} swim gud gud.",
           "answer": "kyan",
           "translation": "I can swim very well.",
-          "hint": "can",
+          "hint": "the modal of ability, not obligation",
           "display_order": 1,
           "cell": "kyan",
           "gloss": "1SG · ___ · swim · good · good"
@@ -1259,7 +1259,7 @@
           "sentence": "Yu {{answer}} kom tumaro?",
           "answer": "kyan",
           "translation": "Can you come tomorrow?",
-          "hint": "can",
+          "hint": "the modal of ability or permission",
           "display_order": 2,
           "cell": "kyan",
           "gloss": "2SG · ___ · come · tomorrow"
@@ -1268,7 +1268,7 @@
           "sentence": "Mi {{answer}} go a wok nou.",
           "answer": "hafi",
           "translation": "I have to go to work now.",
-          "hint": "have to",
+          "hint": "the modal of obligation — necessity imposed, not advice",
           "display_order": 3,
           "cell": "hafi",
           "gloss": "1SG · ___ · go · LOC · work · now"
@@ -1286,7 +1286,7 @@
           "sentence": "Yu {{answer}} did tel mi!",
           "answer": "shuda",
           "translation": "You should have told me!",
-          "hint": "should (+did = should have)",
+          "hint": "the modal of advice — the right course, not the required one",
           "display_order": 5,
           "cell": "shuda",
           "gloss": "2SG · ___ · PST · tell · 1SG"
@@ -1295,7 +1295,7 @@
           "sentence": "Dem {{answer}} lisn to di eldas.",
           "answer": "shuda",
           "translation": "They should listen to the elders.",
-          "hint": "should",
+          "hint": "the modal of advice — the right course, not the required one",
           "display_order": 6,
           "cell": "shuda",
           "gloss": "3PL · ___ · listen · to · DEF · elder-PL"
@@ -1671,7 +1671,7 @@
           "sentence": "Di pikni dem de {{answer}} di yaad.",
           "answer": "ina",
           "translation": "The children are in the yard.",
-          "hint": "in",
+          "hint": "preposition of containment — enclosed within the space",
           "display_order": 1,
           "gloss": "DEF · child · PL · be.LOC · ___ · DEF · yard"
         },
@@ -1679,7 +1679,7 @@
           "sentence": "Put di buk {{answer}} di tiebl.",
           "answer": "pan",
           "translation": "Put the book on the table.",
-          "hint": "on",
+          "hint": "preposition for contact with a surface",
           "display_order": 2,
           "gloss": "put · DEF · book · ___ · DEF · table"
         },
@@ -1687,7 +1687,7 @@
           "sentence": "Kom {{answer}} di rien, man!",
           "answer": "outa",
           "translation": "Come out of the rain!",
-          "hint": "out of",
+          "hint": "preposition of motion away from inside something",
           "display_order": 3,
           "gloss": "come.IMP · ___ · DEF · rain · man.VOC"
         },
@@ -1711,7 +1711,7 @@
           "sentence": "Im waak {{answer}} di ous beks beks.",
           "answer": "outa",
           "translation": "He walked out of the house very angry.",
-          "hint": "out of",
+          "hint": "the preposition for movement away from inside something",
           "display_order": 6,
           "gloss": "3SG · walk · ___ · DEF · house · angry · angry"
         }
@@ -1740,7 +1740,7 @@
           "sentence": "{{answer}} it rien, wi naa go.",
           "answer": "Ef",
           "translation": "If it rains, we're not going.",
-          "hint": "if",
+          "hint": "the conjunction that opens a condition clause",
           "display_order": 1,
           "gloss": "___ · 3SG · rain · 1PL · NEG-PROG · go"
         },
@@ -1764,7 +1764,7 @@
           "sentence": "Mi {{answer}} bai it ef mi av moni.",
           "answer": "wuda",
           "translation": "I would buy it if I had money.",
-          "hint": "would",
+          "hint": "the counterfactual modal in the main clause of an unreal condition",
           "display_order": 4,
           "gloss": "1SG · ___ · buy · 3SG · if · 1SG · have · money"
         },
@@ -1780,7 +1780,7 @@
           "sentence": "Wa yu {{answer}} du ef yu win di moni?",
           "answer": "wuda",
           "translation": "What would you do if you won the money?",
-          "hint": "would",
+          "hint": "the modal in the result clause of an unreal condition",
           "display_order": 6,
           "gloss": "what · 2SG · ___ · do · if · 2SG · win · DEF · money"
         }

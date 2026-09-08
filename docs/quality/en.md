@@ -44,6 +44,11 @@ that survives is the functional one: a hint names the grammatical job, it never 
    `"He often studies {{answer}} night."` → `"The fixed phrase with 'night'."` BAD (and *not* what the file
    does): `"He often studies at night."` — an English "translation" of an English sentence hands over the
    answer.
+   **The convention has one visible cost (6 Sep 2026, CHECKS §27):** an English-UI learner has no
+   `drill_hint_translations` row for locale `en`, so `COALESCE(dht.translation, ds.translation)` falls through
+   to the note and the card renders `"do — the participle."` under the heading **Translation**. The data is
+   right; the label is wrong. Fix is app-side — return the note as `context` under its own label — not a
+   rewrite of the field into English-for-English, which would hand over the answer (the BAD case above).
 1. **The exemption is scoped to that one rule, and must stay so.** A usage note is still text the learner sees,
    so it is still bound by `giveaway_by_gloss`: five hits are a short hint appearing whole in its own note.
    BAD: hint `a woman` under `"Introducing a woman in your family."` (`She`); `a thing` under `"Talking about
@@ -57,7 +62,13 @@ that survives is the functional one: a hint names the grammatical job, it never 
 3. **For pronoun and possessive answers, describe the referent's role, never restate it.** GOOD:
    `belonging to a thing — no apostrophe` → `its`; `it belongs to us` → `our`; `the man's name` → `His`.
    BAD: `belonging to her` → `Her` — sibling drills in that point get it right, so this is a slip.
-4. **Never `answer — explanation`.** Three drills do it, all in one C2 point, all the same string. BAD:
+4. **Never `answer — explanation`.** Three drills do it, all in one C2 point, all the same string. **The
+   same template has crept into the `translation` field of 11 drills** (Comparatives and superlatives ×5, the
+   passive/conditionals/participle clauses ×4, Question words ×2): `do — the participle.` beside hint
+   `do — participle`, `good — irregular comparative.` beside `good — comparative`. The base form is not the
+   answer, so it is not a leak — it is the hint said twice under two headings, and it is not a usage note. A
+   note earns its place by adding the SCENE the hint lacks: `Someone asks how you would have handled their
+   situation.` Checked: `translation` must not match `^\S+\s+[—–-]\s+` and must not fold-equal the hint. BAD:
    `be — bare` → `be`. GOOD, from the *same point*: `obey — bare form` → `follow`; `step down — bare form` →
    `resign`; `seek advice from — bare form` → `consult`. The fix is modelled next door — synonym plus form
    spec; for `be`, write `the linking verb — bare form`.
@@ -148,3 +159,30 @@ Worst offenders, quoted from `data/grammar/en_grammar.json`:
   an English paraphrase of the English sentence? Does the note repeat the hint? Does any sibling drill share
   this hint with a different answer? Is the sentence something a person would say, at the point's CEFR
   register? Finally, open the drill in one locale overlay: that `translation` must be a real, natural sentence.
+
+## Phase 2d–3 pass (7 September 2026)
+
+Measured and changed in the quality-parity passes of 6–7 September; figures
+re-measured from the repository on 7 September.
+
+- **Definitions.** The top 200 were read by a reader of English and
+  **68 repaired** through `scripts/apply_gloss_overrides.py`; a second
+  reader accepted or corrected every one it saw. Faults found: reaches a synonym 33, wrong sense 13, circular 9.
+  101 of the top 200 now carry a hand-written definition — a low
+  count means the extracted glosses were already right, not that the band
+  was skipped.
+- **Hints.** **9 drill hints** that gave away their answer — sitting
+  inside their own translation, or only the agreement feature the drill
+  tests — rewritten through `scripts/apply_drill_hints.py`.
+- **Headwords.** **98 removed** to `vocab_exclusions.tsv` (letters,
+  punctuation, extraction debris, rare twins of common words). Production
+  retires them on the next `reconcile --apply` (migration 20261016).
+- **State.** 100% of the top 1,000 have a sentence the card can
+  actually blank; 100% of drills carry an interlinear gloss;
+  0 fail-level audit findings; a top-2,000 card is bad — no
+  usable sentence, or a fragment drawn — 2% of the time.
+
+Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
+rows whatever their source), §26 (the card rotates — a fragment's exposure is
+its share of the pool), §28 (definition plus sentence must determine one
+string), §29 (a sentence the card cannot blank is not coverage).

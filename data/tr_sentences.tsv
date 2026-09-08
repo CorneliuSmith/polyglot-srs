@@ -13,7 +13,6 @@ için	O ne için?	What's it for?	5
 ben	Ben de.	Me, too.	9
 de	Ben de.	Me, too.	9
 ben	Ben de!	Me too!	9
-de	Ben de!	Me too!	9
 var	Ne var?	What's up?	12
 evet	Evet.	It's true.	13
 evet	Evet!	Yes!	13
@@ -21,7 +20,6 @@ evet	Evet?	Yes?	13
 şey	Bir şey için.	Drink something.	15
 bir	Bir şey için.	Drink something.	15
 var	Var mı?	Does it exist?	16
-mı	Var mı?	Does it exist?	16
 değil	Bir şey değil.	Don't mention it.	17
 şey	Bir şey değil.	Don't mention it.	17
 bir	Bir şey değil.	Don't mention it.	17
@@ -31,14 +29,14 @@ değil	Bu o değil.	That isn't it.	17
 ş	İş bu değil.	It's not the job.	17
 i	İş bu değil.	It's not the job.	17
 çok	O çok değil mi?	Isn't that a lot?	17
-da	Bu da bir şey değil mi?	Isn't that something?	17
+de	Bu da bir şey değil mi?	Isn't that something?	17
 mi	Bu da bir şey değil mi?	Isn't that something?	17
 çok	Bu çok iyi.	It's very good.	18
 iyi	Bu çok iyi bir şey.	That's too much of a good thing.	18
 ş	İş iyi.	Business is good.	18
 i	İş iyi.	Business is good.	18
 hayır	Hayır, hayır, hayır!	No, no, no!	19
-mı	O bir hayır mı?	Is that a no?	19
+mi	O bir hayır mı?	Is that a no?	19
 hayır	O bir hayır mı?	Is that a no?	19
 daha	Daha iyi mi?	Is that better?	20
 daha	Bu çok daha iyi.	That's much better.	20
@@ -46,14 +44,12 @@ daha	O daha iyi.	That feels better.	20
 var	Bir şey daha var.	There is something more.	20
 ama	Bu iyi ama o daha iyi.	This one's good, but that one's better.	20
 sen	Sen de.	You too.	21
-de	Sen de.	You too.	21
 sen	"""Ben mi?"" ""Evet, sen!"""	"""Me?"" ""Yes, you!"""	21
 sen	Hayır, ben değil, sen!	No, not me, you!	21
 ama	Hayır, ben değil, ama sen!	No, not me, but you!	21
 kadar	O kadar da değil!	Not that much!	22
 kadar	O ne kadar iyi?	How good is he?	22
 kadar	O ne kadar?	How much is that?	22
-mı	Bu kadar mı?	This much?	22
 bana	Bana ne?	What do I care?	23
 bana	Bu bana değil.	This isn't for me.	23
 yok	Ne var ne yok?	What is new?	24
@@ -102,9 +98,7 @@ sonra	Ve sonra?	And afterward?	44
 öyle	Öyle değil midir?	Isn't it so?	47
 öyle	Öyle değil.	It is not so.	47
 öyle	Bu öyle değil.	That's not so.	47
-mu	O, o mudur?	Is that it?	48
-mu	Bir şey yok mu?	Isn't there anything?	48
-mu	O çok mu?	Is that a lot?	48
+mi	Bir şey yok mu?	Isn't there anything?	48
 biraz	Biraz daha.	A little more.	49
 biraz	Biraz daha?	A little more?	49
 biraz	Evet, biraz.	Yeah, a little.	49
@@ -345,9 +339,7 @@ tekrar	Her şey için tekrar teşekkürler.	Thanks again for everything.	164
 değilim	Ben iyi değilim.	I am not good.	165
 değilim	Ben hiç iyi değilim.	I am not well at all.	165
 değilim	Çok iyi değilim.	I'm not very good.	165
-mü	Bu kötü mü?	Is it bad?	166
-mü	Gerçekten kötü mü?	Is it really bad?	166
-mü	O çok küçük mü?	Is it too small?	166
+mi	O çok küçük mü?	Is it too small?	166
 kimse	Burada kimse var mı?	Is there anybody here?	167
 kimse	Orada kimse var mı?	Is there anybody in there?	167
 kimse	Orada kimse yok.	There is no one there.	167
@@ -880,8 +872,6 @@ ad	Onun adını biliyorum.	I know his name.	412
 ad	Onu ilk adından biliyorum.	I know him by his first name.	412
 ad	Senin adını biliyorum.	I know your name.	412
 konusunda	İş konusunda senin yardımını istiyorum.	I want your help about business.	413
-ta	Taler nedir?	What is the thaler?	414
-ta	Tanina evde değil.	Tanina is not at home.	414
 takip	Onu takip et.	Follow him.	415
 takip	Onu takip ettim.	I followed him.	415
 takip	Beni takip etme.	Don't come after me.	415
@@ -1241,9 +1231,9 @@ yapacağız	Senin için her şeyi yapacağız.	We will do anything for you.	589
 kalan	Onlar geri kalanlardan çok farklı değil.	They are not very different from anybody else.	590
 kalan	Kalan pek çok şey var.	There's plenty left.	590
 istedi	Küçük erkek kardeşim biraz para istedi.	My little brother asked for some money.	591
-te	Sen 05:00'te eve geldin.	You came home at 5:00.	592
-te	O, 2013'te oldu.	That happened in 2013.	592
-te	2013'te ne oldu?	What happened in 2013?	592
+ta	Sen 05:00'te eve geldin.	You came home at 5:00.	592
+ta	O, 2013'te oldu.	That happened in 2013.	592
+ta	2013'te ne oldu?	What happened in 2013?	592
 kural	Kurallar şöyle.	Here are the rules.	593
 kural	Kurallar yoktur.	There are no rules.	593
 kural	Kurallar nedir?	What are the rules?	593
@@ -3738,9 +3728,6 @@ bari	Nereye gideceksin bari?	Then where would you like to go?	1900
 hikâye	Bu çok eğlenceli bir hikâye.	This is a very entertaining story.	1901
 temsil	Şimdi onları ben temsil ediyorum.	I now represent them.	1902
 temsil	Şimdi onu ben temsil ediyorum.	I now represent him.	1902
-işık	Işıklar açık değil.	The lights aren't on.	1903
-işık	Işıkları kapatır mısın?	Could you turn off the lights?	1903
-işık	Işık kayboldu.	The light faded out.	1903
 grubu	Bu program senin yaş grubu için uygun değildir.	This programme is not suitable for your age group.	1904
 denemek	Bunu denemek istiyorum.	I'd like to try this on.	1905
 denemek	Onu denemek istiyorum.	I want to try it.	1905
@@ -5952,8 +5939,8 @@ pop	O, Rus pop şarkılarını sever.	She likes Russian pop.	3157
 takas	Japon halkı duygularını ifade etmek için hediyeleri takas eder.	Japanese people exchange gifts in order to express their feelings.	3159
 takas	Koltukları takas etmek ister misin?	Would you like to trade seats?	3159
 takas	Çocuklar beyzbol kartlarını takas ettiler.	The kids traded baseball cards.	3159
-irak	Irak'ta en düşük maaş nedir?	What's the minimum salary in Iraq?	3160
-irak	Irak'taki savaş on yıl önce oldu.	The war in Iraq happened ten years ago.	3160
+ırak	Irak'ta en düşük maaş nedir?	What's the minimum salary in Iraq?	3160
+ırak	Irak'taki savaş on yıl önce oldu.	The war in Iraq happened ten years ago.	3160
 görün	Deneyin ve görün.	Try it and see.	3161
 görün	Uyanık görün.	Look alert.	3161
 görün	Gelin de görün!	Come get some.	3161
@@ -7130,7 +7117,6 @@ gözlem	Onun gözlemi şiddetli fakat o çok az diyor.	His observation is sharp,
 gözlem	Kadın gözlemler ve erkek düşünür.	The woman observes and the man thinks.	3822
 gözlem	Bir zamanlar bir tavuk vardı, onun bir gözlemesi vardı.	Once upon a time there was a chicken that had a crispbread.	3822
 egzersiz	Egzersiz, bir köpek için hayatidir.	Exercise is vital for a dog.	3823
-ii	II. Dünya savaşı 1945'te sona erdi.	World War II ended in 1945.	3824
 bitmez	İş asla bitmez, değil mi?	Work never ends, does it?	3825
 sürmek	Bu arabayı sürmek kolaydır.	This car is easy to drive.	3826
 sürmek	Araba sürmek istiyorum.	I want to drive.	3826
@@ -8074,7 +8060,6 @@ canavarlar	Bu canavarlar çok cana yakın.	These beasts are very friendly.	4436
 çöplük	Çöplük nerede?	Where is the garbage area?	4437
 çöplük	Çöplük orada.	The garbage dump is over there.	4437
 çöplük	Benim evim bir çöplük.	My place is a dump.	4437
-ii	O ülke II.Dünya Savaşı boyunca tarafsız kaldı.	That country remained neutral throughout World War II.	4439
 tarafsız	O ülke II.Dünya Savaşı boyunca tarafsız kaldı.	That country remained neutral throughout World War II.	4439
 emlak	Boston'da emlak satın almak istiyorum.	I want to purchase property in Boston.	4442
 emlak	Denize yakın emlak satın aldı.	He bought property near the sea.	4442
@@ -9994,7 +9979,6 @@ hatır	Onlar hatıralardan söz etmeyi severler.	They like to reminisce.	5739
 patlak	İki ülke arasında bir savaş patlak verdi.	A war broke out between the two countries.	5741
 patlak	Depremden sonra büyük bir yangın patlak verdi.	A big fire broke out after the earthquake.	5741
 patlak	Personel eve gittikten sonra yangın patlak verdi.	The fire broke out after the staff went home.	5741
-ii	II. Dünya Savaşı ne zaman patlak verdi?	When did World War II break out?	5741
 salgın	Bir salgın hastalık patlak verdi.	An epidemic has broken out.	5741
 sorgulamak	Onları sorgulamak istiyorum.	I'd like to question them.	5743
 sorgulamak	Onu sorgulamak istiyorum.	I'd like to question him.	5743

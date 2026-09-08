@@ -35,7 +35,7 @@
           "sentence": "He tauira {{answer}}.",
           "answer": "au",
           "translation": "I am a student.",
-          "hint": "I",
+          "hint": "subject pronoun — the speaker referring to themself, singular",
           "display_order": 1,
           "gloss": "a · student · ___"
         },
@@ -605,7 +605,7 @@
           "sentence": "Kei te {{answer}} ngā pukapuka.",
           "answer": "tēpu",
           "translation": "The books are on the table.",
-          "hint": "table",
+          "hint": "location noun — the flat piece of furniture you set things down on",
           "display_order": 4,
           "gloss": "at · the · ___ · the.PL · book"
         },
@@ -613,7 +613,7 @@
           "sentence": "Kei te {{answer}} ia.",
           "answer": "kura",
           "translation": "She is at school.",
-          "hint": "school",
+          "hint": "location noun — the place children go to be taught",
           "display_order": 5,
           "gloss": "at · the · ___ · 3SG"
         },
@@ -737,7 +737,7 @@
           "sentence": "He {{answer}} tēnei?",
           "answer": "aha",
           "translation": "What is this?",
-          "hint": "what",
+          "hint": "question word asking about a thing, not a person or a place",
           "display_order": 1,
           "gloss": "a · ___ · this"
         },
@@ -753,7 +753,7 @@
           "sentence": "Kei {{answer}} te wharepaku?",
           "answer": "hea",
           "translation": "Where is the bathroom?",
-          "hint": "where",
+          "hint": "question word after kei — it asks for a location, not a thing or a person",
           "display_order": 3,
           "gloss": "at · ___ · the · bathroom"
         },
@@ -777,7 +777,7 @@
           "sentence": "Nō {{answer}} koe?",
           "answer": "hea",
           "translation": "Where are you from?",
-          "hint": "where",
+          "hint": "the interrogative asking about location, following the origin particle nō",
           "display_order": 6,
           "gloss": "from · ___ · 2SG"
         }
@@ -893,7 +893,7 @@
           "sentence": "He {{answer}} te whare.",
           "answer": "nui",
           "translation": "The house is big.",
-          "hint": "big",
+          "hint": "stative describing great size",
           "display_order": 1,
           "gloss": "a · ___ · the · house"
         },
@@ -901,7 +901,7 @@
           "sentence": "He {{answer}} tēnei pukapuka.",
           "answer": "pai",
           "translation": "This book is good.",
-          "hint": "good",
+          "hint": "stative expressing general approval or worth",
           "display_order": 2,
           "gloss": "a · ___ · this · book"
         },
@@ -909,7 +909,7 @@
           "sentence": "He {{answer}} te wai.",
           "answer": "mātao",
           "translation": "The water is cold.",
-          "hint": "cold",
+          "hint": "stative for low temperature",
           "display_order": 3,
           "gloss": "a · ___ · the · water"
         },
@@ -917,7 +917,7 @@
           "sentence": "He {{answer}} te rā.",
           "answer": "wera",
           "translation": "The sun is hot.",
-          "hint": "hot",
+          "hint": "stative for high temperature",
           "display_order": 4,
           "gloss": "a · ___ · the · sun"
         },
@@ -925,7 +925,7 @@
           "sentence": "He {{answer}} ngā putiputi.",
           "answer": "ātaahua",
           "translation": "The flowers are beautiful.",
-          "hint": "beautiful",
+          "hint": "stative for pleasing appearance",
           "display_order": 5,
           "gloss": "a · ___ · the.PL · flower"
         },
@@ -933,7 +933,7 @@
           "sentence": "He {{answer}} te kai nei.",
           "answer": "reka",
           "translation": "This food is delicious.",
-          "hint": "delicious",
+          "hint": "stative for pleasing taste",
           "display_order": 6,
           "gloss": "a · ___ · the · food · this"
         }
@@ -2291,7 +2291,7 @@
           "sentence": "Kāore {{answer}} au kia kai.",
           "answer": "anō",
           "translation": "I haven't eaten yet.",
-          "hint": "yet",
+          "hint": "particle after kāore adding 'up to now' to the negation",
           "gloss": "NEG · ___ · 1SG · SBJV · eat",
           "display_order": 1
         },
@@ -2323,7 +2323,7 @@
           "sentence": "Kāore {{answer}} rātou kia hoki mai.",
           "answer": "anō",
           "translation": "They haven't come back yet.",
-          "hint": "yet",
+          "hint": "the particle completing the kāore … kia frame for an action still pending",
           "gloss": "NEG · ___ · 3PL · SBJV · return · hither",
           "display_order": 5
         },
@@ -2385,7 +2385,7 @@
           "sentence": "I te aha koe i te {{answer}}?",
           "answer": "pō",
           "translation": "What were you doing at night?",
-          "hint": "night",
+          "hint": "time noun — the dark part of the day",
           "gloss": "PST · PROG · what · 2SG · at · the · ___",
           "display_order": 4
         },
@@ -2665,7 +2665,7 @@
           "sentence": "Mā {{answer}} te kai e tunu?",
           "answer": "wai",
           "translation": "Who will cook the food?",
-          "hint": "who",
+          "hint": "interrogative for a person, standing as the agent after mā",
           "gloss": "by · ___ · the · food · FUT · cook",
           "display_order": 4
         },
@@ -2727,7 +2727,7 @@
           "sentence": "I noho au ki te kāinga, {{answer}} i haere ia.",
           "answer": "engari",
           "translation": "I stayed home, but she went.",
-          "hint": "but",
+          "hint": "connector marking contrast between the two clauses",
           "gloss": "PST · stay · 1SG · to · the · home · ___ · PST · go · 3SG",
           "display_order": 3
         },
@@ -2735,7 +2735,7 @@
           "sentence": "Ahakoa he {{answer}} ia, he kaha tonu.",
           "answer": "iti",
           "translation": "Although she is small, she is still strong.",
-          "hint": "small",
+          "hint": "stative naming slight size — the concession ahakoa sets against her strength",
           "gloss": "although · a · ___ · 3SG · a · strong · still",
           "display_order": 4
         },
@@ -2789,7 +2789,7 @@
           "sentence": "Ko tēnei {{answer}} pukapuka pai rawa.",
           "answer": "te",
           "translation": "This is the very best book.",
-          "hint": "the",
+          "hint": "definite article — number is carried by tēnei, not by the noun pukapuka",
           "gloss": "FOC · this · ___ · book · good · very",
           "display_order": 2
         },
@@ -2891,7 +2891,7 @@
           "sentence": "Tēnā {{answer}}, e ngā rangatira e rua.",
           "answer": "kōrua",
           "translation": "Greetings to you two chiefs.",
-          "hint": "you two",
+          "hint": "pronoun for the addressees — how many chiefs are greeted decides the form",
           "gloss": "greet · ___ · VOC · the.PL · chief · NUM · two",
           "display_order": 6
         }
@@ -2953,7 +2953,7 @@
           "sentence": "Mā te huruhuru ka rere te {{answer}}.",
           "answer": "manu",
           "translation": "Feathers enable the bird to fly.",
-          "hint": "bird",
+          "hint": "subject of ka rere in the proverb — the creature, not the feathers",
           "gloss": "by · the · feather · FUT · fly · the · ___",
           "display_order": 5
         },
@@ -2961,7 +2961,7 @@
           "sentence": "Kia mau koe ki ngā kupu o ōu {{answer}}.",
           "answer": "tūpuna",
           "translation": "Hold fast to the words of your ancestors.",
-          "hint": "ancestors",
+          "hint": "plural kin term — the generations that came before you",
           "gloss": "SBJV · hold · 2SG · to · the.PL · word · of · 2SG.POSS.PL · ___",
           "display_order": 6
         }

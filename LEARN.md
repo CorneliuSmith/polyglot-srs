@@ -239,9 +239,13 @@ headings). Plain blocks are untouched, so nothing in the existing corpus
 moved; `backend/tests/test_content_markdown_guard.py` pins the seed at
 zero markers so a marker in data/ is a deliberate entry in its `ALLOWED`
 set. The server cleans the same column on the way in
-(`services/markdown.py`: raw tags out, unsafe link schemes out) at every
-writer — the editor, the seeder, the AI — because the renderer is the last
-line, not the only one. Underscores are never a signal: "___" is how the
+(`services/markdown.py`: raw tags out, unsafe link schemes out) at the
+editor and the AI generator — **not** in `seed_grammar.py`, which trusts
+the committed file; a script that writes markdown into `data/grammar/`
+must call `clean_markdown` itself (the markdown-explanations plan does) —
+because the renderer is the last line, not the only one. And only
+`explanation` renders markdown: culture and function notes are plain
+text on every surface. Underscores are never a signal: "___" is how the
 cards write a blank.
 
 The append-only AI tables are pruned daily by `services/retention.py`
@@ -556,6 +560,75 @@ English (or no) support locale short-circuits all of this: `new_here` is
 false and both lanes are open. The waiting room shows the count of cards
 needed when the gate needs more than one; with a one-card gate it falls
 back to the batch percentage so the bar visibly moves.
+
+### The content pipeline is add-only; deleting and gating are separate tools
+
+Every seeder UPSERTs and none deletes. `seeder.run` upserts vocabulary on
+`(language_id, word)`; `seed_grammar` UPDATEs a drill's hint, translation and
+gloss in place; `seed_sentences` inserts `ON CONFLICT DO NOTHING`. That is
+what makes `scripts/setup_db.sh` safe to re-run and what keeps a learner's
+`user_cards` from orphaning — and it means **a row removed from a file is
+still in production** until a tool that deletes is run on purpose:
+
+- `prune_sentences -l <code>` — file-authoritative: a sentence production
+  holds that no committed bank endorses goes. Dry run by default; `--apply`
+  writes `out/prune-<stamp>.sql` first and runs in one transaction; never
+  strands a word; `curated`/`ai` rows are exempt unless they are only the
+  headword. A bulk DELETE, so the owner runs it (CHECKS §18).
+- `reconcile -l <code>` — corrections (glosses, parts of speech, sentence
+  layers) with the same rollback-first shape. Never deletes a vocabulary
+  row.
+- `data/vocab_exclusions.tsv` — durable deletions at the FILE layer
+  (`source_data.apply_vocab_exclusions`), because a TSV-only deletion is
+  undone by the next regeneration. It has no production counterpart yet
+  (DEBT.md).
+
+Content produced by an in-session maker–checker pass never goes straight
+into a file either. Three gates sit between a run's output and the data
+directory, each a script with tests: `scripts/apply_drill_glosses.py`
+(cells == tokens, one `___` on the answer, folded no-leak),
+`scripts/apply_authored_sentences.py` (7–14 words, the word present, rank =
+the word's frequency rank, duplicates and frames rejected) and
+`scripts/enforce_sentence_floor.py` (a sub-five-token row goes only when its
+word has a longer one). Each reads a run's `journal.jsonl` as well as its
+task output, because the journal has held the full result every time the
+task file came back empty. The order of operations, per course, is
+`docs/quality/refeed.md`.
+
+### One word, several spellings: the sentence fixes the shape
+
+Turkish writes its yes/no particle `mi`, `mı`, `mu` or `mü` to agree with
+the vowel before it — one word, four shapes. Making each shape its own
+vocabulary card gives the learner four cards that share a definition and
+cannot say which spelling to type; making the definition say "after a or ı"
+hands over the one computation the language asks for. The pattern that
+works (CHECKS §30): one headword; the other shapes in the frequency file's
+`alt` column, which the seeder writes to `vocabulary.alternatives`;
+`extract.find_cloze` blanks whichever shape the sentence carries and makes
+THAT the expected answer; and the grader's layer 6 asks the language what an
+alternative means — another right answer by default, "right word, wrong
+shape" in Turkish. The rule for anything that asks "is this word in this
+sentence" — the card, the audit, the authored-sentence gate, the prune — is
+that it asks about every shape, through `backend/services/linked_forms.py`.
+
+A second thing this taught: **case-insensitive is language-specific.**
+Python's `re.IGNORECASE` folds dotless `ı` onto `i` (and `İ`, `ſ`, the
+Kelvin sign), so a Turkish sentence matched the wrong letter for months.
+Languages that find a word by something other than the regex — Thai
+(segmentation), Turkish (Turkish casing) — register a span finder in ONE
+module, `backend/services/span_finders.py`, and every consumer of
+`make_cloze` reads it there rather than keeping its own dict.
+
+### A definition has three homes, and one overlay
+
+`data/<code>_frequency.tsv` carries the source gloss; `gloss_overrides.tsv`
+carries the hand-authored correction; production carries whatever last
+wrote it. Since 7 Sep 2026 both writers — every seeder
+(`BaseSeeder.prepare_records`) and the reconcile (`expected_rows`) — lay the
+override file over the frequency file before comparing or writing, so the
+override is authoritative everywhere and a re-seed cannot revert it. Before
+that, the overlay happened only when `source_data` rebuilt a file, and a
+week of definitions sat in the override file reaching nothing (CHECKS §31).
 
 ## Frontend
 

@@ -1,6 +1,5 @@
 rank	word	pos	en
 1	أن	conj	to, that (before a verb); that (after say, think, know)
-2	،	punct	the comma
 3	من	prep	from, out of; some of (partitive); than (in comparisons); who?, whoever
 4	كان	verb	to be; forms the past perfect, past continuous, future perfect and future continuous tenses
 5	لا	particle	no; not; negates an indicative present-tense verb
@@ -254,7 +253,6 @@ rank	word	pos	en
 253	لنا	prep_phrase	to us; for us
 254	دفع	verb	to pay; to push, to push away, to drive away
 255	ها	particle	behold, look, lo!
-256	ظ	symbol	The twenty-seventh numeral symbol of the Arabic alphabet
 257	أفعل	adj	elative degree of فَاعِل (fāʕil)
 258	فكرة	noun	thought, reflection
 259	هم	pron	they (masculine plural subject pronoun)
@@ -586,7 +584,6 @@ rank	word	pos	en
 585	رجال	noun	plural of رَجُل (rajul)
 586	فوق	adv	above
 587	كلوة	noun	alternative form of كُلْيَة (kulya)
-588	؛	punct	The semicolon.
 589	معذرة	noun	excuse; forgiveness, pardon
 590	قل	verb	to be few, to be little
 591	وصول	noun	arrival; reaching
@@ -1560,14 +1557,12 @@ rank	word	pos	en
 1560	أخضر	adj	green; verdant
 1561	أسلوب	noun	method, manner, mode, style, technique
 1562	رحب	verb	to be wide, to be spacious, to be roomy
-1563	ا	symbol	The first numeral symbol of the Arabic alphabet
 1564	إنهاء	noun	verbal noun of أَنْهَى (ʔanhā) (form IV)
 1565	ضعيف	adj	weak; weak (describing Prophetic Hadiths)
 1566	أيس	verb	to give up hope, to despair
 1567	شخصي	adj	own; personal
 1568	أضحى	noun	sacrificial animal, victim
 1569	قاعة	noun	hall; vestibule; corridor
-1570	ر	symbol	The twentieth numeral symbol of the Arabic alphabet
 1571	تفصيل	noun	division into chapters, analysis
 1572	أعمال	noun	business
 1573	شغل	verb	to occupy, to keep busy
@@ -3856,7 +3851,6 @@ rank	word	pos	en
 3857	إباحي	adj	licentious; pornographic, lewd
 3858	منخفضة	adj	feminine singular of مُنْخَفِض (munḵafiḍ)
 3859	برو	noun	bro
-3860	خ	symbol	The twenty-fourth numeral symbol of the Arabic alphabet
 3861	منحة	noun	gift; additional money given to the employees; bonus, allowance
 3862	موجة	noun	wave, billow, see مَوْج (mawj)
 3863	خريف	noun	autumn, fall; harvest
@@ -4614,7 +4608,6 @@ rank	word	pos	en
 4615	قبة	noun	canopy, pavilion; dome, cupola
 4616	يتيم	adj	orphan; unique of its kind, unequalled, unmatched, incomparable
 4617	منظور	adj	passive participle of نَظَرَ (naẓara)
-4618	ى	suffix	used to form feminine adjectives
 4619	متهور	adj	heedless, reckless
 4620	زلزال	noun	earthquake, seism
 4621	مستمرة	adj	feminine singular of مُسْتَمِرّ (mustamirr)
@@ -4623,7 +4616,6 @@ rank	word	pos	en
 4624	طائش	adj	reckless, rash, heedless, thoughtless
 4625	بخار	noun	vapor, fume; steam
 4626	سند	verb	to lean, to rest, to support oneself
-4627	ش	symbol	The twenty-first numeral symbol of the Arabic alphabet
 4628	تناقش	verb	to discuss, to dispute, to argue
 4629	لكنة	noun	accent
 4630	سلطان	noun	power, strength
@@ -4860,7 +4852,6 @@ rank	word	pos	en
 4861	استعمل	verb	to use, make use of
 4862	تكسب	verb	to gain, earn, acquire, obtain
 4863	ستين	num	genitive/accusative of سِتُّونَ (sittūna)
-4864	غ	symbol	The twenty-eighth and last numeral symbol of the Arabic alphabet
 4865	مكوث	noun	verbal noun of مَكَثَ (makaṯa) (form I)
 4866	مراسم	noun	plural of مَرْسَم (marsam)
 4867	تسريح	noun	verbal noun of سَرَّحَ (sarraḥa) (form II)
@@ -4965,7 +4956,6 @@ rank	word	pos	en
 4966	جماع	noun	sexual intercourse, copulation, coitus
 4967	معاهدة	noun	treaty; pact, agreement
 4968	يقظ	verb	to be awake; to awaken
-4969	ح	symbol	The eighth numeral symbol of the Arabic alphabet
 4970	كد	verb	to work hard, to toil, to exert oneself, to slog
 4971	رافعة	noun	crane, derrick, hoist
 4972	أقراص	noun	plural of قُرْص (qurṣ)
@@ -4993,7 +4983,6 @@ rank	word	pos	en
 4994	مستقل	adj	independent; autonomous
 4995	محنة	noun	affliction, adversity, tribulation; distress
 4996	تنافس	verb	to compete, to contend, to vie
-4997	آ	character	Alif maddah. A double-alif used to write the sequence /ʔaː/.
 4998	آتى	verb	to compensate, to recompense, to reimburse (someone)
 4999	خزي	verb	to be vile, ashamed of
 5000	حامي	noun	A person from the lineage of Hām bin Nūh
@@ -5351,7 +5340,6 @@ rank	word	pos	en
 5352	برئ	verb	to be free, to be innocent
 5353	جافة	adj	feminine singular of جَافّ (jāff)
 5354	مستحيلة	adj	feminine singular of مُسْتَحِيل (mustaḥīl)
-5355	ز	symbol	The seventh numeral symbol of the Arabic alphabet
 5356	مؤقتة	adj	feminine singular of مُؤَقَّت (muʔaqqat)
 5357	سينثيا	name	a female given name from Ancient Greek, equivalent to English Cynthia
 5358	معارضة	noun	resistance, opposition
@@ -5597,7 +5585,6 @@ rank	word	pos	en
 5598	نون	verb	to add nunation to (a word), to nunate (a word)
 5599	وليمة	noun	banquet; walima
 5600	زلة	noun	slip, lapse, oversight
-5601	إ	character	Alif with hamza below
 5602	إلكترونية	adj	feminine singular of إِلِكْتْرُونِيّ (ʔelektrōniyy)
 5603	مغنية	name	Maghnia (a city in Tlemcen province, Algeria)
 5604	روسية	adj	feminine singular of رُوسِيّ (rūsiyy, “Russian”)
@@ -6159,7 +6146,6 @@ rank	word	pos	en
 6160	موحد	verb	active participle of وَحَّدَ (waḥḥada)
 6161	مشاة	noun	plural of مَاشٍ (māšin)
 6162	عنصرية	noun	racism
-6163	ء	character	hamza — the sign for the glottal stop /ʔ/
 6164	ثرية	noun	chandelier
 6165	إجمالي	adj	comprehensive, general, total
 6166	مبادلة	noun	verbal noun of بَادَلَ (bādala) (form III)
@@ -6224,7 +6210,6 @@ rank	word	pos	en
 6225	مهزلة	noun	farce, travesty, charade
 6226	قلنسوة	noun	hood, cowl, coif
 6227	مصري	adj	Egyptian; Egyptian Arabic
-6228	ة	suffix	Used to form feminine adjectives from masculine adjectives.
 6229	نحيف	adj	thin, slender, skinny, slim
 6230	طعنة	noun	instance noun of طَعَنَ (ṭaʕana) an instance of stabbing, a stab
 6231	نقر	verb	to strike, to knock, to hack, to dig into, to tap, to peck
@@ -7998,7 +7983,6 @@ rank	word	pos	en
 7999	أثلج	verb	to snow; to cool down, to make cold
 8000	عسير	adj	difficult, hard, tough
 8001	تضييق	noun	narrowing, tightening (the action of narrowing something)
-8002	ث	symbol	The twenty-third numeral symbol of the Arabic alphabet
 8003	نشيطة	adj	feminine singular of نَشِيط (našīṭ)
 8004	ازدحام	noun	crowd, rush, jam
 8005	ماروني	adj	Maronite
@@ -8128,7 +8112,6 @@ rank	word	pos	en
 8129	سمسم	noun	sesame (plant or seed)
 8130	قابس	name	Gabès (a city in Tunisia)
 8131	كاميرة	noun	alternative form of كَامِيرَا (kāmērā)
-8132	ذ	symbol	The twenty-fifth numeral symbol of the Arabic alphabet
 8133	بحوث	noun	plural of بَحْث (baḥṯ)
 8134	زهيد	adj	small, insignificant (in amount or value)
 8135	أطال	verb	to lengthen, extend
@@ -8848,7 +8831,6 @@ rank	word	pos	en
 8849	حنا	verb	to bend, to curve
 8850	هزيل	adj	insignificant, scanty, poor, inconsiderable
 8851	عراف	noun	diviner, fortuneteller
-8852	ض	symbol	The twenty-sixth numeral symbol of the Arabic alphabet
 8853	تهاوى	verb	to fall altogether or one on top of the other
 8854	اطرد	verb	to run on continuously
 8855	غواتيمالا	name	Guatemala (a country in northern Central America)

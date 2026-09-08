@@ -14,7 +14,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The subject pronouns are ich (I), du (you, informal), er/sie/es (he/she/it), wir (we), ihr (you all, informal), sie (they) and Sie (you, formal — always capitalized). Formal Sie takes the same verb form as 'they'.",
+      "explanation": "The subject pronouns are:\n\n| Person | Pronoun |\n|---|---|\n| I | ich |\n| you, informal | du |\n| he / she / it | er / sie / es |\n| we | wir |\n| you all, informal | ihr |\n| they | sie |\n| you, formal | Sie |\n\nFormal Sie is always capitalized, and it takes the same verb form as sie 'they'.",
       "culture_note": "Germans switch from Sie to du more slowly than you might expect — wait for the offer ('Wir können uns duzen').",
       "references": [
         {
@@ -35,7 +35,7 @@
           "sentence": "{{answer}} wohne in Berlin.",
           "answer": "Ich",
           "translation": "I live in Berlin.",
-          "hint": "I",
+          "hint": "first-person singular subject — the one who is speaking",
           "display_order": 1,
           "cell": "ich",
           "gloss": "___ · live.1SG · in · Berlin"
@@ -53,7 +53,7 @@
           "sentence": "{{answer}} ist meine Schwester.",
           "answer": "Sie",
           "translation": "She is my sister.",
-          "hint": "she",
+          "hint": "third-person singular subject, female referent",
           "display_order": 3,
           "cell": "sie",
           "gloss": "___ · be.3SG · 1SG.POSS.F.SG · sister"
@@ -62,7 +62,7 @@
           "sentence": "{{answer}} sind Studenten.",
           "answer": "Wir",
           "translation": "We are students.",
-          "hint": "we",
+          "hint": "first-person plural subject — a group including the speaker",
           "display_order": 4,
           "cell": "wir",
           "gloss": "___ · be.1PL · student.PL"
@@ -80,7 +80,7 @@
           "sentence": "{{answer}} arbeitet bei einer Bank.",
           "answer": "Er",
           "translation": "He works at a bank.",
-          "hint": "he",
+          "hint": "third-person singular subject, male referent",
           "display_order": 6,
           "cell": "er",
           "gloss": "___ · work.3SG · at · INDF.F.DAT · bank"
@@ -89,7 +89,7 @@
           "sentence": "{{answer}} ist kalt heute.",
           "answer": "Es",
           "translation": "It is cold today.",
-          "hint": "it",
+          "hint": "impersonal subject with no real referent — a weather statement",
           "cell": "es",
           "display_order": 7,
           "gloss": "___ · be.3SG · cold · today"
@@ -98,7 +98,7 @@
           "sentence": "{{answer}} sind meine Eltern.",
           "answer": "Sie",
           "translation": "They are my parents.",
-          "hint": "they",
+          "hint": "third-person plural subject — people outside the conversation",
           "cell": "sie (pl)",
           "display_order": 8,
           "gloss": "___ · be.3PL · 1SG.POSS.PL · parent.PL"
@@ -107,7 +107,7 @@
           "sentence": "{{answer}} trinke gern Kaffee.",
           "answer": "Ich",
           "translation": "I like drinking coffee.",
-          "hint": "I",
+          "hint": "first-person singular subject — the one who is speaking",
           "cell": "ich",
           "display_order": 9,
           "gloss": "___ · drink.1SG · gladly · coffee"
@@ -125,7 +125,7 @@
           "sentence": "{{answer}} arbeitet in München.",
           "answer": "Er",
           "translation": "He works in Munich.",
-          "hint": "he",
+          "hint": "third-person subject, one male referent",
           "cell": "er",
           "display_order": 11,
           "gloss": "___ · work.3SG · in · Munich"
@@ -134,7 +134,7 @@
           "sentence": "{{answer}} singt sehr gut.",
           "answer": "Sie",
           "translation": "She sings very well.",
-          "hint": "she",
+          "hint": "third-person subject, one female referent",
           "cell": "sie",
           "display_order": 12,
           "gloss": "___ · sing.3SG · very · well"
@@ -143,7 +143,7 @@
           "sentence": "{{answer}} regnet heute.",
           "answer": "Es",
           "translation": "It is raining today.",
-          "hint": "it",
+          "hint": "the placeholder subject a weather verb needs",
           "cell": "es",
           "display_order": 13,
           "gloss": "___ · rain.3SG · today"
@@ -152,7 +152,7 @@
           "sentence": "{{answer}} lernen zusammen.",
           "answer": "Wir",
           "translation": "We study together.",
-          "hint": "we",
+          "hint": "first-person plural subject — the speaker among others",
           "cell": "wir",
           "display_order": 14,
           "gloss": "___ · learn.1PL · together"
@@ -170,7 +170,7 @@
           "sentence": "{{answer}} wohnen in Köln.",
           "answer": "Sie",
           "translation": "They live in Cologne.",
-          "hint": "they",
+          "hint": "third-person subject, several people",
           "cell": "sie (pl)",
           "display_order": 16,
           "gloss": "___ · live.3PL · in · Cologne"
@@ -194,7 +194,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized.\n\nPlurals form several ways (-e, -er, -en, -s, umlaut: Buch → Bücher, Haus → Häuser), so learn each noun with its gender AND its plural.",
+      "explanation": "German nouns have THREE genders — masculine (der Mann), feminine (die Frau), neuter (das Kind) — and are always capitalized.\n\nPlurals form several ways, so learn each noun with its gender AND its plural:\n\n- `-e`: der Tag → die Tage\n- `-er`, usually with an umlaut: das Buch → die Bücher, das Haus → die Häuser\n- `-en`: die Frau → die Frauen\n- `-s`: das Auto → die Autos\n- umlaut alone: der Vater → die Väter",
       "culture_note": "",
       "references": [
         {
@@ -297,7 +297,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Der for masculine (der Mann), die for feminine (die Frau), das for neuter (das Haus) — and die again for every plural (die Kinder). The article is the gender's uniform: memorize noun and article as one word.",
+      "explanation": "One definite article per gender, and die again for every plural:\n\n| Gender | Article | Example |\n|---|---|---|\n| masculine | der | der Mann |\n| feminine | die | die Frau |\n| neuter | das | das Haus |\n| plural | die | die Kinder |\n\nThe article is the gender's uniform: memorize noun and article as one word.",
       "culture_note": "",
       "references": [
         {
@@ -318,7 +318,7 @@
           "sentence": "{{answer}} Haus ist groß.",
           "answer": "Das",
           "translation": "The house is big.",
-          "hint": "neuter",
+          "hint": "definite article — recall the gender class Haus belongs to",
           "display_order": 1,
           "cell": "das",
           "gloss": "___ · house · be.PRS.3SG · big"
@@ -327,7 +327,7 @@
           "sentence": "{{answer}} Mann ist Lehrer.",
           "answer": "Der",
           "translation": "The man is a teacher.",
-          "hint": "masculine",
+          "hint": "definite article — check which gender class the noun carries",
           "display_order": 2,
           "cell": "der",
           "gloss": "___ · man · be.PRS.3SG · teacher"
@@ -336,7 +336,7 @@
           "sentence": "{{answer}} Frau ist Ärztin.",
           "answer": "Die",
           "translation": "The woman is a doctor.",
-          "hint": "feminine",
+          "hint": "definite article — decide from the noun's gender class, not its meaning",
           "display_order": 3,
           "cell": "die",
           "gloss": "___ · woman · be.PRS.3SG · doctor.F"
@@ -345,7 +345,7 @@
           "sentence": "{{answer}} Kaffee ist heiß.",
           "answer": "Der",
           "translation": "The coffee is hot.",
-          "hint": "masculine",
+          "hint": "the definite article — match the gender of the noun it introduces",
           "display_order": 4,
           "cell": "der",
           "gloss": "___ · coffee · be.PRS.3SG · hot"
@@ -354,7 +354,7 @@
           "sentence": "{{answer}} Kinder spielen draußen.",
           "answer": "Die",
           "translation": "The children are playing outside.",
-          "hint": "plural",
+          "hint": "definite article — settle the noun's number before you reach for a gender",
           "display_order": 5,
           "cell": "die",
           "gloss": "___ · child.PL · play.PRS.3PL · outside"
@@ -363,7 +363,7 @@
           "sentence": "{{answer}} Auto ist schnell.",
           "answer": "Das",
           "translation": "The car is fast.",
-          "hint": "neuter",
+          "hint": "the definite article — match the gender of the noun it introduces",
           "display_order": 6,
           "cell": "das",
           "gloss": "___ · car · be.PRS.3SG · fast"
@@ -403,7 +403,7 @@
           "sentence": "Das ist {{answer}} Haus.",
           "answer": "ein",
           "translation": "That is a house.",
-          "hint": "neuter",
+          "hint": "indefinite article — the noun's gender decides whether an ending is added",
           "display_order": 1,
           "gloss": "DEM.N · be.PRS.3SG · ___ · house"
         },
@@ -411,7 +411,7 @@
           "sentence": "Das ist {{answer}} gute Idee.",
           "answer": "eine",
           "translation": "That is a good idea.",
-          "hint": "feminine",
+          "hint": "indefinite article — check the gender of Idee to see if an ending is needed",
           "display_order": 2,
           "gloss": "DEM.N · be.PRS.3SG · ___ · good.F · idea"
         },
@@ -419,7 +419,7 @@
           "sentence": "Er ist {{answer}} Freund von mir.",
           "answer": "ein",
           "translation": "He is a friend of mine.",
-          "hint": "masculine",
+          "hint": "indefinite article — the noun's gender governs the ending, not the person's sex",
           "display_order": 3,
           "gloss": "3SG.M.NOM · be.PRS.3SG · ___ · friend · of · 1SG.DAT"
         },
@@ -427,7 +427,7 @@
           "sentence": "Das ist {{answer}} Katze.",
           "answer": "eine",
           "translation": "That is a cat.",
-          "hint": "feminine",
+          "hint": "the indefinite article — match the gender of the noun it introduces",
           "display_order": 4,
           "gloss": "DEM.N · be.PRS.3SG · ___ · cat"
         },
@@ -435,7 +435,7 @@
           "sentence": "Hier ist {{answer}} Stuhl.",
           "answer": "ein",
           "translation": "Here is a chair.",
-          "hint": "masculine",
+          "hint": "the indefinite article — match the gender of the noun it introduces",
           "display_order": 5,
           "gloss": "here · be.PRS.3SG · ___ · chair"
         },
@@ -443,7 +443,7 @@
           "sentence": "Das ist {{answer}} schönes Auto.",
           "answer": "ein",
           "translation": "That is a beautiful car.",
-          "hint": "neuter",
+          "hint": "the indefinite article — match the gender of the noun it introduces",
           "display_order": 6,
           "gloss": "DEM.N · be.PRS.3SG · ___ · beautiful.N · car"
         }
@@ -456,7 +456,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Sein (to be) is completely irregular: ich bin, du bist, er/sie/es ist, wir sind, ihr seid, sie/Sie sind.\n\nProfessions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
+      "explanation": "**Sein** (to be) is completely irregular — learn the whole set:\n\n| Person | Form |\n|---|---|\n| ich | bin |\n| du | bist |\n| er / sie / es | ist |\n| wir | sind |\n| ihr | seid |\n| sie / Sie | sind |\n\nProfessions and nationalities take no article: sie ist Lehrerin, ich bin Deutscher.",
       "culture_note": "",
       "references": [
         {
@@ -598,7 +598,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Haben (to have): ich habe, du hast, er/sie hat, wir haben, ihr habt, sie/Sie haben.\n\nLike French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
+      "explanation": "**Haben** (to have):\n\n| Person | Form |\n|---|---|\n| ich | habe |\n| du | hast |\n| er / sie / es | hat |\n| wir | haben |\n| ihr | habt |\n| sie / Sie | haben |\n\nLike French, German HAS its states: Hunger haben (be hungry), Durst haben (be thirsty), Recht haben (be right), Glück haben (be lucky).",
       "culture_note": "",
       "references": [
         {
@@ -740,7 +740,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Drop -en from the infinitive, add: -e, -st, -t, -en, -t, -en (lernen → ich lerne, du lernst, er lernt, wir lernen, ihr lernt, sie lernen).\n\nGerman present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
+      "explanation": "Drop the `-en` of the infinitive and add the ending for the person — here on lernen (to learn):\n\n| Person | Ending | Example |\n|---|---|---|\n| ich | `-e` | lerne |\n| du | `-st` | lernst |\n| er / sie / es | `-t` | lernt |\n| wir | `-en` | lernen |\n| ihr | `-t` | lernt |\n| sie / Sie | `-en` | lernen |\n\nA stem ending in `-t` or `-d` adds an e before the ending: du arbeitest, er arbeitet.\n\nGerman present covers English 'do' and 'am doing' both: ich lerne = I learn AND I am learning.",
       "culture_note": "",
       "references": [
         {
@@ -1145,7 +1145,7 @@
           "sentence": "{{answer}} wohnst du?",
           "answer": "Wo",
           "translation": "Where do you live?",
-          "hint": "where",
+          "hint": "interrogative asking for a place, not a time or a person",
           "display_order": 1,
           "gloss": "___ · live.2SG · 2SG"
         },
@@ -1161,7 +1161,7 @@
           "sentence": "{{answer}} ist das?",
           "answer": "Was",
           "translation": "What is that?",
-          "hint": "what",
+          "hint": "interrogative asking which thing is meant, not which person",
           "display_order": 3,
           "gloss": "___ · be.3SG · that"
         },
@@ -1177,7 +1177,7 @@
           "sentence": "{{answer}} beginnt der Kurs?",
           "answer": "Wann",
           "translation": "When does the course begin?",
-          "hint": "when",
+          "hint": "interrogative asking for a point in time",
           "display_order": 5,
           "gloss": "___ · begin.3SG · DEF.M.NOM · course"
         },
@@ -1185,7 +1185,7 @@
           "sentence": "{{answer}} ist dein Lehrer?",
           "answer": "Wer",
           "translation": "Who is your teacher?",
-          "hint": "who",
+          "hint": "interrogative asking for a person's identity",
           "display_order": 6,
           "gloss": "___ · be.3SG · 2SG.POSS · teacher"
         },
@@ -1214,7 +1214,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "The direct object takes the accusative — and only MASCULINE articles change: der → den, ein → einen (ich sehe den Mann, ich habe einen Hund).\n\nFeminine, neuter, and plural look identical to the nominative: ich lese das Buch, ich sehe die Frau.",
+      "explanation": "The direct object takes the accusative — and only the MASCULINE articles change:\n\n| Gender | Nominative | Accusative |\n|---|---|---|\n| masculine | der, ein | den, einen |\n| feminine | die, eine | die, eine |\n| neuter | das, ein | das, ein |\n| plural | die | die |\n\nIch sehe den Mann, ich habe einen Hund — but ich lese das Buch, ich sehe die Frau, exactly as in the nominative.",
       "culture_note": "One changing gender is a gentle introduction — dative and genitive wait politely at A2.",
       "references": [
         {
@@ -1308,7 +1308,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Spoken German uses the perfect: a present form of haben + the past participle at the END of the clause.\n\nThe participle is usually ge-…-t (gemacht, gespielt) or ge-…-en (gesehen, gelesen): ich habe Fußball gespielt. haben is conjugated (habe, hast, hat, haben, habt, haben); the participle never changes.",
+      "explanation": "Spoken German uses the perfect: a present form of haben + the past participle at the END of the clause.\n\nThe participle is usually `ge-…-t` (gemacht, gespielt) or `ge-…-en` (gesehen, gelesen): ich habe Fußball gespielt. haben is conjugated (habe, hast, hat, haben, habt, haben); the participle never changes.",
       "culture_note": "",
       "references": [
         {
@@ -1446,7 +1446,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Verbs of movement or change of state (gehen, kommen, fahren, fliegen, laufen, bleiben, werden, sterben…) form the perfect with sein, not haben: ich bin nach Berlin gefahren 'I went to Berlin'. sein is conjugated (bin, bist, ist, sind, seid, sind); the participle still goes to the end.",
+      "explanation": "Verbs of movement or change of state form the perfect with **sein**, not haben: ich bin nach Berlin gefahren 'I went to Berlin'.\n\n- movement: gehen, kommen, fahren, fliegen, laufen…\n- change of state: werden, sterben\n- neither, but still sein: sein (ich bin gewesen), bleiben (ich bin geblieben)\n\nsein is conjugated (bin, bist, ist, sind, seid, sind); the participle still goes to the end.",
       "culture_note": "",
       "references": [
         {
@@ -1584,7 +1584,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The dative marks the indirect object (the receiver).\n\nThe articles change: der→dem, die→der, das→dem, and plural die→den (+ -n on the noun): ich gebe dem Mann das Buch 'I give the man the book'.\n\nDative verbs (helfen, danken, gefallen) and prepositions (mit, nach, bei, von, zu, aus) also trigger it.",
+      "explanation": "The dative marks the indirect object (the receiver): ich gebe dem Mann das Buch 'I give the man the book'.\n\n| Gender | Nominative | Dative |\n|---|---|---|\n| masculine | der | dem |\n| feminine | die | der |\n| neuter | das | dem |\n| plural | die | den |\n\nIn the dative plural the noun takes an `-n` as well: mit den Kindern.\n\nDative verbs (helfen, danken, gefallen) and prepositions (mit, nach, bei, von, zu, aus) also trigger it.",
       "culture_note": "",
       "references": [
         {
@@ -1654,7 +1654,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Modal verbs (können 'can', müssen 'must', wollen 'want', dürfen 'may', sollen 'should', mögen/möchte 'like/would like') are conjugated in position 2, and the main verb goes to the END as an infinitive: ich kann gut schwimmen, du musst jetzt gehen. Note the vowel change: ich kann, wir können.",
+      "explanation": "Modal verbs are conjugated in position 2, and the main verb goes to the END as an infinitive: ich kann gut schwimmen, du musst jetzt gehen.\n\n| Modal | Meaning |\n| --- | --- |\n| können | can |\n| müssen | must |\n| wollen | want |\n| dürfen | may |\n| sollen | should |\n| mögen / möchte | like / would like |\n\nNote the vowel change: ich kann, wir können.",
       "culture_note": "",
       "references": [
         {
@@ -1724,7 +1724,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Even in speech, sein and haben usually use the simple past (Präteritum) rather than the perfect. sein: war, warst, war, waren, wart, waren. haben: hatte, hattest, hatte, hatten, hattet, hatten.\n\nIch war müde 'I was tired', wir hatten keine Zeit 'we had no time'.",
+      "explanation": "Even in speech, sein and haben usually use the simple past (Präteritum) rather than the perfect.\n\n| Person | sein | haben |\n| --- | --- | --- |\n| ich | war | hatte |\n| du | warst | hattest |\n| er/sie/es | war | hatte |\n| wir | waren | hatten |\n| ihr | wart | hattet |\n| sie/Sie | waren | hatten |\n\nIch war müde 'I was tired', wir hatten keine Zeit 'we had no time'.",
       "culture_note": "",
       "references": [
         {
@@ -1864,7 +1864,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Many verbs have a separable prefix (auf-, ein-, an-, mit-, zurück-…) that splits off and goes to the END in a main clause: aufstehen → ich stehe um sieben auf 'I get up at seven'; einkaufen → wir kaufen im Supermarkt ein.\n\nThe prefix carries the stress and often changes the meaning.",
+      "explanation": "Many verbs have a separable prefix (`auf-`, `ein-`, `an-`, `mit-`, `zurück-`…) that splits off and goes to the END in a main clause.\n\naufstehen → ich stehe um sieben auf 'I get up at seven', einkaufen → wir kaufen im Supermarkt ein.\n\nThe prefix carries the stress and often changes the meaning.",
       "culture_note": "",
       "references": [
         {
@@ -1934,7 +1934,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "The comparative adds -er and uses als 'than' (often with an umlaut): groß → größer als 'bigger than'.\n\nThe superlative is am …-sten: am größten 'the biggest'.\n\nIrregulars: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
+      "explanation": "The comparative adds -er and uses als 'than' (often with an umlaut): groß → größer als 'bigger than'.\n\nThe superlative is am …-sten: am größten 'the biggest'.\n\nIrregulars:\n\n| Base form | Comparative | Superlative |\n| --- | --- | --- |\n| gut | besser | am besten |\n| viel | mehr | am meisten |\n| gern | lieber | am liebsten |",
       "culture_note": "",
       "references": [
         {
@@ -2074,7 +2074,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Subordinating conjunctions (weil 'because', dass 'that', wenn 'if/when', obwohl 'although') send the conjugated verb to the END of their clause: ich bleibe zu Hause, weil ich krank bin (bin at the end). Compare coordinating denn 'because', which keeps normal order.",
+      "explanation": "Subordinating conjunctions send the conjugated verb to the END of their clause:\n\n- weil — because\n- dass — that\n- wenn — if/when\n- obwohl — although\n\nIch bleibe zu Hause, weil ich krank bin (bin at the end). Compare coordinating denn 'because', which keeps normal order.",
       "culture_note": "",
       "references": [
         {
@@ -2214,7 +2214,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Written German (stories, reports) uses the Präteritum.\n\nWeak verbs add -te: machen → machte, spielen → spielte.\n\nStrong verbs change the stem: gehen → ging, kommen → kam, sehen → sah, fahren → fuhr.\n\nEndings: -,-st,-, -en,-t,-en (ich ging, du gingst, wir gingen).",
+      "explanation": "Written German (stories, reports) uses the Präteritum.\n\nWeak verbs add -te: machen → machte, spielen → spielte.\n\nStrong verbs change the stem: gehen → ging, kommen → kam, sehen → sah, fahren → fuhr.\n\n| Person | Ending | gehen |\n| --- | --- | --- |\n| ich | — | ging |\n| du | -st | gingst |\n| er/sie/es | — | ging |\n| wir | -en | gingen |\n| ihr | -t | gingt |\n| sie/Sie | -en | gingen |",
       "culture_note": "",
       "references": [
         {
@@ -2284,7 +2284,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "An adjective before a noun takes an ending. After a definite article (der/die/das) it's mostly -e or -en (der alte Mann, die alten Männer).\n\nAfter an indefinite/possessive (ein/mein) it shows the gender: ein alter Mann, eine alte Frau, ein altes Haus.\n\nWith no article, the adjective carries the full article ending (kalter Kaffee).",
+      "explanation": "An adjective before a noun takes an ending.\n\n- After a definite article (der/die/das) it's mostly `-e` or `-en`: der alte Mann, die alten Männer.\n- After an indefinite/possessive (ein/mein) it shows the gender: ein alter Mann, eine alte Frau, ein altes Haus.\n- With no article, the adjective carries the full article ending: kalter Kaffee.",
       "culture_note": "",
       "references": [
         {
@@ -2354,7 +2354,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Reflexive verbs use a reflexive pronoun matching the subject: mich, dich, sich, uns, euch, sich (accusative).\n\nIch freue mich 'I'm happy', er erinnert sich 'he remembers'. Some are dative-reflexive when there's also a direct object: ich wasche mir die Hände 'I wash my hands'.",
+      "explanation": "Reflexive verbs use a reflexive pronoun matching the subject.\n\n| Person | Accusative |\n| --- | --- |\n| ich | mich |\n| du | dich |\n| er/sie/es | sich |\n| wir | uns |\n| ihr | euch |\n| sie/Sie | sich |\n\nIch freue mich 'I'm happy', er erinnert sich 'he remembers'. Some are dative-reflexive when there's also a direct object: ich wasche mir die Hände 'I wash my hands'.",
       "culture_note": "",
       "references": [
         {
@@ -2430,7 +2430,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The relative pronoun matches the noun's GENDER and NUMBER but takes its CASE from its role in the relative clause, which is verb-final: der Mann, der dort steht (nom.); der Mann, den ich kenne (acc.); der Mann, dem ich helfe (dat.); der Mann, dessen Auto rot ist (gen.).",
+      "explanation": "The relative pronoun matches the noun's GENDER and NUMBER but takes its CASE from its role in the relative clause, which is verb-final.\n\n| Case | Pronoun | Example |\n| --- | --- | --- |\n| nominative | der | der Mann, der dort steht |\n| accusative | den | der Mann, den ich kenne |\n| dative | dem | der Mann, dem ich helfe |\n| genitive | dessen | der Mann, dessen Auto rot ist |",
       "culture_note": "",
       "references": [
         {
@@ -2500,7 +2500,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Konjunktiv II expresses politeness, wishes, and unreal situations. Most verbs use würde + infinitive: ich würde gern kommen 'I would like to come'.\n\nBut sein, haben, and the modals use their own forms: wäre, hätte, könnte, müsste, wollte.\n\nIch hätte gern einen Kaffee 'I'd like a coffee'.",
+      "explanation": "Konjunktiv II expresses politeness, wishes, and unreal situations. Most verbs use würde + infinitive: ich würde gern kommen 'I would like to come'.\n\nBut sein, haben, and the modals use their own forms.\n\n| Verb | Konjunktiv II |\n| --- | --- |\n| sein | wäre |\n| haben | hätte |\n| können | könnte |\n| müssen | müsste |\n| dürfen | dürfte |\n\nSollen and wollen have no separate form: sollte and wollte are also the Präteritum.\n\nIch hätte gern einen Kaffee 'I'd like a coffee'.",
       "culture_note": "",
       "references": [
         {
@@ -2640,7 +2640,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The passive = werden (conjugated) + the past participle at the end: das Haus wird gebaut 'the house is being built'.\n\nAny tense works via werden: wurde gebaut (past), ist gebaut worden (perfect — note worden, not geworden).\n\nThe agent, if named, follows von: … von einem Architekten.",
+      "explanation": "The passive = **werden** (conjugated) + the past participle at the end: das Haus wird gebaut 'the house is being built'.\n\nAny tense works via werden:\n\n| Tense | Passive |\n| --- | --- |\n| present | wird gebaut |\n| past | wurde gebaut |\n| perfect | ist gebaut worden |\n\nIn the perfect the participle of werden is worden, never geworden.\n\nThe agent, if named, follows von: … von einem Architekten.",
       "culture_note": "",
       "references": [
         {
@@ -2850,7 +2850,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Connectors set word order. Coordinating (und, aber, oder, denn) keep normal order.\n\nAdverbial ones (deshalb 'therefore', trotzdem 'nevertheless', dann) push the subject after the verb: es regnet, deshalb bleiben wir. Subordinating (weil, obwohl, damit, wenn) send the verb to the END.",
+      "explanation": "Connectors set word order.\n\n- Coordinating (und, aber, oder, denn) keep normal order.\n- Adverbial ones (deshalb 'therefore', trotzdem 'nevertheless', dann) push the subject after the verb: es regnet, deshalb bleiben wir.\n- Subordinating (weil, obwohl, damit, wenn) send the verb to the END.",
       "culture_note": "",
       "references": [
         {
@@ -2875,7 +2875,7 @@
           "sentence": "Er ist müde; {{answer}} arbeitet er weiter.",
           "answer": "trotzdem",
           "translation": "He's tired; nevertheless he keeps working.",
-          "hint": "nevertheless",
+          "hint": "concessive adverb: the second clause defies the first, and the verb follows it",
           "display_order": 2,
           "gloss": "3SG.M.NOM · be.PRS.3SG · tired · ___ · work.PRS.3SG · 3SG.M.NOM · further"
         },
@@ -2990,7 +2990,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Adjectives and participles can become nouns, capitalized but still taking adjective endings: der Alte 'the old man', das Gute 'the good (thing)', ein Deutscher 'a German (man)', der Reisende 'the traveller' (from the present participle reisend).\n\nThe ending still depends on gender, case, and the preceding article.",
+      "explanation": "Adjectives and participles can become nouns, capitalized but still taking adjective endings:\n\n- der Alte 'the old man'\n- das Gute 'the good (thing)'\n- ein Deutscher 'a German (man)'\n- der Reisende 'the traveller' (from the present participle reisend)\n\nThe ending still depends on gender, case, and the preceding article.",
       "culture_note": "",
       "references": [
         {
@@ -3060,7 +3060,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Formal German (news, reports) reports speech with Konjunktiv I: er sagt, er sei krank 'he says he is ill', sie meint, sie habe keine Zeit.\n\nForms come from the infinitive stem + -e/-est/-e/-en…: sei, habe, komme, gehe.\n\nWhen Konjunktiv I equals the indicative, German switches to Konjunktiv II (er sagt, sie hätten…).",
+      "explanation": "Formal German (news, reports) reports speech with Konjunktiv I: er sagt, er sei krank 'he says he is ill', sie meint, sie habe keine Zeit.\n\nForms are the infinitive stem plus the Konjunktiv I endings:\n\n| Person | Ending |\n| --- | --- |\n| ich | -e |\n| du | -est |\n| er/sie/es | -e |\n| wir | -en |\n| ihr | -et |\n| sie/Sie | -en |\n\nThat gives habe, komme, gehe; sein is the exception, with ich/er sei and wir/sie seien.\n\nWhen Konjunktiv I equals the indicative, German switches to Konjunktiv II (er sagt, sie hätten…).",
       "culture_note": "",
       "references": [
         {
@@ -3130,7 +3130,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "German often replaces the passive: man 'one/you' + active (man baut hier ein Haus 'a house is being built here'); sich lassen 'can be done' (das lässt sich machen 'that can be done'); sein + zu + infinitive 'is to be / can be' (das ist leicht zu verstehen 'that's easy to understand').",
+      "explanation": "German often replaces the passive:\n\n- man 'one/you' + active (man baut hier ein Haus 'a house is being built here')\n- sich lassen 'can be done' (das lässt sich machen 'that can be done')\n- sein + zu + infinitive 'is to be / can be' (das ist leicht zu verstehen 'that's easy to understand')",
       "culture_note": "",
       "references": [
         {
@@ -3200,7 +3200,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Higher-register connectors: indem 'by …-ing' (er lernt, indem er liest 'he learns by reading'); je … desto/umso 'the more … the more' (je mehr, desto besser); sofern / falls 'provided that / in case'; anstatt … zu 'instead of'; ohne … zu 'without …-ing'.",
+      "explanation": "Higher-register connectors:\n\n- indem 'by …-ing' (er lernt, indem er liest 'he learns by reading')\n- je … desto/umso 'the more … the more' (je mehr, desto besser)\n- sofern / falls 'provided that / in case'\n- anstatt … zu 'instead of'\n- ohne … zu 'without …-ing'",
       "culture_note": "",
       "references": [
         {
@@ -3340,7 +3340,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Modal particles carry tone, not literal meaning. doch 'contradiction / encouragement' (komm doch mit! 'do come along!'); mal 'softening' (warte mal 'hold on'); ja 'as you know / surprise' (das ist ja toll!); eben/halt 'resignation' (das ist eben so 'that's just how it is'); wohl 'probably'.\n\nMastering them is the last step to sounding native.",
+      "explanation": "Modal particles carry tone, not literal meaning.\n\n- doch 'contradiction / encouragement' (komm doch mit! 'do come along!')\n- mal 'softening' (warte mal 'hold on')\n- ja 'as you know / surprise' (das ist ja toll!)\n- eben/halt 'resignation' (das ist eben so 'that's just how it is')\n- wohl 'probably'\n\nMastering them is the last step to sounding native.",
       "culture_note": "",
       "references": [
         {
@@ -3410,7 +3410,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Many strong verbs change their stem vowel — but ONLY in the du and er/sie/es forms:\n\ne → i: sprechen → du sprichst, er spricht (also essen → isst, geben → gibt, nehmen → nimmt, helfen → hilft).\ne → ie: sehen → siehst, sieht; lesen → liest.\na → ä: fahren → fährst, fährt (also schlafen → schläft, tragen → trägt).\n\nAll other forms keep the plain stem: wir fahren, ihr fahrt.",
+      "explanation": "Many strong verbs change their stem vowel — but ONLY in the du and er/sie/es forms:\n\n| Change | Example | Other verbs |\n| --- | --- | --- |\n| e → i | sprechen → du sprichst, er spricht | essen → isst, geben → gibt, nehmen → nimmt, helfen → hilft |\n| e → ie | sehen → siehst, sieht | lesen → liest |\n| a → ä | fahren → fährst, fährt | schlafen → schläft, tragen → trägt |\n\nAll other forms keep the plain stem: wir fahren, ihr fahrt.",
       "culture_note": "",
       "references": [
         {
@@ -3486,7 +3486,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Pronouns change with case, just like articles.\n\nAccusative (direct object): mich, dich, ihn, sie, es, uns, euch, sie/Sie — Ich sehe dich.\nDative (indirect object, dative verbs, dative prepositions): mir, dir, ihm, ihr, ihm, uns, euch, ihnen/Ihnen — Ich helfe dir. Komm mit mir!\n\nOnly ich/du/er change between the two cases for singular — uns and euch pull double duty.",
+      "explanation": "Pronouns change with case, just like articles.\n\n| Person | Accusative | Dative |\n| --- | --- | --- |\n| ich | mich | mir |\n| du | dich | dir |\n| er | ihn | ihm |\n| sie | sie | ihr |\n| es | es | ihm |\n| wir | uns | uns |\n| ihr | euch | euch |\n| sie/Sie | sie/Sie | ihnen/Ihnen |\n\nThe accusative is the direct object: Ich sehe dich. The dative is the indirect object, and the case that dative verbs and dative prepositions take: Ich helfe dir. Komm mit mir!\n\nOnly uns and euch are the same in both cases; every other pronoun changes.",
       "culture_note": "",
       "references": [
         {
@@ -3562,7 +3562,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 13,
-      "explanation": "Three forms, one per way of saying you:\n\ndu: the bare stem — Komm! Geh! Mach das! e → i verbs keep the change (Nimm! Hilf! Sprich!), but a → ä verbs LOSE the umlaut (Fahr langsam!).\nihr: the normal ihr form without the pronoun — Kommt! Macht das!\nSie: verb + Sie — Kommen Sie! Nehmen Sie Platz!\n\nsein is irregular: Sei ruhig! Seid leise! Seien Sie so nett!",
+      "explanation": "Three forms, one per way of saying you:\n\n- du: the bare stem — Komm! Geh! Mach das! e → i verbs keep the change (Nimm! Hilf! Sprich!), but a → ä verbs LOSE the umlaut (Fahr langsam!).\n- ihr: the normal ihr form without the pronoun — Kommt! Macht das!\n- Sie: verb + Sie — Kommen Sie! Nehmen Sie Platz!\n\nsein is irregular: Sei ruhig! Seid leise! Seien Sie so nett!",
       "culture_note": "Germans soften commands with bitte, mal, or doch: Komm mal her! Machen Sie doch bitte das Fenster auf.",
       "references": [
         {

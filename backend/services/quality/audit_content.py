@@ -49,6 +49,8 @@ from pathlib import Path
 # Single source of truth for the Arabic combining-mark ranges: the grader folds
 # them the same way, and a checker that disagreed with the grader about what
 # "the same word" means would flag content the app accepts.
+from backend.services.extract import find_cloze
+from backend.services.linked_forms import forms_of
 from backend.services.nlp.arabic_script import _TASHKEEL as _ARABIC_MARKS
 
 # backend/services/quality/audit_content.py -> repo root. Never absolutise this:
@@ -77,7 +79,12 @@ FAIL_RULES = (
 WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "structural")
 # Measured and printed, never scored: "how often do noun hints mark gender" is
 # a number to drive editorial work, not a threshold anyone can set honestly.
-REPORT_RULES = ("gender_marking",)
+REPORT_RULES = ("gender_marking", "unclozable_rows", "frame_collision")
+
+# The top band a learner actually reaches in the first months. Both card
+# rules below are scoped to it: a defect on rank 8,000 is real and nobody
+# meets it.
+CARD_RULE_BAND = 2000
 ALL_RULES = FAIL_RULES + WARN_RULES + REPORT_RULES
 
 # Languages whose learners need gender on every noun. `de` carries it as an
@@ -215,6 +222,40 @@ def _is_allomorph_set(answers: list[str]) -> bool:
         return False
     skeletons = {"".join(c for c in a.casefold() if c not in _VOWELS) for a in answers}
     return len(skeletons) == 1 and bool(skeletons.pop())
+
+
+# A hint that tells the learner where in the sentence to look, rather than
+# which answer to write: "agree the verb with the noun that follows",
+# "check the noun's gender", "let the number of things named decide".
+# Two halves, both required: an instruction to DO something, and the thing in
+# the sentence to do it against. One alone is not enough — "existential verb"
+# names no operation, and "the noun's gender" with no verb is just the feature.
+_DIRECTIVE = re.compile(
+    r"\b(agree|match|check|decide|pick|choose|count|look|derive|work\s+out|"
+    r"judge|read)\w*\b", re.IGNORECASE)
+_EVIDENCE = re.compile(
+    r"\b(noun|number|gender|thing|things|subject|follows|following|sentence|"
+    r"what\s+\w+|near|person)\b", re.IGNORECASE)
+
+
+def _sends_you_to_the_sentence(hint: str) -> bool:
+    """True when one hint may cover several answers because it names the METHOD.
+
+    Same principle as `_is_allomorph_set` — the sentence picks the answer, and
+    picking it is the exercise — but that heuristic only reaches short harmony
+    variants (Turkish mı/mi/mu/mü). It cannot reach `is`/`are` under "There ___
+    a book", and for an agreement point the two rules are otherwise in direct
+    conflict: `agreement_feature` forbids stating the feature ("singular"),
+    while `duplicate_hint` forbids one hint covering both answers. Every hint
+    for such a point violates one or the other unless the hint is allowed to
+    say "work it out from the noun".
+
+    Deliberately narrow: it wants an explicit directive, not merely a long
+    hint. "existential verb" alone stays a duplicate, because it tells the
+    learner nothing about where to look.
+    """
+    hint = hint or ""
+    return bool(_DIRECTIVE.search(hint) and _EVIDENCE.search(hint))
 
 
 def _quoted_construction(hint: str, answer: str) -> str | None:
@@ -380,7 +421,9 @@ def audit_points(code: str, points: list[dict]) -> dict[str, list[str]]:
                 answers_by_hint[hint.casefold()].add(answer.casefold())
 
         for hint, answers in answers_by_hint.items():
-            if len(answers) > 1 and not _is_allomorph_set(sorted(answers)):
+            if (len(answers) > 1
+                    and not _is_allomorph_set(sorted(answers))
+                    and not _sends_you_to_the_sentence(hint)):
                 joined = ", ".join(sorted(answers))
                 findings["duplicate_hint"].append(f"[{title}] hint '{hint}' -> {joined}")
 
@@ -721,6 +764,83 @@ def _audit_circular_glosses(code: str) -> list[str]:
     return problems
 
 
+def _card_span_finder(code: str):
+    """How the card finds its blank in this language — the shared registry
+    (`span_finders.py`), imported lazily there so the audit stays fast."""
+    from backend.services.span_finders import span_finder
+    return span_finder(code)
+
+
+def _audit_sentence_cards(code: str) -> tuple[list[str], list[str]]:
+    """Two card-level rules, over one read of the sentence bank.
+
+    `unclozable_rows` — words whose every sentence the card cannot blank, so
+    the card falls back to a definition-only prompt without saying so. This
+    is the instrument CHECKS §29 asks for: coverage counted rows the learner
+    could never be shown, and for th/ko/ar/yo most of the bank was that.
+
+    `frame_collision` — one blanked sentence with several different answers.
+    The corpus proving its own prompt does not determine an answer, which is
+    the mechanical half of CHECKS §28 (the owner's `do` card: "What ___ you
+    do?"). It cannot catch the other half — `did` is not a headword, so no
+    second row exists to collide with — and that is written down rather than
+    implied by a clean number.
+
+    Both are report-level. They measure supply and ambiguity, which move with
+    editorial work rather than with a bug, so a threshold on either would be
+    a number nobody could set honestly (the `gender_marking` argument).
+    """
+    path = DATA / f"{code}_sentences.tsv"
+    if not path.exists():
+        return [], []
+    ranks: dict[str, int] = {}
+    freq = DATA / f"{code}_frequency.tsv"
+    if freq.exists():
+        with freq.open(encoding="utf-8-sig", newline="") as handle:
+            for row in csv.DictReader(handle, delimiter="\t"):
+                word = (row.get("word") or "").strip()
+                try:
+                    rank = int(row.get("rank") or 0)
+                except ValueError:
+                    continue
+                if word and 0 < rank <= CARD_RULE_BAND:
+                    ranks[word] = rank
+    find_span = _card_span_finder(code)
+    seen: set[tuple[str, str]] = set()
+    per_word: dict[str, list[int]] = {}
+    frames: dict[str, set[str]] = {}
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            word = (row.get("word") or "").strip()
+            sentence = (row.get("sentence") or "").strip()
+            if not (word and sentence) or (word, sentence) in seen:
+                continue
+            seen.add((word, sentence))
+            tally = per_word.setdefault(word, [0, 0])
+            tally[0] += 1
+            # Every shape of the word counts — "Var mı?" teaches `mi`.
+            found = find_cloze(sentence, forms_of(word, code), find_span)
+            if found is None:
+                continue
+            cloze = found[0]
+            tally[1] += 1
+            frames.setdefault(cloze.casefold(), set()).add(word.casefold())
+
+    unclozable = [
+        f"rank {ranks[word]} '{word}': {tally[0]} sentences, none the card "
+        f"can blank — it serves the definition alone"
+        for word, tally in per_word.items()
+        if tally[1] == 0 and word in ranks
+    ]
+    collisions = [
+        f"{len(answers)} answers share one prompt: \"{frame[:60]}\" "
+        f"— {', '.join(sorted(answers)[:4])}"
+        for frame, answers in frames.items()
+        if len(answers) > 1
+    ]
+    return sorted(unclozable), sorted(collisions, reverse=True)
+
+
 def audit_language(code: str) -> dict:
     """Every rule for one language. Returns findings, counts and notes."""
     points = load_grammar(code)
@@ -730,6 +850,9 @@ def audit_language(code: str) -> dict:
     findings["gender_marking"] = _audit_gender_marking(code, points or [], morphology)
     findings["wrong_sense_gloss"] = _audit_wrong_sense_glosses(code)
     findings["circular_gloss"] = _audit_circular_glosses(code)
+    findings["unclozable_rows"], findings["frame_collision"] = (
+        _audit_sentence_cards(code)
+    )
     if code == "ar":
         findings["ar_register"] += _audit_arabic_sentences()
 

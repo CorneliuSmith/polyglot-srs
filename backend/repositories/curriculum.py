@@ -13,6 +13,7 @@ import json
 import asyncpg
 
 from backend.repositories.explicit_gate import fetch_explicit_gated
+from backend.services.drill_notes import split_note
 from backend.services.extract import ANSWER_MARKER
 from backend.services.readings import sentence_reading
 from backend.services.references import clean_references
@@ -268,6 +269,9 @@ async def get_curriculum_point(
         """
         SELECT ds.sentence, ds.answer,
                COALESCE(dht.translation, ds.translation) AS translation,
+               -- The authored field alone: on the English course it is a
+               -- usage note, not a translation (CHECKS §27).
+               ds.translation AS base_translation,
                COALESCE(dht.hint, ds.hint) AS hint
         FROM drill_sentences ds
         LEFT JOIN drill_hint_translations dht
@@ -286,6 +290,11 @@ async def get_curriculum_point(
             except (json.JSONDecodeError, TypeError):
                 raw = []
         references = clean_references(raw)
+    def _translation_and_context(code: str, drill) -> dict:
+        translation, context = split_note(
+            code, drill["translation"], drill["base_translation"])
+        return {"translation": translation, "context": context}
+
     return {
         "id": str(gp["id"]),
         "title": gp["title"],
@@ -312,7 +321,7 @@ async def get_curriculum_point(
                 "sentence": (filled := d["sentence"].replace(
                     ANSWER_MARKER, d["answer"])),
                 "reading": sentence_reading(filled, gp["language_code"]),
-                "translation": d["translation"],
+                **_translation_and_context(gp["language_code"], d),
                 "hint": d["hint"],
             }
             for d in drills

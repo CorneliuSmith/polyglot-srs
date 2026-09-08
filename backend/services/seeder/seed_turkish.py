@@ -51,7 +51,21 @@ class TurkishSeeder(BaseSeeder):
                     continue
                 seen.add(word)
                 rank = int(row["rank"])
-                records.append({
+                # Vowel-harmony spellings of ONE word, from the file's `alt`
+                # column (semicolon-separated, as Jamaican's is). The yes/no
+                # particle is mi, mı, mu or mü depending on the vowel before
+                # it; the course used to carry the four as separate headwords
+                # with one shared definition, so a learner on any of the four
+                # cards could not know which spelling to type. One card now,
+                # graded correct for any of its forms (nlp/base.py layer 6),
+                # with a definition that states the rule rather than which
+                # vowel class won — tr.md, hint standard 2 (7 Sep 2026).
+                alts = [
+                    turkish_lower(a.strip())
+                    for a in (row.get("alt") or "").split(";")
+                    if a.strip()
+                ]
+                record = {
                     "word": word,
                     "reading": None,
                     "pos": (row.get("pos") or "").strip() or None,
@@ -59,7 +73,10 @@ class TurkishSeeder(BaseSeeder):
                     "frequency_rank": rank,
                     "morphology": json.dumps({"lemma": word}, ensure_ascii=False),
                     "translations": {"en": translation},
-                })
+                }
+                if alts:
+                    record["alternatives"] = alts
+                records.append(record)
 
         self.logger.info(f"Transformed {len(records)} Turkish words")
         return records

@@ -17,16 +17,19 @@ from backend.repositories.explicit_gate import fetch_explicit_gated
 from backend.repositories.gym import get_gym_progress
 from backend.repositories.pool import savepoint
 from backend.services.auto_translate import (
+    column_present,
     note_missing_content,
     table_present,
 )
 from backend.services.cell_glosses import cell_gloss
-from backend.services.extract import ANSWER_MARKER, make_cloze
+from backend.services.drill_notes import split_note
+from backend.services.extract import ANSWER_MARKER, find_cloze
 from backend.services.gym_manifest import nonstandard_point_titles
 from backend.services.gym_weight import drill_weight
 from backend.services.locale_guard import mark_locale_mismatches
 from backend.services.readings import sentence_phonetics, sentence_reading
 from backend.services.references import clean_references
+from backend.services.span_finders import span_finder
 from backend.services.srs_stages import stage_for
 from backend.services.topic_taxonomy import HIDDEN_TOPICS
 
@@ -34,6 +37,23 @@ from backend.services.topic_taxonomy import HIDDEN_TOPICS
 # the blank the sentence renders and the "___" cell an interlinear gloss
 # uses, so all three layers mark the gap the same way.
 BLANK_READING = "___"
+
+
+def _blanked(text: str | None) -> str | None:
+    """A support layer with the answer marker still in it, made showable.
+
+    The marker is Latin text, so a romaniser passes it through untouched and
+    the learner reads "u mu'allim {{answer}}." under an Arabic sentence. The
+    vocabulary card learned this already (`_vocab_card` blanks before it
+    romanises, CHECKS §11); the grammar card served whatever the drill row
+    stored, and 1,612 of them store the marker — ko 921, th 268, hi 248,
+    he 88, fa 87, every one of them a course whose layer order shows a
+    reading. Substituting here rather than rewriting the rows fixes what is
+    already in production, without a reseed.
+    """
+    if not text:
+        return text
+    return text.replace(ANSWER_MARKER, BLANK_READING)
 
 logger = logging.getLogger(__name__)
 
@@ -151,6 +171,7 @@ async def get_due_cards(
     else:
         due_clause = "uc.next_review <= now()"
         due_args = ()
+    retired_clause = await _retired_clause(conn)
     # -- Vocabulary cards ---------------------------------------------------
     # Teach the word in context: a real example sentence with the word blanked
     # out (cloze), with its translation as a hint. All of the word's sentences
@@ -256,6 +277,11 @@ async def get_due_cards(
         WHERE uc.language_id = $1
           AND uc.card_type = 'vocabulary'
           AND {due_clause}
+          -- A word the courses no longer teach stops being DRAWN, while the
+          -- learner's card, history and schedule stay exactly as they were
+          -- (migration 20261016). Deleting the row instead would orphan
+          -- their progress: this query INNER JOINs vocabulary.
+          {retired_clause}
           AND uc.is_suspended = false
         ORDER BY uc.next_review ASC
         LIMIT $2
@@ -282,6 +308,7 @@ async def get_due_cards(
             d.answers                       AS drill_answers,
             d.hints                         AS drill_hints,
             d.translations                  AS drill_translations,
+            d.base_translations             AS drill_base_translations,
             d.glosses                       AS drill_glosses,
             d.transliterations              AS drill_transliterations,
             lp.prompt_sentence              AS last_prompt,
@@ -307,6 +334,10 @@ async def get_due_cards(
                           ORDER BY ds.display_order, ds.id) AS hints,
                 array_agg(COALESCE(dht.translation, ds.translation)
                           ORDER BY ds.display_order, ds.id) AS translations,
+                -- The authored field alone, so the card can tell a
+                -- translation from an English usage note (CHECKS §27).
+                array_agg(ds.translation
+                          ORDER BY ds.display_order, ds.id) AS base_translations,
                 array_agg(ds.gloss       ORDER BY ds.display_order, ds.id) AS glosses,
                 array_agg(ds.transliteration ORDER BY ds.display_order, ds.id) AS transliterations
             FROM drill_sentences ds
@@ -541,6 +572,14 @@ def _pick_index(
     return pool[_stable_pick(len(pool), key)]
 
 
+# Thai has no spaces (segmentation finds the word — CHECKS §29) and Turkish
+# has a dotless ı that the regex's IGNORECASE folds onto i, so "Var mı?"
+# blanked for the `mi` card. One registry for every consumer of make_cloze:
+# backend/services/span_finders.py. None means "use the regex".
+def _span_finder(language_code: str | None):
+    return span_finder(language_code)
+
+
 def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
                 eff_locale: str = "en") -> dict:
     """Shape a vocabulary row into a card, preferring a cloze example sentence.
@@ -554,31 +593,44 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     definition -> type-the-word prompt when nothing clozes.
     """
     word = r["word"]
+    # A word with linked spellings (`alternatives`: Turkish mi/mı/mu/mü, one
+    # particle; Jamaican likkle/little) is ONE card, and each sentence carries
+    # one of its shapes. That shape is the answer the sentence fixes — "Var
+    # ___?" is mı and nothing else — so the card blanks whichever form is
+    # there, expects THAT form back, and hands the grader the other forms as
+    # alternatives (Turkish grades them sloppy, with the rule; see
+    # nlp/turkish.py). Before this the four spellings were four headwords
+    # sharing one definition, and no card could say which to type.
+    forms = [word, *[a for a in (r["alternatives"] or []) if a != word]]
     sentences = r["example_sentences"] or []
     translations = r["example_translations"] or []
     glosses = r["example_glosses"] or []
     translits = r["example_transliterations"] or []
     locales = r.get("example_translation_locales") or []
+    find_span = _span_finder(r["language_code"])
     candidates = []
     for i, raw in enumerate(sentences):
-        cloze = make_cloze(raw, word)
-        if cloze:
+        found = find_cloze(raw, forms, find_span)
+        if found:
+            cloze, form = found
             candidates.append((
                 cloze,
                 translations[i] if i < len(translations) else None,
                 glosses[i] if i < len(glosses) else None,
                 translits[i] if i < len(translits) else None,
                 locales[i] if i < len(locales) else None,
+                form,
             ))
     sentence, translation, hint = (r["definition"] or word), None, None
     gloss, transliteration, translation_locale = None, None, None
     phonetics = None
+    answer = word
     if candidates:
         idx = _pick_index(
             [c[0] for c in candidates], r["last_prompt"], stats, _rotation_key(r)
         )
         (sentence, translation, gloss, transliteration,
-         translation_locale) = candidates[idx]
+         translation_locale, answer) = candidates[idx]
         hint = r["definition"]
         # The stored column is empty for most of the non-Latin corpus — ru, hi,
         # el, ko and th have no sentence romanisation at all, and he/fa have it
@@ -602,7 +654,7 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     return {
         **_srs_fields(r),
         "sentence": sentence,
-        "correct_answer": word,
+        "correct_answer": answer,
         "hint": hint,
         "translation": translation,
         # The language the translation above is actually written in, and a
@@ -619,7 +671,13 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
         "transliteration": transliteration,
         "phonetics": phonetics,
         "morphology": r["morphology"],
-        "alternatives": r["alternatives"],
+        # The OTHER shapes of the word — the headword itself when the sentence
+        # carried a variant — so the grader can tell "same word, wrong shape"
+        # from "different word".
+        "alternatives": (
+            [f for f in forms if f != answer] if len(forms) > 1
+            else r["alternatives"]
+        ),
         # 'letter' marks an alphabet-deck card; the input surfaces switch to
         # letter mode (no ㅇ-seat for a lone Korean vowel, no Thai อ carrier).
         "part_of_speech": r["part_of_speech"],
@@ -638,15 +696,19 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
     drills, so this shouldn't be reachable for fresh content.
     """
     drills = r["drill_sentences"] or []
-    gloss, transliteration = None, None
+    gloss, transliteration, context = None, None, None
     if drills:
         idx = _pick_index(list(drills), r["last_prompt"], stats, _rotation_key(r))
         sentence = drills[idx]
         answer = (r["drill_answers"] or [None])[idx]
         hint = (r["drill_hints"] or [None] * len(drills))[idx]
         translation = (r["drill_translations"] or [None] * len(drills))[idx]
-        gloss = (r["drill_glosses"] or [None] * len(drills))[idx]
-        transliteration = (r["drill_transliterations"] or [None] * len(drills))[idx]
+        gloss = _blanked((r["drill_glosses"] or [None] * len(drills))[idx])
+        transliteration = _blanked(
+            (r["drill_transliterations"] or [None] * len(drills))[idx])
+        translation, context = split_note(
+            r["language_code"], translation,
+            (r["drill_base_translations"] or [None] * len(drills))[idx])
     else:
         sentence, answer, hint, translation = r["title"], r["title"], None, None
     return {
@@ -655,6 +717,7 @@ def _grammar_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]]) -> dict:
         "correct_answer": answer,
         "hint": hint,
         "translation": translation,
+        "context": context,
         "gloss": gloss,
         "transliteration": transliteration,
         "morphology": None,
@@ -771,6 +834,20 @@ def _spread_word_types(rows: list, limit: int) -> list:
     return [r["id"] for r in picked]
 
 
+async def _retired_clause(conn: asyncpg.Connection, alias: str = "v") -> str:
+    """`AND <alias>.retired_at IS NULL`, or nothing on a database that has not
+    had migration 20261016 yet.
+
+    Probed rather than caught (decision 0001, and `table_present`'s reason):
+    every pooled connection runs inside one transaction, so a query naming a
+    missing column does not merely fail — it aborts the transaction and every
+    later query in the same request. The review draw is the hot path.
+    """
+    if await column_present(conn, "vocabulary", "retired_at"):
+        return f"AND {alias}.retired_at IS NULL"
+    return ""
+
+
 async def _vocab_candidates(
     conn: asyncpg.Connection,
     user_id: str,
@@ -781,6 +858,7 @@ async def _vocab_candidates(
     explicit_filter: bool,
     topic: str | None = None,
 ) -> list:
+    retired_clause = await _retired_clause(conn)
     explicit_clause = (
         """
               -- Slurs and strong profanity are frequent (Spanish *puta* is
@@ -834,6 +912,7 @@ async def _vocab_candidates(
                         AND NOT (is_suspended AND repetitions = 0)
                   )
                   {explicit_clause}
+                  {retired_clause}
             ),
             ranked AS (
                 SELECT id, part_of_speech,
@@ -848,7 +927,8 @@ async def _vocab_candidates(
             FROM ranked
             ORDER BY rn ASC, part_of_speech ASC NULLS LAST
             LIMIT $3
-            """.replace("{explicit_clause}", explicit_clause),
+            """.replace("{explicit_clause}", explicit_clause)
+                .replace("{retired_clause}", retired_clause),
             user_id,
             language_id,
             batch_size * 3,
@@ -886,6 +966,8 @@ async def _vocab_candidates(
                     AND NOT (is_suspended AND repetitions = 0)
               )
               {explicit_clause}
+              -- Never OFFER a word the courses no longer teach (20261016).
+              {retired_clause}
         ),
         ranked AS (
             SELECT id, level,
@@ -899,7 +981,8 @@ async def _vocab_candidates(
         FROM ranked
         ORDER BY rn ASC, level ASC NULLS LAST
         LIMIT $3
-        """.replace("{explicit_clause}", explicit_clause),
+        """.replace("{explicit_clause}", explicit_clause)
+            .replace("{retired_clause}", retired_clause),
         user_id,
         language_id,
         batch_size,
@@ -1724,9 +1807,10 @@ async def get_card_details_bulk(
         for v in await conn.fetch(
             """
             SELECT v.id, v.word, v.reading, v.part_of_speech, v.usage_note,
-                   v.morphology, v.alternatives,
+                   v.morphology, v.alternatives, l.code AS language_code,
                    COALESCE(t.definition, t_en.definition) AS definition
             FROM vocabulary v
+            JOIN languages l ON l.id = v.language_id
             LEFT JOIN translations t
                    ON v.id = t.vocabulary_id AND t.locale = $2
             LEFT JOIN translations t_en
@@ -1779,14 +1863,22 @@ async def get_card_details_bulk(
             # First-check quiz: the first sentence where the word clozes.
             v = vocab_by_id.get(e["vocabulary_id"])
             if v is not None and e["vocabulary_id"] not in vocab_quiz:
-                cloze = make_cloze(e["sentence"], v["word"])
-                if cloze:
+                # Same rule as `_vocab_card`: the sentence fixes which
+                # linked spelling is the answer, the rest are alternatives.
+                forms = [v["word"],
+                         *[a for a in (v["alternatives"] or []) if a != v["word"]]]
+                found = find_cloze(e["sentence"], forms,
+                                   _span_finder(v["language_code"]))
+                if found:
+                    cloze, form = found
                     vocab_quiz[e["vocabulary_id"]] = {
                         "sentence": cloze,
                         "translation": e["translation"],
                         "gloss": e["gloss"],
                         "transliteration": e["transliteration"],
                         "hint": v["definition"],
+                        "answer": form,
+                        "alternatives": [f for f in forms if f != form],
                     }
 
     grammar_by_id: dict = {}
@@ -1846,8 +1938,8 @@ async def get_card_details_bulk(
                     "sentence": e["sentence"],
                     "answer": e["answer"],
                     "translation": e["translation"],
-                    "gloss": e["gloss"],
-                    "transliteration": e["transliteration"],
+                    "gloss": _blanked(e["gloss"]),
+                    "transliteration": _blanked(e["transliteration"]),
                     "hint": e["hint"],
                 }
         # The "in context" block shows 5 of the point's drills — but sampled
@@ -1898,10 +1990,10 @@ async def get_card_details_bulk(
                 "references": [],
                 "examples": vocab_examples.get(c["card_id"], []),
                 "quiz": {
-                    **quiz,
                     "answer": v["word"],
-                    "morphology": v["morphology"],
                     "alternatives": v["alternatives"] or [],
+                    **quiz,
+                    "morphology": v["morphology"],
                 },
             }
         elif c["card_type"] == "grammar":
@@ -2443,8 +2535,8 @@ async def get_cram_cards(
                 "correct_answer": r["answers"][i],
                 "hint": r["hints"][i],
                 "translation": r["translations"][i],
-                "gloss": r["glosses"][i],
-                "transliteration": r["transliterations"][i],
+                "gloss": _blanked(r["glosses"][i]),
+                "transliteration": _blanked(r["transliterations"][i]),
                 # Paradigm cell + authored dictionary form — the raw material
                 # for the standardized baseline built after chart attach.
                 "cell": r["cells"][i] if r["cells"] else None,

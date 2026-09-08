@@ -43,7 +43,7 @@
           "sentence": "{{answer}} is my sister.",
           "answer": "She",
           "translation": "Introducing a woman in your family.",
-          "hint": "a woman",
+          "hint": "subject pronoun — third person, female referent",
           "display_order": 2,
           "gloss": "___ · be.3SG · 1SG.POSS · sister"
         },
@@ -59,7 +59,7 @@
           "sentence": "{{answer}} is my father.",
           "answer": "He",
           "translation": "Introducing a man in your family.",
-          "hint": "a man",
+          "hint": "subject pronoun — third person, male referent",
           "display_order": 4,
           "gloss": "___ · be.3SG · 1SG.POSS · father"
         },
@@ -67,7 +67,7 @@
           "sentence": "{{answer}} is on the table.",
           "answer": "It",
           "translation": "Talking about a thing.",
-          "hint": "a thing",
+          "hint": "subject pronoun — inanimate, non-human referent",
           "display_order": 5,
           "gloss": "___ · be.3SG · on · DEF · table"
         },
@@ -741,7 +741,7 @@
           "sentence": "There {{answer}} a book on the table.",
           "answer": "is",
           "translation": "One thing exists.",
-          "hint": "singular",
+          "hint": "existential 'there' — agree the verb with the noun that follows",
           "display_order": 1,
           "gloss": "there · ___ · INDF · book · on · DEF · table"
         },
@@ -749,7 +749,7 @@
           "sentence": "There {{answer}} two cafés in this street.",
           "answer": "are",
           "translation": "More than one thing exists.",
-          "hint": "plural",
+          "hint": "existential 'there' — agree the verb with the noun that follows",
           "display_order": 2,
           "gloss": "there · ___ · two · café.PL · in · this · street"
         },
@@ -765,7 +765,7 @@
           "sentence": "There {{answer}} no milk.",
           "answer": "is",
           "translation": "The fridge is empty.",
-          "hint": "singular",
+          "hint": "the existential verb — match it to the noun that follows",
           "display_order": 4,
           "gloss": "there · ___ · NEG · milk"
         },
@@ -781,7 +781,7 @@
           "sentence": "There {{answer}} many people here today.",
           "answer": "are",
           "translation": "The place is crowded.",
-          "hint": "plural",
+          "hint": "the existential verb — match it to the noun that follows",
           "display_order": 6,
           "gloss": "there · ___ · many · person.PL · here · today"
         }
@@ -846,7 +846,7 @@
         {
           "sentence": "{{answer}} is your teacher?",
           "answer": "Who",
-          "translation": "Asking about a person.",
+          "translation": "You know there is a teacher; you want to know which one.",
           "hint": "asking about a person",
           "display_order": 5,
           "gloss": "___ · be.3SG · 2.POSS · teacher"
@@ -854,7 +854,7 @@
         {
           "sentence": "{{answer}} are you crying?",
           "answer": "Why",
-          "translation": "Asking for a reason.",
+          "translation": "Someone is upset and you want the cause.",
           "hint": "asking for a reason",
           "display_order": 6,
           "gloss": "___ · be.PL · 2SG · cry.PROG"
@@ -1102,7 +1102,7 @@
         {
           "sentence": "This bag is {{answer}} than that one.",
           "answer": "cheaper",
-          "translation": "cheap — comparing two.",
+          "translation": "Two bags side by side, and one costs less.",
           "hint": "cheap — comparative",
           "display_order": 1,
           "gloss": "this · bag · be.3SG · ___ · COMP.than · that · one"
@@ -1110,7 +1110,7 @@
         {
           "sentence": "It's the {{answer}} building in the city.",
           "answer": "tallest",
-          "translation": "tall — the number one.",
+          "translation": "One building beats every other in the city.",
           "hint": "tall — superlative",
           "display_order": 2,
           "gloss": "it.be.3SG · DEF · ___ · building · in · DEF · city"
@@ -1118,7 +1118,7 @@
         {
           "sentence": "Her English is {{answer}} than mine.",
           "answer": "better",
-          "translation": "good — irregular comparative.",
+          "translation": "Comparing two people's English, and hers wins.",
           "hint": "good — comparative",
           "display_order": 3,
           "gloss": "3SG.POSS · English · be.3SG · ___ · COMP.than · 1SG.POSS.PRON"
@@ -1126,7 +1126,7 @@
         {
           "sentence": "That was the {{answer}} meal I've ever had.",
           "answer": "worst",
-          "translation": "bad — irregular superlative.",
+          "translation": "Nothing you have ever eaten was worse.",
           "hint": "bad — superlative",
           "display_order": 4,
           "gloss": "that · be.PST.SG · DEF · ___ · meal · I.have · ever · have.PRF"
@@ -1142,7 +1142,7 @@
         {
           "sentence": "The station is {{answer}} than I thought.",
           "answer": "further",
-          "translation": "far — irregular comparative.",
+          "translation": "The walk turned out longer than you expected.",
           "hint": "far — comparative",
           "display_order": 6,
           "gloss": "DEF · station · be.3SG · ___ · COMP.than · 1SG · think.PST"
@@ -1646,7 +1646,7 @@
         {
           "sentence": "The castle was {{answer}} in the twelfth century.",
           "answer": "built",
-          "translation": "build — the participle.",
+          "translation": "Nobody says who built it — the castle is what matters.",
           "hint": "build — participle",
           "display_order": 2,
           "gloss": "DEF · castle · be.PST.SG · ___ · in · DEF · twelve.ORD · century"
@@ -1678,7 +1678,7 @@
         {
           "sentence": "My phone was {{answer}} at the festival.",
           "answer": "stolen",
-          "translation": "steal — the participle.",
+          "translation": "The thief is unknown, so the phone takes the subject slot.",
           "hint": "steal — participle",
           "display_order": 6,
           "gloss": "1SG.POSS · phone · be.PST.SG · ___ · at · DEF · festival"
@@ -2008,7 +2008,7 @@
         {
           "sentence": "What would you have {{answer}} in my position?",
           "answer": "done",
-          "translation": "do — the participle.",
+          "translation": "Someone asks how you would have handled their situation.",
           "hint": "do — participle",
           "display_order": 6,
           "gloss": "what · will.PST.Q · 2SG · have · ___ · in · 1SG.POSS · position"
@@ -2594,7 +2594,7 @@
         {
           "sentence": "Having {{answer}} in Rome for years, she speaks fluent Italian.",
           "answer": "lived",
-          "translation": "live — the participle.",
+          "translation": "The years in Rome came first, and they explain the fluency.",
           "hint": "live — participle",
           "display_order": 5,
           "gloss": "have.PROG · ___ · in · Rome · for · year.PL · 3SG.F · speak.3SG · fluent · Italian"
@@ -2933,7 +2933,7 @@
           "sentence": "I saw {{answer}} at school yesterday.",
           "answer": "him",
           "translation": "Talking about seeing a man.",
-          "hint": "a man",
+          "hint": "object pronoun after the verb — male referent",
           "display_order": 2,
           "gloss": "1SG · see.PST · ___ · at · school · yesterday"
         },
@@ -2941,7 +2941,7 @@
           "sentence": "This present is for {{answer}}.",
           "answer": "her",
           "translation": "A present for a woman.",
-          "hint": "a woman",
+          "hint": "object pronoun after a preposition — female referent",
           "display_order": 3,
           "gloss": "this · present · be.3SG · for · ___"
         },

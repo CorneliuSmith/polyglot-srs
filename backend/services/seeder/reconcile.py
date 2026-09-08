@@ -30,9 +30,15 @@ from __future__ import annotations
 import argparse
 import asyncio
 import csv
+import json
 import os
 from datetime import UTC
 from pathlib import Path
+
+import asyncpg
+
+from backend.services.seeder.base import COMMAND_TIMEOUT
+from backend.services.seeder.gloss_overrides import load_gloss_overrides
 
 REPO = Path(__file__).resolve().parents[3]
 DATA = REPO / "data"
@@ -61,6 +67,86 @@ def read_tsv(code: str) -> dict[str, dict]:
             if word:
                 out[word] = row
     return out
+
+
+def _strip_chips(morphology, new_pos: str) -> tuple[str, str] | None:
+    """(old json, new json) when *new_pos* cannot carry the nominal chips the
+    stored morphology has; None when nothing would change."""
+    from .morphology_charts import strip_nominal_chips
+    if not morphology:
+        return None
+    parsed = json.loads(morphology) if isinstance(morphology, str) else morphology
+    stripped = strip_nominal_chips(parsed, new_pos)
+    if stripped is parsed or stripped == parsed:
+        return None
+    return (json.dumps(parsed, ensure_ascii=False),
+            json.dumps(stripped or {}, ensure_ascii=False))
+
+
+# A frequency file is not a course's only committed source. These are read
+# whole (word column only) so a row they own is not reported as ungoverned.
+# The alphabet decks are code, not data (`seed_alphabet.ALPHABETS`), and are
+# recognised by the row itself: `part_of_speech = 'letter'` is what the card
+# layer uses to mean "alphabet-deck card" (`repositories/cards.py`).
+OTHER_SOURCES = {
+    "ar": ("ar_seed.json",),
+    "ru": ("ru_starter.tsv",),
+    "fr": ("fr_vocabulary.csv",),
+    "ko": ("ko_vocabulary.csv",),
+    "sw": ("sw_vocabulary.csv",),
+}
+
+
+def words_from_other_sources(code: str) -> set[str]:
+    """Every word this course seeds from something other than its frequency
+    file — the curated JSON/CSV starters. Missing or unreadable files are
+    silently empty: this only ever WIDENS what counts as governed, and a
+    course with no second source is the normal case."""
+    out: set[str] = set()
+    for name in OTHER_SOURCES.get(code, ()):
+        path = DATA / name
+        if not path.exists():
+            continue
+        try:
+            if path.suffix == ".json":
+                blob = json.loads(path.read_text(encoding="utf-8"))
+                items = blob if isinstance(blob, list) else (
+                    blob.get("words") or blob.get("entries") or [])
+                out |= {str(i.get("word") or "").strip()
+                        for i in items if isinstance(i, dict)}
+            else:
+                delim = "\t" if path.suffix == ".tsv" else ","
+                with path.open(encoding="utf-8-sig", newline="") as handle:
+                    out |= {(r.get("word") or "").strip()
+                            for r in csv.DictReader(handle, delimiter=delim)}
+        except (OSError, ValueError):
+            continue
+    out.discard("")
+    return out
+
+
+def expected_rows(code: str) -> dict[str, dict]:
+    """word -> {pos, en}: what production SHOULD say — the committed file
+    with `gloss_overrides.tsv` laid over it.
+
+    Until 7 Sep 2026 this compared against the file's `en` column alone.
+    The override file reached that column only when `source_data` rebuilt
+    the file, so 1,611 definitions authored in the Phase 2d pass — every
+    course but English — sat in the override file, in neither the frequency
+    file nor production, and the dry run reported `gloss 0` for all 26 of
+    them. Same overlay the seeder now applies (`BaseSeeder.prepare_records`),
+    so the two tools agree on what a definition is.
+    """
+    rows = read_tsv(code)
+    for word, hit in load_gloss_overrides(code).items():
+        row = rows.get(word)
+        if row is None:
+            continue          # an override never invents a word
+        if hit.get("en"):
+            row["en"] = hit["en"]
+        if hit.get("pos"):
+            row["pos"] = hit["pos"]
+    return rows
 
 
 def read_sentences(code: str) -> list[dict]:
@@ -122,9 +208,57 @@ async def survey_sentence_layers(conn, code: str, lang_id) -> list[dict]:
     return fills
 
 
+def excluded_words(code: str) -> set[str]:
+    """The headwords `data/vocab_exclusions.tsv` says this course must not
+    teach — 858 rows across the courses: alphabet letters glossed as
+    vocabulary, Arabic punctuation, English words WordNet matched to a
+    chemical symbol (`em` is a printer's quad), typo-mass rows, and the 645
+    given names nobody can produce from "a male given name"."""
+    path = DATA / "vocab_exclusions.tsv"
+    if not path.exists():
+        return set()
+    out: set[str] = set()
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        for row in csv.DictReader(handle, delimiter="\t"):
+            if (row.get("language") or "").strip() == code:
+                word = (row.get("word") or "").strip()
+                if word:
+                    out.add(word)
+    return out
+
+
+async def survey_retirements(conn, code: str, lang_id) -> dict:
+    """Which rows should stop being drawn, and which should start again.
+
+    The file is the source of truth in both directions: a word listed in the
+    exclusions is retired, and a word that LEAVES the file is un-retired, so
+    deleting a line restores the card rather than needing a second tool.
+
+    Returns empty dicts when the column is missing, which is a database
+    behind on migration 20261016 rather than an error.
+    """
+    excluded = excluded_words(code)
+    try:
+        rows = await conn.fetch(
+            "SELECT id, word, retired_at FROM vocabulary WHERE language_id = $1",
+            lang_id,
+        )
+    except asyncpg.exceptions.UndefinedColumnError:
+        # Its own key: this used to be `skipped`, which `print_report` reads
+        # as "skip the whole course", so a database behind on the migration
+        # printed a table with that course MISSING rather than a dash.
+        return {"retire": [], "unretire": [],
+                "retire_skipped": "no retired_at column"}
+    retire = [{"id": r["id"], "word": r["word"]}
+              for r in rows if r["word"] in excluded and r["retired_at"] is None]
+    unretire = [{"id": r["id"], "word": r["word"]}
+                for r in rows if r["word"] not in excluded and r["retired_at"] is not None]
+    return {"retire": retire, "unretire": unretire, "retire_skipped": None}
+
+
 async def survey(conn, code: str) -> dict:
     """Compare one language's committed file against the database."""
-    tsv = read_tsv(code)
+    tsv = expected_rows(code)
     if not tsv:
         return {"code": code, "skipped": "no frequency file"}
 
@@ -134,7 +268,7 @@ async def survey(conn, code: str) -> dict:
 
     db_rows = await conn.fetch(
         """
-        SELECT v.id, v.word, v.part_of_speech, t.definition
+        SELECT v.id, v.word, v.part_of_speech, v.morphology, t.definition
         FROM vocabulary v
         LEFT JOIN translations t
                ON t.vocabulary_id = v.id AND t.locale = 'en'
@@ -144,6 +278,7 @@ async def survey(conn, code: str) -> dict:
     )
 
     gloss_changes, pos_changes, missing_translation = [], [], []
+    morphology_changes = []
     for row in db_rows:
         want = tsv.get(row["word"])
         if want is None:
@@ -159,10 +294,33 @@ async def survey(conn, code: str) -> dict:
         if new_pos and (row["part_of_speech"] or "") != new_pos:
             pos_changes.append({"id": row["id"], "word": row["word"],
                                 "old": row["part_of_speech"], "new": new_pos})
+            # A word leaving the nominal set (fr `son` noun → det) must not
+            # keep the "Gender / Plural" chips its noun sense inherited —
+            # the seeder strips them at load; this is the other write path.
+            stripped = _strip_chips(row["morphology"], new_pos)
+            if stripped is not None:
+                morphology_changes.append({
+                    "id": row["id"], "word": row["word"],
+                    "old": stripped[0], "new": stripped[1]})
 
-    # In the database but no longer in the file. Never deleted here.
+    # In the database and governed by NO committed source. Never deleted here.
+    #
+    # "Not in the frequency file" is not the same thing: the alphabet decks
+    # are seeded from code (`seed_alphabet`, 8 courses, `part_of_speech =
+    # 'letter'`) and five courses have a curated JSON/CSV starter beside
+    # their list. On 7 Sep 2026 `gone` counted all of those — 166 alphabet
+    # letters, 17 of them held by learners, and 12 curated words — and a
+    # plan to "mechanically retire the letters and digits nothing governs"
+    # would have taken the Korean, Thai, Hindi, Hebrew, Persian, Greek and
+    # Russian alphabet decks with it.
+    owned = words_from_other_sources(code)
     db_words = {r["word"] for r in db_rows}
-    departed = sorted(db_words - set(tsv))
+    elsewhere = sorted(
+        {r["word"] for r in db_rows
+         if r["word"] not in tsv
+         and ((r["part_of_speech"] or "") == "letter" or r["word"] in owned)}
+    )
+    departed = sorted(db_words - set(tsv) - set(elsewhere))
     departed_detail = []
     if departed:
         rows = await conn.fetch(
@@ -181,9 +339,18 @@ async def survey(conn, code: str) -> dict:
     return {
         "code": code, "db_rows": len(db_rows), "tsv_rows": len(tsv),
         "gloss_changes": gloss_changes, "pos_changes": pos_changes,
+        "morphology_changes": morphology_changes,
         "sentence_layers": await survey_sentence_layers(conn, code, lang_id),
         "missing_translation": missing_translation, "departed": departed_detail,
-        "absent_from_db": sorted(set(tsv) - db_words),
+        "owned_elsewhere": elsewhere,
+        # Only rows that carry a gloss: every seeder skips a word it cannot
+        # define (English warns and drops 1,267 WordNet-less words), so
+        # counting those as "new" told the operator the seeder would add
+        # 1,267 rows when it would add 66.
+        "absent_from_db": sorted(
+            w for w in set(tsv) - db_words if (tsv[w].get("en") or "").strip()
+        ),
+        **await survey_retirements(conn, code, lang_id),
     }
 
 
@@ -226,59 +393,159 @@ def write_rollback(reports: list[dict], stamp: str) -> Path:
             lines.append(
                 f"UPDATE vocabulary SET part_of_speech = {old} "
                 f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']}")
+        for c in rep.get("morphology_changes", []):
+            lines.append(
+                f"UPDATE vocabulary SET morphology = {_sql_str(c['old'])}::jsonb "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']} chips restored")
+        for c in rep.get("retire", []):
+            lines.append(
+                f"UPDATE vocabulary SET retired_at = NULL "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']} (un-retire)")
+        for c in rep.get("unretire", []):
+            lines.append(
+                f"UPDATE vocabulary SET retired_at = now() "
+                f"WHERE id = '{c['id']}';  -- {rep['code']} {c['word']} (re-retire)")
     lines.append("COMMIT;")
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return path
 
 
-async def apply(conn, reports: list[dict]) -> dict:
-    counts = {"gloss": 0, "pos": 0, "added_translation": 0, "sentence_layers": 0}
+# One statement per row over the Supabase pooler is what made the 7 Sep
+# apply — about 6,000 rows — take twenty silent minutes (DEBT). The seeder
+# learned this already: `BaseSeeder.load` batches with UNNEST for the same
+# reason. 500 keeps each statement's parameter arrays small enough to stay
+# comfortably inside Postgres's limits while cutting the round trips by the
+# same factor.
+APPLY_CHUNK = 500
+
+
+async def _apply_batched(conn, sql: str, rows: list[dict], *fields: str) -> int:
+    """Run *sql* once per chunk, passing one array per field.
+
+    *sql* takes the fields as $1..$n arrays, in the order given. Returns the
+    number of rows sent, so a caller's counter still counts ROWS, not
+    statements — the summary line means the same thing it always did.
+    """
+    for start in range(0, len(rows), APPLY_CHUNK):
+        chunk = rows[start:start + APPLY_CHUNK]
+        await conn.execute(sql, *([r[f] for r in chunk] for f in fields))
+    return len(rows)
+
+
+async def apply(conn, reports: list[dict], progress=None) -> dict:
+    """Write every surveyed change inside one transaction.
+
+    *progress* is called with (kind, rows) as each kind lands, so a long run
+    says what it is doing instead of printing nothing for twenty minutes.
+    """
+    counts = {"gloss": 0, "pos": 0, "morphology": 0, "added_translation": 0,
+               "sentence_layers": 0, "retired": 0, "unretired": 0}
+
+    def note(kind: str, n: int) -> None:
+        if n and progress is not None:
+            progress(kind, n)
+
     async with conn.transaction():
         for rep in reports:
-            for c in rep.get("gloss_changes", []):
-                await conn.execute(
-                    "UPDATE translations SET definition = $1 "
-                    "WHERE vocabulary_id = $2 AND locale = 'en'",
-                    c["new"], c["id"])
-                counts["gloss"] += 1
-            for c in rep.get("sentence_layers", []):
-                # COALESCE-free on purpose: survey already proved the column is
-                # empty, and a plain SET makes the rollback exact.
-                if c["transliteration"] is not None:
-                    await conn.execute(
-                        "UPDATE example_sentences SET transliteration = $1 WHERE id = $2",
-                        c["transliteration"], c["id"])
-                if c["gloss"] is not None:
-                    await conn.execute(
-                        "UPDATE example_sentences SET gloss = $1 WHERE id = $2",
-                        c["gloss"], c["id"])
-                counts["sentence_layers"] += 1
-            for c in rep.get("missing_translation", []):
-                await conn.execute(
-                    "INSERT INTO translations (vocabulary_id, locale, definition) "
-                    "VALUES ($1, 'en', $2) "
-                    "ON CONFLICT (vocabulary_id, locale) DO UPDATE SET definition = $2",
-                    c["id"], c["new"])
-                counts["added_translation"] += 1
-            for c in rep.get("pos_changes", []):
-                await conn.execute(
-                    "UPDATE vocabulary SET part_of_speech = $1 WHERE id = $2",
-                    c["new"], c["id"])
-                counts["pos"] += 1
+            code = rep.get("code", "?")
+            n = await _apply_batched(
+                conn,
+                "UPDATE translations SET definition = u.definition "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(definition, id) "
+                "WHERE translations.vocabulary_id = u.id "
+                "AND translations.locale = 'en'",
+                rep.get("gloss_changes", []), "new", "id")
+            counts["gloss"] += n
+            note(f"{code} glosses", n)
+
+            layers = rep.get("sentence_layers", [])
+            # COALESCE-free on purpose: survey already proved the column is
+            # empty, and a plain SET makes the rollback exact. The two columns
+            # are written separately because a row may need only one.
+            await _apply_batched(
+                conn,
+                "UPDATE example_sentences SET transliteration = u.value "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(value, id) "
+                "WHERE example_sentences.id = u.id",
+                [c for c in layers if c["transliteration"] is not None],
+                "transliteration", "id")
+            await _apply_batched(
+                conn,
+                "UPDATE example_sentences SET gloss = u.value "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(value, id) "
+                "WHERE example_sentences.id = u.id",
+                [c for c in layers if c["gloss"] is not None], "gloss", "id")
+            counts["sentence_layers"] += len(layers)
+            note(f"{code} sentence layers", len(layers))
+
+            n = await _apply_batched(
+                conn,
+                "INSERT INTO translations (vocabulary_id, locale, definition) "
+                "SELECT u.id, 'en', u.definition "
+                "FROM unnest($1::uuid[], $2::text[]) AS u(id, definition) "
+                "ON CONFLICT (vocabulary_id, locale) "
+                "DO UPDATE SET definition = EXCLUDED.definition",
+                rep.get("missing_translation", []), "id", "new")
+            counts["added_translation"] += n
+            note(f"{code} translations", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET part_of_speech = u.pos "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(pos, id) "
+                "WHERE vocabulary.id = u.id",
+                rep.get("pos_changes", []), "new", "id")
+            counts["pos"] += n
+            note(f"{code} parts of speech", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET morphology = u.morphology::jsonb "
+                "FROM unnest($1::text[], $2::uuid[]) AS u(morphology, id) "
+                "WHERE vocabulary.id = u.id",
+                rep.get("morphology_changes", []), "new", "id")
+            counts["morphology"] += n
+            note(f"{code} morphologies", n)
+
+            # The learner's `user_cards` row is untouched: retiring stops the
+            # word being DRAWN, it does not take away progress already made.
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET retired_at = now() "
+                "WHERE id = ANY($1::uuid[])",
+                rep.get("retire", []), "id")
+            counts["retired"] += n
+            note(f"{code} retired", n)
+
+            n = await _apply_batched(
+                conn,
+                "UPDATE vocabulary SET retired_at = NULL "
+                "WHERE id = ANY($1::uuid[])",
+                rep.get("unretire", []), "id")
+            counts["unretired"] += n
+            note(f"{code} unretired", n)
     return counts
 
 
 def print_report(reports: list[dict], detail: bool) -> None:
     print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
-          f"{'gone':>6}{'new':>6}{'s-layer':>8}")
-    print("-" * 60)
-    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0}
+          f"{'gone':>6}{'other':>7}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}")
+    print("-" * 81)
+    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0,
+           "re": 0, "un": 0, "oe": 0}
     for rep in reports:
         if rep.get("skipped"):
             continue
         g, p = len(rep["gloss_changes"]), len(rep["pos_changes"])
         t, d = len(rep["missing_translation"]), len(rep["departed"])
         n = len(rep["absent_from_db"])
+        # Retirements were surveyed, applied and rolled back, and never
+        # printed — the operator was told to "read the retire count" of a
+        # dry run that had no such column (7 Sep 2026).
+        re_, un = len(rep.get("retire", [])), len(rep.get("unretire", []))
+        oe = len(rep.get("owned_elsewhere", []))
+        re_col = (f"{re_:>8}{un:>6}" if not rep.get("retire_skipped")
+                  else f"{'-':>8}{'-':>6}")
         # s-layer was in the header and the legend, computed, applied and
         # rolled back — but never PRINTED, so the one column describing the
         # romanisation/interlinear backfill read as blank in every dry run.
@@ -291,19 +558,31 @@ def print_report(reports: list[dict], detail: bool) -> None:
         tot["gone"] += d
         tot["new"] += n
         tot["sl"] += sl
+        tot["re"] += re_
+        tot["un"] += un
+        tot["oe"] += oe
         print(f"{rep['code']:<6}{rep['db_rows']:>7}{rep['tsv_rows']:>7}"
-              f"{g:>7}{p:>6}{t:>7}{d:>6}{n:>6}{sl:>8}")
-    print("-" * 60)
+              f"{g:>7}{p:>6}{t:>7}{d:>6}{oe:>7}{n:>6}{sl:>8}{re_col}")
+    print("-" * 81)
     print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['pos']:>6}{tot['tr']:>7}"
-          f"{tot['gone']:>6}{tot['new']:>6}{tot['sl']:>8}")
-    print("\ngloss  definitions this would CORRECT (ON CONFLICT DO NOTHING never did)")
-    print("pos    parts of speech this would correct")
+          f"{tot['gone']:>6}{tot['oe']:>7}{tot['new']:>6}{tot['sl']:>8}"
+          f"{tot['re']:>8}{tot['un']:>6}")
+    print("\ngloss  definitions this would CORRECT — the file's column with "
+          "gloss_overrides.tsv laid over it")
+    print("pos    parts of speech this would correct (a word leaving the nominal set")
+    print("       also loses its Gender/Plural chips — counted in the apply summary)")
     print("no-tr  rows with no English translation row at all — would be inserted")
-    print("gone   in the database, no longer in the file — REPORTED ONLY, never deleted")
+    print("gone   in the database and in NO committed source — REPORTED ONLY, never deleted")
+    print("other  in the database from a source that is not the frequency file: an")
+    print("       alphabet-deck letter (seed_alphabet) or a curated starter file.")
+    print("       Governed, just not by the list — never a retire candidate.")
     print("new    in the file, not yet in the database — run the seeder, not this")
     print("s-layer example sentences whose transliteration/gloss is EMPTY in the")
     print("       database while the committed bank has one. ON CONFLICT DO NOTHING")
     print("       means a re-seed never fills these; this is the only thing that does.")
+    print("retire rows listed in vocab_exclusions.tsv that are still drawn — hidden,")
+    print("       progress kept, reversible ('-' = database behind migration 20261016)")
+    print("unret  rows retired earlier whose exclusion line was since removed — restored")
 
     if detail:
         for rep in reports:
@@ -341,7 +620,7 @@ async def main() -> int:
         return 2
 
     import asyncpg
-    conn = await asyncpg.connect(args.db_url)
+    conn = await asyncpg.connect(args.db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         if args.rollback:
             sql = Path(args.rollback).read_text(encoding="utf-8")
@@ -361,7 +640,9 @@ async def main() -> int:
         stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
         path = write_rollback(reports, stamp)
         print(f"\nrollback written first: {path}")
-        counts = await apply(conn, reports)
+        counts = await apply(
+            conn, reports,
+            progress=lambda kind, n: print(f"  {kind}: {n:,}", flush=True))
         # sentence_layers was tallied and never printed — the same omission
         # the report column had. On the 30 Aug production apply the summary
         # read "532 glosses, 0 translations, 3409 parts of speech" while
@@ -369,8 +650,11 @@ async def main() -> int:
         # and those are the ones nothing else can ever write.
         print(f"applied — {counts['gloss']} glosses corrected, "
               f"{counts['added_translation']} translations inserted, "
-              f"{counts['pos']} parts of speech corrected, "
-              f"{counts['sentence_layers']} sentence layers filled")
+              f"{counts['pos']} parts of speech corrected "
+              f"({counts['morphology']} with nominal chips stripped), "
+              f"{counts['sentence_layers']} sentence layers filled, "
+              f"{counts['retired']} words retired, "
+              f"{counts['unretired']} unretired")
         print(f"undo with: python -m backend.services.seeder.reconcile "
               f"--rollback {path}")
         return 0

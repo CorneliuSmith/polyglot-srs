@@ -30,6 +30,10 @@ export interface DueCard {
   correct_answer: string
   hint?: string | null
   translation?: string | null
+  // The English course's drill field is a usage note, not a rendering of the
+  // sentence — served here so the card can label it honestly instead of
+  // printing "do — the participle." under Translation (CHECKS §27).
+  context?: string | null
   // The language `translation` is actually in, and whether that differs
   // from the locale the learner asked for. Set by the server; the card
   // labels a mismatch instead of passing another language off as theirs.

@@ -31,14 +31,19 @@ flipping the flag; that's your call to make when the hold lifts. If you ever
 audit the codebase and find payment code that looks unreachable, this is
 why.
 
-### The production push is gated on two things, and has been for a while
+### Production data is pushed by the owner, by hand, and the push has run
 
-Per `docs/decisions/2026-08-26-owner-decisions.md`: no `supabase db push` /
-reconcile sequence runs until (1) the Gym level is finished and (2) the
-grammar concepts have had a *comprehensive* review, not just a
-defect-free one. Worth re-reading before assuming "the code is ready, why
-isn't it deployed" — the repository has been ahead of the deployed app for a
-while on purpose.
+Until 30 Aug 2026 the repository was deliberately ahead of the deployed
+app — `docs/decisions/2026-08-26-owner-decisions.md` gated the content push
+on the Gym level and a comprehensive grammar review. The owner released that
+gate by running the sequence themselves on 30 Aug, and has run
+`prune_sentences --apply` for en/ru/ar since. What remains true, and is
+easy to get wrong from either direction: **code deploys itself from
+`main`; data does not.** A merged TSV or grammar JSON changes nothing a
+learner sees until the owner runs `docs/quality/refeed.md` for that course,
+and this agent must not run it (a bulk DELETE attempt was blocked by the
+auto-mode classifier). 24 courses have never been pruned, so their cards can
+still serve sentences no committed bank endorses (CHECKS §18).
 
 ### `trial_reviewer` in the database, "Tester" on screen
 
@@ -145,6 +150,120 @@ Two things that pass the tests but are not finished:
   start reading as padded, split the map by level rather than trimming
   points — the whole point of generating it is that it lists them all.
 
+
+### The prune's source exemption shielded thin rows (fixed 6 Sep 2026)
+
+Kept as the reason, not the problem: `prune_sentences` exempted `curated`
+and `ai` rows because no rebuild reproduces them, which left **15,802 rows
+under five tokens** in production — 48% of every `ai` row — including the
+"You are human." / "I am human." set behind the owner's `human` card. The
+files had carried §24's floor since 31 Aug; production had not, which is why
+pruning ru and ar reported 0 and 31 rows while thousands of thin ones
+stayed. Now `FLOOR`, the tokenizer and the Thai exemption live in
+`prune_sentences.py` and `scripts/enforce_sentence_floor.py` imports them,
+so the file pass and the production prune cannot drift. **The rows only
+leave production when the owner re-runs the prune per course**
+(`docs/quality/refeed.md`) — every course needs a second pass, including
+en/ru/ar which were pruned before this existed.
+
+### The English course shows its drill usage note under "Translation"
+
+By convention (`docs/quality/en.md` note 0) an English drill's
+`translation` field holds a usage note and the real translations live in
+`data/grammar/en_drill_hints.<locale>.json`. With an English UI locale no
+`drill_hint_translations` row exists, `COALESCE(dht.translation,
+ds.translation)` falls through, and the note renders under the "Translation"
+heading — "do — the participle." (CHECKS §27). Fix is a `context` field
+under its own label in all six locales, plus 11 notes that merely restate
+the hint. Not a data bug; do not "fix" it by writing English-for-English
+translations, which hand over the answer.
+
+### Korean teaches four topics twice, and a point cannot be retired
+
+`ko_grammar.json` has 156 points and four near-duplicate pairs, from two
+extraction passes meeting: "Topic particle 은/는 (저는, 이것은)" beside
+"Topic particle ~는/은", and "Place and time: 에 vs 에서 (집에, 집에서)"
+beside "~에 vs ~에서 with places". A learner can be served both.
+
+Merging them is not just a file edit. `seed_grammar` upserts on
+`(language_id, title)` and never deletes, so a point removed from the file
+stays live exactly as an excluded word did before migration 20261016 — and
+`user_cards.card_id` points at `grammar_points` for grammar cards, so a
+DELETE would orphan progress the same way. Retiring a grammar point needs
+the same treatment vocabulary just got: a `retired_at` column, a reconcile
+step that sets it, and the card draw filtering it. Until that exists,
+deduping the file would only stop the duplicate being UPDATED, not stop it
+being taught.
+
+### 1,264 English words below rank 2,000 still have no definition
+
+`EnglishSeeder` can only teach a word it can define, and WordNet has no
+entry for 1,389 of the frequency list's headwords — it skipped every one of
+them. The 125 inside the top 2,000 are fixed (66 glossed by hand, 59
+excluded as contraction debris, given names or abbreviations), and `what`,
+rank 16, is in the course at last. **The remaining 1,264 all sit below rank
+2,000** and are a long tail of the same three kinds. The seeder now names
+them in a warning instead of skipping in silence, which is how the first 125
+stayed hidden for months. Work them when a course reaches that depth.
+
+### Written abbreviations as vocabulary: 12 held, and the judges disagreed
+
+A sweep of every single-character and letterless headword across 24 courses
+(851 candidates, judged then defended) removed 94 that are letters,
+punctuation, bare diacritics or extraction artefacts. **12 are held**, not
+because they are defensible but because the pass judged them
+inconsistently: Portuguese `s` (segundo), `h` (hora), `d` (Dom), `c`, `n`,
+`q` were called abbreviations and condemned, while the Spanish equivalents
+— `s` (sur), `m` (metro), `x` (por), `d`, `c`, `n`, `t`, `i` — were defended
+as written abbreviations a learner meets. Both readings are reasonable and
+they cannot both be the standard.
+
+Also held: Arabic `ي` and `ت` and Korean `잡`, `갖`, `걷`, `찢`, called
+clitics or bare verb stems that never stand alone.
+
+**The decision needed is one rule, not twelve verdicts:** is a written
+abbreviation a vocabulary card? A card asks the learner to PRODUCE the
+string from a definition, and "por, in texting" → `x` is a poor card by
+that test — but it is a real thing Spanish writers write. Whichever way it
+goes, it must apply to every course at once (quality rule 1).
+
+### Rows the card can never show, and a fallback that hides it
+
+`make_cloze` (`backend/services/extract.py`) whole-word-matches the surface
+headword; `cards.py` skips any example row it rejects and, when every row of
+a word is rejected, silently serves the definition-only prompt. Korean (54% of rows — dictionary-form
+headwords), Arabic (47% — stem headwords) and Yoruba (50% — toneless
+headwords) are mostly in that state: 566 / 491 / 182 top-2,000 words with no
+usable sentence. **Thai is fixed** (6 Sep): segmentation replaced the
+boundary regex, 311 → 3,675 rows, 110 words left — CHECKS §29.
+No log, no metric, no test says so. The 31 Aug Russian authoring applier
+made it worse by accepting LEMMA presence (pymorphy3), so an unknown share
+of its 6,517 rows are dead on arrival. Fix design and order in CHECKS §29;
+the `unclozable_rows` audit rule is the instrument that has to exist before
+any coverage table is believed for those four courses.
+
+### Vocabulary grading scolds for a form the card never specified
+
+`nlp/base.py` layer 3 grades a lemma match on a vocabulary card
+`CORRECT_SLOPPY` with "Correct meaning, but check the exact form" — right
+when the card named the form, wrong when it did not, and CHECKS §28 found
+a third of top-band cards do not. Until the content carries the form (or
+the grader checks whether it does), that string blames the learner for
+the card's gap. `frame_collision` — the mechanical half of the §28 check
+— is designed, not built; it belongs beside `ar_register` in
+`audit_content.py`.
+
+### `prune_sentences` keeps a word's fragments rather than empty it
+
+The "never strand a word" guard leaves every row of a word whose whole set
+would go. On 6 Sep that was 100 Russian and 72 Arabic words — names
+(`лиза`, `донна`, `كارلوس`), slang (`чё`, `бля`), inflected forms
+(`родился`), letters (`ن`, `ج`) — each still showing a bare fragment in
+production because the committed bank has nothing for them. Two ways out,
+neither built: exclude and retire them (the DEBT entry above), or a
+`--allow-strand` that prunes to zero, since a definition-only card is an
+honest fallback and "И?" is not. Until then a `stranded` count in the dry
+run is a list to act on, not a number to ignore (`docs/quality/refeed.md`).
 
 ### The Workspace chrome is translated; its 42 panels are not
 
@@ -493,6 +612,147 @@ Postgres + Redis and run the full suite; use them before trusting a
 "tests pass" claim that touches the database.
 
 ---
+
+## Linked spellings (Turkish harmony — 7 Sep 2026)
+
+### Two foreign words the Turkish span finder refuses
+
+`pin` r6014 ("PIN kodu", 2 rows) and `instagram` r9193 (1 row) are written
+with a dotted capital I in Turkish text, and `nlp/turkish.py::answer_span`
+lowers `I` to `ı` before matching, so their cards now serve the definition
+alone. Left that way on purpose: a fallback to the plain regex for words that
+"look foreign" would re-admit the mis-casings the finder exists to catch
+(`işık`, `irak` — CHECKS §30). Fix, if the rows matter: give those two an
+`alt` entry (`PIN`, `Instagram` are not shapes of the word, so no) — or
+retire them; both are past rank 6,000 and neither is a Turkish word.
+
+### One orphan sentence row: `irmak`
+
+`data/tr_sentences.tsv` has 1 row tagged `irmak`, a default-lowercase of
+`Irmak` (river, properly `ırmak`), which is not a headword. Inert — the
+loader has no vocabulary row to attach it to — and it would go on the next
+regeneration. Re-tag it if `ırmak` ever becomes a headword.
+
+### `alternatives` means two things, by course
+
+The column is one mechanism with a per-language meaning: another right
+answer by default (Jamaican `likkle`/`little`, English colour/color — grades
+CORRECT), the harmony shapes of one word in Turkish (grades CORRECT_SLOPPY
+when a sentence fixed the shape). The meaning lives in
+`BaseNLP.alternative_result` and its Turkish override, and `tr.md` says not
+to put a synonym in the column. Jamaican also copies its `alt` column into
+`morphology["spellings"]` — the same list twice; nothing reads the copy. A
+course adding an `alt` column should read CHECKS §30 first.
+
+## A content tool can hang for ever on a dropped pooler session (7 Sep 2026)
+
+`seed_grammar -l all` printed "OK en" and then nothing for two hours. On
+this machine: the process asleep at 0% CPU with one ESTABLISHED socket to
+the pooler; on the server: no statement from it, and the pooled backend it
+had used `RESET` minutes earlier. asyncpg has no default command timeout,
+so a session the pooler drops mid-reply is waited on indefinitely, and
+from the terminal it is indistinguishable from a slow course. Fixed by a
+bounded wait — `COMMAND_TIMEOUT` (300 s) on every production connect in
+the seeder package, guarded by `test_seeder_command_timeout.py` — so it
+becomes an error the operator sees and a per-course rerun recovers. What
+is NOT fixed: the underlying drop (pooler side; not reproducible on
+demand), and `seed_grammar` writes without a transaction, so a course cut
+off midway is partially written until rerun — harmless, every statement is
+an upsert. Run grammar per course (`refeed.md`) so a hang costs one course.
+
+## `seed_grammar` is the last content tool that writes one row at a time (7 Sep 2026)
+
+`reconcile --apply` used to be: about 6,000 single-row UPDATEs in one
+transaction over the Supabase pooler, twenty minutes, silent after the
+rollback line — the owner asked whether it was stuck. Fixed the same day
+(`APPLY_CHUNK`, UNNEST arrays, a progress line per kind), the third time
+this project has paid for one round trip per row after `BaseSeeder.load`
+learned it. `seed_grammar` still does it: 274-307 drills per course, one
+`execute` each, plus 5,054 hint rows for English. It is the reason a
+grammar reseed takes minutes per course. Same fix applies; nobody has
+needed it enough yet.
+
+## 1,612 drill rows write the answer marker where the convention is `___`
+
+`data/grammar/{ko,th,hi,he,fa}_grammar.json` store `{{answer}}` inside the
+drill's `transliteration`. The card now substitutes a blank when it serves
+them (CHECKS §32), so nothing reaches the screen, but the files are still
+wrong and a new drill written by copying a neighbour inherits it. A data
+pass should rewrite them to `___`; until then the card fix is load-bearing.
+No guard forbids the marker in the data on purpose — a test that failed on
+1,612 committed rows would have to be born red.
+
+## A dormant override fires the day someone adds the headword (7 Sep 2026)
+
+FIXED the same evening, recorded because the failure mode is not obvious.
+`gloss_overrides.tsv` had 28 rows naming a word its course's frequency file
+did not carry. They shipped nothing, so they read as harmless — until
+Yoruba `n` was restored to the file (a real 1SG pronoun an early junk sweep
+had deleted) and woke an override written for `ń`, the progressive marker.
+Production served the pronoun as "is/are doing" until a read-back caught it.
+
+The six Latin rows were the opposite of junk — full definitions where the
+file had one-word stubs ("not", "day", "son", "we", "if", "why") — so they
+were re-keyed to `nōn`, `diēs`, `fīlius`, `nōs`, `sī`, `cūr`, which also
+repairs six top-50 Latin cards. The other 22 were superseded by better
+glosses on the marked headword, or were alphabet-letter debris, and went.
+`test_reconcile_overrides.py::TestNoDormantOverrides` now makes the state
+impossible rather than merely recorded.
+
+## 101 committed sentence rows now point at a retired word (7 Sep 2026)
+
+Retiring the 535 letter-debris and unmarked-twin rows leaves 101 rows in
+the committed sentence banks tagged to a word that is no longer drawn —
+mostly Turkish (`Dükkan tüm gün açık.` under `dükkan`, the misspelling of
+`dükkân`) and German (`grosse`, the Swiss spelling of `große`). They are
+inert: no card reaches them. They are NOT free supply for the correct
+twin either, because the sentence text carries the wrong spelling — moving
+`Dükkan tüm gün açık.` to `dükkân` would hand that card a sentence it
+cannot blank (rule 46) and teach the misspelling besides. Correct the text
+and re-tag, or drop the row, in a sentence pass. Counted per course by
+joining `vocab_exclusions.tsv` against `data/*_sentences.tsv`.
+
+The rest of the tr letter rows show why the exclusions are right rather
+than wrong: the "sentences" under `tr i`, `tr c`, `tr g` are ordinary
+sentences that merely contain a capital letter (`İş iyi.`, `C vitamini`,
+`G.N.P.`) — extraction noise, never teaching material for a headword.
+
+## Two content defects found while auditing something else (7 Sep 2026)
+
+Both surfaced when a checker read the letter-debris sweep; neither is in
+its scope, and neither is fixed.
+
+- **Romanian rank 4 `si` is glossed "si (musical note B)".** Rank 4 of a
+  shipped course cannot be a musical note: the frequency belongs to `și`
+  ("and"), typed without its comma-below. Same class as the ro rows already
+  in `vocab_exclusions.tsv` ("the stated meaning cannot carry this rank"),
+  but this one is IN the file, so it needs a definition and possibly a
+  re-spelling, not an exclusion. Rank 211 `i` glossed "and" is archaic
+  Romanian and probably the same fault.
+- **Catalan has no apostrophe headwords at all.** `data/ca_frequency.tsv`
+  carries none of `l'`, `d'`, `m'`, `t'`, `s'`, `n'`, `'l`, `'m`, `'s`,
+  `'ns` in 469 KB, while French and Italian carry theirs in the top 60.
+  `ca.md` names elision and clitic clusters as one of the three features
+  that dominate drill quality and calls the apostrophe the character
+  authors get wrong most. A coverage gap, not debris.
+
+## Rows production serves that no committed file governs (7 Sep 2026)
+
+40,683 vocabulary rows are in production and owned by no committed source:
+39,004 from older generations of the big-course lists (ru 5,913 …), 678
+unmarked twins of file words (la `amo` beside `amō`), 165 single letters
+glossed "the fourth letter of the Catalan alphabet". (The count was 40,861
+until `gone` learned that a course has more than one source: 166 of those
+rows are alphabet-deck cards from `seed_alphabet` and 12 are curated
+starter words. Retiring "the letters nothing governs" would have deleted
+seven alphabet decks — ask what a maintenance list CONTAINS before acting
+on its size.) The reconcile REPORTS them (`gone`) and the
+retire step cannot see them because they are not in `vocab_exclusions.tsv`.
+They are live cards inside the decks' rank range, ungoverned by every check
+in `docs/quality/`. Owner decision D (`owner-actions-2026-09-07.md`); the
+cheap first step is to add the 331 glyphs to the exclusions file. Rule 27's
+corollary, learned here: **a word deleted from a TSV by hand is still in
+production, forever, unless it is also in the exclusions file.**
 
 ## Documentation drift — accurate now, but watch for recurrence
 
