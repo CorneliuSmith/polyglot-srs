@@ -24,6 +24,7 @@ which also carries the template.
 Not ADRs: standing instructions from the owner, and end-of-pass handovers
 written for the next session. Read the newest first.
 
+- [2026-09-08](2026-09-08-korean-duplicate-points.md) — decision C: four Korean topics taught twice, judged; five points retired through a new grammar-point retire path (migration 20261017)
 - [2026-09-08](2026-09-08-markdown-batch-5.md) — the last nine courses; 26 of 27 done, 1,623 content corrections in all; the restraint guard rebuilt on whether a bold names the taught form
 - [2026-09-07](2026-09-07-markdown-batch-4.md) — ar, he, fa, hi, th, tr, sw: 207 of 310 formatted, 539 content corrections, 20 refusals mostly invented rules
 - [2026-09-07](2026-09-07-markdown-batch-3.md) — nl, ca, ro, el, ru: 148 of 222 formatted, 412 content corrections, and the restraint guard rebuilt on the right signal

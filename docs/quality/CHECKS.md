@@ -1770,6 +1770,63 @@ replacement, the other shapes of the fault, the collision case, the registration
 as a report rule, and a test that spells out why the same shape is a giveaway in
 one language and teaching in another.
 
+## §34 A grammar point can be retired; Korean's four duplicated topics (8 Sep 2026)
+
+**Status: all 27** — mechanism; Korean is the first course to use it.
+
+**The gap.** `seed_grammar` is add-only for points: it updates what the file
+has and inserts what is new, and a point the file stops mentioning stays in
+production for ever. So Korean's four topics-taught-twice could be judged but
+not merged. Vocabulary closed the same gap with migration 20261016; migration
+**20261017** does it for `grammar_points`, with `data/grammar_exclusions.tsv`
+(language, title, reason) as the source of truth in both directions, the
+reconcile setting and clearing `retired_at` and printing a `gp-ret` column,
+every place a point is OFFERED filtering on it (Learn candidates, the
+next-level peek, deck counts, both path listings — probed, so a database
+behind the migration degrades to "nothing retired"), and fetch-by-id left
+unfiltered so a learner part-way through a retired point keeps the card.
+
+**The judgment.** Seven groups of Korean points share a form in their title.
+A reader judged each against `ko.md` and the drills; a second reader tried to
+overturn every verdict; they agreed on all seven. Four are duplicates, three
+are distinct (future against conjecture `~ㄹ/을 것이다`; verb against adjective
+`~아/어지다`; present against past `이다/아니다` — in each a learner must choose
+between the members). Five points retired, 156 → 151.
+
+**What decided the keepers was answer accuracy, not size.** The retired
+`~는/은 vs ~이/가` point gets the 받침 rule it exists to teach wrong in three of
+eleven drills — `라면는`, `다이아몬드은`, `청구서이` — each filed in a cell
+asserting the opposite condition, and it answers both `은` and `는` after
+다이아몬드. Every 받침 in the group was checked by hand. The keeper had one
+such error of its own (`여름 날씨은`, with a hint claiming "consonant-final"),
+which the readers said must be fixed in the same change or the single
+surviving point teaches the rule backwards; it was replaced by the one clean
+comparison drill from a retired point.
+
+**Salvage, and the check that refused one.** Drills the losers had and the
+keepers lacked moved across: the general-fact `는` in 해요체, a plain
+consonant-final `이`, the `~스러운` modifier and dictionary form, the past and
+future of `~아/어 있다`. One salvage was refused by the batchim check: the
+reader named 96's `이` drill by its answer string, 96 has two drills answering
+`이`, and the first the key matched was `청구서이` — one of the wrong answers
+that retired the point. Rule 28, again: an answer string is not a stable key.
+
+**A retired point has consumers beyond the grammar file, and the guards found
+every one.** Removing the five titles broke, in CI: the Gym manifest
+(`data/gym/ko.json`, five cells naming them — the keepers were already
+there, so the entries went), the `audit_gym` picker (which reads that
+manifest), nine `prerequisites`/`related` links in other Korean points (now
+naming the keepers, with duplicates and self-references dropped), and the
+committed tutor bundle `REFERENCE.md` (regenerated). None of this reached
+the repo: four tests refused it. The lesson for the next retirement is the
+checklist, not the fix — a point's title is a key in four other places.
+
+**Verified:** `backend/tests/test_retire_grammar_points.py` — the file, that
+every retired title has left the grammar JSON and every keeper is still in
+it, the survey in both directions and behind the migration, the rollback, the
+report column, and that every offer path carries the clause while fetch-by-id
+does not.
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

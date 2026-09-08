@@ -238,3 +238,29 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Four topics were taught twice; five points are retired (8 Sep 2026)
+
+Seven groups of points share a form in their title. Two readers judged
+each against this file and the drills: four groups are duplicates, three
+are not (`~ㄹ/을 것이다` future against conjecture, `~아/어지다` on a verb
+against an adjective, present against past `이다/아니다` — a learner must
+choose between the members, so each pair stays). Keepers: `~는/은 and ~이/가
+revisited: nuance and form`, `동안: 'for' a time and 'during' a noun`,
+`Korean suffix: ~스럽다`, `~아/어 있다: being in a state`.
+
+**What decided it was answer accuracy, not size.** The retired
+`~는/은 vs ~이/가: general statements…` point gets the 받침 rule it exists to
+teach wrong in three of eleven drills (`라면는`, `다이아몬드은`, `청구서이`),
+each filed in a cell asserting the opposite. The keeper had one such error
+of its own (`여름 날씨은`) and was corrected in the same change. Every 받침
+in the group was checked by hand.
+
+Retiring a grammar point needed a path that did not exist — migration
+20261017 and `data/grammar_exclusions.tsv`, mirroring vocabulary's. Full
+record: `docs/decisions/2026-09-08-korean-duplicate-points.md`.
+
+**Still open in the same family, out of scope for this decision:** index 40
+(`Topic particle ~는/은`, A1) duplicates the A1 first pass at index 0 and
+calls 는/은 a "subject-marking particle" throughout its hints.
+

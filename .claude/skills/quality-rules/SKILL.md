@@ -360,6 +360,12 @@ rate, say so — that result matters more than the phase closing quietly.
     `casa` is one at rank 9,290, so one Spanish drill escaped a judged pass
     its five identical siblings went through.
 
+54. **Choose a duplicate's keeper on answer accuracy, not size.** Korean's
+    retired `은/는` point had more drills and got the 받침 rule it exists to
+    teach wrong in 3 of 11. Check every answer in a paradigm point by the
+    rule the point states; a point that fails its own rule cannot be the
+    survivor, however long it is (CHECKS §34).
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

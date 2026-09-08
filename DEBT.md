@@ -178,22 +178,17 @@ under its own label in all six locales, plus 11 notes that merely restate
 the hint. Not a data bug; do not "fix" it by writing English-for-English
 translations, which hand over the answer.
 
-### Korean teaches four topics twice, and a point cannot be retired
+### Korean teaches four topics twice — RESOLVED 8 Sep 2026
 
-`ko_grammar.json` has 156 points and four near-duplicate pairs, from two
-extraction passes meeting: "Topic particle 은/는 (저는, 이것은)" beside
-"Topic particle ~는/은", and "Place and time: 에 vs 에서 (집에, 집에서)"
-beside "~에 vs ~에서 with places". A learner can be served both.
-
-Merging them is not just a file edit. `seed_grammar` upserts on
-`(language_id, title)` and never deletes, so a point removed from the file
-stays live exactly as an excluded word did before migration 20261016 — and
-`user_cards.card_id` points at `grammar_points` for grammar cards, so a
-DELETE would orphan progress the same way. Retiring a grammar point needs
-the same treatment vocabulary just got: a `retired_at` column, a reconcile
-step that sets it, and the card draw filtering it. Until that exists,
-deduping the file would only stop the duplicate being UPDATED, not stop it
-being taught.
+Judged by two readers of Korean and merged: five points retired, salvaged
+drills moved into the keepers, the keeper's own wrong answer fixed. The
+retire path that blocked it is built — migration 20261017
+`grammar_points.retired_at`, `data/grammar_exclusions.tsv` as the source of
+truth in both directions, `reconcile` setting and clearing it, every offer
+path filtering on it (probed). Record:
+`docs/decisions/2026-09-08-korean-duplicate-points.md`. One sibling is still
+open: A1 index 40 (`Topic particle ~는/은`) duplicates index 0 and calls the
+topic particle "subject-marking" in its hints (`ko.md`).
 
 ### 1,264 English words below rank 2,000 still have no definition
 

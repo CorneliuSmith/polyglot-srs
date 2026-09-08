@@ -31,7 +31,6 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - 번 – counter for times (how many times) — Say how many times an action is done.
 - Telling time: 시 and 분 — Tell the time on a clock and say when something happens.
 - Age with 살 — State and ask someone's age.
-- 동안 – 'for' a period of time — Say how long an action lasts.
 - Month names (1월 – 12월) — Name the months of the calendar.
 - Turning adjectives into verbs with ~아/어하다 (좋아하다, 싫어하다) — Change an adjective describing a feeling into a verb that can take an object.
 - Asking yes/no questions with intonation — Turn any statement into a question without changing its structure.
@@ -71,7 +70,6 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Korean weeks: 주 and 주일 — Count weeks and talk about last/next week.
 - Korean months: 달 vs 개월 — Count months of duration with the right number system.
 - Pure Korean vs Sino-Korean numbers with time counters — Decide which number system a time word takes.
-- Passive verbs with ~아/어 있다 (describing a state) — Say that something is currently in a resulting state (on, off, open, closed, locked) rather than that an event happened.
 - Passive/active pairs with 나다 and 내다 — Pair up verbs where 나다 gives the passive meaning and 내다 the active meaning.
 - Subject – Object – Adjective form: ~이/가 with adjectives and passive verbs — Express 'I like / miss / remember X' when the predicate is an adjective or a passive verb.
 - Korean compound verbs (verb stem + ~아/어 + verb) — Build and recognise two-verb compounds like 들어가다, 나오다, 가져오다, 돌려주다.
@@ -132,10 +130,7 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - Korean suffix: ~적/~적으로/~적이다 — Turn certain Chinese-origin nouns into descriptive words, adverbs and adjectives.
 - Korean suffix: ~스럽다 — Make an adjective meaning 'having the properties of' a noun.
 - 실망하다 vs. 실망스럽다 (with ~에게/한테 and ~에) — Say you are disappointed, or that something is disappointing, with the right particles.
-- Adjectives with ~스럽다 — Turn a noun into an adjective meaning 'having the properties of that noun'.
 - Adverbs with ~스럽게 — Make an adverb ('in a … way') from a ~스럽다 adjective.
-- ~이/가 and ~는/은 Revisited — Choose between the topic and subject particle: general fact vs. newly noticed specific situation.
-- ~는/은 vs ~이/가: general statements and immediate experience — Choose the topic particle or the subject particle according to the nuance you want.
 - ~아/어 있다: being in a state — Express the resulting state of an action (sitting, standing, switched on, alive) rather than the action in progress.
 - Adjective + ~아/어지다: to become (adjective) — Change an adjective from 'to be ___' into 'to get/become ___'.
 - Tenses of ~아/어지다 (example: 추워지다) — Conjugate a 'become + adjective' verb across the tenses.
