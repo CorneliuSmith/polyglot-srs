@@ -825,15 +825,18 @@ async def _policy(pool, code: str, policy: str) -> None:
 
 
 async def _ai_example(pool, lang: str, vid: str, sentence: str,
-                      meaning: str) -> None:
+                      meaning: str, rank: int) -> None:
     """A generated English example: reviewed=false, so it is served only
-    where the course's policy lets AI content through."""
+    where the course's policy lets AI content through. *rank* fixes the
+    batch order — pending_examples sorts by difficulty_rank then id, and
+    ids are random, so without it which row the mock rejects is a coin
+    toss (it was: green locally, red on the merge ref)."""
     async with pool.privileged_connection() as conn:
         await conn.execute(
             "INSERT INTO example_sentences (language_id, vocabulary_id, "
-            "sentence, translation, translation_locale, source, reviewed) "
-            "VALUES ($1, $2, $3, $4, 'en', 'ai', false)",
-            lang, vid, sentence, meaning,
+            "sentence, translation, translation_locale, source, reviewed, "
+            "difficulty_rank) VALUES ($1, $2, $3, $4, 'en', 'ai', false, $5)",
+            lang, vid, sentence, meaning, rank,
         )
 
 
@@ -863,9 +866,9 @@ async def test_the_fill_translates_every_example_the_card_serves(pool, monkeypat
                 "INSERT INTO translations (vocabulary_id, locale, definition) "
                 "VALUES ($1, 'fr7', $2)", vid, gloss)
     # The mock rejects the first item of every batch; the decoy takes it.
-    await _ai_example(pool, course, decoy, "Decoy one.", "The decoy.")
+    await _ai_example(pool, course, decoy, "Decoy one.", "The decoy.", 1)
     await _ai_example(pool, course, word, "¿Hay alguien en la habitación?",
-                      "Is there anyone in the room?")
+                      "Is there anyone in the room?", 2)
 
     async with pool.privileged_connection() as conn:
         await note_missing_content(conn, "fr7", vocab_ids=[decoy, word])
