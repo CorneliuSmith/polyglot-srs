@@ -108,3 +108,19 @@ AI_CONTENT_SQL = "grammar_review_policy IN ('ai_ok', 'all')"
 
 def lets_ai_content_through(policy: str | None) -> bool:
     return normalize_policy(policy) in AI_CONTENT_POLICIES
+
+
+def served_example_sql(alias: str = "es") -> str:
+    """SQL boolean: may this example sentence reach a learner?
+
+    A row is served when a human reviewed it OR its course lets AI content
+    through. This is the clause the review page's card read uses, and it
+    is ALSO what every translation-fill predicate must use: the fill used
+    to require ``reviewed`` alone, so on an ``ai_ok`` course a generated
+    English example was shown to a French learner and never counted as
+    pending — not by the demand detector, the sweep, the inline fill or
+    the readiness score. "What is served" and "what is worth translating"
+    are one question; keep them one clause.
+    """
+    return (f"({alias}.reviewed OR {alias}.language_id IN "
+            f"(SELECT id FROM languages WHERE {AI_CONTENT_SQL}))")

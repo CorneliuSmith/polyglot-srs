@@ -419,6 +419,64 @@ async def test_a_fill_in_flight_is_not_started_twice():
 
 
 @pytest.mark.asyncio
+async def test_a_running_fill_absorbs_a_later_batch():
+    """The learn page's readiness poll starts a fill for the learn batch;
+    the learner opens a review session seconds later. The review batch
+    used to bounce off the in-flight guard and then off the cooldown, and
+    sat in English (a French learner's Spanish card: gloss translated,
+    every sentence under it English) until some other process's
+    quarter-hour sweep. A running fill walks the cards handed to it."""
+    auto_translate._INLINE_FILLS.clear()
+    conn, ctx = _fill_conn()
+    gate = asyncio.Event()
+    seen: list[tuple] = []
+
+    async def slow_pending(_conn, _lang, _loc, _limit, ids=None, **kw):
+        seen.append(tuple(ids or []))
+        await gate.wait()
+        return []
+
+    with patch("backend.repositories.pool.privileged_connection", ctx), \
+         patch.object(auto_translate, "translations_available",
+                      return_value=True), \
+         patch.object(auto_translate, "pending_words", new=slow_pending):
+        first = asyncio.create_task(
+            auto_translate.fill_start_batch("u7", "l1", ["v1"], []))
+        await asyncio.sleep(0.01)
+        # The review batch arrives while the learn batch is being filled.
+        await auto_translate.fill_start_batch("u7", "l1", ["v2"], [])
+        gate.set()
+        await first
+    assert ("v1",) in seen and ("v1", "v2") in seen, seen
+    assert auto_translate.inline_fill_status("u7", "l1")["cards_done"] == 2
+    auto_translate._INLINE_FILLS.clear()
+
+
+@pytest.mark.asyncio
+async def test_the_cooldown_skips_only_cards_already_walked():
+    """A refresh of the SAME batch inside the cooldown costs nothing; a
+    batch the last fill never saw runs at once. Before, both waited."""
+    auto_translate._INLINE_FILLS.clear()
+    conn, ctx = _fill_conn()
+    seen: list[tuple] = []
+
+    async def pending(_conn, _lang, _loc, _limit, ids=None, **kw):
+        seen.append(tuple(ids or []))
+        return []
+
+    with patch("backend.repositories.pool.privileged_connection", ctx), \
+         patch.object(auto_translate, "translations_available",
+                      return_value=True), \
+         patch.object(auto_translate, "pending_words", new=pending):
+        await auto_translate.fill_start_batch("u8", "l1", ["v1"], [])
+        await auto_translate.fill_start_batch("u8", "l1", ["v1"], [])
+        assert seen == [("v1",)], seen
+        await auto_translate.fill_start_batch("u8", "l1", ["v2"], [])
+        assert seen == [("v1",), ("v2",)], seen
+    auto_translate._INLINE_FILLS.clear()
+
+
+@pytest.mark.asyncio
 async def test_a_fill_without_a_provider_says_so():
     """The one cause of "0 of 3 forever" nobody could see from the wait
     screen: the web worker has no ANTHROPIC_API_KEY, so the fill returned

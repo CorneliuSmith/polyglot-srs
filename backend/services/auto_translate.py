@@ -54,6 +54,7 @@ from backend.services.translate import (
     translations_available,
 )
 from backend.services.translate_checks import safe_row
+from backend.services.visibility import served_example_sql
 
 logger = logging.getLogger(__name__)
 
@@ -282,22 +283,39 @@ async def fill_start_batch(
     hit, or the time budget runs out. What is read next lands next.
 
     Fire-and-forget safe: never raises. One fill in flight per (user,
-    language) — a poll that arrives while one runs returns at once — a
-    cooldown after it finishes, and a process-wide cap of 2 so an
-    impatient refresher cannot stack model calls. The entry it keeps in
-    _INLINE_FILLS is what /readiness reports as `fill`.
+    language), a cooldown after it finishes, and a process-wide cap of 2
+    so an impatient refresher cannot stack model calls. The entry it
+    keeps in _INLINE_FILLS is what /readiness reports as `fill`.
+
+    A call that arrives while a fill is RUNNING hands its cards to that
+    fill instead of being dropped: the learn page's readiness poll starts
+    a fill for the learn batch, the learner opens a review session
+    seconds later, and the review batch used to bounce off the in-flight
+    guard — then off the cooldown — and sit in English until some other
+    process's quarter-hour sweep. The running fill now walks the extra
+    cards after its own, inside the same time budget. The cooldown
+    likewise skips only cards the last fill already walked; a batch it
+    never saw runs at once.
     """
     key = (str(user_id), str(language_id))
     loop = asyncio.get_event_loop()
     now = loop.time()
     prev = _INLINE_FILLS.get(key)
+    asked = [("vocabulary", i) for i in vocab_ids] + [("grammar", i) for i in grammar_ids]
     if prev is not None:
         if prev["status"] == "running":
+            prev["extra"].extend(asked)
             return
         if now - prev["finished"] < _INLINE_COOLDOWN_S:
-            return
+            # A fill that died stays down for the cooldown whatever is
+            # asked, so a failing provider is not hit on every poll.
+            if prev["status"] == "error" or set(asked) <= prev["walked"]:
+                return
     st = {"status": "running", "started": now, "finished": None,
-          "detail": None, "landed": 0, "cards_done": 0}
+          "detail": None, "landed": 0, "cards_done": 0,
+          # Cards handed to this fill while it runs, and the cards it has
+          # walked — the guard above reads both.
+          "extra": [], "walked": set()}
     _INLINE_FILLS[key] = st
     if not translations_available():
         st.update(status="no_provider", finished=loop.time(),
@@ -333,7 +351,18 @@ async def fill_start_batch(
 
                 order = _fill_order(vocab_ids, grammar_ids)
                 pos, size = 0, INLINE_FILL_FIRST
-                while pos < len(order):
+                while True:
+                    if pos >= len(order):
+                        # Anything handed over while this ran, in the
+                        # order it was asked for, minus what is already
+                        # walked. Bounded by the time budget, and by the
+                        # card cap applied once more to the extension.
+                        more = [c for c in dict.fromkeys(st["extra"])
+                                if c not in st["walked"]]
+                        st["extra"].clear()
+                        if not more:
+                            break
+                        order = order + more[:INLINE_FILL_MAX_CARDS]
                     if loop.time() - st["started"] > INLINE_FILL_SECONDS:
                         st["detail"] = "time budget spent; the sweep has the rest"
                         break
@@ -346,6 +375,7 @@ async def fill_start_batch(
                     # would otherwise leave that card English for good.
                     pos += len(order[pos:pos + size])
                     walked = order[:pos]
+                    st["walked"].update(walked)
                     await _fill_cards(
                         conn, pair, st,
                         [i for t, i in walked if t == "vocabulary"],
@@ -484,6 +514,11 @@ async def clear_attempts(
         logger.debug("attempts not cleared for %s/%s: %s", kind, locale, exc)
 
 
+# The one visibility clause for example sentences, spliced into every
+# predicate below. See services/visibility.served_example_sql: a sentence
+# the card read shows is a sentence the fill must count.
+_SERVED_EXAMPLE = served_example_sql("es")
+
 # Detection mirrors the loop's pending_* queries exactly: a kind is demanded
 # only when the overlay row genuinely doesn't exist (attempted/rejected rows
 # count as covered, same as the sweep).
@@ -495,21 +530,30 @@ _DEMAND_DETECTORS = {
                            WHERE t.vocabulary_id = v.id AND t.locale = $2)
           AND NOT EXISTS (SELECT 1 FROM translation_reviews r
                            WHERE r.vocabulary_id = v.id AND r.locale = $2)""",
-    "example": """
+    "example": f"""
         SELECT DISTINCT 'example', es.vocabulary_id, $2 FROM example_sentences es
         WHERE es.vocabulary_id = ANY($1::uuid[])
-          AND es.translation_locale = 'en' AND es.reviewed
+          AND es.translation_locale = 'en' AND {_SERVED_EXAMPLE}
           AND es.translation IS NOT NULL AND es.translation <> ''
           AND NOT EXISTS (SELECT 1 FROM example_sentences es2
                            WHERE es2.vocabulary_id = es.vocabulary_id
                              AND es2.sentence = es.sentence
                              AND es2.translation_locale = $2)""",
+    # Field-level, like pending_drills: a drill whose HINT rendered but
+    # whose TRANSLATION the checker refused has a row, and "any row" used
+    # to count it as covered — so the English translation under the cloze
+    # was never demanded again, and on a switched-off course nothing else
+    # ever re-read it.
     "drill": """
         SELECT 'drill', ds.id, $2 FROM drill_sentences ds
+        LEFT JOIN drill_hint_translations dht
+               ON dht.drill_id = ds.id AND dht.locale = $2
         WHERE ds.grammar_point_id = ANY($1::uuid[])
           AND (ds.translation IS NOT NULL OR ds.hint IS NOT NULL)
-          AND NOT EXISTS (SELECT 1 FROM drill_hint_translations dht
-                           WHERE dht.drill_id = ds.id AND dht.locale = $2)""",
+          AND (
+            (COALESCE(ds.translation, '') <> '' AND dht.translation IS NULL)
+            OR (COALESCE(ds.hint, '') <> '' AND dht.hint IS NULL)
+          )""",
     "explanation": """
         SELECT 'explanation', gp.id, $2 FROM grammar_points gp
         WHERE gp.id = ANY($1::uuid[])
@@ -917,20 +961,22 @@ async def pending_examples(
     conn: asyncpg.Connection, language_id: str, locale: str, limit: int,
     vocab_ids: list | None = None, backoff: bool = False,
 ) -> list[dict]:
-    """Reviewed English example sentences whose *locale* sibling row doesn't
+    """Served English example sentences whose *locale* sibling row doesn't
     exist yet. The sibling is a full example_sentences row (same sentence,
     translation_locale = locale); the CLI's -k translations fills these by
-    hand, this is the loop's lane. Unreviewed rows are skipped — no point
-    translating content a learner can't see."""
+    hand, this is the loop's lane. Rows a learner cannot see are skipped —
+    and "can see" is the card read's own clause (served_example_sql), not
+    ``reviewed`` alone: on an ai_ok course a generated sentence is on the
+    card, so it is work."""
     rows = await conn.fetch(
         f"""
         SELECT es.id, es.vocabulary_id, es.language_id, es.sentence,
-               es.translation
+               es.translation, es.reviewed
         FROM example_sentences es
         WHERE es.language_id = $1
           AND ($4::uuid[] IS NULL OR es.vocabulary_id = ANY($4::uuid[]))
           AND es.translation_locale = 'en'
-          AND es.reviewed
+          AND {_SERVED_EXAMPLE}
           AND es.translation IS NOT NULL AND es.translation <> ''
           AND NOT EXISTS (
             SELECT 1 FROM example_sentences es2
@@ -964,13 +1010,13 @@ async def words_with_pending_examples(
     exactly "that query would return nothing".
     """
     rows = await conn.fetch(
-        """
+        f"""
         SELECT DISTINCT es.vocabulary_id
         FROM example_sentences es
         WHERE es.language_id = $1
           AND es.vocabulary_id = ANY($3::uuid[])
           AND es.translation_locale = 'en'
-          AND es.reviewed
+          AND {_SERVED_EXAMPLE}
           AND es.translation IS NOT NULL AND es.translation <> ''
           AND NOT EXISTS (
             SELECT 1 FROM example_sentences es2
@@ -1206,14 +1252,15 @@ async def _translate_examples(conn, pair, rows) -> int:
     """Locale renderings of reviewed English example sentences, stored as
     sibling example_sentences rows via the same helper the CLI uses.
 
-    These land reviewed=true, unlike AI-generated sentences. pending_examples
-    only ever picks sources a human already approved, so the sentence and its
-    meaning are signed off — the loop rewrites the meaning LINE into the
-    learner's language through the same maker-checker that produces word
-    glosses, and those display immediately. Landing these unreviewed meant a
-    learner whose language was fully translated still read every example in
-    English, with no signal that anything was pending. The WP42 gate still
-    holds for sentences the AI invents."""
+    The sibling inherits its SOURCE's review state. For a human-approved
+    English row that means reviewed=true: the sentence and its meaning are
+    signed off, the loop only rewrites the meaning LINE through the same
+    maker-checker that produces word glosses, and those display at once.
+    (Landing these unreviewed once meant a learner whose language was fully
+    translated still read every example in English.) For a generated row
+    served under an ai_ok policy the sibling stays reviewed=false, so it is
+    visible exactly where its source is and hides with it if the policy is
+    tightened — the WP42 gate still holds for sentences the AI invents."""
     from backend.repositories.contributor import add_example_sentence
 
     if self_pair(pair):
@@ -1236,7 +1283,7 @@ async def _translate_examples(conn, pair, rows) -> int:
             res["translation"], source="ai",
             origin_detail=f"auto_translate:{pair['locale']}",
             translation_locale=pair["locale"],
-            reviewed=True,  # the English source was already approved
+            reviewed=bool(r.get("reviewed", True)),
         )
         if row_id:
             applied += 1
@@ -1598,10 +1645,18 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
     # a learner sees their sentences without waiting on a db push.
     try:
         await conn.execute(
-            """UPDATE example_sentences SET reviewed = true
-                WHERE reviewed = false AND translation_locale <> 'en'
-                  AND (origin_detail LIKE 'auto_translate:%'
-                    OR origin_detail LIKE 'translate:%')"""
+            """UPDATE example_sentences es SET reviewed = true
+                WHERE es.reviewed = false AND es.translation_locale <> 'en'
+                  AND (es.origin_detail LIKE 'auto_translate:%'
+                    OR es.origin_detail LIKE 'translate:%')
+                  -- Only where the English source is itself approved: a
+                  -- sibling of a generated, ai_ok-served sentence is
+                  -- meant to stay a draft alongside it.
+                  AND EXISTS (SELECT 1 FROM example_sentences src
+                               WHERE src.vocabulary_id = es.vocabulary_id
+                                 AND src.sentence = es.sentence
+                                 AND src.translation_locale = 'en'
+                                 AND src.reviewed)"""
         )
     except Exception as exc:  # noqa: BLE001 — never break the sweep
         logger.debug("sentence visibility repair skipped: %s", exc)
@@ -1810,10 +1865,14 @@ _PENDING_COUNTS = {
     "drills": """
         SELECT count(*) FROM drill_sentences ds
         JOIN grammar_points gp ON gp.id = ds.grammar_point_id
+        LEFT JOIN drill_hint_translations dht
+               ON dht.drill_id = ds.id AND dht.locale = $2
         WHERE gp.language_id = $1
           AND (ds.translation IS NOT NULL OR ds.hint IS NOT NULL)
-          AND NOT EXISTS (SELECT 1 FROM drill_hint_translations dht
-                           WHERE dht.drill_id = ds.id AND dht.locale = $2)""",
+          AND (
+            (COALESCE(ds.translation, '') <> '' AND dht.translation IS NULL)
+            OR (COALESCE(ds.hint, '') <> '' AND dht.hint IS NULL)
+          )""",
     "explanations": """
         SELECT count(*) FROM grammar_points gp
         WHERE gp.language_id = $1
@@ -1827,10 +1886,10 @@ _PENDING_COUNTS = {
           AND NOT EXISTS (SELECT 1 FROM grammar_point_translations gpt
                            WHERE gpt.grammar_point_id = gp.id
                              AND gpt.locale = $2)""",
-    "examples": """
+    "examples": f"""
         SELECT count(*) FROM example_sentences es
         WHERE es.language_id = $1
-          AND es.translation_locale = 'en' AND es.reviewed
+          AND es.translation_locale = 'en' AND {_SERVED_EXAMPLE}
           AND es.translation IS NOT NULL AND es.translation <> ''
           AND NOT EXISTS (SELECT 1 FROM example_sentences es2
                            WHERE es2.vocabulary_id = es.vocabulary_id

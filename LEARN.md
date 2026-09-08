@@ -535,13 +535,36 @@ found the original version stalling people:
   learner came back later. Each pass queries the *still-pending* rows of
   every card walked so far, so a row the provider rejected once rides
   again with the next pass instead of waiting for the sweep.
-- **One fill per (user, language) at a time.** `_INLINE_FILLS` holds a
-  status dict per pair (`running` / `done` / `error` / `no_provider`, with
-  `landed` rows and `cards_done`). A running fill is never started twice,
-  and a finished one is not re-run for 90 s. Readiness reports it as
-  `fill`, so the wait screen can say *why* nothing is moving instead of
-  guessing: `no_provider` (no `ANTHROPIC_API_KEY` on the web service) shows
-  at once, `error` names itself once the stall window passes.
+- **One fill per (user, language) at a time — and it absorbs what
+  arrives while it runs.** `_INLINE_FILLS` holds a status dict per pair
+  (`running` / `done` / `error` / `no_provider`, with `landed` rows,
+  `cards_done`, the cards `walked` and any `extra` handed over). A running
+  fill is never started twice: a call that lands while one runs appends
+  its cards to `extra`, and the running fill walks them after its own,
+  inside the same time budget. That is the learn-page poll starting the
+  learn batch and the learner opening a review session seconds later — the
+  review batch used to bounce off the in-flight guard, then off the
+  cooldown, and stayed English until a sweep. The 90 s cooldown after a
+  finished fill skips only cards that fill already walked (a refresh of
+  the same batch); a batch it never saw runs at once. An `error` fill stays
+  down for the whole cooldown whatever is asked, so a failing provider is
+  not hit on every poll. Readiness reports the entry as `fill`, so the wait
+  screen can say *why* nothing is moving: `no_provider` (no
+  `ANTHROPIC_API_KEY` on the web service) shows at once, `error` names
+  itself once the stall window passes.
+- **What is pending is exactly what is served.** Every fill predicate —
+  the demand detectors, the `pending_*` queries, `_still_pending`, the
+  readiness score and the status counts — must ask the same question the
+  card read asks, or a row can be on a learner's screen in English and, to
+  every lane, not work. Two shapes of that bug have shipped: example
+  sentences were filled only when `reviewed`, while the review page also
+  serves generated sentences on an `ai_ok` / `all` course (now one clause,
+  `services/visibility.served_example_sql`, and the locale sibling inherits
+  its source's review state instead of being promoted to reviewed); and
+  the drill demand detector asked "is there an overlay row?" while
+  `pending_drills` asks field by field, so a drill whose hint rendered but
+  whose translation the checker refused was never demanded again. When a
+  serve-side predicate changes, grep for the fill side in the same PR.
 - **The frontend keeps re-arming the fill and swaps on a tick.** While a
   lane's `pct` is below 1, `LearnPage` and `ReviewSessionPage` re-fetch
   readiness every 15 s (`READINESS_POLL_MS`) — each poll re-arms the server
