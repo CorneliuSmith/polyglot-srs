@@ -39,7 +39,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Turkish has no separate verb 'to be' in the present — a personal suffix attaches straight to the noun or adjective: öğrenci-yim (I am a student), öğretmen-sin (you are a teacher), o doktor (he/she is a doctor — third person takes no suffix).\n\nThe suffix vowel follows vowel harmony, and -y- is inserted after a vowel: iyi-yim (I'm fine).",
+      "explanation": "Turkish has no separate verb 'to be' in the present — a personal suffix attaches straight to the noun or adjective, and the third person takes none at all.\n\n| Person | Ending | Example |\n| --- | --- | --- |\n| ben | -(y)im | öğrenciyim |\n| sen | -sin | öğrencisin |\n| o | — | öğrenci |\n| biz | -(y)iz | öğrenciyiz |\n| siz | -siniz | öğrencisiniz |\n| onlar | -ler | öğrenciler |\n\nEvery ending's vowel follows vowel harmony — -(y)ım, -(y)im, -(y)um, -(y)üm for ben — and the -y- appears only after a vowel: iyiyim (I'm fine), mutluyum (I am happy), yorgunsun (you are tired). On onlar the -ler is optional — Onlar doktor and Onlar doktorlar are both said.",
       "culture_note": "Dropping the pronoun is normal — 'Öğrenciyim' alone is a complete, natural sentence. The pronoun is added for contrast or emphasis.",
       "references": [
         {
@@ -298,7 +298,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Form the plural by adding -ler after front vowels and -lar after back vowels.\n\nImportant exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
+      "explanation": "Form the plural by adding `-ler` after a front vowel (e, i, ö, ü) and `-lar` after a back vowel (a, ı, o, u): ev → evler, kitap → kitaplar.\n\nImportant exception: after a number, the noun stays singular — üç kitap ('three books'), never üç kitaplar.",
       "culture_note": "",
       "references": [
         {
@@ -390,7 +390,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Add the particle after the word you are asking about; it is written separately and harmonizes with the last vowel: kitap mı?, öğrenci mi?, doktor mu?, Türk mü?\n\nPersonal endings attach to the particle: Öğrenci misin? (Are you a student?).",
+      "explanation": "Add the particle after the word you are asking about. It is written as a separate word, but its vowel harmonizes with the last vowel of that word.\n\n| Last vowel | Particle | Example |\n| --- | --- | --- |\n| a, ı | mı | kitap mı? |\n| e, i | mi | öğrenci mi? |\n| o, u | mu | doktor mu? |\n| ö, ü | mü | Türk mü? |\n\nPersonal endings attach to the particle: Öğrenci misin? (Are you a student?).",
       "culture_note": "",
       "references": [
         {
@@ -504,7 +504,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The locative suffix means 'in/on/at'.\n\nIt harmonizes with the last vowel of the word: -de after front vowels (e, i, ö, ü) and -da after back vowels (a, ı, o, u).\n\nAfter a voiceless consonant it hardens to -te/-ta.",
+      "explanation": "The locative suffix means 'in/on/at'. Its vowel follows the last vowel of the word, and its d hardens to t after one of the voiceless consonants f, s, t, k, ç, ş, h, p — evde but sepette, masada but uçakta.\n\n| Last vowel | After a voiced sound | After a voiceless consonant |\n| --- | --- | --- |\n| e, i, ö, ü | -de | -te |\n| a, ı, o, u | -da | -ta |\n\nAfter a third-person possessive a buffer -n- comes first, and a compound noun keeps its own -ı: buzdolabı → buzdolabında (in the fridge).",
       "culture_note": "Vowel harmony runs through almost all Turkish suffixes — learning to hear front vs back vowels pays off everywhere.",
       "references": [
         {
@@ -636,7 +636,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "'Var' asserts existence and 'yok' denies it; both come at the end: Evde süt var (There is milk at home), Parkta kimse yok (There is nobody in the park). With the locative this is also how Turkish says 'have': Bende para var (I have money, lit. 'at me money exists').",
+      "explanation": "'Var' asserts existence and 'yok' denies it; both come at the end: Evde süt var (There is milk at home), Parkta kimse yok (There is nobody in the park). With the locative this is one of the ways Turkish says 'have': Bende para var (I have money on me, lit. 'at me money exists'). For something owned rather than carried, the possessive does the work: Benim param var (I have money).",
       "culture_note": "",
       "references": [
         {
@@ -738,7 +738,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Possession is marked ON the possessed noun: ev-im (my house), ev-in (your house), ev-i (his/her house).\n\nThe optional genitive pronoun adds emphasis: benim evim. Vowels harmonize: araba-m (my car), araban (your car).",
+      "explanation": "Possession is marked ON the possessed noun; the genitive pronoun in front of it is optional, adding emphasis.\n\n| Person | Pronoun | Ending | Example |\n| --- | --- | --- | --- |\n| ben | benim | -im | evim |\n| sen | senin | -in | evin |\n| o | onun | -i | evi |\n| biz | bizim | -imiz | evimiz |\n| siz | sizin | -iniz | eviniz |\n| onlar | onların | -leri | evleri |\n\nEvery vowel in these endings harmonizes four ways: okul → okulunuz, kitap → kitabım.\n\nAfter a vowel-final noun the ending drops its own vowel: araba → arabam, kedi → kedin, aile → ailemiz. The third person adds -sı: araba → arabası.",
       "culture_note": "",
       "references": [
         {
@@ -890,7 +890,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "The -iyor suffix marks an ongoing action ('am/is/are doing'). Its buffer vowel harmonizes (ı/i/u/ü) and a personal ending follows.\n\nFor 'I', add -um: oku → okuyorum, iç → içiyorum.",
+      "explanation": "The -iyor suffix marks an ongoing action ('am/is/are doing'). Its buffer vowel harmonizes four ways (geliyor, bakıyor, konuşuyor, gülüyor), but -yor never changes, so neither do the endings after it.\n\n| Person | Ending | Example |\n| --- | --- | --- |\n| ben | -um | okuyorum |\n| sen | -sun | okuyorsun |\n| o | — | okuyor |\n| biz | -uz | okuyoruz |\n| siz | -sunuz | okuyorsunuz |\n| onlar | -lar | okuyorlar |\n\nA vowel-final stem has no buffer vowel; a final a or e narrows first: dinle → dinliyor, oyna → oynuyor, ye → yiyor.",
       "culture_note": "",
       "references": [
         {
@@ -1042,7 +1042,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Insert the negative -m(a/e)- before -iyor; the vowel harmonizes and shrinks: iç-m-iyor-um → içmiyorum (I am not drinking), izle-m-iyor → izlemiyor (he isn't watching).\n\nThe stress falls just before the negative.",
+      "explanation": "The negative -ma/-me goes between the stem and -yor, and its vowel narrows: iç-mi-yor-um → içmiyorum (I am not drinking), izle-mi-yor → izlemiyor (he isn't watching).\n\n| Last vowel of the stem | Negative + -yor | Example |\n| --- | --- | --- |\n| a, ı | -mıyor | çalışmıyor |\n| e, i | -miyor | içmiyor |\n| o, u | -muyor | uyumuyor |\n| ö, ü | -müyor | gülmüyor |\n\nThe person endings are the same as after the positive -iyor (içmiyorum, içmiyorsun, içmiyorlar).\n\nThe stress falls just before the negative.",
       "culture_note": "",
       "references": [
         {
@@ -1194,7 +1194,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "A DEFINITE direct object takes the accusative: Kitabı okuyorum (I am reading THE book) vs Kitap okuyorum (I read books / a book, indefinite — no suffix).\n\nThe vowel harmonizes four ways, and final p/ç/t/k soften: kitap → kitabı.",
+      "explanation": "A DEFINITE direct object takes the accusative: Kitabı okuyorum (I am reading THE book) vs Kitap okuyorum (I read books / a book, indefinite — no suffix).\n\n| Last vowel | Suffix | Example |\n| --- | --- | --- |\n| a, ı | -ı | kitabı |\n| e, i | -i | filmi |\n| o, u | -u | okulu |\n| ö, ü | -ü | gölü |\n\nAfter a vowel-final noun a buffer -y- comes first: gazete → gazeteyi, araba → arabayı, su → suyu.\n\nA final p, ç, t or k often softens before the suffix: kitap → kitabı, ağaç → ağacı, ekmek → ekmeği. Many one-syllable words keep it hard: süt → sütü, top → topu.",
       "culture_note": "Whether the object is 'definite' decides the suffix — a meaning-driven case system rather than a mechanical one.",
       "references": [
         {
@@ -1317,7 +1317,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The seen/witnessed past adds -di with four-way vowel harmony and consonant hardening after voiceless sounds (-ti): gitmek → gittim (I went), gelmek → geldi (she came), yapmak → yaptık (we did).\n\nPerson endings follow: -m, -n, —, -k, -niz, -ler.",
+      "explanation": "The seen/witnessed past adds -di: gitmek → gittim (I went), gelmek → geldi (she came), yapmak → yaptık (we did).\n\n| Person | Ending | Example |\n| --- | --- | --- |\n| ben | -dim | geldim |\n| sen | -din | geldin |\n| o | -di | geldi |\n| biz | -dik | geldik |\n| siz | -diniz | geldiniz |\n| onlar | -diler | geldiler |\n\nThe suffix's vowel harmonizes four ways — geldim, kaldım, okudum, gördüm — and its d hardens to t after a voiceless consonant: içtim, yaptık, konuştunuz.",
       "culture_note": "",
       "references": [
         {
@@ -1399,7 +1399,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "-ecek/-acak marks the future; before a vowel ending the k softens to ğ: aramak → arayacağım (I will call), gelmek → gelecekler (they will come).\n\nThe buffer -y- appears after vowel stems.",
+      "explanation": "-ecek/-acak marks the future: -ecek after a front vowel, -acak after a back vowel.\n\n| Person | Ending | Example |\n| --- | --- | --- |\n| ben | -eceğim | geleceğim |\n| sen | -eceksin | geleceksin |\n| o | -ecek | gelecek |\n| biz | -eceğiz | geleceğiz |\n| siz | -eceksiniz | geleceksiniz |\n| onlar | -ecekler | gelecekler |\n\nThe k softens to ğ before a vowel, which is why the ben and biz forms have ğ.\n\nA vowel-final stem takes a buffer -y-: ara → arayacağım, bekle → bekleyeceksiniz. A few stems in t voice it: git → gideceğiz.",
       "culture_note": "",
       "references": [
         {
@@ -1481,7 +1481,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The dative marks direction ('to'): ev → eve (to home), okul → okula (to school).\n\nA buffer -y- appears after vowels: araba → arabaya.\n\nVerbs of motion and giving take it: Okula gidiyorum, Anneme verdim.",
+      "explanation": "The dative marks direction ('to'): ev → eve (to home), okul → okula (to school), park → parka (to the park).\n\nA buffer -y- appears after a vowel: araba → arabaya, masa → masaya. Ben and sen are irregular here: bana (to me), sana (to you).\n\nVerbs of motion and giving take it: Okula gidiyorum, Anneme verdim.\n\nA proper noun takes an apostrophe before the suffix: İstanbul'a, Ankara'ya.",
       "culture_note": "",
       "references": [
         {
@@ -1563,7 +1563,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The ablative marks source ('from'): iş → işten (from work; voiceless ş hardens d→t), okul → okuldan (from school).\n\nIt also builds comparisons and material: taştan (of stone).",
+      "explanation": "The ablative marks source ('from'): iş → işten (from work), okul → okuldan (from school). Its d hardens to t after f, s, t, k, ç, ş, h, p.\n\n| Last vowel | After a voiced sound | After a voiceless consonant |\n| --- | --- | --- |\n| e, i, ö, ü | -den | -ten |\n| a, ı, o, u | -dan | -tan |\n\nIt also builds comparisons and states material: benden büyük (bigger than me), taştan (of stone). Some verbs need it: Köpekten korkuyorum (I fear dogs). A proper noun takes an apostrophe first: İstanbul'dan.",
       "culture_note": "",
       "references": [
         {
@@ -1641,7 +1641,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Ownership marks BOTH nouns: the owner takes genitive -(n)in, the owned takes the possessive: öğretmenin evi (the teacher's house), arabanın kapısı (the car's door, with buffer -s- after a vowel).",
+      "explanation": "Ownership marks BOTH nouns: the owner takes the genitive, the owned takes the third-person possessive. Each ending harmonises with the last vowel, and each grows its own buffer consonant after a final vowel:\n\n| Slot | Ending | After a final vowel |\n| --- | --- | --- |\n| owner | -in | -nin |\n| owned | -i | -si |\n\nöğretmenin evi (the teacher's house), arabanın kapısı (the car's door), odanın anahtarı (the key to the room). A final p/ç/t/k softens before the possessive: yemek → annemin yemeği (my mother's cooking).",
       "culture_note": "",
       "references": [
         {
@@ -1719,7 +1719,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "The aorist covers habits, general truths, and offers: içmek → içerim (I drink [habitually]), kalkmak → kalkar (he gets up).\n\nSingle-syllable stems mostly take -ar/-er; longer stems take -ir/-ır/-ur/-ür.",
+      "explanation": "The aorist covers habits, general truths, and offers: içmek → içerim (I drink [habitually]), kalkmak → kalkar (he gets up).\n\nWhich shape the suffix takes depends on the stem:\n\n| Stem | Aorist suffix | Example |\n| --- | --- | --- |\n| ends in a vowel | -r | oku → okur |\n| one syllable | -ar / -er | kalk → kalkar |\n| two syllables or more | -ır / -ir / -ur / -ür | çalış → çalışır |\n\nAbout a dozen very common one-syllable stems take the long suffix anyway: al → alır, bil → bilir, bul → bulur, gel → gelir, gör → görür, kal → kalır, ol → olur, ver → verir.",
       "culture_note": "The aorist is also the politeness tense: 'Bir çay alır mısınız?' (Would you take a tea?).",
       "references": [
         {
@@ -1801,7 +1801,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "-(y)ebil/-(y)abil expresses ability and permission: konuşmak → konuşabilirim (I can speak), gelmek → gelebilir (he can come).\n\nIt conjugates like an aorist afterward.",
+      "explanation": "-(y)ebil/-(y)abil expresses ability and permission: konuşmak → konuşabilirim (I can speak), gelmek → gelebilir (he can come).\n\nAfter the suffix the verb conjugates like an aorist: gelebilirim (I can come), gelebiliriz (we can come). A buffer -y- joins it to a vowel-final stem: oyna → oynayabilir (he can play).",
       "culture_note": "",
       "references": [
         {
@@ -1961,7 +1961,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "ile = with/by (arkadaşım ile / arkadaşımla — it often fuses as -le/-la); için = for (senin için, bu iş için). Pronouns take genitive before için: benim için (for me).",
+      "explanation": "ile = with/by (arkadaşım ile / arkadaşımla — it often fuses as -le/-la); için = for (senin için, bu iş için).\n\nPronouns take the genitive before both: benim için (for me), benimle (with me). The fused -le/-la harmonises with the last vowel and takes a buffer -y- after one: kalem → kalemle, araba → arabayla.",
       "culture_note": "",
       "references": [
         {
@@ -2117,7 +2117,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The aorist negates irregularly: -mem (I), -mezsin, -mez, -meyiz, -mezsiniz, -mezler: et yemem (I don't eat meat), yalan söylemez (he doesn't lie).",
+      "explanation": "The aorist negates irregularly: the positive's -ar/-ır choice disappears, and the first person has no z.\n\n| Person | Front vowel | Back vowel |\n| --- | --- | --- |\n| I | -mem | -mam |\n| you | -mezsin | -mazsın |\n| he / she / it | -mez | -maz |\n| we | -meyiz | -mayız |\n| you (plural) | -mezsiniz | -mazsınız |\n| they | -mezler | -mazlar |\n\net yemem (I don't eat meat), yalan söylemez (he doesn't lie), geç kalmaz (he is never late).",
       "culture_note": "",
       "references": [
         {
@@ -2195,7 +2195,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "-miş marks hearsay, inference, and surprise — the un-witnessed past: Dün yağmur yağmış (It apparently rained yesterday), Çok yorulmuşsun (You must be really tired). Turkish forces you to say HOW you know.",
+      "explanation": "**-miş** is the un-witnessed past — Turkish forces you to say HOW you know. It harmonises four ways (-miş, -mış, -muş, -müş) and the personal ending follows it: yorulmuşsun, unutmuşum.\n\n- hearsay: Dün yağmur yağmış (it apparently rained yesterday)\n- inference: Çok yorulmuşsun (you must be really tired)\n- realising something on the spot: Anahtarımı evde unutmuşum (I must have left my keys at home)",
       "culture_note": "This -di/-miş split is one of Turkish's signatures: saying 'geldi' claims you saw it; 'gelmiş' says you found out.",
       "references": [
         {
@@ -2277,7 +2277,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "-meli/-malı expresses obligation: kalkmalıyım (I must get up), çalışmalısın (you should study), gitmeliyiz (we must go).",
+      "explanation": "-meli/-malı expresses obligation: kalkmalıyım (I must get up), çalışmalısın (you should study), gitmeliyiz (we must go), gitmeli (she should go).\n\nThe third person takes no ending; negation goes on the stem, in front of -meli: içmemelisin (you shouldn't drink), gitmemeliyiz (we shouldn't go).",
       "culture_note": "",
       "references": [
         {
@@ -2433,7 +2433,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Infinitives act as nouns: Kitap okumak güzeldir (Reading books is nice). As an object the -me form takes case: Yüzmeyi seviyorum (I love swimming — yüzme + accusative).",
+      "explanation": "A verb becomes a noun in two shapes: the infinitive -mek/-mak, and the verbal noun -me/-ma, which is what case endings normally attach to.\n\n- as a subject, the plain infinitive: Kitap okumak güzeldir (reading books is nice)\n- as a definite object, -me plus the accusative: Yüzmeyi seviyorum (I love swimming)\n- after a verb that governs the ablative, the ending goes on the infinitive: Koşmaktan hoşlanırım (I enjoy running)",
       "culture_note": "",
       "references": [
         {
@@ -2511,7 +2511,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "gibi = like (Aslan gibi güçlü — strong like a lion); kadar = as much as (Senin kadar hızlı değilim — I'm not as fast as you; pronouns take genitive before kadar).",
+      "explanation": "gibi = like (Aslan gibi güçlü — strong like a lion); kadar = as much as (Senin kadar hızlı değilim — I'm not as fast as you).\n\nA noun in front of either stays bare: aslan gibi, babası kadar, İstanbul kadar. A pronoun takes the genitive: benim gibi, senin kadar.",
       "culture_note": "",
       "references": [
         {
@@ -2667,7 +2667,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "-en/-an turns a verb into 'the one who…': gelen adam (the man who is coming), kitap okuyan kız (the girl reading a book). It replaces English 'who/that' clauses where the head noun is the subject.",
+      "explanation": "-en/-an turns a verb into 'the one who…': gelen adam (the man who is coming), kitap okuyan kız (the girl reading a book). It replaces English 'who/that' clauses where the head noun is the subject.\n\nA buffer -y- appears after a vowel-final stem: oku → okuyan, oyna → oynayan. The negative is -meyen/-mayan: beni anlamayan insanlar (people who don't understand me).",
       "culture_note": "",
       "references": [
         {
@@ -2749,7 +2749,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "When the head noun is the OBJECT, use -dik + possessive: okuduğum kitap (the book that I read), senin yaptığın yemek (the food you made). The possessive shows who did it; k softens to ğ before vowels.",
+      "explanation": "A relative clause takes -dik plus a possessive whenever its head noun is not the subject — the thing done, but also the place or the time: okuduğum kitap (the book that I read), yaşadığın şehir (the city you live in).\n\nThe possessive names the doer — from okumak:\n\n| Possessor | Form |\n| --- | --- |\n| benim | okuduğum |\n| senin | okuduğun |\n| onun | okuduğu |\n| bizim | okuduğumuz |\n| sizin | okuduğunuz |\n| onların | okudukları |\n\nThe suffix hardens after a voiceless consonant (yapmak → yaptığın) and its k softens to ğ before a vowel, but stays k before a consonant: okudukları.",
       "culture_note": "",
       "references": [
         {
@@ -2831,7 +2831,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The passive inserts -il (after consonants), -in (after l), or -n (after vowels): yapmak → yapıldı (it was built), içmek → içilir (it is drunk): Bu ev 1950'de yapıldı.",
+      "explanation": "The passive drops the doer and makes the object the subject. Its marker sits on the stem, before the tense ending, and its shape depends on how the stem ends:\n\n- after a vowel — `-n`: temizle- → temizlenir (it is cleaned)\n- after `l` — `-in`: bil- → bilinir (it is known)\n- after any other consonant — `-il`: yap- → yapıldı (it was built), iç- → içilir (it is drunk)\n\nAll three harmonise: -il is also -ıl, -ul, -ül. Bu ev 1950'de yapıldı (This house was built in 1950).",
       "culture_note": "",
       "references": [
         {
@@ -2987,7 +2987,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Reported clauses nominalize with -dik/-ecek + possessive + case: Geleceğini söyledi (He said he would come — gelecek+i+ni), Hasta olduğunu duydum (I heard that he was sick).",
+      "explanation": "A reported clause becomes a noun phrase: participle, then possessive, then case. The participle is `-dik` for what is already so and `-ecek` for what is not yet; the possessive names its subject; the case is whatever the reporting verb takes, and söylemek, duymak and bilmek take the accusative. geleceğini is gel + ecek + i + ni, with k softening to ğ.\n\nGeleceğini söyledi (He said he would come), Hasta olduğunu duydum (I heard that he was sick), Sınavı geçeceğini biliyordum (I knew that you would pass the exam).",
       "culture_note": "",
       "references": [
         {
@@ -3065,7 +3065,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "-ip links same-subject actions ('and then'): Kahvaltı yapıp evden çıktım (I had breakfast and left). -erek expresses manner ('by/while doing'): Koşarak geldi (He came running).",
+      "explanation": "-ip chains same-subject actions ('and then') and takes no tense or person itself — the final verb carries them for both halves: Kahvaltı yapıp evden çıktım (I had breakfast and left the house), Kapıyı kapatıp gitti (He closed the door and left).\n\n-erek gives the manner instead ('by/while …ing'): Koşarak geldi (He came running), Müzik dinleyerek ders çalışıyorum (I study while listening to music).\n\nBoth harmonise — `-ip` four ways, `-erek` two — and take a buffer y after a vowel-final stem: yıkayıp, dinleyerek.",
       "culture_note": "",
       "references": [
         {
@@ -3147,7 +3147,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "-dikçe means 'as / the more / as long as': Okudukça öğreniyorum (The more I read, the more I learn), Sen güldükçe ben mutlu oluyorum (As you laugh, I become happy).",
+      "explanation": "`-dikçe` goes straight on the stem, with no person ending; it harmonises four ways and hardens after a voiceless consonant (geçtikçe). Three readings:\n\n- the more … the more: Okudukça öğreniyorum (The more I read, the more I learn)\n- as, whenever: Sen güldükçe ben mutlu oluyorum (As you laugh, I become happy)\n- on a negative stem, as long as … not: Özür dilemedikçe seninle konuşmam (As long as you don't apologise, I won't speak to you)",
       "culture_note": "",
       "references": [
         {
@@ -3225,7 +3225,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "-meden = without doing: Veda etmeden gitti (He left without saying goodbye), Hiç çalışmadan sınavı geçti (He passed the exam without studying at all).",
+      "explanation": "-meden means 'without …ing' — the negative stem plus the ablative, with no person ending, so its subject is the main verb's; after a back vowel it is -madan: Veda etmeden gitti (He left without saying goodbye), Hiç çalışmadan sınavı geçti (He passed the exam without studying at all), Bana sormadan nasıl karar verdin? (How did you decide without asking me?)",
       "culture_note": "",
       "references": [
         {
@@ -3303,7 +3303,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "-in makes reflexives: yıkanmak (wash oneself) — Kedi yıkanıyor. -iş makes reciprocals: tanışmak (meet each other) — Biz üniversitede tanıştık (We met at university).",
+      "explanation": "Two voices share one slot, each with a short shape after a vowel:\n\n| Voice | Consonant stem | Vowel stem |\n| --- | --- | --- |\n| reflexive | -in | -n |\n| reciprocal | -iş | -ş |\n\nReflexive — the subject acts on itself: giyin (get dressed), Kedi yıkanıyor (The cat is washing itself).\n\nReciprocal — they act on each other: Biz üniversitede tanıştık (We met at university), Her gün görüşüyorlar (They see each other daily).\n\nBoth harmonise: -in is also -ın, -un, -ün; -iş is also -ış, -uş, -üş.",
       "culture_note": "",
       "references": [
         {
@@ -3381,7 +3381,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "-dik + possessive + için = because: Hasta olduğu için gelmedi (He didn't come because he was sick), Geç kaldığı için özür diledi (He apologized because he was late).",
+      "explanation": "-dik + possessive + için = 'because', the possessive agreeing with the subject of the reason clause and a negative sitting before it: Hasta olduğu için gelmedi (He didn't come because he was sick), Erken kalktığım için yorgunum (I am tired because I got up early), Bilet almadığımız için giremedik (Because we didn't buy tickets, we couldn't get in).\n\nThe suffix hardens after a voiceless consonant (kalktığım, ettiğin), as with the object participle.",
       "culture_note": "",
       "references": [
         {
@@ -3459,7 +3459,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "-mekte(dir) is the formal register's progressive, standard in news and reports: Toplantı devam etmektedir (The meeting is in progress), Fiyatlar artmaktadır (Prices are rising).",
+      "explanation": "`-mekte` (`-makta` after a back vowel) is the verbal noun `-mek` in the locative — 'in the doing of' — and it is the formal register's progressive, standard in news and reports; `-dir` normally follows. The pieces stack in one order: voice, then negative, then the suffix, then `-dir`.\n\n- plain: Toplantı devam etmektedir (The meeting is in progress)\n- passive: Proje üzerinde çalışılmaktadır (Work is ongoing on the project)\n- negative: Bu ilaç aynı etkiyi göstermemektedir (This medicine does not show the same effect)",
       "culture_note": "",
       "references": [
         {
@@ -3537,7 +3537,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Perfective participle + gibi = as if / pretending: Duymamış gibi yaptı (He pretended not to have heard), Hiçbir şey olmamış gibi davrandı (He acted as if nothing had happened).",
+      "explanation": "A participle plus gibi says 'as if' — -mış for something already over, -iyormuş for something still going on: Duymamış gibi yaptı (He pretended not to have heard), Uyuyormuş gibi yaptım (I pretended to be asleep), Hiçbir şey bilmiyormuş gibi konuşuyor (He talks as if he doesn't know anything).\n\ngibi yapmak is literally 'to do as if' — the everyday way to say pretend; gibi davranmak is 'to act as if': Hiçbir şey olmamış gibi davrandı (He acted as if nothing had happened).",
       "culture_note": "",
       "references": [
         {
@@ -3615,7 +3615,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "-eceğine = instead of (doing): Televizyon izleyeceğine kitap oku (Instead of watching TV, read a book), Şikayet edeceğine çözüm bul (Instead of complaining, find a solution).",
+      "explanation": "The build is the future participle plus a possessive plus the dative, so the ending agrees with whoever would have done the abandoned thing: Televizyon izleyeceğine kitap oku (Instead of watching TV, read a book), Yeni telefon alacağıma eskisini tamir ettirdim (Instead of buying a new phone, I had my old one repaired).\n\nSo yapacağına is yap + acak + ı + na, with k softening to ğ. It harmonises as -acağına / -eceğine and takes a buffer y after a vowel-final stem: ağlayacağına, harcayacağına.",
       "culture_note": "",
       "references": [
         {
@@ -3693,7 +3693,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "ne (what), kim (who), nerede (where — and it takes case like any noun: nereye where to, nereden where from), ne zaman (when), neden / niçin (why), nasıl (how), kaç (how many/much).\n\nWith a question word present, you don't need the mı particle — the word itself makes it a question: Nerede oturuyorsun?",
+      "explanation": "Turkish asks open questions with a small set of words:\n\n| Word | Meaning |\n| --- | --- |\n| ne | what |\n| kim | who |\n| nerede | where |\n| ne zaman | when |\n| neden / niçin | why |\n| nasıl | how |\n| kaç | how many |\n\nThey inflect like nouns: nereye (where to), nereden (where from), kime (to whom), kimin (whose).\n\nThe word neden is itself ne plus the ablative ending. After kaç the noun stays singular: Kaç kardeşin var? (How many siblings do you have?)\n\nA question word makes the sentence a question by itself, so it does not take mı as well, and it usually sits where the answer would sit rather than at the front: Nerede oturuyorsun? (Where do you live?)",
       "culture_note": "",
       "references": [
         {
@@ -3785,7 +3785,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "'To be' sentences negate with değil, which carries the personal ending: Ben doktor değilim (I'm not a doctor). Sen yorgun değilsin. O evde değil. Biz hazır değiliz.\n\nKeep the three negatives apart: verbs take -m- inside (gelmiyorum), var flips to yok, and everything 'to be' takes değil.",
+      "explanation": "'To be' sentences negate with **değil**, a separate word after what is being denied; it carries the personal ending: Ben doktor değilim (I'm not a doctor), Bugün hava soğuk değil (The weather isn't cold today).\n\n| Person | Form |\n| --- | --- |\n| ben | değilim |\n| sen | değilsin |\n| o | değil |\n| biz | değiliz |\n| siz | değilsiniz |\n| onlar | değiller |\n\nTurkish has three negatives — keep them apart:\n\n- 'to be' sentences: değil (Yorgun değilim)\n- existence: var flips to yok (Evde kimse yok)\n- every other verb: `-me` inside the verb, before the tense ending (gelmiyorum, gitmedi)",
       "culture_note": "",
       "references": [
         {

@@ -191,7 +191,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The -na- marker between the subject prefix and the verb stem covers 'am doing' and simple present: ni-na-soma → ninasoma (I am reading / I read), a-na-kula → anakula (she is eating).\n\nStructure is always SUBJECT–TENSE–(object)–STEM.",
+      "explanation": "The -na- marker between the subject prefix and the verb stem covers 'am doing' and simple present: ni-na-soma → ninasoma (I am reading / I read), a-na-kula → anakula (she is eating).\n\nOne-syllable stems keep the ku- of the infinitive in this tense: -la → anakula, -nywa → anakunywa, -ja → tunakuja.\n\nStructure is always SUBJECT–TENSE–(object)–STEM.",
       "culture_note": "",
       "references": [
         {
@@ -269,7 +269,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Swahili nouns belong to classes marked by prefixes.\n\nClass 1/2 covers people: m-/mw- singular, wa- plural — mtu/watu (person/people), mtoto/watoto (child/children), mwalimu/walimu (teacher/s).\n\nThe class controls agreement on verbs and adjectives.",
+      "explanation": "Swahili nouns belong to classes marked by prefixes. Class 1/2 covers people: m- before a consonant, mw- before a vowel, wa- for the plural.\n\n| singular | plural | meaning |\n| --- | --- | --- |\n| mtu | watu | person |\n| mtoto | watoto | child |\n| mwalimu | walimu | teacher |\n\nThe class controls agreement — a- on the verb for one person, wa- for many: Mtoto anacheza (The child is playing), Watoto wanacheza (The children are playing).\n\nKinship words and a few borrowings carry no m- at all (baba, mama, rafiki), but they take class 1/2 agreement all the same: Baba anafanya kazi (Father is working).",
       "culture_note": "The class system replaces gender and articles at once; there are around 15 classes, met a few at a time.",
       "references": [
         {
@@ -347,7 +347,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Class 7/8 mostly covers things: ki- singular, vi- plural — kitabu/vitabu (book/s), kiti/viti (chair/s), kitu/vitu (thing/s).\n\nVerbs agree with ki-/vi- for these nouns: Kitabu kinapendeza (The book is pleasing).",
+      "explanation": "Class 7/8 mostly covers things: ki- in the singular, vi- in the plural. Before a vowel they appear as ch- and vy-: chakula/vyakula (food/foods).\n\n| singular | plural | meaning |\n| --- | --- | --- |\n| kitabu | vitabu | book |\n| kiti | viti | chair |\n| kitu | vitu | thing |\n\nVerbs agree with the class as well: Kitabu kinapendeza (The book is pleasing), Vitabu vinapendeza (The books are pleasing).",
       "culture_note": "Ki- also makes languages and styles: Kiswahili, Kiingereza (English), kifaransa — 'the Swahili way' extended to 'the Swahili language'.",
       "references": [
         {
@@ -421,7 +421,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Negate the present with a negative subject prefix and a final -i: si- (I), hu- (you), ha- (he/she), hatu-, ham-, hawa-.\n\nThe -na- disappears and final -a becomes -i: ninasoma → sisomi (I don't read), anakula → hali (she doesn't eat... from -la).",
+      "explanation": "The present negative swaps the subject prefix for a negative one and drops -na- altogether.\n\n| person | negative prefix |\n| --- | --- |\n| I | si- |\n| you | hu- |\n| he, she | ha- |\n| we | hatu- |\n| you (plural) | ham- |\n| they | hawa- |\n\nA stem ending in -a also changes that vowel to -i: ninasoma → sisomi (I don't read), anakula → hali (she doesn't eat, from the stem -la). Verbs borrowed from Arabic keep their own final vowel: ninasafiri → sisafiri (I don't travel).",
       "culture_note": "",
       "references": [
         {
@@ -643,7 +643,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Question words usually follow the verb: Unasoma nini? (What are you reading?), Nani anakuja? (Who is coming?), Unaenda wapi? (Where are you going?).\n\nYes/no questions need only rising intonation or an optional opening 'Je,'.",
+      "explanation": "Question words usually follow the verb: Unasoma nini? (What are you reading?), Unaenda wapi? (Where are you going?). One that is the subject stays in subject position: Nani anakuja? (Who is coming?).\n\n| word | asks |\n| --- | --- |\n| nini | what |\n| nani | who |\n| wapi | where |\n| lini | when |\n| gani | which, what kind |\n| kwa nini | why |\n| -ngapi | how many |\n\nGani follows its noun, and -ngapi takes the class prefix of the noun it counts: vitabu vingapi? (how many books?). A name is asked with nani, not nini.\n\nYes/no questions need only rising intonation or an optional opening 'Je,'.",
       "culture_note": "",
       "references": [
         {
@@ -733,7 +733,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Adjectives take the noun's class prefix: mtoto mzuri (a good child) / watoto wazuri; kitabu kizuri / vitabu vizuri. A small set of adjectives (-zuri good, -baya bad, -kubwa big, -dogo small) covers most A1 needs.",
+      "explanation": "An adjective follows its noun and takes the noun's class prefix.\n\n| class | singular | plural |\n| --- | --- | --- |\n| 1/2 | mtoto mzuri | watoto wazuri |\n| 7/8 | kitabu kizuri | vitabu vizuri |\n| 9/10 | nyumba nzuri | nyumba nzuri |\n\nClass 9/10 keeps n- before some stems (nzuri, ndogo, mbaya) and drops it before others: nyumba kubwa.\n\nA small set of adjectives covers most A1 needs: -zuri (good), -baya (bad), -kubwa (big), -dogo (small), -ingi (many). A stem beginning with a vowel merges with the prefix: watu wengi (many people), matunda mengi (many fruits).",
       "culture_note": "",
       "references": [
         {
@@ -881,7 +881,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The object goes INSIDE the verb, right before the stem: ni-na-ku-penda → ninakupenda (I love you), a-li-ni-ona → aliniona (she saw me), ni-na-ki-soma → ninakisoma (I am reading it, ki- for a class-7 thing).",
+      "explanation": "The object goes INSIDE the verb, right before the stem: ni-na-ku-penda → ninakupenda (I love you), a-li-ni-ona → aliniona (she saw me), ni-na-ki-soma → ninakisoma (I am reading it, ki- for a class-7 thing).\n\n| object | infix |\n| --- | --- |\n| me | -ni- |\n| you | -ku- |\n| him, her | -m- |\n| us | -tu- |\n| you (plural) | -wa- |\n| them | -wa- |\n\nThe infix -m- becomes -mw- before a vowel (alimwona), and one -wa- serves both 'you (plural)' and 'them'. With a human object the infix is normally there even when the noun is named: Nilimwona Juma (I saw Juma).",
       "culture_note": "One verb can be a whole sentence: 'Nitakupikia' = I will cook for you.",
       "references": [
         {
@@ -955,7 +955,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Class 5/6 nouns take (ji)- in the singular and ma- in the plural: jina/majina (name/s), yai/mayai (egg/s), gari/magari (car/s).\n\nAgreement uses li-/ya-: Gari limefika (The car has arrived), Magari yamefika.",
+      "explanation": "Class 5/6 nouns take ma- in the plural: jina/majina (name/s), yai/mayai (egg/s), gari/magari (car/s). Most have no prefix at all in the singular; ji- turns up mainly before short stems (jicho, jiwe).\n\nAgreement uses li- in the singular and ya- in the plural: Gari limefika (The car has arrived), Magari yamefika (The cars have arrived).",
       "culture_note": "",
       "references": [
         {
@@ -1029,7 +1029,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Class 9/10 nouns look identical in singular and plural: nyumba (house/houses), ndizi (banana/s), simu (phone/s).\n\nAgreement tells you the number: Nyumba hii (this house) vs nyumba hizi (these houses); i-/zi- on verbs: Nyumba imejengwa / zimejengwa.",
+      "explanation": "Class 9/10 nouns look identical in singular and plural: nyumba (house/houses), ndizi (banana/s), simu (phone/s).\n\nOnly the agreement shows the number:\n\n| number | demonstrative | verb prefix |\n| --- | --- | --- |\n| singular | hii | i- |\n| plural | hizi | zi- |\n\nSo Nyumba hii imejengwa (This house has been built) but Nyumba hizi zimejengwa (These houses have been built).",
       "culture_note": "",
       "references": [
         {
@@ -1103,7 +1103,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Possessive stems are -angu (my), -ako (your), -ake (his/her), -etu (our), -enu (your pl.), -ao (their), and they take the noun's class agreement: kitabu changu (my book), nyumba yangu (my house), watoto wangu (my children).",
+      "explanation": "Possessive stems are -angu (my), -ako (your), -ake (his/her), -etu (our), -enu (your pl.), -ao (their).\n\nThey take the concord of the thing owned, not of the owner: kitabu changu (my book), vitabu vyangu (my books), nyumba yangu (my house), nguo zangu (my clothes), watoto wangu (my children), gari lake (his car).",
       "culture_note": "",
       "references": [
         {
@@ -1177,7 +1177,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "'Of' agrees with the FIRST noun: mtoto wa mwalimu (the teacher's child), kitabu cha mtoto (the child's book), nyumba ya Juma (Juma's house), majina ya watoto (the children's names).",
+      "explanation": "'Of' agrees with the FIRST noun — the thing possessed, not the possessor: mtoto wa mwalimu (the teacher's child), kitabu cha mtoto (the child's book), nyumba ya Juma (Juma's house), majina ya watoto (the children's names).\n\nEach class has its own form, the class concord plus -a:\n\n| class | form |\n| --- | --- |\n| 1/2 | wa |\n| 5 | la |\n| 6 | ya |\n| 7 | cha |\n| 8 | vya |\n| 9 | ya |\n| 10 | za |",
       "culture_note": "",
       "references": [
         {
@@ -1251,7 +1251,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "'Have' is 'be with': nina (I have, from ni-na), una, ana, tuna, mna, wana — Nina kitabu (I have a book).\n\nNegative: sina, huna, hana…\n\nSina pesa (I have no money). Past: nilikuwa na (I had).",
+      "explanation": "Swahili has no verb 'to have': it says 'be with', fusing the subject prefix with **na**.\n\n| Person | Has | Does not have |\n| --- | --- | --- |\n| mimi | nina | sina |\n| wewe | una | huna |\n| yeye | ana | hana |\n| sisi | tuna | hatuna |\n| ninyi | mna | hamna |\n| wao | wana | hawana |\n\nNina kitabu (I have a book), Sina pesa (I have no money).\n\nOther tenses put the tense on kuwa and leave na standing: nilikuwa na gari (I had a car), nitakuwa na gari (I will have a car).",
       "culture_note": "",
       "references": [
         {
@@ -1325,7 +1325,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "The bare stem commands one person: Soma! (Read!), Njoo! (Come!, irregular).\n\nPlural adds -eni: Someni! The negative command uses usi-/msi- + -e: Usisome! (Don't read!).\n\nSofter requests use the subjunctive: Tafadhali usome (Please read).",
+      "explanation": "The bare verb stem is the command to one person: **soma**! A group adds `-eni`, and a negative command uses `usi-` for one person or `msi-` for a group, with the final vowel `-e`.\n\n| Command | One person | A group |\n| --- | --- | --- |\n| do it | soma! | someni! |\n| don't do it | usisome! | msisome! |\n\nMonosyllabic verbs keep the ku- of the infinitive: Kunywa maji! (Drink water!), Kula! (Eat!).\n\nKuja is irregular: Njoo! (Come!), Njooni! to a group.\n\nSofter requests use the subjunctive: Tafadhali usome (Please read).",
       "culture_note": "",
       "references": [
         {
@@ -1399,7 +1399,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Verbs ending in -a switch to -e (no tense marker) after wanting, asking, and purpose: Nataka usome (I want you to read), Alikuja tuzungumze (He came so that we talk), Nifanye nini? (What should I do?).",
+      "explanation": "A verb ending in `-a` swaps that vowel for `-e` and takes no tense marker:\n\n- after wanting or telling: Nataka usome kitabu (I want you to read the book)\n- for purpose: Alikuja tuzungumze (He came so that we could talk)\n- for a suggestion or a deliberative question: Nifanye nini? (What should I do?)\n\nVerbs borrowed from Arabic keep their own final vowel: rudi → urudi (that you return), jibu → ujibu (that you answer), samehe → usamehe (that you forgive).",
       "culture_note": "",
       "references": [
         {
@@ -1473,7 +1473,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Negative past uses -ku-: sikusoma (I didn't read), hawakuja (they didn't come). Negative future keeps -ta-: sitasoma (I won't read), hatakuja (she won't come).\n\nThe negative subject prefixes are the same as the present ones.",
+      "explanation": "The negative past marker is `-ku-`; the negative future keeps `-ta-`. The negative subject prefixes are the same ones the present negative uses.\n\n| Person | Did not read | Will not read |\n| --- | --- | --- |\n| mimi | sikusoma | sitasoma |\n| wewe | hukusoma | hutasoma |\n| yeye | hakusoma | hatasoma |\n| sisi | hatukusoma | hatutasoma |\n| ninyi | hamkusoma | hamtasoma |\n| wao | hawakusoma | hawatasoma |\n\nA monosyllabic verb keeps its own ku- in the future — hatakuja (she won't come) — while in the past that ku- and the marker are one: hawakuja (they didn't come).",
       "culture_note": "",
       "references": [
         {
@@ -1547,7 +1547,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Two strategies: amba- plus the class marker — mtu ambaye anasoma (the person who reads), kitabu ambacho nilinunua (the book which I bought) — or the relative infix inside the verb: mtu anayesoma, kitabu nilichonunua.\n\nAmba- is easier; the infix is more compact.",
+      "explanation": "Swahili has two ways to say 'who' or 'which'. **amba-** takes the class marker and stands as its own word; the same marker can instead be infixed into the verb, between the tense and the stem.\n\n| Class | Noun | amba- | Infix |\n| --- | --- | --- | --- |\n| 1 | mtu | ambaye | -ye- |\n| 2 | watu | ambao | -o- |\n| 5 | gari | ambalo | -lo- |\n| 6 | magari | ambayo | -yo- |\n| 7 | kitabu | ambacho | -cho- |\n| 8 | vitabu | ambavyo | -vyo- |\n| 9 | nyumba | ambayo | -yo- |\n| 10 | nyumba | ambazo | -zo- |\n\nMtu ambaye anasoma and mtu anayesoma both say 'the person who is reading'.\n\nThe infix is the more compact of the two, but the -me- perfect has no relative form: mtu ambaye amefika (the person who has arrived) can only be said with amba-.",
       "culture_note": "",
       "references": [
         {
@@ -1621,7 +1621,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Adding -ni turns a noun into a place: nyumba → nyumbani (at home), shule → shuleni (at school).\n\nExistence uses kuna (there is, general), pana (at a definite spot), mna (inside): Shuleni kuna watoto wengi (At school there are many children); negative hakuna.",
+      "explanation": "Adding `-ni` to a noun turns it into a place.\n\nnyumba → nyumbani (at home), shule → shuleni (at school), meza → mezani (on the table).\n\nExistence has one word per place class, each with its own negative:\n\n| Sense | There is | There is not |\n| --- | --- | --- |\n| general | kuna | hakuna |\n| a definite spot | pana | hapana |\n| inside | mna | hamna |\n\nShuleni kuna watoto wengi (At school there are many children). Outside this pattern hapana is the everyday word for 'no'.\n\nTo say where something is, the subject prefix takes -ko, -po or -mo: watoto wako shuleni, chakula kiko mezani.",
       "culture_note": "",
       "references": [
         {
@@ -1695,7 +1695,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "The hu- marker replaces the subject prefix AND the tense for habitual statements: Yeye husoma kila siku (She reads every day), Watu hunywa chai asubuhi (People drink tea in the morning). Context or a noun supplies the subject.",
+      "explanation": "**hu-** replaces the subject prefix and the tense marker together, for what happens as a rule rather than at a particular time. Nothing in the verb names the subject, so a noun or the context supplies it.\n\nYeye husoma kila siku (She reads every day), Watu hunywa chai asubuhi (People drink tea in the morning).\n\nDo not confuse it with the hu- of the present negative, which is the 'you' prefix and ends the verb in -i: husoma (reads, as a rule) but husomi (you do not read).",
       "culture_note": "",
       "references": [
         {
@@ -1769,7 +1769,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "'Ni' has no tense, so other tenses borrow the verb kuwa: alikuwa mwalimu (he was a teacher), nitakuwa daktari (I will be a doctor), tumekuwa marafiki (we have become friends).\n\nSame pattern before na: alikuwa na gari (he had a car).",
+      "explanation": "'Ni' has no tense, so other tenses borrow the verb **kuwa**.\n\n| Person | Was | Will be |\n| --- | --- | --- |\n| mimi | nilikuwa | nitakuwa |\n| wewe | ulikuwa | utakuwa |\n| yeye | alikuwa | atakuwa |\n| sisi | tulikuwa | tutakuwa |\n| ninyi | mlikuwa | mtakuwa |\n| wao | walikuwa | watakuwa |\n\nA non-human subject uses its own class prefix in the same slot: hali ya hewa itakuwa nzuri (the weather will be good).\n\nThe perfect gives 'has become': tumekuwa marafiki (we have become friends). The same forms carry na: alikuwa na gari (he had a car).",
       "culture_note": "",
       "references": [
         {
@@ -1843,7 +1843,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Insert -w- before the final vowel: kusoma → kusomwa (to be read), kupika → kupikwa.\n\nKitabu kilisomwa (The book was read), Chakula kimepikwa (The food has been cooked). The agent, if said, takes na: kilisomwa na mwalimu.",
+      "explanation": "The passive inserts `-w-` before the final vowel; a stem that ends in two vowels takes `-liwa` or `-lewa` instead.\n\npika → pikwa, andika → andikwa, fanya → fanywa, kamata → kamatwa, nunua → nunuliwa, fungua → funguliwa.\n\nChakula kimepikwa (The food has been cooked), Kitabu kilisomwa (The book was read). The agent, if it is named, takes na: kilisomwa na mwalimu.",
       "culture_note": "",
       "references": [
         {
@@ -1921,7 +1921,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The causative extension turns 'do' into 'make do': soma (read) → somesha (teach / make read), lala (sleep) → laza (put to bed, irregular), rudi (return) → rudisha (give back).\n\nMwalimu anawasomesha watoto (The teacher teaches the children).",
+      "explanation": "The causative turns 'do' into 'make do'. Which ending you get depends on the vowel just before the verb's final vowel: a, i and u take `-isha`, while e and o take `-esha`.\n\nrudi (return) → rudisha (give back), simama (stand) → simamisha (bring to a stop), soma (read) → somesha (teach)\n\nA few everyday verbs have a short causative instead:\n\n- lala (sleep) → laza (put to bed)\n- kula (eat) → lisha (feed)\n- chemka (boil) → chemsha (boil something)\n\nMwalimu anawasomesha watoto (The teacher teaches the children).",
       "culture_note": "",
       "references": [
         {
@@ -1995,7 +1995,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The applicative adds a beneficiary: pika (cook) → pikia (cook for) — Ninakupikia chakula (I am cooking food for you); andika → andikia (write to); nunua → nunulia (buy for).\n\nIt pairs naturally with an object infix.",
+      "explanation": "The applicative points the action at someone — done for them, to them, on their behalf. The ending depends on the vowel just before the verb's final vowel: a, i and u take `-ia`, e and o take `-ea`, and a stem ending in two vowels takes `-lia` or `-lea`.\n\npika (cook) → pikia (cook for), andika (write) → andikia (write to), leta (bring) → letea (bring to), nunua (buy) → nunulia (buy for).\n\nNinakupikia chakula (I am cooking food for you). It pairs naturally with an object infix, which names the person who benefits: aliniandikia barua (he wrote me a letter).",
       "culture_note": "",
       "references": [
         {
@@ -2143,7 +2143,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "-ana makes the action mutual: penda → pendana (love each other) — Wanapendana (They love each other); ona → onana (see each other / meet) — Tutaonana kesho (We'll see each other tomorrow); saidia → saidiana (help each other).",
+      "explanation": "-ana makes the action mutual, and the subject is normally plural.\n\npenda (love) → pendana (love each other), ona (see) → onana (meet), saidia (help) → saidiana (help each other), elewa (understand) → elewana (understand each other).\n\nWanapendana (They love each other), Tutaonana kesho (We'll see each other tomorrow).\n\nWith a singular subject the other party comes in after na: nilikutana na rafiki yangu (I met my friend).",
       "culture_note": "'Tutaonana!' is the everyday 'see you!'",
       "references": [
         {
@@ -2217,7 +2217,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "-ki- inside the verb means 'if/when (realistic)': Ukisoma, utafaulu (If you study, you will succeed); Mvua ikinyesha, tutabaki nyumbani (If it rains, we'll stay home).\n\nThe negative counterpart is -sipo-: Usiposoma, hutafaulu.",
+      "explanation": "-ki- inside the verb means 'if/when (realistic)': Ukisoma, utafaulu (If you study, you will succeed); Mvua ikinyesha, tutabaki nyumbani (If it rains, we'll stay home).\n\nThe negative counterpart is -sipo-: Usiposoma, hutafaulu (If you don't study, you won't succeed).",
       "culture_note": "",
       "references": [
         {
@@ -2365,7 +2365,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "In narration, -ka- chains events after an initial past: Alienda sokoni, akanunua ndizi, akarudi nyumbani (He went to the market, then bought bananas, then returned home).\n\nIt keeps stories flowing without repeating -li-.",
+      "explanation": "In narration, -ka- chains events after an initial past: Alienda sokoni, akanunua ndizi, akarudi nyumbani (He went to the market, then bought bananas, then returned home).\n\nMonosyllabic verbs drop the ku- they keep in other tenses: kula → akala, kunywa → akanywa, kuja → akaja.\n\nIt keeps stories flowing without repeating -li-.",
       "culture_note": "Listen for -ka- in any Swahili story or news report — it is the backbone of narrative style.",
       "references": [
         {
@@ -2437,7 +2437,7 @@
       "level": "B1",
       "display_order": 7,
       "function": "Talk about abstracts and long thin things",
-      "explanation": "U- nouns cover abstract ideas (uhuru freedom, upendo love, ukweli truth) and long or thin objects (ukuta wall, ufunguo key, uso face). Subject concord is u- (ukuta ulianguka), the -a of association is wa, and adjectives take m-/mw- (ukuta mrefu).\n\nPlurals jump to the N-class (kuta, funguo, nyuso) with its agreements.",
+      "explanation": "**U-** nouns are abstract ideas (uhuru freedom, upendo love, ukweli truth) and long or thin objects (ukuta wall, ufunguo key, uso face).\n\n| Agreement | Form | Example |\n| --- | --- | --- |\n| subject prefix | u- | ukuta ulianguka |\n| -a of association | wa | ufunguo wa nyumba |\n| adjective | m- / mw- | ukuta mrefu |\n\nPlurals jump to the N-class (kuta, funguo, nyuso) with its agreements. Only the concrete ones pluralise, though — uhuru, upendo and ukweli have no plural.",
       "culture_note": "Uhuru (freedom) is one of the great U-class words of East African political history — Uhuru Park in Nairobi, Uhuru Peak on Kilimanjaro.",
       "source": "contributor",
       "reviewed": false,
@@ -2515,7 +2515,7 @@
       "level": "B1",
       "display_order": 8,
       "function": "Use whole actions as subjects",
-      "explanation": "The infinitive doubles as a noun of class 15: Kusoma ni muhimu (reading is important). As a subject it takes ku- agreements (kunafurahisha), its -a of association is kwa (kucheza kwa watoto), and possessives take kw- (kuimba kwake, her singing).",
+      "explanation": "The infinitive doubles as a noun of class 15: **Kusoma** ni muhimu (reading is important). Its agreements are all built on ku-:\n\n- subject prefix ku- — kunafurahisha (it is pleasing)\n- -a of association kwa — kucheza kwa watoto (the children's playing)\n- possessive kw- — kuimba kwake (her singing)",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2671,7 +2671,7 @@
       "level": "B1",
       "display_order": 10,
       "function": "Point at things in any noun class",
-      "explanation": "'This' is built as h- + the class vowel pattern (huyu mtoto, hiki kitabu, hii nyumba, hili gari, hivi viatu); 'that' swaps to the class concord + -le (yule, kile, ile, lile, vile, wale). Learn them as the class's fingerprint — the demonstrative always tells you the class.",
+      "explanation": "'This' is h- plus the class's vowel pattern; 'that' is the class concord plus -le. The demonstrative always tells you the class — learn it as the class's fingerprint.\n\n| Class | Noun | This | That |\n| --- | --- | --- | --- |\n| 1 | mtoto | huyu | yule |\n| 2 | watoto | hawa | wale |\n| 5 | gari | hili | lile |\n| 6 | magari | haya | yale |\n| 7 | kitabu | hiki | kile |\n| 8 | vitabu | hivi | vile |\n| 9 | nyumba | hii | ile |\n| 10 | nyumba | hizi | zile |",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2817,7 +2817,7 @@
       "level": "B1",
       "display_order": 11,
       "function": "Compare people and things",
-      "explanation": "Swahili compares without changing the adjective: X ni mrefu kuliko Y (X is tall(er) than Y). Zaidi (ya) adds 'more (than)', kama equates (as/like), and the superlative is kuliko wote/zote — 'than all'.",
+      "explanation": "Swahili compares without changing the adjective: X ni mrefu kuliko Y (X is tall(er) than Y).\n\n- kuliko — than\n- zaidi (ya) — more (than)\n- kama — as, like\n- kuliko wote/zote — than all, the superlative; -ote takes the class concord",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2895,7 +2895,7 @@
       "level": "B2",
       "display_order": 6,
       "function": "Say when something happened in one word",
-      "explanation": "-po- inside the verb builds 'when'-clauses: ni-li-po-fika = when I arrived. The future uses -taka-po- (utakapomaliza, when you finish); kila ninapokuja = every time I come.\n\nOne verb does the work of an English clause.",
+      "explanation": "**-po-** slots into the verb and builds a 'when'-clause: ni-li-po-fika.\n\n| Tense | Marker | Example | Meaning |\n| --- | --- | --- | --- |\n| past | -lipo- | nilipofika | when I arrived |\n| present | -napo- | ninapokuja | when I come |\n| future | -takapo- | utakapomaliza | when you finish |\n\nWith kila it reads 'every time': kila ninapokuja.\n\nOne verb does the work of an English clause.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3207,7 +3207,7 @@
       "level": "B2",
       "display_order": 10,
       "function": "Undo a verb with one suffix",
-      "explanation": "The reversive turns an action into its undoing: funga close → fungua open, vaa wear → vua take off, ficha hide → fichua reveal, funika cover → funua uncover, panga arrange → pangua dismantle.\n\nIt stacks with the other verb extensions you know.",
+      "explanation": "The reversive turns an action into its undoing: funga close → fungua open, vaa wear → vua take off, ficha hide → fichua reveal, funika cover → funua uncover, panga arrange → pangua dismantle.\n\nThe suffix is `-ua`, and `-oa` after a root with o (choma stab → chomoa pull out). It stacks with the other verb extensions you know.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3285,7 +3285,7 @@
       "level": "C1",
       "display_order": 4,
       "function": "Concede a point and push past it",
-      "explanation": "Ingawa and ijapokuwa open 'although'-clauses; japo does the same solo; licha ya takes a noun ('despite'); hata hivyo pivots a whole sentence ('even so'). Hata + -ki- makes 'even if' (hata akijaribu).",
+      "explanation": "Which opener you use depends on what follows it.\n\n- ingawa, ijapokuwa — although, before a full clause\n- japo — the same, standing alone\n- licha ya — despite, before a noun\n- hata hivyo — even so, pivoting a whole sentence\n- hata plus -ki- on the verb — even if (hata akijaribu)",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3363,7 +3363,7 @@
       "level": "C1",
       "display_order": 5,
       "function": "Say 'that's exactly the one / when / how'",
-      "explanation": "Ndi- + the class's relative -o builds identity emphasis: ndiye (he's the one), ndipo (that's precisely when/where), ndivyo (that's exactly how), ndicho/ndilo/ndio for the other classes.\n\nIt's how Swahili clefts a sentence without changing word order.",
+      "explanation": "**Ndi-** + the class's relative -o builds identity emphasis:\n\n| Class | Relative | Emphatic | Meaning |\n| --- | --- | --- | --- |\n| 1 | -ye | ndiye | he is the one |\n| 2 | -o | ndio | they are the ones |\n| 5 | -lo | ndilo | that is the one |\n| 7 | -cho | ndicho | that is the one |\n| 8 | -vyo | ndivyo | that is exactly how |\n| 9 | -yo | ndiyo | that is the one |\n| 16 | -po | ndipo | that is precisely when or where |\n\nIt's how Swahili clefts a sentence without changing word order.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3441,7 +3441,7 @@
       "level": "C1",
       "display_order": 6,
       "function": "Warn about what happens if not",
-      "explanation": "-sipo- packs 'if…not / unless' into the verb: u-sipo-fanya kazi = unless you work. It slots where -ki- and -po- go and pairs naturally with a future consequence.",
+      "explanation": "**-sipo-** packs 'if…not / unless' into the verb: u-sipo-fanya kazi = unless you work. It slots where `-ki-` and `-po-` go and pairs naturally with a future consequence.\n\nThe subject prefix stays in its positive shape — usipofanya, tusipoondoka, asipokuja — never the negative hu-, hatu-, ha-.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3519,7 +3519,7 @@
       "level": "C1",
       "display_order": 7,
       "function": "Say what something is FOR",
-      "explanation": "Ili introduces purpose and the verb after it goes subjunctive: ninasoma ili nifaulu (I study so that I pass). The subject can switch mid-sentence — ili hewa iingie (so that air comes in).",
+      "explanation": "**Ili** introduces purpose and the verb after it goes subjunctive: ninasoma ili nifaulu (I study so that I pass). The subject can switch mid-sentence — ili hewa iingie (so that air comes in).",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3597,7 +3597,7 @@
       "level": "C2",
       "display_order": 1,
       "function": "Paint two actions in one stroke",
-      "explanation": "Beyond 'if', -ki- marks an action running alongside the main one: waliondoka wakiimba (they left singing), nilimwona akitembea (I saw him walking). English needs '-ing'; Swahili reuses -ki- with the subject repeated on both verbs.",
+      "explanation": "Beyond 'if', -ki- marks an action running alongside the main one: waliondoka wakiimba (they left singing), nilimwona akitembea (I saw him walking). English needs '-ing'; Swahili reuses -ki-, and the -ki- verb takes its own subject prefix — the main verb's subject in wakiimba, but the object's in akitembea.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3908,7 +3908,7 @@
       "title": "Asking about time, manner and kind: lini, vipi, gani, mbona",
       "level": "A2",
       "function": "Ask when, how, what kind and how come, using the interrogatives that follow the verb or the noun.",
-      "explanation": "Beyond the basic nini, nani and wapi, four more interrogatives cover most everyday questions. Lini asks when and follows the verb: utaondoka lini? Vipi asks how or in what way, and also stands alone as an informal 'how are things?'. Gani asks what kind and is unusual in following a noun rather than a verb, taking no concord at all: chai gani?, umri gani? Mbona asks how come, carrying a note of surprise or complaint, and unlike the others it opens the sentence. None of these move to the front the way English question words do; word order otherwise stays as in a statement.",
+      "explanation": "Beyond the basic nini, nani and wapi, four more interrogatives cover most everyday questions.\n\n- Lini asks when and follows the verb: utaondoka lini?\n- Vipi asks how or in what way, and also stands alone as an informal 'how are things?'.\n- Gani asks what kind and is unusual in following a noun rather than a verb, taking no concord at all: chai gani?, umri gani?\n- Mbona asks how come, carrying a note of surprise or complaint, and it opens the sentence.\n\nApart from mbona, none of these move to the front the way English question words do; word order otherwise stays as in a statement.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4038,7 +4038,7 @@
       "title": "Asking for and giving directions",
       "level": "A2",
       "function": "Ask where a place is and give directions using the locative copula and the direction words.",
-      "explanation": "A location question pairs the noun with the locative copula and wapi: stesheni iko wapi? The copula carries the noun's class, so it is iko for class 9, liko for class 5, kiko for class 7. Directions themselves rely on a small set: kulia for the right, kushoto for the left, moja kwa moja for straight on, and mbele, nyuma, karibu and mbali for in front, behind, near and far. Each is normally introduced by upande wa, 'on the side of', with the -a of association taking the class 11 concord. Instructions come as bare imperatives — geuka, enda, fuata — and pluralise with -ni for a group.",
+      "explanation": "A location question pairs the noun with the locative copula and wapi: stesheni iko wapi? The copula carries the noun's class.\n\n| Class | Locative copula |\n| --- | --- |\n| 1 | yuko |\n| 2 | wako |\n| 5 | liko |\n| 7 | kiko |\n| 9 | iko |\n\nDirections themselves rely on a small set: kulia for the right, kushoto for the left, moja kwa moja for straight on, and mbele, nyuma, karibu and mbali for in front, behind, near and far. Kulia and kushoto are normally introduced by upande wa, 'on the side of', with the -a of association taking the class 11 concord of upande. Mbele and nyuma link to a landmark with ya, karibu and mbali with na: mbele ya duka, karibu na soko. Instructions come as bare imperatives — geuka, nenda, fuata — and take -eni for a group, the final -a becoming -e: geukeni, nendeni, fuateni. Nenda is the irregular imperative of kwenda.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4171,7 +4171,7 @@
       "title": "Numbers 11 to 100, and talking about prices",
       "level": "A2",
       "function": "Build the numbers above ten with na, and use them to state and ask prices.",
-      "explanation": "Swahili builds the teens transparently: kumi na moja is eleven, kumi na saba seventeen. The tens are ishirini, thelathini, arobaini, hamsini, sitini, sabini, themanini, tisini, and mia is a hundred, so twenty-six is ishirini na sita. Only a few low numerals take a class concord — moja, mbili, tatu, nne, tano, nane — while the Arabic borrowings sita, saba, tisa, kumi and the tens never do. Prices use the currency noun followed by the number: shilingi hamsini na tano. To ask a price, pesa ngapi? or bei gani? both work, and ni ngapi? is the shortest form.",
+      "explanation": "Swahili builds the teens transparently: kumi na moja is eleven, kumi na saba seventeen. The tens have their own words, and a hundred is mia, normally said mia moja.\n\n| Number | Swahili |\n| --- | --- |\n| 20 | ishirini |\n| 30 | thelathini |\n| 40 | arobaini |\n| 50 | hamsini |\n| 60 | sitini |\n| 70 | sabini |\n| 80 | themanini |\n| 90 | tisini |\n| 100 | mia |\n\nUnits are added with na, so twenty-six is ishirini na sita. Only a few low numerals take a class concord — the stems -moja, -wili, -tatu, -nne, -tano, -nane — while the Arabic borrowings sita, saba, tisa, kumi and the tens never do. Prices use the currency noun followed by the number: shilingi hamsini na tano. To ask a price, pesa ngapi? or bei gani? both work, and ni ngapi? is the shortest form.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4304,7 +4304,7 @@
       "title": "Negative infinitives with -to-: kutojua, kutokuwa",
       "level": "C1",
       "function": "Negate an infinitive by inserting -to- between ku- and the stem.",
-      "explanation": "Swahili negates a finite verb with a subject prefix, but an infinitive has none, so a different device is used: the infix -to- placed straight after ku-. Kujua is 'to know', kutojua 'not to know'; kuwa is 'to be', kutokuwa 'not to be'. The resulting form behaves exactly like any other infinitive and can follow a preposition, a verb, or stand as a class 15 noun. It is common in formal registers and in writing — kutokuwepo, 'absence', is built the same way. Note that the negative subjunctive uses -si- instead, so usiende means 'don't go'.",
+      "explanation": "Swahili negates a finite verb in the subject-prefix slot — sisomi, hatusomi — but an infinitive has no subject prefix, so a different device is used: the infix `-to-` placed straight after ku-. Kujua is 'to know', kutojua 'not to know'; kuwa is 'to be', kutokuwa 'not to be'. The resulting form behaves exactly like any other infinitive and can follow a preposition, a verb, or stand as a class 15 noun. It is common in formal registers and in writing — kutokuwepo, 'absence', is built the same way. Note that the negative subjunctive uses `-si-` instead, so usiende means 'don't go'.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4437,7 +4437,7 @@
       "title": "The -enye construction: possessing a quality",
       "level": "B2",
       "function": "Describe a noun by what it has, using the class-agreeing -enye.",
-      "explanation": "Where English uses 'with' or a relative clause, Swahili often uses -enye, meaning 'having' or 'possessing'. It takes the concord of the noun it describes and is followed directly by a noun: mtu mwenye pesa is 'a person with money', watu wenye ulemavu 'people with disabilities', nyumba yenye bustani 'a house with a garden'. The concords follow the ordinary pattern — mwenye for class 1, wenye for class 2, chenye for class 7, lenye for class 5, yenye for class 9. Its negative counterpart is -sio na, or the fuller relative construction. Note that mwenyeji, 'host', is built from the same stem.",
+      "explanation": "Where English uses 'with' or a relative clause, Swahili often uses **-enye**, meaning 'having' or 'possessing'. It takes the concord of the noun it describes and is followed directly by a noun: mtu mwenye pesa is 'a person with money', watu wenye ulemavu 'people with disabilities', nyumba yenye bustani 'a house with a garden'.\n\n| Class | Form |\n| --- | --- |\n| 1 | mwenye |\n| 2 | wenye |\n| 5 | lenye |\n| 7 | chenye |\n| 9 | yenye |\n\nThe negative is not built on -enye at all: it uses the negative relative of kuwa na, which agrees with the class in the same way — mtu asiye na pesa, 'a person without money', nyumba isiyo na bustani. Note that mwenyeji, 'host', is built from the same stem.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4570,7 +4570,7 @@
       "title": "Greetings with habari and the possessive concord",
       "level": "A1",
       "function": "Greet somebody by asking after them with habari, choosing the right possessive or -a form.",
-      "explanation": "The everyday greeting is built on habari, literally 'news'. Habari is a class 9 noun, so anything agreeing with it takes the class 9 concord y-. Addressing one person gives habari yako; addressing several gives habari yenu. To ask after a thing or a period rather than a person, the -a of association is used instead: habari ya asubuhi for the morning, habari ya kazi for work, habari ya Nairobi for a place. The expected reply is mzuri or nzuri, usually strengthened to mzuri sana. Habari alone, with nothing after it, is a safe general greeting.",
+      "explanation": "The everyday greeting is built on **habari**, literally 'news'. Habari is class 9/10 with the same form in both numbers, so what agrees with it takes either the class 9 concord y- or the class 10 concord z-, and both are heard constantly.\n\n- Addressing one person: habari yako, habari zako.\n- Addressing several: habari yenu, habari zenu.\n- Asking after a thing or a period, with the -a of association: habari ya asubuhi, habari za kazi, habari ya Nairobi.\n\nThe reply agrees with habari too: nzuri, usually strengthened to nzuri sana, and njema in more careful speech. Mzuri is widely heard, but its m- is a class 1 concord rather than the class 9 the noun calls for. Habari alone, with nothing after it, is a safe general greeting.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4679,7 +4679,7 @@
       "title": "Introducing yourself: naitwa and jina langu",
       "level": "A1",
       "function": "Give your own name and ask somebody else's, using either the verb or the noun construction.",
-      "explanation": "There are two routine ways to give a name. The verb route uses -itwa, the passive of -ita 'to call', so naitwa means literally 'I am called'. Because the subject prefix carries the person, no pronoun is needed: naitwa Amina. The same verb asks the question, with nani 'who' after it: unaitwa nani? The noun route uses jina, a class 5 noun, so its possessive takes the class 5 concord l-: jina langu ni Amina. The plural majina takes class 6 y-: majina yangu. Answering an introduction, nimefurahia kukujua expresses pleasure at meeting.",
+      "explanation": "There are two routine ways to give a name. The verb route uses -itwa, the passive of -ita 'to call', so naitwa means literally 'I am called'. Because the subject prefix carries the person, no pronoun is needed: naitwa Amina. The same verb asks the question, with nani 'who' after it: unaitwa nani? The noun route uses jina, a class 5 noun, so its possessive takes the class 5 concord l-: jina langu ni Amina. The plural majina takes class 6 y-: majina yangu. Answering an introduction, nimefurahi kukujua expresses pleasure at meeting.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4791,7 +4791,7 @@
       "title": "Telling the time: the Swahili saa system",
       "level": "A2",
       "function": "Read and say clock times in Swahili, allowing for the six-hour offset from the international clock.",
-      "explanation": "Swahili counts the hours from dawn rather than from midnight, so the Swahili hour runs six hours behind the clock on the wall. Seven o'clock in the morning is saa moja asubuhi, literally 'hour one of the morning', because it is the first hour after sunrise. One o'clock in the afternoon is saa saba, the seventh hour. The rule is simple: subtract six, or add six, to convert. The period word follows the number — asubuhi for the morning, mchana for the afternoon, jioni for the evening, usiku for the night. To ask the time, saa ngapi? uses the class 9 concord on -ngapi.",
+      "explanation": "Swahili counts the hours from dawn rather than from midnight, so the Swahili hour runs six hours behind the clock on the wall. To convert, subtract six from the clock time; to go back the other way, add six.\n\n| Clock | Swahili |\n| --- | --- |\n| 7:00 | saa moja |\n| 9:00 | saa tatu |\n| 12:00 | saa sita |\n| 13:00 | saa saba |\n\nSaa moja asubuhi is literally 'hour one of the morning', because seven is the first hour after sunrise; one o'clock in the afternoon is saa saba, the seventh hour. The period word follows the number — asubuhi for the morning, mchana for the afternoon, jioni for the evening, usiku for the night. To ask the time, saa ngapi? uses the class 9 concord on -ngapi.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -4900,7 +4900,7 @@
       "title": "Politeness formulas: asante, tafadhali, samahani, pole, karibu",
       "level": "A1",
       "function": "Thank, request, apologise, sympathise and welcome using the fixed courtesy words.",
-      "explanation": "Five short words carry most everyday courtesy, and each has a distinct job. Asante thanks, strengthened as asante sana and pluralised as asanteni. Tafadhali marks a request as polite and may open or close it. Samahani apologises for something you did, or opens a request to a stranger. Pole is not an apology at all: it expresses sympathy for somebody else's misfortune, which is why pole sana is said to someone who is ill or has suffered a loss. Karibu welcomes, with karibuni for several people, and doubles as the reply to asante. Confusing samahani with pole is the commonest learner error.",
+      "explanation": "Five short words carry most everyday courtesy, and each has a distinct job.\n\n- Asante thanks, strengthened as asante sana and pluralised as asanteni.\n- Tafadhali marks a request as polite and may open or close it.\n- Samahani apologises for something you did, or opens a request to a stranger.\n- Pole is not an apology at all: it expresses sympathy for somebody else's misfortune, which is why pole sana is said to someone who is ill or has suffered a loss.\n- Karibu welcomes, with karibuni for several people, and doubles as the reply to asante.\n\nConfusing samahani with pole is the commonest learner error.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -5051,7 +5051,7 @@
       "title": "Talking about illness: ninaumwa na and inaniuma",
       "level": "A2",
       "function": "Say which part of the body hurts, using either the passive or the active construction.",
-      "explanation": "Swahili has two standard ways of reporting pain, and both differ from English. The first makes the sufferer the subject of a passive verb and names the body part as the agent: ninaumwa na kichwa, literally 'I am hurt by the head', meaning 'I have a headache'. The second makes the body part the subject of the active verb and puts the sufferer in as an object infix: kichwa kinaniuma, 'the head hurts me'. The infix must agree with the person and the subject prefix with the body part's class, so mgongo unaniuma but macho yananiuma. For a general statement of being unwell, mimi ni mgonjwa or sijisikii vizuri are the usual phrases.",
+      "explanation": "Swahili has two standard ways of reporting pain, and both differ from English. The first makes the sufferer the subject of a passive verb and names the body part as the agent: ninaumwa na kichwa, literally 'I am hurt by the head', meaning 'I have a headache'. The second makes the body part the subject of the active verb and puts the sufferer in as an object infix: kichwa kinaniuma, 'the head hurts me'. In that second pattern the infix agrees with the person and the subject prefix with the body part's class.\n\n| Body part | Class | Verb |\n| --- | --- | --- |\n| kichwa | 7 | kinaniuma |\n| mgongo | 3 | unaniuma |\n| macho | 6 | yananiuma |\n\nFor a general statement of being unwell, mimi ni mgonjwa or sijisikii vizuri are the usual phrases.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -5163,7 +5163,7 @@
       "title": "Ordinal numbers: wa kwanza, ya pili, cha tatu",
       "level": "A2",
       "function": "Say first, second, third and so on, with the linker agreeing with the noun's class.",
-      "explanation": "Ordinals are built from the cardinal numbers with the -a of association in front, and that linker carries the noun's class concord: mtu wa kwanza, siku ya pili, kitabu cha tatu, gari la nne. Only 'first' has its own word, kwanza, which is not the cardinal moja; from two upwards the cardinal is simply reused — pili, tatu, nne. Note that pili is used for 'second' rather than mbili. The ordinal always follows its noun. The same linker appears in dates and floors: ghorofa ya tatu, mwezi wa kumi.",
+      "explanation": "Ordinals are built from the cardinal numbers with the -a of association in front, and that linker carries the noun's class concord.\n\n| Noun | Class | Ordinal |\n| --- | --- | --- |\n| mtu | 1 | wa kwanza |\n| gari | 5 | la nne |\n| kitabu | 7 | cha tatu |\n| siku | 9 | ya pili |\n\nTwo of the low numbers are exceptions. 'First' has its own word, kwanza, which is not the cardinal moja, and 'second' is pili, not the cardinal mbili. From three upwards the cardinal is simply reused — tatu, nne, tano. The ordinal always follows its noun, and the same linker appears in dates and floors: ghorofa ya tatu, mwezi wa kumi.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -5296,7 +5296,7 @@
       "title": "Impersonal verbs: inabidi, inafaa, inawezekana",
       "level": "B2",
       "function": "Express obligation, suitability and possibility with a verb that has no real subject.",
-      "explanation": "A small group of verbs takes the class 9 prefix i- as a dummy subject, standing for the situation as a whole rather than any person. Inabidi expresses obligation, inafaa suitability or advisability, and inawezekana possibility. The person affected is carried as an object infix on the impersonal verb, and the following verb goes into the subjunctive: inanibidi niende, 'it obliges me that I go', meaning 'I have to go'. This differs from lazima, which is a noun and simply precedes a subjunctive without any infix. The negative uses ha-: haifai, haiwezekani.",
+      "explanation": "A small group of verbs takes the class 9 prefix i- as a dummy subject, standing for the situation as a whole rather than any person.\n\n- Inabidi expresses obligation.\n- Inafaa expresses suitability or advisability.\n- Inawezekana expresses possibility.\n\nThe verb that follows goes into the subjunctive: inabidi niende, 'it is necessary that I go', meaning 'I have to go'. Inabidi and inafaa can also carry the person affected as an object infix — inanibidi niende — while inawezekana normally takes none. This differs from lazima, which is a noun and simply precedes a subjunctive without any infix. The negative uses ha-: haifai, haiwezekani.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
@@ -5429,7 +5429,7 @@
       "title": "Dates, months and birthdays",
       "level": "A2",
       "function": "Give a date, name a month, and say when a birthday falls.",
-      "explanation": "Month names are borrowed and unchanged: Januari, Februari, Machi, Aprili, Mei, Juni, Julai, Agosti, Septemba, Oktoba, Novemba, Desemba. A date is built with tarehe, 'date', followed by the plain cardinal number and then the month: tarehe nne Aprili. The number takes no concord here. Months can also be counted rather than named — mwezi wa nne, 'the fourth month', is a common alternative to Aprili. A birthday is siku ya kuzaliwa, literally 'the day of being born', and the question is siku yako ya kuzaliwa ni lini?",
+      "explanation": "Month names are borrowed and unchanged: Januari, Februari, Machi, Aprili, Mei, Juni, Julai, Agosti, Septemba, Oktoba, Novemba, Desemba. A date is built with tarehe, 'date', followed by the cardinal number and then the month: tarehe nne Aprili. Tarehe is class 9, where these numerals happen to look exactly like their citation forms — moja, mbili, tatu — so nothing visible is added to them. Months can also be counted rather than named — mwezi wa nne, 'the fourth month', is a common alternative to Aprili. A birthday is siku ya kuzaliwa, literally 'the day of being born', and the question is siku yako ya kuzaliwa ni lini?",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,

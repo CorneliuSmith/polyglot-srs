@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Hebrew marks grammatical gender on second- and third-person pronouns (not first person): אתה (you, masculine) vs. את (you, feminine); הוא (he/it, masculine) vs. היא (she/it, masculine). Every noun has a gender too, and its pronoun must match.",
+      "explanation": "Hebrew marks grammatical gender on the second- and third-person pronouns, in the singular and in the plural alike:\n\n| Person | Masculine | Feminine |\n| --- | --- | --- |\n| you (sg.) | אתה | את |\n| he / she | הוא | היא |\n| you (pl.) | אתם | אתן |\n| they | הם | הן |\n\nThe first person is genderless: אני (\"I\") and אנחנו (\"we\") serve a man and a woman alike. A mixed group counts as masculine, so אתם and הם cover any group with one man in it. Every noun has a gender too, and its pronoun must match.",
       "drills": [
         {
           "sentence": "{{answer}} איש טוב.",
@@ -179,7 +179,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Hebrew adjectives agree in gender with the noun they describe. The feminine form usually adds ה־ to the masculine: טוב → טובה (good), קטן → קטנה (small). אישה טובה (\"a good woman\") but איש טוב (\"a good man\") — same word, different ending.",
+      "explanation": "Hebrew adjectives agree in gender with the noun they describe. The feminine form usually adds the ending `־ה` to the masculine:\n\nטוב → טובה (good), קטן → קטנה (small)\n\nאישה טובה (\"a good woman\") but איש טוב (\"a good man\") — the same adjective, a different ending. A noun's gender is not always visible in its own ending: עיר (\"city\") is feminine and לילה (\"night\") is masculine, and the adjective goes by the gender, not by the look.",
       "drills": [
         {
           "sentence": "האישה {{answer}}.",
@@ -253,7 +253,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Hebrew has no separate word for \"the\" — the definite article is the single letter ה attached directly to the front of the noun: בית (\"a house\") → הבית (\"the house\"). There is no word for \"a/an\" either — an unmarked noun is simply indefinite.",
+      "explanation": "Hebrew has no separate word for \"the\" — the definite article is a single letter, `ה־`, attached directly to the front of the noun: בית (\"a house\") → הבית (\"the house\"). There is no word for \"a/an\" either — an unmarked noun is simply indefinite.\n\nAn adjective describing a definite noun carries the article as well: הבית הישן (\"the old house\"), literally \"the-house the-old\".",
       "drills": [
         {
           "sentence": "{{answer}} גדול.",
@@ -327,7 +327,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "A Hebrew present-tense verb has four forms, agreeing with the subject's gender and number: הולך (he goes, masc. sg.), הולכת (she goes, fem. sg.), הולכים (they go, masc./mixed pl.), הולכות (they go, fem. pl.). The same pattern applies to most present-tense verbs, like אוכל/אוכלת/אוכלים/אוכלות (\"eat\").",
+      "explanation": "A Hebrew present-tense verb has four forms, agreeing with the subject's gender and number. For \"go\":\n\n| Gender | Singular | Plural |\n| --- | --- | --- |\n| masculine | הולך | הולכים |\n| feminine | הולכת | הולכות |\n\nThe plural endings are `־ים` and `־ות`, and a group with any man in it takes the masculine הולכים. Most present-tense verbs build the same four: אוכל, אוכלת, אוכלים, אוכלות (\"eat\").\n\nPerson is not marked at all, so הולך does for \"I go\" (a man speaking), \"you go\" and \"he goes\" alike.",
       "drills": [
         {
           "sentence": "היא {{answer}} הביתה.",
@@ -466,7 +466,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "יש (\"there is/are\") and its negative אין (\"there isn't/aren't\") state that something exists — combined with ל־ (\"to\"), the same word means someone HAS something: יש לי בית, literally \"there-is to-me a-house\" = \"I have a house.\"",
+      "explanation": "יש (\"there is/are\") and its negative אין (\"there isn't/aren't\") state that something exists. Neither is a verb, and neither changes for the gender or number of what follows.\n\nCombined with `ל־` (\"to\"), the same pair says who HAS something: יש לי בית, literally \"there-is to-me a-house\" = \"I have a house\", and אין לי זמן = \"I don't have time\".",
       "drills": [
         {
           "sentence": "{{answer}} בית גדול.",
@@ -540,7 +540,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "של (\"of / belonging to\") is the easiest way to show possession for a beginner: הבית של דוד (\"David's house\", literally \"the-house of David\").",
+      "explanation": "**של** (\"of / belonging to\") is the easiest way to show possession for a beginner: הבית של דוד (\"David's house\", literally \"the-house of David\").\n\nBefore a pronoun של takes an ending: שלי (my), שלך (your), שלו (his), שלה (her), שלנו (our), שלהם (their). The phrase follows its noun: הטלפון שלי (\"my phone\"). Unpointed שלך is the spelling for a man and for a woman alike.",
       "drills": [
         {
           "sentence": "הבית {{answer}} דוד.",
@@ -605,7 +605,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "The Hebrew infinitive begins with ל־: ללכת (to go), לדבר (to speak), לקרוא (to read). After רוצה (\"want\"), צריך (\"need\"), יכול (\"can\") and the impersonal אפשר (\"it is possible\"), the second verb stays in this one unchanging form — only the first verb agrees with the subject.",
+      "explanation": "The Hebrew infinitive begins with ל־: ללכת (to go), לדבר (to speak), לקרוא (to read).\n\nAfter each of these the second verb stays in this one unchanging form — only the first verb agrees with the subject:\n\n- רוצה (want)\n- צריך (need)\n- יכול (can)\n- אפשר (it is possible, impersonal)",
       "drills": [
         {
           "sentence": "אני רוצה {{answer}} הביתה.",
@@ -679,7 +679,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "A yes/no question in spoken Hebrew keeps the word order of a statement — only the rising intonation changes (the particle האם belongs to formal writing). Questions that ask for information start with a question word: מה (what), מי (who), איפה (where), מתי (when), למה (why), איך (how), כמה (how much/many).",
+      "explanation": "A yes/no question in spoken Hebrew keeps the word order of a statement — only the rising intonation changes (the particle האם belongs to formal writing).\n\nQuestions that ask for information start with a question word: מה (what), מי (who), איפה (where), מתי (when), למה (why), איך (how), כמה (how much/many).",
       "drills": [
         {
           "sentence": "{{answer}} אתה גר?",
@@ -753,7 +753,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "The past tense marks its person with endings rather than prefixes. For the root כ־ת־ב in the plain pa'al pattern: כתבתי (I wrote), כתבת (you wrote — one spelling for masculine and feminine), כתב (he wrote), כתבה (she wrote). The third-person masculine form is the bare stem, which is why dictionaries list verbs under it.",
+      "explanation": "The past tense marks its person with endings rather than prefixes. For the root כ־ת־ב in the plain pa'al pattern:\n\n| Person | Form |\n| --- | --- |\n| I | כתבתי |\n| you (m. and f.) | כתבת |\n| he | כתב |\n| she | כתבה |\n\nOne unpointed spelling, כתבת, serves a man and a woman being addressed. The third-person masculine form is the bare stem, which is why dictionaries list verbs under it.",
       "drills": [
         {
           "sentence": "אתמול {{answer}} מכתב.",
@@ -827,7 +827,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "The plural past endings continue the same system: כתבנו (we wrote), כתבתם / כתבתן (you plural, masculine / feminine — speech uses the masculine form for both), and כתבו (they wrote), a single form that covers masculine and feminine alike.",
+      "explanation": "The plural past endings continue the same system:\n\n| Person | Form |\n| --- | --- |\n| we | כתבנו |\n| you (m. pl.) | כתבתם |\n| you (f. pl.) | כתבתן |\n| they | כתבו |\n\nSpeech uses כתבתם for a female or mixed group as well, and כתבו is a single form that covers masculine and feminine alike.",
       "drills": [
         {
           "sentence": "אנחנו {{answer}} בבית קפה.",
@@ -901,7 +901,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Where the past uses endings, the future uses prefixes: א for I, ת for you and for she, י for he, נ for we. So from כ־ת־ב: אכתוב, תכתוב, יכתוב, נכתוב, and יכתבו for they. Feminine forms add a י ending in the singular (תכתבי); the old feminine plural forms have been replaced by the masculine ones in speech.",
+      "explanation": "Where the past uses endings, the future uses prefixes — `א` for I, `ת` for you and for she, `י` for he, `נ` for we — with an ending on top of the prefix in some persons. From the root כ־ת־ב:\n\n| Person | Form |\n| --- | --- |\n| I | אכתוב |\n| you (m. sg.) | תכתוב |\n| you (f. sg.) | תכתבי |\n| he | יכתוב |\n| she | תכתוב |\n| we | נכתוב |\n| you (pl.) | תכתבו |\n| they | יכתבו |\n\nThe feminine singular adds `־י` and the plurals add `־ו`. תכתוב is both \"you (m.)\" and \"she\", so only the subject tells them apart; and the old feminine plural forms have been replaced by the masculine ones in speech.",
       "drills": [
         {
           "sentence": "מחר {{answer}} מכתב.",
@@ -975,7 +975,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "A Hebrew preposition does not stand in front of a separate pronoun — it swallows it. ל־ (\"to\") gives לי, לך, לו, לה, לנו, להם; אצל (\"at someone's place\") gives אצלי, אצלך, אצלו; and על, עם, ב־ and מ־ all behave the same way. The set of endings is nearly identical from preposition to preposition, so learning one gets you most of the others.",
+      "explanation": "A Hebrew preposition does not stand in front of a separate pronoun — it swallows it. There are two sets of endings, one on the model of ל־ (\"to\"), the other on the model of על (\"on, about\"):\n\n| Person | ל־ | על |\n| --- | --- | --- |\n| me | לי | עליי |\n| you (sg.) | לך | עליך |\n| him | לו | עליו |\n| her | לה | עליה |\n| us | לנו | עלינו |\n| them (m.) | להם | עליהם |\n\nב־, של and אצל (\"at someone's place\") follow ל־: אצלי, אצלך, אצלו. אל (\"to, towards\") follows על.\n\nTwo everyday prepositions change their base before an ending: עם (\"with\") gives איתי, איתך, איתו, and מ־ (\"from\") gives ממני, ממך, ממנו.",
       "drills": [
         {
           "sentence": "הוא נתן {{answer}} ספר.",
@@ -1049,7 +1049,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "When the direct object is definite — a proper name, a noun carrying ה־, or a possessed noun — Hebrew puts את in front of it. The word has no English translation of its own; it simply flags \"this is the object\". An indefinite object takes nothing: אני רואה בית (\"I see a house\") beside אני רואה את הבית (\"I see the house\").",
+      "explanation": "When the direct object is definite, Hebrew puts **את** in front of it. An object counts as definite when it is:\n\n- a proper name\n- a noun carrying ה־\n- a noun with a possessive ending\n\nThe word has no English translation of its own; it simply flags \"this is the object\". An indefinite object takes nothing: אני רואה בית (\"I see a house\") beside אני רואה את הבית (\"I see the house\").",
       "drills": [
         {
           "sentence": "אני רואה {{answer}} הבית.",
@@ -1114,7 +1114,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Hebrew numbers come in two sets and must match the gender of what they count. Feminine nouns take אחת, שתיים, שלוש, ארבע, חמש; masculine nouns take אחד, שניים, שלושה, ארבעה, חמישה. Counterintuitively, the forms that end in ה are the masculine ones. Directly before a noun, שתיים and שניים shorten to שתי and שני.",
+      "explanation": "Hebrew numbers come in two sets, and the set must match the gender of what is being counted.\n\n| Number | Feminine | Masculine |\n| --- | --- | --- |\n| one | אחת | אחד |\n| two | שתיים | שניים |\n| three | שלוש | שלושה |\n| four | ארבע | ארבעה |\n| five | חמש | חמישה |\n\nCounterintuitively, the forms that end in ה are the masculine ones. Directly before a noun, שתיים and שניים shorten to שתי and שני.",
       "drills": [
         {
           "sentence": "יש לי {{answer}} ספרים.",
@@ -1188,7 +1188,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Hebrew has no verb \"to have\". Possession is built from יש plus ל־ with a pronoun ending: יש לי (\"I have\", literally \"there is to me\"), יש לך, יש לו, יש לה, יש לנו, יש להם. The negative swaps יש for אין: אין לי זמן. What is owned stays an ordinary indefinite noun, so it takes no object marker.",
+      "explanation": "Hebrew has no verb \"to have\". Possession is built from **יש** plus ל־ carrying a pronoun ending, so יש לי is literally \"there is to me\".\n\n| Person | Form |\n| --- | --- |\n| I | יש לי |\n| you (sg.) | יש לך |\n| he | יש לו |\n| she | יש לה |\n| we | יש לנו |\n| you (pl.) | יש לכם |\n| they | יש להם |\n\nThe singular לך is written the same for a man and for a woman; only the vowels tell them apart, and Hebrew does not write them. The negative swaps יש for אין: אין לי זמן. What is owned stays an ordinary indefinite noun, so it takes no object marker.",
       "drills": [
         {
           "sentence": "{{answer}} לי אח גדול.",
@@ -1253,7 +1253,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "Masculine nouns usually take ים־ in the plural and feminine nouns ות־: ספר → ספרים, מחברת → מחברות. The adjective copies both gender and number, so the endings line up down the phrase: ספרים גדולים, מחברות גדולות. A few nouns take the \"wrong\" ending but keep their gender — שולחן is masculine and stays masculine as שולחנות, so it needs a masculine adjective.",
+      "explanation": "Masculine nouns usually take ־ים in the plural and feminine nouns ־ות: ספר → ספרים, מחברת → מחברות. The adjective copies both gender and number, so the endings line up down the phrase: ספרים גדולים, מחברות גדולות. A few nouns take the \"wrong\" ending but keep their gender — שולחן is masculine and stays masculine as שולחנות, and מילה is feminine and stays feminine as מילים — so the adjective follows the gender, never the ending.",
       "drills": [
         {
           "sentence": "הספרים {{answer}}.",
@@ -1318,7 +1318,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "Pi'el is the second big verb pattern, and its present tense is easy to spot: every form starts with מ־ and has an a-vowel in the middle — מדבר / מדברת / מדברים / מדברות (speak), מספר (tell), מבקש (ask for), מלמד (teach). Compare the plain pa'al הולך, which takes no prefix at all.",
+      "explanation": "Pi'el is the second big verb pattern, and its present tense is easy to spot: every form starts with `מ־` and has an a-vowel in the middle. The four present forms of דיבר (speak):\n\n| Gender and number | Form |\n| --- | --- |\n| masculine singular | מדבר |\n| feminine singular | מדברת |\n| masculine plural | מדברים |\n| feminine plural | מדברות |\n\nOther verbs in the pattern: מספר (tell), מבקש (ask for), מלמד (teach). Compare the plain pa'al הולך, which takes no prefix at all.",
       "drills": [
         {
           "sentence": "אני {{answer}} עברית.",
@@ -1466,7 +1466,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Almost every Hebrew verb is a three-consonant root poured into one of seven patterns called binyanim, and the pattern — not the root — carries the grammatical flavour. From ל־ב־ש you get pa'al לובש (\"wears\"), hif'il מלביש (\"dresses someone else\"), and hitpa'el מתלבש (\"gets dressed\"). Recognizing the pattern lets you guess a new verb's meaning and conjugate it without learning it from scratch.",
+      "explanation": "Almost every Hebrew verb is a three-consonant root poured into one of seven patterns called binyanim, and the pattern — not the root — carries the grammatical flavour. From the root ל־ב־ש:\n\n| Pattern | Verb | Meaning |\n| --- | --- | --- |\n| pa'al | לובש | wears |\n| hif'il | מלביש | dresses someone else |\n| hitpa'el | מתלבש | gets dressed |\n\nRecognizing the pattern lets you guess a new verb's meaning and conjugate it without learning it from scratch.",
       "drills": [
         {
           "sentence": "הוא {{answer}} חולצה לבנה.",
@@ -1540,7 +1540,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "The מ־ of the pi'el present belongs to the present only. In the past the stem takes the ordinary endings directly — דיברתי, דיברת, דיבר, דיברה, דיברנו, דיברו — and in the future it takes the ordinary prefixes: אדבר, תדבר, ידבר, נדבר, ידברו. The middle root letter is doubled in pronunciation, which is what makes the pattern sound distinct.",
+      "explanation": "The `מ־` of the pi'el present belongs to the present only. In the past the stem takes the ordinary endings directly; in the future it takes the ordinary prefixes.\n\n| Person | Past | Future |\n| --- | --- | --- |\n| I | דיברתי | אדבר |\n| you (m. sg.) | דיברת | תדבר |\n| he | דיבר | ידבר |\n| she | דיברה | תדבר |\n| we | דיברנו | נדבר |\n| they | דיברו | ידברו |\n\nThe middle root letter is doubled in pronunciation, which is what makes the pattern sound distinct.",
       "drills": [
         {
           "sentence": "אתמול {{answer}} עם המנהל.",
@@ -1614,7 +1614,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Hif'il keeps a ה־ at the front in the past: הרגשתי, הרגשת, הרגיש, הרגישה, הרגשנו, הרגישו. In the future that ה disappears and the ordinary prefixes take over: ארגיש, תרגיש, ירגיש, נרגיש, ירגישו. Notice that the long i-vowel of the present survives in the third person past and throughout the future.",
+      "explanation": "Hif'il keeps a `ה־` at the front in the past; in the future that ה disappears and the ordinary prefixes take over.\n\n| Person | Past | Future |\n| --- | --- | --- |\n| I | הרגשתי | ארגיש |\n| you (m. sg.) | הרגשת | תרגיש |\n| he | הרגיש | ירגיש |\n| she | הרגישה | תרגיש |\n| we | הרגשנו | נרגיש |\n| they | הרגישו | ירגישו |\n\nNotice that the long i-vowel of the present survives in the third person past and throughout the future.",
       "drills": [
         {
           "sentence": "אתמול {{answer}} רע.",
@@ -1688,7 +1688,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Hitpa'el covers actions done to oneself or to one another. Its present adds מת־ (מתלבש, מתרחץ, מתגעגע) and its past adds הת־ (התלבשתי, התלבש, התלבשה, התלבשו). When the root begins with a hissing letter, the ת swaps places with it: השתמש (\"used\"), not the expected התשמש.",
+      "explanation": "Hitpa'el covers actions done to oneself or to one another. Its present adds `מת־` (מתלבש, מתרחץ, מתגעגע) and its past adds `הת־` (התלבשתי, התלבש, התלבשה, התלבשו). When the root begins with a hissing letter, the ת swaps places with it: השתמש (\"used\"), not the expected התשמש.",
       "drills": [
         {
           "sentence": "אני {{answer}} בבוקר.",
@@ -1762,7 +1762,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Instead of של, two nouns can simply be set side by side: בית ספר (\"school\", literally \"house of book\"), עוגת שוקולד (\"chocolate cake\"), מיץ תפוזים (\"orange juice\"). The first noun takes a special construct shape — feminine ה־ becomes ת (עוגה → עוגת) and masculine plural ים־ becomes י־ (ספרים → ספרי). Only the final noun may carry the definite article: בית הספר.",
+      "explanation": "Instead of של, two nouns can simply be set side by side: בית ספר (\"school\", literally \"house of book\"), עוגת שוקולד (\"chocolate cake\"), מיץ תפוזים (\"orange juice\"). The first noun takes a special construct shape — the feminine ־ה becomes ־ת (עוגה → עוגת) and the masculine plural ־ים becomes ־י (ספרים → ספרי). Only the final noun may carry the definite article: בית הספר.",
       "drills": [
         {
           "sentence": "הילדים הולכים לבית {{answer}}.",
@@ -1836,7 +1836,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Each binyan has its own noun-of-action shape. Pa'al gives כתיבה (writing), הליכה (walking), אכילה (eating); pi'el gives דיבור (speaking) and טיול (a trip); hif'il gives הסבר (explanation) and הפסקה (a break); hitpa'el gives התלבשות. These are ordinary nouns with gender and plural, and they are the usual way to name an activity where English would use an -ing form.",
+      "explanation": "Each binyan has its own noun-of-action shape:\n\n- pa'al: כתיבה (writing), הליכה (walking), אכילה (eating)\n- pi'el: דיבור (speaking), טיול (a trip)\n- hif'il: הפסקה (a break)\n- hitpa'el: התלבשות (getting dressed)\n\nOne common noun sits outside these shapes: הסבר (explanation), from the hif'il verb הסביר, has no ending at all. These are ordinary nouns with gender and plural, and they are the usual way to name an activity where English would use an -ing form.",
       "drills": [
         {
           "sentence": "{{answer}} היא ספורט טוב.",
@@ -1910,7 +1910,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "For a condition that could really happen, Hebrew uses אם (\"if\") and puts the future tense in both halves — where English keeps the present in the if-clause: אם ירד גשם, נישאר בבית (\"If it rains, we'll stay home\"). A command can stand in the main clause instead. For general facts the present is fine in both halves.",
+      "explanation": "For a condition that could really happen, Hebrew uses **אם** (\"if\") and puts the future tense in both halves — where English keeps the present in the if-clause: אם ירד גשם, נישאר בבית (\"If it rains, we'll stay home\"). A command can stand in the main clause instead. For general facts the present is fine in both halves.",
       "drills": [
         {
           "sentence": "{{answer}} יהיה לי זמן, אבוא.",
@@ -2206,7 +2206,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Two binyanim have no active use at all. Pu'al is the passive of pi'el — present מסודר, מדובר, past סודר, בוטל (\"was cancelled\") — and huf'al is the passive of hif'il — present מוזמן, מוסבר, past הוזמן, הופסק. Both have a present starting with מ and an u-vowel, and neither has a subject doing the action; if the agent is named at all it arrives with על ידי.",
+      "explanation": "Two binyanim have no active use at all: pu'al is the passive of pi'el, and huf'al the passive of hif'il.\n\n| tense | pu'al | huf'al |\n| --- | --- | --- |\n| present | מסודר, מדובר | מוזמן, מוסבר |\n| past | סודר, בוטל | הוזמן, הופסק |\n\nBoth presents open with a מ, and the ו tells them apart: pu'al keeps it inside the word (מסודר, מדובר), while huf'al opens with `מו־` (מוזמן, מוסבר). The past splits the same way: pu'al takes no prefix at all (סודר, תוקן), huf'al takes `הו־` (הוזמן, הוחלט).\n\nNeither pattern has a subject doing the action; if the agent is named at all it arrives with על ידי.",
       "drills": [
         {
           "sentence": "הטיסה {{answer}}.",
@@ -2280,7 +2280,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "For a condition contrary to fact, אם gives way to אילו or the shorter לו, and both halves use היה plus the present participle: אילו היה לי זמן, הייתי בא (\"If I had time, I would come\"). The same היה + present frame also carries \"used to\" and polite would-statements, so context decides which reading is meant.",
+      "explanation": "For a condition contrary to fact, אם gives way to אילו or the shorter, more literary לו. The main clause is then built from the past of היה plus the present participle: אילו היה לי זמן, הייתי בא (\"If I had time, I would come\").\n\nThe clause after אילו is freer: a plain past does the job — אילו ידעתי (\"if I had known\") — and so does the same היה + participle frame.\n\nThat frame runs on the past of היה:\n\n| person | form |\n| --- | --- |\n| I | הייתי |\n| you (sg.) | היית |\n| he | היה |\n| she | הייתה |\n| we | היינו |\n| you (pl.) | הייתם / הייתן |\n| they | היו |\n\nThe same frame also carries \"used to\" and polite would-statements, so context decides which reading is meant: היינו גרים בחיפה is \"we used to live in Haifa\" outside a conditional.",
       "drills": [
         {
           "sentence": "{{answer}} היה לי זמן, הייתי בא.",
@@ -2354,7 +2354,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Time conjunctions are built from a preposition plus ש־: כש־ (\"when\"), לפני ש־ (\"before\"), אחרי ש־ (\"after\"), עד ש־ (\"until\"), מאז ש־ (\"since\"). The ש appears only before a clause — before a plain noun it drops away: לפני השיעור (\"before the lesson\") but לפני שהשיעור מתחיל (\"before the lesson starts\").",
+      "explanation": "Time conjunctions are built from a preposition plus ש־: כש־ (\"when\"), לפני ש־ (\"before\"), אחרי ש־ (\"after\"), עד ש־ (\"until\"), מאז ש־ (\"since\"). The ש appears only before a clause — before a plain noun it drops away: לפני השיעור (\"before the lesson\") but לפני שהשיעור מתחיל (\"before the lesson starts\"). כש־ is the exception: it heads a clause and nothing else, so \"when\" before a plain noun becomes בזמן (\"at the time of\").",
       "drills": [
         {
           "sentence": "{{answer}} הביתה, ירד גשם.",
@@ -2428,7 +2428,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Reported speech is introduced by ש־ (\"that\"), and unlike English \"that\" it can never be dropped: הוא אמר שהוא עייף. Hebrew also does not shift the tense backwards — the reported clause keeps the tense the speaker originally used, so הוא אמר שהוא בא is \"he said he was coming\". A reported yes/no question uses אם (\"whether\").",
+      "explanation": "Reported speech is introduced by **ש־** (\"that\"), and unlike English \"that\" it can never be dropped: הוא אמר שהוא עייף. Hebrew also does not shift the tense backwards — the reported clause keeps the tense the speaker originally used, so הוא אמר שהוא בא is \"he said he was coming\". A reported yes/no question uses אם (\"whether\").",
       "drills": [
         {
           "sentence": "הוא אמר {{answer}} עייף.",
@@ -2502,7 +2502,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "When the direct object is a pronoun, everyday Hebrew builds it on the object marker: אותי (me), אותך (you), אותו (him/it), אותה (her), אותנו (us), אותם (them). Literary and news Hebrew can instead fuse the pronoun onto the verb itself — ראיתיו for ראיתי אותו, מצאתיה for מצאתי אותה. Those suffixed forms are worth recognizing in print, but speech uses the separate ones.",
+      "explanation": "When the direct object is a pronoun, everyday Hebrew builds it on the object marker: אותי (me), אותך (you, m. or f. sg.), אותו (him, it), אותה (her), אותנו (us), אתכם (you, m. pl.), אתכן (you, f. pl.), אותם (them, m.), אותן (them, f.). The two singular you-forms are spelled alike and differ only in a vowel. Literary and news Hebrew can instead fuse the pronoun onto the verb itself — ראיתיו for ראיתי אותו, מצאתיה for מצאתי אותה. Those suffixed forms are worth recognizing in print, but speech uses the separate ones.",
       "drills": [
         {
           "sentence": "הוא ראה {{answer}} בשוק.",
@@ -2576,7 +2576,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Modern Hebrew keeps a visible gap between speech and the language of newspapers, notices and official prose. Where speech says אבל, בגלל and רק, careful writing prefers אולם or אך, בשל or מחמת, and בלבד. Formal Hebrew also keeps distinctions speech has dropped, such as the feminine plural future תלכנה. Using the high forms in casual conversation sounds as odd as the reverse.",
+      "explanation": "Modern Hebrew keeps a visible gap between speech and the language of newspapers, notices and official prose.\n\n| in speech | in careful writing |\n| --- | --- |\n| אבל | אולם, אך |\n| בגלל | בשל, מחמת |\n| רק | בלבד |\n| עדיין לא | טרם |\n\nPlacement moves with the word: רק stands in front of what it limits, בלבד after it. The concessives split the same way — speech puts a clause after למרות ש־, where careful writing keeps למרות for a noun and uses אף ש־ before a clause.\n\nFormal Hebrew also keeps distinctions speech has dropped, such as the feminine plural future תלכנה. Using the high forms in casual conversation sounds as odd as the reverse.",
       "drills": [
         {
           "sentence": "הישיבה בוטלה, {{answer}} ההודעה נשלחה מאוחר.",
@@ -2650,7 +2650,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "In careful writing the relative prefix ש־ can be replaced by the free-standing word אשר, which never fuses with what follows: הדוח אשר הוגש אתמול. It is the normal choice before a preposition in formal prose — הנושא אשר עליו דיברנו — and it is frozen into set phrases such as באשר ל־. Speech uses ש־ almost exclusively, and piling up אשר sounds stilted.",
+      "explanation": "In careful writing the relative prefix ש־ can be replaced by the free-standing word **אשר**, which never fuses with what follows. It turns up in three places:\n\n- after a noun, where speech would simply prefix ש־: הדוח אשר הוגש אתמול\n- before a preposition, the position formal prose most reserves for it: הנושא אשר עליו דיברנו\n- in frozen phrases and after כל: באשר ל־ (\"as for\"), כל אשר (\"all that\")\n\nSpeech does the same job differently: it glues ש־ onto the verb and leaves the preposition at the end with a pronoun on it — המקום שחשבנו עליו, where formal prose writes המקום אשר עליו חשבנו. Piling up אשר sounds stilted.",
       "drills": [
         {
           "sentence": "הדוח {{answer}} הוגש אתמול ארוך מאוד.",
@@ -2724,7 +2724,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "A construct chain can run several nouns deep, and only the very last link may carry the definite article: משרד ראש הממשלה (\"the Prime Minister's Office\"), דוח ועדת החקירה. No adjective can sit inside the chain — it waits until the end and agrees with whichever noun it modifies, which is why בית הספר החדש can mean either \"the new school\" or, in principle, \"the new book's house\". Speech often breaks a long chain up with של.",
+      "explanation": "A construct chain can run several nouns deep, and only the very last link may carry the definite article: משרד ראש הממשלה (\"the Prime Minister's Office\"), דוח ועדת החקירה (\"the commission of inquiry's report\"). No adjective can sit inside the chain — it waits until the end and agrees with whichever noun it modifies, which is why בית הספר החדש can mean either \"the new school\" or, in principle, \"the new book's house\". Speech often breaks a long chain up with של.",
       "drills": [
         {
           "sentence": "הוא עובד במשרד ראש {{answer}}.",
@@ -2854,7 +2854,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Once a root moves between binyanim the meaning can drift in ways no rule predicts, so each pairing has to be learned as vocabulary. From ר־א־ה: ראה (\"saw\"), הראה (\"showed\"), נראה (\"looked, seemed\"). From ח־ז־ר: חזר (\"came back\"), החזיר (\"gave back\"), חיזר (\"courted\"), plus the noun חזרה (\"rehearsal\"). Some pairings are outright idioms: נשבר לי is literally \"it broke to me\" and means \"I've had enough\".",
+      "explanation": "Once a root moves between binyanim the meaning can drift in ways no rule predicts, so each pairing has to be learned as vocabulary:\n\n- ר־א־ה: ראה (\"saw\"), הראה (\"showed\"), נראה (\"looked, seemed\")\n- ח־ז־ר: חזר (\"came back\"), החזיר (\"gave back\"), חיזר (\"courted\"), and the noun חזרה (\"rehearsal\")\n- ס־ד־ר: סידר (\"arranged\"), הסתדר (\"worked out, got along\")\n\nSome pairings are outright idioms: נשבר לי is literally \"it broke to me\" and means \"I've had enough\".",
       "drills": [
         {
           "sentence": "הוא {{answer}} לי את התמונה.",
@@ -2928,7 +2928,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "An educated writer changes register within a single paragraph, and the markers are grammatical rather than merely lexical: a formal sentence reaches for בטרם, בשל, אשר and the frame אין ב־ ... כדי, while a quoted line drops to ש־, בגלל and כי. The skill is matching the register to the moment — a news report that suddenly uses spoken connectors reads as sloppy, and a conversation full of בטרם reads as a parody.",
+      "explanation": "An educated writer changes register within a single paragraph, and the markers are grammatical as much as lexical: a formal sentence reaches for בטרם, בשל, לאחר ש־ and אשר, and for frames such as אין ב־ ... כדי, while a quoted line drops to ש־, בגלל and כי. The grammar moves with the vocabulary: בטרם takes its verb directly, with no linking ש־ (בטרם נצא, where speech says לפני שנצא), while לאחר ש־ keeps the ש and differs from אחרי ש־ only in register. The skill is matching the register to the moment — a news report that suddenly uses spoken connectors reads as sloppy, and a conversation full of בטרם reads as a parody.",
       "drills": [
         {
           "sentence": "בטרם {{answer}}, בדקנו את הכתובת.",
