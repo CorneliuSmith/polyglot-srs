@@ -40,7 +40,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Tagalog doesn't have a fixed \"subject\" the way English does. Instead, one noun phrase — marked by ang — is the TOPIC: the participant the sentence is \"about,\" chosen by which role the verb's affix highlights. Kumain ang bata (\"The child ate\") marks the eater (bata) as topic because kumain is an actor-focus verb.",
+      "explanation": "Tagalog doesn't have a fixed \"subject\" the way English does. Instead, one noun phrase — marked by **ang** — is the TOPIC: the participant the sentence is \"about,\" chosen by which role the verb's affix highlights. Kumain ang bata (\"The child ate\") marks the eater (bata) as topic because kumain is an actor-focus verb.\n\nNothing else in the sentence moves the marker. Negation and a fronted question word leave it exactly where it was (Hindi kumain ang aso, Saan pumunta ang bata?), and a sentence with no verb at all still has a topic: in Guro ang nanay ko (\"My mother is a teacher\") guro is the predicate and the ang phrase is the one being described.",
       "drills": [
         {
           "sentence": "Kumain {{answer}} bata.",
@@ -107,7 +107,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "ng (pronounced \"nang\") marks a noun phrase that ISN'T the topic — often the object when the actor is topic, or a possessor: Kumain ang bata ng pagkain (\"The child ate [some] food\") marks pagkain with ng because it's the object, not the topic. The same ng also shows possession: bahay ng kaibigan (\"friend's house\").",
+      "explanation": "**ng** (pronounced \"nang\") marks a noun phrase that ISN'T the topic. It does three jobs:\n\n- the thing acted on, when the actor holds the topic slot: Kumain ang bata ng pagkain (\"The child ate [some] food\")\n- the actor, when something else holds it: Kinain ng aso ang tinapay (\"The dog ate the bread\")\n- the possessor, placed after the thing owned: bahay ng kaibigan (\"friend's house\"), ang susi ng kotse (\"the car key\")",
       "drills": [
         {
           "sentence": "Kumain ang bata {{answer}} pagkain.",
@@ -174,7 +174,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "sa introduces location or direction — \"in,\" \"at,\" \"to\": Pumunta ang bata sa bahay (\"The child went to the house\"). It's also used for definite/specific places and times.",
+      "explanation": "**sa** is the marker for a place — and for the direction or the time that goes with one:\n\n- where something happens: Uminom ang lalaki sa bahay (\"The man drank at the house\")\n- where motion is headed: Pumunta ang bata sa bahay (\"The child went to the house\")\n- a definite time: Uuwi ako sa Lunes (\"I'm going home on Monday\")",
       "drills": [
         {
           "sentence": "Pumunta ang bata {{answer}} bahay.",
@@ -241,7 +241,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "Many Tagalog action verbs form their actor-focus version by inserting -um- right after the root's first consonant: kain (\"eat\") → kumain; bili (\"buy\") → bumili. If the root starts with a vowel, -um- simply attaches to the front instead: inom (\"drink\") → uminom.",
+      "explanation": "Many Tagalog action verbs form their actor-focus version by inserting **-um-** right after the root's first consonant: kain (\"eat\") → kumain; bili (\"buy\") → bumili. If the root starts with a vowel, -um- simply attaches to the front instead: inom (\"drink\") → uminom, alis (\"leave\") → umalis.",
       "drills": [
         {
           "sentence": "{{answer}} ang bata ng pagkain.",
@@ -375,7 +375,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "Tagalog nouns don't change form for plural — instead, the particle mga (pronounced \"mah-NGA\") goes right before the noun: bata (\"child\") → mga bata (\"children\"); bahay (\"house\") → mga bahay (\"houses\").",
+      "explanation": "Tagalog nouns don't change form for plural — instead, the particle **mga** (pronounced \"mah-NGA\") goes right before the noun: bata (\"child\") → mga bata (\"children\"); bahay (\"house\") → mga bahay (\"houses\"). A marker stays in front of the whole phrase: ang mga bata, ng mga mangga, May mga bata sa parke.",
       "drills": [
         {
           "sentence": "{{answer}} bata",
@@ -442,7 +442,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "may states that something exists or that someone has something: May pagkain ako, literally \"there-is food I,\" means \"I have food.\" Its negative wala works a little differently — it needs the linker -ng on the pronoun: Wala akong pagkain (\"I have no food\"), not \"wala pagkain ako.\"",
+      "explanation": "**may** states that something exists or that someone has something: May pagkain ako, literally \"there-is food I,\" means \"I have food.\" With no owner named at all it states plain existence: May tao sa labas (\"There's someone outside\").\n\nIts negative **wala** takes the linker at the join when what follows is the thing possessed: Wala akong pagkain (\"I have no food\"), Wala siyang kotse (\"He doesn't have a car\") — never \"wala pagkain ako.\" In the plain \"not there\" sense, with a place rather than a possession, no linker appears: Wala kami sa bahay kahapon (\"We weren't at home yesterday\").",
       "drills": [
         {
           "sentence": "{{answer}} pagkain ako.",
@@ -509,7 +509,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 8,
-      "explanation": "hindi is the general negator for verbs and adjectives — placed right before what it negates: Hindi kumain ang bata (\"The child didn't eat\"), Hindi malaki ang bahay (\"The house isn't big\").",
+      "explanation": "**hindi** is the general negator for verbs and adjectives — placed right before what it negates: Hindi kumain ang bata (\"The child didn't eat\"), Hindi malaki ang bahay (\"The house isn't big\"). A pronoun or the question particle ba follows it rather than preceding it: Hindi ako pupunta bukas (\"I'm not going tomorrow\"), Hindi ka ba gutom? (\"Aren't you hungry?\").\n\nExistence is the one thing hindi does not negate — that is wala's job: Walang tubig, not \"hindi may tubig.\"",
       "drills": [
         {
           "sentence": "{{answer}} kumain ang bata.",
@@ -576,7 +576,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "mag- is the second big actor-focus affix: magluto 'cook', magbasa 'read', maglinis 'clean'. Many roots take both -um- and mag- with a real difference: bumili 'buy (for oneself)' vs magbili 'sell'; umalis 'leave' vs mag-alis 'remove something'. Broadly -um- leans toward the actor experiencing the action and mag- toward the actor doing something deliberate or repeated — but the pairs are learned word by word.",
+      "explanation": "**mag-** is the second big actor-focus affix: magluto 'cook', magbasa 'read', maglinis 'clean'. Before a root that begins with a vowel it is written with a hyphen: mag-aral 'study', mag-ipon 'save up'. Many roots take both -um- and mag- with a real difference: bumili 'buy (for oneself)' vs magbili 'sell'; umalis 'leave' vs mag-alis 'remove something'. Broadly -um- leans toward the actor experiencing the action and mag- toward the actor doing something deliberate or repeated — but the pairs are learned word by word.",
       "drills": [
         {
           "sentence": "{{answer}} ng pagkain ang nanay.",
@@ -702,7 +702,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 11,
-      "explanation": "When the OBJECT is the topic, the verb takes -in and the object gets ang: Kinain ko ang mansanas 'I ate the apple' — literally 'the apple was eaten by me'. The actor moves to a ng pronoun (ko, mo, niya). Object focus is the normal choice when the object is definite, which is far more often than English passive would be used.",
+      "explanation": "When the OBJECT is the topic, the verb takes **-in** and the object gets ang: Kinain ko ang mansanas 'I ate the apple' — literally 'the apple was eaten by me'. The actor is marked with ng, either a ng pronoun (ko, mo, niya) or ng in front of a noun: Kinain ng aso ang tinapay.\n\nThe affix sits on the end only in some cells:\n\n- completed and incompleted: it moves inside, `-in-` after the root's first consonant — kinain, binasa, ginagawa\n- contemplated and commands: it stays on the end as `-in` — lilinisin, lutuin\n- a root beginning with a vowel: it comes in front as `in-` — inayos\n\nObject focus is the normal choice when the object is definite, which is far more often than English passive would be used.",
       "drills": [
         {
           "sentence": "{{answer}} ko ang mansanas.",
@@ -828,7 +828,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 13,
-      "explanation": "The ang set replaces an ang phrase: ako 'I', ka/ikaw 'you', siya 'he/she', kami 'we (not you)', tayo 'we (including you)', kayo 'you (pl/polite)', sila 'they'. ka goes after the verb, ikaw goes first. Tagalog splits 'we' the way Indonesian does — kami excludes the listener, tayo includes them.",
+      "explanation": "The ang set fills the topic slot — it replaces a whole ang phrase, marker included:\n\n| Person | ang pronoun |\n| --- | --- |\n| I | ako |\n| you, one person | ka, ikaw |\n| he, she | siya |\n| we, not you | kami |\n| we, including you | tayo |\n| you, more than one | kayo |\n| they | sila |\n\nka can never open a sentence: it leans on the word in front of it, which need not be a verb (Masaya ka ngayon 'You are happy now'), and ikaw is the form used when the pronoun comes first. siya marks no gender, and kayo doubles as the polite way to address one person. Tagalog splits 'we' the way Indonesian does — kami excludes the listener, tayo includes them.",
       "drills": [
         {
           "sentence": "Kumain {{answer}} ng adobo.",
@@ -895,7 +895,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 14,
-      "explanation": "The ng set marks a non-topic actor or a possessor: ko 'I/my', mo 'you/your', niya 'he/his, she/her', namin 'our (excl)', natin 'our (incl)', ninyo 'your (pl)', nila 'their'. In object-focus sentences the actor is always a ng pronoun: Kinain KO ang mansanas. As possessors they follow the noun: bahay ko 'my house'.",
+      "explanation": "The ng set marks a non-topic actor or a possessor:\n\n| Person | ng pronoun |\n| --- | --- |\n| I, my | ko |\n| you, your | mo |\n| he, she, his, her | niya |\n| we, our — not you | namin |\n| we, our — including you | natin |\n| you, your — more than one | ninyo |\n| they, their | nila |\n\nIn an object-focus sentence the actor carries this marking: Kinain KO ang mansanas. A noun does the same job with ng in front of it — Kinain ng aso ang tinapay — so a pronoun is not the only filler for that role. As possessors they follow the noun: bahay ko 'my house', ang mga anak ninyo 'your children'.",
       "drills": [
         {
           "sentence": "Kinain {{answer}} ang mansanas.",
@@ -962,7 +962,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 15,
-      "explanation": "The sa set marks a location, recipient, or emphatic possessor: akin 'me/mine', iyo 'you/yours', kaniya 'him/her/theirs', amin, atin, inyo, kanila. With sa they give direction (sa akin 'to me'); alone and fronted they possess emphatically (Akin ang bahay 'The house is MINE'). Everyday possession still uses the ng set after the noun.",
+      "explanation": "The sa set marks a location, recipient, or emphatic possessor.\n\n| Person | sa form |\n| --- | --- |\n| me | akin |\n| you, one person | iyo |\n| him, her | kaniya |\n| us, not you | amin |\n| us, including you | atin |\n| you, more than one | inyo |\n| them | kanila |\n\nWith sa they give direction (sa akin 'to me'); alone and fronted they possess emphatically (Akin ang bahay 'The house is MINE'). Everyday possession still uses the ng set after the noun.",
       "drills": [
         {
           "sentence": "Ibigay mo sa {{answer}} ang susi.",
@@ -1029,7 +1029,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 16,
-      "explanation": "Personal names never take ang. They take si (singular) and sina (plural) in the topic slot, ni/nina as non-topic actor or possessor, and kay/kina after sa. Using ang with a name is one of the most audible learner errors: *ang Maria is simply wrong; si Maria is right.",
+      "explanation": "Personal names never take ang. They have a marker set of their own, splitting by case and by number:\n\n| Role | One name | More than one |\n| --- | --- | --- |\n| topic | si | sina |\n| non-topic actor or possessor | ni | nina |\n| location or recipient | kay | kina |\n\nkay and kina stand where sa would stand before an ordinary noun, rather than following it. Using ang with a name is one of the most audible learner errors: ang Maria is simply wrong; si Maria is right.",
       "drills": [
         {
           "sentence": "Kumain {{answer}} Maria ng mangga.",
@@ -1096,7 +1096,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 17,
-      "explanation": "ba turns any statement into a yes/no question and sits after the first word or phrase: Kumain ka ba? Question words come first and are usually followed by ang or a linker: ano 'what', sino 'who', saan 'where', kailan 'when', bakit 'why', paano 'how', magkano 'how much', ilan 'how many'.",
+      "explanation": "**ba** turns any statement into a yes/no question. It sits in the clitic slot after the first word of the clause, behind a short pronoun when there is one: Kumain ka ba?\n\nA question word comes first:\n\n| Meaning | Question word |\n| --- | --- |\n| what | ano |\n| who | sino |\n| where | saan |\n| when | kailan |\n| why | bakit |\n| how | paano |\n| how much | magkano |\n| how many | ilan |\n\nBefore a noun the question word takes ang or the linker — Ano ang pangalan mo? or Anong pangalan mo? Before a verb it takes neither, and a short pronoun slots in straight behind: Saan ka pupunta?, Bakit ka umiiyak?",
       "drills": [
         {
           "sentence": "Kumain {{answer}} na kayo?",
@@ -1163,7 +1163,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 18,
-      "explanation": "Most descriptive words take ma-: maganda 'beautiful', mabait 'kind', malaki 'big', mabilis 'fast'. To attach one to a noun you need the linker: -ng after a vowel (magandang bahay), na after a consonant (bahay na maganda). Either order works — what is not optional is the linker.",
+      "explanation": "Most descriptive words take ma-: maganda 'beautiful', mabait 'kind', malaki 'big', mabilis 'fast'.\n\nTo attach one to a noun you need the linker, and its shape follows the sound the word in front of it ends in:\n\n| Word before the linker ends in | Linker | Example |\n| --- | --- | --- |\n| a vowel | -ng | magandang bahay |\n| n | -g | hanging malakas |\n| any other consonant | na | bahay na maganda |\n\nEither order works — adjective first or noun first. What is not optional is the linker.",
       "drills": [
         {
           "sentence": "{{answer}} bahay ang tinitirhan nila.",
@@ -1230,7 +1230,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 19,
-      "explanation": "i- puts the thing transferred, the beneficiary's object, or the instrument in the topic slot: Ibinigay ko ang libro 'I gave the book'; Ipinambili ko ang pera 'I used the money to buy'. Compare the three: Binigyan ko ang bata (the CHILD is topic, -an) vs Ibinigay ko ang libro (the BOOK is topic, i-).",
+      "explanation": "**i-** puts the thing transferred, the beneficiary's object, or the instrument in the topic slot.\n\nIbinigay ko ang libro 'I gave the book'; Ipinambili ko ang pera 'I used the money to buy'.\n\nCompare the three focuses of one verb:\n\n| Sentence | Affix | Topic |\n| --- | --- | --- |\n| Nagbigay ako ng libro sa bata | mag- | the giver |\n| Binigyan ko ang bata | -an | the child |\n| Ibinigay ko ang libro | i- | the book |",
       "drills": [
         {
           "sentence": "{{answer}} ko ang libro sa kaniya.",
@@ -1273,7 +1273,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 20,
-      "explanation": "ma- and maka- mark ability or an unintended action: nakita ko 'I saw / happened to see' (versus tiningnan ko 'I looked at'); narinig 'heard' vs pinakinggan 'listened to'; nakapunta 'managed to go'. Perception verbs live almost entirely in this set — you rarely 'deliberately see'.",
+      "explanation": "ma- and maka- mark ability or an unintended action, against a deliberate counterpart:\n\n| Meaning | Ability or accident | Deliberate |\n| --- | --- | --- |\n| see | nakita | tiningnan |\n| hear | narinig | pinakinggan |\n| go | nakapunta | pumunta |\n\nnakita ko is 'I saw' or 'I happened to see', where tiningnan ko is 'I looked at'; nakapunta is 'managed to go'. Perception verbs live almost entirely in this set — you rarely 'deliberately see'.",
       "drills": [
         {
           "sentence": "{{answer}} ko siya kahapon.",
@@ -1316,7 +1316,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 21,
-      "explanation": "Tagalog has a set of little words that cling after the first stressed word, in a fixed order: na 'already/now', pa 'still/yet', ba (question), po/ho (respect), daw/raw 'reportedly', naman (contrast/softener), kasi 'because', nga 'indeed'. Kumain na ba kayo? Getting the ORDER wrong is what marks a learner more than any single word choice.",
+      "explanation": "Tagalog has a set of little words that cling after the first stressed word, in a fixed order:\n\n| Particle | Meaning |\n| --- | --- |\n| na | already, now |\n| pa | still, yet |\n| ba | question |\n| po, ho | respect |\n| daw, raw | reportedly |\n| naman | contrast, softener |\n| kasi | because |\n| nga | indeed |\n\nna and pa are alternatives in one slot and never both appear in a clause. Where two of them do stack, they keep the order above: Kumain na ba kayo? Getting the ORDER wrong is what marks a learner more than any single word choice.",
       "drills": [
         {
           "sentence": "Kumain {{answer}} ba kayo?",
@@ -1383,7 +1383,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 22,
-      "explanation": "Default Tagalog is predicate-first: Maganda ang bahay. Fronting the topic requires the marker ay: Ang bahay ay maganda. This is the register of writing, speeches and formal instruction — everyday speech uses it sparingly. In writing ay is often contracted to 'y after a vowel: Ako'y masaya.",
+      "explanation": "Default Tagalog is predicate-first: Maganda ang bahay. Fronting the topic requires the marker **ay**: Ang bahay ay maganda. This is the register of writing, speeches and formal instruction — everyday speech uses it sparingly. In writing ay is often contracted to 'y after a vowel: Ako'y masaya.",
       "drills": [
         {
           "sentence": "Ang bahay {{answer}} maganda.",
@@ -1450,7 +1450,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 23,
-      "explanation": "mas X (kaysa sa Y) is 'more X than Y': Mas mataas siya kaysa sa akin. The superlative is pinaka-: pinakamaganda 'most beautiful', pinakamalaki 'biggest'. Equality uses kasing-/sing-: kasingtaas 'as tall as'. mas is a Spanish loan and is now completely standard.",
+      "explanation": "Three degrees, each with its own device:\n\n| Degree | English | Tagalog |\n| --- | --- | --- |\n| comparative | taller than me | mas mataas kaysa sa akin |\n| superlative | most beautiful | pinakamaganda |\n| equality | as tall as | kasingtaas |\n\nmas stands in front of the adjective and kaysa sa introduces what it is measured against: Mas mataas siya kaysa sa akin. pinaka- prefixes the adjective as it stands: pinakamalaki 'biggest'. Equality is kasing-, or sing- for short. mas is a Spanish loan and is now completely standard.",
       "drills": [
         {
           "sentence": "{{answer}} mataas siya kaysa sa akin.",
@@ -1501,7 +1501,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 24,
-      "explanation": "These take no aspect of their own and are followed by a ng pronoun plus a verb: Gusto kong kumain 'I want to eat' (note the linker -ng on gusto). ayaw 'not want', kailangan 'need', dapat 'should', puwede/maaari 'may, can', kaya 'be able'. With a noun they take the ng set directly: Gusto ko ng kape.",
+      "explanation": "Pseudo-verbs take no aspect of their own — they never inflect:\n\n| Pseudo-verb | Meaning |\n| --- | --- |\n| gusto | want |\n| ayaw | not want |\n| kailangan | need |\n| dapat | should |\n| puwede, maaari | may, can |\n| kaya | be able |\n\nMost are followed by a ng pronoun and then a verb: Gusto kong kumain 'I want to eat' — the linker -ng rides on the pronoun ko, not on gusto. puwede and maaari take an ang pronoun instead: Puwede ba akong umalis? With a noun rather than a verb the ng set comes straight after: Gusto ko ng kape.",
       "drills": [
         {
           "sentence": "{{answer}} kong matulog.",
@@ -1568,7 +1568,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 25,
-      "explanation": "may goes straight before the thing (May aso ako 'I have a dog'); mayroon/meron is used when a pronoun or particle comes between (Mayroon akong aso), and stands alone as an answer (Mayroon! 'There is!'). The negative for both is wala.",
+      "explanation": "The choice between may and mayroon is fixed by what follows:\n\n- may goes straight before the thing: May aso ako 'I have a dog'.\n- mayroon is needed when a pronoun or a particle comes in between: Mayroon akong aso.\n- mayroon also stands alone as an answer: Mayroon! 'There is!'\n\nmeron is the everyday spoken spelling of mayroon; writing keeps the full form. The negative for both is wala.",
       "drills": [
         {
           "sentence": "{{answer}} aso ako.",
@@ -1635,7 +1635,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 26,
-      "explanation": "Tagalog keeps two sets. Native (isa, dalawa, tatlo…) is used for counting things, ages and general quantity. Spanish-derived (uno, dos, tres…, and singko, diyes, bente) dominates time, money and prices — alas-dos 'two o'clock', bente pesos. Using native numbers for money sounds odd; using Spanish ones for 'three children' sounds odd too.",
+      "explanation": "Tagalog keeps two sets:\n\n| Set | Used for | Examples |\n| --- | --- | --- |\n| native | counting things, ages, general quantity | isa, dalawa, tatlo |\n| Spanish-derived | clock time, money, prices | uno, dos, tres, singko, diyes, bente |\n\nTime and prices are where this bites: alas-dos 'two o'clock', bente pesos. Using native numbers for money sounds odd; using Spanish ones for 'three children' sounds odd too.",
       "drills": [
         {
           "sentence": "{{answer}} anak sila.",
@@ -1702,7 +1702,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 27,
-      "explanation": "Three degrees, not two: ito 'this (near me)', iyan 'that (near you)', iyon 'that (far from both)'. They inflect like ang-phrases — nito/niyan/niyon for the ng set, dito/diyan/doon for place. The three-way split maps onto the speaker/listener/elsewhere distinction, not simple distance.",
+      "explanation": "Three degrees, not two, and each has a form in every marker set — ang, ng, and the sa forms used for place:\n\n| Distance from the speaker | ang set | ng set | Place |\n| --- | --- | --- | --- |\n| near me | ito | nito | dito |\n| near you | iyan | niyan | diyan |\n| far from both | iyon | niyon | doon |\n\nThe three-way split maps onto the speaker/listener/elsewhere distinction, not simple distance.",
       "drills": [
         {
           "sentence": "{{answer}} ang libro ko.",
@@ -1769,7 +1769,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 28,
-      "explanation": "magpa- makes the causer the topic (Nagpaluto ako ng pagkain 'I had food cooked'); pa-...-in makes the person made to act the topic (Pinaluto ko siya 'I made him cook'); ipa- makes the thing the topic (Ipinaluto ko ang isda). Filipino uses causatives where English says 'have someone do' or 'get something done', and it is far more frequent than the English equivalent.",
+      "explanation": "Filipino uses causatives where English says 'have someone do' or 'get something done', and it reaches for them far more often than English does. Which affix you use depends on who ends up as the topic:\n\n- `magpa-` — the causer: Nagpaluto ako ng pagkain 'I had food cooked'.\n- `pa-...-in` — the person made to act: Pinaluto ko siya 'I made him cook'.\n- `ipa-` — the thing acted on: Ipinaluto ko ang isda 'I had the fish cooked'.",
       "drills": [
         {
           "sentence": "{{answer}} ako ng bahay.",
@@ -1812,7 +1812,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 29,
-      "explanation": "A distinct aspect English has no single form for: ka- plus reduplication of the first syllable means the action finished a moment ago. Kakakain ko lang 'I just ate'; Kararating lang niya 'He's only just arrived'. It is almost always accompanied by lang. Learners tend to reach for the completed aspect and lose the 'just now' that Tagalog states outright.",
+      "explanation": "A distinct aspect English has no single form for: **ka-** plus reduplication of the root's first syllable means the action finished a moment ago. Kakakain ko lang 'I just ate'; Kararating lang niya 'He's only just arrived'. It is almost always accompanied by lang, and the actor stands in the ng-set — ko, niya, namin — whatever focus the root normally takes. Learners tend to reach for the completed aspect and lose the 'just now' that Tagalog states outright.",
       "drills": [
         {
           "sentence": "{{answer}} ko lang.",
@@ -1855,7 +1855,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 30,
-      "explanation": "pag- + root names the act (pagkain 'eating, food', pag-aaral 'studying'); pagka- names the manner or the state of having done it (pagkakain 'the way of eating', pagkatapos 'after'); ka-...-an names abstractions (kaganda-han 'beauty', kalayaan 'freedom', kabaitan 'kindness'). Formal Filipino writing is built from these.",
+      "explanation": "Tagalog turns actions and qualities into nouns with three affixes:\n\n- `pag-` names the act — pagkain 'eating, food', pag-aaral 'studying'.\n- `pagka-` names the manner or the state of having done it — pagkakain 'the way of eating', pagkatapos 'after'.\n- `ka-...-an` names abstractions — kagandahan 'beauty', kalayaan 'freedom', kabaitan 'kindness'.\n\nRoots whose verb takes mag- reduplicate their first syllable under pag- (mag-aral gives pag-aaral); roots whose verb takes -um- do not (kumain gives pagkain). Formal Filipino writing is built from these.",
       "drills": [
         {
           "sentence": "Mahalaga ang {{answer}} ng bata.",
@@ -1898,7 +1898,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 31,
-      "explanation": "The same linker that joins an adjective joins a clause: ang taong kumain 'the person who ate', ang librong binasa ko 'the book that I read'. The verb inside the clause must be in the focus that makes the head noun its topic — you cannot say *ang librong bumasa ako, because bumasa makes the READER the topic. Focus and relativisation are locked together.",
+      "explanation": "The same linker that joins an adjective joins a clause: ang taong kumain 'the person who ate', ang librong binasa ko 'the book that I read'. Its shape depends on how the head noun ends:\n\n| Head noun ends in | Linker |\n| --- | --- |\n| a vowel | `-ng` |\n| `n` | `-g` |\n| any other consonant | `na` |\n\nThe verb inside the clause must be in the focus that makes the head noun its topic — you cannot say *ang librong bumasa ako, because bumasa makes the READER the topic. A head noun that is the place or the destination needs the locative focus for the same reason. Focus and relativisation are locked together.",
       "drills": [
         {
           "sentence": "Ang tao{{answer}} kumain ay umalis.",
@@ -1965,7 +1965,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 32,
-      "explanation": "kung is 'if' for uncertain conditions and also 'whether'; kapag/pag is 'when(ever)' for things expected to happen. sana carries the wish or counterfactual: Sana umulan 'I hope it rains'; Kung mayaman ako, sana… 'If I were rich…'. Tagalog puts the unreality in sana, not in the verb.",
+      "explanation": "Three words divide the ground English covers with 'if':\n\n- kung — 'if' for an uncertain condition, and also 'whether' in an embedded question.\n- kapag, clipped to pag in speech — 'when(ever)', for something expected to happen.\n- sana — the wish or the counterfactual: Sana umulan 'I hope it rains'.\n\nTagalog puts the unreality in sana, not in the verb: in a counterfactual sana sits in the clause that states what would have followed, and the verb keeps its ordinary aspect.",
       "drills": [
         {
           "sentence": "{{answer}} umulan, hindi ako pupunta.",
@@ -2032,7 +2032,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 33,
-      "explanation": "mag-...-an makes an action mutual: magkita 'meet each other', magtulungan 'help one another', mag-usap 'talk to each other'. makipag- means joining in with someone: makipag-usap 'converse with', makipaglaro 'play with'. These carry the social texture of Filipino, where doing things together is grammatically marked rather than just implied.",
+      "explanation": "Three affixes mark what English leaves to context:\n\n- `mag-` alone makes some roots mutual — magkita 'meet each other', mag-usap 'talk to each other'.\n- `mag-...-an` does the same for others — magtulungan 'help one another'.\n- `makipag-` means joining in with what someone else is already doing — makipag-usap 'converse with', makipaglaro 'play with'.\n\nThese carry the social texture of Filipino, where doing things together is grammatically marked rather than just implied.",
       "drills": [
         {
           "sentence": "{{answer}} tayo bukas.",
@@ -2099,7 +2099,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 34,
-      "explanation": "pang- (pam-/pan- by the same nasal rule as Indonesian's meN-) names an instrument: panulat 'writing tool', pambura 'eraser', panghiwa 'cutter'. tag- names a season or period: tag-ulan 'rainy season', tag-init 'hot season', taglamig 'cold season'. ka- names a partner or counterpart: kaibigan 'friend', kapatid 'sibling', katrabaho 'workmate'.",
+      "explanation": "Three prefixes build nouns:\n\n- `pang-` names an instrument — panulat 'writing tool', pambura 'eraser', panghiwa 'cutter'.\n- `tag-` names a season or period — tag-ulan 'rainy season', tag-init 'hot season', taglamig 'cold season'.\n- `ka-` names a partner or counterpart — kaibigan 'friend', kapatid 'sibling', katrabaho 'workmate'.\n\n`pang-` assimilates to the sound that follows it: pam- before b and p, pan- before d, l, r, s and t, pang- elsewhere. Before some of those consonants the root loses its own first sound as well, which is how sulat gives panulat.",
       "drills": [
         {
           "sentence": "Ang {{answer}} ay nasa mesa.",
@@ -2166,7 +2166,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 35,
-      "explanation": "Three registers coexist. Formal Filipino (news, school) prefers ay-inversion and native coinages. Deep or 'malalim' Tagalog uses words most urban speakers now find literary — salumpuwit for upuan, and the older particles. Taglish mixes English freely (Nag-aral ako ng math kanina) and is the everyday register of Metro Manila, including among the highly educated. Choosing wrongly is what marks a foreigner long after the grammar is right.",
+      "explanation": "Three registers coexist:\n\n- Formal Filipino, the register of news and school, prefers ay-inversion and native coinages.\n- Deep or 'malalim' Tagalog reaches for words most urban speakers now find literary — the older particles, and native vocabulary that everyday speech has given up for Spanish and English loans.\n- Taglish mixes English freely (Nag-aral ako ng math kanina) and is the everyday register of Metro Manila, including among the highly educated.\n\nChoosing wrongly is what marks a foreigner long after the grammar is right.",
       "drills": [
         {
           "sentence": "Ang bata {{answer}} masipag mag-aral.",
@@ -2225,7 +2225,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 36,
-      "explanation": "Focus is not style — it decides what the sentence is ABOUT and which noun is definite. Bumili ako ng libro 'I bought a book' (indefinite book, actor in view); Binili ko ang libro 'I bought the book' (definite book, the book in view). A definite object nearly forces object focus. This is the deepest difference from European languages and the last thing learners get right.",
+      "explanation": "Focus is not style — it decides what the sentence is ABOUT and which noun is definite. Bumili ako ng libro 'I bought a book' (indefinite book, actor in view); Binili ko ang libro 'I bought the book' (definite book, the book in view). A definite object nearly forces object focus. The other focuses make the same kind of choice: `-an` puts the recipient or the place in view, `i-` the thing handed over. This is the deepest difference from European languages and the last thing learners get right.",
       "drills": [
         {
           "sentence": "{{answer}} ako ng libro sa tindahan.",
@@ -2292,7 +2292,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 37,
-      "explanation": "na and pa do work the verb form alone cannot. Kumakain pa siya 'He's still eating' vs Kumain na siya 'He has eaten'. Hindi pa 'not yet' contrasts with hindi 'not at all'. With the contemplated aspect, na means 'now, at last': Aalis na ako 'I'm leaving now'. Aspect plus particle is one system, and translating each half separately produces sentences that are grammatical and wrong.",
+      "explanation": "na and pa do work the verb form alone cannot:\n\n- Kumakain pa siya 'He's still eating' against Kumain na siya 'He has eaten'.\n- Hindi pa 'not yet' against plain hindi 'not at all'.\n- With a contemplated verb, na reads 'now, at last' — Aalis na ako 'I'm leaving now' — while pa pushes the event off to a stated later time.\n\nAspect plus particle is one system, and translating each half separately produces sentences that are grammatical and wrong.",
       "drills": [
         {
           "sentence": "Kumakain {{answer}} siya.",
@@ -2359,7 +2359,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 38,
-      "explanation": "Literary Filipino keeps forms that everyday speech has shed: ay-inversion throughout, nga and kay as intensifiers (Kay ganda! 'How beautiful!'), ani 'said', the older -in- infix placements, and native coinages minted to replace Spanish and English loans. National literature, the constitution and formal oratory all live here, and none of it sounds like the street.",
+      "explanation": "Literary Filipino keeps forms that everyday speech has shed:\n\n- ay-inversion throughout.\n- kay as an exclamative — Kay ganda! 'How beautiful!'\n- nga as an affirmation, 'indeed'.\n- ani 'said', the quotative of narrative prose.\n- sapagkat 'because', where conversation says kasi.\n- nawa, the optative that turns a statement into a wish.\n- the older -in- infix placements.\n- native coinages minted to replace Spanish and English loans.\n\nNational literature, the constitution and formal oratory all live here, and none of it sounds like the street.",
       "drills": [
         {
           "sentence": "{{answer}} ganda ng umaga!",
@@ -2426,7 +2426,7 @@
       "source": "ai",
       "reviewed": false,
       "display_order": 39,
-      "explanation": "Many affixed Tagalog words no longer mean the sum of their parts. kapatid 'sibling' is not a live ka- + patid; pagkain means 'food', not only 'the act of eating'; magulang 'parent' has drifted from ulang; kasama can be 'companion' or 'included' depending on context. Decomposing these confidently is the reliable way to be wrong.",
+      "explanation": "Many affixed Tagalog words no longer mean the sum of their parts:\n\n- kapatid 'sibling' is not a live ka- + patid.\n- pagkain means 'food', not only 'the act of eating'.\n- magulang 'parent' is ma- + gulang 'age', a derivation no learner would reconstruct forwards.\n- kasama is 'companion' or 'included', depending on the sentence.\n\nDecomposing these confidently is the reliable way to be wrong.",
       "drills": [
         {
           "sentence": "Dalawa ang {{answer}} ko.",

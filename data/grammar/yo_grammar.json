@@ -183,7 +183,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "Identity uses ni after the noun phrase: Olùkọ́ ni mí (I am a teacher — lit. teacher is me), Ta ni é? (Who are you?). Jẹ́ states category or profession before the noun: Mo jẹ́ olùkọ́ (I am a teacher).\n\nBoth are A1 essentials; ni also powers focus later.",
+   "explanation": "Identity uses ni after the noun phrase: Olùkọ́ ni mí (I am a teacher — lit. teacher is me), Ta ni ìwọ? (Who are you?). Jẹ́ states category or profession before the noun: Mo jẹ́ olùkọ́ (I am a teacher).\n\nBoth are A1 essentials; ni also powers focus later.",
    "culture_note": "",
    "references": [
     {
@@ -327,7 +327,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Kò before the verb negates it: Kò lọ (He didn't go), Mi ò fẹ́ (I don't want — mo becomes mi and kò often shortens to ò after it). Negating wà uses sí: Kò sí ni ilé (He is not at home); 'there isn't' is kò sí.",
+   "explanation": "**Kò** before the verb negates it: Kò lọ (He didn't go).\n\nAfter mo the two contract: mo becomes mi and kò shortens to ò — Mi ò fẹ́ (I don't want).\n\nNegating wà uses sí: Kò sí ní ilé (He is not at home); 'there isn't' is kò sí.",
    "culture_note": "",
    "references": [
     {
@@ -467,7 +467,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 7,
-   "explanation": "Nouns don't change for number; put àwọn before the noun when plurality matters: ọmọ (child/children) → àwọn ọmọ (the children), àwọn olùkọ́ (the teachers).\n\nNumbers make àwọn unnecessary: ọmọ méjì (two children).",
+   "explanation": "Put àwọn before the noun when plurality matters: àwọn ọmọ (the children), àwọn olùkọ́ (the teachers). Nouns themselves never change — ọmọ is child or children.\n\nA number makes àwọn unnecessary, and it follows the noun it counts.\n\n| number | form |\n| --- | --- |\n| two | méjì |\n| three | mẹ́ta |\n| four | mẹ́rin |",
    "culture_note": "",
    "references": [
     {
@@ -537,7 +537,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 8,
-   "explanation": "Ṣé in front of a statement makes a yes/no question: Ṣé o fẹ́ omi? (Do you want water?). Content questions use kí ni (what), ta ni (who), níbo (where): Kí ni orúkọ rẹ? (What is your name?), Níbo lo ń lọ? (Where are you going?).",
+   "explanation": "**Ṣé** in front of a statement makes a yes/no question: Ṣé o fẹ́ omi? (Do you want water?).\n\nA content question opens with a question word, and ni follows it.\n\n| asks | word |\n| --- | --- |\n| what | kí |\n| who | ta |\n| where | níbo |\n\nKí ni orúkọ rẹ? (What is your name?), Níbo ni o ń lọ? (Where are you going?).",
    "culture_note": "",
    "references": [
     {
@@ -607,7 +607,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 9,
-   "explanation": "Possessive pronouns follow the noun: ìwé mi (my book), ilé rẹ (your house), ọkọ̀ rẹ̀ (his/her vehicle), ilé wa (our house).\n\nBetween two nouns, possession is just order (or ti): ilé bàbá (father's house).",
+   "explanation": "Possessive pronouns follow the noun: ìwé mi (my book), ilé rẹ (your house), ọkọ̀ rẹ̀ (his/her vehicle), ilé wa (our house), ilé yín (your house, to several people), aṣọ wọn (their clothes).\n\nBetween two nouns, possession is just order (or ti): ilé bàbá (father's house). Ti with a full pronoun says whose something is: Ti èmi ni ìwé yìí (This book is mine).",
    "culture_note": "",
    "references": [
     {
@@ -747,7 +747,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Two future markers: yóò (with full pronouns: Ó yóò lọ → usually yó lọ) and máa, the everyday one: Mo máa lọ (I will go), A máa rìn (We will walk).\n\nNegative future uses kò ní í: Kò ní í lọ (He won't go).",
+   "explanation": "There are two future markers. The formal one is **yóò**, and it follows the subject: Ó yóò lọ (He will go), often shortened to yó lọ.\n\nThe everyday one is **máa**: Mo máa lọ (I will go), A máa rìn (We will walk).\n\nThe negative future uses kò ní í: Kò ní í lọ (He won't go).",
    "culture_note": "",
    "references": [
     {
@@ -817,7 +817,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "Object pronouns follow the verb and copy its final vowel's tone pattern: rí mi (see me), rí ẹ (see you), rí i (see him/her/it — vowel echo), rí wa (see us), rí yín (see you all), rí wọn (see them).\n\nMo rí i (I saw him).",
+   "explanation": "Object pronouns follow the verb: rí mi (see me), pè ọ́ (call you), rí i (see him/her/it, a copy of the verb's final vowel), rí wa (see us), rí yín (see you all), rí wọn (see them).\n\nMo rí i (I saw him). The tone can move with the verb in front: rí wọn (see them) beside Bàbá pè wọ́n (Father called them).",
    "culture_note": "",
    "references": [
     {
@@ -1027,7 +1027,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 6,
-   "explanation": "Commands are the bare verb: Wá! (Come!), Jókòó! (Sit down!). Politeness adds jọ̀wọ́ (please) or the plural ẹ: Ẹ jọ̀wọ́, ẹ wá (Please come).\n\nThe negative command is má (or má ṣe): Má lọ! (Don't go!).",
+   "explanation": "Commands are the bare verb: Wá! (Come!), Jókòó! (Sit down!). Politeness adds jọ̀wọ́ (please) or the plural ẹ: Ẹ jọ̀wọ́, ẹ wá (Please come).\n\nThe negative command is **má** (or má ṣe): Má lọ! (Don't go!).",
    "culture_note": "",
    "references": [
     {
@@ -1097,7 +1097,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "Tí introduces relative clauses: ọkùnrin tí ó wá (the man who came), ìwé tí mo rà (the book that I bought), oúnjẹ tí wọ́n sè (the food they cooked).\n\nInside the clause the normal pronouns stay.",
+   "explanation": "**Tí** introduces relative clauses: ọkùnrin tí ó wá (the man who came), ìwé tí mo rà (the book that I bought), oúnjẹ tí wọ́n sè (the food they cooked).\n\nInside the clause the normal pronouns stay.",
    "culture_note": "",
    "references": [
     {
@@ -1167,7 +1167,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Moving a phrase to the front and adding ni focuses it: Adé ni ó lọ (It was Adé who went), Ọjà ni mo lọ (It's the market I went to), Àná ni wọ́n dé (It was yesterday they arrived).\n\nQuestion words use the same frame: Ta ni ó wá? (Who came?).",
+   "explanation": "Moving a phrase to the front and adding **ni** focuses it, whatever kind of phrase it is:\n\n- a subject: Adé ni ó lọ (It was Adé who went)\n- a place: Ọjà ni mo lọ (It's the market I went to)\n- a time: Àná ni wọ́n dé (It was yesterday they arrived)\n\nWhen the subject is what you front, a pronoun still fills the subject slot behind it: ó in Adé ni ó lọ, mo in Èmi ni mo sè oúnjẹ.\n\nQuestion words use the same frame: Ta ni ó wá? (Who came?).",
    "culture_note": "This ni-focus is everywhere in real speech — answers to questions almost always use it.",
    "references": [
     {
@@ -1237,7 +1237,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 3,
-   "explanation": "Yoruba stacks verbs without 'and': mú ìwé wá (take book come = bring the book), gbé e lọ (carry it go = take it away), ra oúnjẹ fún mi (buy food give me = buy food for me).\n\nEach verb keeps its own meaning; together they map one event.",
+   "explanation": "Yoruba stacks verbs without 'and':\n\n- mú ìwé wá (take book come = bring the book)\n- gbé e lọ (carry it go = take it away)\n- ra oúnjẹ fún mi (buy food give me = buy food for me)\n\nEach verb keeps its own meaning; together they map one event.",
    "culture_note": "",
    "references": [
     {
@@ -1311,7 +1311,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 4,
-   "explanation": "Real conditions use bí (or tí) … bá: Bí o bá kàwé, wàá yege (If you study, you will pass), Bí òjò bá rọ̀, a ó dúró ní ilé (If it rains, we will stay home).\n\nBá sits right before the verb of the if-clause.",
+   "explanation": "Real conditions use the two-part frame **bí … bá**, or tí … bá: Bí o bá kàwé, wàá yege (If you study, you will pass), Bí òjò bá rọ̀, a ó dúró ní ilé (If it rains, we will stay home).\n\nBá sits right before the verb of the if-clause.",
    "culture_note": "",
    "references": [
     {
@@ -1381,7 +1381,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 5,
-   "explanation": "Comparison wraps ju … lọ around the standard: Ó ga ju mí lọ (He is taller than me), Ilé yìí tóbi ju ilé yẹn lọ (This house is bigger than that one). The quality word itself never changes.",
+   "explanation": "Comparison wraps **ju … lọ** around the standard: Ó ga ju mí lọ (He is taller than me), Ilé yìí tóbi ju ilé yẹn lọ (This house is bigger than that one). The quality word itself never changes.\n\nThe frame is not only for qualities: Mo fẹ́ràn tii ju kọfí lọ (I like tea more than coffee) puts an ordinary verb in the same slot.",
    "culture_note": "",
    "references": [
     {
@@ -1451,7 +1451,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "Máa ń (often written maa n) marks habits: Mo máa ń jí ní aago mẹ́fà (I usually wake at six), Wọ́n máa ń lọ sí ṣọ́ọ̀ṣì (They usually go to church). Negative habitual is kì í: Kì í mu ọtí (He doesn't (habitually) drink).",
+   "explanation": "**Máa ń** marks habits: Mo máa ń jí ní aago mẹ́fà (I usually wake at six), Wọ́n máa ń lọ sí ṣọ́ọ̀ṣì (They usually go to church).\n\nThe negative habitual is **kì í**: Kì í mu ọtí (He doesn't habitually drink).",
    "culture_note": "",
    "references": [
     {
@@ -1521,7 +1521,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "Pé introduces reported clauses after saying/thinking verbs: Ó sọ pé òun máa wá (He said that he would come), Mo mọ̀ pé o ti dé (I know that you have arrived). Note òun — the special third-person pronoun used inside reports to refer back to the speaker.",
+   "explanation": "**Pé** introduces reported clauses after saying/thinking verbs: Ó sọ pé òun máa wá (He said that he would come), Mo mọ̀ pé o ti dé (I know that you have arrived).\n\nNote òun — the special third-person pronoun used inside a report to refer back to the person being quoted. With an ordinary ó instead, Ó sọ pé ó máa wá says somebody else would come.",
    "culture_note": "",
    "references": [
     {
@@ -1591,7 +1591,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 1,
-   "explanation": "Yoruba has no passive; impersonal wọ́n (they) covers it: Wọ́n ti kọ́ ilé náà (The house has been built — lit. they have built it), Wọ́n ń pè ọ́ (You are being called). Context, not form, signals the passive reading.",
+   "explanation": "Yoruba has no passive; impersonal **wọ́n** (they) covers it: Wọ́n ti kọ́ ilé náà (The house has been built — lit. they have built it), Wọ́n ń pè ọ́ (You are being called). Context, not form, signals the passive reading.",
    "culture_note": "",
    "references": [
     {
@@ -1661,7 +1661,7 @@
    "source": "contributor",
    "reviewed": true,
    "display_order": 2,
-   "explanation": "The concessive frame bí ó tilẹ̀ jẹ́ pé … (even though …) sets up contrast: Bí ó tilẹ̀ jẹ́ pé òjò rọ̀, a lọ (Even though it rained, we went).\n\nA shorter alternative is síbẹ̀ (nevertheless) linking two clauses.",
+   "explanation": "The concessive frame **bí ó tilẹ̀ jẹ́ pé** … (even though …) sets up contrast: Bí ó tilẹ̀ jẹ́ pé òjò rọ̀, a lọ (Even though it rained, we went).\n\nSíbẹ̀ (nevertheless) is not a shorter form of that frame — it makes the same contrast from the other side, sitting in the second clause: Òjò rọ̀; síbẹ̀, a lọ (It rained; nevertheless, we went).",
    "culture_note": "",
    "references": [
     {
@@ -1729,7 +1729,7 @@
    "level": "B1",
    "display_order": 6,
    "function": "Say where something is vs where it's heading",
-   "explanation": "Ní marks a static location (ó wà ní ilé — he is at home); sí marks direction or a goal (ó lọ sí ọjà — he went to the market). Verbs of rest take ní, verbs of motion take sí — mixing them is the classic learner giveaway.",
+   "explanation": "**Ní** marks a static location: ó wà ní ilé (he is at home).\n\n**Sí** marks direction or a goal: ó lọ sí ọjà (he went to the market).\n\nVerbs of rest take ní, verbs of motion take sí — mixing them is the classic learner giveaway.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -1799,7 +1799,7 @@
    "level": "B1",
    "display_order": 7,
    "function": "Ask about people, places, manner, price, time, and reasons",
-   "explanation": "Ta ni (who), níbo (where), báwo (how), èló (how much), nígbà wo (when), èéṣe/kí nìdí (why) — most pair with the focus ni you already know: Níbo ni o ń lọ? (where are you going?).",
+   "explanation": "Yoruba's question words:\n\n| question word | asks about |\n| --- | --- |\n| ta ni | who |\n| níbo | where |\n| báwo | how |\n| èló | how much |\n| nígbà wo | when |\n| èéṣe, kí nìdí | why |\n\nMost pair with the focus ni you already know: Níbo ni o ń lọ? (where are you going?). Èéṣe is the exception — it takes tí instead: Èéṣe tí o fi pẹ́? (Why are you late?).",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -1937,7 +1937,7 @@
    "level": "B1",
    "display_order": 8,
    "function": "Add want-to, can, and must to any verb",
-   "explanation": "Fẹ́, lè, and gbọ́dọ̀ sit between the subject and the verb: mo fẹ́ jẹun (I want to eat), ó lè wẹ̀ (she can swim), o gbọ́dọ̀ lọ (you must go).\n\nNegation wraps around them: kò lè wá (he can't come).",
+   "explanation": "Fẹ́, lè, and gbọ́dọ̀ sit between the subject and the verb:\n\n- mo fẹ́ jẹun (I want to eat)\n- ó lè wẹ̀ (she can swim)\n- o gbọ́dọ̀ lọ (you must go)\n\nNegation goes in front of them: kò lè wá (he can't come).",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2007,7 +2007,7 @@
    "level": "B1",
    "display_order": 9,
    "function": "Chain a purpose or an infinitive onto a verb",
-   "explanation": "Láti turns a verb into 'to do X': mo wá láti kọ́ èdè Yorùbá (I came to learn Yoruba); ó ṣòro láti jí (it's hard to wake up). After fẹ́ it's optional — both mo fẹ́ lọ and mo fẹ́ láti lọ occur.",
+   "explanation": "**Láti** turns a verb into 'to do X': mo wá láti kọ́ èdè Yorùbá (I came to learn Yoruba); ó ṣòro láti jí (it's hard to wake up). After fẹ́ it's optional — both mo fẹ́ lọ and mo fẹ́ láti lọ occur.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2077,7 +2077,7 @@
    "level": "B2",
    "display_order": 3,
    "function": "Wish, bless, and tell people what should happen",
-   "explanation": "Kí opens a clause about what SHOULD happen: mo fẹ́ kí o wá (I want you to come), bàbá ní kí wọ́n jẹun (father said they should eat), kí ọjọ́ rẹ ó dára (may your day be good).\n\nIt's the engine of Yoruba blessings.",
+   "explanation": "**Kí** opens a clause about what SHOULD happen, and it turns up in three places:\n\n- after a verb of wanting: mo fẹ́ kí o wá (I want you to come)\n- after a verb of saying or praying: bàbá ní kí wọ́n jẹun (father said they should eat)\n- on its own, as a wish: kí ọjọ́ rẹ ó dára (may your day be good)\n\nThe verb inside stays bare, with no tense marker on it. A full noun subject also takes a resumptive ó in front of that verb — kí ọjọ́ rẹ ó dára — where a pronoun subject takes none: kí o wá.\n\nIt's the engine of Yoruba blessings.",
    "culture_note": "Yoruba life runs on kí-blessings: kí ọjọ́ ó dára, kí ọlọ́run ó ṣọ́ ẹ (may God guard you) — expect them at every parting.",
    "source": "contributor",
    "reviewed": false,
@@ -2147,7 +2147,7 @@
    "level": "B2",
    "display_order": 4,
    "function": "Count things and ask how many",
-   "explanation": "Numerals follow the noun: ìwé kan (one book), ọmọ méjì (two children), ọjọ́ méje (seven days).\n\nMélòó asks 'how many' from the same slot: ìwé mélòó? Standalone counting uses the ọ̀kan, èjì, ẹ̀ta series instead.",
+   "explanation": "A numeral follows the noun it counts — ìwé méjì is 'two books', never méjì ìwé.\n\n| number | after a noun |\n| --- | --- |\n| 1 | kan |\n| 2 | méjì |\n| 3 | mẹ́ta |\n| 4 | mẹ́rin |\n| 5 | márùn-ún |\n| 6 | mẹ́fà |\n| 7 | méje |\n\nMélòó asks 'how many' from the same slot: ìwé mélòó? Counting on its own uses a different series: ọ̀kan, èjì, ẹ̀ta.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2217,7 +2217,7 @@
    "level": "B2",
    "display_order": 5,
    "function": "Build people-words and idea-words from verbs and nouns",
-   "explanation": "Olù- makes agents (olùkọ́ teacher ← kọ́ teach); oní- makes owners/sellers and assimilates hard (oní + ata → aláta pepper seller, oní + aṣọ → aláṣọ cloth seller); ì- makes action nouns (ìdùnnú joy ← dùn, ìbéèrè question ← béèrè); a- makes doers (akọrin singer).",
+   "explanation": "Four prefixes build nouns out of verbs and other nouns.\n\n- `olù-` makes an agent from a verb: olùkọ́ (teacher) ← kọ́ (teach)\n- `oní-` makes an owner or seller, and assimilates hard to the noun's first vowel: oní + ata → aláta (pepper seller), oní + aṣọ → aláṣọ (cloth seller)\n- `ì-` makes an action or idea noun: ìbéèrè (question) ← béèrè (to ask), ìdùnnú (joy) ← inú dùn (the inside is sweet)\n- `a-` makes a doer, usually from a verb plus its object: akọrin (singer) ← kọ orin (sing a song)",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2287,7 +2287,7 @@
    "level": "B2",
    "display_order": 6,
    "function": "Say with-what and for-whom inside the verb chain",
-   "explanation": "Fi (take) smuggles an instrument into the chain: ó fi ọ̀bẹ gé ẹran (he took-knife cut meat = cut it with a knife). Fún (give) marks the beneficiary: ra ìwé fún mi (buy a book for me); fi X fún Y hands X over to Y.",
+   "explanation": "**Fi** (take, use) puts an instrument into the chain: ó fi ọ̀bẹ gé ẹran (he took-knife cut meat = he cut the meat with a knife). With an abstract noun the same frame gives a manner rather than a tool: wọ́n fi ayọ̀ gba ìròyìn náà (they received the news with joy).\n\n**Fún** (give) marks the beneficiary: ra ìwé fún mi (buy a book for me). The two combine — fi X fún Y hands X over to Y: ó fi owó fún ọmọ náà (he gave the child money).",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2357,7 +2357,7 @@
    "level": "B2",
    "display_order": 7,
    "function": "Anchor events before, after, and when",
-   "explanation": "Nígbà tí opens 'when'-clauses (nígbà tí mo dé — when I arrived), lẹ́yìn tí 'after', and kí … tó 'before' (kí o tó lọ — before you go). All lean on the tí you know from relative clauses.",
+   "explanation": "Three frames anchor an event in time:\n\n- nígbà tí — 'when': nígbà tí mo dé (when I arrived)\n- lẹ́yìn tí — 'after': a jẹun lẹ́yìn tí a parí iṣẹ́ (we ate after we finished the work)\n- kí … tó — 'before', with the subject sitting between the two words: kí o tó lọ (before you go)\n\nThe first two are built on the tí you know from relative clauses. Kí … tó is not: it carries no tí at all, and its kí is the subjunctive kí of wishes and commands.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2427,7 +2427,7 @@
    "level": "C1",
    "display_order": 3,
    "function": "String actions into a flowing narrative",
-   "explanation": "Sì links same-subject clauses, sitting AFTER the subject of the second clause: ó dé ilé, ó sì jókòó (he got home and sat down). In commands it rides inside the kí clause: jókòó, kí o sì gbọ́.",
+   "explanation": "**Sì** means 'and then' between clauses, and it never opens one: the second clause repeats its subject and sì sits right after it — ó dé ilé, ó sì jókòó (he got home and sat down). English drops that second subject; Yoruba keeps it.\n\nIn commands it rides inside the kí clause: jókòó, kí o sì gbọ́ (sit down and listen).",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2497,7 +2497,7 @@
    "level": "C1",
    "display_order": 4,
    "function": "Turn verbs into gerunds and dial up adverbs",
-   "explanation": "Doubling the verb's first consonant + í makes a gerund: jẹ eat → jíjẹ eating, kà read → kíkà reading, rà buy → rírà buying.\n\nWhole-word doubling intensifies adverbs: kíákíá quickly, díẹ̀díẹ̀ little by little, pẹ̀lẹ́pẹ̀lẹ́ gently.",
+   "explanation": "Doubling the verb's first consonant + í makes a gerund: jẹ eat → jíjẹ eating, kà read → kíkà reading, rà buy → rírà buying.\n\nDoubling a whole word makes an adverb of manner — sometimes an intensifier, sometimes a step-by-step reading: kíákíá quickly, pẹ̀lẹ́pẹ̀lẹ́ gently, díẹ̀díẹ̀ little by little.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2567,7 +2567,7 @@
    "level": "C1",
    "display_order": 5,
    "function": "Intensify like a native — each word has its own superlative",
-   "explanation": "Yoruba doesn't say 'very white'; each quality owns a dedicated ideophone: funfun láúláú (spotlessly white), dúdú kirikiri (jet black), pupa roro (glowing red), tutù nini (ice-cold), kún fọ́fọ́ (full to the brim), gbóná janjan (piping hot).\n\nThe pairs are fixed — swapping them sounds absurd.",
+   "explanation": "Where English reaches for 'very', Yoruba prefers an ideophone tied to that one quality:\n\n| quality | intensifier | sense |\n| --- | --- | --- |\n| funfun | láúláú | spotlessly white |\n| dúdú | kirikiri | jet black |\n| pupa | roro | glowing red |\n| tutù | nini | ice-cold |\n| kún | fọ́fọ́ | full to the brim |\n| gbóná | janjan | piping hot |\n\nThe pairs are fixed — swapping them sounds absurd.",
    "culture_note": "Ideophones are where Yoruba paints: the sound IS the meaning. Regional spellings vary — a native reviewer should confirm local forms.",
    "source": "contributor",
    "reviewed": false,
@@ -2637,7 +2637,7 @@
    "level": "C1",
    "display_order": 6,
    "function": "Talk about the way something happens",
-   "explanation": "Bí + subject + ṣe + verb = 'how/the way that': bí mo ṣe rí i (how I saw it), ṣàlàyé bí ẹ̀rọ náà ṣe ń ṣiṣẹ́ (explain how the machine works). Mind the tones: ṣe (do) is the frame; sè (cook) just sounds close.",
+   "explanation": "**Bí** + subject + ṣe + verb = 'how/the way that': bí mo ṣe rí i (how I saw it), ṣàlàyé bí ẹ̀rọ náà ṣe ń ṣiṣẹ́ (explain how the machine works). Mind the dot as much as the tone: ṣe (do) is the frame verb, with the dotted ṣ; sè (cook) is a plain s on a low tone — a different word.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
@@ -2781,7 +2781,7 @@
    "level": "C2",
    "display_order": 2,
    "function": "Address elders the way Yoruba demands",
-   "explanation": "Elders and superiors take the plural: the pronoun ẹ̀yin/ẹ replaces o even for ONE person — Ẹ káàárọ̀ (good morning, ma/sir), Ẹ jọ̀wọ́ (please), Ẹ ṣeun (thank you).\n\nGreetings are an art: Ẹ kú iṣẹ́ salutes someone at work, Ẹ káàbọ̀ welcomes an arrival.",
+   "explanation": "Elders and superiors take the plural: the second-person plural forms replace the singular even for ONE person.\n\n| slot | to one person | to an elder |\n| --- | --- | --- |\n| subject, before the verb | o | ẹ |\n| independent, focused with ni | ìwọ | ẹ̀yin |\n| possessive, after the noun | rẹ | yín |\n\nSo Ẹ káàárọ̀ (good morning, ma/sir), Ẹ jọ̀wọ́ (please), Ẹ ṣeun (thank you), ilé yín (your house).\n\nGreetings are an art: Ẹ kú iṣẹ́ salutes someone at work, Ẹ káàbọ̀ welcomes an arrival.",
    "culture_note": "Using bare 'o' with an elder is not casual, it's insolent. Greeting protocol (kú + situation: ẹ kú ìjókòó, ẹ kú àtijọ́…) is a register of its own.",
    "source": "contributor",
    "reviewed": false,
@@ -2851,7 +2851,7 @@
    "level": "C2",
    "display_order": 3,
    "function": "Add the warmth and edge writing can't show",
-   "explanation": "Sentence-final o adds warmth or urgency (ó dàbọ̀ o!); ná means 'first / for now' (dúró ná); ṣebí opens a 'surely…?' check; gan-an intensifies ('really'); tilẹ̀ adds 'even'. These particles carry the tone of voice — leave them out and you sound like a textbook.",
+   "explanation": "Six small words carry the tone of voice:\n\n- o — sentence-final; warmth or urgency: ó dàbọ̀ o!\n- ná — after the verb; 'first / for now': dúró ná\n- ṣáá — after the verb; 'just, anyway': jókòó ṣáá\n- gan-an — after what it intensifies; 'really': oúnjẹ náà dùn gan-an\n- tilẹ̀ — before the verb; 'even': kò tilẹ̀ ránṣẹ́\n- ṣebí — opens the sentence; 'surely…?': ṣebí o ti parí?\n\nLeave them out and you sound like a textbook.",
    "culture_note": "",
    "source": "contributor",
    "reviewed": false,
