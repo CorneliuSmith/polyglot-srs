@@ -1,6 +1,11 @@
 # Markdown pass over the seed explanations — plan (4 Sep 2026)
 
-**Status: FRENCH IS DONE (7 Sep 2026) — 20 of 42 explanations now render
+**Status: FIVE COURSES DONE (7 Sep 2026) — fr, es, it, pt, de. 124 of 216
+explanations now render as markdown and **164 content defects** were
+corrected on the way through (`2026-09-07-fr-markdown-pass.md`,
+`2026-09-07-markdown-batch-2.md`). 22 courses to go.**
+
+**Status was: FRENCH IS DONE (7 Sep 2026) — 20 of 42 explanations now render
 as markdown and 13 content defects were corrected on the way through
 (`docs/decisions/2026-09-07-fr-markdown-pass.md`). 26 courses to go, in the
 order below. The tooling is built.**
