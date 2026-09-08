@@ -1929,7 +1929,7 @@
           "sentence": "Ka {{answer}} te kaiako i te reo Māori.",
           "answer": "whakaako",
           "translation": "The teacher will teach the Māori language.",
-          "hint": "teach (whaka- + ako)",
+          "hint": "causative prefix on the verb meaning 'learn'",
           "gloss": "FUT · ___ · the · teacher · OBJ · the · language · Māori",
           "display_order": 1
         },
@@ -1937,7 +1937,7 @@
           "sentence": "Me {{answer}} koe i te ipu ki te wai.",
           "answer": "whakakī",
           "translation": "You should fill the cup with water.",
-          "hint": "fill (whaka- + kī)",
+          "hint": "causative prefix on the stative meaning 'full'",
           "gloss": "OBLIG · ___ · 2SG · OBJ · the · cup · with · the · water",
           "display_order": 2
         },
@@ -1953,7 +1953,7 @@
           "sentence": "Nā te rongoā i {{answer}} i a ia.",
           "answer": "whakaora",
           "translation": "It was the medicine that healed him.",
-          "hint": "heal (whaka- + ora)",
+          "hint": "causative prefix on the word meaning 'alive, well'",
           "gloss": "by · the · medicine · PST · ___ · OBJ · PERS · 3SG",
           "display_order": 4
         },
@@ -1961,7 +1961,7 @@
           "sentence": "E {{answer}} ana ia i te whare ki te tae.",
           "answer": "whakapai",
           "translation": "She is tidying the house up.",
-          "hint": "make good (whaka- + pai)",
+          "hint": "causative prefix on the stative meaning 'good'",
           "gloss": "PROG · ___ · PROG · 3SG · OBJ · the · house · to · the · reach",
           "display_order": 5
         },
@@ -1969,7 +1969,7 @@
           "sentence": "Ka {{answer}} rātou i te ahi.",
           "answer": "whakakā",
           "translation": "They will light the fire.",
-          "hint": "light/ignite (whaka- + kā)",
+          "hint": "causative prefix on the stative meaning 'alight'",
           "gloss": "FUT · ___ · 3PL · OBJ · the · fire",
           "display_order": 6
         }

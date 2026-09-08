@@ -1169,7 +1169,7 @@
           "sentence": "{{answer}} bahay ang tinitirhan nila.",
           "answer": "Magandang",
           "translation": "They live in a beautiful house.",
-          "hint": "maganda + -ng linker",
+          "hint": "the ma- adjective meaning 'beautiful', plus its linker",
           "display_order": 1,
           "gloss": "___ · house · NOM · PROG-reside-LOC · 3PL.GEN"
         },
@@ -1193,7 +1193,7 @@
           "sentence": "Isang {{answer}} kotse ang binili niya.",
           "answer": "mabilis na",
           "translation": "He bought a fast car.",
-          "hint": "mabilis + na linker",
+          "hint": "the ma- adjective meaning 'fast', plus its linker",
           "display_order": 4,
           "gloss": "one-LNK · ___ · car · NOM · buy.PFV.OBJ · 3SG.GEN"
         },

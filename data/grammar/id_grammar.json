@@ -1212,7 +1212,7 @@
           "sentence": "Tolong {{answer}} pintu.",
           "answer": "bukakan",
           "translation": "Please open the door (for me).",
-          "hint": "buka + -kan — imperative, benefactive",
+          "hint": "'to open' + the benefactive suffix — an imperative, so no meN- prefix",
           "display_order": 3,
           "gloss": "please · ___ · door"
         },

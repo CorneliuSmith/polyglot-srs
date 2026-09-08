@@ -349,6 +349,17 @@ rate, say so — that result matters more than the phase closing quietly.
     "is/are doing" as the 1SG pronoun within hours of the overlay starting
     to work. Keep the two files in step (CHECKS §31, `TestNoDormantOverrides`).
 
+52. **A hint may name the stem in ENGLISH; it may not spell the stem in the
+    target language.** "coche, plural" → coches tests nothing; "car (m.),
+    plural" tests the same thing and gives nothing away. Turkish's "house +
+    locative + 'I am'" is the model. But the shape alone does not decide:
+    "plural of boek" → boeken is legitimate because Dutch makes the learner
+    choose -en over -s. Judge per language (CHECKS §33).
+53. **A filter built to remove noise can remove signal — check what it
+    dropped.** A sweep excluded any stem that is an English headword, and
+    `casa` is one at rank 9,290, so one Spanish drill escaped a judged pass
+    its five identical siblings went through.
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

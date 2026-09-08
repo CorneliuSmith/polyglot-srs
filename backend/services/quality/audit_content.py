@@ -79,7 +79,8 @@ FAIL_RULES = (
 WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "structural")
 # Measured and printed, never scored: "how often do noun hints mark gender" is
 # a number to drive editorial work, not a threshold anyone can set honestly.
-REPORT_RULES = ("gender_marking", "unclozable_rows", "frame_collision")
+REPORT_RULES = ("gender_marking", "unclozable_rows", "frame_collision",
+                "stem_in_hint")
 
 # The top band a learner actually reaches in the first months. Both card
 # rules below are scoped to it: a defect on rank 8,000 is real and nobody
@@ -492,6 +493,46 @@ def _audit_hint(
     # precedence is a statement of intent, not a live tie-break.)
     if offers_a_choice and _is_agreement_feature_only(hint):
         findings["agreement_feature"].append(f"[{title}] hint '{hint}' -> answer '{answer}'")
+
+    stem = _stem_of_answer_in_hint(hint, answer)
+    if stem:
+        findings["stem_in_hint"].append(
+            f"[{title}] hint '{hint}' spells the stem '{stem}' of answer '{answer}'"
+        )
+
+
+_STEM_WORD = re.compile(r"[^\W\d_]+", re.UNICODE)
+
+
+def _stem_of_answer_in_hint(hint: str, answer: str) -> str | None:
+    """The hint word that is the answer's own stem, if there is one.
+
+    "coche, plural" for the answer *coches*: the hint carries the Spanish
+    singular and names the operation, so the learner adds an -s and the drill
+    tests nothing. None of the four hint rules above sees it — `leak_hard`
+    matches whole words, `self_answering` wants the answer then a dash,
+    `giveaway_by_gloss` looks inside the translation, `agreement_feature`
+    wants a feature and nothing else. The owner found it on a card
+    (7 Sep 2026).
+
+    REPORT level, and that is the finding rather than a compromise: the same
+    SHAPE is a giveaway in one language and correct teaching in the next.
+    Spanish `coche -> coches` is always +s, so the hint hands over the answer.
+    Dutch `boek -> boeken` makes the learner choose -en over -s, and Romanian
+    `scaun -> scaune` -e over -uri; readers of those languages judged both
+    legitimate. A rule cannot separate them without knowing whether the
+    language offers a choice at that point, so it names candidates for a
+    reader instead of failing a build (CHECKS §33).
+    """
+    folded_answer = _fold_marks("", answer)
+    for token in _STEM_WORD.findall(hint):
+        stem = _fold_marks("", token)
+        if (len(stem) >= 3 and stem != folded_answer
+                and folded_answer.startswith(stem)
+                and len(folded_answer) - len(stem) <= 3
+                and token.casefold() not in ENGLISH_FUNCTION_WORDS):
+            return token
+    return None
 
 
 def _audit_structure(code: str, points: list[dict] | None, morphology: dict | None) -> list[str]:

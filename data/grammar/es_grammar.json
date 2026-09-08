@@ -269,7 +269,7 @@
           "sentence": "Tengo dos {{answer}}.",
           "answer": "libros",
           "translation": "I have two books.",
-          "hint": "plural of libro",
+          "hint": "book (m.), plural",
           "display_order": 1,
           "gloss": "have.1SG · two · ___"
         },
@@ -277,7 +277,7 @@
           "sentence": "Las {{answer}} son bonitas.",
           "answer": "casas",
           "translation": "The houses are pretty.",
-          "hint": "plural of casa",
+          "hint": "house (f.), plural",
           "display_order": 2,
           "gloss": "DEF.F.PL · ___ · be.3PL · pretty.F.PL"
         },
@@ -285,7 +285,7 @@
           "sentence": "Tengo tres {{answer}}.",
           "answer": "hermanas",
           "translation": "I have three sisters.",
-          "hint": "hermana, plural",
+          "hint": "sister (f.), plural",
           "display_order": 3,
           "gloss": "have.1SG · three · ___"
         },
@@ -293,7 +293,7 @@
           "sentence": "Los {{answer}} son nuevos.",
           "answer": "coches",
           "translation": "The cars are new.",
-          "hint": "coche, plural",
+          "hint": "car (m.), plural",
           "display_order": 4,
           "gloss": "DEF.M.PL · ___ · be.3PL · new.M.PL"
         },
@@ -301,7 +301,7 @@
           "sentence": "Las {{answer}} son pequeñas.",
           "answer": "mesas",
           "translation": "The tables are small.",
-          "hint": "mesa, plural",
+          "hint": "table (f.), plural",
           "display_order": 5,
           "gloss": "DEF.F.PL · ___ · be.3PL · small.F.PL"
         },
@@ -309,7 +309,7 @@
           "sentence": "Tengo dos {{answer}} en casa.",
           "answer": "gatos",
           "translation": "I have two cats at home.",
-          "hint": "gato, plural",
+          "hint": "cat (m.), plural",
           "display_order": 6,
           "gloss": "have.1SG · two · ___ · in · house"
         }
@@ -1466,7 +1466,7 @@
           "sentence": "Los libros son {{answer}}.",
           "answer": "nuevos",
           "translation": "The books are new.",
-          "hint": "nuevo, masculine plural",
+          "hint": "new — agreeing with the noun it describes",
           "display_order": 2,
           "cell": "m.pl",
           "gloss": "DEF.M.PL · book.M.PL · be.3PL · ___"
@@ -1502,7 +1502,7 @@
           "sentence": "Los niños están {{answer}}.",
           "answer": "cansados",
           "translation": "The children are tired.",
-          "hint": "cansado — masculine plural",
+          "hint": "tired — agreeing with the noun it describes",
           "display_order": 6,
           "cell": "m.pl",
           "gloss": "DEF.M.PL · child.M.PL · be.3PL · ___"
@@ -3223,7 +3223,7 @@
           "sentence": "La casa, {{answer}} puertas son rojas, es antigua.",
           "answer": "cuyas",
           "translation": "The house, whose doors are red, is old.",
-          "hint": "cuyo agrees with puertas",
+          "hint": "possessive relative — agrees with the thing possessed, not the owner",
           "display_order": 4,
           "gloss": "DEF.F.SG · house · ___ · door.PL · be.PRS.3PL · red.F.PL · be.PRS.3SG · old.F.SG"
         },
@@ -3231,7 +3231,7 @@
           "sentence": "Los estudiantes, {{answer}} trabajos leí, son brillantes.",
           "answer": "cuyos",
           "translation": "The students, whose papers I read, are brilliant.",
-          "hint": "cuyo agrees with trabajos",
+          "hint": "possessive relative — agrees with the thing possessed, not the owner",
           "display_order": 5,
           "gloss": "DEF.M.PL · student.PL · ___ · work.PL · read.PST.PFV.1SG · be.PRS.3PL · brilliant.PL"
         },
