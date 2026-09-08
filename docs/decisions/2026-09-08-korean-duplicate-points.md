@@ -46,3 +46,13 @@ A grammar point could not be retired. `seed_grammar` is add-only for points, so 
 
 Korean: 156 points → 151. Owner-run, in order: `supabase db push` (20261017) · `seed_grammar -l ko` (the salvaged drills and the corrected keeper) · `reconcile -l all --apply` (retires the five).
 
+## What else names a grammar point — the checklist the guards produced
+
+Removing the five titles broke four other committed things, each caught by an
+existing test before it reached the repo: the Gym manifest `data/gym/ko.json`
+(five cells; the keepers were already present, so the entries were removed),
+the `audit_gym` picker that reads it, nine `prerequisites` / `related` links
+in other Korean points (remapped to the keepers, duplicates and
+self-references dropped), and the tutor bundle `REFERENCE.md` (regenerated).
+The next retirement, in any course, touches the same four.
+

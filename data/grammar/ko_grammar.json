@@ -6904,7 +6904,7 @@
       ],
       "prerequisites": [
         "Telling time: 시 and 분",
-        "동안 – 'for' a period of time"
+        "동안: 'for' a time and 'during' a noun"
       ]
     },
     {
@@ -6992,7 +6992,7 @@
         }
       ],
       "prerequisites": [
-        "동안 – 'for' a period of time"
+        "동안: 'for' a time and 'during' a noun"
       ]
     },
     {
@@ -7165,7 +7165,7 @@
         }
       ],
       "prerequisites": [
-        "동안 – 'for' a period of time",
+        "동안: 'for' a time and 'during' a noun",
         "번째: ordinal numbers"
       ]
     },
@@ -7255,7 +7255,7 @@
         }
       ],
       "prerequisites": [
-        "동안 – 'for' a period of time",
+        "동안: 'for' a time and 'during' a noun",
         "지난/다음 + time words (last time / next time)"
       ]
     },
@@ -7348,7 +7348,7 @@
         }
       ],
       "prerequisites": [
-        "동안 – 'for' a period of time"
+        "동안: 'for' a time and 'during' a noun"
       ],
       "paradigm": [
         "달 (pure Korean numbers)",
@@ -7976,7 +7976,7 @@
         }
       ],
       "prerequisites": [
-        "Passive verbs with ~아/어 있다 (describing a state)"
+        "~아/어 있다: being in a state"
       ],
       "paradigm": [
         "끝 – active (내다)",
@@ -8312,7 +8312,7 @@
         }
       ],
       "prerequisites": [
-        "Passive verbs with ~아/어 있다 (describing a state)",
+        "~아/어 있다: being in a state",
         "Passive/active pairs with 나다 and 내다"
       ]
     },
@@ -8528,7 +8528,7 @@
       ],
       "prerequisites": [
         "Turning adjectives into verbs with ~아/어하다 (좋아하다, 싫어하다)",
-        "Passive verbs with ~아/어 있다 (describing a state)"
+        "~아/어 있다: being in a state"
       ]
     },
     {
@@ -10320,7 +10320,7 @@
         }
       ],
       "prerequisites": [
-        "Adjectives with ~스럽다"
+        "Korean suffix: ~스럽다"
       ]
     },
     {

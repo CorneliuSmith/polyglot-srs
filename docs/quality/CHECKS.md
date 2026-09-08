@@ -1811,6 +1811,16 @@ reader named 96's `이` drill by its answer string, 96 has two drills answering
 `이`, and the first the key matched was `청구서이` — one of the wrong answers
 that retired the point. Rule 28, again: an answer string is not a stable key.
 
+**A retired point has consumers beyond the grammar file, and the guards found
+every one.** Removing the five titles broke, in CI: the Gym manifest
+(`data/gym/ko.json`, five cells naming them — the keepers were already
+there, so the entries went), the `audit_gym` picker (which reads that
+manifest), nine `prerequisites`/`related` links in other Korean points (now
+naming the keepers, with duplicates and self-references dropped), and the
+committed tutor bundle `REFERENCE.md` (regenerated). None of this reached
+the repo: four tests refused it. The lesson for the next retirement is the
+checklist, not the fix — a point's title is a key in four other places.
+
 **Verified:** `backend/tests/test_retire_grammar_points.py` — the file, that
 every retired title has left the grammar JSON and every keeper is still in
 it, the survey in both directions and behind the migration, the rollback, the
