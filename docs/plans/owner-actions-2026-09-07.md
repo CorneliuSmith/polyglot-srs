@@ -54,9 +54,12 @@ Then:
 ```
 
 Still yours to decide, and not blocking anything: **decision B** (the
-abbreviations, now 27 of them), **decision C** (Korean's duplicate points),
-and what remains of **decision D** (the 223 twin pairs that are two real
-words and want file rows, and the 39,004-row tail).
+abbreviations, now 27 of them) and what remains of **decision D** (the 223
+twin pairs that are two real words and want file rows, and the 39,004-row
+tail — recommendation below: leave it live). **Decision C is decided** (8 Sep,
+you delegated it) and adds three commands to this list: `supabase db push`
+for migration 20261017, `seed_grammar -l ko`, then the reconcile — in Part 2,
+section C.
 
 ---
 
