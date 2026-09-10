@@ -11,9 +11,27 @@ the same trust model as the other review tables.
 """
 from __future__ import annotations
 
+import asyncio
 import json
 
 import asyncpg
+
+# The errors that mean the SESSION is gone, not that the audit table
+# objected: a statement that waited out command_timeout, a socket the pooler
+# closed ("connection was closed in the middle of operation"), asyncpg's own
+# "connection is closed", a reset from the OS. log_change must let these
+# through. Swallowing a timeout here is how the 7 Sep 2026 hang survived the
+# command timeout: asyncpg's cancel of the timed-out INSERT is still pending,
+# every later statement on that connection awaits the cancel's reply BEFORE
+# it arms its own timeout, and a dropped session never replies — so the
+# caller's next statement waits for ever, with no timeout and no error to
+# retry on (measured 10 Sep 2026, test_dropped_session_integration.py).
+# The API is no different: a swallowed timeout on a pooled connection
+# leaves that connection poisoned for whichever request borrows it next.
+# Same tuple as seed_grammar.CUT_OFF; kept here so a repository does not
+# import from a seeder.
+DEAD_SESSION = (asyncio.TimeoutError, asyncpg.PostgresConnectionError,
+                asyncpg.InterfaceError, OSError)
 
 # Per entity type: (table, {column: is_jsonb}) — the fields a revert may restore
 # from a `before` snapshot. Column names are a fixed whitelist (never user
@@ -51,7 +69,8 @@ async def log_change(
 ) -> None:
     """Append one audit entry. `before`/`after` are small dicts of the fields
     that changed (before enables rollback). Best-effort: never let an audit
-    write break the underlying content operation."""
+    write break the underlying content operation — unless the connection
+    itself is dead, which no later write survives either (DEAD_SESSION)."""
     try:
         await conn.execute(
             """
@@ -65,6 +84,8 @@ async def log_change(
             json.dumps(after) if after is not None else None,
             (note or None),
         )
+    except DEAD_SESSION:
+        raise  # the write after this one would hang, not fail
     except Exception:  # noqa: BLE001 - auditing must not break the write
         pass
 
