@@ -250,3 +250,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 295 more.**
+- `potevo` was "first-person singular imperfect indicative of potere" → "I could, I was able to; I was allowed to (first-person singular imperfect of potere)"
+- `conosciuto` was "past participle of conoscere" → "known, familiar; met, having got to know someone (past participle of conoscere)"

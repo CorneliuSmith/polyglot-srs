@@ -238,3 +238,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 4 more.**
+- `dogarai` was "plural of dṑgarī̀" → "palace guards, an emir's bodyguards - the men in red gowns who keep order at a chief's court (plural of dogari (m.))"
+- `usaina` was "alternative form of Husàinā" → "a woman's given name - the everyday Hausa form of the Arabic name Husayna, with the initial h dropped"

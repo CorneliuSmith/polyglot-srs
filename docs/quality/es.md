@@ -243,3 +243,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 292 more.**
+- `vienen` was "third-person plural present indicative of venir" → "they come, they are coming; you all come (ustedes) — third-person plural present of venir"
+- `vidas` was "plural of vida" → "lives; the way people live (plural of vida)"

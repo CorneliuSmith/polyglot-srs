@@ -202,3 +202,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 73 more.**
+- `terlibat` was "passive reflexive of melibat" → "involved, mixed up in something; caught up in an affair (the ter- form of libat, so the state rather than the act)"
+- `dibentuk` was "passive of membentuk" → "be formed, be shaped; be set up, of a committee or a government (passive di- form of membentuk, to form)"

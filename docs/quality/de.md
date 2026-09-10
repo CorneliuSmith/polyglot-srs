@@ -259,3 +259,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 226 more.**
+- `geschrieben` was "past participle of schreiben" → "written; wrote, in the perfect (past participle of schreiben)"
+- `erledigt` was "past participle of erledigen" → "done, finished, taken care of (past participle of erledigen); also he/she/it deals with, sees to; colloquially, worn out or done for"

@@ -196,3 +196,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 305 more.**
+- `mlangoni` was "locative of mlango" → "at the door, in the doorway; up to the door — locative of mlango, door (class 3/4)"
+- `machozi` was "plural of chozi" → "tears — plural of chozi, a single tear (class 5/6)"

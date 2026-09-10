@@ -216,3 +216,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 31 more.**
+- `مشکلات` was "plural of مشکل" → "problems, difficulties, troubles - the things that go wrong for people (the Arabic-style plural of مشکل, a problem)"
+- `نقاط` was "plural of نقطه" → "points, spots, dots - places on a map, or points in an argument, as in his weak points (the Arabic broken plural of نقطه)"
