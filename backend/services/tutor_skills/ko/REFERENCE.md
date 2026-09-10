@@ -15,7 +15,6 @@ The app's grammar path in teaching order. These point titles are exactly what th
 - 있어요/없어요: existing and having (시간이 있어요) — One pair covers 'there is / I have' and 'there isn't / I don't have'
 - Counters: 개, 명, 마리 with native numbers (사과 두 개) — Count things as NOUN + number + counter, with the native numbers
 - Linking nouns: 하고 (and/with) and 도 (also) — 하고 joins nouns or means 'together with'; 도 replaces 은/는/이/가 to say 'too'
-- Topic particle ~는/은 — Mark the subject (main person/thing) of a sentence.
 - Object particle ~를/을 — Mark the object that the verb acts on.
 - Particle ~에 (place or time) — Show at/to what time or place something happens.
 - 이다: to be — Say that one noun is another noun (am/is/are/was/were).
