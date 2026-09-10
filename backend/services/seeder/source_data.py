@@ -82,7 +82,7 @@ from backend.services.nlp.xhosa import XhosaNLP
 from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
 
-from .base import COMMAND_TIMEOUT
+from .base import COMMAND_TIMEOUT, close_quietly
 
 # Languages sourced generically from a HermitDave frequency list
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
@@ -1109,7 +1109,7 @@ async def load_example_sentences(db_url: str, language_code: str, tsv_path: Path
             count += len(inserted_rows)
         return count
     finally:
-        await conn.close()
+        await close_quietly(conn)
 
 
 # ---------------------------------------------------------------------------

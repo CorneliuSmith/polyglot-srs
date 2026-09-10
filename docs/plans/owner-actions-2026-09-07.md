@@ -1,7 +1,29 @@
-# What the owner still has to run — 7 September 2026
+# What the owner still has to run — 7 September 2026 (state as of 10 Sep)
 
-**Everything on this list is DONE except one small reconcile.** Recorded
-here 7 Sep, late evening, after the runs finished:
+**As of 10 Sep, morning:** the 7 Sep list below is done, and the
+`seed_grammar` loop for the explanation pass ran on 10 Sep and landed **23
+of 27 courses** — read back out of production, every point equal to its
+file. Four did not, because the pooler closed one session mid-write and
+refused new ones for about a minute (DEBT.md, "A content tool can hang for
+ever on a dropped pooler session"): **en** (16 of 43 points written),
+**es**, **fa** and **fr** (nothing written). Still to run, in this order:
+the four-course rerun, then decision C's three commands (Part 2, section
+C), then the reconcile.
+
+```bash
+git pull origin main
+```
+
+```bash
+for c in en es fa fr; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
+```
+
+Every statement is an upsert, so `en` completes from point 17. Since the
+dropped-session fix the loop prints a `-> code` line when a course starts
+and retries a cut-off course itself; `docs/quality/refeed.md` says what to
+expect on the terminal.
+
+Recorded 7 Sep, late evening, after the runs finished:
 
 | step | state |
 |---|---|
@@ -18,14 +40,9 @@ The explanation pass ran for 26 of the 27 courses between 7 and 8 September
 (`docs/decisions/2026-09-07-fr-markdown-pass.md` and the four `-batch-*.md`
 records): **1,623 content defects corrected** and 787 explanations
 reformatted. Those live in `data/grammar/*.json`, so they reach production
-through **`seed_grammar`, not the reconcile**. Run it per course, which is
-how the 7 Sep hang was contained:
-
-```bash
-for c in ar ca de el en es fa fr ha he hi id it jam la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
-```
-
-(Korean is not in that list: its explanations were held for decision C.)
+through **`seed_grammar`, not the reconcile**. It ran per course on 10 Sep
+(Korean excluded — its explanations were held for decision C); the four
+courses that failed are the rerun at the top of this file.
 
 **Then the reconcile.** #438 is merged; pull and run it. Its dry run against
 production, read on the evening of 7 Sep after the merge:

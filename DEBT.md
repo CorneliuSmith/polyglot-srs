@@ -666,21 +666,105 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
-## A content tool can hang for ever on a dropped pooler session (7 Sep 2026)
+## A content tool can hang for ever on a dropped pooler session (7 Sep 2026; bounded 10 Sep)
 
 `seed_grammar -l all` printed "OK en" and then nothing for two hours. On
 this machine: the process asleep at 0% CPU with one ESTABLISHED socket to
 the pooler; on the server: no statement from it, and the pooled backend it
 had used `RESET` minutes earlier. asyncpg has no default command timeout,
 so a session the pooler drops mid-reply is waited on indefinitely, and
-from the terminal it is indistinguishable from a slow course. Fixed by a
-bounded wait — `COMMAND_TIMEOUT` (300 s) on every production connect in
-the seeder package, guarded by `test_seeder_command_timeout.py` — so it
-becomes an error the operator sees and a per-course rerun recovers. What
-is NOT fixed: the underlying drop (pooler side; not reproducible on
-demand), and `seed_grammar` writes without a transaction, so a course cut
-off midway is partially written until rerun — harmless, every statement is
-an upsert. Run grammar per course (`refeed.md`) so a hang costs one course.
+from the terminal it is indistinguishable from a slow course.
+
+**What #433 fixed (7 Sep):** `COMMAND_TIMEOUT` (300 s) on every connect in
+the six runbook modules of the day — `base`, `seed_grammar`, `reconcile`,
+`prune_sentences`, `seed_alphabet`, `source_data` — guarded by
+`test_seeder_command_timeout.py`. It said a dropped session "now fails
+loudly". That was reasoned about, not measured, and it was half right.
+
+**What 9 Sep measured:** a TCP proxy in front of a local Postgres that
+forwards the handshake and then swallows server→client bytes while keeping
+TCP open reproduces the 7 Sep socket exactly. The statement DOES raise
+`asyncio.TimeoutError` after `command_timeout` — and then the seeder's
+`finally: await conn.close()` hangs for ever behind it. Mechanism, asyncpg
+0.31 `Protocol.close()`: on timeout asyncpg sends a cancel request (its
+own second connection to the server) and parks a `cancel_waiter` that
+resolves when the server answers the cancelled statement; `close()` awaits
+that waiter BEFORE it consults the close timeout, and a dropped session
+never answers. `Connection.close(timeout=...)` therefore cannot bound it.
+What returns: cancel the close from outside (`asyncio.wait_for`; asyncpg
+catches the cancellation and marks the connection aborted) — measured
+3.0 s with a 3 s bound.
+
+**What 10 Sep showed, on production:** the other shape surfaces by itself.
+The owner's per-course loop printed "OK el", then `FAIL en: connection was
+closed in the middle of operation` (the pooler closed the socket; asyncpg's
+`ConnectionDoesNotExistError`), then `FAIL es/fa/fr: [Errno 54] Connection
+reset by peer` from `connect()` — the pooler refused new sessions for about
+a minute — then "OK ha" and the loop carried on. A one-minute outage cost
+four courses that a pause and a second try would have recovered; `en` was
+left with points 1–16 of 43 written until its rerun.
+
+**What 10 Sep review found, against the proxy:** three more holes.
+(1) "Cancel the close, then `terminate()`" closes the Python object, not
+the socket: `Protocol.close()` sets `closing` before it waits, and
+`Protocol.abort()` returns at once when `closing` is set, so neither the
+cancellation nor `terminate()` after it touches the transport — the TCP
+session to the pooler stays ESTABLISHED for the life of the process, one
+per abandoned attempt (the fd was open and the proxy never saw EOF while
+`is_closed()` said True). (2) The 7 Sep hang had a front door the command
+timeout never closed: `audit.log_change` swallowed every exception, so
+when the statement that met the dropped session was the audit INSERT
+(once per newly inserted point, once per curated-point proposal), its
+`TimeoutError` vanished, the seeder went on to the next statement on the
+same connection, and asyncpg awaits the pending cancel's reply BEFORE it
+arms any timeout on a later statement — that one waited for ever with no
+timeout, no error, no `finally`. (3) `seed_sentences`, step 5 of the
+runbook, had neither guard at either of its two connects.
+
+**What this change does:** `close_quietly` in `base.py` — bounded close
+(`CLOSE_TIMEOUT` 15 s), then `terminate()`, then abort the transport it
+captured beforehand (asyncpg's private `_transport` slot; the docstring
+says so) — replaces every `conn.close()` in the seven runbook modules,
+`seed_sentences` now among them, and the scan test requires one
+`close_quietly` per `asyncpg.connect`. `log_change` re-raises the
+dead-session shapes (`audit.DEAD_SESSION`: timeout,
+`PostgresConnectionError`, `InterfaceError`, `OSError`) and still swallows
+audit-table errors — asyncpg's client-side bad-bind errors among them,
+which inherit `InterfaceError` but are `ValueError`s too. `seed_grammar`
+retries a course's `load()` on the same shapes (`CUT_OFF`, kept equal to
+`DEAD_SESSION` by a test; `_cut_off` makes the same carve-out) after pauses of
+10 s then 60 s (`RETRY_DELAYS` — together they outlast the one-minute
+outage, so the course in flight when it starts is recovered too; `(5, 30)`
+would have saved three of the four), re-using the transformed data. It
+prints a `-> code: N points, M drills` line when a course starts so silence
+has an owner, `RETRY code in Ns (n/2): reason` when it pauses, and a `FAIL`
+reason that is never blank (`str(TimeoutError())` is ""). `transform()`
+runs outside the retry: a paradigm gap must fail at once. Content rows are
+never doubled by a retry — every content statement is an upsert — but the
+audit log can be: a curated point whose proposal is re-walked gets a second
+`suggested` entry, the same duplicate a manual rerun after FAIL has always
+written. Worst case per course on the timeout shape: each attempt costs
+`COMMAND_TIMEOUT + CLOSE_TIMEOUT`, so a course whose every session is
+blackholed prints RETRY after ~5 min, twice, and FAIL after ~17 min; the
+refused-connect shape fails at once, so there the pauses are the whole
+wall clock (70 s). All of it is proven against a real socket by
+`backend/tests/integration/test_dropped_session_integration.py`, which
+also pins asyncpg's two behaviours as negative controls — the close-hang,
+and the unbounded statement after a swallowed timeout. When either fails,
+asyncpg fixed it and the matching guard can go.
+
+**What is STILL not fixed:** the drop itself is pooler-side, cause unknown,
+and not reproducible on demand — the proxy reproduces its effect, not its
+trigger. Only `seed_grammar` retries: `reconcile`, `prune_sentences`,
+`seed_alphabet`, `seed_sentences` and `source_data` get the bounded close,
+so they fail instead of hang, but their recovery is a rerun (each is one
+transaction or all upserts, so a rerun is harmless). The API-key tools
+(`ai_check_vocab`, `generate_grammar`, `review_hints`,
+`review_translations`, `translate_english`, `harvest_sentences`) still
+connect with no command timeout and a bare close: they are not runbook
+steps, every run is a paid pass the owner watches, and guarding them is
+the same two-line change per connect when one of them is next touched.
+Run grammar per course (`refeed.md`) so a failure costs one course.
 
 ## `seed_grammar` is the last content tool that writes one row at a time (7 Sep 2026)
 

@@ -37,7 +37,7 @@ from pathlib import Path
 
 import asyncpg
 
-from backend.services.seeder.base import COMMAND_TIMEOUT
+from backend.services.seeder.base import COMMAND_TIMEOUT, close_quietly
 from backend.services.seeder.gloss_overrides import load_gloss_overrides
 
 REPO = Path(__file__).resolve().parents[3]
@@ -742,7 +742,7 @@ async def main() -> int:
               f"--rollback {path}")
         return 0
     finally:
-        await conn.close()
+        await close_quietly(conn)
 
 
 if __name__ == "__main__":

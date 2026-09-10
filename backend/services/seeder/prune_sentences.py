@@ -47,7 +47,7 @@ import asyncpg
 
 from backend.services.extract import find_cloze
 from backend.services.linked_forms import forms_of
-from backend.services.seeder.base import COMMAND_TIMEOUT
+from backend.services.seeder.base import COMMAND_TIMEOUT, close_quietly
 from backend.services.span_finders import span_finder
 
 REPO = Path(__file__).resolve().parents[3]
@@ -351,7 +351,7 @@ async def main() -> None:
         print(f"undo with: python -m backend.services.seeder.prune_sentences "
               f"--rollback {path}")
     finally:
-        await conn.close()
+        await close_quietly(conn)
 
 
 if __name__ == "__main__":
