@@ -52,7 +52,7 @@ import asyncpg
 
 from backend.services.references import clean_references, clean_related
 
-from .base import COMMAND_TIMEOUT, DATA_DIR
+from .base import COMMAND_TIMEOUT, DATA_DIR, close_quietly
 
 GRAMMAR_DIR = DATA_DIR / "grammar"
 
@@ -565,7 +565,7 @@ class GrammarSeeder:
                 )
             return count
         finally:
-            await conn.close()
+            await close_quietly(conn)
 
     async def run(self) -> int:
         return await self.load(self.transform())
