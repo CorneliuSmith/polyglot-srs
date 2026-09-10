@@ -326,3 +326,12 @@ silent pass — the same trade the 25 Aug tone pass made for `o` / `ó` / `ò`.
 tone-policy rule that retires unaccented twins does not reach it — the
 distinction this course protects is `n` (1SG) against `ń` (progressive).
 
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**2 definitions rewritten** in the rank 1001–2000 band — each stated a
+grammatical relation to another word in this language and no English meaning
+(CHECKS §36).
+
+**Band 1001–2000, same day: 2 more.**
+- `mẹkunu` was "alternative form of mẹ̀kúnnù" → "a poor person, one of the common people; the poor as a group (an untoned spelling of mẹ̀kúnnù)"
+- `bantẹ` was "alternative form of ìbàǹtẹ́" → "an apron or waist cloth, tied round the front over the clothes - what a blacksmith, a butcher or a cook wears (a clipped, untoned spelling of ìbàǹtẹ́)"

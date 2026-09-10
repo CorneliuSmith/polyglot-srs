@@ -250,3 +250,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 274 more.**
+- `aille` was "first/third-person singular present subjunctive of aller" → "I go; he goes, she goes (first- and third-person singular present subjunctive of aller, after il faut que or avant que)"
+- `acheté` was "past participle of acheter" → "bought, purchased (past participle of acheter; with avoir it makes the past: I bought, he bought)"

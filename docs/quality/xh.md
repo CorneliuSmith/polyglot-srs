@@ -233,3 +233,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 18 more.**
+- `izigqibo` was "plural of isigqibo" → "decisions - the choices people settle on after weighing things up (plural of isigqibo, class 7/8)"
+- `izigidi` was "plural of ísígidi" → "millions - the number, as in millions of rand or millions of people (plural of isigidi, a million; class 7/8)"

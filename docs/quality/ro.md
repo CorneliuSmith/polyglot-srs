@@ -277,3 +277,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 251 more.**
+- `plină` was "indefinite nominative/accusative feminine singular of plin" → "full, filled (feminine singular of plin)"
+- `rea` was "nominative/accusative feminine singular of rău" → "bad; nasty, mean, unkind (feminine singular of rău)"

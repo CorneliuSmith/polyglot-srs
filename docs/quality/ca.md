@@ -249,3 +249,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 340 more.**
+- `anirem` was "first-person plural future indicative of anar" → "we will go, we are going to go (first-person plural future of anar)"
+- `maneres` was "plural of manera" → "ways of doing something, methods; manners (f. plural of manera)"

@@ -237,3 +237,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 7 more.**
+- `πιθανότατα` was "nominative/accusative/vocative neuter plural of πιθανότατος" → "most probably, very likely, in all likelihood - the everyday adverb; as an adjective it is most probable, of neuter plural nouns (from πιθανότατος)"
+- `κουνήσου` was "second-person singular perfective imperative of κουνιέμαι" → "move!, get moving, shift yourself - an order to one person you address informally (imperative of κουνιέμαι, to stir oneself)"

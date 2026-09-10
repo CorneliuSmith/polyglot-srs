@@ -243,3 +243,7 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+**Band 1001–2000, same day: 2 more.**
+- `matataas` was "plural of mataas" → "high, tall - describing more than one thing, as in tall buildings or high prices (plural of mataas, made by doubling the first syllable of the root)"
+- `mayayaman` was "plural of mayaman" → "rich, wealthy, well off - of more than one person; as a noun, the rich (plural of mayaman)"
