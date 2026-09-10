@@ -580,6 +580,58 @@ def _available_languages() -> list[str]:
     )
 
 
+# Pauses before the first and second retry of a course whose session was
+# cut off. On 10 Sep 2026 the pooler closed one course's session mid-write
+# and refused new connections for about a minute; the next three courses
+# failed on connect and the fifth went through. 5 s covers a single reset;
+# 30 s covers that outage. Two retries, not more: a pooler that is still
+# down after 35 s is an outage the operator should look at, not wait out.
+RETRY_DELAYS = (5, 30)
+
+# The shapes a dropped or refused session takes, each seen on production:
+#   asyncio.TimeoutError          the statement waited COMMAND_TIMEOUT (7 Sep)
+#   PostgresConnectionError       "connection was closed in the middle of
+#                                 operation" — the pooler closed it (10 Sep)
+#   InterfaceError                asyncpg's own "connection is closed" when a
+#                                 later statement hits the dead session
+#   OSError                       ConnectionResetError from connect() while
+#                                 the pooler refuses new sessions (10 Sep)
+# Anything else — a paradigm gap, a missing language row — is the file's
+# fault and a retry would only fail the same way.
+CUT_OFF = (asyncio.TimeoutError, asyncpg.PostgresConnectionError,
+           asyncpg.InterfaceError, OSError)
+
+
+def _describe(e: BaseException) -> str:
+    """The FAIL line's reason. `str(TimeoutError())` is empty, and a blank
+    reason after "FAIL en:" was the 7 Sep operator's second puzzle."""
+    return str(e) or type(e).__name__
+
+
+async def _seed_one(db_url: str, lang: str) -> int:
+    """Seed one course, retrying only the write when the session is cut off.
+
+    transform() runs outside the retry: a paradigm gap or a hint keyed to a
+    reworded drill is a file error and must fail at once. load() retries on
+    the CUT_OFF shapes with RETRY_DELAYS between attempts, re-using the
+    transformed data — every statement is an upsert, so a partially written
+    course is completed by the next attempt, never doubled.
+    """
+    seeder = GrammarSeeder(db_url, lang)
+    data = seeder.transform()
+    points = data.get("points", [])
+    drills = sum(len(p.get("drills", [])) for p in points)
+    print(f"-> {lang}: {len(points)} points, {drills} drills", flush=True)
+    for attempt, delay in enumerate(RETRY_DELAYS, start=1):
+        try:
+            return await seeder.load(data)
+        except CUT_OFF as e:
+            print(f"RETRY {lang} in {delay}s ({attempt}/{len(RETRY_DELAYS)}): "
+                  f"{_describe(e)}", flush=True)
+            await asyncio.sleep(delay)
+    return await seeder.load(data)
+
+
 async def _main() -> None:
     import os
 
@@ -590,16 +642,16 @@ async def _main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 
     if not args.db_url:
-        print("ERROR: DATABASE_URL not set.")
+        print("ERROR: DATABASE_URL not set.", flush=True)
         return
 
     languages = _available_languages() if args.language == "all" else [args.language]
     for lang in languages:
         try:
-            n = await GrammarSeeder(args.db_url, lang).run()
-            print(f"OK {lang}: {n} grammar points loaded")
+            n = await _seed_one(args.db_url, lang)
+            print(f"OK {lang}: {n} grammar points loaded", flush=True)
         except Exception as e:  # noqa: BLE001
-            print(f"FAIL {lang}: {e}")
+            print(f"FAIL {lang}: {_describe(e)}", flush=True)
 
 
 if __name__ == "__main__":
