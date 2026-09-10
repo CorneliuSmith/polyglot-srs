@@ -49,7 +49,11 @@ class _Load:
 
 @pytest.fixture
 def harness(monkeypatch):
-    """Wire `_main` for one fake course: argv, transform, no real sleep."""
+    """Wire `_main` for one fake course: argv, transform, no real sleep.
+
+    The pause is replaced through the seeder's own `_sleep` binding, not
+    `asyncio.sleep` — that name is the one every other coroutine on the
+    loop uses, pytest-asyncio's included."""
     sleeps: list[float] = []
 
     async def fake_sleep(delay):
@@ -60,7 +64,7 @@ def harness(monkeypatch):
     monkeypatch.setattr(seed_grammar.GrammarSeeder, "transform",
                         lambda self: dict(FAKE_DATA))
     monkeypatch.setattr(seed_grammar, "RETRY_DELAYS", (0, 0))
-    monkeypatch.setattr(seed_grammar.asyncio, "sleep", fake_sleep)
+    monkeypatch.setattr(seed_grammar, "_sleep", fake_sleep)
 
     def install(load):
         monkeypatch.setattr(seed_grammar.GrammarSeeder, "load", load)
@@ -168,11 +172,14 @@ class TestCutOffShapes:
         assert not isinstance(err, seed_grammar.CUT_OFF)
 
     def test_the_delays_cover_a_one_minute_outage(self):
-        # The 10 Sep pooler refused connections for about a minute; the
-        # loop reached the next course after it. Two pauses, together
-        # longer than a single reset, shorter than an outage worth waiting out.
+        # The 10 Sep pooler refused connections for about a minute. The
+        # refused shape fails at once, so the pauses ARE the wall clock:
+        # together they must outlast that minute or the course in flight
+        # when the outage starts is lost anyway — (5, 30) would have saved
+        # three of the four courses, not four. Two pauses, and not so long
+        # that a real outage is waited out rather than looked at.
         assert len(seed_grammar.RETRY_DELAYS) == 2
-        assert 5 <= sum(seed_grammar.RETRY_DELAYS) <= 120
+        assert 60 <= sum(seed_grammar.RETRY_DELAYS) <= 120
 
 
 def test_describe_never_returns_blank():

@@ -583,10 +583,15 @@ def _available_languages() -> list[str]:
 # Pauses before the first and second retry of a course whose session was
 # cut off. On 10 Sep 2026 the pooler closed one course's session mid-write
 # and refused new connections for about a minute; the next three courses
-# failed on connect and the fifth went through. 5 s covers a single reset;
-# 30 s covers that outage. Two retries, not more: a pooler that is still
-# down after 35 s is an outage the operator should look at, not wait out.
-RETRY_DELAYS = (5, 30)
+# failed on connect and the fifth went through. 10 s covers a single reset;
+# 10 + 60 s outlasts that outage, so the course in flight when it starts is
+# recovered too, not just the ones after it. Two retries, not more: a
+# pooler still down after seventy seconds is an outage the operator should
+# look at, not wait out. The refused-connect shapes fail at once, so that is
+# also the wall clock per course; the timeout shape does not — each attempt
+# costs COMMAND_TIMEOUT + CLOSE_TIMEOUT, so a course whose every session is
+# blackholed prints RETRY after ~5 min, twice, and FAIL after ~17 min.
+RETRY_DELAYS = (10, 60)
 
 # The shapes a dropped or refused session takes, each seen on production:
 #   asyncio.TimeoutError          the statement waited COMMAND_TIMEOUT (7 Sep)
@@ -597,9 +602,18 @@ RETRY_DELAYS = (5, 30)
 #   OSError                       ConnectionResetError from connect() while
 #                                 the pooler refuses new sessions (10 Sep)
 # Anything else — a paradigm gap, a missing language row — is the file's
-# fault and a retry would only fail the same way.
+# fault and a retry would only fail the same way. InterfaceError is wider
+# than the dead-session texts (an argument-count mismatch is one too), so a
+# code bug of that shape costs two RETRY lines before its honest FAIL; that
+# bug fails CI, not production, and the price of matching on message text
+# is a tuple that silently stops matching when asyncpg rewords it. Same
+# tuple as backend.repositories.audit.DEAD_SESSION.
 CUT_OFF = (asyncio.TimeoutError, asyncpg.PostgresConnectionError,
            asyncpg.InterfaceError, OSError)
+
+# Bound here so a test can replace the seeder's pause without replacing
+# asyncio.sleep for every other coroutine on the loop.
+_sleep = asyncio.sleep
 
 
 def _describe(e: BaseException) -> str:
@@ -614,8 +628,12 @@ async def _seed_one(db_url: str, lang: str) -> int:
     transform() runs outside the retry: a paradigm gap or a hint keyed to a
     reworded drill is a file error and must fail at once. load() retries on
     the CUT_OFF shapes with RETRY_DELAYS between attempts, re-using the
-    transformed data — every statement is an upsert, so a partially written
-    course is completed by the next attempt, never doubled.
+    transformed data. Every content statement is an upsert, so a partially
+    written course is completed by the next attempt, never doubled. The
+    audit log is the one exception: a curated point whose proposal is
+    re-walked gets a second `suggested` entry, the same duplicate a manual
+    rerun after FAIL has always written (the `seeded` entry is gated on
+    the insert and is safe).
     """
     seeder = GrammarSeeder(db_url, lang)
     data = seeder.transform()
@@ -628,7 +646,7 @@ async def _seed_one(db_url: str, lang: str) -> int:
         except CUT_OFF as e:
             print(f"RETRY {lang} in {delay}s ({attempt}/{len(RETRY_DELAYS)}): "
                   f"{_describe(e)}", flush=True)
-            await asyncio.sleep(delay)
+            await _sleep(delay)
     return await seeder.load(data)
 
 
