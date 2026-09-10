@@ -369,7 +369,11 @@ rate, say so — that result matters more than the phase closing quietly.
 55. **A hang guard is proven by reproducing the hang.** The 7 Sep command
     timeout was reasoned about, not measured, and asyncpg's `close()` re-hung
     behind it; a blackholing proxy reproduces a dropped pooler session in
-    ten seconds (`test_dropped_session_integration.py`).
+    ten seconds (`test_dropped_session_integration.py`). And a guard is
+    proven at the boundary it claims, not at the object: the first bounded
+    close said "closed" while the socket stayed open, and a swallowed
+    timeout in `log_change` left the next statement with no bound at all —
+    both found only by putting the real call on the real proxy.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
