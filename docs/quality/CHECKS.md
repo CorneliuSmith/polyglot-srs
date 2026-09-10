@@ -1827,6 +1827,56 @@ it, the survey in both directions and behind the migration, the rollback, the
 report column, and that every offer path carries the clause while fetch-by-id
 does not.
 
+## §35 The corpus writes about itself, and 14 courses taught it (10 Sep 2026)
+
+Tatoeba's bank contains sentences **about Tatoeba**, and `build_sentence_rows`
+selected them by difficulty like any other row. So the Catalan card for
+`exemple` served `"Tatoeba" significa "per exemple" en japonès`, and the
+Arabic card for `اجتماعية` ("social") served "In its home country, France,
+Tatoeba became a social and cultural revolution". The learner is being taught
+the corpus's press release under a vocabulary word.
+
+**59 rows across 14 courses** (`ar` 17, `ca` 11, `nl` 8, `es` 4, `fr`/`ro` 3,
+`de`/`fa`/`id`/`it`/`tl` 2, `pt`/`th`/`tr` 1), measured 10 Sep 2026 on the
+committed banks. The plan's earlier figure of 44 was taken with a bare
+`tatoeba` pattern, which misses **16 of the 17 Arabic rows**: the name is
+transliterated four ways (تتويبا, تاتوبا, تاتويبا, تاتوئبا / تاتویبا).
+Listing the transliterations is also what lets the predicate read the
+SENTENCE alone — every one of the 59 names the corpus in its own language —
+and reading the sentence alone is required, because the file holds one row
+per sentence while the database holds it once per LOCALE, so keying on the
+translation would delete some locales' copies of a row and keep others.
+
+**Three places, because two of them are not enough.** The predicate
+(`prune_sentences.names_the_corpus`) makes such a row a prune candidate
+whatever its source, the same standing as `_context_free` (§21) — there is
+nothing there to protect. `source_data.build_sentence_rows` drops it at the
+source, so a rebuild cannot reintroduce what the banks were just cleaned of
+(quality rule 27: a file-only deletion is undone by the next regeneration).
+`scripts/enforce_sentence_floor.py` cleaned the banks: **45 dropped**.
+
+**The other 14 stay, and that is the rule, not an oversight.** For 14 words
+the corpus row is the ONLY sentence they have, and the programme never
+strands a word (§24): a card with no example is not an improvement on a card
+with a bad one. They are a **Phase 8 authoring entry** — `ar` أطاق, بيانات,
+توصيل, تدقيق · `ca` exemple, droga, enganxa · `fa` یعنی · `fr` no, saletés ·
+`id` contohnya · `ro` suma · `tl` sapagkat, kabuuan — and each leaves the
+moment something better is written for its word.
+
+**Thai was exempt and should not have been.** §22 exempts Thai from the
+five-token floor because it writes without spaces, so a token count says
+nothing. The floor script applied that exemption to the whole file, so Thai's
+one corpus row survived the first full pass. The exemption now covers the
+floor only; the corpus rule counts no tokens and reaches every course.
+
+**Verified:** `backend/tests/test_corpus_self_naming.py` (14, no database, so
+it runs in every sweep) — each transliteration, that an ordinary sentence is
+untouched, that the predicate takes the sentence alone, that Thai's exemption
+cannot creep back over the corpus rule, and the bank invariant: **no word
+serves a corpus row while a usable sentence exists.** That last one ratchets
+— it cannot be satisfied by a rebuild quietly putting them back, and every
+word that gains an authored sentence takes its corpus row with it.
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

@@ -7245,8 +7245,6 @@ word	sentence	translation	difficulty_rank
 وقاحة	يا لوقاحتك!	How rude of you!	19999
 جاسوس	لست جاسوساً ، أليس كذلك؟	You aren't a spy, are you?	19999
 مصيب	أعتقد أنك مصيب.	I think you're right.	19999
-اجتماعية	أحدث مشروع تتويبا ثورة ثقافية و اجتماعية في بلده الأم فرنسا.	In its home country, France, Tatoeba became a social and cultural phenomenon.	19999
-ثورة	أحدث مشروع تتويبا ثورة ثقافية و اجتماعية في بلده الأم فرنسا.	In its home country, France, Tatoeba became a social and cultural phenomenon.	19999
 رين	دائماً ما يصل الأبطال متأخّرين.	Heroes always arrive late.	19999
 سوداني	ناولني علبة زبدة الفول السوداني مع المربى إذا سمحت.	Peanut butter and jelly, please.	19999
 زبدة	ناولني علبة زبدة الفول السوداني مع المربى إذا سمحت.	Peanut butter and jelly, please.	19999
@@ -7314,7 +7312,6 @@ word	sentence	translation	difficulty_rank
 ماديا	ظنت أنها ستكون مستقلة مادياً عن والديها عندما تصبح طالبة جامعية.	She thought that she could become economically independent from her parents if she went to college.	19999
 مستقلة	ظنت أنها ستكون مستقلة مادياً عن والديها عندما تصبح طالبة جامعية.	She thought that she could become economically independent from her parents if she went to college.	19999
 مظاهرة	قرابة الألف شاركوا في المظاهرة.	Nearly a thousand people participated in the demonstration.	19999
-سبيل	"""Tatoeba"" معناها ""على سبيل المثال"" باللغة اليابانية."	"""Tatoeba"" means ""for example"" in Japanese."	19999
 فلكي	أردتُ مرّةً أن أتخصّصَ في الفيزياء الفلكيّة.	I once wanted to be an astrophysicist.	19999
 فيزياء	أردتُ مرّةً أن أتخصّصَ في الفيزياء الفلكيّة.	I once wanted to be an astrophysicist.	19999
 أصب	حَيْنَ أكبر، أُريد أن أصبِحَ ملِكًا.	When I grow up, I want to be a king.	19999
@@ -7373,9 +7370,7 @@ word	sentence	translation	difficulty_rank
 بيئة	تدمر عشرة ملايين هكتار من الغابات القديمة أو تزال كل سنة. فكر بالبيئة رجاءً قبل طباعة هذه الرسالة.	Ten million hectares of ancient forest are being cleared or destroyed every year. Please consider the environment before printing this e-mail.	19999
 طباعة	تدمر عشرة ملايين هكتار من الغابات القديمة أو تزال كل سنة. فكر بالبيئة رجاءً قبل طباعة هذه الرسالة.	Ten million hectares of ancient forest are being cleared or destroyed every year. Please consider the environment before printing this e-mail.	19999
 تدمر	تدمر عشرة ملايين هكتار من الغابات القديمة أو تزال كل سنة. فكر بالبيئة رجاءً قبل طباعة هذه الرسالة.	Ten million hectares of ancient forest are being cleared or destroyed every year. Please consider the environment before printing this e-mail.	19999
-مئات	كنتُ لأحب كتابة مئات الجمل في تتويبا، لكن، عندي أشياء عليّ عملها.	I would love to write hundreds of sentences on Tatoeba, but I've got things to do.	19999
 أطاق	لا أطيق الصبر حتى أرى النسخة الجديدة من تتويبا.	I'm very impatient to see the new version of Tatoeba.	19999
-مدونة	رأيت اليوم مقالًا في مدونة تتويبا عن نسخة جديدة ستطرح قريبًا، هل قرأتها؟	I've seen an article on the Tatoeba blog about a new version coming soon. Have you read it?	19999
 أرم	"لحسن الحظ، كان هناك محل ""أرماني"" قريبًا من الرواق الذي نام فيه ديما."	Thankfully, there was an Armani store just outside the alley where Dima had slept.	19999
 بذلة	وجد ديما أن البذلة كبيرة جدا لمّا جربها.	Trying on the suit, Dima found it to be too big.	19999
 بذلة	خرج ديما من غرفة تبديل الملابس وعليه البذلة، وقال أنه يريد شراءها.	Keeping the suit on, Dima walked out of the changing room and stated that he wanted to make the purchase.	19999
@@ -7396,7 +7391,6 @@ word	sentence	translation	difficulty_rank
 التفت	"""حسنٌ..."" تنهد ديما، ثم التفت إلى صاحبة المحل وألقى عليها نظرة تهديدية. ""أظن أن لا خيار عندي الآن..."""	"""Well..."" sighed Dima, then turned to the shopkeeper and cast her a murderous glance. ""I guess I have no choice now..."""	19999
 كينيا	استقلت كينيا عام 1963.	Kenya became independent in 1963.	19999
 أسبوعي	لترتاح في تسوقك الأسبوعي، يجب أن تملك سيارةً.	For comfortable weekly shopping you have to have a car.	19999
-ربك	سببت الجملة رقم 354618 الكثير من الربكة في موقع تتويبا.	Example sentence no. 354618 created a lot of confusion on the Tatoeba website.	19999
 نقابة	لكل شخص الحق في أن ينشئ وينضم إلى نقابات حماية لمصالحه.	Everyone has the right to form and to join trade unions for the protection of his interests.	19999
 مصلحة	لكل شخص الحق في أن ينشئ وينضم إلى نقابات حماية لمصالحه.	Everyone has the right to form and to join trade unions for the protection of his interests.	19999
 شرعية	للأمومة والطفولة الحق في مساعدة ورعاية خاصتين. وينعم كل الأطفال بنفس الحماية الاجتماعية سواء أكانت ولادتهم ناتجة عن رباط شرعي أم بطريقة غير شرعية.	Motherhood and childhood are entitled to special care and assistance. All children, whether born in or out of wedlock, shall enjoy the same social protection.	19999
@@ -7485,11 +7479,7 @@ word	sentence	translation	difficulty_rank
 وعى	أعلم أنك تظن أنك فهمتَ ما ظننتَ أنني قلتُه، لكنني لستُ واثقًا أنك وعيتَ أن ما سمعتَه ليس ما قلتُه.	I know you think you understood what you thought I said, but I'm not sure you realized that what you heard is not what I meant.	19999
 حدوث	التنبؤ طريقة لتوقع ما سيحصل، ثم تبيين سبب عدم حدوثه.	Forecasting is the way of saying what will happen and then explaining why it didn't.	19999
 تنبؤ	التنبؤ طريقة لتوقع ما سيحصل، ثم تبيين سبب عدم حدوثه.	Forecasting is the way of saying what will happen and then explaining why it didn't.	19999
-متعدد	تتويبا متعدد اللغات حقًّا. كل اللغات متصلة فيما بينها.	Tatoeba is really multilingual. All the languages are interconnected.	19999
-متصل	تتويبا متعدد اللغات حقًّا. كل اللغات متصلة فيما بينها.	Tatoeba is really multilingual. All the languages are interconnected.	19999
-تقليدي	لغاتٌ لم نكن لنجدها معًا في النظام التقليدي يمكن التوصيل بينها في تتويبا.	Languages that would have never found themselves together in a traditional system, can be connected in Tatoeba.	19999
 توصيل	لغاتٌ لم نكن لنجدها معًا في النظام التقليدي يمكن التوصيل بينها في تتويبا.	Languages that would have never found themselves together in a traditional system, can be connected in Tatoeba.	19999
-متعدد	لكن هذه ليست الصورة الكاملة. تتويبا ليس مجرد قاموس جمل مفتوح، وتعاوني، ومتعدد اللغات فحسب. بل إنه جزء من نظام نريد بناءه.	But that's not the whole picture. Tatoeba is not just an open, collaborative, multilingual dictionary of sentences. It's part of an ecosystem that we want to build.	19999
 عدل	"رأيت ذات يوم في المدرسة ولدًا متوسط الحجم يسيء إلى ولد أصغر منه. عنّفتُه لكنه ردّ: ""الكبار يضربونني، فأضرب الأطفال، هذا عدل"". بكلماته هذه اختصر تاريخ الجنس البشري."	"I found one day in school a boy of medium size ill-treating a smaller boy. I expostulated, but he replied: ""The bigs hit me, so I hit the babies; that's fair."" In these words he epitomized the history of the human race."	19999
 أشكال	الديموقراطية شر أشكال الحكم، بيد أن كل الأشكال الأخرى قد جُرّبت.	Democracy is the worst form of government, except all the others that have been tried.	19999
 بيد	الديموقراطية شر أشكال الحكم، بيد أن كل الأشكال الأخرى قد جُرّبت.	Democracy is the worst form of government, except all the others that have been tried.	19999
@@ -7773,7 +7763,6 @@ word	sentence	translation	difficulty_rank
 لوح	احدهم سرق لوح السهام المريشة خاصتي.	Someone stole my dartboard.	19999
 كوة	هو لديه مجموعة من اسماك كوي اليابانية في بركة الحديقة.	He had a collection of Japanese koi in the garden pond.	19999
 تدقيق	على الرغم من الصراحة الشديدة ، شديدي التدقيق لا يشكلون الاغلبية في موقع تاتويبا.	Though very outspoken, purists do not comprise the majority on Tatoeba.	19999
-أغلبية	على الرغم من الصراحة الشديدة ، شديدي التدقيق لا يشكلون الاغلبية في موقع تاتويبا.	Though very outspoken, purists do not comprise the majority on Tatoeba.	19999
 معارف	سبعة الاف لغة ينطق بها بكل انحاء العالم ، اخذت مع بعض ، هم شكلوا اكبر مجموعة من معارف الانسان الموجودة على الاطلاق	Seven thousand languages are spoken all over the world, and taken together, they comprise the largest collection of human knowledge that has ever existed.	19999
 طبعة	مكتبتها تشمل ثلاثة الاف و خمسمئة و تتضمن عدة طبعات اولى	Her library comprises 3500 and includes many first editions.	19999
 رش	الاطفال يحبون اللعب بمسدسات رش الماء في الصيف ليبقوا منتعشين	Children love playing with squirt guns in the summer to stay cool.	19999
@@ -8209,8 +8198,6 @@ word	sentence	translation	difficulty_rank
 فل	ليس الأمر سهلا أن تكون الطّفل الأكبر في أسرتك.	It's not easy being the eldest child.	19999
 علماء	"يبحث علماء مركز ""سيتي"" عن حياة ذكيّة في الفضاء لأنّهم لم يعثروا عليها في كوكب الأرض!"	The people at SETI are looking for intelligent life in the universe because they haven't found it here on Earth!	19999
 تلاعب	لا ينبغي أن نتلاعب بالحبّ.	We mustn't joke around with love.	19999
-ظاهرة	لقد أصبح موقع تاتوبا في فرنسا، أي موطن نشأته، ظاهرة ثقافيّة و اجتماعيّة.	In France, its birthplace, Tatoeba became a cultural and social phenomenon.	19999
-موطن	لقد أصبح موقع تاتوبا في فرنسا، أي موطن نشأته، ظاهرة ثقافيّة و اجتماعيّة.	In France, its birthplace, Tatoeba became a cultural and social phenomenon.	19999
 مرشد	إن أتيت إلى ريو، فبإمكاني أن أكون مرشدك.	If you come to Rio, I could be your guide.	19999
 جارى	سامي يكره السّيجارة.	Sami hates cigarettes.	19999
 إهانة	شعر سامي أنّه عومل بإهانة.	Sami felt disrespected.	19999

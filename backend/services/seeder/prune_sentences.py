@@ -12,8 +12,9 @@ curated 70,975, so a learner opening the card for "I" was shown "I am.",
 
 * It never touches a row whose source is not `tatoeba` — UNLESS that row is
   one the exemption exists to protect nothing in: a sentence that is only
-  the word it teaches (`_context_free`), or one below the five-token floor
-  when the word keeps a longer survivor (`_below_floor`, CHECKS §24).
+  the word it teaches (`_context_free`), one below the five-token floor
+  when the word keeps a longer survivor (`_below_floor`, CHECKS §24), or one
+  that is about the corpus rather than the language (`names_the_corpus`).
   `curated` and `ai` rows are otherwise human-authored or human-reviewed and
   are not reproducible from a file; the bulk corpus is.
 * It never leaves a word with no example sentence. A word whose every row
@@ -136,6 +137,30 @@ def shape_keeps(word: str, survivors: list, candidates: list, code: str) -> list
     return keeps
 
 
+# The corpus talks about itself. Tatoeba's own bank carries sentences about
+# Tatoeba — "In its home country, France, Tatoeba became a social and
+# cultural revolution", '"Tatoeba" means "for example" in Japanese' — and
+# they were selected into 14 courses like any other row, so a learner
+# drilling `social` or `exemple` is taught the corpus's press release.
+#
+# Four Arabic/Persian transliterations are listed because a bare "tatoeba"
+# pattern misses 16 of the 17 Arabic rows, and because listing them is what
+# lets this be decided on the SENTENCE alone: every one of the 59 rows
+# measured on 10 Sep 2026 names the corpus in its own language, so the
+# predicate never has to look at the translation — which it must not, since
+# the file holds one row per sentence while the database holds that sentence
+# once per LOCALE, and keying on the translation would delete some locales'
+# copies of a row and keep others. A name that reaches a course in a new
+# script belongs in this tuple; `test_no_bank_names_the_corpus` will say so.
+CORPUS_NAMES = ("tatoeba", "تتويبا", "تاتوبا", "تاتويبا", "تاتوئبا", "تاتویبا")
+
+
+def names_the_corpus(sentence: str) -> bool:
+    """True when the row is about the corpus it came from, not the language."""
+    blob = (sentence or "").casefold()
+    return any(name in blob for name in CORPUS_NAMES)
+
+
 def _context_free(sentence: str, word: str) -> bool:
     """True when the sentence is only the word it teaches, punctuation aside.
 
@@ -208,6 +233,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
                 r["source"] in PRUNABLE_SOURCES
                 or _context_free(r["sentence"], word)
                 or _below_floor(r["sentence"], code)
+                or names_the_corpus(r["sentence"])
             )
 
         survivors = [

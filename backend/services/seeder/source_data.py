@@ -83,6 +83,7 @@ from backend.services.nlp.yoruba import YorubaNLP, strip_tones
 from backend.services.seeder.base import DATA_DIR
 
 from .base import COMMAND_TIMEOUT, close_quietly
+from .prune_sentences import names_the_corpus
 
 # Languages sourced generically from a HermitDave frequency list
 # (OpenSubtitles) + a kaikki Wiktionary dictionary. The path is
@@ -981,6 +982,12 @@ def build_sentence_rows(
         sentence = target_sentences.get(src_id)
         translation = eng_sentences.get(tgt_id)
         if not sentence or not translation:
+            continue
+        # The corpus writes about itself, and those rows were selected into
+        # 14 courses like any other (CHECKS §35). Dropped at the source so a
+        # rebuild cannot put back what the banks were just cleaned of —
+        # rule 27: a file-only deletion is undone by the next regeneration.
+        if names_the_corpus(sentence):
             continue
         difficulty = sentence_difficulty(
             sentence, rank_by_word, lemmatize, tokenize=tokenize
