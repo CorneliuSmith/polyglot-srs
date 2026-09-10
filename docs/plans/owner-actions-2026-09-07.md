@@ -30,10 +30,27 @@ supabase db push
 .venv/bin/python -m backend.services.seeder.reconcile -l all --apply
 ```
 
-The reconcile's vocabulary half is already done — its dry run reads all
-zeros for gloss/pos/retire. What is left in it is the **5 Korean grammar
-retirements** (`gp-ret 5`), which need the migration above first; before it
-lands that column prints a dash and the five points stay served.
+**What that reconcile now carries** (read-only dry run, 10 Sep evening,
+after the day's merges):
+
+| gloss | pos | retire | gp-ret | new |
+|---:|---:|---:|---:|---:|
+| **1,826** | 81 | 0 | 5 (ko) | 0 |
+
+The 1,826 are the definitions that gave a grammatical relation and no
+English meaning — Spanish `necesito` "first-person singular present
+indicative of necesitar", German `wochen` "plural of Woche" — rewritten
+across 19 courses in the rank 201–1000 band (CHECKS §36, the class you
+reported as "coche as the definition for coches"). The 81 are parts of
+speech that moved with them.
+
+`gp-ret 5` is the five Korean grammar points from decision C, and it prints
+a **dash** until `supabase db push` lands migration 20261017. That is the
+designed fallback, not a failure — before the migration the column cannot
+be computed and the five points stay served.
+
+Everything else in the vocabulary half is already applied: gloss/pos/retire
+were all zero before this pass.
 
 Recorded 7 Sep, late evening, after the runs finished:
 
