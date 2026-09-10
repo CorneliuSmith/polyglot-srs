@@ -25,7 +25,7 @@ import os
 
 import asyncpg
 
-from .base import DATA_DIR
+from .base import COMMAND_TIMEOUT, DATA_DIR, close_quietly
 
 SENTENCES_DIR = DATA_DIR / "sentences"
 logger = logging.getLogger("seed_sentences")
@@ -139,7 +139,7 @@ async def repair_locales(db_url: str, code: str) -> int:
     survived; the re-seed then inserts the 12-in-13 that the conflict key
     silently swallowed while every locale was masquerading as 'en'.
     """
-    conn = await asyncpg.connect(db_url)
+    conn = await asyncpg.connect(db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         lang_id = await conn.fetchval(
             "SELECT id FROM languages WHERE code = $1", code)
@@ -225,7 +225,7 @@ async def repair_locales(db_url: str, code: str) -> int:
         logger.info("%s: repair pass covered %d file rows", code, fixed)
         return fixed
     finally:
-        await conn.close()
+        await close_quietly(conn)
 
 
 async def seed(db_url: str, code: str) -> int:
@@ -235,7 +235,7 @@ async def seed(db_url: str, code: str) -> int:
         logger.warning("no sentence file for %s in %s or %s",
                        code, SENTENCES_DIR, DATA_DIR)
         return 0
-    conn = await asyncpg.connect(db_url)
+    conn = await asyncpg.connect(db_url, command_timeout=COMMAND_TIMEOUT)
     try:
         lang_id = await conn.fetchval("SELECT id FROM languages WHERE code = $1", code)
         if not lang_id:
@@ -252,7 +252,7 @@ async def seed(db_url: str, code: str) -> int:
         logger.info("OK %s: %d example sentences loaded", code, count)
         return count
     finally:
-        await conn.close()
+        await close_quietly(conn)
 
 
 async def main() -> None:

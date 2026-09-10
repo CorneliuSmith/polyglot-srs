@@ -18,7 +18,15 @@ forwarded normally and hangs up when the server does — which is what a
 real pooler does too, and is what makes the close hang on the cancelled
 statement's reply rather than on the cancel itself.
 
-No schema fixture: the tests only need a Postgres that answers `SELECT`.
+Two more things pinned here, both found by review on 10 Sep: that the
+cancelled close leaves the socket OPEN unless the transport is aborted by
+hand (the proxy must see the client hang up, not just `is_closed()`), and
+that a swallowed timeout leaves every later statement on that connection
+unbounded — which is why `log_change` may no longer swallow one.
+
+No schema fixture: the tests only need a Postgres that answers `SELECT`,
+and a blackholed statement's reply never arrives, so the audit INSERT need
+not have a table to land in.
 """
 from __future__ import annotations
 
@@ -29,6 +37,7 @@ from urllib.parse import urlsplit
 import asyncpg
 import pytest
 
+from backend.repositories import audit
 from backend.services.seeder import base, seed_grammar
 
 from .conftest import INTEGRATION_DSN, requires_db
@@ -46,6 +55,7 @@ class _Proxy:
         self._server: asyncio.AbstractServer | None = None
         self._tasks: set[asyncio.Task] = set()
         self._client_writers: list[asyncio.StreamWriter] = []
+        self.client_eof: set[int] = set()  # sessions whose client hung up
         self.port = 0
 
     async def start(self) -> None:
@@ -71,13 +81,16 @@ class _Proxy:
         for w in self._client_writers:
             w.transport.abort()
 
-    async def _pipe(self, reader, writer, *, drop_replies) -> None:
+    async def _pipe(self, reader, writer, *, drop_replies, session=None) -> None:
         """One direction. `drop_replies()` says whether this direction's
-        bytes are the swallowed server->client half of a blackholed session."""
+        bytes are the swallowed server->client half of a blackholed session;
+        `session` tags the client->server half so a client EOF is recorded."""
         try:
             while True:
                 data = await reader.read(65536)
                 if not data:
+                    if session is not None:
+                        self.client_eof.add(session)
                     break
                 if drop_replies():
                     continue  # swallow the reply; never close — 7 Sep
@@ -93,10 +106,12 @@ class _Proxy:
                 writer.transport.close()
 
     async def _handle(self, client_r, client_w) -> None:
+        session = len(self._client_writers)
         self._client_writers.append(client_w)
         victim = not self.blackhole  # opened before the drop: the session under test
         up_r, up_w = await asyncio.open_connection(*self.upstream)
-        a = asyncio.ensure_future(self._pipe(client_r, up_w, drop_replies=lambda: False))
+        a = asyncio.ensure_future(self._pipe(
+            client_r, up_w, drop_replies=lambda: False, session=session))
         b = asyncio.ensure_future(self._pipe(
             up_r, client_w, drop_replies=lambda: victim and self.blackhole))
         self._tasks.update({a, b})
@@ -171,6 +186,70 @@ class TestBlackholedSession:
         await asyncio.wait_for(base.close_quietly(conn), 5)
         assert time.monotonic() - t0 < 5
         assert conn.is_closed()
+
+    async def test_close_quietly_drops_the_socket(self, proxy, proxied_dsn, monkeypatch):
+        """`is_closed()` is true by `_aborted` alone. What matters is that
+        the pooler sees the client hang up: without the by-hand transport
+        abort, the cancelled close left the TCP session ESTABLISHED for the
+        life of the process, one per abandoned attempt (10 Sep 2026)."""
+        monkeypatch.setattr(base, "CLOSE_TIMEOUT", 2)
+        conn, _ = await _blackholed_after_timeout(proxy, proxied_dsn, 1.0)
+        transport = conn._transport  # the slot close_quietly reads; private
+        await asyncio.wait_for(base.close_quietly(conn), 5)
+        assert transport.is_closing()
+        # Session 0 is the connection under test; the cancel request was
+        # session 1. Give the proxy a moment to read the EOF.
+        for _ in range(50):
+            if 0 in proxy.client_eof:
+                break
+            await asyncio.sleep(0.02)
+        assert 0 in proxy.client_eof, "the proxy never saw the client hang up"
+
+
+class TestSwallowedTimeout:
+    async def test_a_swallowed_timeout_leaves_the_next_statement_unbounded(
+            self, proxy, proxied_dsn):
+        """NEGATIVE CONTROL, pinning asyncpg: once a statement has timed
+        out and the error was swallowed, the NEXT statement on that
+        connection awaits the pending cancel's reply before it arms its
+        own command_timeout — so on a dropped session it never returns,
+        and never raises. This is the front door the 7 Sep hang kept after
+        #433, through log_change's blanket except. If this starts failing,
+        asyncpg bounds the cancel wait and DEAD_SESSION can be narrowed.
+
+        The hung statement is left in its own task and cancelled at the
+        end: cancelling it from outside with wait_for would cancel the
+        protocol's cancel_waiter future with it, which is not the state a
+        seeder is ever in (its statements time out; nothing cancels them)."""
+        conn, _ = await _blackholed_after_timeout(proxy, proxied_dsn, 1.0)
+        hung = asyncio.ensure_future(conn.fetchval("SELECT 3"))
+        try:
+            done, _ = await asyncio.wait({hung}, timeout=3)
+            assert not done, (
+                "the statement after a swallowed timeout returned: "
+                f"{hung.result() if not hung.exception() else hung.exception()!r}")
+        finally:
+            hung.cancel()
+            await asyncio.gather(hung, return_exceptions=True)
+            conn.terminate()
+
+    async def test_log_change_lets_the_timeout_through(self, proxy, proxied_dsn, monkeypatch):
+        # The real audit write on the real dropped session: it must raise
+        # within command_timeout, not return as if the entry had landed.
+        monkeypatch.setattr(base, "CLOSE_TIMEOUT", 2)
+        conn = await asyncpg.connect(proxied_dsn, command_timeout=1.0)
+        assert await conn.fetchval("SELECT 1") == 1
+        proxy.blackhole = True
+        t0 = time.monotonic()
+        try:
+            with pytest.raises(audit.DEAD_SESSION):
+                await asyncio.wait_for(
+                    audit.log_change(conn, entity_type="grammar_point", entity_id="1",
+                                     action="seeded", language_id="x", note="probe"),
+                    5)
+            assert time.monotonic() - t0 < 4, "the audit write did not time out"
+        finally:
+            await asyncio.wait_for(base.close_quietly(conn), 5)
 
 
 class TestResetSession:

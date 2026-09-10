@@ -45,17 +45,38 @@ async def close_quietly(conn: asyncpg.Connection) -> None:
     fired the seeder's `finally: await conn.close()` hung for ever behind
     it — measured on 9 Sep 2026 with a blackholing proxy (DEBT.md,
     test_dropped_session_integration.py). Cancelling the close from outside
-    is what returns: asyncpg catches the cancellation, aborts the protocol
-    and re-raises; terminate() then drops the socket without a handshake.
+    is what returns: asyncpg catches the cancellation, marks the connection
+    aborted and re-raises.
+
+    Marks it — it does not drop the socket. Protocol.close() sets `closing`
+    before it waits, and Protocol.abort() returns at once when `closing` is
+    set, so neither the cancellation nor terminate() afterwards ever touches
+    the transport: the TCP session to the pooler would stay ESTABLISHED for
+    the life of the process, one per abandoned attempt (measured 10 Sep
+    2026). Hence the transport is captured first and aborted by hand.
+    `_transport` is private to asyncpg (a slot on Connection, 0.31); if a
+    release renames it, test_close_quietly_drops_the_socket says so.
 
     Errors are swallowed on purpose: this runs in a `finally` and must not
     replace the exception that brought us here with "and the close failed
-    too". CancelledError is a BaseException and propagates as it should.
+    too". CancelledError is a BaseException and propagates as it should —
+    after the same teardown, so a Ctrl-C during the close does not leave
+    the socket behind either.
     """
+    transport = getattr(conn, "_transport", None)
     try:
         await asyncio.wait_for(conn.close(), CLOSE_TIMEOUT)
+    except asyncio.CancelledError:
+        _abandon(conn, transport)
+        raise
     except Exception:  # noqa: BLE001 — timeout, reset, protocol error: all mean "abandon it"
-        conn.terminate()
+        _abandon(conn, transport)
+
+
+def _abandon(conn: asyncpg.Connection, transport) -> None:
+    conn.terminate()
+    if transport is not None and not transport.is_closing():
+        transport.abort()
 
 
 class BaseSeeder(ABC):
