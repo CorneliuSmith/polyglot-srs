@@ -729,8 +729,10 @@ says so) — replaces every `conn.close()` in the seven runbook modules,
 `close_quietly` per `asyncpg.connect`. `log_change` re-raises the
 dead-session shapes (`audit.DEAD_SESSION`: timeout,
 `PostgresConnectionError`, `InterfaceError`, `OSError`) and still swallows
-audit-table errors. `seed_grammar` retries a course's `load()` on the same
-shapes (`CUT_OFF`, kept equal to `DEAD_SESSION` by a test) after pauses of
+audit-table errors — asyncpg's client-side bad-bind errors among them,
+which inherit `InterfaceError` but are `ValueError`s too. `seed_grammar`
+retries a course's `load()` on the same shapes (`CUT_OFF`, kept equal to
+`DEAD_SESSION` by a test; `_cut_off` makes the same carve-out) after pauses of
 10 s then 60 s (`RETRY_DELAYS` — together they outlast the one-minute
 outage, so the course in flight when it starts is recovered too; `(5, 30)`
 would have saved three of the four), re-using the transformed data. It

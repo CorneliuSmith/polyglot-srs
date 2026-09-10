@@ -84,8 +84,12 @@ async def log_change(
             json.dumps(after) if after is not None else None,
             (note or None),
         )
-    except DEAD_SESSION:
-        raise  # the write after this one would hang, not fail
+    except DEAD_SESSION as e:
+        # asyncpg's client-side bad-bind errors (DataError,
+        # ClientConfigurationError) inherit InterfaceError AND ValueError:
+        # bad input to this write, not a dead session — still best-effort.
+        if not isinstance(e, ValueError):
+            raise  # the write after this one would hang, not fail
     except Exception:  # noqa: BLE001 - auditing must not break the write
         pass
 

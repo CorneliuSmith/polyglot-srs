@@ -602,14 +602,19 @@ RETRY_DELAYS = (10, 60)
 #   OSError                       ConnectionResetError from connect() while
 #                                 the pooler refuses new sessions (10 Sep)
 # Anything else — a paradigm gap, a missing language row — is the file's
-# fault and a retry would only fail the same way. InterfaceError is wider
-# than the dead-session texts (an argument-count mismatch is one too), so a
-# code bug of that shape costs two RETRY lines before its honest FAIL; that
-# bug fails CI, not production, and the price of matching on message text
-# is a tuple that silently stops matching when asyncpg rewords it. Same
-# tuple as backend.repositories.audit.DEAD_SESSION.
+# fault and a retry would only fail the same way. asyncpg's client-side
+# bad-bind errors (DataError, ClientConfigurationError) inherit
+# InterfaceError too, and ValueError with it; _cut_off tells them apart, so
+# a code bug is not retried twice before its honest FAIL. Same tuple as
+# backend.repositories.audit.DEAD_SESSION.
 CUT_OFF = (asyncio.TimeoutError, asyncpg.PostgresConnectionError,
            asyncpg.InterfaceError, OSError)
+
+
+def _cut_off(e: BaseException) -> bool:
+    """Retry this? A dead session, yes; asyncpg's bad-input InterfaceErrors
+    — the ones that are also ValueErrors — are code bugs, and no."""
+    return isinstance(e, CUT_OFF) and not isinstance(e, ValueError)
 
 # Bound here so a test can replace the seeder's pause without replacing
 # asyncio.sleep for every other coroutine on the loop.
@@ -643,7 +648,9 @@ async def _seed_one(db_url: str, lang: str) -> int:
     for attempt, delay in enumerate(RETRY_DELAYS, start=1):
         try:
             return await seeder.load(data)
-        except CUT_OFF as e:
+        except Exception as e:  # noqa: BLE001 — classified by _cut_off
+            if not _cut_off(e):
+                raise
             print(f"RETRY {lang} in {delay}s ({attempt}/{len(RETRY_DELAYS)}): "
                   f"{_describe(e)}", flush=True)
             await _sleep(delay)

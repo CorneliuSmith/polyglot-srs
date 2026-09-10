@@ -17,6 +17,10 @@ import sys
 import asyncpg
 import pytest
 
+# The bad-bind DataError: an InterfaceError that is also a ValueError.
+# asyncpg.DataError is the server's SQLSTATE 22 class, a different thing.
+from asyncpg.exceptions._base import DataError as ClientDataError
+
 from backend.services.seeder import seed_grammar
 
 FAKE_DATA = {
@@ -123,6 +127,17 @@ class TestRetryOnCutOff:
         assert "RETRY" not in out
         assert "FAIL xx: bad drill" in out
 
+    async def test_a_bad_bind_is_a_code_bug_not_a_cut_off(self, harness, capsys):
+        # asyncpg's client-side DataError inherits InterfaceError, which is
+        # in CUT_OFF; it is a wrong argument to a query, and a retry would
+        # only repeat it — two RETRY lines would be a lie about the pooler.
+        load = _Load(ClientDataError("invalid input for query argument $1"))
+        harness(load)
+        out = await _run(capsys)
+        assert len(load.calls) == 1
+        assert "RETRY" not in out
+        assert "FAIL xx: invalid input for query argument $1" in out
+
     async def test_a_transform_error_never_reaches_load(self, harness, capsys, monkeypatch):
         def broken(self):
             raise ValueError("paradigm gap: P1")
@@ -160,16 +175,19 @@ class TestCutOffShapes:
         ConnectionRefusedError(61, "Connection refused"),
     ])
     def test_a_cut_off_session_is_retried(self, err):
-        assert isinstance(err, seed_grammar.CUT_OFF)
+        assert seed_grammar._cut_off(err)
 
     @pytest.mark.parametrize("err", [
         ValueError("paradigm gap"),
         KeyError("drills"),
         asyncpg.UniqueViolationError("duplicate key"),
         asyncpg.UndefinedColumnError("column does not exist"),
+        # InterfaceErrors by inheritance, code bugs by nature
+        ClientDataError("invalid input for query argument $1"),
+        asyncpg.ClientConfigurationError("unrecognized configuration parameter"),
     ])
     def test_a_file_or_schema_error_is_not(self, err):
-        assert not isinstance(err, seed_grammar.CUT_OFF)
+        assert not seed_grammar._cut_off(err)
 
     def test_the_delays_cover_a_one_minute_outage(self):
         # The 10 Sep pooler refused connections for about a minute. The

@@ -14,6 +14,10 @@ from __future__ import annotations
 import asyncpg
 import pytest
 
+# The bad-bind DataError: an InterfaceError that is also a ValueError.
+# asyncpg.DataError is the server's SQLSTATE 22 class, a different thing.
+from asyncpg.exceptions._base import DataError as ClientDataError
+
 from backend.repositories import audit
 from backend.services.seeder import seed_grammar
 
@@ -55,6 +59,10 @@ async def test_a_dead_session_propagates(err):
     asyncpg.NotNullViolationError("null value in column"),
     asyncpg.InsufficientPrivilegeError("permission denied"),
     ValueError("not JSON serialisable"),
+    # In DEAD_SESSION by inheritance (InterfaceError), carved out by
+    # ValueError: a wrong argument to the audit INSERT is audit-only.
+    ClientDataError("invalid input for query argument $1: 'x' (an integer is required)"),
+    asyncpg.ClientConfigurationError("unrecognized configuration parameter"),
 ])
 async def test_an_audit_table_error_is_still_swallowed(err):
     # The migration that adds the table may not have landed; the content
