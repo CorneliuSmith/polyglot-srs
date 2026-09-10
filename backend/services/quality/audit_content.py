@@ -80,7 +80,7 @@ WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "struc
 # Measured and printed, never scored: "how often do noun hints mark gender" is
 # a number to drive editorial work, not a threshold anyone can set honestly.
 REPORT_RULES = ("gender_marking", "unclozable_rows", "frame_collision",
-                "stem_in_hint")
+                "stem_in_hint", "relation_only_gloss")
 
 # The top band a learner actually reaches in the first months. Both card
 # rules below are scoped to it: a defect on rank 8,000 is real and nobody
@@ -657,6 +657,46 @@ _REGION_CODE_RE = re.compile(r"\bISO\s*\d", re.IGNORECASE)
 WRONG_SENSE_RANK_BAND = 1000
 
 
+def _frequency_rows(code: str) -> list[dict]:
+    """The frequency file's rows **with `gloss_overrides.tsv` laid over them**.
+
+    The overlay is not cosmetic: it is what production serves. Since CHECKS
+    §31 every seeder lays the override file over its records before the
+    upsert, so the `en` column in the committed TSV is not the definition a
+    learner meets wherever an override exists. Measured 10 Sep 2026: of 3,441
+    top-2000 rows an override covers, **1,734 differ from the file column** —
+    Arabic rank 17 `لقد` reads "emphatic particle" in the file and ships as
+    "stresses that something really did happen". An audit reading the column
+    alone grades text nobody is shown, which cuts both ways: it can report a
+    defect the override already fixed, and it can miss one the override
+    introduced — and an override introducing a defect is exactly what shipped
+    the wrong Yoruba pronoun (quality rule 51).
+
+    Same overlay function the seeder and `reconcile.expected_rows` use, so the
+    three cannot drift.
+    """
+    path = DATA / f"{code}_frequency.tsv"
+    if not path.exists():
+        return []
+    with path.open(encoding="utf-8-sig", newline="") as handle:
+        rows = [dict(r) for r in csv.DictReader(handle, delimiter="\t")]
+    from backend.services.seeder.gloss_overrides import (  # noqa: PLC0415
+        load_gloss_overrides,
+    )
+    overrides = load_gloss_overrides(code)
+    if not overrides:
+        return rows
+    for row in rows:
+        override = overrides.get((row.get("word") or "").strip())
+        if not override:
+            continue
+        if override.get("en"):
+            row["en"] = override["en"]
+        if override.get("pos"):
+            row["pos"] = override["pos"]
+    return rows
+
+
 def wrong_sense_kind(rank: int, gloss: str) -> str | None:
     """"letter name" / "region code" / None for one frequency row.
 
@@ -683,25 +723,21 @@ def _audit_wrong_sense_glosses(code: str) -> list[str]:
     WordNet rather than committed (see seed_english.py) — it joins this rule
     when that path writes a reviewable file.
     """
-    path = DATA / f"{code}_frequency.tsv"
-    if not path.exists():
-        return []
     problems = []
-    with path.open(encoding="utf-8-sig", newline="") as handle:
-        for row in csv.DictReader(handle, delimiter="\t"):
-            gloss = (row.get("en") or "").strip()
-            if not gloss:
-                continue
-            try:
-                rank = int(row.get("rank") or 0)
-            except ValueError:
-                continue
-            kind = wrong_sense_kind(rank, gloss)
-            if kind is None:
-                continue
-            problems.append(
-                f"rank {rank} '{row.get('word')}' glossed as a {kind}: \"{gloss[:70]}\""
-            )
+    for row in _frequency_rows(code):
+        gloss = (row.get("en") or "").strip()
+        if not gloss:
+            continue
+        try:
+            rank = int(row.get("rank") or 0)
+        except ValueError:
+            continue
+        kind = wrong_sense_kind(rank, gloss)
+        if kind is None:
+            continue
+        problems.append(
+            f"rank {rank} '{row.get('word')}' glossed as a {kind}: \"{gloss[:70]}\""
+        )
     return problems
 
 
@@ -782,26 +818,91 @@ def _audit_circular_glosses(code: str) -> list[str]:
     """
     if code != "en":
         return []
-    path = DATA / f"{code}_frequency.tsv"
-    if not path.exists():
-        return []
     problems = []
-    with path.open(encoding="utf-8-sig", newline="") as handle:
-        for row in csv.DictReader(handle, delimiter="\t"):
-            gloss = (row.get("en") or "").strip()
-            word = (row.get("word") or "").strip()
-            if not gloss or not word:
-                continue
-            try:
-                rank = int(row.get("rank") or 0)
-            except ValueError:
-                continue
-            if not 0 < rank <= WRONG_SENSE_RANK_BAND:
-                continue
-            if is_circular(word, row.get("pos") or "", gloss):
-                problems.append(
-                    f"rank {rank} '{word}' defined with itself: \"{gloss[:70]}\""
-                )
+    for row in _frequency_rows(code):
+        gloss = (row.get("en") or "").strip()
+        word = (row.get("word") or "").strip()
+        if not gloss or not word:
+            continue
+        try:
+            rank = int(row.get("rank") or 0)
+        except ValueError:
+            continue
+        if not 0 < rank <= WRONG_SENSE_RANK_BAND:
+            continue
+        if is_circular(word, row.get("pos") or "", gloss):
+            problems.append(
+                f"rank {rank} '{word}' defined with itself: \"{gloss[:70]}\""
+            )
+    return problems
+
+
+# A definition that is ONLY a grammatical relation to another word in the same
+# language. "first-person singular present indicative of necesitar" is true and
+# useless: the learner needs "I need". The owner reported this class themselves
+# ("coche as the definition for coches"), and it is the largest one left —
+# 27,794 live rows on 10 Sep 2026, of which 4,397 sit inside the band below.
+#
+# Anchored at both ends on purpose. The GOOD shape keeps the relation as a
+# parenthetical after the meaning — "arrive (present subjunctive of llegar)" —
+# and must not be reported; only a definition that is nothing but the relation
+# matches.
+_RELATION_ONLY_RE = re.compile(
+    r"^\s*(?:the\s+)?(?:"
+    r"plural|singular|dual|feminine|masculine|neuter|common|diminutive|augmentative"
+    r"|comparative|superlative|past|present|future|perfect|imperfect|preterite|aorist"
+    r"|participle|gerund|infinitive|supine|imperative|subjunctive|conditional|optative"
+    r"|indicative|passive|active|middle|reflexive|causative"
+    # "first"/"second"/"third" only as a PERSON label. Bare, they are ordinary
+    # English ordinals opening a real definition — fr `première` is "first
+    # (feminine singular of premier)" and ca `segona` is "second, the one after
+    # the first — feminine singular of segon". Both give the meaning and must
+    # not be reported (rule 19: verify every hit before it becomes a number).
+    r"|(?:first|second|third)(?:/(?:first|second|third))*[- ]person"
+    r"|nominative|genitive|dative|accusative|ablative|vocative|locative|instrumental"
+    r"|definite|indefinite|construct|possessive|attributive|predicative"
+    r"|inflection|form|variant|alternative\s+form|obsolete\s+form|archaic\s+form"
+    r"|abbreviation|contraction|romanization|romanisation"
+    r")\b[^.;]*\bof\b\s+\S+\s*\.?\s*$",
+    re.IGNORECASE,
+)
+
+
+def is_relation_only(gloss: str) -> bool:
+    """True when the definition names a grammatical relation and no meaning."""
+    return bool(_RELATION_ONLY_RE.match(gloss or ""))
+
+
+def _audit_relation_only_glosses(code: str) -> list[str]:
+    """Definitions inside the learner's band that give a relation, not a meaning.
+
+    Report-level, and scoped to the top-`CARD_RULE_BAND` — the same band the
+    card rules use, because a defect on rank 8,000 is real and nobody meets
+    it. Report rather than fail because the count is in the thousands while
+    the repair passes run, and a threshold set there would be a number nobody
+    could defend (the `gender_marking` argument). **Its target is zero**,
+    unlike the other report rules, so when a course reaches it the rule is
+    ready to be promoted — say so rather than leaving it reported for ever.
+
+    Reads through `_frequency_rows`, so it sees the definition production
+    actually serves and not the stale column beneath it.
+    """
+    problems = []
+    for row in _frequency_rows(code):
+        gloss = (row.get("en") or "").strip()
+        if not gloss:
+            continue
+        try:
+            rank = int(row.get("rank") or 0)
+        except ValueError:
+            continue
+        if not 0 < rank <= CARD_RULE_BAND:
+            continue
+        if is_relation_only(gloss):
+            problems.append(
+                f"rank {rank} '{row.get('word')}' has no English meaning: "
+                f"\"{gloss[:70]}\""
+            )
     return problems
 
 
@@ -891,6 +992,7 @@ def audit_language(code: str) -> dict:
     findings["gender_marking"] = _audit_gender_marking(code, points or [], morphology)
     findings["wrong_sense_gloss"] = _audit_wrong_sense_glosses(code)
     findings["circular_gloss"] = _audit_circular_glosses(code)
+    findings["relation_only_gloss"] = _audit_relation_only_glosses(code)
     findings["unclozable_rows"], findings["frame_collision"] = (
         _audit_sentence_cards(code)
     )

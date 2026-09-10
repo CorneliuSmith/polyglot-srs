@@ -186,9 +186,13 @@ retire path that blocked it is built — migration 20261017
 `grammar_points.retired_at`, `data/grammar_exclusions.tsv` as the source of
 truth in both directions, `reconcile` setting and clearing it, every offer
 path filtering on it (probed). Record:
-`docs/decisions/2026-09-08-korean-duplicate-points.md`. One sibling is still
-open: A1 index 40 (`Topic particle ~는/은`) duplicates index 0 and calls the
-topic particle "subject-marking" in its hints (`ko.md`).
+`docs/decisions/2026-09-08-korean-duplicate-points.md`. ~~One sibling is
+still open: A1 index 40.~~ **Closed 10 Sep 2026** — that sixth duplicate
+(`Topic particle ~는/은`) is retired: it called 은/는 a "subject-marking
+particle" in its function note and all seven hints, and this course teaches
+the topic/subject split itself. Its 7 drills were salvaged into the keeper
+with hints naming each noun's own 받침, 3 cross-references remapped, the
+duplicate gym entry removed and `REFERENCE.md` regenerated.
 
 ### 1,264 English words below rank 2,000 still have no definition
 
