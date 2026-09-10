@@ -666,6 +666,20 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
+## 14 words serve a sentence about Tatoeba because it is all they have (10 Sep 2026)
+
+`names_the_corpus` removed 45 of the 59 rows whose sentence is about the
+corpus rather than the language (CHECKS §35). The remaining 14 are each
+their word's ONLY sentence, and the never-strand rule (§24) keeps them: a
+card with no example is not an improvement on one with a bad example. So
+until Phase 8 authoring reaches them, these cards still teach the corpus's
+press release — `ar` أطاق, بيانات, توصيل, تدقيق · `ca` exemple, droga,
+enganxa · `fa` یعنی · `fr` no, saletés · `id` contohnya · `ro` suma · `tl`
+sapagkat, kabuuan. Each leaves automatically the moment its word gains an
+authored sentence; `test_corpus_self_naming.py` asserts none of them ever
+sits beside a usable row. Nothing else is owed here — this is a supply
+entry, not a bug.
+
 ## A content tool can hang for ever on a dropped pooler session (7 Sep 2026; bounded 10 Sep)
 
 `seed_grammar -l all` printed "OK en" and then nothing for two hours. On

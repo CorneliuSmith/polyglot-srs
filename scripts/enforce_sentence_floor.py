@@ -18,8 +18,13 @@ not the better outcome.
 Never strands a word: if everything it has is under five tokens, it all
 stays until something better is authored.
 
-Thai is skipped entirely (§22) — it writes without spaces, so counting
-whitespace tokens says nothing about how much sentence is there.
+Thai is skipped for the FLOOR (§22) — it writes without spaces, so counting
+whitespace tokens says nothing about how much sentence is there. It is NOT
+skipped for the corpus rule below, which counts nothing.
+
+Also drops any row whose sentence is about the corpus it came from rather
+than the language (`names_the_corpus`, CHECKS §35) — Tatoeba's bank writes
+about Tatoeba, and 59 such rows had been selected into 14 courses.
 """
 from __future__ import annotations
 
@@ -42,6 +47,7 @@ DATA = REPO / "data"
 from backend.services.seeder.prune_sentences import (  # noqa: E402
     FLOOR,
     UNSPACED,
+    names_the_corpus,
     shape_keeps,
 )
 from backend.services.seeder.prune_sentences import (  # noqa: E402
@@ -55,10 +61,9 @@ def main() -> int:
     args = ap.parse_args()
 
     total_dropped = total_words = total_stranded = 0
+    total_corpus = total_corpus_stranded = 0
     for path in sorted(DATA.glob("*_sentences.tsv")):
         code = path.name.split("_")[0]
-        if code in UNSPACED:
-            continue
         raw = path.read_bytes()
         crlf = b"\r\n" in raw
         reader = csv.DictReader(io.StringIO(raw.decode("utf-8-sig")), delimiter="\t")
@@ -69,9 +74,26 @@ def main() -> int:
             by_word[(r.get("word") or "").strip()].append(r)
 
         drop: set[int] = set()
-        improved = stranded = 0
+        improved = stranded = corpus = corpus_stranded = 0
         for _word, group in by_word.items():
-            thin = [r for r in group if len(tokens(r.get("sentence") or "")) < FLOOR]
+            # A row about the corpus rather than the language teaches the
+            # learner Tatoeba's press release (CHECKS §35). Dropped whatever
+            # its length, under the same never-strand rule as the floor.
+            named = [r for r in group if names_the_corpus(r.get("sentence") or "")]
+            if named:
+                if len(named) == len(group):
+                    corpus_stranded += 1     # authoring list, not a deletion
+                else:
+                    for r in named:
+                        drop.add(id(r))
+                    corpus += len(named)
+            group = [r for r in group if id(r) not in drop]
+            # Thai is exempt from the FLOOR only (§22: no spaces, so a token
+            # count says nothing) — never from the corpus rule above, which
+            # counts no tokens.
+            thin = ([] if code in UNSPACED
+                    else [r for r in group
+                          if len(tokens(r.get("sentence") or "")) < FLOOR])
             if not thin:
                 continue
             if len(thin) == len(group):
@@ -87,10 +109,15 @@ def main() -> int:
         total_dropped += len(drop)
         total_words += improved
         total_stranded += stranded
+        total_corpus += corpus
+        total_corpus_stranded += corpus_stranded
         if not drop:
             continue
-        print(f"  {code}: -{len(drop):,} thin sentences, {improved:,} words improved, "
-              f"{stranded:,} left alone")
+        extra = (f", -{corpus} naming the corpus" if corpus else "")
+        extra += (f", {corpus_stranded} corpus rows left (word has nothing else)"
+                  if corpus_stranded else "")
+        print(f"  {code}: -{len(drop) - corpus:,} thin sentences, {improved:,} words improved, "
+              f"{stranded:,} left alone{extra}")
         if args.dry_run:
             continue
         keep = [r for r in rows if id(r) not in drop]
@@ -104,8 +131,10 @@ def main() -> int:
             data = data.replace("\n", "\r\n")
         path.write_text(data, encoding="utf-8", newline="")
 
-    print(f"\ntotal: {total_dropped:,} dropped, {total_words:,} words improved, "
-          f"{total_stranded:,} words left alone (nothing better yet)")
+    print(f"\ntotal: {total_dropped:,} dropped ({total_corpus:,} naming the corpus), "
+          f"{total_words:,} words improved, "
+          f"{total_stranded:,} words left alone (nothing better yet), "
+          f"{total_corpus_stranded:,} words whose only row names the corpus")
     if args.dry_run:
         print("DRY RUN — nothing written.")
     return 0
