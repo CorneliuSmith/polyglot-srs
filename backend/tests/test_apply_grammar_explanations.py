@@ -25,8 +25,8 @@ from scripts.apply_grammar_explanations import GRAMMAR, check, has_markdown
 # duplicate-point decision (docs/plans/quality-parity.md). Add a code when
 # its pass ships.
 FORMATTED = {"ar", "ca", "de", "el", "en", "es", "fa", "fr", "ha", "he",
-             "hi", "id", "it", "jam", "la", "mi", "nl", "pt", "ro", "ru",
-             "sw", "th", "tl", "tr", "xh", "yo"}
+             "hi", "id", "it", "jam", "ko", "la", "mi", "nl", "pt", "ro",
+             "ru", "sw", "th", "tl", "tr", "xh", "yo"}
 
 PLAIN = "Turkish has no separate verb 'to be' in the present tense here."
 

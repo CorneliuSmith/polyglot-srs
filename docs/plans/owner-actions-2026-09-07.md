@@ -1,27 +1,39 @@
 # What the owner still has to run — 7 September 2026 (state as of 10 Sep)
 
-**As of 10 Sep, morning:** the 7 Sep list below is done, and the
-`seed_grammar` loop for the explanation pass ran on 10 Sep and landed **23
-of 27 courses** — read back out of production, every point equal to its
-file. Four did not, because the pooler closed one session mid-write and
-refused new ones for about a minute (DEBT.md, "A content tool can hang for
-ever on a dropped pooler session"): **en** (16 of 43 points written),
-**es**, **fa** and **fr** (nothing written). Still to run, in this order:
-the four-course rerun, then decision C's three commands (Part 2, section
-C), then the reconcile.
+**As of 10 Sep, evening: 26 of 27 courses are level with their files**,
+read back out of production. The `seed_grammar` loop landed 23 on the first
+run; a pooler outage cost `en`, `es`, `fa` and `fr`, and the owner's rerun
+on the fixed code landed all four. The two `es` points still showing a
+difference are **curated** — `seed_grammar` never overwrites a curated
+point, it routes the text change to the review suggestion queue for a human,
+which is the designed behaviour and not a gap.
+
+**Korean is the one course left, and it needs exactly one run.** That run
+now carries three things at once: decision C's five retirements, the
+grammar-point retire migration, and the explanation pass that closed on
+10 September (151 read, 140 rewritten, 159 content defects corrected —
+`docs/decisions/2026-09-10-korean-explanation-pass.md`).
 
 ```bash
 git pull origin main
 ```
 
 ```bash
-for c in en es fa fr; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
+supabase db push
 ```
 
-Every statement is an upsert, so `en` completes from point 17. Since the
-dropped-session fix the loop prints a `-> code` line when a course starts
-and retries a cut-off course itself; `docs/quality/refeed.md` says what to
-expect on the terminal.
+```bash
+.venv/bin/python -m backend.services.seeder.seed_grammar -l ko
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all --apply
+```
+
+The reconcile's vocabulary half is already done — its dry run reads all
+zeros for gloss/pos/retire. What is left in it is the **5 Korean grammar
+retirements** (`gp-ret 5`), which need the migration above first; before it
+lands that column prints a dash and the five points stay served.
 
 Recorded 7 Sep, late evening, after the runs finished:
 
