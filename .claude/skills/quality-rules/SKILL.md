@@ -375,6 +375,21 @@ rate, say so — that result matters more than the phase closing quietly.
     timeout in `log_change` left the next statement with no bound at all —
     both found only by putting the real call on the real proxy.
 
+56. **A definition must give a MEANING, not a relation.** "first-person
+    singular present indicative of necesitar" is true and useless — the word
+    means "I need". Relation in parentheses AFTER the meaning is the house
+    shape ("arrive (present subjunctive of llegar)"), and the English must
+    match the FORM, not the lemma. 27,794 live rows, the largest class left
+    (CHECKS §36).
+
+57. **An audit must read what SHIPS, not the file underneath it.**
+    `audit_content` graded the frequency file's `en` column while production
+    served that column with `gloss_overrides.tsv` laid over it — 1,734 of
+    3,441 covered rows differed. Same class as §31 one level up: the override
+    file was given a write path to production and never a read path into the
+    instrument. Before trusting any measurement, check that the thing being
+    measured is the thing being served.
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

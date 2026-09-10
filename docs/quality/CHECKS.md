@@ -1877,6 +1877,85 @@ serves a corpus row while a usable sentence exists.** That last one ratchets
 — it cannot be satisfied by a rebuild quietly putting them back, and every
 word that gains an authored sentence takes its corpus row with it.
 
+## §36 The definition that gives a relation and no meaning (owner, 10 Sep 2026)
+
+The owner named this class themselves — *"coche as the definition for
+coches"*. Spanish rank 204 `necesito` is defined as **"first-person singular
+present indicative of necesitar"**. True, and useless: an English speaker
+learns nothing. The word means **"I need"**.
+
+**It is the largest content defect left.** Measured in production, 10 Sep:
+
+| band | live rows |
+|---|---:|
+| top-200 | 24 |
+| **201–2000** | **4,397** |
+| 2001–10000 | 23,373 |
+| **total** | **27,794** |
+
+**The band boundary IS the finding.** Phase 2d repaired the top-200 per
+course, and the defect resumes at exactly rank 201. This is not scattered
+debt; it is the edge of a pass that already ran, and it is concentrated in ten
+courses (`ca pt it es fr tr de sw ro nl`, each 200–570 inside the top-2,000).
+
+**The good shape already ships**: meaning first, relation in parentheses —
+`llegue` → "arrive (present subjunctive of llegar)". The relation is welcome;
+it may just not be the whole definition. And the English must match the FORM,
+not the lemma: `necesito` is "I need", never "to need".
+
+### Two measurement traps, both hit before the number was believed
+
+1. **Counting from `data/*_frequency.tsv` gives ~29,000 and is wrong.** That
+   `en` column is stale wherever an override exists; `gloss_overrides.tsv` is
+   laid over it at seed time (§31). Definitions are measured in production
+   (`translations.definition`, locale `en`) or through the overlay, never off
+   the raw column.
+2. **The top-200 looked broken and is not.** The file column still carries the
+   old text for rows the overrides fixed — production has `sé` → "I know — a
+   fact, information, or how to do something" while the file says otherwise.
+
+### The audit could not see any of it, and that was §31 one level up
+
+`audit_content` read the frequency file's `en` column directly. Production
+serves that column **with the overrides laid over it**, so the audit was
+grading text nobody is shown: of 3,441 top-2000 rows an override covers,
+**1,734 differ**. Arabic rank 17 `لقد` audits as "emphatic particle" and ships
+as "stresses that something really did happen".
+
+The override file was given a *write* path to production in §31; it never had
+a *read* path into the audit. Both definition rules (`circular_gloss`,
+`wrong_sense_gloss`) now read through `_frequency_rows`, which applies the
+same overlay the seeder and `reconcile.expected_rows` use, so the three cannot
+drift.
+
+**Honest result: fixing that changed no finding today** — those two rules are
+narrowly scoped (English-only; letter-name and region-code patterns), and none
+of the 1,734 differences flips one. It is a correctness fix that removes a
+latent false-positive *and* false-negative source, and it is what makes the
+new rule below trustworthy. An override introducing a defect is not
+hypothetical: it is how the wrong Yoruba pronoun shipped (rule 51).
+
+### The rule
+
+`relation_only_gloss`, **report-level**, scoped to the top-`CARD_RULE_BAND`
+(2,000) like the card rules — a defect at rank 8,000 is real and nobody meets
+it. Report rather than fail because the count is in the thousands while the
+repair passes run, and a threshold set there is a number nobody could defend
+(the `gender_marking` argument). **Unlike the other report rules its target is
+zero**, so it is ready for promotion once the courses reach it.
+
+It reports **4,992** across 24 courses. The regex is anchored at both ends on
+purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
+the rule would push editors off the one shape the programme has settled on.
+24 findings sampled at random were 24 true positives (rule 19 — verify every
+hit before it becomes a number).
+
+**Verified:** `backend/tests/test_relation_only_gloss.py` (24) — what it
+catches, what it leaves alone, that the good parenthetical shape is never
+reported, that it is a report rule, that the band matches the card rules, and
+that the overlay actually changes Arabic rows (so a silent loss of the read
+path fails the test).
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

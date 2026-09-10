@@ -546,7 +546,7 @@ for twice.
 | # | Phase | Why here |
 | --- | --- | --- |
 | **1** | **Guards and instruments** (the 6 Sep queue, items 1–8 of `docs/decisions/2026-09-06-review-pass.md`) | Cheap, code-only, and each one stops a later pass producing waste. `apply_authored_sentences.py` must require SURFACE presence before ANY authoring runs — the 31 Aug Russian pass accepted lemma presence and wrote rows the card cannot display. Then the `unclozable_rows` audit rule, the retire step for exclusions, the English `context` label with its six locales. |
-| **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. |
+| **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. **REOPENED 10 Sep 2026 (CHECKS §36):** the top-200 is done, and the defect the owner named ("coche as the definition for coches") resumes at exactly rank 201 — 4,397 live rows in the 201–2000 band give a grammatical relation and no English meaning. The band boundary is the edge of the pass, not scattered debt. Band 201–1000 (1,834 rows, 20 courses) ran 10 Sep; 1001–2000 (2,563) and the 2001–10000 tail (23,373) follow. `relation_only_gloss` now measures it. |
 | **3** | **Phase 8 — example-sentence fitness** | The authoring queue, worst-first: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro` → the rest. `pt es de nl fr la ru en ha jam` are already under 15% bad cards and need nothing here. |
 | **4** | **Phase 2e — grader collisions** (judgment repairs) and **Phase 2c** gloss completion | Both are bounded lists with the mechanical half already shipped. |
 | **5** | **Phase 3 — grammar and hint debt**, closing with the markdown pass over explanations | Same files, one PR and one reseed per course. |
@@ -1144,10 +1144,11 @@ dictionary-form convention for a language with no derivable infinitive
   the manifest entry for its point (`gym: {label, usage, example, column,
   drills}`) and `GrammarPathPage` links to `/gym` under the examples — the
   owner's *futur simple* screenshot: a conjugation is too broad to enumerate
-  on a lesson page, so the lesson names the drill set instead. **Left out:**
-  `path.practiseForms` / `path.drillCount` exist only in `en.json`; ar, es,
-  fr, pt and ru fall back to English on that one line. Add the five keys
-  with the next frontend change (DEBT.md).
+  on a lesson page, so the lesson names the drill set instead. ~~Left out:
+  `path.practiseForms` / `path.drillCount` exist only in `en.json`.~~
+  **Closed** — checked 10 Sep 2026: all seven locale files carry both keys
+  and `localeParity.test.ts` passes 37 tests, so nothing falls back to
+  English on that line. Recorded here because the entry outlived the defect.
 
 ### Phase 5 — Extraction leverage (session-only, facts-only)
 
