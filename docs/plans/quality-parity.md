@@ -1326,10 +1326,40 @@ once the owner's prune lands. Top-2,000 words, counting only sentences
    at **0% fragments** — the courses that got the floor pass, the curation,
    or the 31 Aug authoring. That is the strongest evidence the programme has
    that authoring to §23 is the fix rather than a hope.
-3. **The Phase 8 order below predates this measurement and disagrees with
-   it.** `he`, `tr`, `ko` and `th` are the worst courses a learner can pick
-   today, and only `he` is early in that order. `tr` is in the last group.
-   Either the order changes or the reason it should not is written down.
+3. ~~**The Phase 8 order below predates this measurement and disagrees with
+   it.**~~ **Resolved 10 Sep 2026 — the order stands, and here is the
+   re-measurement that settles it.** The 6 Sep table ranked courses by
+   FRAGMENT share, which is a different question from "what share of the
+   cards a learner draws are bad". Re-run against the current banks (top-2000
+   words, counting only sentences the card can actually blank, a word being
+   bad when it has NO clozable sentence or only fragments):
+
+   | code | words | no sentence | only fragments | **bad** | avg |
+   | --- | ---: | ---: | ---: | ---: | ---: |
+   | yo | 1,639 | 1,402 | 46 | **88%** | 0.2 |
+   | ko | 2,000 | 1,359 | 283 | **82%** | 0.5 |
+   | xh | 1,232 | 769 | 98 | **70%** | 0.7 |
+   | sw | 2,000 | 926 | 114 | **52%** | 1.0 |
+   | tr | 1,994 | 228 | 659 | 44% | 1.7 |
+   | he | 2,000 | 146 | 718 | 43% | 1.9 |
+   | th | 1,992 | 820 | 0 | 41% | 1.4 |
+   | tl | 2,000 | 600 | 213 | 40% | 1.4 |
+   | fa · ca | 2,000 | 621 · 526 | 86 · 191 | 35% | 1.3 · 1.4 |
+   | id · mi · el | — | — | — | 32 · 29 · 29% | — |
+   | hi · ar · it · ro | — | — | — | 26 · 24 · 23 · 20% | — |
+   | **pt es nl fr de la ru en jam ha** | — | — | — | **≤14%** | 2.1–7.7 |
+
+   **The order was right and the objection was measuring the wrong thing.**
+   `yo ko xh sw` are the four worst by a wide margin and are the first group;
+   `tr` and `he` follow immediately. The one real change is **`th` moves out
+   of the first group** — its cloze now works (§29), so its 41% sits below
+   `tr` and `he` rather than beside `ko`. Note `tr` and `he` fail differently
+   from `yo ko xh`: they have sentences (avg 1.7–1.9) that are mostly
+   fragments, so the floor and a re-prune reach them, while `yo ko xh` have
+   almost nothing to prune and need authoring.
+
+   **Revised first group: `yo ko xh sw`, then `tr he th tl fa ca id el`, then
+   `mi hi ar it ro`, then the rest.** Ten courses still need nothing here.
 
 **8 · The supply queue, by course.** Top-2,000 words with sentences but
 none in the §23 band (§26, right-hand column): tr 1,617 · he 1,538 · it
