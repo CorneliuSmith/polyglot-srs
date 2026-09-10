@@ -1246,11 +1246,18 @@ Re-measured on the committed banks after the 31 Aug–5 Sep passes:
   (§22). These are an authoring list, not a deletion list.
 * **(2) done** for the 963 measured: 856 were the writing system (§25),
   49 retagged, 58 dropped.
-* **(3) 10 → 44** with the pattern widened to the corpus naming itself:
-  "Benvinguts a Tatoeba", "'Tatoeba' significa 'per exemple' en japonès"
-  — ca 11, nl 8, es 4, en/fr/ro 3, de/id/it/tl 2, ar/pt/th/tr 1. Drop, and
-  add `tatoeba` to `prune_sentences._context_free` / the floor script so it
-  cannot return.
+* **(3) 10 → 44 → 59, DONE 10 Sep 2026** (CHECKS §35). The 44 was counted
+  with a bare `tatoeba` pattern, which misses 16 of the 17 Arabic rows — the
+  name is transliterated four ways. Re-measured: **59 rows, 14 courses**
+  (ar 17, ca 11, nl 8, es 4, fr/ro 3, de/fa/id/it/tl 2, pt/th/tr 1).
+  **45 dropped**; the other **14 are the only sentence their word has**, so
+  they stay under the never-strand rule (§24) and join the authoring list in
+  item (1) — ar أطاق/بيانات/توصيل/تدقيق, ca exemple/droga/enganxa, fa یعنی,
+  fr no/saletés, id contohnya, ro suma, tl sapagkat/kabuuan. The predicate is
+  `prune_sentences.names_the_corpus` (prune candidate whatever the source),
+  `source_data.build_sentence_rows` drops it at the source so a rebuild
+  cannot reintroduce it, and `test_corpus_self_naming.py` pins the invariant
+  that no word serves one while a usable sentence exists.
 * **(5)** the owner has run `prune_sentences --apply` for `en` (127,363
   rows), `ru` and `ar` (twice each). 24 courses remain; the runbook is
   `docs/quality/refeed.md`.
