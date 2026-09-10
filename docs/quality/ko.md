@@ -264,3 +264,28 @@ record: `docs/decisions/2026-09-08-korean-duplicate-points.md`.
 (`Topic particle ~는/은`, A1) duplicates the A1 first pass at index 0 and
 calls 는/은 a "subject-marking particle" throughout its hints.
 
+## The explanation pass, the last of 27 courses (10 Sep 2026)
+
+151 explanations read, **140 rewritten, 159 content defects corrected** — the
+highest rate of any course. 140 render as markdown (93%) and 86 carry a
+table, which is the language: 받침 allomorphy, six irregular stem classes and
+four speech levels are paradigms, and a paradigm belongs in a table. The
+restraint guard that measures the pass rather than the language — does a bold
+name the form the point teaches — reads **183 of 204 (89%)** here, above the
+26-course average.
+
+Every defect was the same shape: **a rule the point's own drills falsify.**
+*Polite requests (으)세요* derived 살으세요 for its own 사세요 drill; *Pure Korean
+vs Sino-Korean numbers* called the choice etymological when it is lexical per
+counter, then listed three Sino-Korean words under pure Korean; *Superlatives*
+made its own second drill ungrammatical.
+
+**Four of nine second-pass defects were one class: the ㄹ-final stem left out
+of a 받침 rule.** ㄹ is the consonant that behaves like a vowel — it drops
+before ㄴ/ㅂ/ㅅ/(으) — so any rule stated as a clean consonant/vowel split is
+wrong for it. Points 12, 82, 112 and 114 each stated one. When writing a
+받침 rule for this course, name ㄹ explicitly or check that no ㄹ stem exists
+in the paradigm.
+
+Record: `docs/decisions/2026-09-10-korean-explanation-pass.md`.
+
