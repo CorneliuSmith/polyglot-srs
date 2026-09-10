@@ -260,9 +260,17 @@ Retiring a grammar point needed a path that did not exist — migration
 20261017 and `data/grammar_exclusions.tsv`, mirroring vocabulary's. Full
 record: `docs/decisions/2026-09-08-korean-duplicate-points.md`.
 
-**Still open in the same family, out of scope for this decision:** index 40
-(`Topic particle ~는/은`, A1) duplicates the A1 first pass at index 0 and
-calls 는/은 a "subject-marking particle" throughout its hints.
+**The sixth duplicate, closed 10 Sep 2026.** Index 40 (`Topic particle
+~는/은`, A1) was the same point as index 0 and got its own terminology
+wrong: its function note read "Mark the subject (main person/thing) of a
+sentence" and all seven hints said "subject-marking particle". 은/는 is the
+TOPIC particle; 이/가 is the subject particle, and this course teaches the
+distinction at `있다 with ~이/가` — where its own drill 나는 커피가 있어요 has
+the topic 나는 and the subject 커피가 in one sentence. Retired on the same
+criterion as the other five (answer accuracy, not size): the seven drill
+answers were correct, so they were salvaged into the keeper with hints that
+name each noun's own 받침, and 3 cross-references, the gym manifest and
+`REFERENCE.md` were updated. Korean: 151 points → 150.
 
 ## The explanation pass, the last of 27 courses (10 Sep 2026)
 

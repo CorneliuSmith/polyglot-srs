@@ -491,12 +491,6 @@
       "label": "Noun forms & cases",
       "entries": [
         {
-          "point": "Topic particle ~는/은",
-          "label": "Topic ~는/은",
-          "usage": "Attach the subject particle, choosing the form by the noun's final sound.",
-          "example": "저는 한국 사람이에요."
-        },
-        {
           "point": "Object particle ~를/을",
           "label": "Object ~를/을",
           "usage": "Attach the object particle to the noun the verb acts on.",
