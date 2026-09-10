@@ -55,6 +55,46 @@ that every query is hand-written; the benefit is that "what does this
 endpoint actually ask the database for" is always answerable by reading one
 function.
 
+### What `command_timeout` bounds — and what it does not
+
+asyncpg's `connect(..., command_timeout=N)` bounds one thing: how long a
+single statement may wait for its reply. Every content tool sets it
+(`COMMAND_TIMEOUT`, 300 s, in `backend/services/seeder/base.py`) because the
+Supabase pooler can drop the server side of a session while the TCP socket
+stays ESTABLISHED, and without a bound the client sleeps for ever — that
+was the 7 Sep 2026 two-hour hang.
+
+What happens when it fires is worth understanding, because it is where the
+first fix stopped short. On timeout asyncpg does not just raise: it sends a
+**cancel request**, which in the Postgres wire protocol is a *second*
+connection to the server carrying the session's secret key, and it parks a
+waiter that resolves when the server answers the cancelled statement. Then
+`Connection.close()` — the thing the seeder's `finally` calls — awaits that
+waiter *before* it looks at its own `timeout` argument. On a healthy server
+the answer arrives in milliseconds and nobody notices. On a dropped session
+it never arrives, so the statement raised `TimeoutError` after five minutes
+and the close hung for ever behind it. The timeout had moved the hang, not
+removed it; this was measured on 9 Sep 2026 with a proxy that swallows
+server→client bytes (`test_dropped_session_integration.py`).
+
+The pattern that returns is **bounded close, then terminate**
+(`close_quietly`): `asyncio.wait_for(conn.close(), CLOSE_TIMEOUT)` cancels
+the close from outside — asyncpg catches the cancellation and aborts its
+protocol — and `conn.terminate()` then drops the socket with no handshake.
+The general shape: a library's polite shutdown may itself wait on the peer,
+so the operation's timeout and the cleanup's timeout are two different
+guards, and a `finally` that can block needs its own. The seeder swallows
+errors in that `finally` on purpose — the exception worth seeing is the one
+that got us there, not "and the close failed too".
+
+The other half is retry. A pooler that drops one session usually refuses
+new ones for a while (about a minute on 10 Sep 2026), so `seed_grammar`
+retries a course's write after 5 s and again after 30 s, re-using the data
+it already transformed. That is only safe because every statement is an
+upsert: the second attempt completes a half-written course rather than
+doubling it. Retrying the *transform* would be wrong — a paradigm gap is a
+file error and retrying it just delays the same failure.
+
 ### The three-layer rule
 
 Enforced by convention (there's no linter for it, so it lives in

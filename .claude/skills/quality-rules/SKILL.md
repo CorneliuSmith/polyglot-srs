@@ -366,6 +366,11 @@ rate, say so — that result matters more than the phase closing quietly.
     rule the point states; a point that fails its own rule cannot be the
     survivor, however long it is (CHECKS §34).
 
+55. **A hang guard is proven by reproducing the hang.** The 7 Sep command
+    timeout was reasoned about, not measured, and asyncpg's `close()` re-hung
+    behind it; a blackholing proxy reproduces a dropped pooler session in
+    ten seconds (`test_dropped_session_integration.py`).
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
