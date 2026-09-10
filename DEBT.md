@@ -666,6 +666,30 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
+## Eight rows the definition pass refused to define (10 Sep 2026)
+
+The 201–1000 definition pass (CHECKS §36) wrote 1,826 definitions and
+**declined 8**, on the standing instruction that an omission is recoverable
+and a wrong definition is not (quality rule 30). Every one turned out to be
+extraction debris rather than a hard word, which makes the list worth keeping:
+
+- `mi tute` (777) — "masculine equivalent of tūī". A tūī is a bird; there is
+  no masculine of it. Cross-language contamination.
+- `es i` (783) — labelled "second-person singular voseo imperative of ir",
+  but both of the course's own sentences use it as the Roman numeral one
+  (Elizabeth I, Carlos I).
+- `it finche` (775) — an accent-stripped twin of `finché` whose lemma record
+  is Spanish debris (`finca`, no definition).
+- `sw kukawa` (979) — given as the infinitive of `-kawa`; there is no such
+  standard verb (delay is `-kawia`, stay is `-kaa`).
+- `xh izagwityi` (658), `izigxina` (758), and two more with no lemma
+  definition and no example sentence.
+
+These are candidates for `data/vocab_exclusions.tsv` rather than for
+authoring, but each needs a reader of its language to confirm before a
+durable deletion — which is why they are written down instead of swept
+(quality rule 27 and the Romanian `-ă`/`-a` refusal).
+
 ## 14 words serve a sentence about Tatoeba because it is all they have (10 Sep 2026)
 
 `names_the_corpus` removed 45 of the 59 rows whose sentence is about the

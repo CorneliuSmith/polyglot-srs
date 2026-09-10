@@ -289,3 +289,19 @@ in the paradigm.
 
 Record: `docs/decisions/2026-09-10-korean-explanation-pass.md`.
 
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**2 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `미친` was "past adnominal of 미치다" → "crazy, mad, out of one's mind - the form that modifies the noun after it, as in a crazy person (past adnominal of 미치다, to go mad); coarse when thrown in as a slang intensifier"
+- `없었다` was "Past tense of 없다" → "there was not, there were none; did not have, was missing - plain past of 없다; after ~을 수 it means could not"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.

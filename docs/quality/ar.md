@@ -264,3 +264,18 @@ decisions from the Phase 2d pass, and the reconcile would have reverted the
 curated values on its next `--apply` regardless. To let a curated value
 stand, delete the word's override row; the seed file then wins again.
 
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**1 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `ثانية` was "second (unit of time)" → "a second, the unit of time (f.); as an adverb, again or for a second time; also second as an ordinal, feminine form"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
