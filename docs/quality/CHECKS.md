@@ -1944,11 +1944,22 @@ repair passes run, and a threshold set there is a number nobody could defend
 (the `gender_marking` argument). **Unlike the other report rules its target is
 zero**, so it is ready for promotion once the courses reach it.
 
-It reports **4,992** across 24 courses. The regex is anchored at both ends on
+It reports **4,982** across 24 courses. The regex is anchored at both ends on
 purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
 the rule would push editors off the one shape the programme has settled on.
 24 findings sampled at random were 24 true positives (rule 19 — verify every
 hit before it becomes a number).
+
+**Rule 19 then caught the rule itself.** The first draft matched a bare
+`first`/`second`/`third`, which are English ORDINALS as well as the opening of
+`first-person`: it reported `fr première` — "first (feminine singular of
+premier)" — and `ca segona` — "second, the one after the first — feminine
+singular of segon". Both give the meaning and are exactly what the pass is
+trying to produce. Found by running the repair pass's own output back through
+the rule, which is the check worth keeping: **a rule that flags the fix it
+asked for is wrong about the defect.** The person labels are now matched only
+as `first|second|third` (optionally slashed) followed by `-person`, and the
+count moved 4,992 → 4,982.
 
 **Verified:** `backend/tests/test_relation_only_gloss.py` (24) — what it
 catches, what it leaves alone, that the good parenthetical shape is never

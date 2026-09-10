@@ -40,6 +40,7 @@ class TestWhatItCatches:
         "past participle of vragen",
         "feminine singular of bueno",
         "third-person singular past historic of dire",
+        "first/third-person singular imperfect indicative of estar",
         "ablative singular of bu",
         "first-person singular possessive singular of el",
         "masculine equivalent of tūī",
@@ -62,6 +63,13 @@ class TestWhatItLeavesAlone:
         "the edge of a blade",
         "made of wood",
         "to think of something",
+        # The English ordinals, which open real definitions. "first" and
+        # "second" are also the start of "first-person"/"second-person", and
+        # an earlier draft of the rule reported both of these as defects —
+        # caught by checking the pass's own output against the rule (rule 19).
+        "first (feminine singular of premier)",
+        "second, the one after the first — feminine singular of segon",
+        "third, after the second",
         "",
     ])
     def test_a_real_definition_is_not_reported(self, gloss):

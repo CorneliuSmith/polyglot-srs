@@ -853,7 +853,12 @@ _RELATION_ONLY_RE = re.compile(
     r"|comparative|superlative|past|present|future|perfect|imperfect|preterite|aorist"
     r"|participle|gerund|infinitive|supine|imperative|subjunctive|conditional|optative"
     r"|indicative|passive|active|middle|reflexive|causative"
-    r"|first|second|third"
+    # "first"/"second"/"third" only as a PERSON label. Bare, they are ordinary
+    # English ordinals opening a real definition — fr `première` is "first
+    # (feminine singular of premier)" and ca `segona` is "second, the one after
+    # the first — feminine singular of segon". Both give the meaning and must
+    # not be reported (rule 19: verify every hit before it becomes a number).
+    r"|(?:first|second|third)(?:/(?:first|second|third))*[- ]person"
     r"|nominative|genitive|dative|accusative|ablative|vocative|locative|instrumental"
     r"|definite|indefinite|construct|possessive|attributive|predicative"
     r"|inflection|form|variant|alternative\s+form|obsolete\s+form|archaic\s+form"
