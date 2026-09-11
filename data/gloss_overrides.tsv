@@ -775,7 +775,6 @@ ca	surt	verb	he/she/it goes out, leaves, comes out (third-person singular presen
 ca	suïssa	adj	Switzerland (a country in Western Europe and Central Europe)
 ca	sàpigues	verb	you know, you find out (second-person singular present subjunctive of saber); as a command, know this
 ca	sé	verb	I know — a fact, or how to do something (no ho ___, I do not know)
-ca	sóc	verb	I am — identity, origin, lasting qualities (___ de Barcelona, I am from Barcelona)
 ca	són	verb	they are — identity or a lasting quality (___ germans, they are brothers)
 ca	talla	verb	he/she/it cuts (third-person singular present indicative of tallar): aquest ganivet no talla, this knife doesn't cut; cut! (second-person singular imperative); also (f.) size, of clothing; a carving
 ca	tanca	verb	he/she/it closes, shuts; locks (third-person singular present indicative of tancar); close!, shut! (second-person singular imperative): tanca la porta, close the door; also (f.) fence, enclosure; hurdle
@@ -913,6 +912,7 @@ ca	és	verb	is; he/she/it is (from ser — identity, origin, lasting qualities, 
 ca	última	adj	last, final; latest, most recent — feminine singular of últim
 ca	últims	adj	last, final; latest, most recent (masculine plural of últim)
 ca	única	adj	only, sole; unique, one of a kind — feminine singular of únic
+de	's	pron	in speech, the shrunk-down 'es' (it) hung on the end of a verb — wie geht'___ (how is it going), gibt'___ (is there any)
 de	abdruck	noun	imprint, impression (the mark left by pressing); print (as of a finger)
 de	adele	verb	a female given name from French, equivalent to English Adele or Adela
 de	alle	pron	all of them, every one in the group — before a plural ('___ people', '___ are here')
@@ -1341,7 +1341,6 @@ de	reiner	adj	purer (comparative of rein); also Reiner, a male surname
 de	rief	verb	I called, I shouted; he/she/it called (first/third-person singular preterite of rufen); with an, phoned
 de	ring	noun	a circular band worn on the finger, as a wedding one (masculine noun, der); also wrestle!, struggle! (imperative addressing one person)
 de	ruf	verb	call!, call (singular imperative of rufen; ruf mich an — call me); Ruf (der) — reputation; call, shout, cry
-de	s	pron	in speech, the shrunk-down 'es' (it) hung on the end of a verb — wie geht'___ (how is it going), gibt'___ (is there any)
 de	sachen	noun	things, stuff; belongings (plural of die Sache, thing or matter)
 de	sag	verb	say!, tell me! — an order to one person you know well (singular imperative of sagen)
 de	sagst	verb	you say (second-person singular present of sagen)
@@ -1559,9 +1558,9 @@ el	αυτόν	pron	him; this one — the masculine object form ('βλέπω ___'
 el	αχ	intj	oh, whoa — an exclamation
 el	βιάσου	verb	hurry up!, be quick, get a move on - an order to one person you address informally (imperative of βιάζομαι, to hurry)
 el	γεωργία	noun	agriculture; capitalised Γεωργία, a female given name equivalent to English Georgia
-el	γι	prep	the short form of για before a vowel — 'for' ('___ αυτό' — for that, that's why).
 el	για	prep	for, meant for ('___ σένα' — for you); about ('μιλάμε ___ αυτό' — we're talking about it).
 el	γιατί	adv	why? (asking); because (answering) — the same word does both
+el	γι’	prep	the short form of για before a vowel — 'for' ('___ αυτό' — for that, that's why).
 el	γλυκά	adj	sweet — neuter plural of γλυκός (Όνειρα γλυκά! — sweet dreams!); as a noun, τα γλυκά are sweets, cakes and desserts (Όλα μου τα γλυκά είναι νόστιμα — all my sweets are delicious); as an adverb, 'sweetly, gently'.
 el	δε	particle	not — a very common shortened form of δεν before a consonant (Δε θέλω — I don't want to); in formal Greek also μεν … δε — on the other hand
 el	δει	verb	seen — the nonfinite form of βλέπω, after έχω (δεν τον έχω δει — I have not seen him) and after να or θα (να δει — for him to see)
@@ -3817,7 +3816,6 @@ hi	चाहते	verb	want — with a masculine plural or respected subject (�
 hi	चाहिए	verb	is needed, is wanted (मुझे पानी ___ — I need water); with an infinitive, ought to (जाना ___ — should go)
 hi	छोड़	verb	leave, let go, drop — the bare stem (___ दो — let it go; ___ दिया — dropped it)
 hi	जगदीश	noun	God; also a male given name, Jagdish
-hi	जरूरत	noun	a need — the thing someone must have (मुझे पैसों की ___ है — I need money)
 hi	जा	verb	go — the bare stem standing before रहा and सकता (___ रहा है — is going); also 'go!' to a child or close friend
 hi	जाएगा	verb	will go — masculine singular (वह कल ___ — he'll go tomorrow); also forms the future passive: किया ___ — will be done
 hi	जाओ	verb	go! — the order or request you give a friend or peer (घर ___ — go home)
@@ -3851,7 +3849,6 @@ hi	पर	postp	on, at (after a noun); but, however
 hi	पाया	verb	got, obtained; was able to — masculine singular perfective of पाना, and after a bare stem the “managed to, could” construction (वह मदद नहीं कर पाया — he couldn't help; मैं उसे समझा पाया — I managed to make him understand); also a noun: the leg or foot of a piece of furniture (m.)
 hi	पूरी	adj	whole, complete, full — feminine of पूरा, agreeing with a feminine noun (पूरी रात — all night, पूरी तरह से — completely); also a puri (f.), the small deep-fried bread
 hi	फिर	adv	again (___ से — once more); and then, after that (___ क्या हुआ? — then what happened?)
-hi	फोन	noun	a telephone, or a call made on one — spelled plainly, without the nuqta dot (___ करना — to call someone)
 hi	बस	adv	enough, that's all — said to stop or finish something (___, और नहीं — that's enough, no more); just, simply
 hi	बहुत	adj	very — intensifying an adjective (___ अच्छा — very good); a lot of, many (___ लोग — many people)
 hi	बारे	noun	used only in के ___ में — about, concerning (उसके ___ में — about him)
@@ -3887,7 +3884,6 @@ hi	सकते	verb	can, be able to (after a bare stem; plural or respectful su
 hi	सब	det	everyone, everything; all of it — the plain everyday word (___ कुछ — everything; ___ लोग — all the people)
 hi	सभी	adj	all of them without exception — the emphatic twin of सब, used with countable plural nouns and never for 'everything' (___ बच्चे आ गए — all the children have come)
 hi	साथ	adv	in the company of, with — used as के ___ (मेरे ___ चलो — come with me); also company, companionship
-hi	सिर्फ	adv	only, just — nothing more than this, spelled plainly without the nuqta dot (___ दो रुपये — only two rupees)
 hi	सीख	verb	learn — the stem of सीखना, standing before रहा, लेना and the vector verbs (वह क्या सीख रहा है? — what is he learning?; मैंने बजाना सीख लिया — I learned to play); also a noun: a lesson, a moral, a piece of advice (f.)
 hi	से	postp	from (a place, person or time); by means of, with (a tool); than, in comparisons
 hi	सेन	noun	a surname, Sen; also falcon
@@ -4215,7 +4211,6 @@ it	controllato	verb	checked; controlled (past participle of controllare): l'ho c
 it	corsa	noun	run, running (f.); race — ha vinto la corsa 'he won the race'; trip, ride: quanto è lunga la corsa? 'how long is the ride?'; also feminine of corso, ran (past participle of correre): la bambina è corsa in casa 'the child ran into the house'
 it	corso	noun	course (m.) — of a river, of a university; avenue; in corso 'under way, in progress'; also past participle of correre, run — sono corso via 'I ran away', ha corso così veloce 'he ran so fast'
 it	cose	noun	things, matters: the plural ('molte ___' 'many things', 'come vanno le ___?' 'how are things?')
-it	cosi	adv	so, in this way ('si fa ___'); so, to that degree ('___ bello') - correctly written così, with the accent
 it	creato	verb	created, made; brought about (past participle of creare)
 it	crede	verb	he believes, she believes; you believe (formal) — thinks (third-person singular present of credere)
 it	credevo	verb	I thought, I believed (first-person singular imperfect of credere)
@@ -4338,7 +4333,6 @@ it	fu	verb	was (third-person singular passato remoto of essere): fu amore a prim
 it	funzionato	verb	worked, functioned, run properly (past participle of funzionare)
 it	gambe	noun	legs; the lower leg from knee to ankle (plural of gamba, f.)
 it	genitori	noun	parents (m., plural of genitore)
-it	gia	adv	already ('ho ___ mangiato' 'I've already eaten'); as early as - correctly written già, with the accent
 it	giacomo	noun	a male given name from Hebrew, equivalent to English James or Jacob
 it	giochi	noun	games, play; wordplay (plural of gioco, m.); also you play (second-person singular present of giocare), and the polite command, play! or in the negative, don't play
 it	giorgio	name	a male given name from Ancient Greek, feminine equivalent Giorgia, equivalent to English George
@@ -4465,7 +4459,6 @@ it	pensato	verb	thought (past participle of pensare): ci ho pensato molto 'I tho
 it	pensava	verb	he thought, she used to think; you thought (formal Lei) - third-person singular imperfect of pensare
 it	pensavo	verb	I thought; I was thinking (first-person singular imperfect of pensare)
 it	penso	verb	I think, I have in mind ('___ a te' 'I'm thinking of you'); I'll see to it ('ci ___ io') - mulling over, not credo's believing
-it	perche	conj	because; why (in a question) — correctly written perché, with the accent
 it	perfetta	adj	perfect, flawless, exactly right — the form used with a feminine singular noun (f. sg. of perfetto)
 it	perso	verb	lost; missed; wasted (past participle of perdere)
 it	persone	noun	people, persons (f., plural of persona)
@@ -4481,7 +4474,7 @@ it	piccoli	adj	small, little; young, of children (masculine plural of piccolo); 
 it	piedi	noun	feet (m., plural of piede) — a ___ , on foot, walking
 it	piena	adj	full, filled up; of a person, full after eating (feminine singular of pieno)
 it	più	adv	more, most (comparative of molto): più grande 'bigger', il più veloce 'the fastest'; with non, no longer, anymore: non è più solo 'he isn't alone anymore'; plus (in arithmetic)
-it	po	noun	bit, a little: always in 'un ___' ('un ___ di pane', 'un ___ stanco'); properly written with an apostrophe
+it	po'	adv	a bit, a little — the shortened form of poco, as in un po' di pazienza
 it	pochi	det	few, not many; only a handful of (masculine plural of poco)
 it	poliziotti	noun	police officers, policemen, cops (plural of poliziotto, m.)
 it	portata	verb	brought, carried, taken somewhere (feminine singular of portato, the participle of portare); as a feminine noun, a course at a meal, and the range or reach of something
@@ -5037,6 +5030,8 @@ mi	whakamahia	verb	be used, be put to work, be employed for a job (passive of wh
 mi	whakangaromia	verb	be destroyed, be wiped out, be lost for good (passive of whakangaro)
 mi	whakarongo	verb	to listen, to pay attention to what is being said ('___ mai!', listen up)
 mi	whakawhiti	verb	to cross, to cross over (a river, a road); to take across, to ferry across; to transfer, to shift; to exchange, to swap
+nl	'm	pron	the clipped spoken form of 'him, it' as an object ('ik zie ___'), written with an apostrophe in careful Dutch.
+nl	't	pron	the clipped spoken form of the neuter 'the, it' ('___ is koud'), written with an apostrophe in careful Dutch.
 nl	a	noun	the first letter of the Dutch alphabet: wie a zegt, moet ook b zeggen — in for a penny, in for a pound; also in abbreviations such as a.u.b. (alstublieft) — please; and a rare noun, de a — a small stream, chiefly in place names like de Aa
 nl	aangedaan	verb	turned on, switched on; done to someone — past participle of aandoen (zij heeft het licht aangedaan, she turned the light on; wie heeft je dit aangedaan?, who did this to you?); as an adjective: moved, touched (emotionally)
 nl	aangevallen	verb	attacked, assaulted (past participle of aanvallen)
@@ -5277,7 +5272,6 @@ nl	liever	adj	rather, sooner — I would rather, I prefer to (comparative of lie
 nl	limonade	noun	soft drink, fizzy drink, soda (carbonated sweet drink based on processed fruit juice)
 nl	loog	verb	lied: I/he/she lied — past singular of liegen (hij loog tegen ons, he lied to us; je loog tegen me!, you lied to me!); also a noun: lye, caustic solution
 nl	loop	verb	walk, run: I walk; walk! (present and imperative of lopen — loop niet zo snel, don't walk so fast; loop jij naar school?); also a noun, course, duration (in de loop van de dag — in the course of the day), and the barrel of a gun
-nl	m	pron	the clipped spoken form of 'him, it' as an object ('ik zie ___'), written with an apostrophe in careful Dutch.
 nl	maanden	noun	months (plural of de maand)
 nl	maar	adv	but, however — turns a sentence against the one before it ('klein ___ sterk'); also a softening particle ('doe het ___').
 nl	maatje	noun	buddy, mate, pal — het maatje (Tom is mijn maatje, Tom is my buddy); a size, a notch (een maatje groter, a size bigger); also maatjesharing, young salted herring
@@ -5387,7 +5381,6 @@ nl	stukje	noun	a little piece, a bit; also a short article or item (het; diminut
 nl	stukken	noun	pieces, parts, bits; also documents or papers, and as an adverb, by far (plural of stuk)
 nl	sturen	verb	to send (het boek naar mij te sturen — to send me the book; kun je dat per e-mail sturen?); also to steer, to drive, to guide
 nl	stuur	verb	send: I send; send! (present and imperative of sturen — stuur mij een foto, send me a photo; stuur versterking, send reinforcements); also I steer, I drive; as a noun, het stuur — steering wheel, handlebars
-nl	t	pron	the clipped spoken form of the neuter 'the, it' ('___ is koud'), written with an apostrophe in careful Dutch.
 nl	tanden	noun	teeth (plural of tand)
 nl	te	prep	to (with an infinitive, often after om); too, excessively
 nl	telefoontje	noun	a phone call (het; diminutive of telefoon)
@@ -6301,7 +6294,6 @@ ro	armele	noun	the weapons, the guns (definite plural of armă, f.)
 ro	ars	verb	burned, burnt; as an adjective, scorched (past participle of a arde)
 ro	arunc	verb	I throw, I toss, I cast; with o privire, I take a look (first-person singular present of the verb meaning to throw)
 ro	aruncat	verb	thrown, thrown away (past participle of a arunca: am aruncat-o “I threw it away”, a aruncat o piatră “he threw a stone”, am aruncat o privire “I took a look”); as an adjective: discarded, castoff
-ro	as	verb	I would — the conditional auxiliary ('___ vrea' = I would like), written without the comma-below mark
 ro	ascultat	verb	listened, listened to; obeyed (past participle of a asculta)
 ro	asta	pron	this, this one; that (f.; the everyday form, less formal than aceasta)
 ro	astea	det	these — the everyday plural for feminine or neuter things ('lucrurile ___' = these things)
@@ -6754,7 +6746,6 @@ ro	seama	noun	the account, the reckoning, consideration (f.) — with the defini
 ro	secunde	noun	seconds, seconds of time (plural of secundă, f.)
 ro	semne	noun	signs; marks, signals (plural of semn, n.)
 ro	sentimente	noun	feelings, emotions (plural of sentiment, n.)
-ro	si	conj	and — the spelling used when Romanian diacritics are dropped; the marked form is a separate card
 ro	siguri	adj	sure, certain; safe — masculine plural (masculine plural of sigur)
 ro	sigură	adj	sure, certain; safe — feminine singular of sigur
 ro	simplă	adj	simple, plain, straightforward (feminine singular of simplu)
@@ -9102,6 +9093,7 @@ xh	nguthixo	noun	it is God — the identifying 'it is ___' form ('they believe _
 xh	nje	adv	simply, merely — plays down what precedes it ('I've ___ come to see how you are'); also 'like this', with a gesture
 xh	phezu	adv	on top of, over; the form used with kwa- to say one thing rests above another
 xh	sona	pron	it, itself — the stand-alone class 7 pronoun that sets its own noun in contrast ('the big bowl ___ was undamaged')
+xh	uThixo	name	God; a god, deity (class 1a/2a, pl. oothixo)
 xh	ubani	noun	who? — asks which person does or has something, standing bare before the verb with no 'it is' prefix ('___ took my keys?')
 xh	ubunzima	noun	weight, heaviness; how heavy a thing or a person is
 xh	ubuqaqawuli	noun	brilliance, radiance — glory of the shining, dazzling kind ('the ___ of the stars at night'); not the majesty sense (ubungangamsha)
@@ -9109,7 +9101,6 @@ xh	ukuthetha	noun	speaking, talking — the act itself, the verb used as a noun 
 xh	umqondiso	noun	a sign or notice put up to tell people something ('Dad put a warning ___ on our gate'); not a mark or badge (uphawu)
 xh	umthetho	noun	law; rule, regulation; commandment (class 3/4, pl. imithetho)
 xh	unyana	noun	son; the Son of God in Christian texts (class 1a/2a, pl. oonyana)
-xh	uthixo	name	God; a god, deity (class 1a/2a, pl. oothixo)
 xh	wona	pron	it, itself — the stand-alone class 3 pronoun that sets its own noun in contrast ('the work ___ is easy')
 xh	ze	adj	naked, with nothing on; also the linker 'and then' before the next action ('wash your hands, ___ eat')
 yo	a	pron	we (subject pronoun); will (á before a verb); him, her, it (á, echoing a verb that ends in a)

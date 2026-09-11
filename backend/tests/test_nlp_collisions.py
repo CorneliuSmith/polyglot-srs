@@ -74,8 +74,27 @@ class TestCollisionGuard:
 
     def test_the_fold_level_guard_catches_marks_nfd_cannot_strip(self):
         """ro ș/ț have no combining decomposition, so the base layer never
-        sees them fold together — only the AccentFolding fold does."""
-        result, _ = backend(RomanianNLP, "ro").check_answer("si", "și")
+        sees them fold together — only the AccentFolding fold does.
+
+        The vehicle used to be `si` against `și`, and it stopped working on
+        11 Sep 2026 for a good reason: `si` was excluded as typo-mass. It sat
+        at **rank 4** glossed "the musical note B" while `și` ("and") sat at
+        96, and the course's own bank writes `și` 556 times against `si` three
+        — all three inside one sentence that is itself diacritic-stripped. So
+        the frequency of Romanian's fourth-commonest word was being held by a
+        misspelling (CHECKS §36's neighbour, the orthography audit).
+
+        With the junk row gone the grader answers CORRECT_SLOPPY there, and
+        that is now the RIGHT answer: the learner typed the right word without
+        its diacritic. WRONG_FORM was only correct while a bogus row made `si`
+        look like a real word — which is the rule-10 guard working exactly as
+        designed, on data that had been lying to it.
+
+        `ține` / `tine` replaces it: both are real, common, and different
+        words (to hold; you, stressed after a preposition), and `ro.md` lists
+        the pair itself. That is what the guard is for.
+        """
+        result, _ = backend(RomanianNLP, "ro").check_answer("tine", "ține")
         assert result is AnswerResult.WRONG_FORM
 
 
