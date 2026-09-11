@@ -1817,14 +1817,18 @@
     "nextStep": "Próximo",
     "kindTrace": "Traçar",
     "lineOf": "Linha {{n}} de {{total}}",
-    "notTraceable": "Ainda não dá para traçar — sem traços para: {{letters}}",
     "noTraceable": "Ainda não há nada para traçar aqui — um falante ainda está traçando as letras.",
     "letterByLetter": "Letra por letra",
     "letterMissing": "faltando",
     "letterShape": "não é a forma — compare com a mostrada",
     "wordOk": "Todas as letras conferem.",
     "wordNotYet": "Ainda não todas as letras",
-    "compareComposed": "Na mão do falante, composto a partir das formas de letras dele"
+    "compareComposed": "Na mão do falante, composto a partir das formas de letras dele",
+    "paperHint": "O papel desliza conforme você escreve; arraste a faixa abaixo, ou use dois dedos, para se mover.",
+    "noStrokesYet": "Ainda não há ordem de traços para esta letra — um falante ainda precisa traçá-la. Trace sobre a letra como ela é escrita e depois escreva-a de memória.",
+    "noStrokesWord": "Ainda sem verificação de traços — sem traços para: {{letters}}. Trace sobre a palavra escrita e depois escreva-a de memória.",
+    "showLetter": "Mostrar",
+    "hideLetter": "Ocultar"
   },
   "more": {
     "donateTea": "Me pague um chá 🍵",

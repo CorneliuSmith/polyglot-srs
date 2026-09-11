@@ -788,6 +788,32 @@ mode (Phase 3) on `GET /api/write/manifest`. A reviewed set authored
 elsewhere lands through `data/strokes/{script}.json`
 (`seeder/seed_strokes.py`), the alphabet decks' pattern.
 
+**The paper strip.** A sentence is long and a phone is not, so Free
+write's canvas is a strip of paper wider than the screen (`InkCanvas`
+with `paper`): it starts as wide as the expected text needs (about 46 px
+a character), grows when ink nears its end, and slides along by itself
+when a stroke lands in the last fifth of the visible width, so the
+writer keeps writing without touching anything. Two fingers slide it by
+hand (a second pointer turns the gesture into a pan and drops the stroke
+the first finger began), a mouse wheel slides it, and a thin overview
+strip under the canvas draws the whole line in miniature with the window
+on it, draggable. A right-to-left hand starts at the right end and the
+paper grows on the left, which means shifting the ink right by the
+growth. Strokes stay in paper coordinates throughout, so neatness, the
+export and the samples are none the wiser.
+
+**Teaching before the strokes exist.** Letters and Trace are always on
+Write, not only once a speaker has traced the script. Every form of every
+letter is a step (the alphabet decks' list; Latin a–z), and a form
+without authored strokes is *font-guided*: Learn shows the letter large
+in the script's handwriting face with its sound, Trace draws it faintly
+on the canvas to trace over, Write is blank with a Show/Hide toggle —
+and nothing is graded or recorded, because there is no template to grade
+against. The strip draws these forms dashed. A traced word whose letters
+are not all authored is the same: the word in the hand font, traced over,
+no verdict. The moment a form is reviewed, its strokes replace the font
+for that letter and the verdicts switch on.
+
 **Guided Letters** (Phase 3; `features/write/LettersMode.tsx`,
 `matcher.ts`, migration 20261021). Write grows a *Letters* kind the
 moment `GET /api/write/manifest` reports one reviewed form for the

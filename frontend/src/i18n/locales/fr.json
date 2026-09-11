@@ -1817,14 +1817,18 @@
     "nextStep": "Suivant",
     "kindTrace": "Tracer",
     "lineOf": "Ligne {{n}} sur {{total}}",
-    "notTraceable": "Pas encore traçable — aucun tracé pour : {{letters}}",
     "noTraceable": "Rien à tracer ici pour l’instant : un locuteur trace encore les lettres.",
     "letterByLetter": "Lettre par lettre",
     "letterMissing": "manquante",
     "letterShape": "pas la bonne forme : comparez avec celle affichée",
     "wordOk": "Toutes les lettres correspondent.",
     "wordNotYet": "Pas encore toutes les lettres",
-    "compareComposed": "De la main du locuteur, composé à partir de ses formes de lettres"
+    "compareComposed": "De la main du locuteur, composé à partir de ses formes de lettres",
+    "paperHint": "Le papier glisse à mesure que vous écrivez ; faites glisser la bande ci-dessous, ou utilisez deux doigts, pour vous déplacer.",
+    "noStrokesYet": "Pas encore d’ordre des traits pour cette lettre : un locuteur doit d’abord la tracer. Repassez sur la lettre telle qu’elle s’écrit, puis écrivez-la de mémoire.",
+    "noStrokesWord": "Pas encore de vérification des traits : aucun tracé pour {{letters}}. Repassez sur le mot écrit, puis écrivez-le de mémoire.",
+    "showLetter": "Afficher",
+    "hideLetter": "Masquer"
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",

@@ -437,6 +437,21 @@ reader of the plan would expect to find built, and will not:
   without it the strip never fills and the Write step's verdict is shown
   but not kept, with nothing said. The Letters kind itself needs only
   reviewed forms (20261020), so the two can land at different times.
+- **The paper strip is one line.** A baseline prompt of up to 60
+  characters (`baseline_prompts`) is shown wrapped over two lines above a
+  canvas that is a single line of paper. Writing it on one line is what
+  the strip is for, but a hand that wants to wrap has nowhere to go: no
+  second baseline, and the neatness measures assume one line. If writers
+  wrap anyway, either shorten the baseline pool's ceiling to ~40
+  characters or give the paper rows.
+- **The font-guided letters teach the shape, not the order.** Until a
+  speaker traces a form, Learn shows a typeface's idea of the letter, not
+  a hand's stroke order, and nothing is checked; the handwriting faces
+  (`handFont.ts`) are a comparison, and Hebrew and Greek have none, so
+  their fallback is the browser's generic cursive. This is deliberate —
+  a wrong stroke order taught from a font would be worse than none — but
+  it means the "teaching portion" for a script is thin until Workspace →
+  Workshop → strokes has been worked.
 - **The composers are placement, not calligraphy.** Letters sit in equal
   cells on one line; a cursive join is a straight run from the previous
   letter's last point to the next's first (`joins.entry/exit` are unset,

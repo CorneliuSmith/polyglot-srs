@@ -25,14 +25,37 @@ type Step = 'learn' | 'trace' | 'write'
  * device against the authored templates — no model, no spend — and only
  * the Write step counts toward "known" (three clean writes).
  */
+/** Arabic positional forms are shaped by the font when a joiner sits on
+ * the joining side(s); everything else is the letter itself. */
+const ZWJ = '\u200d'
+export function shapedForm(script: string, glyph: string, form: string): string {
+  if (script !== 'arabic') return form === 'upper' ? glyph.toUpperCase() : glyph
+  if (form === 'initial') return glyph + ZWJ
+  if (form === 'medial') return ZWJ + glyph + ZWJ
+  if (form === 'final') return ZWJ + glyph
+  return glyph
+}
+
+/** A form of a letter: its authored strokes when a speaker has traced
+ * and a reviewer signed them, else the letter itself in the hand font —
+ * a guide to trace over, with no stroke verdict yet. */
+interface Form {
+  key: string
+  glyph: string
+  form: string
+  authored: Glyph | null
+}
+
 export default function LettersMode({
   languageId,
   code,
   style,
+  fontFamily = 'cursive',
 }: {
   languageId: string
   code: string | undefined
   style: string
+  fontFamily?: string
 }) {
   const { t } = useTranslation()
   const queryClient = useQueryClient()
@@ -52,16 +75,16 @@ export default function LettersMode({
     retry: false,
   })
 
-  // Reviewed forms in alphabet order: letter by letter, then the letter's
-  // forms in the order the alphabet names them.
+  // Every form of every letter, in alphabet order: letter by letter, then
+  // the letter's forms in the order the alphabet names them. A form a
+  // speaker has traced carries its strokes; the rest are font-guided.
   const forms = useMemo(() => {
-    if (!alphabet || !library) return [] as Glyph[]
-    const byKey = new Map(library.glyphs.map((g) => [`${g.glyph}|${g.form}`, g]))
-    const out: Glyph[] = []
+    if (!alphabet) return [] as Form[]
+    const byKey = new Map((library?.glyphs ?? []).map((g) => [`${g.glyph}|${g.form}`, g]))
+    const out: Form[] = []
     for (const l of alphabet.letters) {
       for (const f of l.forms) {
-        const g = byKey.get(`${l.glyph}|${f}`)
-        if (g) out.push(g)
+        out.push({ key: `${l.glyph}|${f}`, glyph: l.glyph, form: f, authored: byKey.get(`${l.glyph}|${f}`) ?? null })
       }
     }
     return out
@@ -72,32 +95,37 @@ export default function LettersMode({
   const [step, setStep] = useState<Step>('learn')
   const [strokes, setStrokes] = useState<Stroke[]>([])
   const [verdict, setVerdict] = useState<MatchResult | null>(null)
+  const [reveal, setReveal] = useState(false)
   const current = forms[index]
-  const template = useMemo(() => (current ? fromGlyphBox(current.strokes, CANVAS) : []), [current])
+  const authored = current?.authored ?? null
+  const script = alphabet?.script ?? 'latin'
+  const shown = current ? shapedForm(script, current.glyph, current.form) : ''
+  const template = useMemo(() => (authored ? fromGlyphBox(authored.strokes, CANVAS) : []), [authored])
 
   useEffect(() => {
     setStrokes([])
     setVerdict(null)
+    setReveal(false)
   }, [index, step])
 
   // Trace: each stroke is judged as it lands against the template prefix,
   // loosely; matched ones snap solid on the guide.
   const traceDone = useMemo(() => {
-    if (step !== 'trace' || !current || strokes.length === 0) return []
-    const res = matchStrokes(strokes, current.strokes.slice(0, strokes.length), { tolerance: TRACE_TOLERANCE })
+    if (step !== 'trace' || !authored || strokes.length === 0) return []
+    const res = matchStrokes(strokes, authored.strokes.slice(0, strokes.length), { tolerance: TRACE_TOLERANCE })
     return res.strokes.filter((v) => v.ok).map((v) => v.index)
-  }, [strokes, step, current])
-  const traceComplete = step === 'trace' && current && traceDone.length === current.strokes.length
+  }, [strokes, step, authored])
+  const traceComplete = step === 'trace' && authored && traceDone.length === authored.strokes.length
 
   const record = useMutation({
     mutationFn: (args: { passed: boolean; score: number }) =>
-      recordLetterAttempt({ languageId, glyphId: current!.id, ...args }),
+      recordLetterAttempt({ languageId, glyphId: authored!.id, ...args }),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ['write-progress'] }),
   })
 
   const check = () => {
-    if (!current) return
-    const res = matchStrokes(strokes, current.strokes, { tolerance: WRITE_TOLERANCE })
+    if (!authored) return
+    const res = matchStrokes(strokes, authored.strokes, { tolerance: WRITE_TOLERANCE })
     setVerdict(res)
     record.mutate({ passed: res.ok, score: res.score })
   }
@@ -111,7 +139,7 @@ export default function LettersMode({
     }
   }
 
-  if (!alphabet || !library) return <p className="text-sm text-gray-500">{t('common.loading')}</p>
+  if (!alphabet) return <p className="text-sm text-gray-500">{t('common.loading')}</p>
   if (forms.length === 0) {
     return (
       <p data-testid="letters-empty" className="text-sm text-gray-500">
@@ -134,21 +162,23 @@ export default function LettersMode({
       <div className="flex flex-wrap gap-1" data-testid="letters-strip">
         {forms.map((g, i) => (
           <button
-            key={g.id}
+            key={g.key}
             type="button"
             onClick={() => {
               setIndex(i)
               setStep('learn')
             }}
             aria-current={i === index}
+            data-authored={g.authored ? 'yes' : 'no'}
             title={`${g.glyph} · ${g.form}`}
             className={`h-8 min-w-8 rounded-lg border px-1.5 text-sm ${
               i === index ? 'border-lang bg-lang text-lang-on'
-              : known.has(g.id) ? 'border-green-200 bg-green-50 text-green-800'
-              : 'border-gray-200 bg-white text-gray-700'
+              : g.authored && known.has(g.authored.id) ? 'border-green-200 bg-green-50 text-green-800'
+              : g.authored ? 'border-gray-200 bg-white text-gray-700'
+              : 'border-dashed border-gray-300 bg-white text-gray-500'
             }`}
           >
-            {g.form === 'upper' ? g.glyph.toUpperCase() : g.glyph}
+            {shapedForm(script, g.glyph, g.form)}
           </button>
         ))}
       </div>
@@ -157,9 +187,7 @@ export default function LettersMode({
         <div className="flex items-center justify-between gap-2">
           <div>
             <LanguageWrapper languageCode={code ?? 'en'} inline>
-              <span className="text-3xl font-semibold text-gray-900 me-2">
-                {current.form === 'upper' ? current.glyph.toUpperCase() : current.glyph}
-              </span>
+              <span className="text-3xl font-semibold text-gray-900 me-2">{shown}</span>
             </LanguageWrapper>
             <span className="text-sm text-gray-500">
               {t(`write.form_${current.form}`, { defaultValue: current.form })} · {index + 1}/{forms.length}
@@ -182,18 +210,39 @@ export default function LettersMode({
           </div>
         </div>
 
-        {step === 'learn' && (
+        {step === 'learn' && authored && (
           <div className="flex flex-wrap items-start gap-4" data-testid="letters-learn">
-            <StrokePreview strokes={current.strokes} size={200} />
+            <StrokePreview strokes={authored.strokes} size={200} />
             <ol className="space-y-1 text-sm text-gray-700">
-              {current.strokes.map((_, i) => (
+              {authored.strokes.map((_, i) => (
                 <li key={i}>
                   <span className="me-1 font-semibold">{i + 1}.</span>
-                  {current.hints[i] || t('write.strokeNoHint')}
+                  {authored.hints[i] || t('write.strokeNoHint')}
                 </li>
               ))}
               <li className="pt-1 text-xs text-gray-500">{t('write.learnHint')}</li>
             </ol>
+          </div>
+        )}
+        {step === 'learn' && !authored && (
+          <div className="flex flex-wrap items-center gap-4" data-testid="letters-learn-font">
+            <LanguageWrapper languageCode={code ?? 'en'} inline>
+              <span
+                className="inline-flex h-[200px] w-[200px] items-center justify-center rounded-xl border border-gray-200 bg-white text-[120px] leading-none text-gray-800"
+                style={{ fontFamily: `${fontFamily}, cursive` }}
+              >
+                {shown}
+              </span>
+            </LanguageWrapper>
+            <div className="max-w-xs space-y-1 text-sm text-gray-700">
+              {(() => {
+                const l = alphabet.letters.find((x) => x.glyph === current.glyph)
+                return l && (l.romanization || l.sound) ? (
+                  <p className="font-semibold">{[l.romanization, l.sound].filter(Boolean).join(' · ')}</p>
+                ) : null
+              })()}
+              <p className="text-xs text-gray-500">{t('write.noStrokesYet')}</p>
+            </div>
           </div>
         )}
 
@@ -207,8 +256,9 @@ export default function LettersMode({
               }}
               height={CANVAS}
               baseline={false}
-              guideStrokes={step === 'trace' ? template : undefined}
+              guideStrokes={step === 'trace' && authored ? template : undefined}
               guideDone={traceDone}
+              guide={!authored && (step === 'trace' || reveal) ? { text: shown, fontFamily, scale: 0.75 } : undefined}
             />
             <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="text-xs text-gray-500">
@@ -234,7 +284,17 @@ export default function LettersMode({
                 >
                   {t('write.clear')}
                 </button>
-                {step === 'write' && (
+                {step === 'write' && !authored && (
+                  <button
+                    type="button"
+                    onClick={() => setReveal((r) => !r)}
+                    data-testid="letters-reveal"
+                    className="rounded-xl border border-lang px-3 py-1.5 text-sm font-semibold text-lang"
+                  >
+                    {reveal ? t('write.hideLetter') : t('write.showLetter')}
+                  </button>
+                )}
+                {step === 'write' && authored && (
                   <button
                     type="button"
                     onClick={check}
@@ -249,6 +309,9 @@ export default function LettersMode({
             </div>
             {traceComplete && (
               <p data-testid="trace-complete" className="text-sm text-green-800">{t('write.traceDone')}</p>
+            )}
+            {!authored && (
+              <p data-testid="letters-no-check" className="text-xs text-gray-500">{t('write.noStrokesYet')}</p>
             )}
             {verdict && (
               <div data-testid="letters-verdict" className={`rounded-xl border p-3 text-sm ${verdict.ok ? 'border-green-200 bg-green-50 text-green-900' : 'border-amber-200 bg-amber-50 text-amber-900'}`}>

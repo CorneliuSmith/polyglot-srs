@@ -15,7 +15,7 @@ import {
 import type { TutorAllowance } from '../../api/tutor'
 import type { ConfirmResult, Misread, WriteAssessment, WriteBaseline, WriteKind, WriteStyle } from '../../api/write'
 import { getLanguages } from '../../api/profile'
-import { getGlyphs, getStrokeManifest } from '../../api/strokes'
+import { getAlphabet, getGlyphs, getStrokeManifest } from '../../api/strokes'
 import LettersMode from './LettersMode'
 import WordsMode, { LetterRow } from './WordsMode'
 import StrokePreview from './StrokePreview'
@@ -103,11 +103,23 @@ export default function WritePage() {
     enabled: !!activeLanguageId,
     retry: false,
   })
-  const letterStyles = Object.entries(strokeManifest?.styles ?? {})
+  // The teaching modes are always there. Styles come from the reviewed
+  // library when a script has one, else from the alphabet — the hands the
+  // script is taught in — and the letters trace over the hand font until
+  // a speaker has authored their strokes.
+  const { data: alphabet } = useQuery({
+    queryKey: ['write-alphabet', activeLanguageId],
+    queryFn: () => getAlphabet(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  })
+  const reviewedStyles = Object.entries(strokeManifest?.styles ?? {})
     .filter(([, v]) => v.reviewed > 0)
     .map(([k]) => k)
+  const letterStyles = reviewedStyles.length > 0 ? reviewedStyles : (alphabet?.styles ?? ['print'])
   const [letterStyle, setLetterStyle] = useState<string | null>(null)
-  const activeLetterStyle = letterStyle ?? letterStyles[0] ?? null
+  const activeLetterStyle = letterStyle && letterStyles.includes(letterStyle) ? letterStyle : letterStyles[0]
   // The reviewed forms, for the traced modes and for the letter-by-letter
   // verdict on free ink. Nothing is fetched until a script has some.
   const { data: library } = useQuery({
@@ -335,10 +347,8 @@ export default function WritePage() {
   }
 
   const kinds: { key: PromptKind; label: string }[] = [
-    ...(letterStyles.length > 0
-      ? [{ key: 'letters' as PromptKind, label: t('write.kindLetters') },
-         { key: 'traced' as PromptKind, label: t('write.kindTrace') }]
-      : []),
+    { key: 'letters', label: t('write.kindLetters') },
+    { key: 'traced', label: t('write.kindTrace') },
     { key: 'sentence', label: t('write.kindSentence') },
     { key: 'word', label: t('write.kindWord') },
     { key: 'own', label: t('write.kindOwn') },
@@ -483,9 +493,9 @@ export default function WritePage() {
               </div>
             )}
             {kind === 'letters' ? (
-              <LettersMode languageId={activeLanguageId} code={code} style={activeLetterStyle} />
+              <LettersMode languageId={activeLanguageId} code={code} style={activeLetterStyle} fontFamily={font.family} />
             ) : (
-              <WordsMode languageId={activeLanguageId} code={code} style={activeLetterStyle} glyphs={glyphs} />
+              <WordsMode languageId={activeLanguageId} code={code} style={activeLetterStyle} glyphs={glyphs} fontFamily={font.family} />
             )}
           </div>
         )}
@@ -550,9 +560,15 @@ export default function WritePage() {
         {kind !== 'letters' && kind !== 'traced' && (
         <>
         <div className="space-y-2">
-          <InkCanvas strokes={strokes} onChange={setStrokes} rtl={rtl} disabled={check.isPending} />
+          <InkCanvas
+            strokes={strokes}
+            onChange={setStrokes}
+            rtl={rtl}
+            disabled={check.isPending}
+            paper={{ expectedLength: expected?.length }}
+          />
           <div className="flex items-center justify-between gap-2">
-            <p className="text-xs text-gray-500">{t('write.canvasHint')}</p>
+            <p className="text-xs text-gray-500">{t('write.canvasHint')} {t('write.paperHint')}</p>
             <div className="flex gap-2">
               <button
                 type="button"
