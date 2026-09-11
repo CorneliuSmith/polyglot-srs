@@ -700,6 +700,36 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
+## Romanian's frequency mass sits on three diacritic-stripped twins (10 Sep 2026)
+
+Found by a checker during the definition residue pass, and confirmed against
+production. `politia` sits at rank **520** and the real `poliția` at **3,470**;
+`tara` at **563** and `țara` at **5,528**; `arat` at **614** while `arăt` is
+absent from the file entirely. The stripped twin has inherited the frequency
+mass in each case, so the learner meets the misspelling early and the correct
+word late or never.
+
+This is not diacritic loss in general — `data/ro_frequency.tsv` carries 321
+headwords with `ș`/`ț`, and both correct forms are present at their true
+ranks. It is the class `vocab_exclusions.tsv` already handles for Romanian
+with nine rows of the same shape (`in`, `ma`, `daca`, `imi`, `inca`, `il`,
+`ii`, `neagra`, `lânga`, each "the frequency is the unaccented twin"). The
+three are now excluded with twin pointers.
+
+**The checker was right not to swap the lemma.** Re-pointing `politia` at
+`poliție` would launder a typo-mass row into a real word (quality rule 10) —
+the row's rank is evidence about the misspelling, not about the word. None of
+the three has a sentence in the bank, so they were shipping as
+definition-only cards.
+
+Same pass, same shape: `tr korum` (1,394) is extraction debris from `koruma` —
+both of its sentences are `koruma`/`korumak` and neither contains the form.
+Excluded. And `tr hal` (755) was glossed **"covered market"**, the rare
+market-hall sense, when the frequent word means *state, condition*
+(`ne haldesin?`); re-glossed. That one is a `wrong_sense_gloss` the audit's
+own rule does not catch because the gloss is a real sense, just not this
+word's common one.
+
 ## Eight rows the definition pass refused to define (10 Sep 2026)
 
 The 201–1000 definition pass (CHECKS §36) wrote 1,826 definitions and
@@ -723,6 +753,30 @@ These are candidates for `data/vocab_exclusions.tsv` rather than for
 authoring, but each needs a reader of its language to confirm before a
 durable deletion — which is why they are written down instead of swept
 (quality rule 27 and the Romanian `-ă`/`-a` refusal).
+
+## The alphabet decks carry a frequency rank they have no business having (10 Sep 2026)
+
+All 166 alphabet rows sit in `vocabulary` with `frequency_rank` **1–40**,
+colliding one-for-one with the most frequent real words: Korean rank 1 is both
+`그` ("that") and `ㄱ`, rank 2 both `우리` ("we") and `ㄴ`, and so on through
+Korean's first forty. That number is a sequence position inside the Alphabet
+deck wearing a frequency column's clothes.
+
+**No learner is harmed.** The Learn draw joins `cl.level = v.level`
+(`cards.py`), the deck is level A0 and vocabulary is A1+, so the two never mix
+at draw time, and the UI switches input mode for a `letter` card.
+
+**Tools are harmed, repeatedly.** Anything reading by rank sees 166 phantom
+high-frequency words. It is why `reconcile`'s `gone` column counted the decks
+as ungoverned and a sweep nearly deleted all 166 with their 17 learner cards
+(#434, the `other` column was added to stop it), and it distorted two separate
+measurements during the 10 Sep definition work before being noticed each time.
+
+**The fix is a migration plus a seeder change** — letters should carry a
+distinct ordering column, or none — and it is deliberately not bundled with
+the card fix (CHECKS §37), which needed no migration and could ship at once.
+Until then, every query over `vocabulary` by rank should exclude
+`part_of_speech = 'letter'`, and the ones that matter already do.
 
 ## 14 words serve a sentence about Tatoeba because it is all they have (10 Sep 2026)
 

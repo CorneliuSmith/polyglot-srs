@@ -1944,11 +1944,29 @@ repair passes run, and a threshold set there is a number nobody could defend
 (the `gender_marking` argument). **Unlike the other report rules its target is
 zero**, so it is ready for promotion once the courses reach it.
 
-It reports **4,982** across 24 courses. The regex is anchored at both ends on
+It reported **4,982** across 24 courses on 10 Sep; three passes the same day
+took it to **37**, and every one of those 37 is accounted for: 19 abbreviations
+held for **decision B**, 16 unmarked or alternative-form twins held for
+**decision D** option 3, and 2 extraction-debris rows already excluded (they
+clear on the next file rebuild, since `vocab_exclusions.tsv` is applied by the
+file loader and not at audit time). The regex is anchored at both ends on
 purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
 the rule would push editors off the one shape the programme has settled on.
 24 findings sampled at random were 24 true positives (rule 19 — verify every
 hit before it becomes a number).
+ The regex is anchored at both ends on
+purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
+the rule would push editors off the one shape the programme has settled on.
+24 findings sampled at random were 24 true positives (rule 19 — verify every
+hit before it becomes a number).
+
+**The third pass exposed my own under-coverage.** The first two passes were
+exported with a regex I wrote against production, narrower than the audit
+rule — no `vocative`, `locative`, `definite`, `form of`, `alternative form`,
+`abbreviation` — so 277 rows inside the band were never sent to a maker. The
+fix is the lesson: **export from the rule's own findings, not from a second
+regex that means to say the same thing.** Two regexes for one concept is two
+definitions of the defect.
 
 **Rule 19 then caught the rule itself.** The first draft matched a bare
 `first`/`second`/`third`, which are English ORDINALS as well as the opening of
@@ -1966,6 +1984,58 @@ catches, what it leaves alone, that the good parenthetical shape is never
 reported, that it is a report rule, that the band matches the card rules, and
 that the overlay actually changes Arabic rows (so a silent loss of the read
 path fails the test).
+
+## §37 The alphabet card was serving a sentence (owner, 10 Sep 2026)
+
+The owner asked whether the alphabet decks' sentences had been fixed, "because
+they were bad before". They had not been touched.
+
+**What a learner saw.** `seed_alphabet` builds a production drill: the prompt
+is the letter's romanisation and sound, the learner types the letter, and the
+romanisation doubles as the keystrokes. But `cards._vocab_card` preferred a
+cloze example sentence for **every** vocabulary row, alphabet rows included.
+Ten rows hung off four Russian letters in production, and not one was about
+the letter — the builder had matched the character where it was not a word:
+
+| card | sentence | what matched |
+|---|---|---|
+| `й` | У меня есть несколько билетов в **15-й** ряд. | an ordinal suffix |
+| `х` | Я буду занят до **4-х**. | a numeral ending |
+| `н` | Рим был основан в 753 году до **н.э.** | inside an abbreviation |
+| `н` | **Г-н** Молодой стар. | inside an abbreviation |
+| `ё` | Ах ты ж **ё**! → "Oh sod." | crude, on an A0 beginner card |
+
+**Why every instrument stayed quiet, which is the finding.** `unclozable_rows`
+did not fire because the sentence genuinely clozes — `й` really is inside
+`15-й`. `_context_free` did not fire because the sentence is not just the
+letter. `_below_floor` did not fire because the sentences are long enough. And
+the prune's never-strand rule would have **protected** them: these were each
+letter's only rows. Every rule asks *is this sentence good for this word*; none
+asks *should this card have a sentence at all*. They are also production-only —
+no committed bank carries one — so every file-based pass was blind by
+construction.
+
+**The fix, both halves.** `_vocab_card` takes `sentences = []` for a
+`part_of_speech == 'letter'` row, so the card falls to its definition prompt —
+which is the prompt the deck was designed around. `prune_sentences.is_letter_row`
+lifts alphabet rows out **before** the per-word grouping, so they are deleted
+**without** the never-strand protection: that rule protects a word from losing
+its last example, and a letter is not a word. This is the only prunable shape
+allowed to empty its card.
+
+**An alphabet letter is not a single-letter word.** The test is
+`part_of_speech = 'letter'`, which only `seed_alphabet` sets — never string
+length. **758 one-character rows are real words** (Italian `e` "and", Russian
+`а` "and, but", Portuguese `a` "the", Hebrew `ב` "in/at", Arabic `ب` "with/by",
+Māori `i`/`a` particles), all keeping their sentences, and **no alphabet row's
+string is also a word elsewhere in its course** — the two sets do not overlap.
+
+**Verified:** `backend/tests/test_alphabet_card_sentences.py` — that the card
+guard sits on the sentence list itself rather than a later branch (everything
+downstream reads from it), that ordinary rows keep their fallback, that the
+survey selects the column its predicate judges on (a predicate reading an
+unfetched column is a silent no-op), and that alphabet rows are lifted out
+before the grouping that would protect them.
 
 ## Prompt ↔ rule parity
 

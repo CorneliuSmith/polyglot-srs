@@ -161,6 +161,24 @@ def names_the_corpus(sentence: str) -> bool:
     return any(name in blob for name in CORPUS_NAMES)
 
 
+def is_letter_row(row) -> bool:
+    """True when this sentence hangs off an alphabet-deck card.
+
+    A letter has nothing to exemplify. The card is a production drill — sound
+    in, letter out — and `cards._vocab_card` now refuses to draw a sentence
+    for one, so every such row is dead weight. They are also uniformly wrong:
+    the builder matched the character inside an ordinal suffix (`15-й`), a
+    numeral ending (`до 4-х`) or an abbreviation (`753 году до н.э.`,
+    `Г-н Молодой`), and Russian `ё` was serving "Ах ты ж ё!" — "Oh sod." — on
+    an A0 beginner card.
+
+    Unlike every other prunable shape this one is NOT subject to the
+    never-strand rule: that rule protects a WORD from losing its last example,
+    and a letter is not a word. Stranding is the correct outcome here.
+    """
+    return (row.get("part_of_speech") or "") == "letter"
+
+
 def _context_free(sentence: str, word: str) -> bool:
     """True when the sentence is only the word it teaches, punctuation aside.
 
@@ -209,7 +227,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
         SELECT es.id, es.vocabulary_id, lower(v.word) AS word, es.sentence,
                es.translation, es.translation_locale, es.difficulty_rank,
                es.source, es.license, es.gloss, es.transliteration,
-               es.reviewed, es.language_id
+               es.reviewed, es.language_id, v.part_of_speech
         FROM example_sentences es
         JOIN vocabulary v ON v.id = es.vocabulary_id
         JOIN languages l  ON l.id = v.language_id
@@ -217,6 +235,10 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
         """,
         code,
     )
+    # Alphabet rows leave first and unconditionally: the never-strand rule
+    # below protects words, and a letter is not a word (see is_letter_row).
+    letter_rows = [r for r in rows if is_letter_row(r)]
+    rows = [r for r in rows if not is_letter_row(r)]
     exempt_rows = [r for r in rows if r["source"] not in PRUNABLE_SOURCES]
     # Group by word so the "never strand a word" rule can be applied per word.
     by_word: dict[str, list] = {}
@@ -255,6 +277,7 @@ async def survey(conn: asyncpg.Connection, code: str) -> dict:
         for r in shape_keeps(word, survivors, candidates, code):
             candidates.remove(r)
         delete.extend(candidates)
+    delete.extend(letter_rows)
     # `protected` must mean "kept ONLY because of its source", so it counts
     # exempt rows that SURVIVE. Counting every exempt row overlapped `delete`
     # the moment thin rows lost the exemption (§24a), and the columns then

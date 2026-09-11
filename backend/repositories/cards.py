@@ -603,7 +603,16 @@ def _vocab_card(r: asyncpg.Record, stats: dict[str, tuple[int, int]],
     # nlp/turkish.py). Before this the four spellings were four headwords
     # sharing one definition, and no card could say which to type.
     forms = [word, *[a for a in (r["alternatives"] or []) if a != word]]
-    sentences = r["example_sentences"] or []
+    # An alphabet card is a PRODUCTION drill — the prompt is the letter's
+    # romanisation and sound, the learner types the letter — so a cloze
+    # sentence does not support it, it replaces it. And the sentences a
+    # letter attracts are never about the letter: the builder matched the
+    # character inside an ordinal suffix (15-й), a numeral ending (до 4-х) or
+    # an abbreviation (753 году до н.э., Г-н Молодой), and one Russian A0 card
+    # was serving "Ах ты ж ё!" — "Oh sod." — to a beginner. A letter has
+    # nothing to exemplify, so it takes the definition prompt, always.
+    sentences = [] if r["part_of_speech"] == "letter" else (
+        r["example_sentences"] or [])
     translations = r["example_translations"] or []
     glosses = r["example_glosses"] or []
     translits = r["example_transliterations"] or []
