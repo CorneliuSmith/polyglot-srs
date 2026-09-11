@@ -30,12 +30,15 @@ from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import log_tutor_usage
 from backend.repositories.write import (
     adapt_enabled,
+    baseline_prompts,
+    baseline_state,
     habit_counts,
     hand_profile,
     keep_sample,
     known_forms,
     note_habits,
     record_attempt,
+    record_baseline,
     record_verdict,
     reference_samples,
     reset_hand,
@@ -268,6 +271,7 @@ async def confirm(
     letters: str | None = Form(default=None),
     strokes: str | None = Form(default=None),
     read: str | None = Form(default=None),
+    source: str = Form(default="confirm"),
     user: dict = Depends(get_current_user),
 ):
     """"I wrote this": the writer's own word over the reader's. The canvas
@@ -290,7 +294,8 @@ async def confirm(
         if not await adapt_enabled(conn, user["id"]):
             return {"kept": False, "reason": "adapt_off", "samples": 0}
         kept = await keep_sample(conn, user["id"], language_id, text, data,
-                                 confirmed=True, strokes=_parse_strokes(strokes))
+                                 confirmed=True, strokes=_parse_strokes(strokes),
+                                 source="baseline" if source == "baseline" else "confirm")
         if flagged:
             await note_habits(
                 conn, user["id"], language_id,
@@ -333,3 +338,39 @@ async def reset_profile(body: ResetRequest, user: dict = Depends(get_current_use
     async with rls_connection(user["id"]) as conn:
         await reset_hand(conn, user["id"], body.language_id)
     return {"reset": body.language_id or "all"}
+
+
+class BaselineDone(BaseModel):
+    language_id: str
+    covered: int | None = None
+    total: int | None = None
+
+
+@router.get("/baseline")
+async def baseline(language_id: str, user: dict = Depends(get_current_user)):
+    """The baseline session's prompts (§12.2): eight of the course's
+    beginner sentences chosen to show every letter in every form, with
+    how much of the script they cover; whether a session may run today;
+    when the last one was."""
+    async with rls_connection(user["id"]) as conn:
+        _, code, _ = await _language(conn, language_id)
+        locale, _ = await _support_language(conn, user["id"])
+        state = await baseline_state(conn, user["id"], language_id)
+        adapt = await adapt_enabled(conn, user["id"])
+        picked = await baseline_prompts(conn, user["id"], language_id, code, locale)
+    return {**state, "adapt": adapt, "allowed": state["allowed"] and adapt,
+            "prompts": picked["items"], "covered": picked["covered"],
+            "total": picked["total"]}
+
+
+@router.post("/baseline/done")
+async def baseline_done(body: BaselineDone, user: dict = Depends(get_current_user)):
+    """The writer finished the eight: stamp the profile."""
+    async with rls_connection(user["id"]) as conn:
+        await _language(conn, body.language_id)
+        stats = await record_baseline(
+            conn, user["id"], body.language_id,
+            {"covered": body.covered, "total": body.total}
+            if body.covered is not None else None)
+    return {"baseline_at": stats.get("baseline_at"), "baselines": stats.get("baselines", 0)}
+

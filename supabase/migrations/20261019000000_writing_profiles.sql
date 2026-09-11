@@ -45,6 +45,8 @@ CREATE TABLE IF NOT EXISTS writing_samples (
     strokes     JSONB,                                 -- how it was made: [[[x,y,t],…],…]
     method      JSONB       NOT NULL DEFAULT '{}'::jsonb,  -- summarize_method() of the strokes
     confirmed   BOOLEAN     NOT NULL DEFAULT false,   -- by the writer, not the reader
+    source      TEXT        NOT NULL DEFAULT 'check'
+                            CHECK (source IN ('check', 'confirm', 'baseline')),
     created_at  TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 

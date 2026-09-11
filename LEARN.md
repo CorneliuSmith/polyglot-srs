@@ -731,6 +731,25 @@ letters to watch — in Workspace → Insights (`GET
 /api/contribute/analytics/handwriting`), which is the signal for which
 scripts the reader is weak on before anyone complains.
 
+**The baseline session** (§12.2; `services/write_coverage.py`,
+`GET /api/write/baseline`, `POST /api/write/baseline/done`). "Set up my
+hand" — offered on Write and from Account — asks for eight short lines,
+each written in the writer's usual hand and confirmed as such; the eight
+land as confirmed samples marked `source = 'baseline'`, preferred as
+references and replaced by a redo. The lines are a greedy set cover over
+the course's served A1/A2 sentences against the script's *coverage
+units*: a letter (case-folded for Cyrillic and Greek, so Ф covers ф);
+for Arabic and Persian a letter **and its positional form**, decided by
+whether the neighbours join (the six right-joining-only letters and the
+hamza forms take no initial or medial); for Hangul the jamo of each
+block, keyed by letter name so a final ㄴ and an initial ㄴ are one
+unit; for a Latin-script course, whatever letters its own pool uses. A
+speaker-reviewed exemplar set (§5) will replace the greedy pick per
+script when it exists. One baseline per language per day, so it cannot
+become unlimited spend; the end stamps `stats.baseline_at` and the
+coverage reached, the zero point for the Progress trend and for the
+personal neatness of Phase D.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of

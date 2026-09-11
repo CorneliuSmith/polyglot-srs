@@ -683,3 +683,52 @@ class TestAdminHandwriting:
             resp = client.get("/api/contribute/analytics/handwriting", headers=_auth_headers())
         assert resp.status_code == 200, resp.text
         assert resp.json() == {"languages": rows}
+
+
+class TestBaseline:
+    def test_prompts_come_with_coverage_and_the_days_allowance(self, client):
+        # The bare connection answers "Russian" for the course, the hand one
+        # "Arabic": the pool has to be in the course's script for coverage
+        # to count anything.
+        pool = ([{"answer": "أنا أحب البيت", "prompt": "I love the house"},
+                 {"answer": "هل تريد شاي", "prompt": "Do you want tea"}]
+                if client.hand else
+                [{"answer": "Я иду домой", "prompt": "I am going home"},
+                 {"answer": "Мой брат", "prompt": "My brother"}])
+        client.fake_conn.fetch = AsyncMock(return_value=pool)
+        resp = client.get(f"/api/write/baseline?language_id={TEST_LANGUAGE_ID}",
+                          headers=_auth_headers())
+        assert resp.status_code == 200, resp.text
+        body = resp.json()
+        # Both lines are picked (two is fewer than eight); the greedy order
+        # puts the one showing more forms first, so compare as sets.
+        assert {p["answer"] for p in body["prompts"]} == {p["answer"] for p in pool}
+        assert body["total"] > 0 and 0 < body["covered"] <= body["total"]
+        # Allowed only with the toggle (and the tables): no profile row
+        # means no baseline yet, so today is fine.
+        assert body["allowed"] is client.hand
+        assert body["adapt"] is client.hand
+
+    def test_done_stamps_the_profile(self, client):
+        resp = client.post("/api/write/baseline/done", headers=_auth_headers(),
+                           json={"language_id": TEST_LANGUAGE_ID, "covered": 90, "total": 100})
+        assert resp.status_code == 200, resp.text
+        saves = _executed(client, "INSERT INTO writing_profiles")
+        if client.hand:
+            assert saves
+            stats = json.loads(saves[-1][4])
+            assert stats["baselines"] == 1 and stats["baseline_coverage"] == {"covered": 90, "total": 100}
+        else:
+            assert not saves and resp.json()["baselines"] == 0
+
+    def test_a_baseline_confirmation_is_kept_as_such(self, client):
+        resp = client.post(
+            "/api/write/confirm", headers=_auth_headers(),
+            files={"image": ("ink.png", io.BytesIO(_PNG), "image/png")},
+            data={"language_id": TEST_LANGUAGE_ID, "text": "أنا", "read": "أنا",
+                  "source": "baseline"},
+        )
+        assert resp.status_code == 200
+        kept = _executed(client, "INSERT INTO writing_samples")
+        if client.hand:
+            assert kept[0][8] == "baseline"

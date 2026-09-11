@@ -743,7 +743,7 @@ to hand it their hand in one sitting.
 |---|---|---|
 | A′ | Free mode asks the writer; Yes / No…; no false "Correct". **Built 11 Sep.** | — |
 | B | **Built 11 Sep 2026.** Misread records from No + correction (letter-level diff, `services/write_diff.py`); accuracy readout and letters-to-watch on Write after a confirmation, in Account, and on Progress with a legibility strip; per-course aggregate in Workspace → Insights. | 3–4 days |
-| C | The baseline session: coverage sets (greedy from A1 sentences now, §5 exemplars when reviewed), the eight-prompt flow, *Redo*, baseline stats recorded; baseline samples preferred as references. | ~1 week |
+| C | **Built 11 Sep 2026.** The baseline session: coverage units per script (`services/write_coverage.py` — letters, Arabic positional forms, Hangul jamo by name), greedy pick from the course's A1/A2 lines (§5 exemplars when reviewed), the eight-line flow with "Yes — that's my hand" / skip, the summary (right of eight, coverage, letters to watch), *Redo* once a day, `writing_samples.source = 'baseline'` preferred as references, `stats.baseline_at`. | ~1 week |
 | D | Personal neatness against the baseline (was §11 C). | 1–2 days |
 | E | **Built 11 Sep 2026 with B.** Habits counted back ("again — 3×" on a repeated note); the Progress card's legibility strip. | 2–3 days |
 

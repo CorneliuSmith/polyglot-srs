@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { getHandProfile, resetHand, setHandAdapt } from '../../api/write'
 import { getLanguages } from '../../api/profile'
@@ -15,6 +16,7 @@ import { usePrefsStore } from '../../stores/prefsStore'
  */
 export default function HandwritingPanel() {
   const { t } = useTranslation()
+  const navigate = useNavigate()
   const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
   const { data: languages = [] } = useQuery({ queryKey: ['languages'], queryFn: getLanguages })
@@ -106,7 +108,18 @@ export default function HandwritingPanel() {
                 })
               : t('settings.hand.none', { language: name })}
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
+            <button
+              type="button"
+              onClick={() => navigate('/write?baseline=1')}
+              disabled={!activeLanguageId}
+              data-testid="hand-baseline"
+              className="rounded-lg border border-lang px-3 py-1.5 text-xs font-semibold text-lang hover:bg-lang-soft/40 disabled:opacity-50"
+            >
+              {(profile.stats as { baseline_at?: string }).baseline_at
+                ? t('settings.hand.baselineRedo')
+                : t('settings.hand.baseline')}
+            </button>
             <button
               type="button"
               onClick={() => confirmReset(activeLanguageId ?? undefined)}

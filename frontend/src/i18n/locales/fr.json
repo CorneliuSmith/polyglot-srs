@@ -1169,7 +1169,9 @@
       "all": "toutes les langues",
       "thisLanguage": "cette langue",
       "accuracy": "Le lecteur lit correctement votre écriture {{right}} fois sur {{total}}.",
-      "trips": "Lettres qui le font trébucher :"
+      "trips": "Lettres qui le font trébucher :",
+      "baseline": "Configurer mon écriture",
+      "baselineRedo": "Refaire ma référence"
     },
     "email": {
       "title": "E-mail",
@@ -1764,7 +1766,23 @@
     "noIWrote": "Non, j’ai écrit…",
     "accuracy": "Le lecteur lit correctement votre écriture {{right}} fois sur {{total}}.",
     "trips": "Lettres qui le font trébucher :",
-    "again": "encore — {{count}}×"
+    "again": "encore — {{count}}×",
+    "baselineTitle": "Configurer mon écriture",
+    "baselineRedo": "Refaire ma référence",
+    "baselinePitch": "Huit lignes courtes de votre écriture habituelle — ce n’est pas un test — pour que le lecteur apprenne votre main d’un coup.",
+    "baselineStart": "Commencer",
+    "baselineStep": "{{n}} sur {{total}}",
+    "baselineWrite": "Écrivez ceci, de votre écriture habituelle",
+    "baselineAsk": "Est-ce bien votre écriture telle quelle ?",
+    "baselineYes": "Oui, c’est ma main",
+    "baselineSkip": "Passer celle-ci",
+    "baselineLeave": "Quitter",
+    "baselineDoneTitle": "Votre écriture est configurée",
+    "baselineSummary": "Le lecteur a bien lu {{right}} lignes sur {{total}}.",
+    "baselineCoverage": "Ces lignes montrent {{covered}} formes de lettres sur {{total}}.",
+    "baselineFinish": "Terminé",
+    "baselineNotToday": "Vous avez déjà défini une référence aujourd’hui ; revenez demain pour la refaire.",
+    "baselineEmpty": "Ce cours n’a pas encore de lignes pour une référence."
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",

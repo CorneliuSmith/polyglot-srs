@@ -138,6 +138,9 @@ export async function confirmWriting(args: {
   /** What the reader had said — so the server can record right / wrong
    * and count the misread letters. */
   read?: string
+  /** 'baseline' during a baseline session: kept as such, preferred as a
+   * reference and replaced by a redo. */
+  source?: 'confirm' | 'baseline'
 }): Promise<ConfirmResult> {
   const form = new FormData()
   form.append('image', args.image, 'ink.png')
@@ -146,6 +149,7 @@ export async function confirmWriting(args: {
   if (args.letters.length) form.append('letters', args.letters.join(','))
   if (args.strokes?.length) form.append('strokes', JSON.stringify(args.strokes))
   if (args.read !== undefined) form.append('read', args.read)
+  if (args.source) form.append('source', args.source)
   const response = await apiClient.post<ConfirmResult>('/api/write/confirm', form)
   return response.data
 }
@@ -164,3 +168,35 @@ export async function setHandAdapt(adapt: boolean): Promise<void> {
 export async function resetHand(languageId?: string): Promise<void> {
   await apiClient.post('/api/write/profile/reset', { language_id: languageId ?? null })
 }
+
+/** The baseline session (§12.2): the prompts, how much of the script
+ * they cover, and whether one may run today. */
+export interface WriteBaseline {
+  available: boolean
+  allowed: boolean
+  adapt: boolean
+  last: string | null
+  prompts: WritePrompt[]
+  covered: number
+  total: number
+}
+
+export async function getWriteBaseline(languageId: string): Promise<WriteBaseline> {
+  const response = await apiClient.get<WriteBaseline>('/api/write/baseline', {
+    params: { language_id: languageId },
+  })
+  return response.data
+}
+
+export async function finishWriteBaseline(args: {
+  languageId: string
+  covered: number
+  total: number
+}): Promise<{ baseline_at: string | null; baselines: number }> {
+  const response = await apiClient.post<{ baseline_at: string | null; baselines: number }>(
+    '/api/write/baseline/done',
+    { language_id: args.languageId, covered: args.covered, total: args.total },
+  )
+  return response.data
+}
+

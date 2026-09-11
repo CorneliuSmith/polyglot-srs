@@ -1233,7 +1233,9 @@
       "all": "كل اللغات",
       "thisLanguage": "هذه اللغة",
       "accuracy": "يقرأ القارئ خطّك صحيحًا {{right}} من {{total}} مرات.",
-      "trips": "حروف يتعثّر فيها:"
+      "trips": "حروف يتعثّر فيها:",
+      "baseline": "إعداد خطّي",
+      "baselineRedo": "إعادة إعداد خطّي"
     },
     "email": {
       "title": "البريد الإلكتروني",
@@ -1837,7 +1839,23 @@
     "noIWrote": "لا، كتبت…",
     "accuracy": "يقرأ القارئ خطّك صحيحًا {{right}} من {{total}} مرات.",
     "trips": "حروف يتعثّر فيها:",
-    "again": "مجددًا — {{count}}×"
+    "again": "مجددًا — {{count}}×",
+    "baselineTitle": "إعداد خطّي",
+    "baselineRedo": "إعادة إعداد خطّي",
+    "baselinePitch": "ثمانية أسطر قصيرة بخطّك المعتاد — ليس اختبارًا — ليتعلّم القارئ خطّك في جلسة واحدة.",
+    "baselineStart": "ابدأ",
+    "baselineStep": "{{n}} من {{total}}",
+    "baselineWrite": "اكتب هذا بخطّك المعتاد",
+    "baselineAsk": "أهذا خطّك كما هو مكتوب؟",
+    "baselineYes": "نعم، هذا خطّي",
+    "baselineSkip": "تخطّي هذا",
+    "baselineLeave": "خروج",
+    "baselineDoneTitle": "تمّ إعداد خطّك",
+    "baselineSummary": "قرأ القارئ {{right}} من {{total}} أسطر صحيحًا.",
+    "baselineCoverage": "تُظهر هذه الأسطر {{covered}} من {{total}} أشكال الحروف.",
+    "baselineFinish": "تمّ",
+    "baselineNotToday": "أعددت خطّك اليوم بالفعل — عُد غدًا لإعادته.",
+    "baselineEmpty": "لا توجد أسطر بعد في هذه الدورة لإعداد الخط."
   },
   "more": {
     "donateTea": "اشترِ لي شايًا 🍵",

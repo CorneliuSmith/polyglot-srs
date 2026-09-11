@@ -1,16 +1,19 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { Check, Eraser, Loader2, Undo2 } from 'lucide-react'
 import {
   assessWriting,
   confirmWriting,
+  finishWriteBaseline,
+  getHandProfile,
+  getWriteBaseline,
   getWritePrompts,
   getWriteStatus,
 } from '../../api/write'
 import type { TutorAllowance } from '../../api/tutor'
-import type { ConfirmResult, WriteAssessment, WriteKind, WriteStyle } from '../../api/write'
+import type { ConfirmResult, Misread, WriteAssessment, WriteBaseline, WriteKind, WriteStyle } from '../../api/write'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import AiDisclaimer from '../../components/AiDisclaimer'
@@ -29,6 +32,15 @@ import { defaultStyle, ensureHandFont, handFontFor, hasCursiveToggle } from './h
 /** What the learner is writing against. `own` is text they typed
  * themselves; `free` is nothing at all. */
 type PromptKind = 'sentence' | 'word' | 'own' | 'free'
+
+/** A baseline session in progress (§12.2): the eight prompts, where the
+ * writer is, and each line's verdict so the end can sum them. */
+interface BaselineRun {
+  info: WriteBaseline
+  index: number
+  results: { right: boolean; misread: Misread[] }[]
+  done: boolean
+}
 
 const RTL = new Set(['ar', 'fa', 'he'])
 
@@ -54,6 +66,7 @@ function shuffle<T>(xs: T[]): T[] {
  */
 export default function WritePage() {
   const navigate = useNavigate()
+  const location = useLocation()
   const { t } = useTranslation()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
 
@@ -68,6 +81,14 @@ export default function WritePage() {
   const { data: status } = useQuery({
     queryKey: ['write-status', activeLanguageId],
     queryFn: () => getWriteStatus(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+  // The hand profile decides whether "Set up my hand" is offered — it
+  // needs the toggle on and the migration present.
+  const { data: profile } = useQuery({
+    queryKey: ['hand-profile', activeLanguageId],
+    queryFn: () => getHandProfile(activeLanguageId!),
     enabled: !!activeLanguageId,
     retry: false,
   })
@@ -86,6 +107,9 @@ export default function WritePage() {
   const [learned, setLearned] = useState<ConfirmResult | null>(null)
   // Free writing: "is this what you wrote?" — No opens the reading to edit.
   const [editing, setEditing] = useState(false)
+  // The baseline session, when one is running.
+  const [baseline, setBaseline] = useState<BaselineRun | null>(null)
+  const [baselineError, setBaselineError] = useState<string | null>(null)
 
   useEffect(() => {
     setStyle(defaultStyle(code))
@@ -105,8 +129,10 @@ export default function WritePage() {
     staleTime: 5 * 60 * 1000,
   })
   const current = promptKind ? prompts[index % Math.max(1, prompts.length)] : undefined
+  const baselinePrompt = baseline && !baseline.done ? baseline.info.prompts[baseline.index] : undefined
   const expected =
-    kind === 'own' ? ownText.trim() || null
+    baselinePrompt ? baselinePrompt.answer
+    : kind === 'own' ? ownText.trim() || null
     : kind === 'free' ? null
     : (current?.answer ?? null)
 
@@ -136,6 +162,8 @@ export default function WritePage() {
     onSuccess: (data) => {
       setResult(data)
       setAllowance(data.allowance)
+      // In a baseline the writer wrote the line shown, so that is what a
+      // "yes" confirms — the diff against the reading is the verdict.
       setReading(data.expected ?? data.transcription)
       setEditing(false)
     },
@@ -159,10 +187,12 @@ export default function WritePage() {
         letters: (result?.letterform_notes ?? []).map((n) => n.letter).filter(Boolean),
         strokes: compactStrokes(strokes),
         read: result?.transcription ?? '',
+        source: baselinePrompt ? 'baseline' : 'confirm',
       })
     },
     onSuccess: (data) => {
       setLearned(data)
+      if (baseline && !baseline.done) advanceBaseline({ right: !!data.right, misread: data.misread ?? [] })
     },
     onError: () => {
       setError(t('write.confirmFailed'))
@@ -175,6 +205,60 @@ export default function WritePage() {
     setError(null)
     setLearned(null)
   }
+
+  // --- The baseline session (§12.2) ---------------------------------------
+  const startBaseline = useMutation({
+    mutationFn: () => getWriteBaseline(activeLanguageId!),
+    onMutate: () => setBaselineError(null),
+    onSuccess: (info) => {
+      if (!info.allowed) {
+        setBaselineError(t('write.baselineNotToday'))
+        return
+      }
+      if (info.prompts.length === 0) {
+        setBaselineError(t('write.baselineEmpty'))
+        return
+      }
+      setBaseline({ info, index: 0, results: [], done: false })
+      reset()
+    },
+    onError: () => setBaselineError(t('write.checkFailed')),
+  })
+  const finishBaseline = useMutation({
+    mutationFn: (run: BaselineRun) =>
+      finishWriteBaseline({
+        languageId: activeLanguageId!, covered: run.info.covered, total: run.info.total,
+      }),
+  })
+  const advanceBaseline = (verdict: { right: boolean; misread: Misread[] }) => {
+    setBaseline((b) => {
+      if (!b) return b
+      const results = [...b.results, verdict]
+      const last = b.index + 1 >= b.info.prompts.length
+      const next = { ...b, results, index: b.index + 1, done: last }
+      if (last) finishBaseline.mutate(next)
+      return next
+    })
+    // The next line gets a clean canvas; the summary reads the results.
+    setStrokes([])
+    setResult(null)
+    setLearned(null)
+    setError(null)
+  }
+  const skipBaseline = () => advanceBaseline({ right: false, misread: [] })
+  const leaveBaseline = () => {
+    setBaseline(null)
+    reset()
+  }
+  // Account's "Set up my hand" lands here with ?baseline=1.
+  const wantsBaseline = new URLSearchParams(location.search).get('baseline') === '1'
+  const baselineOffered = !!profile?.available && profile.adapt && status?.available !== false
+  useEffect(() => {
+    if (wantsBaseline && baselineOffered && !baseline && !startBaseline.isPending) {
+      startBaseline.mutate()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wantsBaseline, baselineOffered])
 
   const next = () => {
     setIndex((i) => i + 1)
@@ -212,7 +296,67 @@ export default function WritePage() {
           </p>
         )}
 
+        {/* Set up my hand: eight lines in one sitting (§12.2). Offered when
+            the reader may learn this hand; a redo when one already exists. */}
+        {baselineOffered && !baseline && (
+          <div
+            data-testid="baseline-offer"
+            className="rounded-2xl border border-lang/30 bg-lang-soft/30 p-4 flex flex-wrap items-center justify-between gap-3"
+          >
+            <div className="min-w-0">
+              <p className="font-semibold text-gray-900">
+                {profile?.stats && (profile.stats as { baseline_at?: string }).baseline_at
+                  ? t('write.baselineRedo')
+                  : t('write.baselineTitle')}
+              </p>
+              <p className="text-sm text-gray-600">{t('write.baselinePitch')}</p>
+              {baselineError && (
+                <p role="alert" className="mt-1 text-sm text-amber-700">{baselineError}</p>
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={() => startBaseline.mutate()}
+              disabled={startBaseline.isPending}
+              data-testid="baseline-start"
+              className="rounded-xl bg-lang px-4 py-2 text-sm font-bold text-lang-on disabled:opacity-50"
+              style={{ minHeight: '40px' }}
+            >
+              {t('write.baselineStart')}
+            </button>
+          </div>
+        )}
+
+        {baseline?.done && (
+          <BaselineSummary run={baseline} code={code} onClose={leaveBaseline} />
+        )}
+
+        {baselinePrompt && (
+          <div data-testid="baseline-prompt" className="rounded-2xl border border-lang/30 bg-white p-4 space-y-1">
+            <div className="flex items-center justify-between gap-2">
+              <p className="text-xs uppercase tracking-wide text-lang-label/80">
+                {t('write.baselineTitle')} · {t('write.baselineStep', {
+                  n: baseline!.index + 1, total: baseline!.info.prompts.length,
+                })}
+              </p>
+              <button type="button" onClick={leaveBaseline} className="text-xs text-gray-500 hover:underline">
+                {t('write.baselineLeave')}
+              </button>
+            </div>
+            <p className="text-xs text-gray-500">{t('write.baselineWrite')}</p>
+            <LanguageWrapper languageCode={code ?? 'en'}>
+              <p data-testid="baseline-answer" className="text-2xl font-semibold text-gray-900">
+                {baselinePrompt.answer}
+              </p>
+            </LanguageWrapper>
+            {baselinePrompt.prompt && baselinePrompt.prompt !== baselinePrompt.answer && (
+              <p className="text-sm text-gray-600">{baselinePrompt.prompt}</p>
+            )}
+          </div>
+        )}
+
         {/* What to write */}
+        {!baseline && (
         <div className="flex flex-wrap items-center gap-2" role="tablist">
           {kinds.map((k) => (
             <button
@@ -252,6 +396,9 @@ export default function WritePage() {
           )}
         </div>
 
+        )}
+
+        {!baseline && (
         <div className="rounded-2xl border border-gray-200 bg-white p-4">
           {promptKind && (
             promptsLoading ? (
@@ -305,6 +452,7 @@ export default function WritePage() {
             <p className="text-sm text-gray-500">{t('write.freeHint')}</p>
           )}
         </div>
+        )}
 
         {/* The surface */}
         <div className="space-y-2">
@@ -368,7 +516,32 @@ export default function WritePage() {
             {/* Offered when the reader could be wrong: a miss, an unsure
                 read, or free writing with no expected text at all. A sure,
                 matching read was already kept as a sample server-side. */}
-            {result.adapt && inked && result.transcription &&
+            {baselinePrompt && result.adapt && inked && (
+              <div data-testid="baseline-verdict" className="flex flex-wrap items-center gap-2 border-t border-gray-100 pt-3">
+                <span className="text-sm text-gray-700">{t('write.baselineAsk')}</span>
+                <button
+                  type="button"
+                  onClick={() => confirm.mutate()}
+                  disabled={confirm.isPending}
+                  data-testid="baseline-yes"
+                  className="rounded-xl border border-lang bg-white px-3 py-2 text-sm font-semibold text-lang hover:bg-lang-soft/40 disabled:opacity-50"
+                  style={{ minHeight: '40px' }}
+                >
+                  {confirm.isPending ? t('write.confirming') : t('write.baselineYes')}
+                </button>
+                <button
+                  type="button"
+                  onClick={skipBaseline}
+                  disabled={confirm.isPending}
+                  data-testid="baseline-skip"
+                  className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm text-gray-600"
+                  style={{ minHeight: '40px' }}
+                >
+                  {t('write.baselineSkip')}
+                </button>
+              </div>
+            )}
+            {!baselinePrompt && result.adapt && inked && result.transcription &&
               (!result.matches_target || result.confidence === 'low' || !result.expected) && (
               <div data-testid="write-confirm-box" className="space-y-2 border-t border-gray-100 pt-3">
                 {learned !== null ? (
@@ -621,3 +794,53 @@ function ResultPanel({
     </div>
   )
 }
+
+function BaselineSummary({
+  run,
+  code,
+  onClose,
+}: {
+  run: BaselineRun
+  code: string | undefined
+  onClose: () => void
+}) {
+  const { t } = useTranslation()
+  const right = run.results.filter((r) => r.right).length
+  const counts = new Map<string, number>()
+  for (const r of run.results) {
+    for (const m of r.misread) {
+      const letter = m.wrote || m.read
+      if (letter) counts.set(letter, (counts.get(letter) ?? 0) + 1)
+    }
+  }
+  const watch = [...counts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([l]) => l)
+  return (
+    <div data-testid="baseline-summary" className="rounded-2xl border border-lang/30 bg-white p-4 space-y-2">
+      <p className="font-semibold text-gray-900">{t('write.baselineDoneTitle')}</p>
+      <p className="text-sm text-gray-700">
+        {t('write.baselineSummary', { right, total: run.results.length })}
+      </p>
+      <p className="text-sm text-gray-600">
+        {t('write.baselineCoverage', { covered: run.info.covered, total: run.info.total })}
+      </p>
+      {watch.length > 0 && (
+        <p className="text-sm text-gray-700">
+          {t('write.trips')}{' '}
+          <LanguageWrapper languageCode={code ?? 'en'} inline>
+            <span className="font-semibold text-gray-900">{watch.join(' ')}</span>
+          </LanguageWrapper>
+        </p>
+      )}
+      <button
+        type="button"
+        onClick={onClose}
+        data-testid="baseline-finish"
+        className="rounded-xl bg-lang px-4 py-2 text-sm font-bold text-lang-on"
+        style={{ minHeight: '40px' }}
+      >
+        {t('write.baselineFinish')}
+      </button>
+    </div>
+  )
+}
+

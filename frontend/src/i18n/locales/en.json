@@ -1169,7 +1169,9 @@
       "all": "all languages",
       "thisLanguage": "this language",
       "accuracy": "The reader gets your hand right {{right}} of {{total}} times.",
-      "trips": "Letters it trips on:"
+      "trips": "Letters it trips on:",
+      "baseline": "Set up my hand",
+      "baselineRedo": "Redo my baseline"
     },
     "email": {
       "title": "Email",
@@ -1764,7 +1766,23 @@
     "noIWrote": "No — I wrote…",
     "accuracy": "The reader gets your hand right {{right}} of {{total}} times.",
     "trips": "Letters it trips on:",
-    "again": "again — {{count}}×"
+    "again": "again — {{count}}×",
+    "baselineTitle": "Set up my hand",
+    "baselineRedo": "Redo my baseline",
+    "baselinePitch": "Eight short lines in your usual hand — this is not a test — so the reader learns your hand in one sitting.",
+    "baselineStart": "Start",
+    "baselineStep": "{{n}} of {{total}}",
+    "baselineWrite": "Write this, in your usual hand",
+    "baselineAsk": "Is that your hand as written?",
+    "baselineYes": "Yes — that’s my hand",
+    "baselineSkip": "Skip this one",
+    "baselineLeave": "Leave",
+    "baselineDoneTitle": "Your hand is set up",
+    "baselineSummary": "The reader read {{right}} of {{total}} lines right.",
+    "baselineCoverage": "These lines show {{covered}} of {{total}} letter forms.",
+    "baselineFinish": "Done",
+    "baselineNotToday": "You set a baseline today — come back tomorrow to redo it.",
+    "baselineEmpty": "This course has no lines to set a baseline with yet."
   },
   "more": {
     "donateTea": "Donate a tea 🍵",

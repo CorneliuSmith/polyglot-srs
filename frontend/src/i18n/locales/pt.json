@@ -1169,7 +1169,9 @@
       "all": "todos os idiomas",
       "thisLanguage": "este idioma",
       "accuracy": "O leitor acerta a sua letra {{right}} de {{total}} vezes.",
-      "trips": "Letras em que tropeça:"
+      "trips": "Letras em que tropeça:",
+      "baseline": "Configurar a minha letra",
+      "baselineRedo": "Refazer a minha referência"
     },
     "email": {
       "title": "E-mail",
@@ -1764,7 +1766,23 @@
     "noIWrote": "Não, escrevi…",
     "accuracy": "O leitor acerta a sua letra {{right}} de {{total}} vezes.",
     "trips": "Letras em que tropeça:",
-    "again": "de novo — {{count}}×"
+    "again": "de novo — {{count}}×",
+    "baselineTitle": "Configurar a minha letra",
+    "baselineRedo": "Refazer a minha referência",
+    "baselinePitch": "Oito linhas curtas com a sua letra habitual — não é um teste — para o leitor aprender a sua letra de uma vez.",
+    "baselineStart": "Começar",
+    "baselineStep": "{{n}} de {{total}}",
+    "baselineWrite": "Escreva isto com a sua letra habitual",
+    "baselineAsk": "É a sua letra tal como está?",
+    "baselineYes": "Sim, é a minha letra",
+    "baselineSkip": "Pular esta",
+    "baselineLeave": "Sair",
+    "baselineDoneTitle": "A sua letra está configurada",
+    "baselineSummary": "O leitor leu bem {{right}} de {{total}} linhas.",
+    "baselineCoverage": "Estas linhas mostram {{covered}} de {{total}} formas de letras.",
+    "baselineFinish": "Concluir",
+    "baselineNotToday": "Você já definiu uma referência hoje; volte amanhã para refazê-la.",
+    "baselineEmpty": "Este curso ainda não tem linhas para uma referência."
   },
   "more": {
     "donateTea": "Me pague um chá 🍵",

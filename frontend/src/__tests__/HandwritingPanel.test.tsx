@@ -3,6 +3,10 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import HandwritingPanel from '../features/settings/HandwritingPanel'
 
+vi.mock('react-router-dom', async (orig) => ({
+  ...(await orig<typeof import('react-router-dom')>()),
+  useNavigate: () => vi.fn(),
+}))
 vi.mock('../stores/prefsStore', () => ({
   usePrefsStore: vi.fn(
     (sel: (s: Record<string, unknown>) => unknown) => sel({ activeLanguageId: 'lang-ar' }),

@@ -16,6 +16,7 @@ import asyncpg
 
 from backend.services.auto_translate import table_present
 from backend.services.ink_method import compact, summarize_method
+from backend.services.write_coverage import pick_coverage
 from backend.services.write_diff import misread_letters, same_text
 
 logger = logging.getLogger("write")
@@ -244,10 +245,13 @@ async def reference_samples(conn: asyncpg.Connection, user_id: str,
     """The samples shown to the reader: confirmed first, newest first."""
     if not await _hand_tables(conn):
         return []
+    # Confirmed first, the baseline's among those first: eight sentences
+    # chosen to show every letter beat a lucky match on one word.
     rows = await conn.fetch(
         """SELECT text, image, method FROM writing_samples
             WHERE user_id = $1 AND language_id = $2
-            ORDER BY confirmed DESC, created_at DESC LIMIT $3""",
+            ORDER BY confirmed DESC, (source = 'baseline') DESC, created_at DESC
+            LIMIT $3""",
         user_id, language_id, limit)
     return [{"text": r["text"], "image": bytes(r["image"]),
              "method": _loads(r["method"], {})} for r in rows]
@@ -255,7 +259,7 @@ async def reference_samples(conn: asyncpg.Connection, user_id: str,
 
 async def keep_sample(conn: asyncpg.Connection, user_id: str, language_id: str,
                       text: str, image: bytes, confirmed: bool,
-                      strokes=None) -> int:
+                      strokes=None, source: str = "check") -> int:
     """Keep one sample — the picture, the text, and HOW it was made (the
     compacted strokes and their method summary) — then trim to the cap,
     unconfirmed oldest first, so a writer's own confirmations are the last
@@ -265,16 +269,16 @@ async def keep_sample(conn: asyncpg.Connection, user_id: str, language_id: str,
     st = compact(strokes) if strokes else []
     await conn.execute(
         """INSERT INTO writing_samples
-               (user_id, language_id, text, image, strokes, method, confirmed)
-           VALUES ($1, $2, $3, $4, $5::jsonb, $6::jsonb, $7)""",
+               (user_id, language_id, text, image, strokes, method, confirmed, source)
+           VALUES ($1, $2, $3, $4, $5::jsonb, $6::jsonb, $7, $8)""",
         user_id, language_id, text, image,
         json.dumps(st) if st else None, json.dumps(summarize_method(st)),
-        confirmed)
+        confirmed, source if source in ("check", "confirm", "baseline") else "check")
     await conn.execute(
         """DELETE FROM writing_samples WHERE id IN (
              SELECT id FROM writing_samples
               WHERE user_id = $1 AND language_id = $2
-              ORDER BY confirmed DESC, created_at DESC
+              ORDER BY confirmed DESC, (source = 'baseline') DESC, created_at DESC
              OFFSET $3)""",
         user_id, language_id, SAMPLE_CAP)
     return int(await conn.fetchval(
@@ -417,3 +421,81 @@ def known_forms(habits: list[dict]) -> list[str]:
             note = str(h.get("note") or "").strip()
             out.append(f"{h['letter']}" + (f" — {note}" if note else ""))
     return out
+
+
+# ---------------------------------------------------------------------------
+# The baseline session (§12.2): eight sentences that show every letter in
+# every form, each confirmed by the writer.
+# ---------------------------------------------------------------------------
+
+BASELINE_POOL = 400
+
+
+async def baseline_prompts(
+    conn: asyncpg.Connection, user_id: str, language_id: str,
+    code: str, locale: str | None,
+) -> dict:
+    """The eight prompts for a baseline in this course: a greedy coverage
+    pick over the course's served beginner sentences (own cards or not —
+    a baseline is about the hand, not the syllabus), with the meaning line
+    in the learner's language as the prompt. {items, covered, total}."""
+    loc = locale or "en"
+    rows = await conn.fetch(
+        """
+        SELECT DISTINCT ON (es.sentence)
+               es.sentence AS answer, es.translation AS prompt
+          FROM example_sentences es
+          JOIN vocabulary v ON v.id = es.vocabulary_id
+         WHERE es.language_id = $1
+           AND es.translation_locale IN ($2, 'en')
+           AND es.translation IS NOT NULL AND es.translation <> ''
+           AND (es.reviewed OR v.language_id IN (
+                 SELECT id FROM languages
+                  WHERE grammar_review_policy IN ('ai_ok', 'all')))
+           AND v.level IN ('A1', 'A2')
+           AND length(es.sentence) BETWEEN 6 AND 60
+         ORDER BY es.sentence, (es.translation_locale = $2) DESC, es.id
+         LIMIT $3
+        """,
+        language_id, loc, BASELINE_POOL,
+    )
+    pool = [{"answer": r["answer"], "prompt": r["prompt"]} for r in rows]
+    return pick_coverage(code, pool)
+
+
+async def baseline_state(conn: asyncpg.Connection, user_id: str,
+                         language_id: str) -> dict:
+    """When this hand's baseline was last set, and whether one may run
+    today (one per language per day, so it cannot become unlimited
+    spend)."""
+    if not await _hand_tables(conn):
+        return {"available": False, "allowed": False, "last": None}
+    row = await conn.fetchrow(
+        "SELECT stats FROM writing_profiles WHERE user_id = $1 AND language_id = $2",
+        user_id, language_id)
+    stats = _loads(row["stats"], {}) if row else {}
+    last = stats.get("baseline_at")
+    today = await conn.fetchval("SELECT to_char(now(), 'YYYY-MM-DD')")
+    return {"available": True, "allowed": not last or str(last)[:10] != today,
+            "last": last}
+
+
+async def record_baseline(conn: asyncpg.Connection, user_id: str,
+                          language_id: str, coverage: dict | None = None) -> dict:
+    """The session is done: stamp the profile. The zero point for the
+    Progress trend and the personal neatness of Phase D."""
+    if not await _hand_tables(conn):
+        return {}
+    row = await conn.fetchrow(
+        "SELECT habits, stats FROM writing_profiles WHERE user_id = $1 AND language_id = $2",
+        user_id, language_id)
+    habits = _loads(row["habits"], []) if row else []
+    stats = _loads(row["stats"], {}) if row else {}
+    stats["baseline_at"] = await conn.fetchval("SELECT to_char(now(), 'YYYY-MM-DD\"T\"HH24:MI:SSZ')")
+    stats["baselines"] = int(stats.get("baselines", 0)) + 1
+    if coverage:
+        stats["baseline_coverage"] = {"covered": int(coverage.get("covered", 0)),
+                                      "total": int(coverage.get("total", 0))}
+    await _save_profile(conn, user_id, language_id, habits, stats)
+    return stats
+

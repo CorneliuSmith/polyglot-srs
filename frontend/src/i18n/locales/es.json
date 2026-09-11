@@ -1169,7 +1169,9 @@
       "all": "todos los idiomas",
       "thisLanguage": "este idioma",
       "accuracy": "El lector acierta tu letra {{right}} de {{total}} veces.",
-      "trips": "Letras en las que tropieza:"
+      "trips": "Letras en las que tropieza:",
+      "baseline": "Configurar mi letra",
+      "baselineRedo": "Rehacer mi línea base"
     },
     "email": {
       "title": "Correo",
@@ -1764,7 +1766,23 @@
     "noIWrote": "No, escribí…",
     "accuracy": "El lector acierta tu letra {{right}} de {{total}} veces.",
     "trips": "Letras en las que tropieza:",
-    "again": "otra vez — {{count}}×"
+    "again": "otra vez — {{count}}×",
+    "baselineTitle": "Configurar mi letra",
+    "baselineRedo": "Rehacer mi línea base",
+    "baselinePitch": "Ocho líneas cortas con tu letra habitual — no es un examen — para que el lector aprenda tu letra de una vez.",
+    "baselineStart": "Empezar",
+    "baselineStep": "{{n}} de {{total}}",
+    "baselineWrite": "Escribe esto con tu letra habitual",
+    "baselineAsk": "¿Es esa tu letra tal como está escrita?",
+    "baselineYes": "Sí, es mi letra",
+    "baselineSkip": "Saltar esta",
+    "baselineLeave": "Salir",
+    "baselineDoneTitle": "Tu letra está configurada",
+    "baselineSummary": "El lector leyó bien {{right}} de {{total}} líneas.",
+    "baselineCoverage": "Estas líneas muestran {{covered}} de {{total}} formas de letras.",
+    "baselineFinish": "Listo",
+    "baselineNotToday": "Ya configuraste una línea base hoy; vuelve mañana para rehacerla.",
+    "baselineEmpty": "Este curso aún no tiene líneas para una línea base."
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",

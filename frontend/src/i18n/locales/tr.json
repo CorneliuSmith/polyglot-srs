@@ -1169,7 +1169,9 @@
       "all": "tüm diller",
       "thisLanguage": "bu dil",
       "accuracy": "Okuyucu el yazınızı {{total}} denemede {{right}} kez doğru okuyor.",
-      "trips": "Takıldığı harfler:"
+      "trips": "Takıldığı harfler:",
+      "baseline": "El yazımı ayarla",
+      "baselineRedo": "Temel örneğimi yenile"
     },
     "email": {
       "title": "E-posta",
@@ -1764,7 +1766,23 @@
     "noIWrote": "Hayır, şunu yazdım…",
     "accuracy": "Okuyucu el yazınızı {{total}} denemede {{right}} kez doğru okuyor.",
     "trips": "Takıldığı harfler:",
-    "again": "yine — {{count}}×"
+    "again": "yine — {{count}}×",
+    "baselineTitle": "El yazımı ayarla",
+    "baselineRedo": "Temel örneğimi yenile",
+    "baselinePitch": "Her zamanki el yazınızla sekiz kısa satır — bu bir sınav değil — böylece okuyucu el yazınızı tek seferde öğrenir.",
+    "baselineStart": "Başla",
+    "baselineStep": "{{n}} / {{total}}",
+    "baselineWrite": "Bunu her zamanki el yazınızla yazın",
+    "baselineAsk": "Yazıldığı haliyle bu sizin el yazınız mı?",
+    "baselineYes": "Evet, benim el yazım",
+    "baselineSkip": "Bunu atla",
+    "baselineLeave": "Çık",
+    "baselineDoneTitle": "El yazınız ayarlandı",
+    "baselineSummary": "Okuyucu {{total}} satırdan {{right}} tanesini doğru okudu.",
+    "baselineCoverage": "Bu satırlar {{total}} harf biçiminden {{covered}} tanesini gösteriyor.",
+    "baselineFinish": "Bitti",
+    "baselineNotToday": "Bugün zaten bir temel örnek ayarladınız; yenilemek için yarın gelin.",
+    "baselineEmpty": "Bu kursta henüz temel örnek için satır yok."
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",

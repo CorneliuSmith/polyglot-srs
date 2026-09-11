@@ -42,14 +42,23 @@ vi.mock('../api/write', () => ({
   getWritePrompts: vi.fn(),
   assessWriting: vi.fn(),
   confirmWriting: vi.fn(),
+  getHandProfile: vi.fn(),
+  getWriteBaseline: vi.fn(),
+  finishWriteBaseline: vi.fn(),
 }))
 // jsdom has no canvas; the export is the seam.
 vi.mock('../features/write/inkExport', () => ({
   renderInkToPng: vi.fn().mockResolvedValue(new Blob(['png'], { type: 'image/png' })),
 }))
 
-import { assessWriting, confirmWriting, getWritePrompts, getWriteStatus } from '../api/write'
+import {
+  assessWriting, confirmWriting, finishWriteBaseline, getHandProfile, getWriteBaseline,
+  getWritePrompts, getWriteStatus,
+} from '../api/write'
 const mockStatus = getWriteStatus as ReturnType<typeof vi.fn>
+const mockProfile = getHandProfile as ReturnType<typeof vi.fn>
+const mockBaseline = getWriteBaseline as ReturnType<typeof vi.fn>
+const mockFinish = finishWriteBaseline as ReturnType<typeof vi.fn>
 const mockConfirm = confirmWriting as ReturnType<typeof vi.fn>
 const mockPrompts = getWritePrompts as ReturnType<typeof vi.fn>
 const mockAssess = assessWriting as ReturnType<typeof vi.fn>
@@ -85,6 +94,10 @@ describe('WritePage', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     mockStatus.mockResolvedValue({ available: true, allowance: ALLOWANCE })
+    mockProfile.mockResolvedValue({
+      available: true, adapt: true, habits: [], stats: {}, samples: 0, confirmed: 0,
+      readout: { right: 0, wrong: 0, total: 0, letters_to_watch: [], legibility_mean: null, history: [] },
+    })
     mockPrompts.mockResolvedValue([
       { prompt: 'I am going home.', answer: 'Я иду домой', source: 'own' },
     ])
@@ -270,6 +283,56 @@ describe('WritePage', () => {
     fireEvent.click(await screen.findByTestId('write-confirm'))
     await waitFor(() => expect(mockConfirm).toHaveBeenCalled())
     expect(mockConfirm.mock.calls[0][0].text).toBe('أنا')
+  })
+
+  it('runs a baseline: each line written, confirmed as the hand, then a summary', async () => {
+    mockBaseline.mockResolvedValue({
+      available: true, allowed: true, adapt: true, last: null, covered: 30, total: 40,
+      prompts: [
+        { prompt: 'I am', answer: 'Я', source: 'course' },
+        { prompt: 'you', answer: 'ты', source: 'course' },
+      ],
+    })
+    mockAssess.mockResolvedValue({
+      transcription: 'Я', matches_target: true, word_diffs: [], legibility: 4,
+      letterform_notes: [], confidence: 'high', expected: 'Я', adapt: true, again: {}, allowance: ALLOWANCE,
+    })
+    mockConfirm
+      .mockResolvedValueOnce({ kept: true, samples: 1, right: true, misread: [] })
+      .mockResolvedValueOnce({ kept: true, samples: 2, right: false, misread: [{ wrote: 'ы', read: 'и' }] })
+    mockFinish.mockResolvedValue({ baseline_at: '2026-09-11', baselines: 1 })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('baseline-start'))
+    expect(await screen.findByTestId('baseline-answer')).toHaveTextContent('Я')
+    // The ordinary prompt kinds are out of the way during a baseline.
+    expect(screen.queryByTestId('kind-free')).not.toBeInTheDocument()
+    scribble(screen.getByTestId('ink-canvas'))
+    fireEvent.click(screen.getByTestId('write-check'))
+    fireEvent.click(await screen.findByTestId('baseline-yes'))
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalledTimes(1))
+    expect(mockConfirm.mock.calls[0][0]).toMatchObject({ text: 'Я', read: 'Я', source: 'baseline' })
+    // Line two.
+    expect(await screen.findByTestId('baseline-answer')).toHaveTextContent('ты')
+    scribble(screen.getByTestId('ink-canvas'))
+    fireEvent.click(screen.getByTestId('write-check'))
+    fireEvent.click(await screen.findByTestId('baseline-yes'))
+    const summary = await screen.findByTestId('baseline-summary')
+    expect(summary).toHaveTextContent(/1 of 2 lines right/)
+    expect(summary).toHaveTextContent(/30 of 40/)
+    expect(summary).toHaveTextContent('ы')
+    await waitFor(() => expect(mockFinish).toHaveBeenCalledWith({ languageId: 'lang-ru', covered: 30, total: 40 }))
+    fireEvent.click(screen.getByTestId('baseline-finish'))
+    expect(await screen.findByTestId('kind-free')).toBeInTheDocument()
+  })
+
+  it('says so when a baseline was already set today', async () => {
+    mockBaseline.mockResolvedValue({
+      available: true, allowed: false, adapt: true, last: '2026-09-11T01:00:00Z',
+      covered: 0, total: 0, prompts: [],
+    })
+    renderPage()
+    fireEvent.click(await screen.findByTestId('baseline-start'))
+    expect(await screen.findByRole('alert')).toHaveTextContent(/come back tomorrow/)
   })
 })
 
