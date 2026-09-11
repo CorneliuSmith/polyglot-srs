@@ -1,0 +1,198 @@
+"""Write router — handwriting practice (docs/plans/handwriting.md, Phase 1).
+
+Free write: the learner writes on a canvas, the client sends a PNG of the
+ink with the text they were asked to write, and a vision-capable model
+reads it. Costs ride the tutor allowance the way Speak's turns do — one
+assessment is one message, logged kind='write'. The letter-level and
+word-level stroke matching of later phases runs on the device and never
+comes through here.
+"""
+from __future__ import annotations
+
+import logging
+
+import anthropic
+from fastapi import (
+    APIRouter,
+    Depends,
+    File,
+    Form,
+    HTTPException,
+    UploadFile,
+    status,
+)
+
+from backend.dependencies import get_current_user
+from backend.repositories.pool import rls_connection
+from backend.repositories.profile import effective_support_locale
+from backend.repositories.tutor import log_tutor_usage
+from backend.repositories.write import (
+    record_attempt,
+    sentence_prompts,
+    word_prompts,
+)
+from backend.routers.tutor import _get_allowance, _reject_if_unavailable
+from backend.services.generate import generation_available
+from backend.services.models import resolve_model
+from backend.services.rate_limit import tutor_chat_limiter
+from backend.services.write_assess import (
+    MAX_EXPECTED_CHARS,
+    MAX_IMAGE_BYTES,
+    assess_handwriting,
+)
+
+logger = logging.getLogger("write")
+router = APIRouter()
+
+_UNAVAILABLE = HTTPException(
+    status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+    detail="Write isn't available here yet",
+)
+_STYLES = {"print", "cursive"}
+
+
+async def _language(conn, language_id: str) -> tuple[str, str, str | None]:
+    row = await conn.fetchrow(
+        "SELECT name, code, tutor_model FROM languages WHERE id = $1",
+        language_id,
+    )
+    if not row:
+        raise HTTPException(status_code=404, detail="Unknown language")
+    return row["name"], row["code"], row["tutor_model"]
+
+
+async def _support_language(conn, user_id: str) -> tuple[str | None, str | None]:
+    """(locale code, language name) the notes are written in; (None, None)
+    means English — the same rule Speak's corrections follow."""
+    code = await effective_support_locale(conn, user_id)
+    if not code:
+        return None, None
+    name = await conn.fetchval(
+        "SELECT name FROM languages WHERE code = $1", code
+    )
+    return code, (name or code)
+
+
+@router.get("/status")
+async def write_status(
+    language_id: str,
+    user: dict = Depends(get_current_user),
+):
+    """Whether the assessor can run here, plus the caller's allowance meter.
+    The canvas and the neatness panel work regardless — only Check needs
+    the model — so the page opens either way and says which half is off."""
+    if not generation_available():
+        return {"available": False, "allowance": None}
+    allowance = await _get_allowance(user["id"], language_id)
+    return {"available": True, "allowance": allowance}
+
+
+@router.get("/prompts")
+async def prompts(
+    language_id: str,
+    kind: str = "sentence",
+    limit: int = 10,
+    user: dict = Depends(get_current_user),
+):
+    """Things to write: sentences to translate (own cards first, then the
+    course's beginner lines) or the learner's own words."""
+    if kind not in ("sentence", "word"):
+        raise HTTPException(status_code=422, detail="kind must be sentence or word")
+    async with rls_connection(user["id"]) as conn:
+        locale, _ = await _support_language(conn, user["id"])
+        fetch = sentence_prompts if kind == "sentence" else word_prompts
+        items = await fetch(conn, user["id"], language_id, locale, limit)
+    return {"kind": kind, "items": items}
+
+
+@router.post("/assess")
+async def assess(
+    image: UploadFile = File(...),
+    language_id: str = Form(...),
+    expected: str | None = Form(default=None),
+    kind: str = Form(default="sentence"),
+    style: str | None = Form(default=None),
+    user: dict = Depends(get_current_user),
+):
+    """Read one canvas and say what it says, whether that is right, and how
+    legible it is. The ink is not stored; the verdict is."""
+    if not generation_available():
+        raise _UNAVAILABLE
+    if kind not in ("sentence", "word", "free"):
+        raise HTTPException(status_code=422, detail="kind must be sentence, word or free")
+    if style is not None and style not in _STYLES:
+        raise HTTPException(status_code=422, detail="style must be print or cursive")
+    expected = (expected or "").strip() or None
+    if expected and len(expected) > MAX_EXPECTED_CHARS:
+        raise HTTPException(status_code=422, detail="That text is too long to write in one go")
+    if (image.content_type or "") not in ("image/png", "image/webp", "image/jpeg"):
+        raise HTTPException(status_code=422, detail="Send the canvas as a PNG")
+    # Bounded read, as Speak's transcribe does: one byte past the cap is
+    # enough to know a photo of a page (or a mis-wired client) is coming.
+    data = await image.read(MAX_IMAGE_BYTES + 1)
+    if len(data) > MAX_IMAGE_BYTES:
+        raise HTTPException(
+            status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+            detail="That image is too large — send the canvas, not a photo",
+        )
+    if len(data) < 100:
+        raise HTTPException(status_code=422, detail="Write something first")
+
+    async with rls_connection(user["id"]) as conn:
+        language_name, code, override_model = await _language(conn, language_id)
+        _, support_language = await _support_language(conn, user["id"])
+
+    allowance = await _get_allowance(user["id"], language_id)
+    _reject_if_unavailable(allowance)
+    if not await tutor_chat_limiter.allow(user["id"]):
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="You're checking too fast — slow down a moment.",
+        )
+
+    # A reader, not a drafter: the assessment task rides the chat tier
+    # (vision needs it) and honours the per-language override like the
+    # tutor does.
+    model = resolve_model("write_assess", code, override_model)
+    try:
+        result, usage = await assess_handwriting(
+            data, language_name, expected,
+            support_language=support_language, style=style, model=model,
+        )
+    except ValueError as exc:
+        logger.error("Write assessment came back malformed: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="That didn't come through — try again",
+        ) from exc
+    except anthropic.RateLimitError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_429_TOO_MANY_REQUESTS,
+            detail="The reader is busy — try again in a moment",
+        ) from exc
+    except anthropic.APIError as exc:
+        logger.error("Anthropic API error (%s): %s", type(exc).__name__, exc)
+        raise HTTPException(
+            status_code=status.HTTP_502_BAD_GATEWAY,
+            detail="Write is temporarily unavailable",
+        ) from exc
+
+    async with rls_connection(user["id"]) as conn:
+        await log_tutor_usage(
+            conn, user["id"], language_id, model, usage=usage, kind="write",
+        )
+        await record_attempt(conn, user["id"], language_id, kind, expected, result)
+
+    used_after = None if allowance["unlimited"] else (allowance["used"] or 0) + 1
+    return {
+        **result,
+        "expected": expected,
+        "allowance": {
+            **allowance,
+            "used": used_after,
+            "remaining": (
+                None if allowance["unlimited"] or allowance["limit"] is None
+                else max(0, allowance["limit"] - used_after)
+            ),
+        },
+    }

@@ -45,6 +45,9 @@ TASK_MODELS: dict[str, str] = {
     "grammar_checker": "tutor_model_low_resource",
     "sentence_maker": "tutor_model",
     "sentence_checker": "tutor_model_low_resource",
+    # Write's handwriting reader: a vision task, so it needs the chat tier,
+    # and it honours the per-language override the way the tutor does.
+    "write_assess": "tutor_model",
 }
 
 # Tasks that pin the stronger model on a low-resource language (drafting/chat

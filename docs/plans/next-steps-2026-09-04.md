@@ -83,9 +83,13 @@ items are built on request, in a session.
   script and runs the passes in-session; the owner reseeds.*
 
 - [ ] **14. Write — handwriting practice** (planned 11 Sep 2026,
-  `docs/plans/handwriting.md`). Letter-by-letter guided writing, then
-  joined words, then translate-and-write sentences assessed by a vision
-  model on the AI allowance; in Practice beside Speak. Feasible for every
+  `docs/plans/handwriting.md`; **Phase 1, Free write, shipped the same
+  day** — Practice → Write). Write anything and be told if it is correct
+  and legible (vision model on the AI allowance + an on-device neatness
+  panel), no content needed — done; then letter-by-letter
+  guided writing, then traced words and whole sentences in the real joined
+  hand, composed from the letter forms and tuned against speaker-written
+  exemplar sentences; in Practice beside Speak. Feasible for every
   course; the strokes are speaker-authored content (a Workshop panel), and
   Phase 0 is a spike of the Russian cursive matcher before anything is
   committed. Seven owner decisions are listed in the plan's §9. The

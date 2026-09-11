@@ -647,6 +647,51 @@ false and both lanes are open. The waiting room shows the count of cards
 needed when the gate needs more than one; with a one-card gate it falls
 back to the batch percentage so the bar visibly moves.
 
+### Write: reading handwriting with a model, measuring it on the device
+
+Write (`/write`, `docs/plans/handwriting.md`) is the production feature
+beside Speak: the learner writes by hand on a canvas and asks whether it
+is correct and legible. Phase 1 — *Free write* — ships for every course
+because it needs no authored content. Three parts, deliberately separate:
+
+- **The canvas** (`features/write/InkCanvas.tsx`) records strokes as point
+  lists in CSS pixels through pointer events — one API for finger, mouse
+  and pen — with `touch-action: none` so a phone draws instead of
+  scrolling. The ink model (`ink.ts`) is shared by everything below; a
+  tap or an empty canvas fails `hasInk` and nothing is ever sent.
+- **Neatness** (`neatness.ts`) is measured from the strokes on the device:
+  strokes are clustered into letters or joined runs by horizontal
+  proximity (a gap under 15 % of the median letter height is the same
+  letter), then four ratios of the learner's own writing size — baseline
+  drift and wobble, height consistency, slant consistency (principal axis
+  of the tall strokes), gap regularity — each graded steady / uneven /
+  wandering. Exact, free, offline, and the same verdict on a phone and a
+  monitor. It needs three clusters to say anything.
+- **The reader** (`services/write_assess.py`, `POST /api/write/assess`)
+  renders the ink to a clean PNG (`inkExport.ts`: white ground, black
+  ink, tight crop, upscaled) and asks a vision-capable model — task
+  `write_assess`, the chat tier, per-language override honoured — for a
+  tool-shaped answer: transcription first, then match, word diffs,
+  legibility 1–5, at most two letterform notes, and its own confidence.
+  The transcription is always shown: a misread must look like a misread,
+  not a fail, and *low* confidence is rendered as "not sure I read that
+  right" rather than as wrong. One assessment is one message on the AI
+  allowance, logged `tutor_usage.kind='write'`, behind the tutor chat
+  rate limiter; the verdict is logged to `writing_attempts` (migration
+  20261018, probed) and **the ink never is** — the same rule as Speak's
+  audio.
+
+Prompts come from content the app already holds (`repositories/write.py`):
+a sentence is an example line with its meaning in the learner's support
+locale (own cards first, then the course's A1/A2 lines), a word is one of
+their own cards, or they type their own text, or write nothing in
+particular. The compare view renders the expected text in a
+handwriting-style Google face per script (`handFont.ts`, loaded on
+demand) — a comparison, never a stroke source. The per-letter stroke
+verdict, the traced letters, words and sentences, and the Workshop
+authoring panel are the later phases in the plan; nothing in Phase 1
+depends on them.
+
 ### The content pipeline is add-only; deleting and gating are separate tools
 
 Every seeder UPSERTs and none deletes. `seeder.run` upserts vocabulary on
