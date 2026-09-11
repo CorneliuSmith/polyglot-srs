@@ -116,7 +116,9 @@
     "audioPending": "Pas encore d’audio pour {{language}} — aucune voix de synthèse n’existe pour cette langue, alors nous rassemblons de vrais enregistrements de locuteurs. L’audio apparaîtra au fil des validations.",
     "recsTitle": "Vos suggestions",
     "recsSetUp": "Activer les recommandations →",
-    "recsSeeAll": "Tout voir →"
+    "recsSeeAll": "Tout voir →",
+    "handTitle": "Écriture manuscrite",
+    "handLegibility": "Lisibilité de vos dernières vérifications · moyenne {{mean}} sur 5"
   },
   "stages": {
     "beginner": "Débutant",
@@ -1165,7 +1167,9 @@
       "resetConfirm": "Oublier tout ce que le lecteur a appris de votre écriture en {{name}} ?",
       "offConfirm": "Désactiver ? Tous les échantillons de votre écriture conservés par le lecteur seront supprimés.",
       "all": "toutes les langues",
-      "thisLanguage": "cette langue"
+      "thisLanguage": "cette langue",
+      "accuracy": "Le lecteur lit correctement votre écriture {{right}} fois sur {{total}}.",
+      "trips": "Lettres qui le font trébucher :"
     },
     "email": {
       "title": "E-mail",
@@ -1757,7 +1761,10 @@
     "spellingCheck": "L’orthographe est à revoir",
     "isThisIt": "Est-ce bien ce que vous avez écrit ?",
     "yesThatsIt": "Oui",
-    "noIWrote": "Non, j’ai écrit…"
+    "noIWrote": "Non, j’ai écrit…",
+    "accuracy": "Le lecteur lit correctement votre écriture {{right}} fois sur {{total}}.",
+    "trips": "Lettres qui le font trébucher :",
+    "again": "encore — {{count}}×"
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",

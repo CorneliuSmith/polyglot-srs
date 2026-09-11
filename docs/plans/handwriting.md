@@ -742,10 +742,10 @@ to hand it their hand in one sitting.
 | | What lands | Size |
 |---|---|---|
 | A′ | Free mode asks the writer; Yes / No…; no false "Correct". **Built 11 Sep.** | — |
-| B | Misread records from No + correction (letter-level diff); accuracy readout and letters-to-watch in Account and on Write; per-script aggregate in Workspace → Insights. | 3–4 days |
+| B | **Built 11 Sep 2026.** Misread records from No + correction (letter-level diff, `services/write_diff.py`); accuracy readout and letters-to-watch on Write after a confirmation, in Account, and on Progress with a legibility strip; per-course aggregate in Workspace → Insights. | 3–4 days |
 | C | The baseline session: coverage sets (greedy from A1 sentences now, §5 exemplars when reviewed), the eight-prompt flow, *Redo*, baseline stats recorded; baseline samples preferred as references. | ~1 week |
 | D | Personal neatness against the baseline (was §11 C). | 1–2 days |
-| E | Habits counted back to the learner; Progress trend (was §11 B). | 2–3 days |
+| E | **Built 11 Sep 2026 with B.** Habits counted back ("again — 3×" on a repeated note); the Progress card's legibility strip. | 2–3 days |
 
 The order is deliberate: B first because the accuracy number is what
 proves the adaptation to the writer and what tells the owner whether the

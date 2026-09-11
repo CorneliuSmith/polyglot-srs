@@ -116,7 +116,9 @@
     "audioPending": "Ainda não há áudio para {{language}} — não existe voz sintética para este idioma, então estamos reunindo gravações reais de falantes. O áudio vai aparecendo conforme os clipes são aprovados.",
     "recsTitle": "Suas indicações",
     "recsSetUp": "Ativar as recomendações →",
-    "recsSeeAll": "Ver todas →"
+    "recsSeeAll": "Ver todas →",
+    "handTitle": "Escrita à mão",
+    "handLegibility": "Legibilidade das suas últimas verificações · média {{mean}} de 5"
   },
   "stages": {
     "beginner": "Iniciante",
@@ -1165,7 +1167,9 @@
       "resetConfirm": "Esquecer tudo o que o leitor aprendeu sobre a sua letra em {{name}}?",
       "offConfirm": "Desativar? Todas as amostras da sua letra guardadas pelo leitor serão apagadas.",
       "all": "todos os idiomas",
-      "thisLanguage": "este idioma"
+      "thisLanguage": "este idioma",
+      "accuracy": "O leitor acerta a sua letra {{right}} de {{total}} vezes.",
+      "trips": "Letras em que tropeça:"
     },
     "email": {
       "title": "E-mail",
@@ -1757,7 +1761,10 @@
     "spellingCheck": "A ortografia precisa de revisão",
     "isThisIt": "Foi isto que você escreveu?",
     "yesThatsIt": "Sim",
-    "noIWrote": "Não, escrevi…"
+    "noIWrote": "Não, escrevi…",
+    "accuracy": "O leitor acerta a sua letra {{right}} de {{total}} vezes.",
+    "trips": "Letras em que tropeça:",
+    "again": "de novo — {{count}}×"
   },
   "more": {
     "donateTea": "Me pague um chá 🍵",

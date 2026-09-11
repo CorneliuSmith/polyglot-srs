@@ -1945,3 +1945,24 @@ export async function getReviewNotifications(): Promise<ReviewNotifications> {
   )
   return response.data
 }
+
+/** The handwriting reader per course (admin): right / wrong by the
+ * writers' own verdicts, mean legibility, and the letters it trips on. */
+export interface HandwritingAnalytics {
+  code: string
+  language: string
+  writers: number
+  right: number
+  wrong: number
+  accuracy: number | null
+  legibility_mean: number | null
+  letters_to_watch: { letter: string; count: number }[]
+}
+
+export async function getAnalyticsHandwriting(): Promise<HandwritingAnalytics[]> {
+  const response = await apiClient.get<{ languages: HandwritingAnalytics[] }>(
+    '/api/contribute/analytics/handwriting',
+  )
+  return response.data.languages
+}
+

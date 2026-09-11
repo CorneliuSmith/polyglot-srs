@@ -107,10 +107,11 @@ items are built on request, in a session.
 
 - [ ] **16. The writer's verdict and a baseline** (planned 11 Sep 2026,
   `docs/plans/handwriting.md` §12). Free mode asks "Is this what you
-  wrote?" instead of badging "Correct" (built). Next: misread records and
-  an accuracy readout per language ("the reader gets your hand right N of
-  M"; letters it trips on; per-script aggregate for staff), then a
-  **baseline session** — eight prompts covering every letter in every
+  wrote?" instead of badging "Correct" (built). Misread records, the
+  accuracy readout per language ("the reader gets your hand right N of
+  M"; letters it trips on; "again — 3×" on repeated notes; Progress
+  strip; per-course aggregate in Workspace → Insights) — **built 11 Sep
+  2026**. Next: a **baseline session** — eight prompts covering every letter in every
   form, each confirmed by the writer, so the reader has the hand in one
   sitting and the Progress trend has a zero point.
 

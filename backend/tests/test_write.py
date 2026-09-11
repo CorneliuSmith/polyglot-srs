@@ -16,12 +16,14 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
+from backend.repositories.write import habit_counts, readout
 from backend.services.ink_method import compact, method_line, summarize_method
 from backend.services.write_assess import (
     _system_prompt,
     assess_handwriting,
     normalize_assessment,
 )
+from backend.services.write_diff import misread_letters, same_text, units
 from backend.tests.fakes import mock_conn
 
 TEST_SECRET = "test-jwt-secret-for-unit-tests-32bytes"
@@ -277,6 +279,47 @@ class TestReferences:
         assert "Known forms" not in create.await_args.kwargs["system"]
 
 
+class TestMisread:
+    """The writer's verdict, letter by letter — the ground truth (§12.1)."""
+
+    def test_names_the_letter_the_reader_got_wrong(self):
+        assert misread_letters("ين", "أن") == [{"wrote": "أ", "read": "ي"}]
+        assert misread_letters("Я иду домои", "Я иду домой") == [{"wrote": "й", "read": "и"}]
+
+    def test_marks_are_part_of_their_letter(self):
+        # A hamza on an alif is one unit, so "alif without hamza" is one
+        # misread, not a missing mark.
+        assert units("أنا") == ["أ", "ن", "ا"]
+        assert misread_letters("انا", "أنا") == [{"wrote": "أ", "read": "ا"}]
+
+    def test_missed_and_invented_letters(self):
+        assert misread_letters("لي", "أنا") == [
+            {"wrote": "أ", "read": "ل"}, {"wrote": "ن", "read": "ي"}, {"wrote": "ا", "read": ""}]
+        assert misread_letters("che", "de") == [{"wrote": "d", "read": "c"}, {"wrote": "", "read": "h"}]
+
+    def test_same_text_ignores_spacing(self):
+        assert same_text("Я иду домой", "Я  иду домой ")
+        assert not same_text("Я иду домой", "Я иду домои")
+        assert misread_letters("привет", "привет") == []
+
+
+class TestReadout:
+    def test_letters_to_watch_are_the_most_misread(self):
+        r = readout({"right": 3, "wrong": 2,
+                     "misread_letters": {"أ": 3, "ن": 1, "د": 2, "е": 1, "м": 1, "о": 1},
+                     "legibility_mean": 3.4, "history": [3, 4]})
+        assert r["total"] == 5 and r["right"] == 3
+        # Most misread first; ties broken by code point so the list is stable.
+        assert [x["letter"] for x in r["letters_to_watch"]] == ["أ", "د", "е", "м", "о"]
+        assert r["history"] == [3, 4]
+        assert readout({}) == {"right": 0, "wrong": 0, "total": 0, "letters_to_watch": [],
+                               "legibility_mean": None, "history": []}
+
+    def test_habit_counts_only_repeat_offenders(self):
+        habits = [{"letter": "д", "count": 3}, {"letter": "е", "count": 1}]
+        assert habit_counts(habits, ["д", "е", "х"]) == {"д": 3}
+
+
 class TestDiffWords:
     def test_the_models_asides_are_stripped_from_diff_words(self):
         out = normalize_assessment({
@@ -509,6 +552,53 @@ class TestHandProfile:
         assert {h["letter"] for h in habits} == {"أ", "ن"}
         assert all(h["confirmed_ok"] for h in habits)
 
+    def test_confirm_records_the_writers_verdict(self, client):
+        """No + correction: the misread letters count against the letters
+        the writer actually wrote, and the readout says N of M."""
+        resp = client.post(
+            "/api/write/confirm", headers=_auth_headers(),
+            files={"image": ("ink.png", io.BytesIO(_PNG), "image/png")},
+            data={"language_id": TEST_LANGUAGE_ID, "text": "أنا", "read": "لي"},
+        )
+        assert resp.status_code == 200, resp.text
+        body = resp.json()
+        if not client.hand:
+            assert "right" not in body
+            return
+        assert body["right"] is False
+        assert [m["wrote"] for m in body["misread"]] == ["أ", "ن", "ا"]
+        assert body["readout"]["wrong"] == 1 and body["readout"]["total"] == 1
+        assert [x["letter"] for x in body["readout"]["letters_to_watch"]] == ["أ", "ا", "ن"]
+        # Yes on a reading that matched: a right read, nothing misread.
+        resp = client.post(
+            "/api/write/confirm", headers=_auth_headers(),
+            files={"image": ("ink.png", io.BytesIO(_PNG), "image/png")},
+            data={"language_id": TEST_LANGUAGE_ID, "text": "أنا", "read": "أنا"},
+        )
+        assert resp.json()["right"] is True and resp.json()["misread"] == []
+
+    def test_a_sure_matching_check_counts_as_a_right_read_and_repeats_are_counted(self, client):
+        with patch("backend.routers.write.assess_handwriting",
+                   new=AsyncMock(return_value=({
+                       "transcription": "أن", "matches_target": True, "word_diffs": [],
+                       "legibility": 4, "letterform_notes": [{"letter": "أ", "note": "n"}],
+                       "confidence": "high"}, {}))), \
+             patch("backend.routers.write.hand_profile",
+                   new=AsyncMock(return_value={
+                       "habits": [{"letter": "أ", "count": 2, "confirmed_ok": False}],
+                       "adapt": True, "available": True, "stats": {}, "samples": 0,
+                       "confirmed": 0, "readout": readout({})})):
+            resp = _post(client, expected="أن")
+        assert resp.status_code == 200, resp.text
+        body = resp.json()
+        if client.hand:
+            assert body["again"] == {"أ": 2}
+            profiles = _executed(client, "INSERT INTO writing_profiles")
+            # note_habits, then record_verdict — the last save carries right = 1.
+            assert json.loads(profiles[-1][4])["right"] == 1
+        else:
+            assert body["again"] == {}
+
     def test_confirm_needs_text(self, client):
         resp = client.post(
             "/api/write/confirm", headers=_auth_headers(),
@@ -567,3 +657,29 @@ class TestHandProfile:
             assert "language_id" in deletes[0][0] and "language_id" not in deletes[1][0]
         else:
             assert not deletes
+
+
+class TestAdminHandwriting:
+    def test_requires_admin(self, client):
+        with patch("backend.routers.contribute._require_admin",
+                   new=AsyncMock(side_effect=__import__("fastapi").HTTPException(403))):
+            resp = client.get("/api/contribute/analytics/handwriting", headers=_auth_headers())
+        assert resp.status_code == 403
+
+    def test_aggregates_per_language(self, client):
+        rows = [{"code": "ar", "language": "Arabic", "writers": 2, "right": 6, "wrong": 2,
+                 "accuracy": 0.75, "legibility_mean": 3.2,
+                 "letters_to_watch": [{"letter": "أ", "count": 3}]}]
+        from contextlib import asynccontextmanager
+
+        @asynccontextmanager
+        async def fake_priv(*a, **k):
+            yield client.fake_conn
+
+        with patch("backend.routers.contribute._require_admin", new=AsyncMock()), \
+             patch("backend.routers.contribute.privileged_connection", fake_priv), \
+             patch("backend.repositories.write.admin_hand_accuracy",
+                   new=AsyncMock(return_value=rows)):
+            resp = client.get("/api/contribute/analytics/handwriting", headers=_auth_headers())
+        assert resp.status_code == 200, resp.text
+        assert resp.json() == {"languages": rows}

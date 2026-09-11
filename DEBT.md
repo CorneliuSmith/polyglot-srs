@@ -400,10 +400,13 @@ reader of the plan would expect to find built, and will not:
   (Phase 2–4). The neatness panel is the exact, on-device half until then.
   The writer's own strokes ARE kept with each sample now (§11, Phase A),
   so the material for a personal tolerance exists before the matcher does.
-- **Habits are collected but not yet counted back to the learner.** Phase
-  B of §11 — "your д again, third time", the Progress trend from
-  `writing_profiles.stats` — is not built. Confirmed-fine forms already
-  stop being flagged; recurring ones are stored and unused.
+- **The accuracy readout counts only what the writer confirms — plus
+  sure matches.** A Check on expected text that the reader was sure of
+  and got right counts as *right*; a Check the writer never confirms and
+  the reader got wrong counts as nothing. So the number leans favourable
+  until the writer presses *No* on misreads. The baseline session (§12
+  Phase C) is the fix: eight confirmed readings in one sitting give the
+  readout a fair denominator from the start.
 - **Ink retention is now conditional, not absent.** With *Adapt to my
   handwriting* on (the default), up to twelve canvases per language are
   kept as the writer's samples; the switch and its Reset delete them.

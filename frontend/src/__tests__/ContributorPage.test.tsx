@@ -21,6 +21,7 @@ vi.mock('../api/contribute', () => ({
   updateExperiment: vi.fn(),
   assignExperiment: vi.fn(),
   getAnalyticsCohorts: vi.fn(() => Promise.resolve([])),
+  getAnalyticsHandwriting: vi.fn(() => Promise.resolve([])),
   listAccounts: vi.fn(() => Promise.resolve([])),
   deleteAccount: vi.fn(),
   overridePlan: vi.fn(),

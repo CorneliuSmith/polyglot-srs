@@ -44,7 +44,25 @@ export interface WriteAssessment {
    * toggle, and the migration being present). Decides whether a confirm
    * button is offered. */
   adapt: boolean
+  /** How many times each noted letter had been noted before — "your д
+   * again, third time" — for letters with a history. */
+  again: Record<string, number>
   allowance: TutorAllowance
+}
+
+/** The accuracy line and the letters to watch, by the writer's verdicts. */
+export interface HandReadout {
+  right: number
+  wrong: number
+  total: number
+  letters_to_watch: { letter: string; count: number }[]
+  legibility_mean: number | null
+  history: number[]
+}
+
+export interface Misread {
+  wrote: string
+  read: string
 }
 
 /** What the reader knows about one writer in one language. */
@@ -55,6 +73,7 @@ export interface HandProfile {
   stats: { n?: number; legibility_mean?: number }
   samples: number
   confirmed: number
+  readout: HandReadout
 }
 
 /** Strokes as the server keeps them: integer [x, y, t] triples. */
@@ -100,23 +119,34 @@ export async function assessWriting(args: {
 
 /** "I wrote this": the canvas becomes a confirmed sample of the writer's
  * hand and the flagged letters become known-fine. Costs nothing. */
+export interface ConfirmResult {
+  kept: boolean
+  samples: number
+  reason?: string
+  /** Present when `read` was sent: the writer's verdict on that reading. */
+  right?: boolean
+  misread?: Misread[]
+  readout?: HandReadout
+}
+
 export async function confirmWriting(args: {
   languageId: string
   image: Blob
   text: string
   letters: string[]
   strokes?: CompactStrokes
-}): Promise<{ kept: boolean; samples: number; reason?: string }> {
+  /** What the reader had said — so the server can record right / wrong
+   * and count the misread letters. */
+  read?: string
+}): Promise<ConfirmResult> {
   const form = new FormData()
   form.append('image', args.image, 'ink.png')
   form.append('language_id', args.languageId)
   form.append('text', args.text)
   if (args.letters.length) form.append('letters', args.letters.join(','))
   if (args.strokes?.length) form.append('strokes', JSON.stringify(args.strokes))
-  const response = await apiClient.post<{ kept: boolean; samples: number; reason?: string }>(
-    '/api/write/confirm',
-    form,
-  )
+  if (args.read !== undefined) form.append('read', args.read)
+  const response = await apiClient.post<ConfirmResult>('/api/write/confirm', form)
   return response.data
 }
 

@@ -116,7 +116,9 @@
     "audioPending": "No audio for {{language}} yet — no synthetic voice exists for it, so we’re collecting real recordings from speakers. Audio will appear as clips are approved.",
     "recsTitle": "Your picks",
     "recsSetUp": "Turn on recommendations →",
-    "recsSeeAll": "See all →"
+    "recsSeeAll": "See all →",
+    "handTitle": "Handwriting",
+    "handLegibility": "Legibility of your last checks · average {{mean}} of 5"
   },
   "stages": {
     "beginner": "Beginner",
@@ -1165,7 +1167,9 @@
       "resetConfirm": "Forget everything the reader has learned about your handwriting in {{name}}?",
       "offConfirm": "Turn this off? Every sample the reader kept of your handwriting will be deleted.",
       "all": "all languages",
-      "thisLanguage": "this language"
+      "thisLanguage": "this language",
+      "accuracy": "The reader gets your hand right {{right}} of {{total}} times.",
+      "trips": "Letters it trips on:"
     },
     "email": {
       "title": "Email",
@@ -1757,7 +1761,10 @@
     "spellingCheck": "Spelling needs a look",
     "isThisIt": "Is this what you wrote?",
     "yesThatsIt": "Yes",
-    "noIWrote": "No — I wrote…"
+    "noIWrote": "No — I wrote…",
+    "accuracy": "The reader gets your hand right {{right}} of {{total}} times.",
+    "trips": "Letters it trips on:",
+    "again": "again — {{count}}×"
   },
   "more": {
     "donateTea": "Donate a tea 🍵",

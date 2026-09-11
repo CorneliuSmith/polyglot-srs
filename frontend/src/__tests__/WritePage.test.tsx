@@ -120,7 +120,8 @@ describe('WritePage', () => {
     mockAssess.mockResolvedValue({
       transcription: 'Я иду домой', matches_target: true, word_diffs: [],
       legibility: 4, letterform_notes: [{ letter: 'д', note: 'Close the loop.' }],
-      confidence: 'high', expected: 'Я иду домой', adapt: true, allowance: ALLOWANCE,
+      confidence: 'high', expected: 'Я иду домой', adapt: true, again: { д: 2 },
+      allowance: ALLOWANCE,
     })
     renderPage()
     await screen.findByTestId('write-prompt')
@@ -129,6 +130,8 @@ describe('WritePage', () => {
     expect(await screen.findByTestId('write-read-as')).toHaveTextContent('Я иду домой')
     expect(screen.getByTestId('write-verdict')).toHaveTextContent('Correct')
     expect(screen.getByText('Close the loop.')).toBeInTheDocument()
+    // A repeat offender is named as one: "again — 3×".
+    expect(screen.getByTestId('write-again')).toHaveTextContent('3×')
     // The compare line shows the expected text in the written hand.
     expect(screen.getByTestId('write-compare')).toHaveTextContent('Я иду домой')
     const args = mockAssess.mock.calls[0][0]
@@ -197,7 +200,7 @@ describe('WritePage', () => {
       legibility: 2, letterform_notes: [{ letter: 'أ', note: 'floating hamza' }],
       confidence: 'low', expected: 'أن', adapt: true, allowance: ALLOWANCE,
     })
-    mockConfirm.mockResolvedValue({ kept: true, samples: 3 })
+    mockConfirm.mockResolvedValue({ kept: true, samples: 3, right: false, misread: [{ wrote: 'أ', read: 'ي' }], readout: { right: 2, wrong: 1, total: 3, letters_to_watch: [], legibility_mean: 3, history: [] } })
     renderPage()
     await screen.findByTestId('write-prompt')
     scribble(screen.getByTestId('ink-canvas'))
@@ -207,8 +210,11 @@ describe('WritePage', () => {
     expect(mockAssess.mock.calls[0][0].strokes.length).toBe(4)
     fireEvent.click(confirm)
     expect(await screen.findByTestId('write-learned')).toHaveTextContent(/3 samples/)
+    // The verdict comes back as a readout and the letters it tripped on.
+    expect(screen.getByTestId('write-accuracy')).toHaveTextContent(/2 of 3/)
+    expect(screen.getByTestId('write-misread')).toHaveTextContent('أ')
     const args = mockConfirm.mock.calls[0][0]
-    expect(args).toMatchObject({ languageId: 'lang-ru', text: 'أن', letters: ['أ'] })
+    expect(args).toMatchObject({ languageId: 'lang-ru', text: 'أن', letters: ['أ'], read: 'ين' })
     expect(args.strokes.length).toBe(4)
     expect(args.image).toBeInstanceOf(Blob)
   })

@@ -81,6 +81,22 @@ export default function HandwritingPanel() {
           />
         </button>
       </div>
+      {adapt && profile.readout.total > 0 && (
+        <p data-testid="hand-accuracy" className="text-sm text-gray-700">
+          {t('settings.hand.accuracy', {
+            right: profile.readout.right, total: profile.readout.total,
+          })}
+          {profile.readout.letters_to_watch.length > 0 && (
+            <>
+              {' '}
+              {t('settings.hand.trips')}{' '}
+              <span className="font-semibold text-gray-900">
+                {profile.readout.letters_to_watch.map((x) => x.letter).join(' ')}
+              </span>
+            </>
+          )}
+        </p>
+      )}
       {adapt && (
         <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
           <p data-testid="hand-kept" className="text-gray-600">

@@ -16,6 +16,7 @@ import asyncpg
 
 from backend.services.auto_translate import table_present
 from backend.services.ink_method import compact, summarize_method
+from backend.services.write_diff import misread_letters, same_text
 
 logger = logging.getLogger("write")
 
@@ -206,7 +207,24 @@ async def hand_profile(conn: asyncpg.Connection, user_id: str,
     stats = _loads(prof["stats"], {}) if prof else {}
     return {"available": True, "adapt": adapt, "habits": habits,
             "stats": stats, "samples": int(counts["n"] if counts else 0),
-            "confirmed": int(counts["c"] if counts else 0)}
+            "confirmed": int(counts["c"] if counts else 0),
+            "readout": readout(stats)}
+
+
+def readout(stats: dict) -> dict:
+    """The accuracy line and the letters to watch, from the stats: how
+    often the reader got this hand right by the writer's own verdict, and
+    which letters it trips on most. Right = the writer said yes, or the
+    read matched the expected text with high confidence; wrong = the
+    writer corrected it. A profile with no verdicts reads 0 of 0."""
+    right = int(stats.get("right", 0))
+    wrong = int(stats.get("wrong", 0))
+    misread = stats.get("misread_letters") or {}
+    watch = sorted(misread.items(), key=lambda kv: (-int(kv[1]), kv[0]))[:5]
+    return {"right": right, "wrong": wrong, "total": right + wrong,
+            "letters_to_watch": [{"letter": k, "count": int(v)} for k, v in watch],
+            "legibility_mean": stats.get("legibility_mean"),
+            "history": stats.get("history") or []}
 
 
 def _loads(value, default):
@@ -299,16 +317,95 @@ async def note_habits(conn: asyncpg.Connection, user_id: str, language_id: str,
     if legibility is not None:
         n = int(stats.get("n", 0))
         mean = float(stats.get("legibility_mean", 0.0))
-        stats = {"n": n + 1,
-                 "legibility_mean": round((mean * n + legibility) / (n + 1), 2)}
+        stats["n"] = n + 1
+        stats["legibility_mean"] = round((mean * n + legibility) / (n + 1), 2)
+        # A short trend for the Progress page: the last thirty checks'
+        # legibility, oldest first.
+        stats["history"] = (list(stats.get("history") or []) + [legibility])[-30:]
+    await _save_profile(conn, user_id, language_id, merged, stats)
+    return merged
+
+
+async def _save_profile(conn, user_id, language_id, habits, stats) -> None:
     await conn.execute(
         """INSERT INTO writing_profiles (user_id, language_id, habits, stats, updated_at)
            VALUES ($1, $2, $3::jsonb, $4::jsonb, now())
            ON CONFLICT (user_id, language_id) DO UPDATE
              SET habits = EXCLUDED.habits, stats = EXCLUDED.stats,
                  updated_at = now()""",
-        user_id, language_id, json.dumps(merged), json.dumps(stats))
-    return merged
+        user_id, language_id, json.dumps(habits), json.dumps(stats))
+
+
+def habit_counts(habits: list[dict], letters: list[str]) -> dict[str, int]:
+    """How many times each of *letters* has been noted before — what lets
+    the Write page say "your д again — third time" instead of discovering
+    it afresh (§11, mechanism 3)."""
+    by = {h.get("letter"): int(h.get("count", 0)) for h in habits if isinstance(h, dict)}
+    return {x: by[x] for x in letters if x in by and by[x] > 1}
+
+
+async def record_verdict(conn: asyncpg.Connection, user_id: str, language_id: str,
+                         *, read: str, wrote: str) -> dict:
+    """The writer's verdict on a reading — the ground truth (§12.1).
+    Same text → the reader was right; different → wrong, and every
+    misread unit counts against the letter the writer actually wrote.
+    Returns {right: bool, misread: [{wrote, read}], readout}."""
+    if not await _hand_tables(conn):
+        return {"right": same_text(read, wrote), "misread": [], "readout": readout({})}
+    row = await conn.fetchrow(
+        "SELECT habits, stats FROM writing_profiles "
+        "WHERE user_id = $1 AND language_id = $2", user_id, language_id)
+    habits = _loads(row["habits"], []) if row else []
+    stats = _loads(row["stats"], {}) if row else {}
+    right = same_text(read, wrote)
+    misread = [] if right else misread_letters(read, wrote)
+    if right:
+        stats["right"] = int(stats.get("right", 0)) + 1
+    else:
+        stats["wrong"] = int(stats.get("wrong", 0)) + 1
+        counts = dict(stats.get("misread_letters") or {})
+        for m in misread:
+            letter = m["wrote"] or m["read"]
+            if letter:
+                counts[letter] = int(counts.get(letter, 0)) + 1
+        # Bounded: the twenty letters it trips on most.
+        stats["misread_letters"] = dict(
+            sorted(counts.items(), key=lambda kv: -kv[1])[:20])
+    await _save_profile(conn, user_id, language_id, habits, stats)
+    return {"right": right, "misread": misread, "readout": readout(stats)}
+
+
+async def admin_hand_accuracy(conn: asyncpg.Connection) -> list[dict]:
+    """Per course: how many writers the reader has a profile for, and how
+    often it gets their hands right by their own verdicts — the staff
+    signal for which scripts the reader is weak on (§12.1). Privileged
+    connection: profiles are own-only under RLS."""
+    if not await table_present(conn, "writing_profiles"):
+        return []
+    rows = await conn.fetch(
+        """SELECT l.code, l.name, count(*) AS writers,
+                  coalesce(sum((p.stats->>'right')::int), 0) AS right,
+                  coalesce(sum((p.stats->>'wrong')::int), 0) AS wrong,
+                  coalesce(avg((p.stats->>'legibility_mean')::float), 0) AS legibility,
+                  json_agg(p.stats->'misread_letters') AS misread
+             FROM writing_profiles p JOIN languages l ON l.id = p.language_id
+            GROUP BY l.code, l.name ORDER BY count(*) DESC, l.name""")
+    out = []
+    for r in rows:
+        totals: dict[str, int] = {}
+        for m in _loads(r["misread"], []) or []:
+            for k, v in (m or {}).items():
+                totals[k] = totals.get(k, 0) + int(v)
+        watch = sorted(totals.items(), key=lambda kv: -kv[1])[:5]
+        right, wrong = int(r["right"]), int(r["wrong"])
+        out.append({
+            "code": r["code"], "language": r["name"], "writers": int(r["writers"]),
+            "right": right, "wrong": wrong,
+            "accuracy": round(right / (right + wrong), 2) if right + wrong else None,
+            "legibility_mean": round(float(r["legibility"]), 2) if r["legibility"] else None,
+            "letters_to_watch": [{"letter": k, "count": v} for k, v in watch],
+        })
+    return out
 
 
 def known_forms(habits: list[dict]) -> list[str]:

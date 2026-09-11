@@ -116,7 +116,9 @@
     "audioPending": "{{language}} için henüz ses yok — bu dil için sentetik bir ses bulunmuyor, bu yüzden konuşanlardan gerçek kayıtlar topluyoruz. Kayıtlar onaylandıkça ses görünecek.",
     "recsTitle": "Seçkileriniz",
     "recsSetUp": "Önerileri aç →",
-    "recsSeeAll": "Tümünü gör →"
+    "recsSeeAll": "Tümünü gör →",
+    "handTitle": "El yazısı",
+    "handLegibility": "Son denetimlerinizin okunaklılığı · ortalama {{mean}} / 5"
   },
   "stages": {
     "beginner": "Başlangıç",
@@ -1165,7 +1167,9 @@
       "resetConfirm": "Okuyucunun {{name}} el yazınız hakkında öğrendiği her şey unutulsun mu?",
       "offConfirm": "Kapatılsın mı? Okuyucunun sakladığı tüm el yazısı örnekleriniz silinecek.",
       "all": "tüm diller",
-      "thisLanguage": "bu dil"
+      "thisLanguage": "bu dil",
+      "accuracy": "Okuyucu el yazınızı {{total}} denemede {{right}} kez doğru okuyor.",
+      "trips": "Takıldığı harfler:"
     },
     "email": {
       "title": "E-posta",
@@ -1757,7 +1761,10 @@
     "spellingCheck": "Yazıma bakmak gerek",
     "isThisIt": "Yazdığınız bu mu?",
     "yesThatsIt": "Evet",
-    "noIWrote": "Hayır, şunu yazdım…"
+    "noIWrote": "Hayır, şunu yazdım…",
+    "accuracy": "Okuyucu el yazınızı {{total}} denemede {{right}} kez doğru okuyor.",
+    "trips": "Takıldığı harfler:",
+    "again": "yine — {{count}}×"
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",

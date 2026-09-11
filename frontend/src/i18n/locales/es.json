@@ -116,7 +116,9 @@
     "audioPending": "Aún no hay audio para {{language}} — no existe una voz sintética para este idioma, así que estamos reuniendo grabaciones reales de hablantes. El audio irá apareciendo a medida que se aprueben los clips.",
     "recsTitle": "Tus recomendaciones",
     "recsSetUp": "Activar las recomendaciones →",
-    "recsSeeAll": "Ver todas →"
+    "recsSeeAll": "Ver todas →",
+    "handTitle": "Escritura a mano",
+    "handLegibility": "Legibilidad de tus últimas revisiones · promedio {{mean}} de 5"
   },
   "stages": {
     "beginner": "Principiante",
@@ -1165,7 +1167,9 @@
       "resetConfirm": "¿Olvidar todo lo que el lector aprendió sobre tu letra en {{name}}?",
       "offConfirm": "¿Desactivar? Se borrarán todas las muestras de tu letra que guardó el lector.",
       "all": "todos los idiomas",
-      "thisLanguage": "este idioma"
+      "thisLanguage": "este idioma",
+      "accuracy": "El lector acierta tu letra {{right}} de {{total}} veces.",
+      "trips": "Letras en las que tropieza:"
     },
     "email": {
       "title": "Correo",
@@ -1757,7 +1761,10 @@
     "spellingCheck": "La ortografía necesita revisión",
     "isThisIt": "¿Es esto lo que escribiste?",
     "yesThatsIt": "Sí",
-    "noIWrote": "No, escribí…"
+    "noIWrote": "No, escribí…",
+    "accuracy": "El lector acierta tu letra {{right}} de {{total}} veces.",
+    "trips": "Letras en las que tropieza:",
+    "again": "otra vez — {{count}}×"
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",

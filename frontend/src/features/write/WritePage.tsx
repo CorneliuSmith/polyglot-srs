@@ -10,7 +10,7 @@ import {
   getWriteStatus,
 } from '../../api/write'
 import type { TutorAllowance } from '../../api/tutor'
-import type { WriteAssessment, WriteKind, WriteStyle } from '../../api/write'
+import type { ConfirmResult, WriteAssessment, WriteKind, WriteStyle } from '../../api/write'
 import { getLanguages } from '../../api/profile'
 import { usePrefsStore } from '../../stores/prefsStore'
 import AiDisclaimer from '../../components/AiDisclaimer'
@@ -83,7 +83,7 @@ export default function WritePage() {
   // "I wrote this": the reader's reading, editable, and what happened when
   // the writer confirmed it.
   const [reading, setReading] = useState('')
-  const [learned, setLearned] = useState<number | null>(null)
+  const [learned, setLearned] = useState<ConfirmResult | null>(null)
   // Free writing: "is this what you wrote?" — No opens the reading to edit.
   const [editing, setEditing] = useState(false)
 
@@ -158,10 +158,11 @@ export default function WritePage() {
         text: reading.trim(),
         letters: (result?.letterform_notes ?? []).map((n) => n.letter).filter(Boolean),
         strokes: compactStrokes(strokes),
+        read: result?.transcription ?? '',
       })
     },
     onSuccess: (data) => {
-      setLearned(data.kept ? data.samples : -1)
+      setLearned(data)
     },
     onError: () => {
       setError(t('write.confirmFailed'))
@@ -371,9 +372,26 @@ export default function WritePage() {
               (!result.matches_target || result.confidence === 'low' || !result.expected) && (
               <div data-testid="write-confirm-box" className="space-y-2 border-t border-gray-100 pt-3">
                 {learned !== null ? (
-                  <p data-testid="write-learned" className="text-sm text-green-800">
-                    {learned < 0 ? t('write.adaptOff') : t('write.learned', { count: learned })}
-                  </p>
+                  <div className="space-y-1 text-sm">
+                    <p data-testid="write-learned" className="text-green-800">
+                      {!learned.kept ? t('write.adaptOff') : t('write.learned', { count: learned.samples })}
+                    </p>
+                    {learned.readout && learned.readout.total > 0 && (
+                      <p data-testid="write-accuracy" className="text-gray-700">
+                        {t('write.accuracy', { right: learned.readout.right, total: learned.readout.total })}
+                      </p>
+                    )}
+                    {learned.misread && learned.misread.length > 0 && (
+                      <p data-testid="write-misread" className="text-gray-700">
+                        {t('write.trips')}{' '}
+                        <LanguageWrapper languageCode={code ?? 'en'} inline>
+                          <span className="font-semibold text-gray-900">
+                            {learned.misread.map((m) => m.wrote || m.read).filter(Boolean).join(' ')}
+                          </span>
+                        </LanguageWrapper>
+                      </p>
+                    )}
+                  </div>
                 ) : !result.expected && !editing ? (
                   // The writer's verdict on the reading — the one signal
                   // the reader cannot produce itself.
@@ -575,6 +593,11 @@ function ResultPanel({
                   </LanguageWrapper>
                 )}
                 {n.note}
+                {n.letter && result.again?.[n.letter] && (
+                  <span data-testid="write-again" className="ms-1 text-xs text-amber-700">
+                    {t('write.again', { count: result.again[n.letter] + 1 })}
+                  </span>
+                )}
               </li>
             ))}
           </ul>

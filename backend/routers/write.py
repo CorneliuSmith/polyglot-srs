@@ -30,11 +30,13 @@ from backend.repositories.profile import effective_support_locale
 from backend.repositories.tutor import log_tutor_usage
 from backend.repositories.write import (
     adapt_enabled,
+    habit_counts,
     hand_profile,
     keep_sample,
     known_forms,
     note_habits,
     record_attempt,
+    record_verdict,
     reference_samples,
     reset_hand,
     sentence_prompts,
@@ -176,8 +178,9 @@ async def assess(
         adapt = await adapt_enabled(conn, user["id"])
         references = (await reference_samples(conn, user["id"], language_id)
                       if adapt else [])
-        known = (known_forms((await hand_profile(conn, user["id"], language_id))["habits"])
-                 if adapt else [])
+        habits = ((await hand_profile(conn, user["id"], language_id))["habits"]
+                  if adapt else [])
+        known = known_forms(habits)
 
     allowance = await _get_allowance(user["id"], language_id)
     _reject_if_unavailable(allowance)
@@ -220,11 +223,16 @@ async def assess(
             conn, user["id"], language_id, model, usage=usage, kind="write",
         )
         await record_attempt(conn, user["id"], language_id, kind, expected, result)
+        again: dict[str, int] = {}
         if adapt:
+            # "Your д again — third time": how often each noted letter
+            # has been noted before, read BEFORE this check adds to it.
+            again = habit_counts(habits, [n["letter"] for n in result["letterform_notes"]])
             # The reader's notes count against their letters (a habit is a
             # note that keeps coming back); a read the reader was sure of
             # and that matched is worth keeping as a sample even before the
-            # writer confirms anything — a low-confidence read never is.
+            # writer confirms anything — a low-confidence read never is,
+            # and a sure match also counts as a right read (§12.1).
             await note_habits(conn, user["id"], language_id,
                               result["letterform_notes"], confirmed_ok=False,
                               legibility=result["legibility"])
@@ -232,12 +240,15 @@ async def assess(
                     and result["confidence"] == "high"):
                 await keep_sample(conn, user["id"], language_id, expected,
                                   data, confirmed=False, strokes=stroke_data)
+                await record_verdict(conn, user["id"], language_id,
+                                     read=result["transcription"], wrote=expected)
 
     used_after = None if allowance["unlimited"] else (allowance["used"] or 0) + 1
     return {
         **result,
         "expected": expected,
         "adapt": adapt,
+        "again": again,
         "allowance": {
             **allowance,
             "used": used_after,
@@ -256,12 +267,15 @@ async def confirm(
     text: str = Form(...),
     letters: str | None = Form(default=None),
     strokes: str | None = Form(default=None),
+    read: str | None = Form(default=None),
     user: dict = Depends(get_current_user),
 ):
     """"I wrote this": the writer's own word over the reader's. The canvas
-    becomes a confirmed sample of their hand, and the letters the reader
-    had flagged are marked known-fine, so it stops flagging them. Costs
-    nothing — no model call — and does nothing with the toggle off."""
+    becomes a confirmed sample of their hand, the letters the reader had
+    flagged are marked known-fine, and — with *read*, what the reader had
+    said — the verdict is recorded: right if the texts agree, otherwise
+    wrong with every misread letter counted (§12.1). Costs nothing — no
+    model call — and does nothing with the toggle off."""
     text = (text or "").strip()
     if not text or len(text) > MAX_EXPECTED_CHARS:
         raise HTTPException(status_code=422, detail="Say what you wrote")
@@ -281,7 +295,12 @@ async def confirm(
             await note_habits(
                 conn, user["id"], language_id,
                 [{"letter": x, "note": ""} for x in flagged], confirmed_ok=True)
-    return {"kept": True, "samples": kept}
+        verdict = (await record_verdict(conn, user["id"], language_id,
+                                        read=read, wrote=text)
+                   if read is not None else None)
+    return {"kept": True, "samples": kept,
+            **({"right": verdict["right"], "misread": verdict["misread"],
+                "readout": verdict["readout"]} if verdict else {})}
 
 
 class AdaptRequest(BaseModel):

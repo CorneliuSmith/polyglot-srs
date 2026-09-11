@@ -712,6 +712,25 @@ a low-confidence read, or free writing with no expected text (where the
 reading is editable). With the toggle off, or before the migration, every
 call is exactly the Phase 1 call and nothing is kept.
 
+**The writer's verdict is the ground truth** (§12.1). A confirmation
+carries what the reader had said (`read`); the server aligns it with
+what the writer says they wrote (`services/write_diff.py`: letters with
+their combining marks as one unit, `difflib` alignment, so "й read as и"
+is one misread and a hamza-less alif is one, not a missing mark) and
+records *right* or *wrong* with every misread letter counted against the
+letter actually written. A sure, matching Check counts as right on its
+own. From those counts come the **readout** — "the reader gets your hand
+right N of M times" and the five letters it trips on — shown on the Write
+page after a confirmation, in Account under the toggle, and on the
+Progress page with a legibility strip of the last checks
+(`writing_profiles.stats.history`). Habits are counted back too: a
+letter the reader has noted before is marked "again — 3×" in the notes,
+so a habit reads as a habit and not as a fresh discovery. Staff see the
+same per course — writers, right, wrong, accuracy, mean legibility,
+letters to watch — in Workspace → Insights (`GET
+/api/contribute/analytics/handwriting`), which is the signal for which
+scripts the reader is weak on before anyone complains.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of
