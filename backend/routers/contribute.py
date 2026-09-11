@@ -2170,6 +2170,19 @@ async def analytics_features(
                 "features": await admin_feature_popularity(conn, days)}
 
 
+@router.get("/analytics/handwriting")
+async def analytics_handwriting(user: dict = Depends(get_current_user)):
+    """The handwriting reader per course (admin): writers with a profile,
+    right and wrong reads by the writers' own verdicts, mean legibility,
+    and the letters it trips on — where the reader is weak before anyone
+    complains (docs/plans/handwriting.md, §12.1)."""
+    await _require_admin(user["id"])
+    from backend.repositories.write import admin_hand_accuracy
+
+    async with privileged_connection() as conn:
+        return {"languages": await admin_hand_accuracy(conn)}
+
+
 @router.get("/engagement/users/{user_id}")
 async def engagement_user_detail(
     user_id: str,

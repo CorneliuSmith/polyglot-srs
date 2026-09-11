@@ -681,6 +681,86 @@ because it needs no authored content. Three parts, deliberately separate:
   20261018, probed) and **the ink never is** — the same rule as Speak's
   audio.
 
+**The reader learns the writer's hand** (§11 of the plan; migration
+20261019, probed). Three things, all the learner's own and all deleted by
+the Account toggle *Adapt to my handwriting* or its Reset:
+
+- **Samples** (`writing_samples`) — up to twelve per language of the
+  writer's own canvases: the PNG, the text it reads, and *how it was
+  made*: the strokes, compacted to ≤ 64 integer `[x, y, t]` points each,
+  and a method summary (`services/ink_method.py`: stroke count, lifts,
+  joined runs, dominant direction, right-to-left, duration, speed). A
+  sample is kept when the writer **confirms** a reading (`POST
+  /api/write/confirm`, free — no model call), or when the reader was sure
+  and right; never from a low-confidence read, which would teach the
+  wrong hand. Up to three ride along with every Check as reference images
+  ("this writer's own hand, confirmed; it reads X; written in 3 strokes
+  with the pen lifted…"), confirmed first.
+- **Habits** (`writing_profiles.habits`) — per letter: the reader's last
+  note, how often it recurred, and whether the writer confirmed the form
+  legible. Confirmed forms are passed to the reader as *known — do not
+  flag*; the rest are the material for the recurring-note count and the
+  Progress trend (Phase B).
+- **The method told to the reader** — the current canvas's own method
+  line goes into the request as fact ("written in 4 strokes, pen lifted
+  between strokes, mostly running down, over 2.1 s"), because a hamza
+  drawn as its own stroke or an alif drawn bottom-to-top is something the
+  picture can only guess at.
+
+The confirm button appears only when the reader could be wrong — a miss,
+a low-confidence read, or free writing with no expected text (where the
+reading is editable). With the toggle off, or before the migration, every
+call is exactly the Phase 1 call and nothing is kept.
+
+**The writer's verdict is the ground truth** (§12.1). A confirmation
+carries what the reader had said (`read`); the server aligns it with
+what the writer says they wrote (`services/write_diff.py`: letters with
+their combining marks as one unit, `difflib` alignment, so "й read as и"
+is one misread and a hamza-less alif is one, not a missing mark) and
+records *right* or *wrong* with every misread letter counted against the
+letter actually written. A sure, matching Check counts as right on its
+own. From those counts come the **readout** — "the reader gets your hand
+right N of M times" and the five letters it trips on — shown on the Write
+page after a confirmation, in Account under the toggle, and on the
+Progress page with a legibility strip of the last checks
+(`writing_profiles.stats.history`). Habits are counted back too: a
+letter the reader has noted before is marked "again — 3×" in the notes,
+so a habit reads as a habit and not as a fresh discovery. Staff see the
+same per course — writers, right, wrong, accuracy, mean legibility,
+letters to watch — in Workspace → Insights (`GET
+/api/contribute/analytics/handwriting`), which is the signal for which
+scripts the reader is weak on before anyone complains.
+
+**The baseline session** (§12.2; `services/write_coverage.py`,
+`GET /api/write/baseline`, `POST /api/write/baseline/done`). "Set up my
+hand" — offered on Write and from Account — asks for eight short lines,
+each written in the writer's usual hand and confirmed as such; the eight
+land as confirmed samples marked `source = 'baseline'`, preferred as
+references and replaced by a redo. The lines are a greedy set cover over
+the course's served A1/A2 sentences against the script's *coverage
+units*: a letter (case-folded for Cyrillic and Greek, so Ф covers ф);
+for Arabic and Persian a letter **and its positional form**, decided by
+whether the neighbours join (the six right-joining-only letters and the
+hamza forms take no initial or medial); for Hangul the jamo of each
+block, keyed by letter name so a final ㄴ and an initial ㄴ are one
+unit; for a Latin-script course, whatever letters its own pool uses. A
+speaker-reviewed exemplar set (§5) will replace the greedy pick per
+script when it exists. One baseline per language per day, so it cannot
+become unlimited spend; the end stamps `stats.baseline_at` and the
+coverage reached, the zero point for the Progress trend and for the
+personal neatness of Phase D.
+
+**Personal neatness** (§12 D). The panel's four verdicts are absolute
+until a baseline exists; after one they are *relative*: `neatness.ts`
+exposes the raw measures (drift, wobble, size and spacing coefficients
+of variation, slant spread), the baseline session averages the confirmed
+lines' measures into the writer's *usual* (`stats.baseline_neatness`,
+stored by `POST /api/write/baseline/done`), and `neatnessRelative` grades
+each session as a ratio of that usual — within 15 % is "as your usual",
+up to half again "below your usual", past that "well below". Each ratio
+has a floor so a very tidy baseline does not turn ordinary wobble into a
+collapse. The panel says which yardstick it is using.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of

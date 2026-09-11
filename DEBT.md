@@ -398,6 +398,26 @@ reader of the plan would expect to find built, and will not:
   the text, and "legible" its judgement as a reader. The form / order /
   direction check per letter needs the script's authored templates
   (Phase 2–4). The neatness panel is the exact, on-device half until then.
+  The writer's own strokes ARE kept with each sample now (§11, Phase A),
+  so the material for a personal tolerance exists before the matcher does.
+- **The accuracy readout counts only what the writer confirms — plus
+  sure matches.** A Check on expected text that the reader was sure of
+  and got right counts as *right*; a Check the writer never confirms and
+  the reader got wrong counts as nothing. So the number leans favourable
+  until the writer presses *No* on misreads — or runs the baseline, whose
+  eight confirmed readings give the readout a fair denominator from the
+  start.
+- **The baseline's lines are a greedy pick, not an authored set.** Until
+  a script has speaker-reviewed exemplar sentences (§5), the eight lines
+  come from the course's A1/A2 sentences by set cover; on a small course
+  they may show well under the script's forms (the summary says how
+  many of how many). The pick is deterministic for a given pool, so a
+  redo on the same day would be the same lines — which is why redo is
+  once a day, and why the authored set is the real fix.
+- **Ink retention is now conditional, not absent.** With *Adapt to my
+  handwriting* on (the default), up to twelve canvases per language are
+  kept as the writer's samples; the switch and its Reset delete them.
+  The earlier "the ink is never stored" is true of the attempt log only.
 - **No handwriting face for Hebrew or Greek.** `handFont.ts` maps each
   script to a Google Fonts handwriting family (Caveat for Latin and
   Cyrillic, Aref Ruqaa for Arabic and Persian, Kalam, Nanum Pen Script,

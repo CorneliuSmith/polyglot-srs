@@ -23,10 +23,12 @@ from __future__ import annotations
 
 import base64
 import logging
+import re
 
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.ink_method import method_line
 
 logger = logging.getLogger("write")
 
@@ -75,8 +77,16 @@ def _assess_tool(explain_in: str) -> dict:
                 "items": {
                     "type": "object",
                     "properties": {
-                        "expected": {"type": "string"},
-                        "written": {"type": "string"},
+                        "expected": {"type": "string",
+                                     "description": "The expected word, exactly."},
+                        "written": {
+                            "type": "string",
+                            "description": (
+                                "Exactly the letters you read for that word — "
+                                "never a qualifier like '(approx)', never a "
+                                "description."
+                            ),
+                        },
                         "note": {
                             "type": "string",
                             "description": f"One short line, written in {explain_in}.",
@@ -129,8 +139,13 @@ def _assess_tool(explain_in: str) -> dict:
 
 
 def _system_prompt(language_name: str, support_language: str | None,
-                   style: str | None) -> str:
+                   style: str | None, known: list[str] = ()) -> str:
     explain_in = support_language or "English"
+    known_line = (
+        "\n\nKnown forms of THIS writer, confirmed legible by them — read "
+        "them as written and do not flag them as ambiguous or as faults: "
+        + "; ".join(known) + "."
+    ) if known else ""
     style_line = {
         "cursive": (
             f" The learner is writing {language_name} in joined cursive "
@@ -153,7 +168,10 @@ def _system_prompt(language_name: str, support_language: str | None,
         f"letterforms that would cost a reader something, with what to "
         f"change. Write every note in {explain_in}, short and plain. Judge "
         f"the hand, not the person; a wobbly line is not a fault if the "
-        f"letter is unambiguous."
+        f"letter is unambiguous. When reference samples of this writer's own "
+        f"hand are shown before the canvas, use them: the same person wrote "
+        f"the canvas, and a letter shaped as in the references is that "
+        f"letter.{known_line}"
     )
 
 
@@ -165,6 +183,18 @@ def _usage(response) -> dict[str, int]:
         "cache_write_tokens": getattr(usage, "cache_creation_input_tokens", 0) or 0,
         "cache_read_tokens": getattr(usage, "cache_read_input_tokens", 0) or 0,
     }
+
+
+_QUALIFIER = re.compile(r"\([^)]*\)|\[[^\]]*\]")
+
+
+def _bare(value) -> str:
+    """A diff word with the model's asides removed: '(approx) ين' is 'ين'.
+    A word that is nothing BUT an aside stays as it was, rather than
+    becoming an empty cell."""
+    text = str(value or "").strip()
+    stripped = _QUALIFIER.sub("", text).strip()
+    return stripped or text
 
 
 def normalize_assessment(raw: dict) -> dict:
@@ -182,8 +212,8 @@ def normalize_assessment(raw: dict) -> dict:
     if confidence not in CONFIDENCE:
         confidence = "low"
     diffs = [
-        {"expected": str(d.get("expected") or "").strip(),
-         "written": str(d.get("written") or "").strip(),
+        {"expected": _bare(d.get("expected")),
+         "written": _bare(d.get("written")),
          "note": str(d.get("note") or "").strip()}
         for d in (raw.get("word_diffs") or []) if isinstance(d, dict)
     ][:12]
@@ -234,8 +264,17 @@ async def assess_handwriting(
     support_language: str | None = None,
     style: str | None = None,
     model: str | None = None,
+    references: list[dict] = (),
+    known: list[str] = (),
+    method: dict | None = None,
 ) -> tuple[dict, dict[str, int]]:
-    """Read one canvas. Returns (assessment, token counts)."""
+    """Read one canvas. Returns (assessment, token counts).
+
+    *references* are the writer's own kept samples — {text, image, method}
+    — shown before the canvas so the reader learns this hand; *known* are
+    the forms the writer has confirmed legible, which the reader is told
+    not to flag; *method* is how THIS canvas was made (ink_method), stated
+    to the reader as fact (docs/plans/handwriting.md, §11)."""
     settings = get_settings()
     model = model or settings.tutor_model
     if getattr(settings, "tutor_dev_mock", False):
@@ -249,20 +288,36 @@ async def assess_handwriting(
         else "No expected text: the learner wrote freely. Transcribe it and "
              "judge its spelling and grammar as well as the handwriting."
     )
+    content: list[dict] = []
+    for ref in references:
+        content.append({
+            "type": "image",
+            "source": {"type": "base64", "media_type": "image/png",
+                       "data": base64.b64encode(ref["image"]).decode("ascii")},
+        })
+        how = method_line(ref.get("method") or {})
+        content.append({
+            "type": "text",
+            "text": f"Reference: this writer's own hand, confirmed. It reads: {ref['text']}"
+                    + (f" ({how})" if how else ""),
+        })
+    content.append({
+        "type": "image",
+        "source": {"type": "base64", "media_type": "image/png",
+                   "data": base64.b64encode(image_png).decode("ascii")},
+    })
+    how = method_line(method or {})
+    content.append({
+        "type": "text",
+        "text": ("Now the canvas to assess. " if references else "")
+                + (f"How it was made: {how} " if how else "") + ask,
+    })
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
     response = await client.messages.create(
         model=model,
         max_tokens=700,
-        system=_system_prompt(language_name, support_language, style),
-        messages=[{
-            "role": "user",
-            "content": [
-                {"type": "image",
-                 "source": {"type": "base64", "media_type": "image/png",
-                            "data": base64.b64encode(image_png).decode("ascii")}},
-                {"type": "text", "text": ask},
-            ],
-        }],
+        system=_system_prompt(language_name, support_language, style, list(known)),
+        messages=[{"role": "user", "content": content}],
         tools=[_assess_tool(support_language or "English")],
         tool_choice={"type": "tool", "name": "emit_assessment"},
     )

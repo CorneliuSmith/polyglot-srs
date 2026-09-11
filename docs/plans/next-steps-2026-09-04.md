@@ -100,5 +100,20 @@ items are built on request, in a session.
   confirmed writing ride along with each Check; a confirm button turns a
   misread into a lesson; a per-language hand profile stops the reader
   repeating the same note; an Account toggle ("Adapt to my handwriting",
-  on by default) and a Reset delete everything it kept. Phase A first.
+  on by default) and a Reset delete everything it kept. **Phase A built
+  11 Sep 2026** (migration 20261019 to push), with the method of each
+  sample — strokes, lifts, direction, speed — kept and told to the reader.
+  Phase B (habits counted back, Progress trend) next.
+
+- [ ] **16. The writer's verdict and a baseline** (planned 11 Sep 2026,
+  `docs/plans/handwriting.md` §12). Free mode asks "Is this what you
+  wrote?" instead of badging "Correct" (built). Misread records, the
+  accuracy readout per language ("the reader gets your hand right N of
+  M"; letters it trips on; "again — 3×" on repeated notes; Progress
+  strip; per-course aggregate in Workspace → Insights) — **built 11 Sep
+  2026**. The **baseline session** — **built 11 Sep 2026** (Write → "Set
+  up my hand", Account → same), and with it **personal neatness** — the
+  panel judges against your own baseline once you have one — eight prompts covering every letter in every
+  form, each confirmed by the writer, so the reader has the hand in one
+  sitting and the Progress trend has a zero point.
 

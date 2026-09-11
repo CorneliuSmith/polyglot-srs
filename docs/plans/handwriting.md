@@ -623,8 +623,9 @@ ever kept, and it is the learner's to remove.
   confirmed_ok, last_seen}]`, `stats` jsonb (running legibility mean and
   count), `updated_at`. Own-only RLS.
 - `writing_samples` — `id`, `user_id`, `language_id`, `text`, `image`
-  (PNG, capped at ~60 KB — the export is small), `confirmed` boolean,
-  `created_at`. **Rolling cap of twelve per language**, preferring
+  (PNG, capped at ~60 KB — the export is small), `strokes` (the compacted
+  `[x, y, t]` strokes — the method, not only the shape), `method` (its
+  summary), `confirmed` boolean, `created_at`. **Rolling cap of twelve per language**, preferring
   confirmed samples and letter diversity (a sample whose text covers
   letters no kept sample has beats a duplicate). Own-only RLS; deleted
   with the toggle and by Reset.
@@ -652,8 +653,102 @@ With `adapt` off, or on a fresh profile, the call is exactly today's.
 
 | | What lands | Size |
 |---|---|---|
-| A | Confirm button on a misread → confirmed sample + habit; `writing_profiles`, `writing_samples`, the Account toggle and Reset; samples ride along on Check. | ~1 week |
+| A | **Built 11 Sep 2026.** Confirm button on a misread → confirmed sample + habit; `writing_settings`, `writing_profiles`, `writing_samples` (migration 20261019); the Account toggle and Reset; samples ride along on Check — with the **method** of each sample (strokes, lifts, direction, speed; `services/ink_method.py`) kept and told to the reader, on the owner's ask that how one writes be captured, not only what. | ~1 week |
 | B | Habits into the prompt (known-fine forms not flagged; recurring ones counted); Progress page legibility trend. | 2–3 days |
 | C | Personal neatness baselines. | 1–2 days |
 | D | Adaptive tolerance in the stroke matcher — with Phase 4 of the main plan. | with Phase 4 |
+
+---
+
+## 12. The writer's verdict, and a baseline (planned 11 Sep 2026, owner ask)
+
+Two facts the second day of use made plain. In **Free** mode the reader
+badged "Correct" — which was the reader grading the spelling of its *own*
+reading; nobody but the writer knows what was written, so a verdict there
+is meaningless until the writer gives one. And a reader that learns a hand
+one Check at a time takes weeks to become useful; a writer should be able
+to hand it their hand in one sitting.
+
+### 12.1 The writer's verdict is the ground truth
+
+- **Free mode never claims "correct".** It shows what it read, a spelling
+  line about that reading, and asks **"Is this what you wrote?"** — *Yes*
+  confirms the reading as it stands; *No — I wrote…* opens it to edit and
+  confirm. (Built with Phase A, 11 Sep.)
+- **Every Yes / No is a labelled example**, and the label is the only
+  ground truth the whole adaptation has. *Yes* → a confirmed sample and
+  the flagged forms marked known-fine. *No + correction* → a confirmed
+  sample of the corrected text, and — the new part — a **misread record**:
+  which letters the reader got wrong in this hand, from the diff between
+  its reading and the writer's text, aligned letter by letter.
+- **An accuracy readout, per language**: "the reader gets your hand right
+  *N* of *M* times" and "letters it trips on: أ ن". Shown in Account under
+  the toggle and, briefly, on the Write page after a confirmation. It is
+  what tells the writer the adaptation is real, and tells the owner, in
+  aggregate per script (Workspace → Insights), where the reader is weak
+  before anyone complains.
+
+### 12.2 Baseline: hand the reader your hand in one sitting
+
+**Write → "Set up my hand"** (also from Account, beside the toggle; and
+*Redo my baseline* after a deliberate change of hand):
+
+```
+   Set up my hand · Arabic                     3 of 8
+ ┌─────────────────────────────────────────────────┐
+ │  Write:  أنا أحب البيت الكبير                    │
+ │  (in your usual hand — this is not a test)      │
+ │                                                 │
+ │             (canvas)                            │
+ └─────────────────────────────────────────────────┘
+   Read as:  أنا أحب البيت الكبير    Is this what you wrote?  [Yes] [No…]
+```
+
+- **Eight short prompts per script**, chosen so that between them every
+  letter appears in every form it takes — the Arabic positional forms, the
+  Russian cursive lower- and upper-case, the Hebrew cursive alphabet, the
+  Hangul jamo across the block patterns, the Devanagari vowel signs. This
+  is the **same content as §5's exemplar sentences**: a coverage set the
+  Strokes panel can propose from the alphabet, reviewed by a speaker. One
+  set per script serves both the Learn models and the baseline.
+- Each prompt is written, read, and **confirmed by the writer** (Yes /
+  No…). Eight confirmed samples with their method land at once; the reader
+  has the hand from the next Check. Legibility and neatness on the
+  baseline are *recorded, not judged*: this is the writer's normal, the
+  yardstick for Phase C's personal neatness ("steadier than your usual")
+  and the zero point of the Progress trend.
+- **Letters to watch.** The baseline's misread records produce, on the
+  spot, the list of letters the reader could not read in this hand — and
+  that is also, honestly, the list a stranger might struggle with. Shown
+  once at the end; kept in the profile.
+- Free of charge in AI terms beyond eight Checks; capped at one baseline
+  per language per day so it cannot be used as unlimited spend.
+
+### 12.3 Data
+
+- `writing_profiles.stats` gains `checks`, `confirmed_right`,
+  `confirmed_wrong`, `misread_letters` (letter → count),
+  `baseline_at`, and the baseline's neatness measures.
+- `writing_samples.source` — `check | confirm | baseline`, so baseline
+  samples can be preferred as references and replaced by *Redo*.
+- `script_coverage_sets` — or simply the exemplar rows of §5 tagged
+  `baseline_order`; no new table if §5's `script_exemplars` lands first.
+  Until a script has a reviewed set, the baseline uses the course's own
+  A1 sentences chosen greedily for letter coverage — worse, but never
+  absent.
+
+### 12.4 Phases
+
+| | What lands | Size |
+|---|---|---|
+| A′ | Free mode asks the writer; Yes / No…; no false "Correct". **Built 11 Sep.** | — |
+| B | **Built 11 Sep 2026.** Misread records from No + correction (letter-level diff, `services/write_diff.py`); accuracy readout and letters-to-watch on Write after a confirmation, in Account, and on Progress with a legibility strip; per-course aggregate in Workspace → Insights. | 3–4 days |
+| C | **Built 11 Sep 2026.** The baseline session: coverage units per script (`services/write_coverage.py` — letters, Arabic positional forms, Hangul jamo by name), greedy pick from the course's A1/A2 lines (§5 exemplars when reviewed), the eight-line flow with "Yes — that's my hand" / skip, the summary (right of eight, coverage, letters to watch), *Redo* once a day, `writing_samples.source = 'baseline'` preferred as references, `stats.baseline_at`. | ~1 week |
+| D | **Built 11 Sep 2026.** Personal neatness: raw measures averaged over the baseline's confirmed lines into the writer's usual; later sessions graded as ratios of it ("as your usual" / "below" / "well below"), with floors; the panel names the yardstick. | 1–2 days |
+| E | **Built 11 Sep 2026 with B.** Habits counted back ("again — 3×" on a repeated note); the Progress card's legibility strip. | 2–3 days |
+
+The order is deliberate: B first because the accuracy number is what
+proves the adaptation to the writer and what tells the owner whether the
+reader is good enough per script to keep building on; C second because
+the coverage sets are content, and content takes the longest to arrive.
 

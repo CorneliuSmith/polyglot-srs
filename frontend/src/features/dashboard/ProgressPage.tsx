@@ -7,6 +7,7 @@ import { CARD_COLUMNS, PAGE_WIDE } from '../../lib/layout'
 import ActivityChart from './ActivityChart'
 import CEFRProgress from './CEFRProgress'
 import ForecastStrip from './ForecastStrip'
+import HandwritingCard from './HandwritingCard'
 import ProfileCard from './ProfileCard'
 import StageTiles from './StageTiles'
 
@@ -95,6 +96,7 @@ export default function ProgressPage() {
             )}
             {hasStages && <StageTiles stages={stats.stages} />}
             {hasCefr && <CEFRProgress progress={stats.cefr_progress} />}
+            {activeLanguageId && <HandwritingCard languageId={activeLanguageId} />}
           </div>
         )}
       </div>

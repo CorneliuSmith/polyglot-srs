@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import {
   getAnalyticsCohorts,
   getAnalyticsTimeseries,
+  getAnalyticsHandwriting,
 } from '../../api/contribute'
 import type { AnalyticsDay } from '../../api/contribute'
 
@@ -66,6 +67,11 @@ export default function AnalyticsPanel() {
   const { data: cohorts } = useQuery({
     queryKey: ['analytics-cohorts'],
     queryFn: getAnalyticsCohorts,
+    retry: false,
+  })
+  const { data: handwriting } = useQuery({
+    queryKey: ['analytics-handwriting'],
+    queryFn: getAnalyticsHandwriting,
     retry: false,
   })
   if (!series) return null
@@ -168,6 +174,47 @@ export default function AnalyticsPanel() {
             w0 is the signup week itself; future weeks read 0% until they
             happen.
           </p>
+        </div>
+      )}
+      {handwriting && handwriting.length > 0 && (
+        <div className="mt-5" data-testid="analytics-handwriting">
+          <h3 className="text-xs uppercase tracking-wide text-gray-500 mb-1">
+            Handwriting reader · by the writers' own verdicts
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs whitespace-nowrap">
+              <thead>
+                <tr className="text-gray-500 uppercase tracking-wide text-[10px]">
+                  <th className="py-1 pe-2 text-start">Course</th>
+                  <th className="py-1 pe-2 text-end">Writers</th>
+                  <th className="py-1 pe-2 text-end">Right</th>
+                  <th className="py-1 pe-2 text-end">Wrong</th>
+                  <th className="py-1 pe-2 text-end">Accuracy</th>
+                  <th className="py-1 pe-2 text-end">Legibility</th>
+                  <th className="py-1 text-start">Trips on</th>
+                </tr>
+              </thead>
+              <tbody>
+                {handwriting.map((h) => (
+                  <tr key={h.code} className="border-t border-gray-50">
+                    <td className="py-1 pe-2">{h.language}</td>
+                    <td className="py-1 pe-2 text-end">{h.writers}</td>
+                    <td className="py-1 pe-2 text-end">{h.right}</td>
+                    <td className="py-1 pe-2 text-end">{h.wrong}</td>
+                    <td className="py-1 pe-2 text-end">
+                      {h.accuracy == null ? '—' : `${Math.round(h.accuracy * 100)}%`}
+                    </td>
+                    <td className="py-1 pe-2 text-end">
+                      {h.legibility_mean == null ? '—' : h.legibility_mean.toFixed(1)}
+                    </td>
+                    <td className="py-1">
+                      {h.letters_to_watch.map((x) => `${x.letter} ×${x.count}`).join('  ') || '—'}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>

@@ -6,6 +6,7 @@ import AnalyticsPanel from '../features/contribute/AnalyticsPanel'
 vi.mock('../api/contribute', () => ({
   getAnalyticsTimeseries: vi.fn(),
   getAnalyticsCohorts: vi.fn(),
+  getAnalyticsHandwriting: vi.fn().mockResolvedValue([]),
 }))
 import {
   getAnalyticsTimeseries,

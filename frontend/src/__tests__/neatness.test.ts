@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { clusterStrokes, neatness } from '../features/write/neatness'
+import { averageMeasures, clusterStrokes, measures, neatness, neatnessRelative } from '../features/write/neatness'
 import { hasInk } from '../features/write/ink'
 import type { Stroke } from '../features/write/ink'
 
@@ -81,4 +81,28 @@ describe('neatness', () => {
     expect(hasInk([[{ x: 5, y: 5 }, { x: 6, y: 6 }]])).toBe(false)
     expect(hasInk([bar(10, 10, 40)])).toBe(true)
   })
+
+  it('judges against the writer\'s own usual once there is one', () => {
+    const tidy = measures(neatRow())!
+    // The same hand, a little slopier than its usual: a tolerant "as usual"
+    // on baseline, "below usual" on the sloping line.
+    const sloping = Array.from({ length: 6 }, (_, i) => bar(20 + i * 30, 100 + i * 3, 40))
+    const r = neatnessRelative(sloping, tidy)
+    expect(r.relative).toBe(true)
+    expect(r.size).toBe('good')
+    expect(['ok', 'poor']).toContain(r.baseline)
+    // A usual that is itself slopy makes the same line "as usual".
+    const usualSlopy = measures(sloping)!
+    expect(neatnessRelative(sloping, usualSlopy).baseline).toBe('good')
+  })
+
+  it('averages several lines into one usual, skipping what a line could not measure', () => {
+    const a = { drift: 0.02, wobble: 0.1, sizeCv: 0.2, slantSd: null, spacingCv: 0.3, clusters: 6 }
+    const b = { drift: 0.04, wobble: 0.3, sizeCv: 0.4, slantSd: 6, spacingCv: null, clusters: 8 }
+    expect(averageMeasures([a, b])).toEqual({
+      drift: 0.03, wobble: 0.2, sizeCv: 0.3, slantSd: 6, spacingCv: 0.3, clusters: 7,
+    })
+    expect(averageMeasures([])).toBeNull()
+  })
 })
+
