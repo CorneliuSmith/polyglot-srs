@@ -81,3 +81,12 @@ items are built on request, in a session.
   not 3,786; delivery is `refeed.md` step 4). One language at a time,
   French first, ko after its dedupe. *Agent builds the export/apply
   script and runs the passes in-session; the owner reseeds.*
+
+- [ ] **14. Write — handwriting practice** (planned 11 Sep 2026,
+  `docs/plans/handwriting.md`). Letter-by-letter guided writing, then
+  joined words, then translate-and-write sentences assessed by a vision
+  model on the AI allowance; in Practice beside Speak. Feasible for every
+  course; the strokes are speaker-authored content (a Workshop panel), and
+  Phase 0 is a spike of the Russian cursive matcher before anything is
+  committed. Seven owner decisions are listed in the plan's §9. The
+  alphabet decks stay until Write has letter progress (§8).
