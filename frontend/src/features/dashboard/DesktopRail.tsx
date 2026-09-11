@@ -8,6 +8,7 @@ import {
   Flame,
   MessagesSquare,
   Mic,
+  PenLine,
   SpellCheck,
   Sparkles,
 } from 'lucide-react'
@@ -110,7 +111,9 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
             {t('dashboard.speakNew')}
           </span>
         </button>
-        <div className={`grid gap-2 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}>
+        {/* Two-by-two with a Gym, three across without — Write joins the
+            quiet tiles here as it does on Practice. */}
+        <div className={`grid gap-2 ${hasGym ? 'grid-cols-2' : 'grid-cols-3'}`}>
           {hasGym && (
             <RailTile
               icon={Dumbbell}
@@ -132,6 +135,13 @@ export default function DesktopRail({ stats }: { stats?: DashboardStats }) {
             testId="rail-tutor"
             disabled={!activeLanguageId}
             onClick={() => navigate('/tutor')}
+          />
+          <RailTile
+            icon={PenLine}
+            label={t('nav.write')}
+            testId="rail-write"
+            disabled={!activeLanguageId}
+            onClick={() => navigate('/write')}
           />
         </div>
       </section>

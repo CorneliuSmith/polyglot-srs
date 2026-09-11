@@ -529,6 +529,12 @@
     "newBadge": "new",
     "tryIt": "Try it",
     "entries": {
+      "write-2026-09": {
+        "date": "September 2026",
+        "title": "Write by hand, and be told how it reads",
+        "body": "Practice → Write. Write a sentence, one of your words or anything at all on the canvas — finger, mouse or pen — and Check: a reader tells you what it read, whether it is correct and how legible it is, and your baseline, size, slant and spacing are measured on your own device. Russian defaults to cursive, because that is what Russians write.",
+        "linkLabel": "Try writing"
+      },
       "speak-translation-2026-08": {
         "date": "August 2026",
         "title": "Ask what your partner just said",
@@ -661,6 +667,10 @@
       "speak": {
         "title": "Speak",
         "body": "Have a conversation. Pick a starter or bring your own topic, then talk — by microphone or by typing. Turn on hands-free and your partner speaks each line out loud, listens as soon as it finishes, and sends your turn when you stop talking. Nothing interrupts you: everything worth fixing arrives at the end, grouped."
+      },
+      "write": {
+        "title": "Write by hand",
+        "body": "Practice → Write. Write a sentence or one of your words on the canvas and Check: a reader says what it read, whether it is right and how legible it is, and your neatness is measured on your device."
       },
       "ownText": {
         "title": "Bring your own text",
@@ -1030,6 +1040,8 @@
     "readerBlurb": "Short readings matched to your level. Tap any word to look it up and save it as a card.",
     "lettersName": "Letters & Sounds",
     "lettersBlurb": "The alphabet and pronunciation of your language, with audio for every letter and sound.",
+    "writeName": "Write",
+    "writeBlurb": "Handwriting on a canvas, read and checked — correct, legible, neat.",
     "decksName": "Decks & Search",
     "decksBlurb": "Browse every vocabulary and grammar deck from A1 to C2, cram any set, or search for anything.",
     "goDashboard": "Go to your dashboard",

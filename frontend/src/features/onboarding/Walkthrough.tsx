@@ -7,6 +7,7 @@ import {
   Languages,
   Mic,
   PenLine,
+  Signature,
   Sprout,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
@@ -29,6 +30,8 @@ const SLIDES: Slide[] = [
   { icon: BookOpen, key: 'read' },
   // Speak came after the first tour and was the one thing nobody found.
   { icon: Mic, key: 'speak' },
+  // Write: handwriting, checked. Edition 2 of the tour.
+  { icon: Signature, key: 'write' },
   { icon: PenLine, key: 'ownText' },
 ]
 

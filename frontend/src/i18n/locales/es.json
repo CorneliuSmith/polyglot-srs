@@ -529,6 +529,12 @@
     "newBadge": "nuevo",
     "tryIt": "Pruébalo",
     "entries": {
+      "write-2026-09": {
+        "date": "Septiembre de 2026",
+        "title": "Escribe a mano y descubre cómo se lee",
+        "body": "Práctica → Escribir. Escribe una frase, una de tus palabras o lo que quieras en el lienzo — con el dedo, el ratón o un lápiz — y Revisar: un lector te dice qué leyó, si es correcto y qué tan legible es, y la línea base, el tamaño, la inclinación y el espaciado se miden en tu propio dispositivo. El ruso usa cursiva por defecto, porque así escriben los rusos.",
+        "linkLabel": "Prueba a escribir"
+      },
       "speak-translation-2026-08": {
         "date": "Agosto de 2026",
         "title": "Pregunta qué acaba de decir tu compañero",
@@ -661,6 +667,10 @@
       "speak": {
         "title": "Hablar",
         "body": "Ten una conversación. Elige un tema sugerido o propón el tuyo y habla, por micrófono o escribiendo. Activa el modo manos libres y tu interlocutor dirá cada frase en voz alta, escuchará en cuanto termine y enviará tu turno cuando dejes de hablar. Nada te interrumpe: todo lo que conviene corregir llega al final, agrupado."
+      },
+      "write": {
+        "title": "Escribe a mano",
+        "body": "Práctica → Escribir. Escribe una frase o una de tus palabras en el lienzo y Revisar: un lector dice qué leyó, si está bien y qué tan legible es, y la prolijidad se mide en tu dispositivo."
       },
       "ownText": {
         "title": "Trae tu propio texto",
@@ -1030,6 +1040,8 @@
     "readerBlurb": "Lecturas cortas ajustadas a tu nivel. Toca cualquier palabra para consultarla y guardarla como tarjeta.",
     "lettersName": "Letras y sonidos",
     "lettersBlurb": "El alfabeto y la pronunciación de tu idioma, con audio para cada letra y sonido.",
+    "writeName": "Escribir",
+    "writeBlurb": "Escritura a mano en un lienzo, leída y revisada: correcta, legible, prolija.",
     "decksName": "Mazos y búsqueda",
     "decksBlurb": "Explora todos los mazos de vocabulario y gramática de A1 a C2, machaca cualquier conjunto o busca lo que sea.",
     "goDashboard": "Ir a tu panel",

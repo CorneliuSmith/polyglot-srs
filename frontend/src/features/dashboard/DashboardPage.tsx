@@ -332,6 +332,7 @@ export default function DashboardPage() {
   const navItems: { label: string; to: string }[] = [
     { label: t('nav.decks'), to: '/decks' },
     { label: t('nav.speak'), to: '/speak' },
+    { label: t('nav.write'), to: '/write' },
     { label: t('nav.tutor'), to: '/tutor' },
     { label: t('nav.read'), to: '/read' },
     ...(hasGym ? [{ label: t('nav.gym'), to: '/gym' }] : []),

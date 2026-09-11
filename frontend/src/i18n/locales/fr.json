@@ -529,6 +529,12 @@
     "newBadge": "nouveau",
     "tryIt": "Essayer",
     "entries": {
+      "write-2026-09": {
+        "date": "Septembre 2026",
+        "title": "Écrivez à la main, et sachez comment ça se lit",
+        "body": "Pratique → Écrire. Écrivez une phrase, un de vos mots ou ce que vous voulez sur la toile — doigt, souris ou stylet — puis Vérifier : un lecteur vous dit ce qu’il a lu, si c’est correct et si c’est lisible, et la ligne de base, la taille, l’inclinaison et l’espacement sont mesurés sur votre appareil. Le russe est en cursive par défaut, car c’est ainsi qu’écrivent les Russes.",
+        "linkLabel": "Essayer d’écrire"
+      },
       "speak-translation-2026-08": {
         "date": "Août 2026",
         "title": "Demandez ce que votre partenaire vient de dire",
@@ -661,6 +667,10 @@
       "speak": {
         "title": "Parler",
         "body": "Ayez une conversation. Choisissez une amorce ou votre propre sujet, puis parlez — au micro ou au clavier. Activez le mains libres : votre partenaire dit chaque phrase à voix haute, écoute dès qu’il a fini, et envoie votre tour quand vous vous arrêtez. Rien ne vous interrompt : tout ce qui mérite d’être corrigé arrive à la fin, regroupé."
+      },
+      "write": {
+        "title": "Écrivez à la main",
+        "body": "Pratique → Écrire. Écrivez une phrase ou un de vos mots sur la toile puis Vérifier : un lecteur dit ce qu’il a lu, si c’est juste et si c’est lisible, et la régularité est mesurée sur votre appareil."
       },
       "ownText": {
         "title": "Apportez votre propre texte",
@@ -1030,6 +1040,8 @@
     "readerBlurb": "De courtes lectures adaptées à votre niveau. Touchez n’importe quel mot pour le chercher et l’enregistrer comme carte.",
     "lettersName": "Lettres et sons",
     "lettersBlurb": "L’alphabet et la prononciation de votre langue, avec l’audio de chaque lettre et de chaque son.",
+    "writeName": "Écrire",
+    "writeBlurb": "Écriture manuscrite sur une toile, lue et vérifiée : correcte, lisible, régulière.",
     "decksName": "Paquets et recherche",
     "decksBlurb": "Parcourez tous les paquets de vocabulaire et de grammaire de A1 à C2, bachotez n’importe quel ensemble, ou cherchez ce que vous voulez.",
     "goDashboard": "Aller au tableau de bord",

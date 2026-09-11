@@ -560,3 +560,100 @@ Nothing in Phases 0–4 depends on this choice.
   canvas is the full width, letters are drawn large, and the Trace step's
   tolerance is generous. Pen input (Apple Pencil, S-Pen) comes through the
   same pointer events with pressure and works without extra code.
+
+---
+
+## 11. Adapting to the learner's hand (planned 11 Sep 2026, owner ask)
+
+A reader that has seen your writing before reads it better. After the
+first session the owner's *d* (straight ascender) and *e* (open loop, long
+tail) were flagged as ambiguous — which is fair for a stranger and useless
+the fifth time. The reader should adapt; the learner must be able to see
+that it has, turn it off, and wipe it.
+
+### What "adapt" means, concretely
+
+Four mechanisms, in the order they pay off:
+
+1. **Reference samples — the reader is shown your hand.** The single most
+   effective lever with a vision model is a few examples of *this*
+   writer's letters with their confirmed text. Up to three of the
+   learner's own samples ride along with each Check as extra image blocks
+   ("reference: this writer's confirmed hand; it reads *X*"). Misreads
+   drop, and a consistent personal form stops being a "difference".
+   Needs ink to be kept — see the setting.
+2. **Confirmations — the learner teaches it.** After a misread, one tap:
+   *"I wrote the expected text"* (or edit the transcription). That
+   attempt becomes a confirmed sample, and its letterforms become known
+   habits. Without this the profile is only the model's own opinion of
+   itself; with it, the learner corrects the reader the way they would a
+   person.
+3. **A hand profile — habits, not repeats.** Per (learner, language): a
+   small list of letterform habits with counts and last-seen dates,
+   built from confirmed samples and from notes that recur. Once a habit
+   is confirmed legible it is passed to the reader as "known and fine —
+   do not flag"; a habit that keeps costing legibility is flagged
+   *once*, then tracked, and shown in the notes as *"your д again — third
+   time"* rather than as a fresh discovery. The profile is also what the
+   Progress page can chart: legibility over time, per language.
+4. **Personal neatness baselines.** The neatness panel compares the
+   session to the learner's own typical values (their usual slant, their
+   usual gap rhythm), so the verdict becomes *"steadier than your
+   usual"* rather than a fixed bar. And when the stroke matcher lands
+   (Phases 2–4), the per-letter tolerance widens for a form the learner
+   has confirmed and the reader finds legible — the matcher adapts to a
+   hand the same way the reader does.
+
+### The setting — Account → Learning
+
+**"Adapt to my handwriting"** — one toggle, on by default, with a plain
+line under it: *"Keeps a few of your own writing samples (up to twelve
+per language) so the reader learns your hand. Turn it off and they are
+deleted."* Beside it, **"Reset what it has learned"** — deletes the
+samples and the habits for the current language (or all languages) and
+starts fresh; useful after a learner changes how they form a letter on
+purpose. Turning the toggle off deletes everything and stops collecting;
+turning it on starts again from nothing. This is the only place ink is
+ever kept, and it is the learner's to remove.
+
+### Data
+
+- `writing_profiles` — `(user_id, language_id)`, `adapt` boolean (the
+  toggle, default true), `habits` jsonb `[{letter, note, count,
+  confirmed_ok, last_seen}]`, `stats` jsonb (running legibility mean and
+  count), `updated_at`. Own-only RLS.
+- `writing_samples` — `id`, `user_id`, `language_id`, `text`, `image`
+  (PNG, capped at ~60 KB — the export is small), `confirmed` boolean,
+  `created_at`. **Rolling cap of twelve per language**, preferring
+  confirmed samples and letter diversity (a sample whose text covers
+  letters no kept sample has beats a duplicate). Own-only RLS; deleted
+  with the toggle and by Reset.
+
+### The call
+
+With `adapt` on and samples present, the assessor's message gains up to
+three reference images before the learner's canvas, and the system prompt
+gains the habits: *"Known forms of this writer, confirmed legible — do not
+flag: д with a straight ascender; е with an open loop."* Three extra
+images are roughly 1,500 tokens — the assessment stays under two cents.
+With `adapt` off, or on a fresh profile, the call is exactly today's.
+
+### What it must not do
+
+- Never store ink without the toggle on; never keep more than the cap;
+  never keep a sample the learner has not confirmed *or* the reader read
+  with high confidence (a low-confidence sample teaches the wrong hand).
+- Never lower the bar for correctness. The profile makes the reader
+  *read* better and stops it repeating itself; a misspelled word is still
+  a difference, and a form the reader still cannot read is still a note.
+- Never share samples across learners. One person's hand is one person's.
+
+### Phases
+
+| | What lands | Size |
+|---|---|---|
+| A | Confirm button on a misread → confirmed sample + habit; `writing_profiles`, `writing_samples`, the Account toggle and Reset; samples ride along on Check. | ~1 week |
+| B | Habits into the prompt (known-fine forms not flagged; recurring ones counted); Progress page legibility trend. | 2–3 days |
+| C | Personal neatness baselines. | 1–2 days |
+| D | Adaptive tolerance in the stroke matcher — with Phase 4 of the main plan. | with Phase 4 |
+

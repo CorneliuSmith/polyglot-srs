@@ -529,6 +529,12 @@
     "newBadge": "novo",
     "tryIt": "Experimentar",
     "entries": {
+      "write-2026-09": {
+        "date": "Setembro de 2026",
+        "title": "Escreva à mão e saiba como se lê",
+        "body": "Prática → Escrever. Escreva uma frase, uma das suas palavras ou o que quiser na tela — dedo, mouse ou caneta — e Verificar: um leitor diz o que leu, se está correto e quão legível está, e a linha de base, o tamanho, a inclinação e o espaçamento são medidos no seu próprio aparelho. O russo usa cursiva por padrão, porque é assim que os russos escrevem.",
+        "linkLabel": "Experimente escrever"
+      },
       "speak-translation-2026-08": {
         "date": "Agosto de 2026",
         "title": "Pergunte o que o seu parceiro acabou de dizer",
@@ -661,6 +667,10 @@
       "speak": {
         "title": "Falar",
         "body": "Tenha uma conversa. Escolha um tema sugerido ou traga o seu e fale — por microfone ou a escrever. Ligue o modo mãos livres e o seu parceiro diz cada frase em voz alta, ouve assim que termina e envia a sua vez quando parar de falar. Nada o interrompe: tudo o que vale a pena corrigir chega no fim, agrupado."
+      },
+      "write": {
+        "title": "Escreva à mão",
+        "body": "Prática → Escrever. Escreva uma frase ou uma das suas palavras na tela e Verificar: um leitor diz o que leu, se está certo e quão legível está, e o capricho é medido no seu aparelho."
       },
       "ownText": {
         "title": "Traga seu próprio texto",
@@ -1030,6 +1040,8 @@
     "readerBlurb": "Leituras curtas no seu nível. Toque em qualquer palavra para consultá-la e salvá-la como cartão.",
     "lettersName": "Letras e sons",
     "lettersBlurb": "O alfabeto e a pronúncia do seu idioma, com áudio para cada letra e cada som.",
+    "writeName": "Escrever",
+    "writeBlurb": "Escrita à mão numa tela, lida e verificada: correta, legível, caprichada.",
     "decksName": "Baralhos e Pesquisa",
     "decksBlurb": "Explore todos os baralhos de vocabulário e gramática de A1 a C2, treine qualquer conjunto ou pesquise o que quiser.",
     "goDashboard": "Ir para o seu painel",

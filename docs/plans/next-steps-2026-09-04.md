@@ -94,3 +94,11 @@ items are built on request, in a session.
   Phase 0 is a spike of the Russian cursive matcher before anything is
   committed. Seven owner decisions are listed in the plan's §9. The
   alphabet decks stay until Write has letter progress (§8).
+
+- [ ] **15. Write adapts to the learner's hand** (planned 11 Sep 2026,
+  `docs/plans/handwriting.md` §11). Reference samples of the learner's own
+  confirmed writing ride along with each Check; a confirm button turns a
+  misread into a lesson; a per-language hand profile stops the reader
+  repeating the same note; an Account toggle ("Adapt to my handwriting",
+  on by default) and a Reset delete everything it kept. Phase A first.
+

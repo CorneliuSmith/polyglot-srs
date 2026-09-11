@@ -529,6 +529,12 @@
     "newBadge": "yeni",
     "tryIt": "Deneyin",
     "entries": {
+      "write-2026-09": {
+        "date": "Eylül 2026",
+        "title": "Elle yazın ve nasıl okunduğunu öğrenin",
+        "body": "Alıştırma → Yaz. Tuvale bir cümle, kendi kelimelerinizden birini ya da istediğiniz bir şeyi yazın — parmak, fare ya da kalemle — ve Denetle: bir okuyucu ne okuduğunu, doğru olup olmadığını ve ne kadar okunaklı olduğunu söyler; satır çizgisi, boyut, eğim ve aralık kendi cihazınızda ölçülür. Rusça varsayılan olarak el yazısıdır, çünkü Ruslar öyle yazar.",
+        "linkLabel": "Yazmayı deneyin"
+      },
       "speak-translation-2026-08": {
         "date": "Ağustos 2026",
         "title": "Partnerinizin ne dediğini sorun",
@@ -661,6 +667,10 @@
       "speak": {
         "title": "Konuşma",
         "body": "Sohbet edin. Bir başlangıç cümlesi seçin ya da kendi konunuzu getirin, sonra konuşun — mikrofonla veya yazarak. Eller serbest modunu açarsanız partneriniz her cümleyi sesli okur, biter bitmez dinlemeye geçer ve siz susunca sıranızı gönderir. Sözünüz kesilmez: düzeltilmeye değer her şey sonda, gruplanmış olarak gelir."
+      },
+      "write": {
+        "title": "Elle yazın",
+        "body": "Alıştırma → Yaz. Tuvale bir cümle ya da kendi kelimelerinizden birini yazın ve Denetle: bir okuyucu ne okuduğunu, doğru olup olmadığını ve ne kadar okunaklı olduğunu söyler; düzen cihazınızda ölçülür."
       },
       "ownText": {
         "title": "Kendi metninizi getirin",
@@ -1030,6 +1040,8 @@
     "readerBlurb": "Seviyenize göre kısa okuma metinleri. Anlamına bakmak ve kart olarak kaydetmek için herhangi bir kelimeye dokunun.",
     "lettersName": "Harfler ve Sesler",
     "lettersBlurb": "Dilinizin alfabesi ve telaffuzu, her harf ve ses için sesli örnekle.",
+    "writeName": "Yaz",
+    "writeBlurb": "Tuvalde el yazısı, okunur ve denetlenir: doğru, okunaklı, düzenli.",
     "decksName": "Desteler ve Arama",
     "decksBlurb": "A1'den C2'ye tüm kelime ve dilbilgisi destelerine göz atın, istediğiniz seti hızlıca çalışın ya da her şeyi arayın.",
     "goDashboard": "Panele git",
