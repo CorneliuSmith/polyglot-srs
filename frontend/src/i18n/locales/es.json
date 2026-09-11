@@ -1786,7 +1786,35 @@
     "neatRelGood": "como de costumbre",
     "neatRelOk": "por debajo de lo habitual",
     "neatRelPoor": "muy por debajo de lo habitual",
-    "neatRelHint": "Medido a partir de tus trazos en este dispositivo y comparado con tu línea base: tu letra habitual, no un listón fijo."
+    "neatRelHint": "Medido a partir de tus trazos en este dispositivo y comparado con tu línea base: tu letra habitual, no un listón fijo.",
+    "kindLetters": "Letras",
+    "step_learn": "Aprender",
+    "step_trace": "Calcar",
+    "step_write": "Escribir",
+    "form_isolated": "aislada",
+    "form_initial": "al principio",
+    "form_medial": "en medio",
+    "form_final": "al final",
+    "form_lower": "minúscula",
+    "form_upper": "mayúscula",
+    "form_letter": "letra",
+    "lettersEmpty": "Aún no hay letras listas para este estilo: un hablante todavía las está trazando.",
+    "strokeMissing": "falta: la letra tiene otro trazo",
+    "strokeExtra": "un trazo de más",
+    "strokeDirection": "trazado al revés",
+    "strokeShape": "no es exactamente la forma; compárala con la guía",
+    "strokeOrder": "trazado en otro orden",
+    "strokeNoHint": "como se muestra",
+    "learnHint": "Observa el orden y dónde empieza cada trazo. Toca la letra para repetir.",
+    "traceHint": "Dibuja sobre los trazos tenues en orden; cada uno se marca al coincidir.",
+    "writeHint": "Escribe la letra de memoria y luego revisa.",
+    "traceDone": "Calcada. Ahora escríbela de memoria.",
+    "letterOk": "Eso es. Tres escrituras limpias y queda aprendida.",
+    "letterNotYet": "Todavía no",
+    "strokeN": "Trazo {{n}}",
+    "prevLetter": "Anterior",
+    "nextLetter": "Siguiente letra",
+    "nextStep": "Siguiente"
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",
@@ -1838,7 +1866,8 @@
     "content": {
       "aria": "Tipo de contenido",
       "grammar": "gramática",
-      "vocab": "vocabulario"
+      "vocab": "vocabulario",
+      "strokes": "trazos"
     }
   }
 }

@@ -113,7 +113,14 @@ items are built on request, in a session.
   strip; per-course aggregate in Workspace → Insights) — **built 11 Sep
   2026**. The **baseline session** — **built 11 Sep 2026** (Write → "Set
   up my hand", Account → same), and with it **personal neatness** — the
-  panel judges against your own baseline once you have one — eight prompts covering every letter in every
-  form, each confirmed by the writer, so the reader has the hand in one
-  sitting and the Progress trend has a zero point.
+  panel judges against your own baseline once you have one. **Phase 2,
+  the Workshop's Strokes panel — built 11 Sep 2026**: Workspace → Workshop
+  → *strokes*; trace each letter form, mark reviewed; migration 20261020
+  to push. Tracing Russian cursive and Arabic is now the owner's/speaker's
+  job — a script's guided Letters go live as its forms are reviewed.
+  **Phase 3, guided Letters — built 11 Sep 2026** (migration 20261021 to
+  push): Write → *Letters* appears once a script has a reviewed form;
+  Learn → Trace → Write per form, the on-device matcher names the stroke
+  and the reason, three clean writes make a letter known. Phase 4 (traced
+  words and sentences) is what remains of the plan.
 

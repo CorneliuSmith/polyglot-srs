@@ -46,6 +46,12 @@ vi.mock('../api/write', () => ({
   getWriteBaseline: vi.fn(),
   finishWriteBaseline: vi.fn(),
 }))
+// No stroke library in these tests: the Letters kind stays hidden.
+vi.mock('../api/strokes', () => ({
+  getStrokeManifest: vi.fn().mockResolvedValue({
+    script: 'cyrillic', available: false, expected_forms: 0, alphabet_size: 0, styles: {},
+  }),
+}))
 // jsdom has no canvas; the export is the seam.
 vi.mock('../features/write/inkExport', () => ({
   renderInkToPng: vi.fn().mockResolvedValue(new Blob(['png'], { type: 'image/png' })),

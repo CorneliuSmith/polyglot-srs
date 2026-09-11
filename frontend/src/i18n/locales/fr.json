@@ -1786,7 +1786,35 @@
     "neatRelGood": "comme d’habitude",
     "neatRelOk": "en dessous de votre habitude",
     "neatRelPoor": "bien en dessous de votre habitude",
-    "neatRelHint": "Mesuré à partir de vos traits sur cet appareil et comparé à votre référence — votre propre écriture habituelle, pas une barre fixe."
+    "neatRelHint": "Mesuré à partir de vos traits sur cet appareil et comparé à votre référence — votre propre écriture habituelle, pas une barre fixe.",
+    "kindLetters": "Lettres",
+    "step_learn": "Apprendre",
+    "step_trace": "Décalquer",
+    "step_write": "Écrire",
+    "form_isolated": "isolée",
+    "form_initial": "au début",
+    "form_medial": "au milieu",
+    "form_final": "à la fin",
+    "form_lower": "minuscule",
+    "form_upper": "majuscule",
+    "form_letter": "lettre",
+    "lettersEmpty": "Aucune lettre n’est prête pour ce style : un locuteur les trace encore.",
+    "strokeMissing": "manquant : la lettre a un autre trait",
+    "strokeExtra": "un trait de trop",
+    "strokeDirection": "tracé dans l’autre sens",
+    "strokeShape": "pas tout à fait la forme ; comparez avec le guide",
+    "strokeOrder": "tracé dans le désordre",
+    "strokeNoHint": "comme montré",
+    "learnHint": "Regardez l’ordre et le départ de chaque trait. Touchez la lettre pour rejouer.",
+    "traceHint": "Dessinez sur les traits pâles dans l’ordre ; chacun se fixe quand il correspond.",
+    "writeHint": "Écrivez la lettre de mémoire, puis vérifiez.",
+    "traceDone": "Décalquée — écrivez-la maintenant de mémoire.",
+    "letterOk": "C’est ça. Trois écritures propres et elle est acquise.",
+    "letterNotYet": "Pas encore tout à fait",
+    "strokeN": "Trait {{n}}",
+    "prevLetter": "Précédente",
+    "nextLetter": "Lettre suivante",
+    "nextStep": "Suivant"
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",
@@ -1838,7 +1866,8 @@
     "content": {
       "aria": "Type de contenu",
       "grammar": "grammaire",
-      "vocab": "vocabulaire"
+      "vocab": "vocabulaire",
+      "strokes": "tracés"
     }
   }
 }

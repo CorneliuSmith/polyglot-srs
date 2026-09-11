@@ -407,6 +407,40 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
+- **A Latin-script course's stroke library is a–z only.** `alphabet_for`
+  gives Spanish, Turkish, Yoruba and the rest the 26 base letters; their
+  own letters and marks (ñ ç ß ğ ş ı ă ș ț; Hausa ɓ ɗ ƙ; Yoruba ẹ ọ ṣ)
+  are not in the grid, so nobody can author them. The alphabet decks
+  cover only the non-Latin scripts, which is where the list came from.
+  Fix: a per-language extras table in `services/scripts.py`, or read the
+  letters the course's own sentences use, as the baseline coverage does.
+- **The matcher's tolerances are set by hand, not tuned on real ink.**
+  Trace 0.16 and Write 0.10 of the box (`LettersMode.tsx`) came from the
+  matcher's own tests on synthetic strokes; the plan's Phase 0 spike —
+  five hand-traced Russian cursive letters on a phone and a mouse — was
+  never run because no reviewed strokes exist yet. Once the owner has
+  traced a script, the first session will say whether Write is too
+  strict (every letter "shape") or Trace too kind; both are one constant.
+  A finger on a phone is wobblier than a mouse and the matcher does not
+  know which it has; §11 Phase D (an adaptive tolerance from the
+  learner's own baseline) is the designed fix.
+- **Trace matches the prefix, so an early wrong stroke blocks the rest.**
+  The Trace step compares the learner's strokes against the template's
+  first *n* and snaps what matches; a wrong first stroke means nothing
+  snaps until the learner clears. That is the intended teaching (draw
+  the strokes in order), but there is no "skip this stroke", and a
+  learner who does not know the order gets only the animated Learn step
+  to find out. If it frustrates, show the reason under the canvas in
+  Trace as Write does, not only on Check.
+- **Guided Letters count progress only from the Write step, and only
+  once the migration lands.** `writing_progress` (20261021) is probed;
+  without it the strip never fills and the Write step's verdict is shown
+  but not kept, with nothing said. The Letters kind itself needs only
+  reviewed forms (20261020), so the two can land at different times.
+- **Entry and exit points are stored but not yet set.** `script_glyphs.
+  joins` exists for the Cyrillic composer (Phase 4) and the panel writes
+  `{}`; the composer will default to first-point-in / last-point-out
+  until the panel gets a way to place them.
 - **The baseline's lines are a greedy pick, not an authored set.** Until
   a script has speaker-reviewed exemplar sentences (§5), the eight lines
   come from the course's A1/A2 sentences by set cover; on a small course
