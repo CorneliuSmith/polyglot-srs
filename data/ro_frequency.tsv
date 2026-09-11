@@ -465,7 +465,6 @@ rank	word	pos	en
 464	stau	verb	first-person singular present indicative/subjunctive
 465	drum	noun	road
 466	alte	det	nominative/accusative feminine/neuter plural of alt
-467	dvs.	pron	abbreviation of dumneavoastră
 468	astfel	adv	thus, in this way, so, like that
 469	curând	adj	short
 470	ora	noun	definite nominative/accusative singular of oră
@@ -573,7 +572,6 @@ rank	word	pos	en
 572	aud	verb	first-person singular present indicative/subjunctive
 573	acestea	det	nominative/accusative feminine/neuter plural of acesta
 574	moarte	noun	death
-575	dvs	pron	abbreviation of dumneavoastră
 576	cunoscut	adj	known; well-known, renowned
 577	numărul	noun	definite nominative/accusative singular of număr
 578	restul	noun	definite nominative/accusative singular of rest
@@ -974,7 +972,6 @@ rank	word	pos	en
 973	le-ai	contraction	contraction of le + ai
 974	ridica	verb	to lift, elevate, raise, hoist, suspend
 975	câine	noun	dog
-976	dv	pron	abbreviation of dumneavoastră
 977	ăia	det	nominative/accusative masculine plural of ăla
 978	voia	noun	definite nominative/accusative singular of voie
 979	motivul	noun	definite nominative/accusative singular of motiv
@@ -1634,7 +1631,6 @@ rank	word	pos	en
 1633	îngrozitor	adj	awful, terrible, shocking, appalling
 1634	căsătorie	noun	marriage, wedlock, matrimony
 1635	concediat	adj	fired, dismissed
-1636	b	name	abbreviation of București: the capital of Romania
 1637	răni	verb	to hurt; to wound
 1638	cântec	noun	song
 1639	acoperire	noun	covering
@@ -1719,7 +1715,6 @@ rank	word	pos	en
 1718	ticălos	adj	wicked, wretched, vile, abject, base
 1719	citi	verb	to read
 1720	ghici	verb	to guess; to predict, foresee, divine
-1721	mm	intj	abbreviation of morții mă-tii
 1722	razna	adv	astray
 1723	colonel	noun	colonel (military officer above lieutenant-colonel and below all generals)
 1724	rupe	verb	to tear; to tear off
@@ -2028,7 +2023,6 @@ rank	word	pos	en
 2027	fix	adj	fixed
 2028	fantomă	noun	phantom
 2029	cânt	noun	chant; canto
-2030	pt	prep	abbreviation of pentru (“for”)
 2031	efect	noun	effect
 2032	plâns	verb	past participle of plânge
 2033	adăpost	noun	shelter; a sheltered place
@@ -2347,7 +2341,6 @@ rank	word	pos	en
 2346	pază	noun	guard; watch (act of guarding)
 2347	ridice	verb	third-person plural present subjunctive of ridica
 2348	celulă	noun	cell
-2349	p	prep	abbreviation of pe
 2350	negre	adj	feminine plural of negru
 2351	sfânt	adj	holy, sacred; saintly
 2352	oase	noun	plural of os
@@ -2449,7 +2442,6 @@ rank	word	pos	en
 2448	firmă	noun	company; shop sign
 2449	scări	noun	plural of scară
 2450	tre	verb	alternative typography of tre’
-2451	f	adv	abbreviation of foarte (“very, a lot”)
 2452	confirmat	noun	confirmation
 2453	datorie	noun	debt; duty
 2454	putini	name	a village in Răchitoasa, Bacău County, Romania
@@ -2919,7 +2911,6 @@ rank	word	pos	en
 2918	cocaină	noun	cocaine
 2919	homosexual	adj	homosexual
 2920	green	noun	putting green
-2921	is	name	abbreviation of Iași: a county of Romania
 2922	iunie	noun	June
 2923	scriitor	noun	writer
 2924	avioane	noun	plural of avion
@@ -3161,7 +3152,6 @@ rank	word	pos	en
 3160	urechea	verb	to ear (to hold by the ears)
 3161	visez	verb	first-person singular present indicative/subjunctive of visa
 3162	octombrie	noun	October
-3163	d-voastră	pron	abbreviation of dumneavoastră
 3164	transferat	adj	transferred
 3165	frecventa	verb	to frequent, to go to (a place)
 3166	logic	adj	logical
@@ -3874,7 +3864,6 @@ rank	word	pos	en
 3873	domni	noun	plural of domn
 3874	săptămânii	noun	definite dative/genitive singular of săptămână
 3875	mir	noun	chrism; unction
-3876	k	conj	abbreviation of că (“that, because”)
 3877	nevinovată	noun	female equivalent of nevinovat
 3878	rachetă	noun	rocket, missile
 3879	departament	noun	department
@@ -4557,7 +4546,6 @@ rank	word	pos	en
 4556	futut	adj	fucked
 4557	promovat	adj	promoted
 4558	feminin	adj	feminine, womanly
-4559	dj	name	abbreviation of Dolj: a county of Romania
 4560	francezi	adj	nominative/accusative masculine plural of francez
 4561	elimine	verb	third-person singular/plural present subjunctive of elimina
 4562	introdus	adj	inserted
@@ -4637,7 +4625,6 @@ rank	word	pos	en
 4636	spionaj	noun	espionage
 4637	metru	noun	metre
 4638	ciuperci	noun	plural of ciupercă
-4639	d-ta	pron	abbreviation of dumneata
 4640	gunoaie	noun	plural of gunoi
 4641	echilibru	noun	equilibrium; balance, footing
 4642	adun	verb	first-person singular present indicative/subjunctive of aduna
@@ -4662,7 +4649,6 @@ rank	word	pos	en
 4661	smecher	adj	sly, crafty; cool, awesome
 4662	plumb	noun	lead (metal); lead (chemical element)
 4663	hercule	noun	hercules; Hercules
-4664	dc	phrase	abbreviation of de ce (“why”)
 4665	traseu	noun	route
 4666	masculin	adj	masculine, manly
 4667	odihni	verb	to rest, relax; to repose, lie down
@@ -4867,7 +4853,6 @@ rank	word	pos	en
 4866	pictură	noun	painting; picture
 4867	bordel	noun	bordello, brothel
 4868	acesteia	det	genitive/dative feminine singular of acesta
-4869	dle.	noun	abbreviation of domnule
 4870	infractori	noun	indefinite nominative/accusative/genitive/dative plural of infractor
 4871	chelner	noun	waiter
 4872	epoca	noun	definite nominative/accusative singular of epocă
@@ -4917,7 +4902,6 @@ rank	word	pos	en
 4916	reprezenta	verb	to represent
 4917	conturi	noun	plural of cont
 4918	statuie	noun	statue
-4919	if	name	abbreviation of Ilfov: a county of Romania
 4920	karma	noun	karma
 4921	smuls	adj	plucked
 4922	uni	verb	to unite, join (make united)
@@ -5967,7 +5951,6 @@ rank	word	pos	en
 5966	verdict	noun	verdict
 5967	obstacole	noun	plural of obstacol
 5968	mecanism	noun	mechanism
-5969	csi	name	initialism of Comunitatea Statelor Independente (“CIS”)
 5970	cules	verb	past participle of culege
 5971	văr	noun	male cousin
 5972	privilegiu	noun	privilege
@@ -6294,7 +6277,6 @@ rank	word	pos	en
 6293	laolaltă	adv	together
 6294	ucidere	noun	killing (the action of killing and its result)
 6295	balena	noun	definite nominative/accusative singular of balenă
-6296	v.	verb	abbreviation of vezi (“see”)
 6297	umbrele	noun	plural of umbrelă
 6298	fiert	verb	past participle of fierbe
 6299	cruzime	noun	cruelty, cruelness, brutality
@@ -6351,7 +6333,6 @@ rank	word	pos	en
 6350	brută	noun	brute
 6351	sunetele	noun	definite nominative/accusative plural of sunet
 6352	umble	verb	third-person singular/plural present subjunctive of umbla
-6353	vs	name	abbreviation of Vaslui: a county of Romania
 6354	sit	noun	picturesque landscape
 6355	știință	noun	cognition, knowledge
 6356	dona	verb	to donate (to give away something of value)
@@ -6798,7 +6779,6 @@ rank	word	pos	en
 6797	frâu	noun	bridle, curb, check
 6798	tunsoare	noun	haircut, hairstyle
 6799	intervine	verb	third-person singular present indicative of interveni
-6800	dex	name	"abbreviation of Dicționarul explicativ al limbii române (""The Explanatory Dictionary of the Romanian Language""), a dictionary for the Romanian language published in 1975."
 6801	austria	name	Austria (a country in Central Europe)
 6802	pacientă	adj	nominative/accusative feminine singular of pacient
 6803	scriitoare	noun	female equivalent of scriitor
@@ -7029,7 +7009,6 @@ rank	word	pos	en
 7028	epocă	noun	epoch, age
 7029	paralel	adj	parallel
 7030	strategic	adj	strategic
-7031	nt	name	abbreviation of Neamț: a county of Romania
 7032	insectă	noun	insect
 7033	măresc	verb	first-person singular present indicative/subjunctive
 7034	soț	noun	husband
@@ -7428,7 +7407,6 @@ rank	word	pos	en
 7427	land	noun	land (German and Austrian province)
 7428	congresman	noun	congressman
 7429	încarc	verb	first-person singular present indicative/subjunctive of încărca
-7430	3-a	adj	abbreviation of treia
 7431	sorti	verb	to destine; to foredoom, predestinate
 7432	culme	noun	peak, top, apex, summit
 7433	transformam	verb	first-person singular/plural imperfect indicative of transforma
@@ -7517,7 +7495,6 @@ rank	word	pos	en
 7516	tocană	noun	stew
 7517	sultan	noun	sultan
 7518	englezesc	adj	English; Englishly
-7519	ms	intj	abbreviation of mersi (“thanks”)
 7520	lopată	noun	shovel, spade
 7521	infanterie	noun	infantry
 7522	alergare	noun	running
@@ -7840,7 +7817,6 @@ rank	word	pos	en
 7839	carnet	noun	notebook; driving license
 7840	rabin	noun	rabbi
 7841	insulte	verb	third-person singular/plural present subjunctive of insulta
-7842	2-a	adj	abbreviation of doua
 7843	membră	noun	female equivalent of membru
 7844	preocupare	noun	concern
 7845	nucleul	noun	nominative/accusative definite singular articulation of nucleu
@@ -7881,7 +7857,6 @@ rank	word	pos	en
 7880	orientare	noun	orientation
 7881	bărbierit	noun	shaving
 7882	tir	noun	shooting (of a weapon)
-7883	cj	name	abbreviation of Cluj: a county of Romania
 7884	încasa	verb	to receive cash
 7885	ciocnit	adj	collided
 7886	urmelor	noun	definite genitive/dative plural of urmă
@@ -8429,7 +8404,6 @@ rank	word	pos	en
 8428	rosti	verb	to say, utter, pronounce, articulate, intone
 8429	mergeai	verb	second-person singular imperfect indicative of merge
 8430	analizezi	verb	second-person singular present indicative/subjunctive of analiza
-8431	rmn	name	initialism of Republica Moldovenească Nistreană (“Pridnestrovian Moldavian Republic”) (PMR)
 8432	clone	noun	plural of clonă
 8433	brutalitate	noun	brutality
 8434	încurca	verb	to tangle; to get stuck or tangled (literally or figuratively)
@@ -8629,7 +8603,6 @@ rank	word	pos	en
 8628	percepe	verb	to perceive; to charge a commission or fee
 8629	definit	adj	defined
 8630	retrase	verb	third-person singular simple perfect indicative of retrage
-8631	cv	name	abbreviation of Covasna: a county of Romania
 8632	virtuală	adj	indefinite feminine nominative/accusative singular of virtual
 8633	metalic	adj	metallic
 8634	relaxant	adj	relaxing
@@ -8863,7 +8836,6 @@ rank	word	pos	en
 8862	română	adj	nominative/accusative feminine singular of român
 8863	sunetului	noun	definite genitive/dative singular of sunet
 8864	butoiul	noun	definite nominative/accusative singular of butoi
-8865	pl	noun	abbreviation of pulă
 8866	cianură	noun	cyanide
 8867	diplomatic	adj	diplomatic
 8868	informațiile	noun	definite nominative/accusative plural of informație
@@ -9406,7 +9378,6 @@ rank	word	pos	en
 9405	nene	noun	Term used by children or young people to address an older man, especially an uncle.
 9406	veseli	verb	to cheer
 9407	mestecă	verb	third-person singular/plural present indicative
-9408	ct	name	abbreviation of Constanța: a county of Romania
 9409	transportor	noun	transporter, carrier
 9410	defectat	adj	failed
 9411	pubian	adj	pubic
@@ -9483,7 +9454,6 @@ rank	word	pos	en
 9482	cranii	noun	plural of craniu
 9483	coarnele	noun	definite nominative/accusative plural of corn
 9484	atacator	noun	attacker
-9485	ab	name	abbreviation of Alba: a county of Romania
 9486	intimidare	noun	intimidation
 9487	analizeze	verb	third-person singular/plural present subjunctive of analiza
 9488	care-au	contraction	contraction of care + au
@@ -9518,7 +9488,6 @@ rank	word	pos	en
 9517	coborând	verb	gerund of coborî (“to descend”)
 9518	națională	adj	indefinite feminine nominative/accusative singular of național
 9519	lihnit	adj	starving
-9520	hr	name	abbreviation of Harghita: a county of Romania
 9521	rămânea	verb	to remain, be left, stay behind
 9522	atomi	noun	plural of atom
 9523	comunistă	adj	nominative/accusative feminine singular of comunist

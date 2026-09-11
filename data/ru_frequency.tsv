@@ -79,7 +79,6 @@ rank	word	pos	en
 78	её	pron	her, its
 79	ладно	intj	well, all right, okay
 80	знаешь	verb	second-person singular present indicative imperfective of знать (znatʹ)
-81	п	noun	abbreviation of пара́граф (parágraf, “paragraph”)
 82	до	prep	before; up to, till, until
 83	этом	det	masculine/neuter prepositional singular of э́тот (étot)
 84	потому	adv	therefore, because of that, consequently
@@ -1038,7 +1037,6 @@ rank	word	pos	en
 1037	неважно	adv	no matter (how)
 1038	макс	name	a diminutive, Maks, of the male given name Макси́м (Maksím)
 1039	нашёл	verb	masculine singular past indicative perfective of найти́ (najtí)
-1040	м	noun	abbreviation of метр (metr, “meter”)
 1041	доктора	noun	genitive/accusative singular of до́ктор (dóktor)
 1042	сидеть	verb	to sit; to be imprisoned, to do time
 1043	месяца	noun	genitive singular of ме́сяц (mésjac)
@@ -2570,7 +2568,6 @@ rank	word	pos	en
 2572	парню	noun	dative singular of па́рень (párenʹ)
 2573	убийцы	noun	genitive singular
 2574	вину	noun	dative singular of вино́ (vinó)
-2575	ю	noun	abbreviation of юг (jug): south
 2576	обратный	adj	back, return, reverse
 2577	больницы	noun	hospital — больница (f.) in the genitive singular
 2578	смертью	noun	instrumental singular of смерть (smertʹ)
@@ -2764,7 +2761,6 @@ rank	word	pos	en
 2766	ответы	noun	nominative/accusative plural of отве́т (otvét)
 2767	надеть	verb	to put on, to get on
 2768	готовить	verb	to prepare, to make ready
-2769	г-н	noun	abbreviation of господи́н (gospodín): Mr., Mister, sir
 2770	субботу	noun	accusative singular of суббо́та (subbóta)
 2771	дышать	verb	to breathe, to respire
 2772	зла	adj	short feminine singular of злой (zloj)
@@ -3050,7 +3046,6 @@ rank	word	pos	en
 3052	опоздал	verb	masculine singular past indicative perfective of опозда́ть (opozdátʹ)
 3053	мистером	noun	instrumental singular of ми́стер (místɛr, míster)
 3054	парке	noun	prepositional singular of парк (park)
-3055	мо	noun	MOD (“ministry of defence”), DOD (“department of defense”); abbreviation of министерства обороны (ministerstva oborony)
 3056	поиграть	verb	to play (for a while)
 3057	несомненно	adv	undoubtedly, without doubt, doubtlessly
 3058	дашь	verb	second-person singular future indicative perfective of дать (datʹ)
@@ -3904,7 +3899,6 @@ rank	word	pos	en
 3906	подарил	verb	masculine singular past indicative perfective of подари́ть (podarítʹ)
 3907	лежать	verb	to lie (to be in a horizontal position)
 3908	проверили	verb	plural past indicative perfective of прове́рить (provéritʹ)
-3909	л	noun	abbreviation of литр (litr, “liter”)
 3910	существо	noun	creature, being
 3911	любопытно	adv	curiously, with curiosity
 3912	почту	verb	first-person singular future indicative perfective of поче́сть (počéstʹ)
@@ -4020,7 +4014,6 @@ rank	word	pos	en
 4022	фигня	noun	stuff; rubbish (nonsense)
 4023	представьте	verb	second-person plural imperative perfective of предста́вить (predstávitʹ)
 4024	умирают	verb	third-person plural present indicative imperfective of умира́ть (umirátʹ)
-4025	лу	name	initialism of Любля́нский университе́т (Ljubljánskij universitét, “UL”)
 4026	забрала	verb	feminine singular past indicative of забра́ть pf (zabrátʹ)
 4027	убьёт	verb	third-person singular future indicative perfective of уби́ть (ubítʹ)
 4028	гость	noun	guest, visitor
@@ -4901,7 +4894,6 @@ rank	word	pos	en
 4903	временно	adv	temporarily
 4904	салат	noun	salad (dish); lettuce
 4905	соседний	adj	neighboring, next to
-4906	г.	noun	abbreviation of год (god, “year”)
 4907	ненавидеть	verb	to hate (strong)
 4908	называешь	verb	second-person singular present indicative imperfective of называ́ть (nazyvátʹ)
 4909	пойдёмте	verb	come on; let's go
@@ -5548,7 +5540,6 @@ rank	word	pos	en
 5550	яйцо	noun	egg; ovum
 5551	отвечаю	verb	first-person singular present indicative imperfective of отвеча́ть (otvečátʹ)
 5552	белом	adj	prepositional masculine/neuter singular of бе́лый (bélyj)
-5553	коп.	noun	abbreviation of копе́йка (kopéjka): kopek, copeck, kopeck (singular or plural)
 5554	русский	adj	Russian, related to Russian ethnicity, language, or culture
 5555	реке	noun	dative/prepositional singular of река́ (reká)
 5556	пляж	noun	beach
@@ -5689,7 +5680,6 @@ rank	word	pos	en
 5691	помогают	verb	third-person plural present indicative imperfective of помога́ть (pomogátʹ)
 5692	неожиданный	adj	sudden, unexpected (happening quickly and with little or no warning)
 5693	показаний	noun	genitive plural of показа́ние (pokazánije)
-5694	ооо	noun	initialism of о́бщество с ограни́ченной отве́тственностью n (óbščestvo s ograníčennoj otvétstvennostʹju): LLC, a limited liability company
 5695	отвечу	verb	first-person singular future indicative perfective of отве́тить (otvétitʹ)
 5696	акции	noun	genitive/dative/prepositional singular
 5697	заключается	verb	third-person singular present indicative imperfective of заключа́ться (zaključátʹsja)
@@ -8598,7 +8588,6 @@ rank	word	pos	en
 8600	выпили	verb	plural past indicative perfective of вы́пить (výpitʹ)
 8601	воевать	verb	to fight, to war, to wage war, to be at war
 8602	улыбку	noun	accusative singular of улы́бка (ulýbka)
-8603	м.	adj	abbreviation of ма́лый (mályj, “little”)
 8604	заказала	verb	feminine singular past indicative perfective of заказа́ть (zakazátʹ)
 8605	обратился	verb	masculine singular past indicative perfective of обрати́ться (obratítʹsja)
 8606	паспорта	noun	genitive singular of па́спорт (pásport)
@@ -9290,7 +9279,6 @@ rank	word	pos	en
 9292	учит	verb	third-person singular present indicative imperfective of учи́ть (učítʹ)
 9293	зрители	noun	nominative plural of зри́тель (zrítelʹ)
 9294	испытывать	verb	to try, to test, to assay
-9295	б.	adj	abbreviation of большо́й (bolʹšój, “big”)
 9296	перестану	verb	first-person singular future indicative perfective of переста́ть (perestátʹ)
 9297	отнеси	verb	second-person singular imperative perfective of отнести́ (otnestí)
 9298	пополам	adv	in two (equal parts)
@@ -9494,7 +9482,6 @@ rank	word	pos	en
 9496	строительство	noun	construction, building
 9497	включил	verb	masculine singular past indicative perfective of включи́ть (vključítʹ)
 9498	прорыв	noun	break, bursting
-9499	с.	noun	abbreviation of страни́ца (straníca, “page”)
 9500	родится	verb	third-person singular future indicative perfective
 9501	готовят	verb	third-person plural present indicative imperfective of гото́вить (gotóvitʹ)
 9502	напугала	verb	feminine singular past indicative perfective of напуга́ть (napugátʹ)
@@ -9829,7 +9816,6 @@ rank	word	pos	en
 9831	сделке	noun	dative/prepositional singular of сде́лка (sdélka)
 9832	электричества	noun	genitive singular of электри́чество (elektríčestvo)
 9833	фигура	noun	figure; piece
-9834	г-жа	noun	abbreviation of госпожа́ (gospožá): Mrs., Mistress, Madam
 9835	цивилизации	noun	genitive/dative/prepositional singular
 9836	выбрался	verb	masculine singular past indicative perfective of вы́браться (výbratʹsja)
 9837	начеку	adv	on the alert, on guard, keeping an eye out

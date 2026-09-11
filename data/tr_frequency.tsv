@@ -134,7 +134,6 @@ rank	word	pos	en	alt
 136	aynı	adj	same; not changed, still in the same situation.	
 137	teşekkür	noun	a thanking	
 138	hakkında	postp	about, concerning	
-139	olm	noun	abbreviation of oğlum; bro	
 140	tabii	adj	natural, usual, ordinary	
 141	onları	pron	definite accusative plural of o	
 142	izin	noun	permission; leave of absence	
@@ -359,7 +358,6 @@ rank	word	pos	en	alt
 362	bin	num	thousand	
 363	dört	num	four	
 364	adı	noun	accusative singular	
-365	dr.	noun	abbreviation of doktor	
 366	kolay	adj	easy; lucky	
 367	ancak	adv	only; at best	
 368	gitmek	verb	to go; to lead	
@@ -868,7 +866,6 @@ rank	word	pos	en	alt
 872	sıkı	adj	rigorous; stringent	
 873	avukat	noun	lawyer; attorney	
 874	hanım	noun	wife; lady	
-875	mar	noun	abbreviation of Mart (“March”)	
 876	verici	noun	transmitter	
 877	kadının	noun	definite genitive singular of kadın	
 878	general	noun	general	
@@ -918,7 +915,6 @@ rank	word	pos	en	alt
 922	bayanlar	noun	plural of bayan: women, ladies (bayanlar tuvaleti — the ladies' room); in address: ladies (bayanlar ve baylar — ladies and gentlemen)	
 923	parmak	noun	finger, toe, digit	
 924	yıllar	noun	nominative plural of yıl	
-925	ark	noun	abbreviation of arkadaş	
 926	verdin	verb	second-person singular indicative simple past of vermek	
 927	aptalca	adj	pretty stupid, fairly stupid	
 928	mıyım	particle	first-person singular simple of mı	
@@ -955,7 +951,6 @@ rank	word	pos	en	alt
 959	mart	noun	March	
 960	ameliyat	noun	operation, surgery	
 961	elde	noun	locative singular of el	
-962	sa	phrase	initialism of selamünaleyküm	
 963	amerikan	name	American (person born in or citizen of the USA)	
 964	dahil	noun	involvement	
 965	saygı	noun	respect, consideration, esteem.	
@@ -1294,7 +1289,6 @@ rank	word	pos	en	alt
 1298	ortada	noun	locative singular of orta	
 1299	ceset	noun	corpse; dead human body	
 1300	kuş	noun	bird, fowl; penis (mainly childish or humorous)	
-1301	dna	noun	initialism of deoksiribonükleik asit DNA (deoxyribonucleic acid)	
 1302	verdiği	verb	third-person past participle of vermek	
 1303	ihanet	noun	betrayal; treason	
 1304	program	noun	program; computer program	
@@ -2130,7 +2124,6 @@ rank	word	pos	en	alt
 2135	düzen	noun	order, system, arrangement	
 2136	sigorta	noun	insurance (indemnity)	
 2137	lordum	noun	first-person singular possessive of lord	
-2138	abd	name	initialism of Amerika Birleşik Devletleri (= United States of America): a country in North America: USA	
 2139	balo	noun	ball, a formal dance	
 2140	öpücük	noun	kiss	
 2141	yapım	noun	production, manufacturing	
@@ -3094,7 +3087,6 @@ rank	word	pos	en	alt
 3099	yepyeni	adj	brand new	
 3100	dul	noun	widow, widower; divorcee	
 3101	lastik	noun	rubber; tire	
-3102	may	noun	abbreviation of Mayıs (“May”)	
 3103	anneciğim	noun	first-person singular single-possession possessive of annecik	
 3104	rehine	noun	hostage	
 3105	acilen	adv	In an urgent manner; urgently, promptly, without delay.	
@@ -4582,7 +4574,6 @@ rank	word	pos	en	alt
 4588	komşular	noun	nominative plural of komşu	
 4589	şekeri	noun	accusative singular of şeker	
 4590	kuşları	noun	definite accusative plural of kuş	
-4591	tem	noun	abbreviation of Temmuz (“July”); initialism of Terörle Mücadele, the counter-terrorism police department	
 4592	yetkisi	noun	third-person singular possessive of yetki	
 4593	sabır	noun	patience; forbearance	
 4594	moruk	noun	geezer, old man	
@@ -5583,7 +5574,6 @@ rank	word	pos	en	alt
 5589	cilt	noun	skin; binding (of a book), (hard) book cover	
 5590	pul	noun	stamp; scale (an overlapping arrangement of many small and flat pieces, or a part or piece of it)	
 5591	esrarengiz	adj	mysterious	
-5592	st	noun	abbreviation of story	
 5593	ağa	noun	a respectful title for an influential man in a society; lord, master; wealthy, influential landowner; landlord, squire, chieftain; elder brother	
 5594	piyade	noun	infantryman, foot soldier	
 5595	baykuş	noun	owl, any of various birds of prey of the order Strigiformes	
@@ -5858,7 +5848,6 @@ rank	word	pos	en	alt
 5864	pilav	noun	cooked rice or bulgur, pilaf	
 5865	otomobil	noun	automobile	
 5866	ofisten	noun	singular ablative of ofis	
-5867	bm	name	initialism of Birleşmiş Milletler UN (United Nations)	
 5868	onunki	pron	its, his, hers	
 5869	ailelerin	noun	definite genitive plural of aile	
 5870	artış	noun	buildup; increase	
@@ -6506,7 +6495,6 @@ rank	word	pos	en	alt
 6512	kapıcı	noun	doorman, gatekeeper	
 6513	vurucu	adj	striking	
 6514	vekili	noun	accusative singular of vekil	
-6515	kg	phrase	initialism of kolay gelsin	
 6516	çıkarlar	noun	plural of çıkar (“self-interest, advantage”)	
 6517	hoparlör	noun	loudspeaker	
 6518	bakışta	noun	locative singular of bakış	
@@ -6839,7 +6827,6 @@ rank	word	pos	en	alt
 6845	baka	verb	third-person singular optative of bakmak	
 6846	pürüzsüz	adj	smooth, not rough	
 6847	homoseksüel	adj	homosexual	
-6848	ms	adv	abbreviation of milattan sonra (“after the Nativity [of Jesus Christ]”): AD, CE	
 6849	ağlayacak	verb	third-person singular indicative future of ağlamak	
 6850	lütuf	noun	favor	
 6851	cezayir	name	Algeria (a country in North Africa)	
@@ -7747,7 +7734,6 @@ rank	word	pos	en	alt
 7753	kafein	noun	caffeine	
 7754	havyar	noun	caviar	
 7755	inç	noun	inch (unit of length)	
-7756	ap	name	initialism of Associated Press	
 7757	vakum	noun	vacuum	
 7758	veli	noun	custodian, guardian	
 7759	ladin	noun	spruce tree	
@@ -7959,7 +7945,6 @@ rank	word	pos	en	alt
 7965	durdurulamaz	adj	unstoppable	
 7966	yapısal	adj	constructional, structural, constructive; of or relating to construction.	
 7967	lama	noun	llama, Lama glama	
-7968	şub	noun	abbreviation of Şubat (“February”)	
 7969	anket	noun	survey; questionnaire	
 7970	dümeni	noun	definite accusative singular of dümen	
 7971	yenileme	noun	renewing, renewal; restoration	
@@ -8054,7 +8039,6 @@ rank	word	pos	en	alt
 8060	kongo	name	the Congo (either the Democratic Republic of the Congo or the Republic of the Congo, in Central Africa); the Congo River	
 8061	evlerde	noun	locative plural of ev	
 8062	damak	noun	palate	
-8063	vs.	noun	abbreviation of vesaire	
 8064	bıçaklar	noun	nominative plural of bıçak	
 8065	mayonez	noun	mayonnaise	
 8066	çiçekçi	noun	florist; florist's	
@@ -8272,7 +8256,6 @@ rank	word	pos	en	alt
 8278	doğma	noun	verbal noun of doğmak	
 8279	kapmak	verb	to snatch, seize, catch, grasp	
 8280	sabıkalı	adj	having a criminal record	
-8281	bae	name	initialism of Birleşik Arap Emirlikleri (= United Arab Emirates): a country in West Asia, in the Middle East: UAE	
 8282	sayfalar	noun	nominative plural of sayfa	
 8283	fizikçi	noun	physicist (person whose occupation specializes in the science of physics)	
 8284	taşıt	noun	vehicle	
@@ -8857,7 +8840,6 @@ rank	word	pos	en	alt
 8863	acaip	adj	interesting; grotesque	
 8864	ekspres	noun	express train	
 8865	alkolikler	noun	nominative plural of alkolik	
-8866	fast	noun	initialism of Fonların Anlık ve Sürekli Transferi (The Instant and Continuous Transfer of Funds)	
 8867	platin	noun	platinum	
 8868	bakmanın	noun	genitive singular of bakma	
 8869	kıyameti	noun	accusative singular of kıyamet	
@@ -9330,7 +9312,6 @@ rank	word	pos	en	alt
 9336	şelale	noun	waterfall, falls, cascade, cataract, a flow of water over the edge of a cliff	
 9337	makyajı	noun	singular definite accusative of makyaj	
 9338	hızlandırmak	verb	to accelerate, to make faster, to speed up	
-9339	akm	name	initialism of Atatürk Kültür Merkezi (Atatürk Cultural Center).	
 9340	yerleşmek	verb	to settle	
 9341	bakarsınız	verb	second-person plural indicative aorist of bakmak	
 9342	çello	noun	cello	
@@ -9849,7 +9830,6 @@ rank	word	pos	en	alt
 9855	tenin	noun	genitive singular of ten	
 9856	yanmaz	verb	third-person singular indicative negative aorist of yanmak	
 9857	kolaylık	noun	easiness	
-9858	hass	intj	abbreviation of hassiktir	
 9859	ağam	noun	first-person singular possessive of ağa	
 9860	alevi	noun	Alevi, Alevite (a supporter of Alevism, a liberal Shia religious movement); also the accusative singular of alev	
 9861	atmaca	noun	hawk, especially species of Accipiter (sparrow hawks).	

@@ -35,6 +35,7 @@ ar	الكونغو	name	the Congo — the Democratic Republic of the Congo, or th
 ar	المخلص	phrase	yours sincerely, kind regards (a polite formula used to end letters, preceding the signature)
 ar	المدينة	noun	the city (definite of مَدِينَة); Medina (the holy city in Saudi Arabia)
 ar	ان	suffix	the dual ending on a noun or adjective, marking exactly two; also how 'that' and 'if' are written once the hamza is dropped
+ar	اه		ah; oh - a cry of pain, longing or sudden realisation, and in casual speech a drawn-out yeah in reply; the plain-alif spelling of the interjection also written with a madda
 ar	بتصرف	prep_phrase	used after quotes, translations, etc, to indicate that the original text was modified and is not transferred exactly as it appears in the original material i.e. paraphrased.
 ar	بخير	prep_phrase	in good health, doing fine — the answer to 'how are you?' (أنا ___ 'I'm fine'); safe and sound
 ar	بعد	prep	after (prep.) — بعد ذلك after that, بعد أن after (+ verb); afterwards, yet, still (بعد الآن any more, لم … بعد not yet); also the noun بُعْد distance, dimension (m.) and the verb بَعُدَ to be far
@@ -1176,6 +1177,7 @@ de	hier	adv	here (in this place, or within this context)
 de	hieß	verb	I was called, I was named; he/she/it was called (first/third-person singular preterite of heißen); also it meant, it signified
 de	hilf	verb	help! — an order to one person you know well (singular imperative of helfen)
 de	hilft	verb	he helps, she helps (third-person singular present of helfen, which takes a dative object)
+de	hm		murmured nasal sound of hesitation or doubt: made while thinking a question over, or as a non-committal acknowledgement short of yes
 de	hol	verb	get!, fetch! — an order to one person you know well (singular imperative of holen)
 de	hunde	noun	dogs (plural of Hund)
 de	hält	verb	he holds, she holds; keeps, stops (third-person singular present of halten)
@@ -1208,6 +1210,7 @@ de	jemanden	pron	someone, somebody; anybody — as a direct object (accusative o
 de	jens	name	a male given name from Low German or Danish, equivalent to English John
 de	jungen	noun	boys (plural of der Junge, boy; also its singular in the accusative, dative and genitive)
 de	jungs	noun	guys, boys, lads — a casual plural of der Junge, boy
+de	k.o.		completely worn out, shattered, with nothing left after a long day; in boxing, floored and unable to fight on - written as two letters with full stops and said by their letter names
 de	kam	verb	I came; he/she/it came (first/third-person singular preterite of kommen)
 de	kamen	verb	we came; they came; you came (formal) (first/third-person plural preterite of kommen)
 de	kann	verb	can, am able to, is able to; may, is allowed to — the I-form and the he/she/it-form of the present
@@ -1274,7 +1277,6 @@ de	meines	pron	mine — standing in for a neuter noun; also of my (genitive masc
 de	meinst	verb	you mean; you think, you reckon (second-person singular present of meinen)
 de	meisten	adj	most — as in most people, most boys (the inflected superlative of viel, much)
 de	menschen	noun	people, human beings; humans (plural of der Mensch, a human being; also its singular in the accusative, dative and genitive)
-de	mi	noun	Wed. — abbreviation of Mittwoch (Wednesday)
 de	mich	pron	me (as direct object or after accusative prepositions); myself (with reflexive verbs)
 de	michel	noun	a male given name, variant of Michael; (in der deutsche Michel) the average German
 de	millionen	noun	millions (plural of die Million, million)
@@ -1282,7 +1284,6 @@ de	minuten	noun	minutes (plural of die Minute, minute)
 de	mir	pron	(to) me, for me — me as indirect object and after dative prepositions like mit, bei
 de	miss	verb	measure! — an order to one person (singular imperative of messen); also the borrowed English title before a woman's name
 de	mitgebracht	verb	brought along, brought with one (past participle of mitbringen)
-de	mo	noun	Mon. — abbreviation of Montag (Monday)
 de	monate	noun	months (plural of der Monat, month)
 de	monaten	noun	months — after a preposition such as in, seit or vor (dative plural of der Monat, month)
 de	mord	noun	murder, a killing — the noun is masculine, der
@@ -1301,6 +1302,7 @@ de	müsst	verb	you must, you have to (second-person plural present of müssen, a
 de	müsste	verb	I would have to; he/she/it would have to; ought to, should — as in there ought to be (first/third-person singular Konjunktiv II of müssen)
 de	müssten	verb	we would have to; they would have to; you would have to, formally as Sie (first/third-person plural Konjunktiv II of müssen); often softened to should or ought to
 de	nachgedacht	verb	thought about it, reflected, pondered (past participle of nachdenken)
+de	nasa		the space agency of the United States government (f.) - an acronym said as a single word rather than spelled out, and used with the feminine article
 de	nazi	noun	a Nazi, a member of the National Socialist party
 de	nein	intj	no — the answer to a question or a refusal; negating inside a sentence is nicht instead
 de	net	adv	alternative form of nicht (“not”)
@@ -1544,13 +1546,13 @@ el	απομακρυνθεί	verb	move away, withdraw; be removed — third-perso
 el	αρέσει	verb	pleases, is liked — the verb behind 'like': 'μου ___ ο καφές' (I like coffee, literally coffee pleases me).
 el	ας	particle	let — proposes or allows something ('___ πάμε' — let's go; '___ έρθει' — let him come).
 el	αστεία	noun	jokes — plural of το αστείο (Ο Τομ μας είπε μερικά αστεία — Tom told us some jokes; δεν σηκώνω αστεία — I can't take jokes); also the feminine singular and neuter plural of αστείος 'funny', and as an adverb 'in a funny way'.
+el	ατμ		cash machine, ATM — neuter (το ___), written in capitals; the ordinary Greek word for the machine you withdraw cash from, with no longer Greek form in everyday use
 el	αυτά	det	these, these things; them — the neuter plural ('___ είναι δικά μου' — these are mine).
 el	αυτή	det	she; this one — the feminine form, for a woman or a feminine noun ('___ είναι η αδερφή μου' — she's my sister).
 el	αυτού	pron	of this, of that — genitive singular of αυτός/αυτό, and so also 'his, its' (η αξία αυτού του σπιτιού — the value of that house; εκτός αυτού — besides that); a separate colloquial, regional adverb αυτού means 'there', but it is not what earns this rank.
 el	αυτό	pron	this, this one; it; that — the neuter form, for a thing or a whole idea
 el	αυτόν	pron	him; this one — the masculine object form ('βλέπω ___' — I see him).
 el	αχ	intj	oh, whoa — an exclamation
-el	βα	adj	NE, initialism of βορειοανατολικός (voreioanatolikós, “northeast, northeastern, northeasterly”)
 el	βιάσου	verb	hurry up!, be quick, get a move on - an order to one person you address informally (imperative of βιάζομαι, to hurry)
 el	γεωργία	noun	agriculture; capitalised Γεωργία, a female given name equivalent to English Georgia
 el	γι	prep	the short form of για before a vowel — 'for' ('___ αυτό' — for that, that's why).
@@ -1587,6 +1589,7 @@ el	επρόκειτο	verb	was about, concerned — third-person singular imperf
 el	εσύ	pron	you, as the subject — one person, informally; Greek adds it only to stress who ('___ τι λες;' — what do you say?).
 el	η	article	the — feminine, as subject (η πόρτα — the door)
 el	ηλίθια	adj	stupid, idiotic — feminine singular of ηλίθιος, also its neuter plural (Είσαι απίστευτα ηλίθια — you're unbelievably stupid; μια αρκετά ηλίθια ερώτηση — a pretty stupid question); the same form is the adverb 'stupidly, foolishly'.
+el	ηπα		the United States, the USA — the country's official name, feminine plural and always written in capitals, used with the article (στις ___ — in the United States); Αμερική is the looser everyday name
 el	θέλει	verb	he, she, or it wants ('___ νερό' — he wants water); impersonally, 'it takes, it needs'.
 el	θέλεις	verb	you want — one person, informally, the full form ('τι ___;' — what do you want?).
 el	θα	particle	marks what follows as future — 'αύριο ___ φύγω' (tomorrow I'll leave); with a past form, 'would'.
@@ -1654,6 +1657,7 @@ el	ξανασυμβεί	verb	happen again, reoccur, recur — active nonfinite f
 el	ξεφορτωθεί	verb	third-person singular dependent passive of ξεφορτώνομαι, the passive of ξεφορτώνω
 el	ο	article	the — masculine, as subject (___ δρόμος — the road).
 el	οίκος	noun	family (a dynasty with its ancestors and descendants, especially a royal or noble one)
+el	οηε		the United Nations, the UN — masculine, written in capitals and used with the article (ο ___, του ___ — of the UN); said aloud as it stands, never expanded in speech
 el	οι	article	the — with masculine and feminine plurals, as subject (οι φίλοι, οι πόρτες)
 el	ονομάζεται	verb	it is called, it is named; his name is, her name is - as in the mountain is called Olympus (third-person singular present of ονομάζομαι)
 el	πάει	verb	he, she, or it goes ('___ σχολείο' — he goes to school); 'πώς ___;' — how's it going?
@@ -1840,6 +1844,7 @@ en	fracture	verb	breaking of hard tissue such as bone
 en	freeze	verb	change from liquid to solid by loss of heat; also stop moving suddenly
 en	gain	verb	obtain or get; an increase in amount
 en	gear	verb	a toothed wheel that engages another to change speed or direction; to set the level or character of something
+en	gent		a man, especially a polite or well-dressed one - informal and lightly jokey; the plural also names a men's public toilet in Britain
 en	george	noun	a common man's first name in English; also the name of England's patron saint
 en	get	verb	come to have something, by being given it or fetching it; also 'become' ('___ tired')
 en	glitter	verb	the quality of shining with a bright reflected light
@@ -1969,6 +1974,7 @@ en	remain	verb	stay in the same state or condition; continue to be
 en	remark	verb	a statement that expresses a personal opinion or belief or adds information
 en	remedy	verb	act of correcting an error or a fault or an evil
 en	remote	adj	located far away; also a handheld device for controlling a machine from a distance
+en	rep		an employee who acts and speaks for a company, especially in sales or customer service - the short informal word people actually say
 en	reply	verb	answer a question, request, or criticism; also the answer itself
 en	rethink	verb	thinking again about a choice previously made
 en	right	adj	correct, not mistaken; also the side opposite left ('turn ___')
@@ -2136,6 +2142,7 @@ es	caballeros	noun	gentlemen, men (plural of el caballero); also knights, horsem
 es	caballos	noun	horses (plural of caballo); also the knight in chess
 es	calles	noun	be quiet, hush — second-person singular present subjunctive of callar, after que; also streets, roads (plural of calle)
 es	cansada	adj	tired, weary, worn out (feminine singular of cansado)
+es	cap		postcode, zip code (m.) - the five-digit number in an Italian postal address
 es	caray	intj	wow!, good heavens!, crikey! (surprise); heck!, darn!, geez! (annoyance)
 es	carmen	noun	a female given name transferred from the place name, traditionally popular in Spain
 es	cartas	noun	letters that are posted; also playing cards, and a restaurant menu (plural of carta)
@@ -2177,7 +2184,6 @@ es	cuba	noun	Cuba (a country, the largest island (based on land area) in the Car
 es	cuentas	noun	bills, accounts; sums, arithmetic (plural of cuenta); also you tell or you count, from contar
 es	cuento	noun	story, tale (el cuento - a short story, a fairy tale); a lie, a tall tale; also I count, I tell - from contar (cuento contigo, I'm counting on you)
 es	cuándo	adv	when? — asks about the time of something ('¿___ llegas?' — when do you arrive?); the accented question form
-es	d	prep	abbreviation of de (“of, from”)
 es	dado	verb	given - past participle of dar (me has dado tanto, you have given me so much; no me habia dado cuenta, I hadn't realised); dado que - given that, since; en un momento dado - at a given moment; also el dado, a die (tira el dado - throw the dice)
 es	dale	verb	give him/her it - dar plus the pronoun le (dale este papel, give him this paper); dale a - hit it, press it; ¡dale! - go on!, come on! (River Plate: OK, sure)
 es	dan	verb	they give; you (ustedes) give - from dar (no dan nada, they give nothing; me dan miedo, they frighten me); dan a - they look out onto, they face (las ventanas dan al sur, the windows face south); donde dan esa pelicula? - where is that film showing?; also el dan, a black-belt grade
@@ -2236,7 +2242,6 @@ es	diste	verb	you gave, you handed over (second-person singular preterite of dar
 es	dolores	noun	pains, aches (plural of dolor); also Dolores, a female given name
 es	donde	adv	where — joins a clause rather than asking ('la casa ___ vivo' — the house where I live); no accent
 es	doy	verb	I give (first-person singular present of dar); with cuenta, I realise; with la vuelta, I turn around
-es	dra.	noun	Dr. — a woman doctor, or a woman holding a doctorate (short for doctora)
 es	drogas	noun	drugs, narcotics — the illegal kind, not medication (plural of droga)
 es	dura	adj	hard, tough, harsh (feminine singular of duro); also lasts, goes on, from durar
 es	durmiendo	verb	sleeping, asleep (gerund of dormir)
@@ -2405,7 +2410,6 @@ es	juegos	noun	games, sports; also sets of matching things (plural of juego)
 es	jugando	verb	playing, having a game (gerund of jugar)
 es	juntos	adj	together — of a masculine or mixed group; joined, side by side (masculine plural of junto)
 es	jóvenes	adj	young, youthful; also young people, youngsters (plural of joven)
-es	k	conj	abbreviation of que (“that”)
 es	kilómetros	noun	kilometres (plural of kilómetro)
 es	la	article	the (feminine singular); her, it (as a direct object); you (formal, to a woman)
 es	lados	noun	sides; parts, areas (plural of lado)
@@ -2444,7 +2448,6 @@ es	los	article	the (masculine plural); them (as a direct object)
 es	luces	noun	lights, lamps, headlights (plural of luz); in a fixed phrase, plainly, any way you look at it; also you shine or show off, from lucir
 es	luego	adv	next, after that in a sequence ('primero esto, ___ aquello'); 'hasta ___' — see you later
 es	lugares	noun	places, spots, locations (plural of lugar)
-es	m	pron	abbreviation of me (“me, myself”)
 es	malas	adj	bad, poor in quality; naughty, unkind (feminine plural of malo)
 es	maldita	adj	damned, cursed, blasted — feminine singular of maldito, an angry intensifier; also under a curse
 es	malos	adj	bad, poor in quality; naughty, badly behaved (masculine plural of malo)
@@ -2518,6 +2521,7 @@ es	ocurrió	verb	happened, occurred, came about (third-person singular preterite
 es	oiga	verb	may he/she hear; (that) I/he/she hear - present subjunctive of oír (¡Dios te oiga!, from your lips to God's ears); listen, hear - formal imperative to usted; ¡oiga! - hey, excuse me
 es	ojos	noun	eyes (plural of el ojo)
 es	olvidé	verb	I forgot; I left something behind (first-person singular preterite of olvidar)
+es	onu		the United Nations - the international organisation of member states, said aloud as a single word rather than letter by letter
 es	otra	det	another, other — with a feminine noun ('___ vez' — again, one more time)
 es	otras	det	other, another — with a feminine plural noun; at other times, with veces (feminine plural of otro)
 es	otros	det	other, another — with a masculine plural noun; others, other people (masculine plural of otro)
@@ -2737,6 +2741,7 @@ es	tienen	verb	they have; you all have (ustedes) — own or hold something (from
 es	tienes	verb	you have (informal) — you own or hold something; '___ que' — you have to
 es	tipos	noun	kinds, types, sorts (plural of el tipo); also guys, blokes, of men (informal)
 es	tito	noun	uncle (childish, for tío); also Tito, Titus
+es	toc		knock - the sound of knuckles rapping on a door; colloquially, an obsession or compulsive quirk
 es	toca	verb	he/she/it touches; plays (an instrument) - from tocar; me toca a mí - it's my turn (¿a quién le toca?, whose turn is it?); ¡toca! - touch it!, play it! (imperative)
 es	toda	det	all of, the whole of — with a feminine noun; every, each (feminine singular of todo)
 es	todas	det	all, every one of them — feminine plural of todo; all the, the whole lot of (before a feminine plural noun)
@@ -2766,7 +2771,6 @@ es	tuvo	verb	he had, she had; you had (formal) — preterite of tener; with que,
 es	tuya	det	yours — informal singular, of a feminine thing (feminine singular of tuyo)
 es	tía	noun	aunt (mi tía tiene tres hijos, my aunt has three children); also tía: woman, girl - and as an address, hey (peninsular slang)
 es	tú	pron	you — informal, as the subject ('___ hablas' — you speak); added for emphasis, since the verb ending already says who
-es	uds.	pron	you — a group addressed politely, short for ustedes
 es	un	article	a, an — before a masculine noun ('___ libro' — a book)
 es	una	article	a, an (with a feminine noun); one (feminine) — la una, one o'clock
 es	unas	article	some, a few — with a feminine plural noun; about, around, before a number
@@ -3013,7 +3017,6 @@ fr	beaux	adj	beautiful, handsome; fine, lovely (masculine plural of beau)
 fr	belle	adj	beautiful, lovely; fine (feminine singular of beau)
 fr	belles	adj	beautiful, lovely (feminine plural of beau)
 fr	bien	adv	well, properly (ça va ___, il chante ___); also quite, thoroughly, before an adjective; bon is the adjective good
-fr	big	noun	IG — abbreviation of bureau de l'inspecteur général, the Inspector General's Office
 fr	billets	noun	tickets; also banknotes; also short notes (m., plural of billet)
 fr	blanche	adj	white; blank, unused (feminine singular of blanc); with nuit, a night without sleep
 fr	bois	noun	(m.) wood, the material (une table en bois = a wooden table); a wood, the woods (dans les bois); also je/tu bois, bois ! = I/you drink, drink! (from boire)
@@ -3135,6 +3138,7 @@ fr	désolé	adj	sorry — what you say when apologising (je suis ___, ___ d'êtr
 fr	désolée	adj	sorry — what a woman or girl says when apologising (feminine singular of désolé)
 fr	détails	noun	the particulars of something; the small points that escape casual notice (m., plural of détail)
 fr	détruit	verb	destroyed, wrecked (past participle of détruire); also he destroys, she destroys (third-person singular present)
+fr	emmerde		hassle, trouble, aggravation (f., vulgar — usually plural); also I annoy, I piss off — present of the vulgar verb, as in the standard brush-off meaning get lost
 fr	empreintes	noun	prints, marks left by pressure; footprints; fingerprints (f., plural of empreinte)
 fr	en	prep	in, to — with countries, months and materials (___ France, ___ hiver); also stands for 'of it, of them' (j'___ ai deux)
 fr	enfants	noun	children; kids (plural of enfant, m./f.)
@@ -3293,7 +3297,6 @@ fr	moïse	noun	Moses (the biblical figure); also un moïse, a Moses basket
 fr	mètres	noun	the basic unit of length, a little over a yard (m., plural of mètre); also the distance run in a race
 fr	médicaments	noun	medicine, medication; the drugs a doctor prescribes (m., plural of médicament)
 fr	mêmes	adj	same, identical; the same ones (plural of même); it also builds the emphatic themselves and ourselves pronouns after eux and nous
-fr	n	noun	abbreviation of nord; north
 fr	n'	adv	not (the form ne takes before a vowel or silent h: je n'ai pas)
 fr	nan	adv	nah, nope (informal form of non)
 fr	ne	adv	not (first half of negation, with pas, jamais, rien); becomes n' before a vowel
@@ -3309,6 +3312,7 @@ fr	né	verb	born (past participle of naître); with être it states when someone
 fr	oeufs	noun	eggs — plural of œuf, spelled here without the ligature
 fr	offert	verb	gave as a present; offered (past participle of offrir)
 fr	offre	verb	offers, offer — from offrir (je t'offre un verre = I'll buy you a drink; on te l'offre = it's on us); (as noun, f.) an offer, a bid; l'offre et la demande = supply and demand
+fr	onu		the United Nations - the international organisation of member states, said aloud as a single word rather than letter by letter
 fr	ordres	noun	orders, instructions; also order, the way things are arranged (plural of ordre, m.)
 fr	oreilles	noun	ears (f., plural of oreille)
 fr	ouais	intj	yeah, yep — the relaxed spoken yes, common in speech and avoided in writing
@@ -3468,6 +3472,7 @@ fr	servi	verb	served; also used, of some use (past participle of servir)
 fr	services	noun	help given or work done for someone; departments of an organisation (m., plural of service)
 fr	seule	adj	alone, on her own; single, only one (feminine singular of seul)
 fr	seuls	adj	alone, on their own; only (masculine plural of seul)
+fr	sida		AIDS (m.) — the immune disease caused by HIV; an everyday lowercase noun that takes le and is said as one word, never spelled out letter by letter
 fr	sieste	noun	siesta, afternoon nap (f.)
 fr	signé	verb	signed, put a signature to (past participle of signer)
 fr	soeur	noun	sister; nun (f.) — nonstandard spelling of sœur
@@ -3967,6 +3972,9 @@ id	meskipun	conj	even though — concedes a fact the main clause overrides; the 
 id	pada	prep	at, on — used before a time or a person ('___ Monday', 'it depends ___ him'), where di marks a place
 id	paham	verb	to have a firm grasp of a subject; also the understanding itself; mengerti is catching a meaning
 id	pasti	adv	bound to be so, certain — the speaker's confidence that a fact holds ('he's ___ home by now')
+id	pemilu		general election - the nationwide vote for president and the legislature, held every five years
+id	portugal		the country at the western edge of the Iberian peninsula, west of Spain, with Lisbon as its capital
+id	rudal		guided missile - a rocket that steers itself to its target
 id	saja	adv	follows what it limits — just, only ('two ___' = only two); also 'go ahead and' in an invitation
 id	saya	pron	I, me — the polite, neutral word for oneself, safe with strangers; aku is the intimate one
 id	sebagai	prep	in the role or capacity of ('she works ___ a nurse')
@@ -3981,6 +3989,7 @@ id	tapi	conj	but; however (everyday form of the more formal tetapi)
 id	tentu	adv	of course, naturally — granting what the hearer already assumes, often followed by saja
 id	terbakar	verb	to catch fire; burnt, on fire (ter- form of bakar 'to burn' — happens to the subject)
 id	terlibat	verb	involved, mixed up in something; caught up in an affair (the ter- form of libat, so the state rather than the act)
+id	tv		television - both the set in the room and broadcasting itself, in the short two-letter form that is commoner in Dutch than the full word (de; plural adds -'s)
 id	untuk	prep	for, intended for; in order to, so as to (before a verb)
 id	walaupun	conj	even though — concedes a fact the main clause overrides; the wa- form carrying -pun, twin of meskipun
 id	ya	particle	yes; right?, isn't it? (tag at the end of a sentence); okay? (softening a request)
@@ -4083,6 +4092,7 @@ it	caduto	verb	fallen, fallen over, dropped (past participle of cadere)
 it	calmati	verb	calm down, take it easy - the informal command from calmarsi; also calmed, settled (masculine plural of the participle of calmare)
 it	cambiato	verb	changed; exchanged, swapped (past participle of cambiare)
 it	cani	noun	dogs (plural of cane, m.)
+it	cap		postcode, zip code (m.) - the five-digit number in an Italian postal address
 it	capisce	verb	he understands, she gets it, it makes sense to him; you understand (formal Lei) - third-person singular present of capire
 it	capisco	verb	I understand, I see (first-person singular present of capire)
 it	capito	verb	understood, got it; taken in (past participle of capire)
@@ -4708,6 +4718,7 @@ jam	wok	verb	to work at a job; also the job or the labour itself
 ko	가	noun	the subject marker attached after a vowel ('내___ 했어', I did it); also 'go!', the bare stem of the verb to go; and an edge
 ko	가나	noun	Ghana (a country in Africa)
 ko	가자	verb	let's go — 가다 in the casual proposing form ('빨리 ___', let's hurry)
+ko	갖가지		all sorts of; every kind of - used before a noun for a varied assortment
 ko	같이	adv	together, alongside — the everyday spoken one; also 'like, as' after a noun ('눈___ 하얗다', white as snow)
 ko	거	noun	thing, one; the fact that (spoken form of 것; in 할 거예요 it marks the future)
 ko	거야	noun	casual sentence ending stating a fact or intention — '(it) is that…', or 'is going to' after a future form ('갈 ___')
@@ -4723,6 +4734,7 @@ ko	근데	adv	the clipped spoken form of 그런데 — 'but…', 'anyway…', 's
 ko	나는	pron	I, as for me — 나 with the topic marker 는, written out in full; the clipped version is 난
 ko	난	pron	I, I'm (casual) — 나 with the topic marker 는, shortened
 ko	날	noun	me, as the object of the verb — 나를 shortened ('___ 봐', look at me); also a day, the day when something happened
+ko	남친		boyfriend - the short casual form used in speech and texting, where the full 남자친구 is the neutral word
 ko	내	det	my (casual, short for 나의); I (in 내가)
 ko	내가	pron	I, as the one doing the action — casual 나 fused with the subject marker -가; the polite counterpart is 제가
 ko	너	pron	you (intimate style, for close friends and juniors; never to an elder)
@@ -4775,7 +4787,9 @@ ko	어떻게	adv	how, in what way; by what means; how come (in a surprised quest
 ko	어서	adv	come on, hurry — kindly urging someone along; also the 'do come in' of a welcome ('___ 오세요')
 ko	엄니	noun	mother — a colloquial, regional form of 어머니
 ko	없었다	adj	there was not, there were none; did not have, was missing - plain past of 없다; after ~을 수 it means could not
+ko	에구		oh dear; oh my - a sigh of dismay, weariness or sympathy (a lighter variant of 어이구)
 ko	에서	name	at; in; from (action location)
+ko	여친		girlfriend - the short casual form used in speech and texting, where the full 여자친구 is the neutral word
 ko	예	intj	yes, sir; yes, ma'am — the formal, slightly old-fashioned 'yes', said to a superior
 ko	오호	intj	alas! (usually used with —라 (-ra), in the form of 오호라 (ohora))
 ko	온	det	whole, entire — before a few nouns like world, body or family ('the ___ world'); more literary than the everyday 'every'
@@ -4986,6 +5000,7 @@ nl	die	det	that one, those — points at something further off; goes with de-wor
 nl	dieren	noun	animals, creatures (plural of dier)
 nl	dingen	noun	things (plural of ding); rarely a verb, dingen naar — to vie for, compete for
 nl	dit	det	this; this one (used with neuter nouns; deze with de-words)
+nl	dna		the genetic material carrying hereditary information, the double helix found in every cell (het; common in compounds such as -bewijs, genetic evidence)
 nl	dode	adj	dead (inflected form of the adjective dood): een dode vogel — a dead bird; ik zie dode mensen — I see dead people; as a noun, de dode — a dead person, a fatality
 nl	doe	verb	do: I do ('ik ___ het zelf'); also the command 'do!' — present of 'to do'.
 nl	doet	verb	does: he/she/it does, and 'you do' after jij or u ('jij ___ dat goed') — present of 'to do'; the -t drops when je follows the verb.
@@ -5111,6 +5126,7 @@ nl	hou	verb	keep, hold: I keep, I hold (present of houden); ik hou van je — I 
 nl	hun	pron	their, belonging to them ('___ huis'); in speech also 'them' as an indirect object, where writing prefers hen.
 nl	ideeën	noun	ideas, thoughts, notions (plural of idee)
 nl	in	prep	in, inside (place); in, during (months, years); into (with motion)
+nl	iq		a person's score for measured intelligence, the intelligence quotient; used as an ordinary noun (het)
 nl	is	verb	is; he/she/it is (present of zijn, to be)
 nl	ja	intj	yes; yeah, that's right (agreeing); well (softening the start of a reply)
 nl	jaren	noun	years (plural of het jaar)
@@ -5128,7 +5144,7 @@ nl	keren	noun	times, occasions (plural of keer): verschillende keren — several
 nl	keus	noun	choice, option: what there is to pick from (de)
 nl	kies	verb	choose!, pick! — imperative of kiezen (kies één persoon, choose one person); I choose; also to elect (een president kiezen); as a noun, de kies — a molar (tooth)
 nl	kijk	verb	look, watch: I look; look! (present and imperative of kijken); also a noun, view, outlook (kijk op iets)
-nl	kilo	noun	a unit of mass equal to 1,000 grams; the everyday clipped form of the full unit name
+nl	kilo	noun	the everyday metric unit of weight, equal to a thousand grams; the short form is the normal Dutch word for it (de; plural adds -'s)
 nl	kinderen	noun	children, kids (plural of het kind)
 nl	klanten	noun	customers, clients (plural of klant)
 nl	kocht	verb	bought: I/you/he/she/it bought (singular past of kopen)
@@ -5202,6 +5218,7 @@ nl	na	prep	after, once something is over ('___ het eten gaan we weg').
 nl	nachts	adv	at night, during the night (an old genitive of nacht, surviving only in the fixed adverb after 's)
 nl	nagedacht	verb	thought about it, reflected, given it some thought (past participle of nadenken)
 nl	nam	verb	took — I/you/he/she/it took (singular past of nemen)
+nl	nasa		the space agency of the United States government (f.) - an acronym said as a single word rather than spelled out, and used with the feminine article
 nl	neergeschoten	verb	shot down, gunned down: shot and felled (past participle of neerschieten)
 nl	net	adv	just now, a moment ago ('hij is ___ weg'); also neat and tidy; and the mesh you catch fish with.
 nl	niet	adv	not (negates a verb or a whole sentence; use geen before an indefinite noun)
@@ -5287,6 +5304,7 @@ nl	toe	adv	to, towards — the form tot takes in ertoe, waartoe and in separable
 nl	toon	verb	show!, show me — imperative of tonen (toon me je papieren!, show me your papers); I show; as a noun, de toon — tone, note (op een boze toon; de toon zetten)
 nl	trek	noun	appetite, hunger (ik heb geen trek — I'm not hungry; trek hebben in, to fancy); also I pull; pull! (present and imperative of trekken — trek de stekker eruit, unplug it); a migration, a trek; a feature, a trait
 nl	trok	verb	pulled, drew: I/he/she pulled — past singular of trekken (ze trok de deur open, she pulled the door open); wegtrekken — to drain away, to fade (alle kleur trok weg uit zijn gezicht)
+nl	tv		television - both the set in the room and broadcasting itself, in the short two-letter form that is commoner in Dutch than the full word (de; plural adds -'s)
 nl	uitgenodigd	verb	invited, asked to come (past participle of uitnodigen)
 nl	uren	noun	hours: sixty-minute stretches of time (plural of uur)
 nl	uw	det	your — the polite possessive, the one that goes with u ('___ naam, alstublieft'); jouw is the informal one.
@@ -5671,7 +5689,6 @@ pt	grandes	adj	big, large; great — plural of grande, the same for masculine an
 pt	graças	noun	thanks (f. pl. of graça) — thank God, and with a, thanks to someone; also graces
 pt	grávida	adj	pregnant, expecting a baby — the feminine form, the only one in everyday use
 pt	guardas	noun	guards, sentries; in Portugal, police officers (plural of guarda); also you keep or put something away (tu form of guardar)
-pt	h	noun	abbreviation of hora (hour)
 pt	haverá	verb	there will be; it will exist (future of haver)
 pt	havia	verb	there was, there were (imperfect of haver); as an auxiliary before a participle, had done something
 pt	hei	verb	I shall, I am going to, I am bound to — with de plus an infinitive (first-person present of haver)
@@ -5782,6 +5799,7 @@ pt	mãos	noun	hands (f. pl. of mão — feminine despite the -ão ending)
 pt	médicos	noun	doctors, physicians (plural of médico); also medical, of medicine
 pt	na	pron	in the (em + a, feminine singular)
 pt	nas	pron	in the (em + as, feminine plural)
+pt	nasa		the space agency of the United States government (f.) - an acronym said as a single word rather than spelled out, and used with the feminine article
 pt	negra	adj	black, very dark (feminine of negro); also Black, of African descent
 pt	negócios	noun	business (m. pl. of negócio); deals, affairs
 pt	nela	contraction	in her, in it; on her, on it; about her (contraction of em + ela)
@@ -5809,6 +5827,7 @@ pt	odeio	verb	I hate, I loathe; I really dislike (first-person present of odiar)
 pt	oh	intj	a cry of surprise or dismay (___, não!; ___, que pena!); ah is the one for relief or sudden understanding.
 pt	olha	verb	look!, look at (olha isso = look at this); look, hey (opening a remark in speech); he, she looks (from olhar)
 pt	olhos	noun	eyes (m. pl. of olho)
+pt	onu		the United Nations - the international organisation of member states, said aloud as a single word rather than letter by letter
 pt	ordens	noun	orders, commands (f. pl. of ordem); also the order things are arranged in
 pt	os	article	the (masculine plural); them (object)
 pt	oscar	noun	Oscar (the Academy Award); also a male given name
@@ -5911,7 +5930,6 @@ pt	puder	verb	(when or if) I can, I am able to; (when or if) he, she or you can 
 pt	pudesse	verb	(if) I could, I were able to; (if) he, she or you could — imperfect subjunctive of poder
 pt	puta	adj	(vulgar) whore, bitch (f.); placed before a noun it is an intensifier, one hell of a
 pt	pés	noun	feet — the part of the body you stand on; feet as a unit of height (plural of pé)
-pt	q	pron	abbreviation of que (that, what)
 pt	quais	det	which ones?, what? — asks you to pick from a set (plural of qual)
 pt	qual	det	which one, what — asks you to pick from a set (___ é o teu nome?, ___ preferes?).
 pt	quantas	det	how many? — asking the number of feminine things; as many as (feminine plural of quanto)
@@ -6074,6 +6092,7 @@ pt	verdadeira	adj	real, genuine, true; the actual one (feminine of verdadeiro)
 pt	vezes	noun	times, occasions (f. pl. of vez); preceded by às, the phrase means sometimes
 pt	vi	verb	I saw (preterite of ver)
 pt	via	verb	saw; used to see, used to watch (I, he, she, você — imperfect of ver: eu não via muita televisão = I didn't use to watch much television; ela já não o via = she hadn't seen him in a long time); (as a noun, f.) way, road, route; segunda via = duplicate copy of a document; (as a preposition) via, by way of
+pt	vice		deputy, second-in-command (m.) - the stand-in or running mate of a president, governor or team captain; also the runner-up, the person or team that finished second
 pt	victoria	noun	a female given name from Latin, masculine equivalent Victor, equivalent to English Victoria
 pt	vidas	noun	lives (f. pl. of vida)
 pt	viemos	verb	we came, we have come (preterite of vir)
@@ -6136,6 +6155,7 @@ ro	acestea	det	these; these ones, these things — feminine and neuter plural of
 ro	acestei	det	of this, to this — feminine genitive-dative singular of acest
 ro	acestor	det	of these, to these (genitive-dative plural of acest and această)
 ro	acestui	det	of this, to this — masculine and neuter genitive-dative singular of acest
+ro	adn		the genetic material that carries an organism's inherited information, the double helix found in every cell - neuter, taking its article as a suffix
 ro	ador	verb	I love something dearly, I am mad about it; I worship (first-person singular present of the verb meaning to dote on something)
 ro	adormit	verb	fallen asleep; asleep (past participle of a adormi)
 ro	adu	verb	bring it!, bring me something! (singular imperative of the verb meaning to bring)
@@ -6451,9 +6471,11 @@ ro	ofer	verb	I offer, I give someone something (first-person singular present of
 ro	oh	intj	cry of pain, regret or dismay — the o-vowel one, written the way English writes it; ah and vai are separate cards ('___, nu!')
 ro	omori	verb	you kill, you are killing (second-person singular present of a omorî, informal)
 ro	omului	noun	of the man, to the man; of a person — as in the phrase for human rights (definite genitive-dative singular of om, m.)
+ro	onu		the United Nations - the international organisation of member states, said aloud as a single word rather than letter by letter
 ro	oprească	verb	(that) he/she/it stop, halt; (that) they stop — third-person subjunctive of a opri, after să
 ro	oprim	verb	we stop, we halt something; reflexively, we come to a stop (first-person plural present of a opri; also the form after să)
 ro	ouă	noun	eggs (plural of ou, n.)
+ro	ozn		a UFO, an unidentified flying object seen in the sky - neuter, plural in -uri
 ro	panama	noun	Panama (a country in Central America)
 ro	pantaloni	noun	trousers, pants (plural of pantalon, m.)
 ro	pantofi	noun	shoes (plural of pantof, m.)
@@ -6566,6 +6588,7 @@ ro	stea	verb	(that) he/she/they stay, stand, sit — third-person subjunctive of
 ro	strada	noun	the street (definite form of stradă, f.)
 ro	stricat	verb	broken, spoiled, ruined; as an adjective, out of order (past participle of a strica)
 ro	străzi	noun	streets (plural of stradă, f.)
+ro	sua		the United States of America, the USA - the country, which in Romanian takes plural verb agreement
 ro	sufletul	noun	the soul, the spirit (definite form of suflet, n.)
 ro	sun	verb	I call, I phone; I ring, I sound — first-person singular present of a suna
 ro	sune	verb	(that) he/she/it ring, call, phone; (that) they call — third-person subjunctive of a suna, after să
@@ -6688,6 +6711,7 @@ ru	а	conj	and, but (setting two things side by side); whereas; oh! (surprise)
 ru	агентства	noun	agency — агентство (n.) in the genitive singular
 ru	америка	name	America, the United States; the Americas as a whole
 ru	американские	adj	American — американский in the nominative plural
+ru	анб		the NSA - the signals intelligence agency of the United States (indeclinable, neuter agreement)
 ru	ау	intj	hello? (is anyone there?)
 ru	беспокойства	noun	worry, anxiety — беспокойство (n.) in the genitive singular
 ru	благодарения	noun	genitive singular of благодаре́ние (blagodarénije)
@@ -6814,7 +6838,6 @@ ru	михаил	name	Mikhail, a male given name, equivalent to English Michael
 ru	мне	pron	to me, for me; me (я in the dative/prepositional — мне холодно, I'm cold)
 ru	мной	pron	"me — after ""with"", ""behind"", ""between"" (""come with ___"", ""sit behind ___""); also the doer in ""written by ___""."
 ru	мною	pron	instrumental of я (ja) — alternative form of мной (mnoj)
-ru	мо	noun	MOD (“ministry of defence”), DOD (“department of defense”); abbreviation of министерства обороны (ministerstva oborony)
 ru	мог	verb	"could, was able to — a male subject (""he ___ not come"", ""I ___ have helped you"")."
 ru	могу	verb	"I can, I am able to (""___ I help you?"", ""I ___ not sleep"")."
 ru	моей	pron	"my — with a feminine thing after a preposition, or in the ""of / to my"" slot (""to ___ sister"", ""in ___ room"")."
@@ -6866,6 +6889,7 @@ ru	ограбления	noun	genitive singular of ограбле́ние (ograbl
 ru	ожидания	noun	genitive singular of ожида́ние (ožidánije)
 ru	окончания	noun	genitive singular of оконча́ние (okončánije)
 ru	он	pron	he; it (standing in for any masculine noun)
+ru	оон		the UN, the United Nations - the international organisation of member states (indeclinable, feminine agreement)
 ru	освобождения	noun	genitive singular of освобожде́ние (osvoboždénije)
 ru	остальные	adj	the rest, the others, remaining — остальной in the nominative plural
 ru	остальных	adj	the rest, the others, remaining — остальной in the genitive plural
@@ -6956,6 +6980,7 @@ ru	сказал	verb	"said, told — one completed act of speaking by a male sub
 ru	сказала	verb	"said, told — one completed act of speaking by a female subject (""she ___ nothing"")."
 ru	слежения	noun	tracking, surveillance — слежение (n.) in the genitive singular
 ru	случилось	verb	"happened, occurred — of an event or an unnamed ""it"" (""what ___?"", ""something ___ to him"")."
+ru	сми		the media, the mass media - newspapers, broadcasters and news sites taken together (plural, indeclinable)
 ru	смотри	verb	look!; have a look, watch - and as a warning, mind you, watch out; said to one person you address informally (imperative of смотреть, impf.; pf. посмотреть)
 ru	со	prep	"with; from, off — the padded form used before a cluster of consonants (""___ me"", ""___ the table"")."
 ru	соболезнования	noun	genitive singular of соболе́знование (soboléznovanije)
@@ -6975,6 +7000,7 @@ ru	страницы	noun	genitive singular of страни́ца (straníca)
 ru	страховки	noun	insurance — страховка (f.) in the genitive singular
 ru	существа	noun	genitive singular of существо́ (suščestvó)
 ru	существования	noun	existence — существование (n.) in the genitive singular
+ru	сша		the USA, the United States - the country in North America (indeclinable, takes plural agreement)
 ru	сюда	adv	"to this place — motion toward the speaker (""come ___"", ""put it ___""); answers ""where to?"", not ""where?""."
 ru	т	noun	t — the letter т, 't' as in top; as an abbreviation, ton
 ru	таблетки	noun	tablet, pill — таблетка (f.) in the genitive singular
@@ -7004,10 +7030,12 @@ ru	указания	noun	instruction, direction — указание (n.) in the
 ru	украшения	noun	decoration, ornament — украшение (n.) in the genitive singular
 ru	управления	noun	management, administration; control — управление (n.) in the genitive singular
 ru	устройства	noun	genitive singular of устро́йство (ustrójstvo)
+ru	фбр		the FBI - the federal investigation and domestic intelligence agency of the United States (indeclinable, neuter agreement)
 ru	хорошо	adv	"in a good way, done well (""she sings ___""); also the plain ""fine, OK"" when agreeing; the adverb of the adjective ""good""."
 ru	хотел	verb	"wanted — a male subject (""he ___ to help"", ""I ___ to ask you something"")."
 ru	хочешь	verb	"you want — one person, informal (""do you ___ some tea?"", ""what do you ___?"")."
 ru	хочу	verb	"I want, I'd like (""I ___ to go home"", ""I ___ some tea"")."
+ru	цру		the CIA - the foreign intelligence service of the United States (indeclinable, neuter agreement)
 ru	ч	noun	ch — the letter ч, 'ch' as in chip; as an abbreviation, hour
 ru	частью	noun	part — часть (f.) in the instrumental (быть частью чего-то — to be part of something; голова является частью тела — the head is a part of the body); mostly, for the most part (большей частью); partly, in part (as an adverb)
 ru	чего	pron	"what — the ""of what"" form, after a preposition or a negated verb (""I don't want ___"", ""afraid of ___""); also a blunt ""huh?""."
@@ -7654,6 +7682,7 @@ th	ฉันรักคุณ	phrase	'I love you', said by a woman — built on
 th	ฉิบหาย	verb	to go to ruin, to be destroyed; ruin, disaster
 th	ชั่ว	adj	bad, evil, wicked; (in compounds) a period of time, duration
 th	ณ	prep	the formal written 'at', placed before a place or date on signs, invitations and notices
+th	ดอล		dollar - the clipped everyday form of the currency name, used straight after a number in speech and casual writing; the full spelling is the one used in news and formal writing
 th	ดังนั้น	adv	so, therefore — draws the consequence of what was just said; formal and written in tone
 th	ด้วย	conj	too, as well ('ฉัน___' — me too); with, by means of; on a plea, 'please!' (ช่วย___ — help me!)
 th	ตรงนี้	adv	at this exact spot, right where I'm pointing ('นั่ง___ได้ไหม' — can I sit here?)
@@ -7678,6 +7707,7 @@ th	ปีเตอร์	name	Peter (man's given name, as transliterated in film
 th	ผม	noun	I (male); hair (of the head)
 th	ผมรักคุณ	phrase	'I love you', said by a man — built on the male word for 'I'
 th	พระเจ้า	noun	God — the deity of Christianity and Islam; also the exclamation 'oh my God!'
+th	มหาลัย		university - the everyday spoken word for the institution students go to after school, a shortening of the full name that is now the ordinary way to say it; the long form is the formal one used in writing and on signs
 th	มัน	pron	it — stands for a thing or animal already mentioned ('___ คืออะไร' — what is it?)
 th	ม้า	noun	horse (classifier: ตัว); also a low bench or stool, and the knight in chess
 th	ยัง	adv	still, yet (before the verb: ยังไม่ — not yet; ยัง alone answers “not yet”); also, too; (literary) to sustain, to keep going
@@ -7840,6 +7870,7 @@ tl	tatay	noun	dad — what a child calls him and how he is spoken of at home; am
 tl	tulad	prep	like, resembling — the bare root, which needs ng or a pronoun after it ('___ mo', like you); the ka- form can stand alone
 tl	una	adj	first, ahead of the others, earliest; after the marker sa, it means at first or in the beginning
 tl	upang	conj	so that, in order to — the formal written link before a purpose clause; para is the everyday spoken one
+tr	aa		oh!, ah! - exclamation of surprise, mild dismay or sudden recollection, typically opening a remark to someone
 tr	acaba	adv	I wonder (if/whether); by any chance — adds curiosity, indecision or doubt, and sometimes courtesy
 tr	acı	noun	pain, suffering, ache; grief, sorrow (acı çekmek — to suffer, acı vermek — to hurt); as an adjective: bitter, acrid; hot, spicy (acı biber — hot pepper); painful, tragic
 tr	adam	noun	man, adult male; guy, fellow ('iyi bir ___', a good guy)
@@ -7857,6 +7888,7 @@ tr	aklım	noun	my mind, my head, my wits — ___ başımda değil: I am not myse
 tr	aklıma	noun	to my mind, into my head — ___ geldi: it occurred to me, an idea struck me (dative of akıl: mind, with the first-person possessive)
 tr	aklına	noun	to his mind, into your head — ___ geldi: it occurred to him, an idea struck her (dative of akıl: mind, with the second- or third-person possessive)
 tr	aklından	noun	from his mind, out of your head — ___ geçen: what is on one's mind, ___ zoru var: she has a screw loose (ablative of akıl: mind, with the second- or third-person possessive)
+tr	akut		acute - sharp, severe and sudden in onset, of a pain, illness or crisis; also keen, sharp, of observation or the senses
 tr	akım	noun	current; streamflow; a trend or movement (in the arts, politics, etc.)
 tr	akıntı	noun	current, stream; the act of flowing
 tr	akşamlar	noun	evenings — iyi ___: good evening (plural of akşam: evening)
@@ -7918,6 +7950,7 @@ tr	at	noun	horse (at nalı — horseshoe); knight (in chess); also the second-pe
 tr	ateşi	noun	the fire as an object of a verb; his fever, her temperature — yüksek ___: a high fever (accusative or third-person possessive of ateş: fire, fever)
 tr	atlatmak	verb	causative of atlamak; to overcome, to get over
 tr	atılgan	adj	bold, enterprising, adventuresome; aggressive, fiery
+tr	avm		shopping mall, shopping centre - a large enclosed retail complex; the everyday term in Turkey, written in capitals and inflected like an ordinary noun
 tr	avrupalı	adj	European (person)
 tr	aydın	adj	bright, illuminated; also a male and female given name, and Aydın, a province in southwestern Turkey
 tr	ayrı	adj	separate, placed apart from each other; different, of another kind
@@ -8526,7 +8559,6 @@ tr	tarafında	noun	on his side, on your side, on the side of it — karşı ___:
 tr	tatbikat	noun	drill (an activity done as an exercise or practice, particularly in preparation for some possible future event or occurrence)
 tr	tekrar	adv	once more, over again - repeating what was done ('___ söyle', say it once more); as a noun, a repeat
 tr	telefonda	noun	on the phone — başka bir ___: on another line (locative of telefon: telephone)
-tr	tem	noun	abbreviation of Temmuz (“July”); initialism of Terörle Mücadele, the counter-terrorism police department
 tr	temel	noun	foundation, ground; basics, fundamentals
 tr	tep	verb	kick it!, kick it away! — second-person singular imperative of the verb for kicking; also to spurn something offered
 tr	terbiyesiz	adj	rude, ill-mannered; uneducated, ignorant
