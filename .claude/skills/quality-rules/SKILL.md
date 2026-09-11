@@ -390,6 +390,29 @@ rate, say so — that result matters more than the phase closing quietly.
     instrument. Before trusting any measurement, check that the thing being
     measured is the thing being served.
 
+58. **Every rule asks "is this row's content good"; none asks "should this
+    row have content at all".** The alphabet decks are production drills —
+    sound in, letter out — and four Russian letter cards were serving cloze
+    sentences where the character sat inside an ordinal (`15-й`), a numeral
+    (`до 4-х`) or an abbreviation (`н.э.`, `Г-н`), one of them "Ах ты ж ё!"
+    ("Oh sod.") on an A0 beginner card. Every instrument stayed quiet and one
+    would have PROTECTED them: the sentence clozes, it is not context-free, it
+    is over the floor, and the never-strand rule keeps a row that is a word's
+    only one. When a row is a different KIND of thing, ask what its card shows
+    before asking whether its content is good.
+
+59. **Protecting a class is not inspecting it.** The alphabet decks were
+    examined twice in one day — both times only to answer "should these be
+    deleted?", both times answered no — and nobody opened a card. A near-miss
+    that makes you defend something is the moment to look at it properly.
+
+60. **An alphabet letter is not a single-letter word.** `part_of_speech =
+    'letter'` (set only by `seed_alphabet`) is the test; string length never
+    is. 758 one-character rows are real words — Italian `e`, Russian `а`,
+    Portuguese `a`, Hebrew `ב`, Arabic `ب`, Māori `i` — and the two sets do
+    not overlap. Yoruba `n` was nearly swept as alphabet debris and is the
+    1SG pronoun (rule 51's neighbour).
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
