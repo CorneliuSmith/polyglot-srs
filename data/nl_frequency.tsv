@@ -33,7 +33,6 @@ rank	word	pos	en
 32	aan	prep	on (positioned at the outer surface of; attached to)
 33	u	pron	you (polite); thee (dialectal)
 34	dan	adv	then, at that time (in the future)
-35	n	noun	abbreviation of noord; north
 36	naar	prep	to, towards in time, space, consequence, purpose etc.
 37	weet	verb	know: I know; you know in weet je; he/she/it knows (present of weten); as a noun, awareness (geen weet hebben van)
 38	hier	adv	here
@@ -133,7 +132,6 @@ rank	word	pos	en
 132	omdat	conj	because
 133	zit	verb	sit; be (located, contained): I sit; he/she/it sits (present of zitten); as a noun, a sitting
 134	wordt	verb	second/third-person singular present indicative
-135	z	adv	abbreviation of zuid; south
 136	hou	verb	keep, hold: I keep, I hold (present of houden); ik hou van je — I love you (houden van); hou op! — stop it!
 137	heel	adj	complete, full, whole
 138	kijk	verb	look, watch: I look; look! (present and imperative of kijken); also a noun, view, outlook (kijk op iets)
@@ -610,7 +608,6 @@ rank	word	pos	en
 609	gisteren	adv	yesterday
 610	ontmoet	verb	first/second/third-person singular present indicative
 611	miljoen	noun	a million, 10⁶
-612	ok	noun	abbreviation of operatiekamer
 613	film	noun	a film, thin layer or membrane; especially the physical medium film
 614	verloren	verb	plural past indicative
 615	probeerde	verb	singular past indicative
@@ -1237,7 +1234,6 @@ rank	word	pos	en
 1236	koop	verb	buy: I buy; buy! (present and imperative of kopen); as a noun, a purchase, a deal; te koop — for sale
 1237	appartement	noun	an apartment
 1238	cel	noun	cell (a compartment)
-1239	d	noun	abbreviation of dame (“queen”)
 1240	begraven	verb	to bury
 1241	indruk	noun	impression
 1242	vlees	noun	meat; flesh
@@ -1703,7 +1699,6 @@ rank	word	pos	en
 1702	kies	verb	choose!, pick! — imperative of kiezen (kies één persoon, choose one person); I choose; also to elect (een president kiezen); as a noun, de kies — a molar (tooth)
 1703	wiens	det	whose
 1704	schattig	adj	cute, adorable
-1705	dr.	noun	abbreviation of doctor (“doctor”)
 1706	schot	noun	shot, act of shooting
 1707	vijanden	noun	plural of vijand
 1708	neuken	verb	to fuck, to screw
@@ -1936,7 +1931,6 @@ rank	word	pos	en
 1935	vertrok	verb	singular past indicative of vertrekken
 1936	verdomd	adj	damned
 1937	vervelend	adj	boring, uninteresting
-1938	vs	name	initialism of Verenigde Staten (= United States): a country in North America: US
 1939	rekenen	verb	to calculate, to do arithmetic
 1940	klap	noun	bang (a sudden percussive noise)
 1941	aanbieden	verb	to offer; to offer oneself, to volunteer, (in sexual contexts) to solicit
@@ -2057,7 +2051,6 @@ rank	word	pos	en
 2056	maandag	noun	Monday
 2057	verliet	verb	singular past indicative of verlaten
 2058	leefde	verb	singular past indicative
-2059	it	noun	initialism of informatietechnologie (“information technology”)
 2060	pakte	verb	singular past indicative
 2061	franse	adj	masculine/feminine singular attributive
 2062	bergen	verb	to store, to stash away
@@ -2932,7 +2925,6 @@ rank	word	pos	en
 2931	jo	intj	hi; bye
 2932	bot	adj	not sharp, blunt, dull
 2933	ei	noun	egg
-2934	mr.	noun	abbreviation of meester (“LL.M., Master of Laws”), used by lawyers and notaries.
 2935	beroemde	adj	masculine/feminine singular attributive
 2936	chaos	noun	chaos (disorder)
 2937	verbaast	verb	second/third-person singular present indicative
@@ -3114,7 +3106,6 @@ rank	word	pos	en
 3113	aantrekkelijk	adj	attractive, beautiful
 3114	verplaatst	verb	second/third-person singular present indicative
 3115	albert	name	a male given name, equivalent to English Albert
-3116	no	noun	initialism of noordoost; NE
 3117	uitgeschakeld	verb	past participle of uitschakelen
 3118	vliegtuigen	noun	plural of vliegtuig
 3119	tja	intj	Used to express thinking or pondering; hmm, yeah well
@@ -4142,7 +4133,6 @@ rank	word	pos	en
 4141	jarenlang	adj	lasting for years, yearslong
 4142	staal	noun	steel
 4143	chemische	adj	masculine/feminine singular attributive
-4144	x	noun	abbreviation of keer (“time”)
 4145	zeuren	verb	to whine, to complain in an unpleasant manner
 4146	sector	noun	sector
 4147	vreemds	adj	partitive of vreemd
@@ -4196,7 +4186,6 @@ rank	word	pos	en
 4195	koppel	noun	couple (pair, duo)
 4196	tumor	noun	tumour, swelling
 4197	appel	noun	apple (Malus domestica, fruit or tree)
-4198	jan	noun	abbreviation of januari (“January”)
 4199	treden	verb	to tread, step
 4200	wolken	noun	plural of wolk
 4201	gevlucht	noun	a sail cross; the sail beams of a windmill, connecting the sweeps to the windshaft
@@ -4273,7 +4262,6 @@ rank	word	pos	en
 4272	achtervolgen	verb	to pursue
 4273	database	noun	database
 4274	weddenschap	noun	wager, bet
-4275	dc	noun	initialism of districtscommissaris (“district commissioner”)
 4276	australië	name	Australia
 4277	achterlijk	adj	backwards, idiotic, stupid, moronic
 4278	vereerd	verb	past participle of vereren
@@ -4649,7 +4637,6 @@ rank	word	pos	en
 4648	absurd	adj	absurd
 4649	ultieme	adj	masculine/feminine singular attributive
 4650	erica	name	a village in Emmen, Drenthe, Netherlands
-4651	v	adj	abbreviation of vrouwelijk (“feminine”)
 4652	verbinden	verb	to connect, link up
 4653	ingezet	adj	encrusted
 4654	nabij	prep	near
@@ -4662,7 +4649,6 @@ rank	word	pos	en
 4661	bewoners	noun	plural of bewoner
 4662	intelligentie	noun	intelligence (capacity of mind)
 4663	hierdoor	adv	pronominal adverb form of door + dit
-4664	m.	noun	abbreviation of mark
 4665	kleden	verb	to dress; to fit someone, to suit someone (of a piece of clothing)
 4666	heftig	adj	intense, heavy
 4667	gil	noun	scream
@@ -5399,7 +5385,6 @@ rank	word	pos	en
 5398	algemene	adj	masculine/feminine singular attributive
 5399	opbouwen	verb	to build, to build up
 5400	kaarsen	noun	plural of kaars
-5401	ns	name	initialism of Nederlandse Spoorwegen (“Dutch railway company”)
 5402	waarden	noun	plural of waarde
 5403	gijzelaar	noun	hostage; hostage-taker
 5404	effectief	adj	effective
@@ -6562,7 +6547,6 @@ rank	word	pos	en
 6561	slager	noun	butcher (one who prepares and sells meat and meat products)
 6562	verlichting	noun	lighting, illumination
 6563	zalig	adj	glorious; blessed
-6564	p	noun	abbreviation of paard (“knight”)
 6565	fit	adj	fit (in good shape)
 6566	geschift	adj	crazy
 6567	ertegen	adv	pronominal adverb form of tegen + het
@@ -6675,7 +6659,6 @@ rank	word	pos	en
 6674	brazilië	name	Brazil (a large Portuguese-speaking country in South America)
 6675	letsel	noun	lesion, injury
 6676	dankbaarheid	noun	thankfulness, gratitude
-6677	e.	noun	abbreviation of edele
 6678	uithangen	verb	to hang out; to hang around, to be (in a place)
 6679	dooie	adj	masculine/feminine singular attributive
 6680	subtiel	adj	subtle (hard to grasp)
@@ -6804,7 +6787,6 @@ rank	word	pos	en
 6803	hulpeloos	adj	defenseless; helpless (unable to defend oneself)
 6804	inslag	noun	physical impact
 6805	voorspelling	noun	forecast; prophecy
-6806	who	name	abbreviation of Wereldgezondheidsorganisatie (“World Health Organization”): WHO
 6807	zaklamp	noun	flashlight, torch (battery-powered hand-held lightsource)
 6808	aanstaande	adj	masculine/feminine singular attributive
 6809	lood	noun	lead; lot (old unit of weight, equal to 1⁄30 or 1⁄32 of a pound)
@@ -7122,7 +7104,6 @@ rank	word	pos	en
 7121	oefeningen	noun	plural of oefening
 7122	koepel	noun	cupola, dome
 7123	si	noun	musical note; ti
-7124	w	adv	abbreviation of west; west
 7125	knaap	noun	boy, usually adolescent
 7126	boterham	noun	a slice of bread
 7127	biecht	noun	confession
@@ -7181,7 +7162,6 @@ rank	word	pos	en
 7180	dekt	verb	second/third-person singular present indicative
 7181	plakken	verb	to stick; to glue, to paste
 7182	achterlaat	verb	first/second/third-person singular dependent-clause present indicative of achterlaten
-7183	2e	adj	abbreviation of tweede (“second”); 2nd
 7184	uittrekken	verb	to take off (clothes)
 7185	verzamelt	verb	second/third-person singular present indicative
 7186	intuïtie	noun	intuition
@@ -8878,13 +8858,11 @@ rank	word	pos	en
 8878	vuurwapen	noun	firearm
 8879	onverwachts	adv	unexpectedly
 8880	staven	verb	to substantiate
-8881	1e	adj	abbreviation of eerste (“first”); 1st
 8882	kraag	noun	a collar; a frill of feathers or skin of a bird or reptile
 8883	aanspreken	verb	to address; to accost
 8884	tijdmachine	noun	time machine; chronometer, such as a clock
 8885	etenstijd	noun	mealtime, especially dinnertime
 8886	longontsteking	noun	pneumonia (acute or chronic inflammation of the lungs)
-8887	18e	adj	abbreviation of achttiende (“eighteenth”); 18th
 8888	samenkomen	verb	to come together, to meet, to assemble
 8889	dilemma	noun	dilemma (between two alternatives)
 8890	vervoerd	verb	past participle of vervoeren
@@ -9102,7 +9080,6 @@ rank	word	pos	en
 9102	welles	intj	used to contradict a negative assertion
 9103	martelaar	noun	martyr
 9104	bloedgroep	noun	blood type; background, especially in an organisation that is the result of a merger
-9105	a.u.b.	adv	abbreviation of alstublieft
 9106	verschijning	noun	appearance, act of appearing
 9107	primitieve	adj	masculine/feminine singular attributive
 9108	afslaan	verb	to decline, to reject
@@ -9497,7 +9474,6 @@ rank	word	pos	en
 9497	levensverzekering	noun	life insurance
 9498	getto	noun	ghetto
 9499	gips	noun	plaster cast; gypsum
-9500	15e	adj	abbreviation of vijftiende (“fifteenth”); 15th
 9501	effe	adv	shortly; for a moment
 9502	samengesteld	adj	compound; composed
 9503	regende	verb	singular past indicative
@@ -9647,7 +9623,6 @@ rank	word	pos	en
 9647	opgelicht	verb	past participle of oplichten
 9648	hendel	noun	lever
 9649	schikken	verb	to arrange, to order
-9650	mevr.	noun	abbreviation of mevrouw Mrs.
 9651	kortste	adj	masculine/feminine singular attributive
 9652	motorkap	noun	bonnet, hood (of a motorised road vehicle)
 9653	afspelen	verb	to play (a recording)
@@ -9665,7 +9640,6 @@ rank	word	pos	en
 9665	hiertoe	adv	to this, hereto; to this end
 9666	verworpen	verb	past participle of verwerpen
 9667	black-out	noun	blackout (temporary loss of consciousness)
-9668	19e	adj	abbreviation of negentiende (“nineteenth”); 19th
 9669	werkers	noun	plural of werker
 9670	verraste	verb	singular past indicative
 9671	strike	noun	strike (act of knocking down all ten pins on the first roll of a frame)
@@ -9707,7 +9681,6 @@ rank	word	pos	en
 9707	puree	noun	puree
 9708	verveelde	verb	singular past indicative
 9709	telde	verb	singular past indicative
-9710	20e	adj	abbreviation of twintigste (“twentieth”); 20th
 9711	loslaat	verb	first/second/third-person singular dependent-clause present indicative of loslaten
 9712	sarcasme	noun	sarcasm
 9713	kouder	adj	comparative degree of koud
@@ -9725,7 +9698,6 @@ rank	word	pos	en
 9725	barcelona	name	Barcelona (the capital city of Catalonia, Spain)
 9726	automaat	noun	a machine that performs automated tasks
 9727	cynisch	adj	cynical; Cynic, pertaining to Cynicism
-9728	21e	adj	abbreviation of eenentwintigste (“twenty-first”); 21st
 9729	hybride	noun	A hybrid.
 9730	rituelen	noun	plural of ritueel
 9731	roodharige	noun	a redheaded person, ginger
@@ -9833,7 +9805,6 @@ rank	word	pos	en
 9833	elektronica	noun	electronics
 9834	citeer	verb	first-person singular present indicative
 9835	klimt	verb	second/third-person singular present indicative
-9836	3e	adj	abbreviation of derde (“third”); 3rd
 9837	bestonden	verb	plural past indicative
 9838	gerelateerd	adj	related
 9839	gedoopt	adj	baptized

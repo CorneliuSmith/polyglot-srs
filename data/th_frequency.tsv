@@ -543,7 +543,6 @@ rank	word	pos	en
 547	ตา	noun	eye; one who does something with an eye or the eyes, especially as a profession
 548	เล็ก	adj	small
 549	สบายดีไหม	phrase	how are you?
-550	ผ	noun	initialism of ผ่าน (pàan, “passed; satisfied”), used as a grade.
 551	ครั้งหนึ่ง	adv	one time, once; once upon a time
 552	กิโล	noun	kilometer.; kilogram.
 553	ชาย	noun	male; man
@@ -676,7 +675,6 @@ rank	word	pos	en
 680	คืน	noun	night (Classifier: คืน)
 681	หน่วย	noun	unit; division; group; department
 682	โจมตี	verb	to attack, assault, raid
-683	แคล	noun	abbreviation of แคลคูลัส (calculus)
 684	กล้อง	noun	pipe; binoculars (optical device)
 685	ง่าย	adj	easy, simple
 686	ปัญหา	noun	problem; trouble; difficulty
@@ -891,7 +889,6 @@ rank	word	pos	en
 895	ทุกสิ่งทุกอย่าง	pron	everything, all things
 896	แถว	noun	area; locality; vicinity
 897	ไรเดอร์	noun	motorcycle courier.
-898	ร	noun	initialism of รอประเมินผล (“awaiting evaluation; incomplete”), used as a grade.
 899	กด	verb	to press; to push down
 900	หรือยัง	conj	... or not; whether
 901	ค่อย	adv	gradually; little-by-little
@@ -975,7 +972,6 @@ rank	word	pos	en
 981	ยาม	noun	any of the eight parts of the day
 982	ในเมือง	noun	in the city, downtown
 983	มกราคม	name	January (the first month of the year under the Gregorian calendar)
-984	ค.ศ.	name	initialism of คริสต์ศักราช (krít-sàk-gà-ràat)
 985	ตรง	adj	straight; not bent
 986	ฟัก	verb	to hatch; to brood; to incubate
 987	เลข	noun	letter; character; writing
@@ -2100,7 +2096,6 @@ rank	word	pos	en
 2107	วุ่นวาย	verb	to be busy or chaotic
 2108	โง่เง่า	adj	very stupid, idiot, or unintelligent.
 2109	ลงชื่อ	verb	to sign: to affix a signature (to).
-2110	พ.ย.	name	initialism of พฤศจิกายน (prʉ́t-sà-jì-gaa-yon, “November”)
 2111	สัญชาตญาณ	noun	intuition; instinct.
 2112	ล้อ	verb	to copy; to imitate; to reproduce.
 2113	หลาน	noun	grandchild.; nephew or niece.
@@ -2318,7 +2313,6 @@ rank	word	pos	en
 2326	หมู่บ้าน	noun	a village (rural habitation smaller than a town) (Classifiers: หมู่บ้าน or หมู่ or แห่ง)
 2327	กุมภา	noun	clipping of กุมภาพันธ์ (gum-paa-pan)
 2328	ละคร	noun	show; play; drama
-2329	มี.ค.	name	initialism of มีนาคม (mii-naa-kom, “March”)
 2331	อึดอัด	adj	tight; uncomfortable; awkward
 2332	แหลม	adj	pointed; sharp; keen; pointy
 2333	จระเข้	noun	crocodilian; crocodile
@@ -2351,7 +2345,6 @@ rank	word	pos	en
 2360	ความมั่นใจ	noun	abstract noun of มั่นใจ (mân-jai): confidence
 2361	เฉา	verb	to fade; to decline
 2362	เมน	noun	bias (one's favourite member of a musical band)
-2363	เม.ย.	name	initialism of เมษายน (mee-sǎa-yon, “April”)
 2364	ดอกเบี้ย	noun	interest (a sum paid or charged for the use of money, for borrowing money, etc.).
 2365	สนับสนุน	verb	to support; to aid; to back up.
 2366	หมัด	noun	flea.
@@ -2449,7 +2442,6 @@ rank	word	pos	en
 2458	ตื่นขึ้น	verb	to wake up, be awake
 2459	จู่โจม	verb	to attack.
 2460	กองกำลัง	noun	troop
-2461	มิ.ย.	name	initialism of มิถุนายน (mí-tù-naa-yon, “June”)
 2462	ตอนเย็น	noun	evening, evening time
 2463	ห่อ	noun	packet
 2464	ครอบคลุม	verb	to cover; to include.
@@ -2776,7 +2768,6 @@ rank	word	pos	en
 2787	หาเงิน	verb	to earn money
 2788	หุ่นไล่กา	noun	scarecrow.
 2789	จาน	noun	plate; dish
-2790	ต.ค.	name	initialism of ตุลาคม (dtù-laa-kom, “October”)
 2791	ทะเลทราย	noun	desert
 2792	นักมายากล	noun	magician: entertainer skilled in producing illusions.
 2793	พ่อแม่พี่น้อง	noun	used to address the general public.
@@ -2827,7 +2818,6 @@ rank	word	pos	en
 2838	สหรัฐ	name	United States
 2839	รองประธาน	noun	vice-chairman, vice-president
 2840	คิวบา	name	Cuba (a country, the largest island (based on land area) in the Caribbean)
-2841	พ.ค.	name	initialism of พฤษภาคม (prʉ́t-sà-paa-kom, “May”)
 2842	อิรัก	name	Iraq (a country in West Asia in the Middle East)
 2843	ความสนุก	noun	abstract noun of สนุก (sà-nùk): fun, amusement, pleasure
 2844	รำคาญ	verb	to annoy, bother, disturb, or displease
@@ -3025,7 +3015,6 @@ rank	word	pos	en
 3036	ลูกกวาด	noun	candy; toffee
 3037	หน่วยงาน	noun	body of persons carrying out a certain work: agency
 3038	จิ๋ม	noun	vagina.
-3039	ก.ค.	name	initialism of กรกฎาคม (gà-rá-gà-daa-kom, “July”)
 3040	ไอติม	noun	ice cream.
 3041	ทึ่ม	adj	foolish; stupid.
 3042	ราชสีห์	noun	lion
@@ -3092,7 +3081,6 @@ rank	word	pos	en
 3103	สวนสาธารณะ	noun	public park
 3104	กัวเตมาลา	name	Guatemala (a country in northern Central America)
 3105	สามัญสำนึก	noun	common sense.
-3106	ก.พ.	name	initialism of กุมภาพันธ์ (gum-paa-pan, “February”)
 3107	โทรเลข	noun	telegraph; telegram
 3108	ไปเรื่อย	adv	aimlessly; purposelessly; idly; nonspecifically.
 3109	ไขมัน	noun	fat, lard
@@ -3353,7 +3341,6 @@ rank	word	pos	en
 3365	นักบุญ	noun	saint.
 3366	โต	adj	big; large.
 3367	สัตว์เลื้อยคลาน	noun	reptile
-3368	ม.ค.	name	initialism of มกราคม (má-gà-raa-kom, “January”)
 3369	มาราธอน	noun	marathon.
 3370	นิวเจอร์ซีย์	name	New Jersey (a state in the northeastern United States)
 3371	คุณหญิง	noun	a title given to the principal wife of a nobleman holding the rank of พระยา (prá-yaa).
@@ -3679,7 +3666,6 @@ rank	word	pos	en
 3691	กล้องจุลทรรศน์	noun	microscope
 3692	ฟินแลนด์	name	Finland (a country in Northern Europe)
 3693	หอม	adj	having or emitting a pleasant scent: scented
-3694	ธ.ค.	name	initialism of ธันวาคม (tan-waa-kom, “December”)
 3695	สิทธิมนุษยชน	noun	human right
 3696	สอดแนม	verb	to detect; to spy; to snoop.
 3697	แว่น	noun	circular piece (of something sliced, of glass, etc).

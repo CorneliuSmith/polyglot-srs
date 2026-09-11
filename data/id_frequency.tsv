@@ -821,7 +821,6 @@ rank	word	pos	en
 820	berlangsung	verb	to last; to take place, to happen, to occur
 821	jatuh	verb	to fall; to move to a lower position under the effect of gravity
 822	televisi	noun	television; an electronic communication medium that allows the transmission of real-time visual images
-823	km	pron	abbreviation of kamu (“you”)
 824	memulai	verb	to start; to begin
 825	peran	noun	actor; character
 826	bangsa	noun	a group of people, animals, or plants with shared origin and the same characteristic
@@ -898,7 +897,6 @@ rank	word	pos	en
 897	dipakai	verb	passive of pakai
 898	kristen	noun	Christianity; Christian
 899	berisi	verb	to have contents; contain
-900	sma	noun	abbreviation of satuan massa atom (“atomic mass unit”)
 901	tradisional	adj	traditional
 902	mengetahui	verb	active of ketahui
 903	unit	noun	unit; oneness, singularity, seen as a component of a whole number; a magnitude of one
@@ -1070,10 +1068,8 @@ rank	word	pos	en
 1069	status	noun	status; a person’s condition, position or standing relative to that of others
 1070	bakar	verb	to burn, put on fire
 1071	penampilan	noun	profile; appearance
-1072	pt	noun	initialism of perseroan terbatas (“limited company”)
 1073	darat	noun	ground; land
 1074	pengetahuan	noun	knowledge; the fact of knowing about something
-1075	sm	adv	abbreviation of Sebelum Masehi (“Before Christ”): BC
 1076	mengandung	verb	active of kandung
 1077	daun	noun	leaf (part of a plant)
 1078	aplikasi	noun	application; appliqué (a kind of needlework)
@@ -1166,7 +1162,6 @@ rank	word	pos	en
 1165	sambil	adv	while, as
 1166	menengah	verb	to center
 1167	gubernur	noun	governor; the head of military education institution
-1168	smp	noun	initialism of sekolah menengah pertama (corresponding to junior high school (US) or lower secondary school (UK))
 1169	menang	verb	to win, triumph, prevail
 1170	romawi	adj	Roman; of or from Rome
 1171	demi	prep	for the sake of, for something's sake
@@ -1281,7 +1276,6 @@ rank	word	pos	en
 1280	kepulauan	noun	archipelago (a group of islands)
 1281	menjalankan	verb	active of jalankan
 1282	permintaan	noun	application (the act of applying as a means)
-1283	al	noun	abbreviation of angkatan laut
 1284	aceh	adj	loose (seed from fruit)
 1285	dijual	verb	passive of menjual
 1286	hukuman	noun	punishment; the act or process of punishing, imposing and/or applying a sanction
@@ -1463,7 +1457,6 @@ rank	word	pos	en
 1462	ganda	noun	dual; double
 1463	kelima	num	fifth
 1464	identitas	noun	identity
-1465	no	noun	initialism of niet ontvankelijk verklaard (“declared inadmissible”)
 1466	bandar	noun	harbour, port; coastal town
 1467	roma	noun	fine body hair; pore
 1468	mengaku	verb	to claim, to identify, to consider
@@ -1480,7 +1473,6 @@ rank	word	pos	en
 1479	sikap	noun	figure, shape, stature, build
 1480	terjun	verb	to leap down; to jump from a high place to a lower place
 1481	senyawa	noun	compound
-1482	to	noun	initialism of target operasi
 1483	mencatat	verb	active of catat
 1484	tersebar	adj	spread, spread out
 1485	lunak	adj	soft, tender; moderate
@@ -1500,7 +1492,6 @@ rank	word	pos	en
 1499	kepemimpinan	noun	leadership
 1500	roda	noun	wheel (a circular device facilitating movement or transportation)
 1501	gelap	adj	dark (having an absolute or relative lack of light)
-1502	ki	noun	initialism of kompetensi inti
 1503	perawatan	noun	care, treatment
 1504	dikarenakan	verb	to be caused by
 1505	planet	noun	planet
@@ -1556,7 +1547,6 @@ rank	word	pos	en
 1555	eksekutif	adj	executive; designed or fitted for execution, or carrying into effect
 1556	ribu	num	thousand; million (when talking about currency, the Indonesian rupiah)
 1557	rusak	adj	not working properly; out of order; damaged; broken
-1558	sd	noun	initialism of sekolah dasar (“primary school”)
 1559	jangka	noun	compass, a pair of compasses (a device used to draw an arc or circle)
 1560	gangguan	noun	disturbance; hindrance
 1561	lomba	noun	race; competition, contest
@@ -2038,7 +2028,6 @@ rank	word	pos	en
 2037	engkau	pron	Second-person singular pronoun: you, your, yours
 2038	monumen	noun	monument
 2039	jati	adj	original, pure
-2040	pbb	noun	initialism of pajak bumi dan bangunan (“land value tax”)
 2041	akurat	adj	accurate (exact or careful conformity to truth)
 2042	menginginkan	verb	active of inginkan
 2043	tenggelam	verb	to submerge, to sink, to be immersed
@@ -2061,7 +2050,6 @@ rank	word	pos	en
 2060	sinar	noun	ray; beam (light)
 2061	federasi	noun	federation,; any society or organisation formed from separate groups or bodies
 2062	mitra	noun	friend, colleague
-2063	ma	noun	initialism of madrasah aliah
 2064	duta	noun	envoy
 2065	kabinet	noun	cabinet; storage closet, cupboard
 2066	memisahkan	verb	to separate
@@ -2114,7 +2102,6 @@ rank	word	pos	en
 2113	benua	noun	continent; land, country
 2114	institusi	noun	institution; a custom or practice of a society or community
 2115	kontak	noun	contact (the establishment of communication or relation)
-2116	yg	conj	abbreviation of yang (“that; which”)
 2117	injil	noun	gospel
 2118	bakat	noun	trace, mark; sign, presage, portent
 2119	cadangan	noun	backup, provision, reserve, stock, substitute
@@ -2196,7 +2183,6 @@ rank	word	pos	en
 2195	perencanaan	noun	planning
 2196	pendeta	noun	priest
 2197	kastil	noun	castle; palace, with castellated features
-2198	sk	noun	initialism of surat keputusan (“decree”)
 2199	serbia	noun	Serbian; Serb
 2200	tom	noun	bridle, rein
 2201	dilantik	verb	passive of lantik
@@ -2248,7 +2234,6 @@ rank	word	pos	en
 2247	baku	adv	mutually, reciprocally, each other, one another
 2248	kesadaran	noun	awareness; consciousness
 2249	kandidat	noun	candidate
-2250	rt	noun	initialism of rukun tetangga
 2251	kerangka	noun	frame (anything composed of parts fitted and united together; a fabric; a structure)
 2252	tuduhan	noun	accusation
 2253	penderita	noun	person who suffers; sufferer.
@@ -2297,7 +2282,6 @@ rank	word	pos	en
 2296	pengurus	noun	manager, administrator
 2297	ban	noun	tyre, tire; tape
 2298	panitia	noun	committee
-2299	smk	noun	initialism of sekolah menengah kejuruan (“vocational high school”)
 2300	berlayar	verb	to sail (to ride in sailboat)
 2301	bersekolah	verb	to school; to be educated
 2302	dibedakan	verb	passive of bedakan
@@ -2322,7 +2306,6 @@ rank	word	pos	en
 2321	pemeriksaan	noun	audit, check, inspection
 2322	riset	noun	research
 2323	visual	adj	visual; related to or affecting the vision
-2324	man	noun	acronym of madrasah aliah negeri
 2325	belakangan	adv	conclusively, eventually
 2326	legislatif	adj	legislative, making, or having the power to make, a law or laws; lawmaking
 2327	bernilai	verb	to have a value of
@@ -2379,7 +2362,6 @@ rank	word	pos	en
 2378	apalagi	conj	especially; let alone
 2379	main	verb	to play
 2380	surya	noun	sun
-2381	an	noun	initialism of asesmen nasional (“national assessment”)
 2382	didominasi	verb	passive of dominasi
 2383	dijalankan	verb	passive of jalankan
 2384	dimakan	verb	passive of makan
@@ -2453,14 +2435,12 @@ rank	word	pos	en
 2452	hantu	noun	ghost (spirit appearing after death)
 2453	penilaian	noun	rating, valuation
 2454	ordo	noun	order,; a group of religious adherents
-2455	up	noun	initialism of uang pesangon (“severance pay”)
 2456	protestan	noun	Protestantism
 2457	diundang	verb	passive of undang
 2458	mengidentifikasi	verb	to identify
 2459	muka	noun	face; the front part of the head of a human or other animal
 2460	sekunder	adj	secondary, next in order to the first or primary; of second place in origin, rank, etc
 2461	detail	noun	detail
-2462	uu	noun	initialism of undang-undang
 2463	penjahat	noun	criminal; villain
 2464	disiplin	noun	discipline; a set of rules regulating behavior
 2465	peduli	verb	to care; to pay attention
@@ -2592,7 +2572,6 @@ rank	word	pos	en
 2591	tebing	noun	steep bank, escarpment.
 2592	arena	noun	arena; the building housing such an area
 2593	sakti	adj	able; mystic
-2594	dki	noun	initialism of daerah khusus ibu kota (“special capital region”)
 2595	berniat	verb	to intend
 2596	hadapan	noun	front
 2597	lipat	verb	to fold; to multiple
@@ -2638,9 +2617,7 @@ rank	word	pos	en
 2637	keadilan	noun	justice; fairness
 2638	pro	adj	pro, in favor of
 2639	statistik	noun	statistic; a single item in a statistical study
-2640	dr	prep	abbreviation of dari
 2641	prefektur	noun	prefecture (the office or position of a prefecture)
-2642	rw	noun	initialism of rukun warga
 2643	menyenangkan	adj	fun
 2644	terendah	adj	superlative degree of rendah: lowest
 2645	utuh	adj	whole; intact
@@ -2748,7 +2725,6 @@ rank	word	pos	en
 2747	kerajinan	noun	diligence; industry
 2748	pengendalian	noun	control; management
 2749	banding	noun	comparison
-2750	art	noun	initialism of anggaran rumah tangga
 2751	sarang	noun	nest; den
 2752	malaikat	noun	angel
 2753	katedral	noun	cathedral
@@ -2793,7 +2769,6 @@ rank	word	pos	en
 2792	kecenderungan	noun	tendency; trend
 2793	investigasi	noun	investigation, the act of investigating
 2794	indra	noun	sense, any of the manners by which living beings perceive the physical world
-2795	ka	noun	initialism of kereta api (“train”)
 2796	sensor	noun	censor, an official responsible for the removal of objectionable or sensitive content
 2797	surga	noun	paradise, heaven. (any religions)
 2798	sentral	adj	central
@@ -2908,7 +2883,6 @@ rank	word	pos	en
 2907	arkeologi	noun	archaeology (the academic subject)
 2908	ungkapan	noun	expression; phrase
 2909	panel	noun	panel; a usually rectangular section of a surface; a plain strip or band
-2910	ad	noun	initialism of angkatan darat
 2911	armenia	adj	Armenian (of, from, or pertaining to Armenia, Armenians, the language or alphabet)
 2912	heran	adj	amazed, astonished
 2913	memeriksa	verb	to examine, to check

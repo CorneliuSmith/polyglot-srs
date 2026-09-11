@@ -818,7 +818,6 @@ rank	word	pos	en
 818	venite	verb	second-person plural present indicative
 819	controllare	verb	to check, verify, inspect, examine
 820	appuntamento	noun	appointment, meeting, rendezvous
-821	s	noun	abbreviation of sud; south
 822	chiami	verb	second-person singular present indicative
 823	vecchia	adj	feminine singular of vecchio
 824	detective	noun	detective
@@ -1091,7 +1090,6 @@ rank	word	pos	en
 1091	gay	adj	gay
 1092	arrivata	adj	feminine singular of arrivato
 1093	lavori	noun	plural of lavoro
-1094	max	adj	abbreviation of massimo (“max”)
 1095	certamente	adv	certainly, definitely, surely, of course
 1096	regole	noun	plural of regola
 1097	vostre	det	feminine plural of vostro
@@ -1850,7 +1848,6 @@ rank	word	pos	en
 1850	caduto	verb	past participle of cadere
 1851	corri	verb	second-person singular present indicative
 1852	cinema	noun	cinema; cinema, movie theater, film theatre
-1853	t	noun	abbreviation of torre (“rook”)
 1854	passati	verb	masculine plural of passato
 1855	tetto	noun	roof; cap (artificial upper limit)
 1856	alcuna	adj	feminine singular of alcuno
@@ -2015,7 +2012,6 @@ rank	word	pos	en
 2015	zero	num	zero
 2016	ruolo	noun	role
 2017	cavalli	noun	plural of cavallo
-2018	c	noun	abbreviation of cavallo (“knight”)
 2019	mattino	noun	morning
 2020	pazzi	noun	plural of pazzo
 2021	funerale	adj	of or pertaining to a deceased and his/her funeral; funeral, funereal
@@ -2028,7 +2024,6 @@ rank	word	pos	en
 2028	abbiate	verb	second-person plural present subjunctive
 2029	domenica	noun	Sunday
 2030	tette	noun	plural of tetta
-2031	sig.	noun	abbreviation of signor(e): Mr.
 2032	vorrà	verb	third-person singular future of volere
 2033	spia	noun	spy, bug; spy, informer, infiltrator, telltale, fink, grass
 2034	manda	verb	third-person singular present indicative
@@ -2576,7 +2571,6 @@ rank	word	pos	en
 2576	morale	adj	moral
 2577	avvocati	noun	plural of avvocato
 2578	caspita	intj	good heavens!; for goodness' sake!
-2579	tim	name	initialism of Telecom Italia Mobile (“a mobile phone network”)
 2580	fallito	verb	past participle of fallire
 2581	indossare	verb	to put on, to don, to wear
 2582	occupo	verb	first-person singular present indicative of occupare
@@ -2617,7 +2611,6 @@ rank	word	pos	en
 2617	probabile	adj	probable, likely, prospective
 2618	lasciala	verb	compound of lascia, the second-person singular imperative form of lasciare, with la
 2619	credono	verb	third-person plural present indicative of credere
-2620	n	noun	abbreviation of nord; north
 2621	riposo	noun	rest, repose, break
 2622	indovina	noun	female equivalent of indovino
 2623	diverte	verb	third-person singular present indicative of divertire
@@ -2689,7 +2682,6 @@ rank	word	pos	en
 2689	cercate	verb	second-person plural present indicative
 2690	olivia	name	a female given name, equivalent to English Olivia or Olive
 2691	autista	adj	autistic
-2692	d	noun	abbreviation of donna (“queen”)
 2693	essermi	verb	compound of the infinitive essere with mi
 2694	coscienza	noun	conscience; consciousness
 2695	discussione	noun	discussion; argument
@@ -3661,7 +3653,6 @@ rank	word	pos	en
 3661	rimanga	verb	first/second/third-person singular present subjunctive
 3662	riportato	verb	past participle of riportare
 3663	indizio	noun	evidence; clue, inkling
-3664	x	prep	abbreviation of per (“for”)
 3665	spezzato	verb	past participle of spezzare
 3666	sessuali	adj	plural of sessuale
 3667	tiri	noun	plural of tiro
@@ -3717,7 +3708,6 @@ rank	word	pos	en
 3717	vicolo	noun	alley, alleyway
 3718	capacità	noun	capacity (to do something), ability, skill
 3719	noto	adj	of common knowledge
-3720	dott.	noun	abbreviation of dottore (“Dr”)
 3721	patente	adj	obvious
 3722	riuscirai	verb	second-person singular future of riuscire
 3723	villa	noun	mansion; detached house, residence
@@ -4764,7 +4754,6 @@ rank	word	pos	en
 4764	conclusione	noun	conclusion; completion
 4765	logica	noun	logic
 4766	sopravvissuti	verb	masculine plural of sopravvissuto
-4767	meg	name	acronym of metodo di eliminazione di Gauss
 4768	guardarti	verb	compound of the infinitive guardare with ti
 4769	lavare	verb	to wash
 4770	presentano	verb	third-person plural present indicative of presentare
@@ -5453,7 +5442,6 @@ rank	word	pos	en
 5454	ottime	adj	feminine plural of ottimo
 5455	cercarla	verb	compound of the infinitive cercare with la
 5456	comprata	verb	feminine singular of comprato
-5457	mm	noun	initialism of Marina Militare
 5458	foglio	noun	sheet (rectangular piece of paper; a thin, flat layer of another material)
 5459	calmata	noun	calm after a storm
 5460	votare	verb	to vote [with per ‘for’; or with a favore di ‘in favor of’; or with contro ‘against’]
@@ -6309,12 +6297,10 @@ rank	word	pos	en
 6310	arrestata	verb	feminine singular of arrestato
 6311	filosofia	noun	philosophy; small pica: 11-point type
 6312	riferito	verb	past participle of riferire
-6313	co	name	abbreviation of Como: a province of Lombardy, Italy
 6314	intrappolato	verb	past participle of intrappolare
 6315	visioni	noun	plural of visione
 6316	protetta	adj	feminine singular of protetto
 6317	viaggiato	verb	past participle of viaggiare
-6318	sig.ra	noun	abbreviation of signora: Mrs. or Ms.
 6319	sopportarlo	verb	compound of the infinitive sopportare with lo
 6320	falli	verb	compound of fa', the second-person singular imperative form of fare, with li
 6321	estraneo	adj	extraneous or foreign (to)
@@ -6529,7 +6515,6 @@ rank	word	pos	en
 6530	sudore	noun	sweat, perspiration
 6531	alzarsi	verb	to stand up, rise to one's feet, get up, raise oneself, fly up, take off
 6532	tradire	verb	to betray; to reveal
-6533	c.	noun	abbreviation of grancassa (“bass drum”)
 6534	gelosia	noun	jealousy; shutter (of a Venetian blind)
 6535	gallina	noun	hen
 6536	aquila	noun	eagle
@@ -6866,7 +6851,6 @@ rank	word	pos	en
 6867	tradizionale	adj	traditional, customary
 6868	tradita	verb	feminine singular of tradito (“betrayed”)
 6869	secchio	noun	bucket, pail; bin
-6870	s.	noun	abbreviation of San or Santo
 6871	assunta	adj	feminine singular of assunto
 6872	finirla	verb	(with con or [di + inf.]) to stop or give up an activity; to leave off; to stop
 6873	toglietevi	verb	second-person plural imperative of togliersi
@@ -8256,7 +8240,6 @@ rank	word	pos	en
 8258	rasoio	noun	razor
 8259	vorrete	verb	second-person plural future of volere
 8260	pienamente	adv	fully, completely, absolutely, quite
-8261	cm	adv	abbreviation of come (“how”)
 8262	lavaggio	noun	washing, wash, scouring
 8263	equipaggiamento	noun	equipping, fitting out, kitting out
 8264	colorado	name	Colorado (a state in the western United States, the 38th state)
@@ -8444,7 +8427,6 @@ rank	word	pos	en
 8446	facoltà	noun	faculty; power, authority, licence/license, permission, right
 8447	recitazione	noun	recitation; acting
 8448	renderebbe	verb	third-person singular conditional of rendere
-8449	an	name	initialism of Alleanza Nazionale
 8450	speravamo	verb	first-person plural imperfect indicative of sperare
 8451	guscio	noun	shell (of an animal, nut etc.)
 8452	ignoto	adj	unknown
@@ -8536,7 +8518,6 @@ rank	word	pos	en
 8538	andiate	verb	second-person plural present subjunctive of andare
 8539	rimetti	verb	second-person singular present indicative
 8540	foglia	noun	leaf; leaf; sheet (of metal)
-8541	sig.na	noun	abbreviation of signorina: Miss
 8542	troll	noun	troll (grotesque person, Internet troll)
 8543	resistito	verb	past participle of resistere
 8544	coinquilina	noun	female equivalent of coinquilino
@@ -8613,7 +8594,6 @@ rank	word	pos	en
 8615	dessi	verb	first/second-person singular imperfect subjunctive of dare
 8616	trasferirmi	verb	compound of the infinitive trasferire with mi
 8617	liberata	verb	feminine singular of liberato
-8618	pc	noun	initialism of personal computer
 8619	arrabbiarti	verb	compound of the infinitive arrabbiare with ti
 8620	toccate	verb	second-person plural present indicative
 8621	congelato	verb	past participle of congelare
@@ -9178,7 +9158,6 @@ rank	word	pos	en
 9180	ingredienti	noun	plural of ingrediente
 9181	avversari	adj	plural of avversario
 9182	fatela	verb	compound of fate, the second-person plural imperative form of fare, with la
-9183	spa	noun	abbreviation of società per azioni (“public limited company”): PLC
 9184	diffuso	adj	diffuse; diffused, spread
 9185	spaventi	verb	second-person singular present indicative
 9186	fedeltà	noun	loyalty, faithfulness, fidelity, trustworthiness, allegiance
@@ -9352,7 +9331,6 @@ rank	word	pos	en
 9354	decimo	adj	tenth
 9355	bisturi	noun	scalpel, bistoury, lancet
 9356	concorrenti	noun	plural of concorrente
-9357	dott.ssa	noun	abbreviation of dottoressa (“Dr (female)”)
 9358	sovrintendente	verb	present participle of sovrintendere
 9359	salario	noun	pay, wages, salary
 9360	piango	verb	first-person singular present indicative of piangere

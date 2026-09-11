@@ -400,7 +400,6 @@ rank	word	pos	en
 399	guerra	noun	war (organised, large-scale armed conflict)
 400	fala	verb	speaks, talks (he, she, você — from falar: você fala inglês?); (as a noun, f.) speech
 401	procura	noun	search (an attempt to find something)
-402	dr.	noun	abbreviation of doutor; Dr.
 403	sabemos	verb	first-person plural present indicative of saber
 404	fizeste	verb	second-person singular preterite indicative of fazer
 405	ouve	verb	third-person singular present indicative
@@ -457,7 +456,6 @@ rank	word	pos	en
 456	pais	noun	parents
 457	poderia	verb	first/third-person singular conditional of poder
 458	suficiente	adj	sufficient; enough
-459	sra.	noun	abbreviation of senhora
 460	crianças	noun	plural of criança
 461	estavam	verb	third-person plural imperfect indicative of estar
 462	força	noun	force; strength
@@ -626,7 +624,6 @@ rank	word	pos	en
 625	connosco	adv	European Portuguese standard spelling of conosco
 626	beber	verb	to drink (something)
 627	toma	verb	third-person singular present indicative
-628	mr	noun	initialism of marca registrada /marca registada (“registered trademark”)
 629	houve	verb	first/third-person singular preterite indicative of haver
 630	tratar	verb	to treat (to handle, deal with or behave towards in a specific way)
 631	pequena	adj	feminine singular of pequeno
@@ -856,7 +853,6 @@ rank	word	pos	en
 856	telemóvel	noun	mobile, mobile phone, cellphone
 857	reunião	noun	meeting, reunion
 858	prova	noun	test, exam (f.) (a prova é às 16h00 = the test is at 4 p.m.; como foi a prova? = how did the exam go?); proof, evidence (não há prova = there's no proof); race, sporting event; (he/she/you) taste, try on, prove — from provar
-859	s	noun	abbreviation of segundo
 860	percebi	verb	first-person singular preterite indicative of perceber
 861	casar	verb	to marry; to get married
 862	general	adj	general; general (said of the military with this subcategory)
@@ -1333,7 +1329,6 @@ rank	word	pos	en
 1333	prestes	adj	ready, prepared
 1334	paris	verb	second-person plural present indicative of parir
 1335	corre	verb	runs; run!, hurry! (he, she, você — present of correr: ele corre rápido = he runs fast; corre! = run!, hurry!); (as a noun, m., Brazilian slang) o corre = hustle, a side job or gig
-1336	h	noun	abbreviation of hora (hour)
 1337	inteiro	adj	whole; entire; in full (with nothing missing)
 1338	branca	adj	feminine singular of branco
 1339	gelo	noun	ice (frozen water)
@@ -1624,8 +1619,6 @@ rank	word	pos	en
 1624	soubesse	verb	first/third-person singular imperfect subjunctive of saber
 1625	escapar	verb	to escape (get free)
 1626	cavalos	noun	plural of cavalo
-1627	d	noun	abbreviation of dom (as a title)
-1628	eua	name	initialism of Estados Unidos da América (= United States of America): a country in North America: USA
 1629	cansado	adj	sleepy, tired; fed up, irritated, annoyed, frustrated, disappointed
 1630	aula	noun	classroom; lecture, lesson; class, auditorium
 1631	rico	adj	rich, wealthy; luxurious
@@ -1828,7 +1821,6 @@ rank	word	pos	en
 1828	bocadinho	noun	a little bit, a tiny bit (m., diminutive of bocado “a bit, a mouthful”: um bocadinho mais = a little bit more); chiefly European Portuguese — Brazilian Portuguese prefers um pouquinho
 1829	daqueles	contraction	contraction of de + aqueles, literally “of/from those (masculine plural)”: masculine plural of daquele
 1830	próprios	adj	masculine plural of próprio
-1831	al	noun	initialism of alojamento local
 1832	interessado	verb	past participle of interessar
 1833	sacana	noun	bastard; rogue; scoundrel; trickster
 1834	respostas	noun	plural of resposta
@@ -2052,7 +2044,6 @@ rank	word	pos	en
 2052	desaparecido	verb	past participle of desaparecer
 2053	montanha	noun	mountain
 2054	fraco	adj	weak (lacking in force or ability)
-2055	c	pron	abbreviation of cê (“you”)
 2056	mensagens	noun	plural of mensagem
 2057	méxico	name	Mexico (a country in North America)
 2058	vêem	verb	pre-reform spelling
@@ -2223,7 +2214,6 @@ rank	word	pos	en
 2223	trocar	verb	to replace, to substitute (to remove something and put a new one in its place)
 2224	maluca	adj	feminine singular of maluco
 2225	inútil	adj	useless
-2226	s.	noun	abbreviation of são
 2227	escadas	noun	plural of escada
 2228	basicamente	adv	basically
 2229	esqueças	verb	second-person singular present subjunctive of esquecer
@@ -3548,7 +3538,6 @@ rank	word	pos	en
 3549	tchau	intj	goodbye; bye; see you
 3550	restos	noun	plural of resto
 3551	produtos	noun	plural of produto
-3552	n	adv	abbreviation of não (“not”)
 3553	influência	noun	influence; leverage, power
 3554	espetáculo	noun	show, spectacle
 3555	penny	noun	penny (1/100 of a pound sterling or British pound)
@@ -4478,7 +4467,6 @@ rank	word	pos	en
 4479	situações	noun	plural of situação
 4480	distintivo	adj	distinctive, distinguishing
 4481	execução	noun	execution (all senses)
-4482	d.	noun	abbreviation of dom (as a title)
 4483	consertar	verb	to fix, to repair
 4484	caverna	noun	cave; rib (part of a ship’s framework)
 4485	desenvolvimento	noun	development (process of developing)
@@ -5393,7 +5381,6 @@ rank	word	pos	en
 5395	pertences	noun	plural of pertence
 5396	edição	noun	edition; issue
 5397	jaula	noun	cage (enclosure)
-5398	srª	noun	abbreviation of senhora as a title; Mrs
 5399	pensávamos	verb	first-person plural imperfect indicative of pensar
 5400	ofereceu	verb	third-person singular preterite indicative of oferecer
 5401	entras	verb	second-person singular present indicative of entrar
@@ -5624,7 +5611,6 @@ rank	word	pos	en
 5626	conforme	conj	as (varying through time to the same proportion that)
 5627	pt	noun	the vomit of a drunk person
 5628	surdo	adj	deaf (unable to hear)
-5629	sra	noun	abbreviation of senhora as a title; Mrs
 5630	acelerar	verb	to accelerate (to increase speed or acquire speed, become swift)
 5631	máscaras	noun	plural of máscara
 5632	evidente	adj	evident; obvious; self-explanatory
@@ -6176,7 +6162,6 @@ rank	word	pos	en
 6179	deixará	verb	third-person singular future indicative of deixar
 6180	necessito	verb	first-person singular present indicative of necessitar
 6181	policiais	adj	masculine/feminine plural of policial
-6182	dr	noun	abbreviation of discussão de relacionamento (“lovers' argument, dispute, quarrel”)
 6183	tintas	adj	feminine plural of tinto
 6184	cardíaca	adj	feminine singular of cardíaco
 6185	servidor	noun	server, servant (one who serves)
@@ -6436,7 +6421,6 @@ rank	word	pos	en
 6439	conduzo	verb	first-person singular present indicative of conduzir
 6440	descobrirmos	verb	first-person plural future subjunctive
 6441	sacrificar	verb	to sacrifice; to offer (the life of an animal or human) as tribute to a deity; to immolate
-6442	mm	noun	abbreviation of mesmo (“the same”)
 6443	significam	verb	third-person plural present indicative of significar
 6444	simpáticos	adj	masculine plural of simpático
 6445	governar	verb	to govern
@@ -6571,7 +6555,6 @@ rank	word	pos	en
 6574	virgínia	name	a female given name, equivalent to English Virginia
 6575	avós	noun	plural of avó
 6576	carolina	name	a female given name, equivalent to English Caroline
-6577	sr.ª	noun	abbreviation of senhora as a title; Mrs
 6578	podeis	verb	second-person plural present indicative of poder
 6579	pedindo	verb	gerund of pedir
 6580	param	verb	third-person plural present indicative of parar
@@ -7323,7 +7306,6 @@ rank	word	pos	en
 7329	clássica	adj	feminine singular of clássico
 7330	psicólogo	noun	psychologist (expert in the field of psychology)
 7331	recuperou	verb	third-person singular preterite indicative of recuperar
-7332	pan	noun	acronym of partido dos aposentados da nação
 7333	estatuto	noun	bylaw (law or rule governing the internal affairs of an organization)
 7334	morresse	verb	first/third-person singular imperfect subjunctive of morrer
 7335	exausto	adj	exhausted, depleted
@@ -7404,7 +7386,6 @@ rank	word	pos	en
 7411	baixem	verb	third-person plural present subjunctive
 7412	recomendação	noun	recommendation; advice
 7413	obrigações	noun	plural of obrigação
-7414	d.c.	adv	abbreviation of depois de Cristo (“after Christ”): AD
 7415	joia	noun	jewel, gem (f.) — a piece of precious jewellery (loja de joias = jewellery shop); a treasure — anything or anyone precious (essa menina é uma joia); (Brazil, spoken) great, fine (tudo joia? = everything good?)
 7416	abater	verb	to collapse; to topple
 7417	elefantes	noun	plural of elefante
@@ -7601,7 +7582,6 @@ rank	word	pos	en
 7608	lançado	verb	past participle of lançar
 7609	danças	noun	plural of dança
 7610	au	intj	ouch (expression of minor physical pain)
-7611	q	pron	abbreviation of que (that, what)
 7612	desapareçam	verb	third-person plural present subjunctive
 7613	recebes	verb	second-person singular present indicative of receber
 7614	aturar	verb	to put up with; to stand; to endure; to suffer through
@@ -7637,7 +7617,6 @@ rank	word	pos	en
 7644	promovido	verb	past participle of promover
 7645	tesoura	noun	scissors (tool used for cutting)
 7646	iate	noun	yacht
-7647	ba	name	abbreviation of Bahia: a state of Brazil
 7648	seríamos	verb	first-person plural conditional of ser
 7649	criativo	adj	creative (having the ability to create)
 7650	agarrou	verb	third-person singular preterite indicative of agarrar
@@ -7768,7 +7747,6 @@ rank	word	pos	en
 7775	espantosa	adj	feminine singular of espantoso
 7776	propaganda	noun	propaganda; advertisement, commercial
 7777	saísse	verb	first/third-person singular imperfect subjunctive of sair
-7778	p.	noun	abbreviation of página
 7779	alho	noun	garlic (plant); garlic (bulbous root)
 7780	intensa	adj	feminine singular of intenso
 7781	passarem	verb	third-person plural future subjunctive
@@ -8074,7 +8052,6 @@ rank	word	pos	en
 8081	planeou	verb	third-person singular preterite indicative of planear
 8082	mordomo	noun	butler
 8083	salmão	noun	salmon (fish); salmon (a pale pinkish-orange colour)
-8084	am	name	abbreviation of Amazonas: a state of Brazil
 8085	terço	noun	third (one of three parts of a whole)
 8086	móvel	noun	piece of furniture
 8087	desistas	verb	second-person singular present subjunctive of desistir
@@ -8450,7 +8427,6 @@ rank	word	pos	en
 8457	assédio	noun	assault; harassment
 8458	temia	verb	first/third-person singular imperfect indicative of temer
 8459	pontuação	noun	punctuation; score
-8460	v.	noun	abbreviation of via (“way”) (used in street names).
 8461	bancária	adj	feminine singular of bancário
 8462	contasse	verb	first/third-person singular imperfect subjunctive of contar
 8463	veia	noun	a small stream or creek
@@ -8637,7 +8613,6 @@ rank	word	pos	en
 8644	percentagem	noun	percentage; percent
 8645	mula	noun	mule (hybrid offspring of a male donkey and a female horse)
 8646	pesados	adj	masculine plural of pesado
-8647	prof.	noun	abbreviation of professor
 8648	naquelas	contraction	contraction of em + aquelas, literally “in those”; feminine plural of naquele
 8649	tolerar	verb	to tolerate, endure, cope
 8650	andamento	noun	development, progression
@@ -9408,7 +9383,6 @@ rank	word	pos	en
 9415	lagarto	noun	wall lizard (reptile of the family Lacertidae)
 9416	temperamento	noun	temper (state of mind)
 9417	escaparam	verb	third-person plural preterite/pluperfect indicative of escapar
-9418	et	noun	abbreviation of extraterrestre
 9419	esposo	noun	husband (male spouse)
 9420	largou	verb	third-person singular preterite indicative of largar
 9421	conferências	noun	plural of conferência
@@ -9565,7 +9539,6 @@ rank	word	pos	en
 9572	tropical	adj	tropical (of or relating to the tropics)
 9573	equivalente	adj	equivalent (similar or identical in value)
 9574	repouso	noun	repose; rest; the act of resting
-9575	nº	noun	abbreviation of número
 9576	invencível	adj	invincible (that cannot be defeated)
 9577	conhecermos	verb	first-person plural future subjunctive
 9578	indicações	noun	plural of indicação
@@ -9666,12 +9639,10 @@ rank	word	pos	en
 9673	mero	adj	mere (no more than)
 9674	jantares	noun	plural of jantar
 9675	geleia	noun	jelly; jam
-9676	ex.	adv	abbreviation of por exemplo (“for example”); e.g.
 9677	gastos	noun	plural of gasto
 9678	dramática	adj	feminine singular of dramático
 9679	anormais	adj	plural of anormal
 9680	castigado	adj	punished (having suffered punishment)
-9681	r.	noun	abbreviation of rua (“street”) (used in street names).
 9682	rendimento	noun	income; yield, return
 9683	registro	noun	registration (act of signing up or registering for something)
 9684	cirurgiões	noun	plural of cirurgião
@@ -9798,7 +9769,6 @@ rank	word	pos	en
 9805	natação	noun	swimming
 9806	criticar	verb	to criticize (evaluate)
 9807	víamos	verb	first-person plural imperfect indicative of ver
-9808	vc	pron	abbreviation of você
 9809	ilusões	noun	plural of ilusão
 9810	noventa	num	ninety
 9811	cumpre	verb	third-person singular present indicative
