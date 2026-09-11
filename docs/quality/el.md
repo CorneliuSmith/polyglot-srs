@@ -220,3 +220,24 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**6 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `πήγαινε` was "third-person singular imperfect of πηγαίνω" → "he was going, she was going, it was going; it was going along, as in how things were going (imperfect of πηγαίνω); also go! as a command to one person"
+- `σταμάτα` was "second-person singular present imperfective imperative of σταματάω" → "stop!; halt, quit doing that - a command to one person you address informally (imperative of σταματάω)"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
+
+**Band 1001–2000, same day: 7 more.**
+- `πιθανότατα` was "nominative/accusative/vocative neuter plural of πιθανότατος" → "most probably, very likely, in all likelihood - the everyday adverb; as an adjective it is most probable, of neuter plural nouns (from πιθανότατος)"
+- `κουνήσου` was "second-person singular perfective imperative of κουνιέμαι" → "move!, get moving, shift yourself - an order to one person you address informally (imperative of κουνιέμαι, to stir oneself)"

@@ -232,3 +232,24 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**229 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `tenia` was "first/third-person singular imperfect indicative of tenir" → "I had, he/she/it had; you had (formal) — owned or held something (imperfect of tenir)"
+- `fas` was "plural of fa" → "you do, you make (second-person singular present of fer)"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
+
+**Band 1001–2000, same day: 340 more.**
+- `anirem` was "first-person plural future indicative of anar" → "we will go, we are going to go (first-person plural future of anar)"
+- `maneres` was "plural of manera" → "ways of doing something, methods; manners (f. plural of manera)"

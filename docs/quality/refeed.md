@@ -127,9 +127,26 @@ its session; a loop makes a hang cost one course and shows which:
 for c in ar ca de el en es fa fr ha he hi id it jam ko la mi nl pt ro ru sw th tl tr xh yo; do .venv/bin/python -m backend.services.seeder.seed_grammar -l $c; done
 ```
 
-Every statement is an upsert, so rerunning a course that was cut off is
-safe. Since 7 Sep every content tool's connection has a five-minute
-command timeout, so a dropped session now fails loudly instead of waiting.
+What the terminal shows for each course, since 10 Sep: a `-> ko: 151
+points, 1612 drills`-shaped line when the course starts (so a silence is
+attributable to a course, not to the loop), then either `OK ko: 151
+grammar points loaded` or, if the pooler cuts the session off mid-write,
+`RETRY ko in 10s (1/2): connection was closed in the middle of operation`
+— the tool pauses, then writes the course again (10 s, then 60 s: on 10
+Sep the pooler refused connections for about a minute and four courses in
+a row failed; the two pauses together outlast that minute, so the course
+in flight when it starts is recovered too) — and after the second retry,
+`FAIL ko: <reason>`. The reason is never blank. Two timings to know so
+neither reads as a hang: a refused connection fails at once, so that
+course is done — OK or FAIL — within about seventy seconds; a session the
+pooler drops silently is the slow one, because each attempt waits the
+full five-minute statement timeout, so expect the `->` line, five minutes
+of nothing, `RETRY ... TimeoutError`, twice, and `FAIL` at about seventeen
+minutes. The rule: **rerun any course that printed FAIL; a rerun is
+harmless.** Every content statement is an upsert, so a course cut off after
+sixteen of forty-three points is completed by the rerun, not doubled (the
+admin audit feed may show a repeated "suggested" entry for a curated point
+that was re-walked; that is the rerun, not a second proposal).
 
 **What the apply looks like while it runs.** It prints the rollback path,
 then a line per course and kind as each lands ("tr glosses: 71"), then the
@@ -179,6 +196,13 @@ delete it. The path is printed at the end of every `--apply`.
   7 Sep (CHECKS §31). Now `reconcile` compares against the file WITH the
   overrides laid over it and `--apply` writes them; the seeders lay the
   same overlay over their records.
+* **Retire a grammar point — it can, since 8 Sep 2026.** `data/grammar_
+  exclusions.tsv` (language, title, reason) is the source of truth in both
+  directions; `reconcile` sets and clears `grammar_points.retired_at`
+  (migration 20261017) and prints a `gp-ret` column. A retired point leaves
+  Learn, the path and the deck counts; a learner who already holds its card
+  keeps it. Remove the point from the grammar JSON in the same change so
+  `seed_grammar` stops touching it.
 * **Carry linked spellings or re-tagged sentences.** `reconcile` syncs
   definitions, part of speech and retirements only. A course whose frequency
   file gained an `alt` column (`vocabulary.alternatives` — Turkish harmony,

@@ -1,7 +1,58 @@
-# What the owner still has to run — 7 September 2026
+# What the owner still has to run — 7 September 2026 (state as of 10 Sep)
 
-**Everything on this list is DONE except one small reconcile.** Recorded
-here 7 Sep, late evening, after the runs finished:
+**As of 10 Sep, evening: 26 of 27 courses are level with their files**,
+read back out of production. The `seed_grammar` loop landed 23 on the first
+run; a pooler outage cost `en`, `es`, `fa` and `fr`, and the owner's rerun
+on the fixed code landed all four. The two `es` points still showing a
+difference are **curated** — `seed_grammar` never overwrites a curated
+point, it routes the text change to the review suggestion queue for a human,
+which is the designed behaviour and not a gap.
+
+**Korean is the one course left, and it needs exactly one run.** That run
+now carries three things at once: decision C's five retirements, the
+grammar-point retire migration, and the explanation pass that closed on
+10 September (151 read, 140 rewritten, 159 content defects corrected —
+`docs/decisions/2026-09-10-korean-explanation-pass.md`).
+
+```bash
+git pull origin main
+```
+
+```bash
+supabase db push
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.seed_grammar -l ko
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all --apply
+```
+
+**What that reconcile now carries** (read-only dry run, 10 Sep evening,
+after the day's merges):
+
+| gloss | pos | retire | gp-ret | new |
+|---:|---:|---:|---:|---:|
+| **1,826** | 81 | 0 | 5 (ko) | 0 |
+
+The 1,826 are the definitions that gave a grammatical relation and no
+English meaning — Spanish `necesito` "first-person singular present
+indicative of necesitar", German `wochen` "plural of Woche" — rewritten
+across 19 courses in the rank 201–1000 band (CHECKS §36, the class you
+reported as "coche as the definition for coches"). The 81 are parts of
+speech that moved with them.
+
+`gp-ret 5` is the five Korean grammar points from decision C, and it prints
+a **dash** until `supabase db push` lands migration 20261017. That is the
+designed fallback, not a failure — before the migration the column cannot
+be computed and the five points stay served.
+
+Everything else in the vocabulary half is already applied: gloss/pos/retire
+were all zero before this pass.
+
+Recorded 7 Sep, late evening, after the runs finished:
 
 | step | state |
 |---|---|
@@ -12,8 +63,18 @@ here 7 Sep, late evening, after the runs finished:
 | `seed_grammar` for all 27 | done, Korean re-run on its own after #436 |
 | `prune_sentences` loop | done 03:03 — 91,774 rows; a dry run now finds 10 |
 
-**The one thing left.** #438 is merged; pull and run the reconcile. Its
-dry run against production, read on the evening of 7 Sep after the merge:
+## The grammar files changed a great deal overnight
+
+The explanation pass ran for 26 of the 27 courses between 7 and 8 September
+(`docs/decisions/2026-09-07-fr-markdown-pass.md` and the four `-batch-*.md`
+records): **1,623 content defects corrected** and 787 explanations
+reformatted. Those live in `data/grammar/*.json`, so they reach production
+through **`seed_grammar`, not the reconcile**. It ran per course on 10 Sep
+(Korean excluded — its explanations were held for decision C); the four
+courses that failed are the rerun at the top of this file.
+
+**Then the reconcile.** #438 is merged; pull and run it. Its dry run against
+production, read on the evening of 7 Sep after the merge:
 
 | gloss | pos | retire | new |
 |---:|---:|---:|---:|
@@ -39,9 +100,12 @@ Then:
 ```
 
 Still yours to decide, and not blocking anything: **decision B** (the
-abbreviations, now 27 of them), **decision C** (Korean's duplicate points),
-and what remains of **decision D** (the 223 twin pairs that are two real
-words and want file rows, and the 39,004-row tail).
+abbreviations, now 27 of them) and what remains of **decision D** (the 223
+twin pairs that are two real words and want file rows, and the 39,004-row
+tail — recommendation below: leave it live). **Decision C is decided** (8 Sep,
+you delegated it) and adds three commands to this list: `supabase db push`
+for migration 20261017, `seed_grammar -l ko`, then the reconcile — in Part 2,
+section C.
 
 ---
 
@@ -302,18 +366,50 @@ What is left of decision D: the 65 file defects, the 223 words that need a
 file row of their own (Phase 8 supply), and the 39,004 tail — option 4,
 still not recommended.
 
-Recommendation: **the 65 file defects next** (a maker–checker pass is running in-session
+**Recommendation for D (8 Sep), grounded: leave the tail live and retire
+nothing more.** A read-only sample of 360 tail rows across the nine big
+courses (40 each): **346 are real words with real definitions** — ru
+аптечка "first-aid box", благословить "to bless", выживание "survival" —
+8 are names, 6 are inflection stubs. None has a learner card and almost
+none has a sentence (0–3 per 40). They are not junk; they are the
+vocabulary an older, longer list carried past the current file's
+10,000-row cap. Retiring them (option 4) would delete ~39,000 real words to
+tidy a bookkeeping column. What they lack is sentences, which makes them
+the same class as CHECKS §29's un-clozable rows — Phase 8 supply, not a
+retirement. If you ever want them governed, extend the frequency files past
+the cap; do not retire what the cap dropped. (The 65 file defects are done —
+#438.)
+
+Was: Recommendation: **the 65 file defects next** (a maker–checker pass is running in-session
 and its verdicts will be attached here), 4 only after 3 has said which twins
 are the better form. Lists: session scratchpad `decision_d_glyphs.json`,
 `decision_d_twins.json`, `departed.json`.
 
-### C. Korean teaches four topics twice
+### C. Korean teaches four topics twice — DECIDED 8 Sep (you delegated: "choose the best korean point over the other")
 
-"Topic particle 은/는" appears as two grammar points, so does "에 vs 에서".
-Merging them needs a retire path for grammar points that does not exist
-yet — the same gap vocabulary had until this week. Say whether you want
-that built (a migration + reconcile step, mirroring #417) and the four
-pairs merged.
+Two readers of Korean judged seven candidate groups; four are duplicates,
+three are distinct and stay (`~ㄹ/을 것이다` future vs conjecture, `~아/어지다`
+verb vs adjective, present vs past `이다/아니다`). Five points retired;
+keepers chosen on answer accuracy — the retired `은/는` point got the 받침
+rule it teaches wrong in 3 of 11 drills, and the keeper's own one error was
+fixed in the same change. The grammar-point retire path is built (migration
+20261017). Record: `docs/decisions/2026-09-08-korean-duplicate-points.md`.
+
+**Three commands, in this order, once the PR merges:**
+
+```bash
+supabase db push
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.seed_grammar -l ko
+```
+
+```bash
+.venv/bin/python -m backend.services.seeder.reconcile -l all --apply
+```
+
+The dry run gains a `gp-ret` column; it reads 5 for `ko`.
 
 ## Part 3 — What was verified about the vocabulary this week
 

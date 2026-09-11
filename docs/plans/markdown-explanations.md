@@ -1,6 +1,25 @@
 # Markdown pass over the seed explanations — plan (4 Sep 2026)
 
-**Status: SEVENTEEN COURSES DONE (7 Sep 2026)** — fr es it pt de nl ca ro
+**Status: ALL 27 COURSES DONE (10 Sep 2026).** Korean, held for its
+duplicate-point decision, closed the pass: 927 of 1,257 explanations render
+as markdown and **1,782 content defects** were corrected on the way through
+(six decision records). The pass found roughly one defect per explanation
+read, which is the result worth carrying forward: nobody had read this
+corpus end to end before.
+
+**Korean also changed what the method should be for hard material.** Its
+edits went through the usual adversarial checker, which refused 4 — and then
+a SECOND pass re-read the 136 accepted edits under one narrow question ("is
+every claim about Korean true?") and found 9 more, four of them the same
+ㄹ-stem omission. One reader carrying six questions missed what one reader
+carrying one question caught. None was a ship-blocker, so breadth-first was
+not wrong — but for a course this paradigm-dense, a narrowed second lens is
+worth its cost. `docs/decisions/2026-09-10-korean-explanation-pass.md`.
+
+Was: **26 OF 27 COURSES DONE (8 Sep 2026)** — 787 of 1,106 explanations, 1,623
+content defects, five decision records.
+
+**Status was: SEVENTEEN COURSES DONE (7 Sep 2026)** — fr es it pt de nl ca ro
 el ru ar he fa hi th tr sw. 479 of 748 explanations render as markdown and
 **1,115 content defects** were corrected on the way through (four decision
 records, `2026-09-07-fr-markdown-pass.md` and `-batch-2/3/4.md`). 10 courses

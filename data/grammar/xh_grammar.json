@@ -112,7 +112,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Xhosa nouns carry class prefixes.\n\nClass 1/2 is people: umntu/abantu (person/people), umfundi/abafundi (student/s), umntwana/abantwana (child/ren).\n\nThe class drives agreement on everything that follows.",
+      "explanation": "Xhosa nouns carry class prefixes.\n\nClass 1/2 is the people class: umntu/abantu (person/people), umfundi/abafundi (student/students), umntwana/abantwana (child/children), umfazi/abafazi (woman/women).\n\nNames, kinship terms and titles sit in class 1a instead — u- in the singular, oo- in the plural: utitshala/ootitshala (teacher/teachers). They still take class 1 and class 2 agreement: utitshala omnye, ootitshala ababini.\n\nThe class drives agreement on everything that follows.",
       "culture_note": "The class system (about 15 classes) is the engine of the whole language — one class pair at a time is the way in.",
       "references": [
         {
@@ -190,7 +190,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "Class 5/6: i(li)-/ama- — ilizwe/amazwe (country/ies), iqanda/amaqanda (egg/s). Class 7/8: isi-/izi- — isitya/izitya (dish/es); isi- also names languages: isiXhosa, isiNgesi (English).",
+      "explanation": "Xhosa's class prefixes come in singular/plural pairs:\n\n| Class | Singular | Plural |\n| --- | --- | --- |\n| 5/6 | `i(li)-` | `ama-` |\n| 7/8 | `isi-` | `izi-` |\n\nClass 5/6: ilizwe/amazwe (country/countries), iqanda/amaqanda (egg/eggs), ihashe/amahashe (horse/horses). Class 7/8: isitya/izitya (dish/dishes). `isi-` also names languages: isiXhosa, isiNgesi (English).\n\nClass 5 agreement is `li-`: Ilizwe likhulu (the country is big).",
       "culture_note": "",
       "references": [
         {
@@ -268,7 +268,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Class 9/10 covers many everyday nouns and animals: inja/izinja (dog/s), indlu/izindlu (house/s), incwadi/iincwadi (book/s — long ii- plural).\n\nTheir agreements use i-/zi-: Inja iyatya (The dog is eating), Izinja ziyatya.",
+      "explanation": "Class 9/10 covers many everyday nouns and animals: inja/izinja (dog/dogs), indlu/izindlu (house/houses), incwadi/iincwadi (book/books), imoto/iimoto (car/cars).\n\nThe plural has two shapes, and the stem decides which. A one-syllable stem keeps izin-: inja → izinja, indlu → izindlu. A longer stem lengthens the i- instead: incwadi → iincwadi, imoto → iimoto.\n\nTheir agreements use i-/zi-: Inja iyatya (The dog is eating), Izinja ziyatya (The dogs are eating).",
       "culture_note": "",
       "references": [
         {
@@ -293,7 +293,7 @@
           "sentence": "Inja enye, {{answer}} ezimbini.",
           "answer": "izinja",
           "translation": "One dog, two dogs.",
-          "hint": "izin- plural",
+          "hint": "inja → class 10 plural",
           "display_order": 1,
           "gloss": "CL9.dog · CL9.one · ___ · CL10.two"
         },
@@ -317,7 +317,7 @@
           "sentence": "Indlu enye, {{answer}} ezimbini.",
           "answer": "izindlu",
           "translation": "One house, two houses.",
-          "hint": "indlu → izin- plural",
+          "hint": "indlu → class 10 plural",
           "display_order": 4,
           "gloss": "CL9.house · CL9.one · ___ · CL10.two"
         },
@@ -346,7 +346,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "'It is X' prefixes the noun: ngu- for class 1/1a (people/names) — NguThemba (It's Themba), ngumfundi (he's a student); yi- for class 9 — yincwadi (it's a book); li-, si-, etc. for other classes.\n\nNegation prefixes asi-: asingumfundi (he is not a student).",
+      "explanation": "'It is X' is a prefix on the noun, and which prefix depends on the noun's class:\n\n| Class | Prefix | Example |\n| --- | --- | --- |\n| 1 | `ngu-` | ngumfundi |\n| 1a | `ngu-` | nguThemba |\n| 5 | `li-` | liqanda |\n| 7 | `si-` | sisitya |\n| 9 | `yi-` | yincwadi |\n\nSo nguThemba (this is Themba), yincwadi (this is a book).\n\nThe negative is `asi-`, with o in place of the prefix's vowel, and the noun loses its own initial vowel: umfundi → asingomfundi (he is not a student).",
       "culture_note": "",
       "references": [
         {
@@ -420,7 +420,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "Wrap the verb in a negative concord and final -i: ndiyafunda → andifundi (I don't study), uyafuna → akafuni (he doesn't want — u- becomes aka-), bayasebenza → abasebenzi (they don't work).",
+      "explanation": "Wrap the verb in a negative concord and change the final -a to -i: ndiyafunda → andifundi (I don't study), uyafuna → akafuni (he doesn't want), bayasebenza → abasebenzi (they don't work).\n\nThe concord changes shape as well: ndi- becomes andi-, u- becomes aka-, ba- becomes aba-. The -ya- of the long present has no place in the negative.",
       "culture_note": "",
       "references": [
         {
@@ -494,7 +494,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 7,
-      "explanation": "Places are made with e- (and often -ini): isikolo → esikolweni (at school), indlu → endlwini (in the house), iKapa → eKapa (in Cape Town).\n\nNdihlala eKapa (I live in Cape Town), Ndiya esikolweni (I'm going to school).",
+      "explanation": "Places are made with e-, and most nouns take an ending on the back as well: isikolo → esikolweni (at school), indlu → endlwini (in the house), idolophu → edolophini (in town).\n\nThe ending's vowel copies the noun's last vowel: -ini after i and u, -eni after a, e and o.\n\nPlace names take e- on its own: iKapa → eKapa (in Cape Town), iGoli → eGoli (in Johannesburg). A few ordinary nouns do too: ifama → efama (on the farm).\n\nNdihlala eKapa (I live in Cape Town), Ndiya esikolweni (I'm going to school).",
       "culture_note": "",
       "references": [
         {
@@ -716,7 +716,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "The possessive agrees with the THING possessed: incwadi yam (my book, cl.9 ya-), umntwana wam (my child, cl.1 wa-), isitya sam (my dish, cl.7 sa-), abantwana bam (my children, cl.2 ba-).\n\nThe endings -m (my), -kho (your), -khe (his/her) stay constant.",
+      "explanation": "The possessive agrees with the thing possessed, not with the owner:\n\n| Class | Concord | Example |\n| --- | --- | --- |\n| 1 | `wa-` | umntwana wam |\n| 2 | `ba-` | abantwana bam |\n| 5 | `la-` | igama lam |\n| 7 | `sa-` | isitya sam |\n| 9 | `ya-` | incwadi yam |\n\nThe owner is the ending: `-m` (my), `-kho` (your), `-khe` (his, her), `-bo` (their) — incwadi yam, incwadi yakho, incwadi yakhe, incwadi yabo.\n\nOur and your (plural) are the exception: they put e in place of the concord's a — incwadi yethu, incwadi yenu.",
       "culture_note": "",
       "references": [
         {
@@ -863,7 +863,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The future combines -za (come) with the infinitive: Ndiza kufunda (I will study), Uza kufika ngomso (She will arrive tomorrow), Siza kuthetha (We will talk).\n\nColloquially it contracts (ndizo-/ndizaku-).",
+      "explanation": "The future combines -za (come) with the infinitive ku-: Ndiza kufunda (I will study), Uza kufika ngomso (she will arrive tomorrow), Siza kuthetha (we will talk).\n\nBefore a vowel-initial stem ku- becomes kw-: Uza kwenza ntoni ngomso? (What are you going to do tomorrow?). A consonant-initial stem keeps it: Siza kuya eKapa (we are going to go to Cape Town).\n\nIn speech it contracts to -zo- (ndizofunda), and ndiza ku- is often written solid as ndizakufunda.",
       "culture_note": "",
       "references": [
         {
@@ -937,7 +937,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "The object can live inside the verb as a concord before the stem: Ndiyayifunda (incwadi) — I am reading it (the book, cl.9 -yi-); Ndiyambona (umntu) — I see him (cl.1 -m-); Ndiyazithanda (izinja) — I love them (cl.10 -zi-).",
+      "explanation": "The object can live inside the verb, as a concord between the subject concord and the stem:\n\n| Class | Object concord | Example |\n| --- | --- | --- |\n| 1 | `-m-` | Ndiyambona |\n| 2 | `-ba-` | Ndiyabathanda |\n| 6 | `-wa-` | Ndiyawasela |\n| 7 | `-si-` | Ndiyasithetha |\n| 9 | `-yi-` | Ndiyayifunda |\n| 10 | `-zi-` | Ndiyazithanda |\n\nThe noun itself is then left out, or set off ahead of the verb: Incwadi? Ndiyayifunda (The book? I am reading it).",
       "culture_note": "",
       "references": [
         {
@@ -1011,7 +1011,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 5,
-      "explanation": "Adjectives take a concord from the noun's class: umntwana omhle (a beautiful child), abantwana abahle, incwadi entle (a nice book, cl.9), isitya esihle.\n\nThe stem (-hle beautiful, -khulu big, -ncinci small) is constant; the concord changes.",
+      "explanation": "An adjective takes a concord from its noun's class:\n\n| Class | Concord | Example |\n| --- | --- | --- |\n| 1 | `om-` | umntwana omhle |\n| 2 | `aba-` | abantwana abahle |\n| 5 | `eli-` | iqanda elikhulu |\n| 7 | `esi-` | isitya esihle |\n| 9 | `en-` | incwadi entle |\n| 10 | `ezin-` | izindlu ezinkulu |\n\nThe stem stays the same — `-hle` (beautiful), `-khulu` (big), `-ncinci` (small) — except after the class 9/10 nasal, which hardens it: `-hle` becomes `-ntle` (incwadi entle), `-khulu` becomes `-nkulu` (indlu enkulu, izindlu ezinkulu).",
       "culture_note": "",
       "references": [
         {
@@ -1159,7 +1159,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Negative past uses a-…-anga: Andifundanga (I didn't study), Abafikanga (they didn't arrive). Negative future inserts -zi: Andizi kufunda (I will not study), Akazi kufika (she won't arrive).",
+      "explanation": "The negative past wraps the verb in a-…-anga: Andifundanga (I didn't study), Andithenganga (I didn't buy), Abafikanga (they didn't arrive).\n\nThat a- fuses with the subject concord, exactly as in the present negative: ndi- → andi-, u- (class 1) → aka-, ba- → aba-.\n\nThe negative future puts the same a- on the auxiliary -za, whose final vowel goes to -i: andizi kufunda (I will not study), akazi kufika (she won't arrive). The infinitive after it drops its initial u-: ukudlala → kudlala.",
       "culture_note": "",
       "references": [
         {
@@ -1233,7 +1233,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "The subjunctive swaps final -a for -e: Masifunde! (Let's study!, ma- + si- + -e), Ndifuna ukuba ufunde (I want you to study), Yiza ukuze sithethe (Come so that we talk).",
+      "explanation": "The subjunctive swaps the final -a for **-e**, and it turns up in three places:\n\n- ma- + concord, for a proposal: Masifunde! (Let's study!, ma- + si- + funda + -e)\n- after ukuba, with a verb of wanting: Ndifuna ukuba ufunde (I want you to study)\n- after ukuze, for purpose: Yiza ukuze sithethe (Come so that we talk)\n\nBefore a vowel-initial stem the concord loses its own vowel: ndi- + enza + -e → ndenze (that I do).",
       "culture_note": "",
       "references": [
         {
@@ -1306,7 +1306,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "The remote past fuses the concord with -a-: ndi + a → nda-: Ndahlala eKapa (I lived in Cape Town, back then), Wafunda eRhini (He studied in Makhanda), Bathetha (they spoke, long ago).\n\nIt is the storytelling past.",
+      "explanation": "The remote past fuses **-a-** into the subject concord: Ndahlala eKapa (I lived in Cape Town, back then), Wafunda eRhini (He studied in Makhanda), Sahlala eMonti (We lived in East London).\n\n| Person | Concord | Remote past |\n| --- | --- | --- |\n| I | ndi- | nda- |\n| you (sg.), he/she | u- | wa- |\n| we | si- | sa- |\n| you (pl.) | ni- | na- |\n| they | ba- | ba- |\n\nOnly ba- comes out unchanged, so bathetha is both 'they spoke, long ago' and the short present 'they speak'; the context separates them. It is the storytelling past.",
       "culture_note": "",
       "references": [
         {
@@ -1380,7 +1380,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 4,
-      "explanation": "Relatives wrap the verb in a relative concord and -yo: umntwana ofundayo (the child who studies), abantwana abafundayo, incwadi endiyifundayo (the book that I am reading — with the object concord inside).",
+      "explanation": "A relative verb takes a relative concord and ends in **-yo**: umntwana ofundayo (the child who studies), abantwana abafundayo (the children who study), imoto ebalekayo (a car that goes fast).\n\nThe relative concord is a- plus the subject concord, with the vowels running together (a + i → e, a + u → o):\n\n| Class | Subject | Relative |\n| --- | --- | --- |\n| 1 | u- | o- |\n| 2 | ba- | aba- |\n| 9 | i- | e- |\n| 10 | zi- | ezi- |\n\nA person concord works the same way (ndi- → endi-), and an object concord sits inside the verb: incwadi endiyifundayo (the book that I am reading, cl.9 -yi-).",
       "culture_note": "",
       "references": [
         {
@@ -1454,7 +1454,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Insert -w- before the final vowel: funda → fundwa, thetha → thethwa: Incwadi iyafundwa (The book is being read), IsiXhosa sithethwa eKapa (Xhosa is spoken in Cape Town), Umsebenzi wenziwe (The work has been done).",
+      "explanation": "The passive inserts -w- before the final vowel: funda → fundwa, thetha → thethwa, cula → culwa. The verb then agrees with its new subject: Incwadi iyafundwa (The book is being read), IsiXhosa sithethwa eKapa (Xhosa is spoken in Cape Town).\n\nThe perfect ends in -iwe instead: thatha → thathiwe (Imali ithathiwe, the money has been taken), enza → enziwe (Umsebenzi wenziwe, the work has been done).\n\nWhere the doer is named, ngu- marks it: Abantwana bathandwa ngumama (The children are loved by their mother).",
       "culture_note": "",
       "references": [
         {
@@ -1602,7 +1602,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 3,
-      "explanation": "-ela adds a beneficiary or direction: bhala (write) → bhalela (write to/for): Ndibhalela umama ileta (I am writing mother a letter); sebenza → sebenzela (work for): Usebenzela inkampani (She works for a company).",
+      "explanation": "-ela replaces the final -a and adds a person or a direction to the action: bhala (write) → bhalela (write to/for), pheka (cook) → phekela (cook for), thenga (buy) → thengela (buy for), sebenza (work) → sebenzela (work for), hamba (go) → hambela (go to, visit).\n\nThe one the action is done for becomes the object, straight after the verb: Ndibhalela umama ileta (I am writing mother a letter), Usebenzela inkampani (She works for a company).",
       "culture_note": "",
       "references": [
         {
@@ -1676,7 +1676,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "-ana makes the action mutual: thanda → thandana (love each other): Bayathandana (They love each other); bona → bonana (see each other): Sobonana ngomso (We'll see each other tomorrow); ncedana (help each other).",
+      "explanation": "-ana replaces the final -a and makes the action mutual: thanda (love) → thandana (love each other), bona (see) → bonana (see each other), nceda (help) → ncedana (help each other), bulisa (greet) → bulisana (greet each other).\n\nThe subject has to be more than one: Bayathandana (They love each other), Sobonana ngomso (We'll see each other tomorrow), Oomama badibana edolophini (The mothers meet in town). With a single subject the other party comes in on na-: Ndidibana naye (I meet him).",
       "culture_note": "",
       "references": [
         {
@@ -1749,7 +1749,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Ukuba opens conditions and 'that' clauses: Ukuba uyafunda, uza kuphumelela (If you study, you will pass), Ndiyazi ukuba uyeza (I know that you are coming).\n\n'When(ever)' uses xa with the participial: Xa ndifunda… (When I study…).",
+      "explanation": "**Ukuba** does three jobs, and English uses a different word for each:\n\n- 'if', opening a condition: Ukuba uyafunda, uza kuphumelela (If you study, you will pass)\n- 'that', after a verb of knowing or feeling: Ndiyazi ukuba uyeza (I know that you are coming)\n- 'whether', after a verb of not knowing: Andazi ukuba uyeza (I don't know whether he is coming)\n\nWhat ukuba never means is 'when'. That is xa with the participial: xa ndifunda (when I study), xa efika (when he arrives).",
       "culture_note": "",
       "references": [
         {
@@ -1821,7 +1821,7 @@
       "level": "B1",
       "display_order": 5,
       "function": "Handle tongues, abstracts, and actions-as-nouns",
-      "explanation": "Class 11 ulu- covers long/thin things and some mass nouns (ulwimi language, ubisi milk) with lu- concords; class 14 ubu- carries abstracts (ubomi life, ubuhle beauty) with bu- concords; class 15 uku- is the infinitive as a noun (ukutya food/eating) with ku- concords.",
+      "explanation": "Each of these three classes has one prefix and one concord:\n\n| Class | Prefix | Concord |\n| --- | --- | --- |\n| 11 | u(lu)- | lu- |\n| 14 | ubu- | bu- |\n| 15 | uku- | ku- |\n\nClass 11 covers long or thin things and some mass nouns: ulwimi (language), uluvo (opinion), ubisi (milk). The prefix shows in full in some of them and reduces to u- in others, but the concord is lu- either way: Uluvo lwakho lubalulekile (Your opinion is important). The plural is class 10: ulwimi → iilwimi.\n\nClass 14 carries abstracts (ubomi life, ubuhle beauty, ubuntu) and class 15 is the infinitive used as a noun (ukutya food/eating, ukufunda studying). Both stay singular.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -1899,7 +1899,7 @@
       "level": "B1",
       "display_order": 6,
       "function": "Add weight: ME, YOU, HIM",
-      "explanation": "The concords carry the grammar, so the absolute pronouns exist for emphasis and contrast: mna (me), wena (you), yena (he/she), thina (we), nina (you all), bona (they).\n\nAfter na- they fuse: nam (with me), nawe (with you), naye (with him/her).",
+      "explanation": "The concords already carry the grammar, so an absolute pronoun is there for emphasis or contrast: Mna ndiyasebenza namhlanje (As for me, I am working today).\n\n| Person | Pronoun | with na- |\n| --- | --- | --- |\n| I | mna | nam |\n| you (sg.) | wena | nawe |\n| he/she | yena | naye |\n| we | thina | nathi |\n| you (pl.) | nina | nani |\n| they | bona | nabo |\n\nThe na- column is 'with' and also 'and': Ndiza kuhamba nawe (I will go with you). Nouns have absolute pronouns of their own, built on the class concord: yona (cl.9), lona (cl.5), sona (cl.7), zona (cl.10).",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2034,7 +2034,7 @@
       "level": "B1",
       "display_order": 7,
       "function": "Say what's still going on — and what stopped",
-      "explanation": "-sa- after the subject concord means 'still': ndisafunda (I am still studying), usalele (she is still asleep). The negative flips it to 'no longer': andisahlali apha (I no longer live here), akasaseli (he no longer drinks).",
+      "explanation": "-sa- sits between the subject concord and the stem and means 'still': ndisafunda (I am still studying), basadlala (they are still playing), usalele (she is still asleep, on the perfect lele).\n\nIn the negative it means 'no longer', and the present negative's own shape applies — a- on the concord and the final -a going to -i: andisahlali apha (I no longer live here), akasaseli (he no longer drinks).",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2112,7 +2112,7 @@
       "level": "B1",
       "display_order": 8,
       "function": "Count things — and make the number agree",
-      "explanation": "Number stems -nye, -bini, -thathu, -ne, -hlanu take the noun's concord: abantu ababini (two people), iincwadi ezimbini (two books), iminyaka emihlanu (five years).\n\n-ngaphi asks how many with the same agreement: bangaphi abantu?",
+      "explanation": "Number stems take the concord of the noun they count, so the numeral agrees with what is being counted:\n\n| stem | number |\n| --- | --- |\n| -nye | one |\n| -bini | two |\n| -thathu | three |\n| -ne | four |\n| -hlanu | five |\n\n- class 2: abantu ababini (two people)\n- class 4: iminyaka emihlanu (five years)\n- class 10: iincwadi ezimbini (two books)\n\nThe class-10 concord is the one shape you have to compute: it is ezin-, which shows its nasal as m before b and drops it before n — ezimbini, ezintathu, ezine.\n\n-ngaphi asks how many with the same agreement: bangaphi abantu?",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2190,7 +2190,7 @@
       "level": "B2",
       "display_order": 4,
       "function": "Say by, with, in, and on-a-day with one prefix",
-      "explanation": "Nga- + noun makes by/with/in adverbs, coalescing with the noun's vowel: ngemoto (by car), ngesiXhosa (in Xhosa), ngesandla (by hand), ngoMvulo (on Monday), ngovuyo (with joy).",
+      "explanation": "**Nga-** makes a by/with/in phrase, and its vowel fuses with the noun's own: an i- noun gives nge- (imoto → ngemoto, isandla → ngesandla), a u- noun gives ngo- (uvuyo → ngovuyo, uloliwe → ngololiwe).\n\nOne prefix covers several jobs:\n\n- means: ngemoto (by car), ngololiwe (by train)\n- instrument: ngesandla (by hand)\n- medium: ngesiXhosa (in Xhosa)\n- manner: ngovuyo (with joy)\n- a day: ngoMvulo (on Monday)",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2346,7 +2346,7 @@
       "level": "B2",
       "display_order": 6,
       "function": "Say can, may, and can't",
-      "explanation": "-nga- after the subject concord makes ability or permission: ndingakunceda? (may I help you?), ungahamba (you may go), ungafunda (you can learn).\n\nThe negative uses -nako + infinitive: andinako ukuza (I can't come).",
+      "explanation": "-nga- after the subject concord makes ability or permission: ndingakunceda? (may I help you?), ungahamba (you may go), ungafunda (you can learn). An object concord sits between -nga- and the stem, as that first form shows: ndi-nga-ku-nceda, ndi-nga-m-buza (may I ask him?).\n\nUkwazi (be able) takes -nga- the same way and then an infinitive: singakwazi ukunceda (we can manage to help). The negative uses -nako + infinitive: andinako ukuza (I can't come).",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2424,7 +2424,7 @@
       "level": "B2",
       "display_order": 7,
       "function": "Say what's visible, audible, necessary, available",
-      "explanation": "The stative extensions turn doing into being-able-to-be-done: bonakala (be visible/evident), vakala (be heard/felt), fumaneka (be available), lahleka (get lost) — and the everyday kufuneka (it is necessary).",
+      "explanation": "The stative extensions turn doing into being-done-to, with no agent named:\n\n| verb | it means | stative | the stative means |\n| --- | --- | --- | --- |\n| bona | see | bonakala | be visible |\n| va | hear, feel | vakala | be heard |\n| funa | want | funeka | be necessary |\n| fumana | get | fumaneka | be available |\n| lahla | throw away | lahleka | get lost |\n\nThe ending is -eka, or the longer -akala on some stems, and a stative agrees like any other verb: intaba iyabonakala. The everyday kufuneka is funeka behind the it-subject ku-, as kuyabonakala (it is evident) is bonakala.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2502,7 +2502,7 @@
       "level": "C1",
       "display_order": 3,
       "function": "Say what WAS happening",
-      "explanation": "The be- auxiliary fuses with the concord for past-in-progress: bendifunda (I was studying), ubufunda (you were), ebetya (he was eating), besimamela (we were listening), bebedlala (they were playing).\n\nUbuphi? — where were you?",
+      "explanation": "The be- auxiliary fuses with the subject concord into one prefix for an action in progress in the past:\n\n| person | prefix | example |\n| --- | --- | --- |\n| I | bendi- | bendifunda |\n| you | ubu- | ubusenza |\n| he, she (class 1) | ebe- | ebetya |\n| we | besi- | besimamela |\n| they (class 2) | bebe- | bebedlala |\n\nWhat follows the prefix is unchanged, so a stative stem stays stative: bendilele (I was asleep). The prefix also carries a question word with no verb at all — ubuphi? (where were you?).",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2629,7 +2629,7 @@
       "level": "C1",
       "display_order": 4,
       "function": "Say what something is FOR",
-      "explanation": "Ukuze opens a purpose clause and the verb ends subjunctive -e: funda ukuze uphumelele (study so that you pass). Negative purpose slips in -nga-: ukuze kungangeni umoya (so that the wind doesn't come in).",
+      "explanation": "Ukuze opens a purpose clause and its verb goes subjunctive: the subject concord stays and the final -a becomes -e — funda kakhulu ukuze uphumelele (study hard so that you pass), sivuka kusasa ukuze sifike (we wake early so that we arrive).\n\nA negative purpose adds -nga- after the concord and ends in -i instead of -e: ukuze kungangeni umoya (so that the wind doesn't come in).",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2707,7 +2707,7 @@
       "level": "C1",
       "display_order": 5,
       "function": "Give reasons and demand them",
-      "explanation": "Kuba and ngoba both open because-clauses; kutheni … nje asks why. Andiyi esikolweni kuba ndiyagula (I'm not going to school because I'm ill); kutheni ulate nje? (why are you late?).",
+      "explanation": "Two words open a because-clause, and one demands the reason:\n\n- kuba — because: Andiyi esikolweni kuba ndiyagula (I am not going to school because I am ill)\n- ngoba — the same job, a common variant: Ndonwabile ngoba ufikile (I am happy because you have arrived)\n- kutheni — why; it opens the question and nje closes it: Kutheni le nto yenzekile nje? (why did this thing happen?)",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -2785,7 +2785,7 @@
       "level": "C1",
       "display_order": 6,
       "function": "Paint sound, silence, and suddenness",
-      "explanation": "Xhosa ideophones ride the verb -thi (say/do): wathi cwaka (went dead silent), wathi gqi (appeared suddenly), wathi tu (said nothing at all), zathi saa (scattered), lathi qatha (popped into mind).\n\nThe ideophone carries the image; -thi carries the grammar.",
+      "explanation": "Xhosa ideophones ride the verb -thi (say/do), and the ideophone itself never changes shape:\n\n| ideophone | what it depicts | in a sentence |\n| --- | --- | --- |\n| cwaka | dead silence | indlu yathi cwaka |\n| gqi | a sudden appearance | wathi gqi |\n| tu | saying nothing at all | wathi tu |\n| saa | scattering | iinkuku zathi saa |\n| qatha | popping into mind | igama lathi qatha |\n| nqa | astonishment | bathi nqa |\n\n-thi takes the subject's own concord and tense — yathi for a class 9 noun, zathi for class 10, lathi for class 5. The ideophone carries the image; -thi carries the grammar.",
       "culture_note": "Ideophones are performed — pitch, length, and a gesture are part of the word. Native reviewers should confirm regional forms.",
       "source": "contributor",
       "reviewed": false,
@@ -2863,7 +2863,7 @@
       "level": "C2",
       "display_order": 1,
       "function": "Speak with the weight of the elders",
-      "explanation": "Amaqhalo compress the concord grammar you know into fixed wisdom, starting with the most famous sentence in the language: umntu ngumntu ngabantu — a person is a person through people. Quoting the right one grants instant standing.",
+      "explanation": "Amaqhalo compress the concord grammar you already know into fixed wisdom, and quoting the right one grants instant standing:\n\n- umntu ngumntu ngabantu — a person is a person through people\n- isandla sihlamba esinye — one hand washes the other\n- intaka yakha ngoboya benye — a bird builds with another bird's feathers\n- ubuhle bendoda ziinkomo zayo — a man's beauty is his cattle\n- inyathi ibuzwa kwabaphambili — ask the ones who have gone ahead\n- ukwanda kwaliwa ngumthakathi — only a witch begrudges increase\n\nThe first is the most famous sentence in the language.",
       "culture_note": "Ukwanda kwaliwa ngumthakathi is said to thank someone: may your generosity keep increasing — only a witch would oppose it.",
       "source": "contributor",
       "reviewed": false,
@@ -2941,7 +2941,7 @@
       "level": "C2",
       "display_order": 2,
       "function": "Show respect the isiXhosa way",
-      "explanation": "Respect is grammatical: elders are greeted in the plural (molweni), addressed as tata/mama rather than by name, and treated ngembeko (with respect).\n\nTraditional hlonipha goes further — a makoti avoids her in-laws' names entirely, and camagu answers in ritual settings.",
+      "explanation": "Respect is grammatical, not only a matter of tone:\n\n- greet an elder in the plural — molweni, even to one person\n- address them as tata or mama, never by name\n- treat them ngembeko (with respect)\n\nTraditional hlonipha goes further — a makoti avoids her in-laws' names entirely, and camagu answers in ritual settings.",
       "culture_note": "Hlonipha is a living system, strongest in rural areas and ritual life — a native reviewer should tune these to the community the app serves.",
       "source": "contributor",
       "reviewed": false,
@@ -3019,7 +3019,7 @@
       "level": "C2",
       "display_order": 3,
       "function": "Carry the tone of a real conversation",
-      "explanation": "Ke moves things along ('then/so'), nje softens ('just'), phofu adds an aside ('mind you'), kaloku appeals to shared sense ('you see / after all'), andithi tags for agreement ('isn't it?'), mhlawumbi hedges ('perhaps').",
+      "explanation": "Discourse particles carry the tone of a conversation rather than its content:\n\n- ke — then, so: masihambe ke\n- nje — just, softening what you ask for: ndicela amanzi nje\n- phofu — mind you, adding an aside\n- kaloku — you see, after all, appealing to shared sense\n- andithi — isn't it?, tagging for agreement\n- mhlawumbi — perhaps, hedging\n\nKe and nje follow the word they colour, while phofu, kaloku and mhlawumbi open the clause.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,
@@ -3097,7 +3097,7 @@
       "level": "C2",
       "display_order": 4,
       "function": "Open and close encounters like a local",
-      "explanation": "Molo one-to-one, molweni to many or to an elder; unjani? — ndiphilile, enkosi.\n\nPartings split by who moves: hamba kakuhle (go well) to the one leaving, sala kakuhle (stay well) to the one staying. Uxolo excuses, enkosi kakhulu thanks warmly.",
+      "explanation": "Molo greets one person, molweni several — and one elder, which is the respect plural. The exchange is short: Molo, unjani? — Ndiphilile, enkosi (Hello, how are you? — I am well, thank you).\n\nPartings split by who moves: hamba kakuhle (go well) to the one leaving, sala kakuhle (stay well) to the one staying. Uxolo excuses, enkosi kakhulu thanks warmly.",
       "culture_note": "",
       "source": "contributor",
       "reviewed": false,

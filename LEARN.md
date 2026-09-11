@@ -55,6 +55,69 @@ that every query is hand-written; the benefit is that "what does this
 endpoint actually ask the database for" is always answerable by reading one
 function.
 
+### What `command_timeout` bounds — and what it does not
+
+asyncpg's `connect(..., command_timeout=N)` bounds one thing: how long a
+single statement may wait for its reply. Every runbook content tool sets it
+— the seven modules in `GUARDED` in `test_seeder_command_timeout.py`, via
+`COMMAND_TIMEOUT` (300 s) in `backend/services/seeder/base.py` — because
+the Supabase pooler can drop the server side of a session while the TCP
+socket stays ESTABLISHED, and without a bound the client sleeps for ever —
+that was the 7 Sep 2026 two-hour hang. (The API-key tools do not set it;
+DEBT.md says why that is tolerated.)
+
+What happens when it fires is worth understanding, because it is where the
+first fix stopped short — twice. On timeout asyncpg does not just raise: it
+sends a **cancel request**, which in the Postgres wire protocol is a
+*second* connection to the server carrying the session's secret key, and it
+parks a waiter that resolves when the server answers the cancelled
+statement. Two things then wait on that waiter with no timeout of their
+own. `Connection.close()` — the thing the seeder's `finally` calls — awaits
+it *before* it looks at its own `timeout` argument. And so does **every
+later statement on the same connection**, before it arms its own
+`command_timeout`. On a healthy server the answer arrives in milliseconds
+and nobody notices. On a dropped session it never arrives: the statement
+raised `TimeoutError` after five minutes and the close hung for ever behind
+it; or — if the timed-out statement was the audit INSERT, whose error
+`log_change` used to swallow — the next statement hung with no timeout and
+no error at all. The timeout had moved the hang, not removed it; both were
+measured on 9–10 Sep 2026 with a proxy that swallows server→client bytes
+(`test_dropped_session_integration.py`).
+
+The pattern that returns is **bounded close, then tear down the socket by
+hand** (`close_quietly`): `asyncio.wait_for(conn.close(), CLOSE_TIMEOUT)`
+cancels the close from outside — asyncpg catches the cancellation and marks
+the connection aborted — and then the transport captured *before* the close
+is aborted explicitly. The explicit step matters: asyncpg's `close()` sets a
+`closing` flag before it waits, its `abort()` is a no-op once that flag is
+set, and `terminate()` goes through `abort()`, so without it the Python
+object says closed while the TCP session stays open for the life of the
+process. The general shape: a library's polite shutdown may itself wait on
+the peer, so the operation's timeout and the cleanup's timeout are two
+different guards, a `finally` that can block needs its own, and "closed"
+is a claim to verify at the socket, not at the object. The seeder swallows
+errors in that `finally` on purpose — the exception worth seeing is the one
+that got us there, not "and the close failed too".
+
+The corollary for `log_change`: "best-effort" is about the audit table,
+not the session. It still swallows an audit-table error (the migration may
+not have landed), and now re-raises the dead-session shapes
+(`audit.DEAD_SESSION`), because a connection that cannot carry the audit
+write cannot carry the content write after it either — it can only hang
+on it.
+
+The other half is retry. A pooler that drops one session usually refuses
+new ones for a while (about a minute on 10 Sep 2026), so `seed_grammar`
+retries a course's write after 10 s and again after 60 s — long enough,
+together, to outlast that minute — re-using the data it already
+transformed. That is safe for content because every content statement is
+an upsert: the second attempt completes a half-written course rather than
+doubling it. It is not quite safe for the audit log — a curated point whose
+proposal is re-walked gets a second `suggested` entry — which is the same
+duplicate a manual rerun has always written and is tolerated for that
+reason. Retrying the *transform* would be wrong — a paradigm gap is a file
+error and retrying it just delays the same failure.
+
 ### The three-layer rule
 
 Enforced by convention (there's no linter for it, so it lives in

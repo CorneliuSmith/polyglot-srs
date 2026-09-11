@@ -186,3 +186,23 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**1 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `seorang` was "singular form of orang" → "a, one - placed before a noun naming a person, as in a doctor or a child (built on orang, the classifier Indonesian uses for people)"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
+
+**Band 1001–2000, same day: 73 more.**
+- `terlibat` was "passive reflexive of melibat" → "involved, mixed up in something; caught up in an affair (the ter- form of libat, so the state rather than the act)"
+- `dibentuk` was "passive of membentuk" → "be formed, be shaped; be set up, of a committee or a government (passive di- form of membentuk, to form)"

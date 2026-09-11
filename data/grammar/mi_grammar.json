@@ -14,7 +14,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 1,
-      "explanation": "Au (I), koe (you, one person), ia (he or she — no gender!), mātou (we, NOT including you), tātou (we, including you), koutou (you, three or more), rātou (they). Māori marks whether 'we' includes the listener — a distinction English never makes.",
+      "explanation": "Māori pronouns divide by person and by number:\n\n| person | one | three or more |\n| --- | --- | --- |\n| I / we, not you | au | mātou |\n| I / we, with you | — | tātou |\n| you | koe | koutou |\n| he, she / they | ia | rātou |\n\nIa is he or she — Māori marks no gender. What it does mark, and English never does, is whether 'we' takes in the person you are speaking to: mātou leaves them out, tātou brings them in. Au and ahau are the same word. The forms for exactly two people — tāua, māua, kōrua, rāua — come at A2.",
       "culture_note": "Choosing tātou over mātou is an act of inclusion — 'Tēnā koutou, tēnā tātou katoa' welcomes everyone into the 'we'.",
       "references": [
         {
@@ -88,7 +88,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 2,
-      "explanation": "Nouns don't change for plural — the article does the work: te whare (the house), ngā whare (the houses). This one contrast carries all of Māori number.\n\nHe (a/some) is the indefinite and gets its own point next.",
+      "explanation": "Nouns mostly don't change for plural — the article does the work: te whare (the house), ngā whare (the houses).\n\nA small set of person and kin words is the exception, and there the macron alone carries the plural: tangata → tāngata (people), wahine → wāhine (women), matua → mātua (parents). The long vowel is the whole difference, so it is never decoration.\n\nHe (a/some) is the indefinite and gets its own point next.",
       "culture_note": "",
       "references": [
         {
@@ -400,7 +400,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 6,
-      "explanation": "I + verb marks the past: I haere au (I went), I kai mātou (we ate). The same little i also marks objects (kei te ako au i te reo) — position tells you which job it's doing.",
+      "explanation": "I has three jobs, and position tells you which one:\n\n- tense: I haere au (I went), I kai mātou (we ate) — i before the verb is the past.\n- object: Kei te ako au i te reo (I am learning the language).\n- place: Kāore he kai i te whare (There is no food in the house).\n\nBefore a name or a pronoun the object i takes a with it: I kite au i a ia (I saw her).",
       "culture_note": "",
       "references": [
         {
@@ -556,7 +556,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 8,
-      "explanation": "Kei + place says where something is NOW: Kei te whare ia (she is at the house), Kei Ākarana rātou (they are in Auckland). Ask with kei hea: Kei hea koe? (Where are you?).\n\nPosition words follow kei: kei runga (on), kei raro (under).",
+      "explanation": "Kei + place says where something is NOW: Kei te whare ia (she is at the house), Kei Ākarana rātou (they are in Auckland). Ask with kei hea: Kei hea koe? (Where are you?).\n\nThe te in Kei te whare is the article 'the', not half of the present marker — kei te before a noun is a place, kei te before a verb is what is happening.\n\nPosition words follow kei: kei runga (on), kei raro (under), kei roto (inside).\n\nWhat the position is measured against comes in with i: Kei raro te ngeru i te tēpu (The cat is under the table).",
       "culture_note": "",
       "references": [
         {
@@ -634,7 +634,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 9,
-      "explanation": "Kāore starts the negative and the subject moves forward: Kei te mōhio au → Kāore au i te mōhio (I don't know).\n\nPast uses i: Kāore ia i haere mai (she didn't come). 'There is no…' is kāore he…: Kāore he kai (there's no food).",
+      "explanation": "Kāore starts the negative and the subject moves in front of the tense particle: Kei te mōhio au → Kāore au i te mōhio (I don't know).\n\n| statement | negative |\n| --- | --- |\n| Kei te mōhio au | Kāore au i te mōhio |\n| I haere mai ia | Kāore ia i haere mai |\n| Ka haere mātou āpōpō | Kāore mātou e haere āpōpō |\n| He kai | Kāore he kai |\n\nKei te becomes i te and ka becomes e; i and he stay as they are. The last row is 'there is no…': Kāore he kai (there's no food).",
       "culture_note": "",
       "references": [
         {
@@ -712,7 +712,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 10,
-      "explanation": "Question words slot into the sentence types you already know: He aha tēnei? (What is this?), Ko wai tō ingoa? (Who/what is your name?), Kei hea…? (Where is…?), Nō hea koe? (Where are you from?), E hia…? (How many?).",
+      "explanation": "Question words slot into the sentence types you already know, in the place the answer would fill: He aha tēnei? (What is this?), Ko wai tō ingoa? (What is your name?).\n\n| word | asks about |\n| --- | --- |\n| aha | a thing |\n| wai | a person or a name |\n| hea | a place |\n| hia | a number or an amount |\n| pēhea | a manner, 'how' |\n\nEach keeps the particle its sentence needs: he aha, ko wai, kei hea (where is), nō hea (where from), e hia. A name is asked with ko wai, 'who', never with he aha.",
       "culture_note": "Nō hea koe? — where are you from — is often the first real question in a Māori conversation; whakapapa (origins) matter.",
       "references": [
         {
@@ -790,7 +790,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 11,
-      "explanation": "Māori splits possession in two: Ā-category for things you control or made (tāku pukapuka — my book, tāu mahi — your work) and Ō-category for things you don't control — houses, vehicles, friends, body parts (tōku whare, tō waka, tōku hoa).\n\nSame owner, different vowel.",
+      "explanation": "Māori splits possession in two: a-category for things you control or made (tāku pukapuka — my book, tāu mahi — your work) and o-category for things you don't control — houses, vehicles, friends, body parts (tōku whare, tō waka, tōku hoa).\n\n| owner | a-category | o-category |\n| --- | --- | --- |\n| my | tāku | tōku |\n| your | tāu | tōu |\n| his, her | tāna | tōna |\n\nSame owner, different vowel. The short forms taku, tō and tana state no category at all — tō waka is 'your car' without choosing.",
       "culture_note": "The a/o split encodes a worldview: your ancestors, your land, and your friends are ō — they are not possessions you command.",
       "references": [
         {
@@ -868,7 +868,7 @@
       "source": "contributor",
       "reviewed": true,
       "display_order": 12,
-      "explanation": "Describing words work like the he-sentence: He nui te whare (The house is big), He pai tēnei pukapuka (This book is good). No 'to be', no agreement — the stative leads and the thing described follows.",
+      "explanation": "Describing words work like the he-sentence: He nui te whare (The house is big), He pai tēnei pukapuka (This book is good). No 'to be', no agreement — the stative leads and the thing described follows.\n\nAfter a noun the same word modifies instead of predicating — he whare nui is 'a big house', he hoa pai 'a good friend'.",
       "culture_note": "",
       "references": [
         {
@@ -946,7 +946,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "The particle kua marks a change of state or a completed action with present relevance — English 'has/have …': kua oti 'it's finished', kua tae mai ia 'she has arrived'. It contrasts with i (a plain past) and kei te (happening now).\n\nKua often pairs with kē 'already'.",
+      "explanation": "The particle kua marks a change of state or a completed action with present relevance — English 'has/have …': kua oti 'it's finished', kua tae mai ia 'she has arrived'.\n\n| marker | what it says |\n| --- | --- |\n| kei te | it is happening now |\n| i | it happened |\n| kua | it has happened, and that still counts |\n| ka | it happens next |\n\nKua often pairs with kē 'already': kua kai kē rātou 'they have already eaten'.",
       "culture_note": "",
       "references": [
         {
@@ -1020,7 +1020,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "E + verb + ana frames an action as ongoing, in the present or the past depending on context: e kai ana ia 'he is eating', e haere ana mātou 'we were going'. Unlike kei te (strictly now), e…ana is the neutral continuous and is what you use in narrative.",
+      "explanation": "E + verb + ana frames an action as ongoing, and the context decides whether that is now or then: e kai ana ia 'he is eating', e noho ana ia ki Pōneke 'she lives — or was living — in Wellington'. Unlike kei te, which is strictly now, e … ana is the neutral continuous and is what you use in narrative.",
       "culture_note": "",
       "references": [
         {
@@ -1094,7 +1094,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Māori pronouns distinguish singular, dual (two), and plural (three+), and for 'we' they mark whether the listener is included.\n\nDual: tāua (you-and-I), māua (she/he-and-I), kōrua (you two), rāua (those two).\n\nPlural: tātou (all of us, incl. you), mātou (us, not you), koutou (you all), rātou (them).",
+      "explanation": "Māori pronouns distinguish singular, dual (exactly two) and plural (three or more), and for 'we' they also mark whether the listener is included.\n\n| person | dual | plural |\n| --- | --- | --- |\n| we, including you | tāua | tātou |\n| we, not including you | māua | mātou |\n| you | kōrua | koutou |\n| they | rāua | rātou |\n\nThe singular forms au, koe and ia stand outside this grid. Dual is a count, not politeness: kōrua says there are exactly two of you, and tāua says the two are you and me.",
       "culture_note": "",
       "references": [
         {
@@ -1168,7 +1168,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "A possessive determiner chooses a or o by the relationship, not the owner: o-category for things you don't control (parents, body, feelings, clothes, transport you ride) and a-category for things you do (children, food, tools, spouse).\n\nSingular forms: tāku/tōku 'my', tāu/tōu 'your', tāna/tōna 'his/her'.\n\nPlural drops the t-: āku/ōku, etc.",
+      "explanation": "A possessive determiner chooses a or o by the relationship, not by the owner: o-category for things you don't control (parents, body, feelings, clothes, transport you ride) and a-category for things you do (children, food, tools, spouse).\n\n| possessed | my | your | his, her |\n| --- | --- | --- | --- |\n| one thing, a-category | tāku | tāu | tāna |\n| one thing, o-category | tōku | tōu | tōna |\n| several, a-category | āku | āu | āna |\n| several, o-category | ōku | ōu | ōna |\n\nThe `t-` counts the thing possessed, not the owner: tāku pukapuka is 'my book' and āku pukapuka is 'my books', with the same owner in both.",
       "culture_note": "",
       "references": [
         {
@@ -1316,7 +1316,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "ki marks direction or goal 'to/towards' (haere ki te kura 'go to school') and the instrument 'with'. i marks the source/past location 'from/at' and the object of many verbs. hei marks a future purpose or role 'as / to be': hei aha? 'for what?', hei kaiako 'as a teacher'.",
+      "explanation": "| preposition | meaning | example |\n| --- | --- | --- |\n| ki | to, towards | haere ki te kura |\n| i | at, in, from | noho i Tāmaki |\n| hei | as, to be | hei kaiako |\n\nki also marks the instrument, 'with'. i marks where an action happens as well as where it comes from, whatever the tense, and it marks the object of many verbs besides. hei points at a role or purpose still ahead: hei aha? 'for what?'.",
       "culture_note": "",
       "references": [
         {
@@ -1390,7 +1390,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Add -nga (with linking consonants: -tanga, -hanga, -ranga) to a verb to name the action or its occasion: haere → haerenga 'trip/departure', waiata → waiatanga 'the singing', ako → akoranga 'lesson'.\n\nThe result is an ordinary noun and takes te/ngā and possessives.",
+      "explanation": "Add `-nga` to a verb to name the action or its occasion. Many verbs take a linking consonant first, giving `-hanga`, `-ranga` or `-tanga`, and which one a verb takes is learned with the verb, as the passive suffix is.\n\nhaere → haerenga 'trip/departure', waiata → waiatanga 'the singing', ako → akoranga 'lesson'.\n\nThe result is an ordinary noun: it takes te and ngā, and it takes possessives.",
       "culture_note": "",
       "references": [
         {
@@ -1538,7 +1538,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 9,
-      "explanation": "For plain counting, e precedes numbers two to nine: e rua ngā whare 'two houses', e whā ngā rā 'four days' (kotahi 'one' and tekau 'ten' don't take e).\n\nFor people you use the toko- prefix: tokorua 'two people', tokotoru 'three people', but tokomaha 'many'.",
+      "explanation": "Numbers two to nine take e when they count things, and people are counted with the prefix `toko-` instead.\n\n| number | things | people |\n| --- | --- | --- |\n| two | e rua | tokorua |\n| three | e toru | tokotoru |\n| four | e whā | tokowhā |\n\ne rua ngā whare 'two houses', e whā ngā rā 'four days'. kotahi 'one' and tekau 'ten' take no e.\n\ntoko- reaches the quantifiers too: tokomaha 'many people', tokohia 'how many people?'.",
       "culture_note": "",
       "references": [
         {
@@ -1612,7 +1612,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 10,
-      "explanation": "me + verb gives a soft obligation or suggestion — English 'should' or 'ought to': me haere koe 'you should go', me kai tātou 'let's eat'. It's gentler than a bare command. (Note this me is different from the me that joins nouns, 'and/with'.)",
+      "explanation": "**me** + verb gives a soft obligation or suggestion — English 'should' or 'ought to': me haere koe 'you should go', me kai tātou 'let's eat'. It is gentler than a bare command.\n\nThis me is not the me that joins nouns, 'and/with'.",
       "culture_note": "",
       "references": [
         {
@@ -1686,7 +1686,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "kia frames a state as wished-for or aimed-at rather than actual. Before a stative it gives encouragement: kia kaha 'be strong', kia tere 'be quick'.\n\nBefore a verb it marks purpose 'so that / until': tatari kia oti 'wait until it's done', ka haere au kia kite i a ia 'I'll go so as to see her'.",
+      "explanation": "**kia** frames a state or action as wished-for or aimed-at rather than actual. Which reading you get depends on where the kia clause sits, not on what follows it.\n\nStanding on its own it urges or wishes: kia kaha 'be strong', kia tere 'be quick', kia pai tō rā 'have a good day'.\n\nAfter another verb the same kia gives the aim, 'so that' or 'until': tatari kia oti 'wait until it's done', ka haere au kia kite i a ia 'I'll go so as to see her'.",
       "culture_note": "",
       "references": [
         {
@@ -1760,7 +1760,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Each tense negates in its own way.\n\nPresent kei te → kāore … i te: kāore au i te mōhio 'I don't know'.\n\nPerfect kua → kāore anō … kia / kāore … i: kāore anō kia oti 'not yet finished'.\n\nPast i → kāore … i: kāore ia i haere / kīhai ia i haere 'he didn't go'.\n\nThe verb keeps its base form.",
+      "explanation": "Each tense negates in its own way, and kāore opens all of them.\n\n| tense | positive | negative |\n| --- | --- | --- |\n| present | kei te | kāore … i te |\n| past | i | kāore … i |\n| future | ka | kāore … e |\n| perfect | kua | kāore anō … kia |\n\nkāore au i te mōhio 'I don't know', kāore ia i haere 'he didn't go', kāore anō kia oti 'not yet finished'.\n\nThe subject sits between kāore and the tense particle, and the verb keeps its base form. A kua sentence is also negated flatly with kāore … i where 'not yet' is not meant, and kīhai i is an older, more formal past negative: kīhai ia i haere.",
       "culture_note": "",
       "references": [
         {
@@ -1834,7 +1834,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "To foreground the doer, Māori fronts the agent with nā (past) or mā (future) and marks the verb with i or e: nā Hōne i hanga te waka 'it was Hōne who built the canoe', mā wai e mahi tēnei? 'who will do this?'.\n\nThis actor-emphatic pattern is extremely common.",
+      "explanation": "To foreground the doer, Māori fronts the agent and marks the verb with a matching particle.\n\n| tense | agent | verb |\n| --- | --- | --- |\n| past | nā | i |\n| future | mā | e |\n\nnā Hōne i hanga te waka 'it was Hōne who built the canoe', mā wai e mahi tēnei? 'who will do this?'.\n\nThis actor-emphatic pattern is extremely common. Only the a-category forms do this work: nō and mō never mark an actor.",
       "culture_note": "",
       "references": [
         {
@@ -1908,7 +1908,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "The prefix whaka- makes a verb causative — 'cause to be / make happen': ako 'learn' → whakaako 'teach (make learn)', kī 'full' → whakakī 'fill', mōhio 'know' → whakamōhio 'inform', ora 'well' → whakaora 'save/heal'.\n\nIt's one of the most productive word-builders in the language.",
+      "explanation": "The prefix `whaka-` makes a verb causative — 'cause to be / make happen'.\n\nako 'learn' → whakaako 'teach (make learn)', kī 'full' → whakakī 'fill', mōhio 'know' → whakamōhio 'inform', ora 'well' → whakaora 'save/heal'.\n\nIt is one of the most productive word-builders in the language.",
       "culture_note": "",
       "references": [
         {
@@ -1929,7 +1929,7 @@
           "sentence": "Ka {{answer}} te kaiako i te reo Māori.",
           "answer": "whakaako",
           "translation": "The teacher will teach the Māori language.",
-          "hint": "teach (whaka- + ako)",
+          "hint": "causative prefix on the verb meaning 'learn'",
           "gloss": "FUT · ___ · the · teacher · OBJ · the · language · Māori",
           "display_order": 1
         },
@@ -1937,7 +1937,7 @@
           "sentence": "Me {{answer}} koe i te ipu ki te wai.",
           "answer": "whakakī",
           "translation": "You should fill the cup with water.",
-          "hint": "fill (whaka- + kī)",
+          "hint": "causative prefix on the stative meaning 'full'",
           "gloss": "OBLIG · ___ · 2SG · OBJ · the · cup · with · the · water",
           "display_order": 2
         },
@@ -1953,7 +1953,7 @@
           "sentence": "Nā te rongoā i {{answer}} i a ia.",
           "answer": "whakaora",
           "translation": "It was the medicine that healed him.",
-          "hint": "heal (whaka- + ora)",
+          "hint": "causative prefix on the word meaning 'alive, well'",
           "gloss": "by · the · medicine · PST · ___ · OBJ · PERS · 3SG",
           "display_order": 4
         },
@@ -1961,7 +1961,7 @@
           "sentence": "E {{answer}} ana ia i te whare ki te tae.",
           "answer": "whakapai",
           "translation": "She is tidying the house up.",
-          "hint": "make good (whaka- + pai)",
+          "hint": "causative prefix on the stative meaning 'good'",
           "gloss": "PROG · ___ · PROG · 3SG · OBJ · the · house · to · the · reach",
           "display_order": 5
         },
@@ -1969,7 +1969,7 @@
           "sentence": "Ka {{answer}} rātou i te ahi.",
           "answer": "whakakā",
           "translation": "They will light the fire.",
-          "hint": "light/ignite (whaka- + kā)",
+          "hint": "causative prefix on the stative meaning 'alight'",
           "gloss": "FUT · ___ · 3PL · OBJ · the · fire",
           "display_order": 6
         }
@@ -1982,7 +1982,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Māori has no relative pronoun like 'who'.\n\nIt simply attaches a clause to the noun, usually with a resumptive or an aspect frame: te tangata e mōhio ana au 'the person (whom) I know', te pukapuka i tuhia e ia 'the book that was written by her', ngā tamariki e tākaro ana 'the children who are playing'.",
+      "explanation": "Māori has no relative pronoun like 'who' or 'that'. The clause is simply attached to the noun and carries the ordinary tense and aspect particles — e … ana for something ongoing, i for something completed.\n\n| the noun is | example | meaning |\n| --- | --- | --- |\n| the subject | ngā tamariki e tākaro ana | the children who are playing |\n| what is acted on | te pukapuka i tuhia e ia | the book that was written by her |\n| the object, its own subject following | te tangata e mōhio ana au | the person I know |\n\nWhere the head noun is what the clause acts on, the verb goes passive, as tuhia is there.",
       "culture_note": "",
       "references": [
         {
@@ -2056,7 +2056,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "ki te + verb expresses a real condition or a purpose 'if / in order to': ki te ua, ka noho tātou 'if it rains, we'll stay', haere ki te tiki 'go in order to fetch'.\n\nFor a more hypothetical 'if', use mehemea (or ki te mea mehemea): mehemea he moni āku… 'if I had money…'.",
+      "explanation": "**ki te** + verb expresses a real condition or a purpose 'if / in order to': ki te ua, ka noho tātou 'if it rains, we'll stay', haere ki te tiki 'go in order to fetch'.\n\nFor a more hypothetical 'if', use **mehemea** (also written me he mea; ki te mea is a third variant): mehemea he moni āku… 'if I had money…'.",
       "culture_note": "",
       "references": [
         {
@@ -2130,7 +2130,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 7,
-      "explanation": "Small particles after a verb show direction relative to the speaker: mai 'towards me/us' (haere mai 'come here'), atu 'away' (haere atu 'go away'), ake 'upward / on one's own', iho 'downward'.\n\nThey also colour meaning: titiro mai 'look this way', hoatu 'give (away to them)', hōmai 'give (to me)'.",
+      "explanation": "Small particles after a verb show direction relative to the speaker:\n\n- mai — towards me or us: haere mai 'come here'\n- atu — away from the speaker: haere atu 'go away'\n- ake — upward, or 'on one's own'\n- iho — downward\n\nThey also colour meaning: titiro mai 'look this way', hoatu 'give (away to them)', hōmai 'give (to me)'.",
       "culture_note": "",
       "references": [
         {
@@ -2204,7 +2204,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Ability uses the passive verb taea with an e-agent: ka taea e au te haere 'I can go' (literally 'it will be managed by me, the going').\n\nThe thing that can be done follows as te + verb. Negate with kāore e taea: kāore e taea e ia 'she can't'.",
+      "explanation": "Ability uses the passive verb **taea** with an e-agent: ka taea e au te haere 'I can go' (literally 'it will be managed by me, the going').\n\nThe thing that can be done follows as te + verb. Negate with kāore e taea: kāore e taea e ia 'she can't'.",
       "culture_note": "",
       "references": [
         {
@@ -2274,7 +2274,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "The 'not yet' perfect wraps the verb in kāore anō … kia: kāore anō au kia kai 'I haven't eaten yet'.\n\nThe subject sits between anō and kia. Answering 'not yet' alone is kāore anō.",
+      "explanation": "The 'not yet' perfect wraps the verb in **kāore anō … kia**: kāore anō au kia kai 'I haven't eaten yet'.\n\nThe subject sits between anō and kia. Answering 'not yet' alone is kāore anō.",
       "culture_note": "",
       "references": [
         {
@@ -2344,7 +2344,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Kei te (happening now) shifts to i te for the past: i te moe ia 'she was sleeping'.\n\nIt paints an ongoing background — pair it with a point-in-time event to say what was going on when something happened.",
+      "explanation": "Kei te (happening now) shifts to **i te** for the past: i te moe ia 'she was sleeping'.\n\nIt paints an ongoing background — pair it with a point-in-time event to say what was going on when something happened.",
       "culture_note": "",
       "references": [
         {
@@ -2414,7 +2414,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 4,
-      "explanation": "hei marks purpose or future role. Before a verb: hei tapahi 'for cutting'. Before a noun: hei kaiako 'as a teacher'.\n\nWith mā-possessives it assigns the doer: he mahi hei mahi māu 'a job for YOU to do'.",
+      "explanation": "**hei** marks purpose or future role. Before a verb: hei tapahi 'for cutting'. Before a noun: hei kaiako 'as a teacher'.\n\nWith mā-possessives it assigns the doer: he mahi hei mahi māu 'a job for YOU to do'.",
       "culture_note": "",
       "references": [
         {
@@ -2484,7 +2484,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 5,
-      "explanation": "Short verbs take e: e tū! 'stand!', e noho! 'sit!'. Longer verbs drop it: haere mai! 'come here!'.\n\nProhibition is kaua e: kaua e haere! 'don't go!'. Transitive commands often use the passive: katia te kūaha! 'close the door!'.",
+      "explanation": "Short verbs — one or two morae — take **e**: e tū! 'stand!', e noho! 'sit!'. Verbs of three morae or more drop it: haere mai! 'come here!'.\n\nProhibition is **kaua e**: kaua e haere! 'don't go!'. Transitive commands often use the passive: katia te kūaha! 'close the door!'.",
       "culture_note": "Passive imperatives (katia!, kainga!) are the polite norm for transitive commands — the bare active can sound abrupt.",
       "references": [
         {
@@ -2554,7 +2554,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 6,
-      "explanation": "The particle ai has no direct English equivalent: it marks a clause as habitual, consequent, or anchored to a fronted time/place/reason.\n\nKa oti te mahi, ka hoki ai mātou 'when the work is done, THEN we go home'. He aha koe i riri ai? 'why were you angry?'.",
+      "explanation": "The particle **ai** has no direct English equivalent, and always follows the verb. It marks a clause as:\n\n- habitual: Ka ua, ka mau ai au i te marara 'when it rains, I take an umbrella'\n- consequent: Ka oti te mahi, ka hoki ai mātou 'when the work is done, THEN we go home'\n- anchored to a fronted time, place or reason: He aha koe i riri ai? 'why were you angry?'",
       "culture_note": "",
       "references": [
         {
@@ -2624,7 +2624,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Fronted nā states realized ownership or past agency: nā Mere tēnei pukapuka 'this book is Mere's'; nā rātou i hanga 'THEY built it'.\n\nFronted mā is its future twin: mā wai e tunu? 'who will cook?', mā tō māmā koe e tiki 'your mum will pick you up'.",
+      "explanation": "Fronted **nā** states realized ownership or past agency: nā Mere tēnei pukapuka 'this book is Mere's'; nā rātou i hanga 'THEY built it'.\n\nFronted **mā** is its future twin: mā wai e tunu? 'who will cook?', mā tō māmā koe e tiki 'your mum will pick you up'.\n\nBoth are a-category forms; where the relationship is o-category, the same two predicates are nō and mō.",
       "culture_note": "",
       "references": [
         {
@@ -2694,7 +2694,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "ahakoa 'although / despite': ahakoa te ua 'despite the rain'; ahakoa te aha 'no matter what'.\n\nnō te mea / i te mea 'because'; engari 'but'. These let one sentence carry a concession, a reason, and a counterpoint.",
+      "explanation": "These three let one sentence carry a concession, a reason, and a counterpoint:\n\n- ahakoa 'although / despite': ahakoa te ua 'despite the rain'; ahakoa te aha 'no matter what'\n- nō te mea, or i te mea, 'because'\n- engari 'but'",
       "culture_note": "",
       "references": [
         {
@@ -2764,7 +2764,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 3,
-      "explanation": "Ko lifts a phrase to the front for identity or focus: ko Mere i haere 'it was MERE who went'.\n\nIdentity sentences pair two noun phrases: ko tēnei taku whare 'this is my house'. The fronted phrase is the answer to the question in the listener's mind.",
+      "explanation": "**Ko** lifts a phrase to the front for identity or focus: ko Mere i haere 'it was MERE who went'.\n\nIdentity sentences pair two noun phrases: ko tēnei taku whare 'this is my house'. The fronted phrase is the answer to the question in the listener's mind.",
       "culture_note": "",
       "references": [
         {
@@ -2834,7 +2834,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 1,
-      "explanation": "Formal greeting scales with the audience: tēnā koe (one person), tēnā kōrua (two), tēnā koutou (three or more), tēnā koutou katoa (everyone, all-embracing).\n\nWelcomes pair nau mai with haere mai. Thanks reuse the greeting: tēnā koe i tō āwhina 'thank you for your help'.",
+      "explanation": "Formal greeting scales with the audience:\n\n| Addressees | Greeting |\n| --- | --- |\n| one | tēnā koe |\n| two | tēnā kōrua |\n| three or more | tēnā koutou |\n| everyone, all-embracing | tēnā koutou katoa |\n\nWelcomes pair nau mai with haere mai. Thanks reuse the greeting: tēnā koe i tō āwhina 'thank you for your help'.",
       "culture_note": "Mihi are not small talk — order and address matter, and a mihi acknowledges the dead, the living, and the house before business begins. These drills cover only the fixed formulae; whaikōrero (formal oratory) is a taonga to learn from kaumātua, not from an app.",
       "references": [
         {
@@ -2904,7 +2904,7 @@
       "source": "contributor",
       "reviewed": false,
       "display_order": 2,
-      "explanation": "Whakataukī compress values into fixed shapes. The most famous is a rhetorical question answered three times: he aha te mea nui o te ao? He tangata, he tangata, he tangata 'What is the greatest thing? It is people, people, people.'\n\nOthers are single images: he waka eke noa 'a canoe we are all in together'.",
+      "explanation": "Whakataukī compress values into fixed shapes. The most famous is a rhetorical question answered three times: he aha te mea nui o te ao? He tangata, he tangata, he tangata 'What is the greatest thing in the world? It is people, people, people.'\n\nOthers are single images: he waka eke noa 'a canoe we are all in together'.",
       "culture_note": "Quoting a whakataukī at the right moment carries real weight — and quoting one wrongly is noticed. Sources and tribal variants matter; these six are pan-tribal classics.",
       "references": [
         {

@@ -268,3 +268,24 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**182 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `babam` was "first-person singular possessive of baba" → "my father (first-person singular possessive of baba: father)"
+- `eve` was "dative singular of ev" → "home, to the house — the destination form (dative of ev: house); ___ gitmek: to go home"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
+
+**Band 1001–2000, same day: 257 more.**
+- `öl` was "second-person singular imperative of ölmek" → "die!, drop dead! — second-person singular imperative of the verb for dying"
+- `söyler` was "third-person singular indicative aorist of söylemek" → "he says, she tells, it says (third-person singular aorist of söylemek: to say, to tell); before misin it carries the you reading: can you tell me"

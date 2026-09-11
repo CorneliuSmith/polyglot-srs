@@ -349,6 +349,47 @@ rate, say so — that result matters more than the phase closing quietly.
     "is/are doing" as the 1SG pronoun within hours of the overlay starting
     to work. Keep the two files in step (CHECKS §31, `TestNoDormantOverrides`).
 
+52. **A hint may name the stem in ENGLISH; it may not spell the stem in the
+    target language.** "coche, plural" → coches tests nothing; "car (m.),
+    plural" tests the same thing and gives nothing away. Turkish's "house +
+    locative + 'I am'" is the model. But the shape alone does not decide:
+    "plural of boek" → boeken is legitimate because Dutch makes the learner
+    choose -en over -s. Judge per language (CHECKS §33).
+53. **A filter built to remove noise can remove signal — check what it
+    dropped.** A sweep excluded any stem that is an English headword, and
+    `casa` is one at rank 9,290, so one Spanish drill escaped a judged pass
+    its five identical siblings went through.
+
+54. **Choose a duplicate's keeper on answer accuracy, not size.** Korean's
+    retired `은/는` point had more drills and got the 받침 rule it exists to
+    teach wrong in 3 of 11. Check every answer in a paradigm point by the
+    rule the point states; a point that fails its own rule cannot be the
+    survivor, however long it is (CHECKS §34).
+
+55. **A hang guard is proven by reproducing the hang.** The 7 Sep command
+    timeout was reasoned about, not measured, and asyncpg's `close()` re-hung
+    behind it; a blackholing proxy reproduces a dropped pooler session in
+    ten seconds (`test_dropped_session_integration.py`). And a guard is
+    proven at the boundary it claims, not at the object: the first bounded
+    close said "closed" while the socket stayed open, and a swallowed
+    timeout in `log_change` left the next statement with no bound at all —
+    both found only by putting the real call on the real proxy.
+
+56. **A definition must give a MEANING, not a relation.** "first-person
+    singular present indicative of necesitar" is true and useless — the word
+    means "I need". Relation in parentheses AFTER the meaning is the house
+    shape ("arrive (present subjunctive of llegar)"), and the English must
+    match the FORM, not the lemma. 27,794 live rows, the largest class left
+    (CHECKS §36).
+
+57. **An audit must read what SHIPS, not the file underneath it.**
+    `audit_content` graded the frequency file's `en` column while production
+    served that column with `gloss_overrides.tsv` laid over it — 1,734 of
+    3,441 covered rows differed. Same class as §31 one level up: the override
+    file was given a write path to production and never a read path into the
+    instrument. Before trusting any measurement, check that the thing being
+    measured is the thing being served.
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

@@ -849,6 +849,23 @@ async def _retired_clause(conn: asyncpg.Connection, alias: str = "v") -> str:
     return ""
 
 
+async def _point_retired_clause(
+    conn: asyncpg.Connection, alias: str = "gp",
+) -> str:
+    """`AND <alias>.retired_at IS NULL` for grammar points, or nothing on a
+    database that has not had migration 20261017 yet.
+
+    Same probe and same reason as `_retired_clause`. Applied where a point is
+    OFFERED — the Learn draw, the next-level peek, the deck counts — and not
+    where one is fetched BY ID, so a learner who was part-way through a
+    retired point can still open the card they already have (the vocabulary
+    rule, CHECKS §12).
+    """
+    if await column_present(conn, "grammar_points", "retired_at"):
+        return f"AND {alias}.retired_at IS NULL"
+    return ""
+
+
 async def _vocab_candidates(
     conn: asyncpg.Connection,
     user_id: str,
@@ -1002,8 +1019,9 @@ async def _select_grammar_candidate_ids(
     """Grammar points the user hasn't started, ranked round-robin across the
     queued level decks (display_order within a level), honoring the review
     policy and skipping points with no drills."""
+    point_retired = await _point_retired_clause(conn)
     rows = await conn.fetch(
-        """
+        f"""
         WITH candidates AS (
             SELECT DISTINCT gp.id AS id, gp.level AS level,
                             gp.display_order AS display_order
@@ -1028,6 +1046,7 @@ async def _select_grammar_candidate_ids(
                   SELECT 1 FROM drill_sentences ds WHERE ds.grammar_point_id = gp.id
               )
               AND ($4::text IS NULL OR gp.level = $4)
+              {point_retired}
               AND gp.id NOT IN (
                   SELECT card_id FROM user_cards
                   WHERE user_id = $1 AND card_type = 'grammar'
@@ -1140,9 +1159,10 @@ async def _next_level_ids(
             ORDER BY frequency_rank NULLS LAST LIMIT $3""",
         language_id, nxt, span,
     )
+    point_retired = await _point_retired_clause(conn, "grammar_points")
     grammar = await conn.fetch(
-        """SELECT id FROM grammar_points
-            WHERE language_id = $1 AND level = $2
+        f"""SELECT id FROM grammar_points
+            WHERE language_id = $1 AND level = $2 {point_retired}
             ORDER BY display_order NULLS LAST LIMIT $3""",
         language_id, nxt, span,
     )
@@ -1566,8 +1586,9 @@ async def get_learn_decks(
     counts intentionally ignore subscription: progress shows even on decks the
     user hasn't queued yet.
     """
+    point_retired = await _point_retired_clause(conn)
     rows = await conn.fetch(
-        """
+        f"""
         SELECT
             cl.id,
             cl.list_type,
@@ -1589,6 +1610,7 @@ async def get_learn_decks(
                       SELECT 1 FROM drill_sentences ds
                       WHERE ds.grammar_point_id = gp.id
                   )
+                  {point_retired}
             ) ELSE (
                 SELECT COUNT(*)
                 FROM vocabulary v

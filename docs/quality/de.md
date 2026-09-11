@@ -242,3 +242,24 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**176 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `musst` was "second-person singular present of müssen" → "you must, you have to (second-person singular present of müssen)"
+- `gehört` was "past participle of hören" → "heard (past participle of hören); also he/she/it belongs to, is part of (present of gehören)"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
+
+**Band 1001–2000, same day: 226 more.**
+- `geschrieben` was "past participle of schreiben" → "written; wrote, in the perfect (past participle of schreiben)"
+- `erledigt` was "past participle of erledigen" → "done, finished, taken care of (past participle of erledigen); also he/she/it deals with, sees to; colloquially, worn out or done for"

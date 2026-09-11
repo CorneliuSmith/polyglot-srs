@@ -85,7 +85,8 @@ class TestEveryKindActuallyWrites:
 
         assert counts == {"gloss": 1, "pos": 1, "morphology": 1,
                           "added_translation": 1, "sentence_layers": 1,
-                          "retired": 1, "unretired": 0}
+                          "retired": 1, "unretired": 0,
+                          "points_retired": 0, "points_unretired": 0}
         assert await conn.fetchval(
             "SELECT definition FROM translations WHERE vocabulary_id = $1 "
             "AND locale = 'en'", a["id"]) == "NEW GLOSS"

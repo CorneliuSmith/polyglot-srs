@@ -178,22 +178,21 @@ under its own label in all six locales, plus 11 notes that merely restate
 the hint. Not a data bug; do not "fix" it by writing English-for-English
 translations, which hand over the answer.
 
-### Korean teaches four topics twice, and a point cannot be retired
+### Korean teaches four topics twice — RESOLVED 8 Sep 2026
 
-`ko_grammar.json` has 156 points and four near-duplicate pairs, from two
-extraction passes meeting: "Topic particle 은/는 (저는, 이것은)" beside
-"Topic particle ~는/은", and "Place and time: 에 vs 에서 (집에, 집에서)"
-beside "~에 vs ~에서 with places". A learner can be served both.
-
-Merging them is not just a file edit. `seed_grammar` upserts on
-`(language_id, title)` and never deletes, so a point removed from the file
-stays live exactly as an excluded word did before migration 20261016 — and
-`user_cards.card_id` points at `grammar_points` for grammar cards, so a
-DELETE would orphan progress the same way. Retiring a grammar point needs
-the same treatment vocabulary just got: a `retired_at` column, a reconcile
-step that sets it, and the card draw filtering it. Until that exists,
-deduping the file would only stop the duplicate being UPDATED, not stop it
-being taught.
+Judged by two readers of Korean and merged: five points retired, salvaged
+drills moved into the keepers, the keeper's own wrong answer fixed. The
+retire path that blocked it is built — migration 20261017
+`grammar_points.retired_at`, `data/grammar_exclusions.tsv` as the source of
+truth in both directions, `reconcile` setting and clearing it, every offer
+path filtering on it (probed). Record:
+`docs/decisions/2026-09-08-korean-duplicate-points.md`. ~~One sibling is
+still open: A1 index 40.~~ **Closed 10 Sep 2026** — that sixth duplicate
+(`Topic particle ~는/은`) is retired: it called 은/는 a "subject-marking
+particle" in its function note and all seven hints, and this course teaches
+the topic/subject split itself. Its 7 drills were salvaged into the keeper
+with hints naming each noun's own 받침, 3 cross-references remapped, the
+duplicate gym entry removed and `REFERENCE.md` regenerated.
 
 ### 1,264 English words below rank 2,000 still have no definition
 
@@ -671,21 +670,143 @@ to put a synonym in the column. Jamaican also copies its `alt` column into
 `morphology["spellings"]` — the same list twice; nothing reads the copy. A
 course adding an `alt` column should read CHECKS §30 first.
 
-## A content tool can hang for ever on a dropped pooler session (7 Sep 2026)
+## Eight rows the definition pass refused to define (10 Sep 2026)
+
+The 201–1000 definition pass (CHECKS §36) wrote 1,826 definitions and
+**declined 8**, on the standing instruction that an omission is recoverable
+and a wrong definition is not (quality rule 30). Every one turned out to be
+extraction debris rather than a hard word, which makes the list worth keeping:
+
+- `mi tute` (777) — "masculine equivalent of tūī". A tūī is a bird; there is
+  no masculine of it. Cross-language contamination.
+- `es i` (783) — labelled "second-person singular voseo imperative of ir",
+  but both of the course's own sentences use it as the Roman numeral one
+  (Elizabeth I, Carlos I).
+- `it finche` (775) — an accent-stripped twin of `finché` whose lemma record
+  is Spanish debris (`finca`, no definition).
+- `sw kukawa` (979) — given as the infinitive of `-kawa`; there is no such
+  standard verb (delay is `-kawia`, stay is `-kaa`).
+- `xh izagwityi` (658), `izigxina` (758), and two more with no lemma
+  definition and no example sentence.
+
+These are candidates for `data/vocab_exclusions.tsv` rather than for
+authoring, but each needs a reader of its language to confirm before a
+durable deletion — which is why they are written down instead of swept
+(quality rule 27 and the Romanian `-ă`/`-a` refusal).
+
+## 14 words serve a sentence about Tatoeba because it is all they have (10 Sep 2026)
+
+`names_the_corpus` removed 45 of the 59 rows whose sentence is about the
+corpus rather than the language (CHECKS §35). The remaining 14 are each
+their word's ONLY sentence, and the never-strand rule (§24) keeps them: a
+card with no example is not an improvement on one with a bad example. So
+until Phase 8 authoring reaches them, these cards still teach the corpus's
+press release — `ar` أطاق, بيانات, توصيل, تدقيق · `ca` exemple, droga,
+enganxa · `fa` یعنی · `fr` no, saletés · `id` contohnya · `ro` suma · `tl`
+sapagkat, kabuuan. Each leaves automatically the moment its word gains an
+authored sentence; `test_corpus_self_naming.py` asserts none of them ever
+sits beside a usable row. Nothing else is owed here — this is a supply
+entry, not a bug.
+
+## A content tool can hang for ever on a dropped pooler session (7 Sep 2026; bounded 10 Sep)
 
 `seed_grammar -l all` printed "OK en" and then nothing for two hours. On
 this machine: the process asleep at 0% CPU with one ESTABLISHED socket to
 the pooler; on the server: no statement from it, and the pooled backend it
 had used `RESET` minutes earlier. asyncpg has no default command timeout,
 so a session the pooler drops mid-reply is waited on indefinitely, and
-from the terminal it is indistinguishable from a slow course. Fixed by a
-bounded wait — `COMMAND_TIMEOUT` (300 s) on every production connect in
-the seeder package, guarded by `test_seeder_command_timeout.py` — so it
-becomes an error the operator sees and a per-course rerun recovers. What
-is NOT fixed: the underlying drop (pooler side; not reproducible on
-demand), and `seed_grammar` writes without a transaction, so a course cut
-off midway is partially written until rerun — harmless, every statement is
-an upsert. Run grammar per course (`refeed.md`) so a hang costs one course.
+from the terminal it is indistinguishable from a slow course.
+
+**What #433 fixed (7 Sep):** `COMMAND_TIMEOUT` (300 s) on every connect in
+the six runbook modules of the day — `base`, `seed_grammar`, `reconcile`,
+`prune_sentences`, `seed_alphabet`, `source_data` — guarded by
+`test_seeder_command_timeout.py`. It said a dropped session "now fails
+loudly". That was reasoned about, not measured, and it was half right.
+
+**What 9 Sep measured:** a TCP proxy in front of a local Postgres that
+forwards the handshake and then swallows server→client bytes while keeping
+TCP open reproduces the 7 Sep socket exactly. The statement DOES raise
+`asyncio.TimeoutError` after `command_timeout` — and then the seeder's
+`finally: await conn.close()` hangs for ever behind it. Mechanism, asyncpg
+0.31 `Protocol.close()`: on timeout asyncpg sends a cancel request (its
+own second connection to the server) and parks a `cancel_waiter` that
+resolves when the server answers the cancelled statement; `close()` awaits
+that waiter BEFORE it consults the close timeout, and a dropped session
+never answers. `Connection.close(timeout=...)` therefore cannot bound it.
+What returns: cancel the close from outside (`asyncio.wait_for`; asyncpg
+catches the cancellation and marks the connection aborted) — measured
+3.0 s with a 3 s bound.
+
+**What 10 Sep showed, on production:** the other shape surfaces by itself.
+The owner's per-course loop printed "OK el", then `FAIL en: connection was
+closed in the middle of operation` (the pooler closed the socket; asyncpg's
+`ConnectionDoesNotExistError`), then `FAIL es/fa/fr: [Errno 54] Connection
+reset by peer` from `connect()` — the pooler refused new sessions for about
+a minute — then "OK ha" and the loop carried on. A one-minute outage cost
+four courses that a pause and a second try would have recovered; `en` was
+left with points 1–16 of 43 written until its rerun.
+
+**What 10 Sep review found, against the proxy:** three more holes.
+(1) "Cancel the close, then `terminate()`" closes the Python object, not
+the socket: `Protocol.close()` sets `closing` before it waits, and
+`Protocol.abort()` returns at once when `closing` is set, so neither the
+cancellation nor `terminate()` after it touches the transport — the TCP
+session to the pooler stays ESTABLISHED for the life of the process, one
+per abandoned attempt (the fd was open and the proxy never saw EOF while
+`is_closed()` said True). (2) The 7 Sep hang had a front door the command
+timeout never closed: `audit.log_change` swallowed every exception, so
+when the statement that met the dropped session was the audit INSERT
+(once per newly inserted point, once per curated-point proposal), its
+`TimeoutError` vanished, the seeder went on to the next statement on the
+same connection, and asyncpg awaits the pending cancel's reply BEFORE it
+arms any timeout on a later statement — that one waited for ever with no
+timeout, no error, no `finally`. (3) `seed_sentences`, step 5 of the
+runbook, had neither guard at either of its two connects.
+
+**What this change does:** `close_quietly` in `base.py` — bounded close
+(`CLOSE_TIMEOUT` 15 s), then `terminate()`, then abort the transport it
+captured beforehand (asyncpg's private `_transport` slot; the docstring
+says so) — replaces every `conn.close()` in the seven runbook modules,
+`seed_sentences` now among them, and the scan test requires one
+`close_quietly` per `asyncpg.connect`. `log_change` re-raises the
+dead-session shapes (`audit.DEAD_SESSION`: timeout,
+`PostgresConnectionError`, `InterfaceError`, `OSError`) and still swallows
+audit-table errors — asyncpg's client-side bad-bind errors among them,
+which inherit `InterfaceError` but are `ValueError`s too. `seed_grammar`
+retries a course's `load()` on the same shapes (`CUT_OFF`, kept equal to
+`DEAD_SESSION` by a test; `_cut_off` makes the same carve-out) after pauses of
+10 s then 60 s (`RETRY_DELAYS` — together they outlast the one-minute
+outage, so the course in flight when it starts is recovered too; `(5, 30)`
+would have saved three of the four), re-using the transformed data. It
+prints a `-> code: N points, M drills` line when a course starts so silence
+has an owner, `RETRY code in Ns (n/2): reason` when it pauses, and a `FAIL`
+reason that is never blank (`str(TimeoutError())` is ""). `transform()`
+runs outside the retry: a paradigm gap must fail at once. Content rows are
+never doubled by a retry — every content statement is an upsert — but the
+audit log can be: a curated point whose proposal is re-walked gets a second
+`suggested` entry, the same duplicate a manual rerun after FAIL has always
+written. Worst case per course on the timeout shape: each attempt costs
+`COMMAND_TIMEOUT + CLOSE_TIMEOUT`, so a course whose every session is
+blackholed prints RETRY after ~5 min, twice, and FAIL after ~17 min; the
+refused-connect shape fails at once, so there the pauses are the whole
+wall clock (70 s). All of it is proven against a real socket by
+`backend/tests/integration/test_dropped_session_integration.py`, which
+also pins asyncpg's two behaviours as negative controls — the close-hang,
+and the unbounded statement after a swallowed timeout. When either fails,
+asyncpg fixed it and the matching guard can go.
+
+**What is STILL not fixed:** the drop itself is pooler-side, cause unknown,
+and not reproducible on demand — the proxy reproduces its effect, not its
+trigger. Only `seed_grammar` retries: `reconcile`, `prune_sentences`,
+`seed_alphabet`, `seed_sentences` and `source_data` get the bounded close,
+so they fail instead of hang, but their recovery is a rerun (each is one
+transaction or all upserts, so a rerun is harmless). The API-key tools
+(`ai_check_vocab`, `generate_grammar`, `review_hints`,
+`review_translations`, `translate_english`, `harvest_sentences`) still
+connect with no command timeout and a bare close: they are not runbook
+steps, every run is a paid pass the owner watches, and guarding them is
+the same two-line change per connect when one of them is next touched.
+Run grammar per course (`refeed.md`) so a failure costs one course.
 
 ## `seed_grammar` is the last content tool that writes one row at a time (7 Sep 2026)
 

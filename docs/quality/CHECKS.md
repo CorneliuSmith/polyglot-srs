@@ -1712,6 +1712,261 @@ three card paths, that the sentence keeps its marker, and a measurement of the
 corpus the fix protects, plus a check that those five courses really do show a
 reading layer (what makes it a defect rather than dead data).
 
+## §33 The hint that spells the answer's own stem (owner, 7 Sep 2026)
+
+**Status: all 27** — a REPORT rule, deliberately, and the reason is the rule.
+
+**What the owner saw.** A Spanish grammar card: sentence `Los ___ son nuevos.`,
+answer `coches`, hint **"coche, plural"**. The learner adds an `s`. "Please tell
+me these things are in the list of upcoming fixes?" They were not.
+
+**Why four hint rules all missed it.** `leak_hard` matches the answer as a WHOLE
+word, and `coches` is not in the hint — only its stem is. `self_answering` wants
+the hint to open with the answer and a dash. `giveaway_by_gloss` wants the hint
+inside the drill's translation, and "The cars are new" does not contain it.
+`agreement_feature` wants a hint that is a feature and nothing else, and this one
+carries a lemma too. Four rules, four misses, on a drill that tests nothing.
+
+**Measured across the 27 grammar files: 78 candidates** (es 13, ro 13, mi 12,
+ko 10, pt 7, ru 4, de/it/nl 3 each, the rest 1–2), English excluded because an
+English hint word prefixing an English answer is a collision, not a leak.
+
+**Judged, because the shape alone does not decide.** A reader per language group
+against that course's own hint standards, a second reader overturning both ways
+(9 overturns): **35 giveaways, 40 legitimate citations.** The line is whether the
+operation the hint names is one the learner could perform knowing no language at
+all:
+
+| | | |
+|---|---|---|
+| es `coche, plural` → coches | **giveaway** | Spanish vowel-final nouns take +s, always. No choice to make. |
+| nl `plural of boek` → boeken | legitimate | the learner must choose `-en` over `-s`. |
+| ro `chairs (scaun, neuter)` → scaune | legitimate | neuter plural is `-e` or `-uri`; choosing is the drill. |
+| pt `sold — they (vender)` → venderam | legitimate | naming the infinitive says WHICH verb; the preterite is the work. |
+| it `it-to-him (glie + lo)` → glielo | **giveaway** | the hint spells the concatenation. |
+
+**35 hints rewritten**, in ten courses. The replacement names the same word by its
+ENGLISH gloss and the same operation: "car (m.), plural". Each was checked
+mechanically before it was written — one reader's replacement still carried the
+stem (`cuyo` for `cuyos`) and was refused and rewritten by hand.
+
+**Why it reports rather than fails.** The table above is the argument: the same
+shape is a defect in Spanish and correct teaching in Dutch, and a regex cannot
+know whether the language offers a choice at that point. Tried and measured — a
+rule keyed on an operation word plus the stem caught 26 of 35 and produced 7
+false positives, including the Dutch and Romanian rows above. A gate that cannot
+separate the classes names candidates for a reader; it does not fail a build
+(the `gender_marking` argument, applied to hints).
+
+**One filter flaw, recorded because it cost a card.** The candidate sweep dropped
+any stem that is an English headword, to avoid collisions — and `casa` is in
+`en_frequency.tsv` at rank 9,290, so `plural of casa` → `casas` was not judged
+even though its five siblings in the same point were. The audit rule uses the
+much smaller `ENGLISH_FUNCTION_WORDS` and caught it; the hint is fixed. A filter
+built to remove noise removed a signal.
+
+**Verified:** `backend/tests/test_stem_in_hint.py` — the owner's card, the
+replacement, the other shapes of the fault, the collision case, the registration
+as a report rule, and a test that spells out why the same shape is a giveaway in
+one language and teaching in another.
+
+## §34 A grammar point can be retired; Korean's four duplicated topics (8 Sep 2026)
+
+**Status: all 27** — mechanism; Korean is the first course to use it.
+
+**The gap.** `seed_grammar` is add-only for points: it updates what the file
+has and inserts what is new, and a point the file stops mentioning stays in
+production for ever. So Korean's four topics-taught-twice could be judged but
+not merged. Vocabulary closed the same gap with migration 20261016; migration
+**20261017** does it for `grammar_points`, with `data/grammar_exclusions.tsv`
+(language, title, reason) as the source of truth in both directions, the
+reconcile setting and clearing `retired_at` and printing a `gp-ret` column,
+every place a point is OFFERED filtering on it (Learn candidates, the
+next-level peek, deck counts, both path listings — probed, so a database
+behind the migration degrades to "nothing retired"), and fetch-by-id left
+unfiltered so a learner part-way through a retired point keeps the card.
+
+**The judgment.** Seven groups of Korean points share a form in their title.
+A reader judged each against `ko.md` and the drills; a second reader tried to
+overturn every verdict; they agreed on all seven. Four are duplicates, three
+are distinct (future against conjecture `~ㄹ/을 것이다`; verb against adjective
+`~아/어지다`; present against past `이다/아니다` — in each a learner must choose
+between the members). Five points retired, 156 → 151.
+
+**What decided the keepers was answer accuracy, not size.** The retired
+`~는/은 vs ~이/가` point gets the 받침 rule it exists to teach wrong in three of
+eleven drills — `라면는`, `다이아몬드은`, `청구서이` — each filed in a cell
+asserting the opposite condition, and it answers both `은` and `는` after
+다이아몬드. Every 받침 in the group was checked by hand. The keeper had one
+such error of its own (`여름 날씨은`, with a hint claiming "consonant-final"),
+which the readers said must be fixed in the same change or the single
+surviving point teaches the rule backwards; it was replaced by the one clean
+comparison drill from a retired point.
+
+**Salvage, and the check that refused one.** Drills the losers had and the
+keepers lacked moved across: the general-fact `는` in 해요체, a plain
+consonant-final `이`, the `~스러운` modifier and dictionary form, the past and
+future of `~아/어 있다`. One salvage was refused by the batchim check: the
+reader named 96's `이` drill by its answer string, 96 has two drills answering
+`이`, and the first the key matched was `청구서이` — one of the wrong answers
+that retired the point. Rule 28, again: an answer string is not a stable key.
+
+**A retired point has consumers beyond the grammar file, and the guards found
+every one.** Removing the five titles broke, in CI: the Gym manifest
+(`data/gym/ko.json`, five cells naming them — the keepers were already
+there, so the entries went), the `audit_gym` picker (which reads that
+manifest), nine `prerequisites`/`related` links in other Korean points (now
+naming the keepers, with duplicates and self-references dropped), and the
+committed tutor bundle `REFERENCE.md` (regenerated). None of this reached
+the repo: four tests refused it. The lesson for the next retirement is the
+checklist, not the fix — a point's title is a key in four other places.
+
+**Verified:** `backend/tests/test_retire_grammar_points.py` — the file, that
+every retired title has left the grammar JSON and every keeper is still in
+it, the survey in both directions and behind the migration, the rollback, the
+report column, and that every offer path carries the clause while fetch-by-id
+does not.
+
+## §35 The corpus writes about itself, and 14 courses taught it (10 Sep 2026)
+
+Tatoeba's bank contains sentences **about Tatoeba**, and `build_sentence_rows`
+selected them by difficulty like any other row. So the Catalan card for
+`exemple` served `"Tatoeba" significa "per exemple" en japonès`, and the
+Arabic card for `اجتماعية` ("social") served "In its home country, France,
+Tatoeba became a social and cultural revolution". The learner is being taught
+the corpus's press release under a vocabulary word.
+
+**59 rows across 14 courses** (`ar` 17, `ca` 11, `nl` 8, `es` 4, `fr`/`ro` 3,
+`de`/`fa`/`id`/`it`/`tl` 2, `pt`/`th`/`tr` 1), measured 10 Sep 2026 on the
+committed banks. The plan's earlier figure of 44 was taken with a bare
+`tatoeba` pattern, which misses **16 of the 17 Arabic rows**: the name is
+transliterated four ways (تتويبا, تاتوبا, تاتويبا, تاتوئبا / تاتویبا).
+Listing the transliterations is also what lets the predicate read the
+SENTENCE alone — every one of the 59 names the corpus in its own language —
+and reading the sentence alone is required, because the file holds one row
+per sentence while the database holds it once per LOCALE, so keying on the
+translation would delete some locales' copies of a row and keep others.
+
+**Three places, because two of them are not enough.** The predicate
+(`prune_sentences.names_the_corpus`) makes such a row a prune candidate
+whatever its source, the same standing as `_context_free` (§21) — there is
+nothing there to protect. `source_data.build_sentence_rows` drops it at the
+source, so a rebuild cannot reintroduce what the banks were just cleaned of
+(quality rule 27: a file-only deletion is undone by the next regeneration).
+`scripts/enforce_sentence_floor.py` cleaned the banks: **45 dropped**.
+
+**The other 14 stay, and that is the rule, not an oversight.** For 14 words
+the corpus row is the ONLY sentence they have, and the programme never
+strands a word (§24): a card with no example is not an improvement on a card
+with a bad one. They are a **Phase 8 authoring entry** — `ar` أطاق, بيانات,
+توصيل, تدقيق · `ca` exemple, droga, enganxa · `fa` یعنی · `fr` no, saletés ·
+`id` contohnya · `ro` suma · `tl` sapagkat, kabuuan — and each leaves the
+moment something better is written for its word.
+
+**Thai was exempt and should not have been.** §22 exempts Thai from the
+five-token floor because it writes without spaces, so a token count says
+nothing. The floor script applied that exemption to the whole file, so Thai's
+one corpus row survived the first full pass. The exemption now covers the
+floor only; the corpus rule counts no tokens and reaches every course.
+
+**Verified:** `backend/tests/test_corpus_self_naming.py` (14, no database, so
+it runs in every sweep) — each transliteration, that an ordinary sentence is
+untouched, that the predicate takes the sentence alone, that Thai's exemption
+cannot creep back over the corpus rule, and the bank invariant: **no word
+serves a corpus row while a usable sentence exists.** That last one ratchets
+— it cannot be satisfied by a rebuild quietly putting them back, and every
+word that gains an authored sentence takes its corpus row with it.
+
+## §36 The definition that gives a relation and no meaning (owner, 10 Sep 2026)
+
+The owner named this class themselves — *"coche as the definition for
+coches"*. Spanish rank 204 `necesito` is defined as **"first-person singular
+present indicative of necesitar"**. True, and useless: an English speaker
+learns nothing. The word means **"I need"**.
+
+**It is the largest content defect left.** Measured in production, 10 Sep:
+
+| band | live rows |
+|---|---:|
+| top-200 | 24 |
+| **201–2000** | **4,397** |
+| 2001–10000 | 23,373 |
+| **total** | **27,794** |
+
+**The band boundary IS the finding.** Phase 2d repaired the top-200 per
+course, and the defect resumes at exactly rank 201. This is not scattered
+debt; it is the edge of a pass that already ran, and it is concentrated in ten
+courses (`ca pt it es fr tr de sw ro nl`, each 200–570 inside the top-2,000).
+
+**The good shape already ships**: meaning first, relation in parentheses —
+`llegue` → "arrive (present subjunctive of llegar)". The relation is welcome;
+it may just not be the whole definition. And the English must match the FORM,
+not the lemma: `necesito` is "I need", never "to need".
+
+### Two measurement traps, both hit before the number was believed
+
+1. **Counting from `data/*_frequency.tsv` gives ~29,000 and is wrong.** That
+   `en` column is stale wherever an override exists; `gloss_overrides.tsv` is
+   laid over it at seed time (§31). Definitions are measured in production
+   (`translations.definition`, locale `en`) or through the overlay, never off
+   the raw column.
+2. **The top-200 looked broken and is not.** The file column still carries the
+   old text for rows the overrides fixed — production has `sé` → "I know — a
+   fact, information, or how to do something" while the file says otherwise.
+
+### The audit could not see any of it, and that was §31 one level up
+
+`audit_content` read the frequency file's `en` column directly. Production
+serves that column **with the overrides laid over it**, so the audit was
+grading text nobody is shown: of 3,441 top-2000 rows an override covers,
+**1,734 differ**. Arabic rank 17 `لقد` audits as "emphatic particle" and ships
+as "stresses that something really did happen".
+
+The override file was given a *write* path to production in §31; it never had
+a *read* path into the audit. Both definition rules (`circular_gloss`,
+`wrong_sense_gloss`) now read through `_frequency_rows`, which applies the
+same overlay the seeder and `reconcile.expected_rows` use, so the three cannot
+drift.
+
+**Honest result: fixing that changed no finding today** — those two rules are
+narrowly scoped (English-only; letter-name and region-code patterns), and none
+of the 1,734 differences flips one. It is a correctness fix that removes a
+latent false-positive *and* false-negative source, and it is what makes the
+new rule below trustworthy. An override introducing a defect is not
+hypothetical: it is how the wrong Yoruba pronoun shipped (rule 51).
+
+### The rule
+
+`relation_only_gloss`, **report-level**, scoped to the top-`CARD_RULE_BAND`
+(2,000) like the card rules — a defect at rank 8,000 is real and nobody meets
+it. Report rather than fail because the count is in the thousands while the
+repair passes run, and a threshold set there is a number nobody could defend
+(the `gender_marking` argument). **Unlike the other report rules its target is
+zero**, so it is ready for promotion once the courses reach it.
+
+It reports **4,982** across 24 courses. The regex is anchored at both ends on
+purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
+the rule would push editors off the one shape the programme has settled on.
+24 findings sampled at random were 24 true positives (rule 19 — verify every
+hit before it becomes a number).
+
+**Rule 19 then caught the rule itself.** The first draft matched a bare
+`first`/`second`/`third`, which are English ORDINALS as well as the opening of
+`first-person`: it reported `fr première` — "first (feminine singular of
+premier)" — and `ca segona` — "second, the one after the first — feminine
+singular of segon". Both give the meaning and are exactly what the pass is
+trying to produce. Found by running the repair pass's own output back through
+the rule, which is the check worth keeping: **a rule that flags the fix it
+asked for is wrong about the defect.** The person labels are now matched only
+as `first|second|third` (optionally slashed) followed by `-person`, and the
+count moved 4,992 → 4,982.
+
+**Verified:** `backend/tests/test_relation_only_gloss.py` (24) — what it
+catches, what it leaves alone, that the good parenthetical shape is never
+reported, that it is a report rule, that the band matches the card rules, and
+that the overlay actually changes Arabic rows (so a silent loss of the read
+path fails the test).
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

@@ -189,3 +189,12 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**1 definitions rewritten** in the rank 1001–2000 band — each stated a
+grammatical relation to another word in this language and no English meaning
+(CHECKS §36).
+
+**Band 1001–2000, same day: 1 more.**
+- `แฮปปี้` was "alternative form of แฮปปี" → "happy, cheerful, pleased - the English word borrowed into casual Thai, said of a good mood or a cheerful gathering (colloquial; a spelling variant of แฮปปี)"

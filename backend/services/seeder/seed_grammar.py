@@ -52,7 +52,7 @@ import asyncpg
 
 from backend.services.references import clean_references, clean_related
 
-from .base import COMMAND_TIMEOUT, DATA_DIR
+from .base import COMMAND_TIMEOUT, DATA_DIR, close_quietly
 
 GRAMMAR_DIR = DATA_DIR / "grammar"
 
@@ -565,7 +565,7 @@ class GrammarSeeder:
                 )
             return count
         finally:
-            await conn.close()
+            await close_quietly(conn)
 
     async def run(self) -> int:
         return await self.load(self.transform())
@@ -580,6 +580,83 @@ def _available_languages() -> list[str]:
     )
 
 
+# Pauses before the first and second retry of a course whose session was
+# cut off. On 10 Sep 2026 the pooler closed one course's session mid-write
+# and refused new connections for about a minute; the next three courses
+# failed on connect and the fifth went through. 10 s covers a single reset;
+# 10 + 60 s outlasts that outage, so the course in flight when it starts is
+# recovered too, not just the ones after it. Two retries, not more: a
+# pooler still down after seventy seconds is an outage the operator should
+# look at, not wait out. The refused-connect shapes fail at once, so that is
+# also the wall clock per course; the timeout shape does not — each attempt
+# costs COMMAND_TIMEOUT + CLOSE_TIMEOUT, so a course whose every session is
+# blackholed prints RETRY after ~5 min, twice, and FAIL after ~17 min.
+RETRY_DELAYS = (10, 60)
+
+# The shapes a dropped or refused session takes, each seen on production:
+#   asyncio.TimeoutError          the statement waited COMMAND_TIMEOUT (7 Sep)
+#   PostgresConnectionError       "connection was closed in the middle of
+#                                 operation" — the pooler closed it (10 Sep)
+#   InterfaceError                asyncpg's own "connection is closed" when a
+#                                 later statement hits the dead session
+#   OSError                       ConnectionResetError from connect() while
+#                                 the pooler refuses new sessions (10 Sep)
+# Anything else — a paradigm gap, a missing language row — is the file's
+# fault and a retry would only fail the same way. asyncpg's client-side
+# bad-bind errors (DataError, ClientConfigurationError) inherit
+# InterfaceError too, and ValueError with it; _cut_off tells them apart, so
+# a code bug is not retried twice before its honest FAIL. Same tuple as
+# backend.repositories.audit.DEAD_SESSION.
+CUT_OFF = (asyncio.TimeoutError, asyncpg.PostgresConnectionError,
+           asyncpg.InterfaceError, OSError)
+
+
+def _cut_off(e: BaseException) -> bool:
+    """Retry this? A dead session, yes; asyncpg's bad-input InterfaceErrors
+    — the ones that are also ValueErrors — are code bugs, and no."""
+    return isinstance(e, CUT_OFF) and not isinstance(e, ValueError)
+
+# Bound here so a test can replace the seeder's pause without replacing
+# asyncio.sleep for every other coroutine on the loop.
+_sleep = asyncio.sleep
+
+
+def _describe(e: BaseException) -> str:
+    """The FAIL line's reason. `str(TimeoutError())` is empty, and a blank
+    reason after "FAIL en:" was the 7 Sep operator's second puzzle."""
+    return str(e) or type(e).__name__
+
+
+async def _seed_one(db_url: str, lang: str) -> int:
+    """Seed one course, retrying only the write when the session is cut off.
+
+    transform() runs outside the retry: a paradigm gap or a hint keyed to a
+    reworded drill is a file error and must fail at once. load() retries on
+    the CUT_OFF shapes with RETRY_DELAYS between attempts, re-using the
+    transformed data. Every content statement is an upsert, so a partially
+    written course is completed by the next attempt, never doubled. The
+    audit log is the one exception: a curated point whose proposal is
+    re-walked gets a second `suggested` entry, the same duplicate a manual
+    rerun after FAIL has always written (the `seeded` entry is gated on
+    the insert and is safe).
+    """
+    seeder = GrammarSeeder(db_url, lang)
+    data = seeder.transform()
+    points = data.get("points", [])
+    drills = sum(len(p.get("drills", [])) for p in points)
+    print(f"-> {lang}: {len(points)} points, {drills} drills", flush=True)
+    for attempt, delay in enumerate(RETRY_DELAYS, start=1):
+        try:
+            return await seeder.load(data)
+        except Exception as e:  # noqa: BLE001 — classified by _cut_off
+            if not _cut_off(e):
+                raise
+            print(f"RETRY {lang} in {delay}s ({attempt}/{len(RETRY_DELAYS)}): "
+                  f"{_describe(e)}", flush=True)
+            await _sleep(delay)
+    return await seeder.load(data)
+
+
 async def _main() -> None:
     import os
 
@@ -590,16 +667,16 @@ async def _main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 
     if not args.db_url:
-        print("ERROR: DATABASE_URL not set.")
+        print("ERROR: DATABASE_URL not set.", flush=True)
         return
 
     languages = _available_languages() if args.language == "all" else [args.language]
     for lang in languages:
         try:
-            n = await GrammarSeeder(args.db_url, lang).run()
-            print(f"OK {lang}: {n} grammar points loaded")
+            n = await _seed_one(args.db_url, lang)
+            print(f"OK {lang}: {n} grammar points loaded", flush=True)
         except Exception as e:  # noqa: BLE001
-            print(f"FAIL {lang}: {e}")
+            print(f"FAIL {lang}: {_describe(e)}", flush=True)
 
 
 if __name__ == "__main__":

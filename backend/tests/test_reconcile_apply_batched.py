@@ -40,7 +40,8 @@ class _Conn:
 def _report(**kw):
     base = {"code": "tr", "gloss_changes": [], "pos_changes": [],
             "morphology_changes": [], "missing_translation": [],
-            "sentence_layers": [], "retire": [], "unretire": []}
+            "sentence_layers": [], "retire": [], "unretire": [],
+            "retire_points": [], "unretire_points": []}
     base.update(kw)
     return base
 
@@ -72,13 +73,15 @@ class TestOneStatementPerChunk:
         conn, counts = _run([_report(
             gloss_changes=rows(), pos_changes=rows(),
             morphology_changes=rows(), missing_translation=rows(),
-            sentence_layers=rows(), retire=rows(), unretire=rows())])
+            sentence_layers=rows(), retire=rows(), unretire=rows(),
+            retire_points=rows(), unretire_points=rows())])
         statements = [c for c in conn.calls if c[0] not in ("BEGIN", "COMMIT")]
-        # 7 kinds, 2 chunks each — sentence layers write two columns
-        assert len(statements) == 16
+        # 9 kinds, 2 chunks each — sentence layers write two columns
+        assert len(statements) == 20
         assert counts == {"gloss": n, "pos": n, "morphology": n,
                           "added_translation": n, "sentence_layers": n,
-                          "retired": n, "unretired": n}
+                          "retired": n, "unretired": n,
+                          "points_retired": n, "points_unretired": n}
 
     def test_nothing_to_do_sends_nothing(self):
         conn, counts = _run([_report()])

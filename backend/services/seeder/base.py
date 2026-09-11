@@ -1,4 +1,5 @@
 """Base seeder infrastructure for language vocabulary seed scripts."""
+import asyncio
 import json
 import logging
 from abc import ABC, abstractmethod
@@ -16,13 +17,66 @@ from .gloss_overrides import apply_gloss_overrides_to_records
 # waits for a reply. asyncpg's default is to wait for ever: on 7 Sep 2026
 # `seed_grammar -l all` sat two hours after "OK en" — asleep, 0% CPU, one
 # ESTABLISHED socket, no statement on the server, the pooled backend reset
-# minutes earlier. A bounded wait turns that into an error the operator can
-# see and a per-course rerun can recover from. Generous, because the
-# seeder's UNNEST chunks are real work; nothing here should take five
-# minutes on one statement.
+# minutes earlier. This bounds the STATEMENT: after COMMAND_TIMEOUT the
+# call raises asyncio.TimeoutError. It does not, on its own, get the tool
+# out — asyncpg's close() then waits for the cancelled statement's reply,
+# which a dropped session never sends (measured 9 Sep 2026, see
+# close_quietly below). Generous, because the seeder's UNNEST chunks are
+# real work; nothing here should take five minutes on one statement.
 COMMAND_TIMEOUT = 300
 
+# How long close_quietly gives asyncpg to close politely before the socket
+# is torn down. On a healthy session close() returns in milliseconds; on a
+# dropped one it never returns, so anything finite is the right answer and
+# this only needs to be short enough that the operator does not mistake it
+# for another hang.
+CLOSE_TIMEOUT = 15
+
 DATA_DIR = Path(__file__).resolve().parents[3] / "data"
+
+
+async def close_quietly(conn: asyncpg.Connection) -> None:
+    """Close a production connection without being able to hang on it.
+
+    `Connection.close(timeout=...)` cannot do this by itself: asyncpg's
+    Protocol.close() first awaits the reply to the statement it cancelled,
+    and only then starts the timed part. A pooler that has dropped the
+    server side of the session never answers, so after COMMAND_TIMEOUT
+    fired the seeder's `finally: await conn.close()` hung for ever behind
+    it — measured on 9 Sep 2026 with a blackholing proxy (DEBT.md,
+    test_dropped_session_integration.py). Cancelling the close from outside
+    is what returns: asyncpg catches the cancellation, marks the connection
+    aborted and re-raises.
+
+    Marks it — it does not drop the socket. Protocol.close() sets `closing`
+    before it waits, and Protocol.abort() returns at once when `closing` is
+    set, so neither the cancellation nor terminate() afterwards ever touches
+    the transport: the TCP session to the pooler would stay ESTABLISHED for
+    the life of the process, one per abandoned attempt (measured 10 Sep
+    2026). Hence the transport is captured first and aborted by hand.
+    `_transport` is private to asyncpg (a slot on Connection, 0.31); if a
+    release renames it, test_close_quietly_drops_the_socket says so.
+
+    Errors are swallowed on purpose: this runs in a `finally` and must not
+    replace the exception that brought us here with "and the close failed
+    too". CancelledError is a BaseException and propagates as it should —
+    after the same teardown, so a Ctrl-C during the close does not leave
+    the socket behind either.
+    """
+    transport = getattr(conn, "_transport", None)
+    try:
+        await asyncio.wait_for(conn.close(), CLOSE_TIMEOUT)
+    except asyncio.CancelledError:
+        _abandon(conn, transport)
+        raise
+    except Exception:  # noqa: BLE001 — timeout, reset, protocol error: all mean "abandon it"
+        _abandon(conn, transport)
+
+
+def _abandon(conn: asyncpg.Connection, transport) -> None:
+    conn.terminate()
+    if transport is not None and not transport.is_closing():
+        transport.abort()
 
 
 class BaseSeeder(ABC):
@@ -337,7 +391,7 @@ class BaseSeeder(ABC):
             self.logger.info(f"Finished loading {count} records for {self.language_code}")
             return count
         finally:
-            await conn.close()
+            await close_quietly(conn)
 
     async def run(self) -> int:
         """Full pipeline: download → transform → load."""

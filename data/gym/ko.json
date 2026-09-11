@@ -93,12 +93,6 @@
           "example": "저는 공원에서 걸을 거예요."
         },
         {
-          "point": "Passive verbs with ~아/어 있다 (describing a state)",
-          "label": "Passive state ~아/어 있다",
-          "usage": "Turn a passive verb into a 'is currently in this state' form.",
-          "example": "문이 잠겨 있어요."
-        },
-        {
           "point": "Passive/active pairs with 나다 and 내다",
           "label": "나다 / 내다 pairs",
           "usage": "Pick the passive (나다) or active (내다) member of the pair.",
@@ -497,12 +491,6 @@
       "label": "Noun forms & cases",
       "entries": [
         {
-          "point": "Topic particle ~는/은",
-          "label": "Topic ~는/은",
-          "usage": "Attach the subject particle, choosing the form by the noun's final sound.",
-          "example": "저는 한국 사람이에요."
-        },
-        {
           "point": "Object particle ~를/을",
           "label": "Object ~를/을",
           "usage": "Attach the object particle to the noun the verb acts on.",
@@ -531,12 +519,6 @@
           "label": "Months of the year",
           "usage": "Sino-Korean number + 월 to name a calendar month",
           "example": "제 생일은 3 월 2 일이에요."
-        },
-        {
-          "point": "~이/가 and ~는/은 Revisited",
-          "label": "Topic vs subject particle",
-          "usage": "~는/은 for general facts and comparisons; ~이/가 for a specific, just-noticed situation.",
-          "example": "산은 높다."
         },
         {
           "point": "모두 (all / everybody, everything)",
@@ -641,12 +623,6 @@
           "example": "그 아기는 사랑스러워요"
         },
         {
-          "point": "Adjectives with ~스럽다",
-          "label": "~스럽다 adjectives",
-          "usage": "Noun + ~스럽다 makes an adjective; ㅂ-irregular, modifier ~스러운, adverb ~스럽게.",
-          "example": "결과는 만족스러웠어요."
-        },
-        {
           "point": "Adjective + ~아/어지다: to become (adjective)",
           "label": "~아/어지다 (become + adj)",
           "usage": "Adjective stem + ~아/어지다 turns 'be ___' into 'get/become ___'",
@@ -743,12 +719,6 @@
           "example": "저는 두 달 동안, 즉 이 개월 동안 공부했어요."
         },
         {
-          "point": "~는/은 vs ~이/가: general statements and immediate experience",
-          "label": "Topic 는/은 vs subject 이/가",
-          "usage": "Use 는/은 for general or contrastive statements, 이/가 for something specific you are experiencing now",
-          "example": "비가 와요."
-        },
-        {
           "point": "Who (누구 / 누가)",
           "label": "누구/누가 (who)",
           "usage": "Place the 'who' pronoun in the subject, object or pre-이다 slot",
@@ -813,12 +783,6 @@
           "label": "처음 (at first)",
           "usage": "Saying 'at first', or that this is the first time something has happened.",
           "example": "저는 처음에 체육 수업을 싫어했어요. — At first I didn't like PE class."
-        },
-        {
-          "point": "동안 – 'for' a period of time",
-          "label": "동안 (how long)",
-          "usage": "Saying how long something went on: for ten minutes, for two days.",
-          "example": "저는 10 분 동안 걸었어요. — I walked for 10 minutes."
         },
         {
           "point": "Counting hours: 시간 vs 시",

@@ -238,3 +238,78 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## Four topics were taught twice; five points are retired (8 Sep 2026)
+
+Seven groups of points share a form in their title. Two readers judged
+each against this file and the drills: four groups are duplicates, three
+are not (`~ㄹ/을 것이다` future against conjecture, `~아/어지다` on a verb
+against an adjective, present against past `이다/아니다` — a learner must
+choose between the members, so each pair stays). Keepers: `~는/은 and ~이/가
+revisited: nuance and form`, `동안: 'for' a time and 'during' a noun`,
+`Korean suffix: ~스럽다`, `~아/어 있다: being in a state`.
+
+**What decided it was answer accuracy, not size.** The retired
+`~는/은 vs ~이/가: general statements…` point gets the 받침 rule it exists to
+teach wrong in three of eleven drills (`라면는`, `다이아몬드은`, `청구서이`),
+each filed in a cell asserting the opposite. The keeper had one such error
+of its own (`여름 날씨은`) and was corrected in the same change. Every 받침
+in the group was checked by hand.
+
+Retiring a grammar point needed a path that did not exist — migration
+20261017 and `data/grammar_exclusions.tsv`, mirroring vocabulary's. Full
+record: `docs/decisions/2026-09-08-korean-duplicate-points.md`.
+
+**The sixth duplicate, closed 10 Sep 2026.** Index 40 (`Topic particle
+~는/은`, A1) was the same point as index 0 and got its own terminology
+wrong: its function note read "Mark the subject (main person/thing) of a
+sentence" and all seven hints said "subject-marking particle". 은/는 is the
+TOPIC particle; 이/가 is the subject particle, and this course teaches the
+distinction at `있다 with ~이/가` — where its own drill 나는 커피가 있어요 has
+the topic 나는 and the subject 커피가 in one sentence. Retired on the same
+criterion as the other five (answer accuracy, not size): the seven drill
+answers were correct, so they were salvaged into the keeper with hints that
+name each noun's own 받침, and 3 cross-references, the gym manifest and
+`REFERENCE.md` were updated. Korean: 151 points → 150.
+
+## The explanation pass, the last of 27 courses (10 Sep 2026)
+
+151 explanations read, **140 rewritten, 159 content defects corrected** — the
+highest rate of any course. 140 render as markdown (93%) and 86 carry a
+table, which is the language: 받침 allomorphy, six irregular stem classes and
+four speech levels are paradigms, and a paradigm belongs in a table. The
+restraint guard that measures the pass rather than the language — does a bold
+name the form the point teaches — reads **183 of 204 (89%)** here, above the
+26-course average.
+
+Every defect was the same shape: **a rule the point's own drills falsify.**
+*Polite requests (으)세요* derived 살으세요 for its own 사세요 drill; *Pure Korean
+vs Sino-Korean numbers* called the choice etymological when it is lexical per
+counter, then listed three Sino-Korean words under pure Korean; *Superlatives*
+made its own second drill ungrammatical.
+
+**Four of nine second-pass defects were one class: the ㄹ-final stem left out
+of a 받침 rule.** ㄹ is the consonant that behaves like a vowel — it drops
+before ㄴ/ㅂ/ㅅ/(으) — so any rule stated as a clean consonant/vowel split is
+wrong for it. Points 12, 82, 112 and 114 each stated one. When writing a
+받침 rule for this course, name ㄹ explicitly or check that no ㄹ stem exists
+in the paradigm.
+
+Record: `docs/decisions/2026-09-10-korean-explanation-pass.md`.
+
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**2 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `미친` was "past adnominal of 미치다" → "crazy, mad, out of one's mind - the form that modifies the noun after it, as in a crazy person (past adnominal of 미치다, to go mad); coarse when thrown in as a slang intensifier"
+- `없었다` was "Past tense of 없다" → "there was not, there were none; did not have, was missing - plain past of 없다; after ~을 수 it means could not"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.

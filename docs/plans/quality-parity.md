@@ -546,7 +546,7 @@ for twice.
 | # | Phase | Why here |
 | --- | --- | --- |
 | **1** | **Guards and instruments** (the 6 Sep queue, items 1–8 of `docs/decisions/2026-09-06-review-pass.md`) | Cheap, code-only, and each one stops a later pass producing waste. `apply_authored_sentences.py` must require SURFACE presence before ANY authoring runs — the 31 Aug Russian pass accepted lemma presence and wrote rows the card cannot display. Then the `unclozable_rows` audit rule, the retire step for exclusions, the English `context` label with its six locales. |
-| **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. |
+| **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. **REOPENED 10 Sep 2026 (CHECKS §36):** the top-200 is done, and the defect the owner named ("coche as the definition for coches") resumes at exactly rank 201 — 4,397 live rows in the 201–2000 band give a grammatical relation and no English meaning. The band boundary is the edge of the pass, not scattered debt. Band 201–1000 **DONE 10 Sep** — 1,826 definitions rewritten across 19 courses, 23 refused by the checker (most for hiding a person the form genuinely has: Italian `stava` glossed "he was" while the card's own sentence translates it "you were", the polite *Lei*), 8 declined as extraction debris (DEBT). Band **1001–2000 DONE the same day** — 2,849 more, 23 refused. `relation_only_gloss` **4,982 → 312**, so the top-2,000 band is 94% clear. **The 312 that remain are the honest residue and split three ways:** 274 my export regex missed (it was narrower than the audit rule — no `vocative`, `locative`, `definite`, `alternative form`, `abbreviation`), 19 abbreviations awaiting **decision B**, and 16 unmarked/alternative-form twins awaiting **decision D** option 3. The 2001–10000 tail (23,373) is out of the card band and deliberately last. `relation_only_gloss` now measures it. |
 | **3** | **Phase 8 — example-sentence fitness** | The authoring queue, worst-first: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro` → the rest. `pt es de nl fr la ru en ha jam` are already under 15% bad cards and need nothing here. |
 | **4** | **Phase 2e — grader collisions** (judgment repairs) and **Phase 2c** gloss completion | Both are bounded lists with the mechanical half already shipped. |
 | **5** | **Phase 3 — grammar and hint debt**, closing with the markdown pass over explanations | Same files, one PR and one reseed per course. |
@@ -1125,7 +1125,7 @@ dictionary-form convention for a language with no derivable infinitive
   no key; French first; ko after its dedupe; ru/en topped up after Phase
   5. Placed here because it is editorial grammar work with no other home
   now the 26 Aug gate is gone, and because Phases 7–8 touch no grammar
-  JSON so nothing waits on it. **Ten courses done (7 Sep 2026)** — fr, es, it, pt, de, nl, ca, ro, el, ru: 272 of 438 explanations formatted and **576 content defects corrected**, which is the finding: roughly one explanation in four carried something wrong, and nobody had read them end to end before. Was: **Five courses done** — fr, es, it, pt, de: 124 of 216 explanations formatted and 164 content defects corrected, the largest a Spanish `-er`/`-ir` paradigm that stopped mid-run so four forms the course drills appeared nowhere on the card. **The tooling:**
+  JSON so nothing waits on it. **ALL 27 COURSES DONE (10 Sep 2026)** — Korean closed it: 927 of 1,257 explanations formatted and **1,782 content defects corrected**, roughly one per explanation read. Korean alone carried 159 of those, the highest rate of any course, and taught the method a lesson: a second reader with ONE question (is every Korean claim true?) found 9 defects in edits a six-question adversarial checker had already accepted, four of them the same ㄹ-stem omission in a 받침 rule (`docs/decisions/2026-09-10-korean-explanation-pass.md`). Was: **26 of 27 (8 Sep)** — 1,623 defects, Korean held for its duplicate-point decision. Was: **Ten courses done** — fr, es, it, pt, de, nl, ca, ro, el, ru: 272 of 438 explanations formatted and **576 content defects corrected**, which is the finding: roughly one explanation in four carried something wrong, and nobody had read them end to end before. Was: **Five courses done** — fr, es, it, pt, de: 124 of 216 explanations formatted and 164 content defects corrected, the largest a Spanish `-er`/`-ir` paradigm that stopped mid-run so four forms the course drills appeared nowhere on the card. **The tooling:**
   `scripts/apply_grammar_explanations.py --export/--apply`, and the seed
   guard now permits the renderer-supported subset in `explanation` while
   holding `culture_note` and `function` at zero. Only the editorial read
@@ -1144,10 +1144,11 @@ dictionary-form convention for a language with no derivable infinitive
   the manifest entry for its point (`gym: {label, usage, example, column,
   drills}`) and `GrammarPathPage` links to `/gym` under the examples — the
   owner's *futur simple* screenshot: a conjugation is too broad to enumerate
-  on a lesson page, so the lesson names the drill set instead. **Left out:**
-  `path.practiseForms` / `path.drillCount` exist only in `en.json`; ar, es,
-  fr, pt and ru fall back to English on that one line. Add the five keys
-  with the next frontend change (DEBT.md).
+  on a lesson page, so the lesson names the drill set instead. ~~Left out:
+  `path.practiseForms` / `path.drillCount` exist only in `en.json`.~~
+  **Closed** — checked 10 Sep 2026: all seven locale files carry both keys
+  and `localeParity.test.ts` passes 37 tests, so nothing falls back to
+  English on that line. Recorded here because the entry outlived the defect.
 
 ### Phase 5 — Extraction leverage (session-only, facts-only)
 
@@ -1246,11 +1247,18 @@ Re-measured on the committed banks after the 31 Aug–5 Sep passes:
   (§22). These are an authoring list, not a deletion list.
 * **(2) done** for the 963 measured: 856 were the writing system (§25),
   49 retagged, 58 dropped.
-* **(3) 10 → 44** with the pattern widened to the corpus naming itself:
-  "Benvinguts a Tatoeba", "'Tatoeba' significa 'per exemple' en japonès"
-  — ca 11, nl 8, es 4, en/fr/ro 3, de/id/it/tl 2, ar/pt/th/tr 1. Drop, and
-  add `tatoeba` to `prune_sentences._context_free` / the floor script so it
-  cannot return.
+* **(3) 10 → 44 → 59, DONE 10 Sep 2026** (CHECKS §35). The 44 was counted
+  with a bare `tatoeba` pattern, which misses 16 of the 17 Arabic rows — the
+  name is transliterated four ways. Re-measured: **59 rows, 14 courses**
+  (ar 17, ca 11, nl 8, es 4, fr/ro 3, de/fa/id/it/tl 2, pt/th/tr 1).
+  **45 dropped**; the other **14 are the only sentence their word has**, so
+  they stay under the never-strand rule (§24) and join the authoring list in
+  item (1) — ar أطاق/بيانات/توصيل/تدقيق, ca exemple/droga/enganxa, fa یعنی,
+  fr no/saletés, id contohnya, ro suma, tl sapagkat/kabuuan. The predicate is
+  `prune_sentences.names_the_corpus` (prune candidate whatever the source),
+  `source_data.build_sentence_rows` drops it at the source so a rebuild
+  cannot reintroduce it, and `test_corpus_self_naming.py` pins the invariant
+  that no word serves one while a usable sentence exists.
 * **(5)** the owner has run `prune_sentences --apply` for `en` (127,363
   rows), `ru` and `ar` (twice each). 24 courses remain; the runbook is
   `docs/quality/refeed.md`.
@@ -1318,10 +1326,40 @@ once the owner's prune lands. Top-2,000 words, counting only sentences
    at **0% fragments** — the courses that got the floor pass, the curation,
    or the 31 Aug authoring. That is the strongest evidence the programme has
    that authoring to §23 is the fix rather than a hope.
-3. **The Phase 8 order below predates this measurement and disagrees with
-   it.** `he`, `tr`, `ko` and `th` are the worst courses a learner can pick
-   today, and only `he` is early in that order. `tr` is in the last group.
-   Either the order changes or the reason it should not is written down.
+3. ~~**The Phase 8 order below predates this measurement and disagrees with
+   it.**~~ **Resolved 10 Sep 2026 — the order stands, and here is the
+   re-measurement that settles it.** The 6 Sep table ranked courses by
+   FRAGMENT share, which is a different question from "what share of the
+   cards a learner draws are bad". Re-run against the current banks (top-2000
+   words, counting only sentences the card can actually blank, a word being
+   bad when it has NO clozable sentence or only fragments):
+
+   | code | words | no sentence | only fragments | **bad** | avg |
+   | --- | ---: | ---: | ---: | ---: | ---: |
+   | yo | 1,639 | 1,402 | 46 | **88%** | 0.2 |
+   | ko | 2,000 | 1,359 | 283 | **82%** | 0.5 |
+   | xh | 1,232 | 769 | 98 | **70%** | 0.7 |
+   | sw | 2,000 | 926 | 114 | **52%** | 1.0 |
+   | tr | 1,994 | 228 | 659 | 44% | 1.7 |
+   | he | 2,000 | 146 | 718 | 43% | 1.9 |
+   | th | 1,992 | 820 | 0 | 41% | 1.4 |
+   | tl | 2,000 | 600 | 213 | 40% | 1.4 |
+   | fa · ca | 2,000 | 621 · 526 | 86 · 191 | 35% | 1.3 · 1.4 |
+   | id · mi · el | — | — | — | 32 · 29 · 29% | — |
+   | hi · ar · it · ro | — | — | — | 26 · 24 · 23 · 20% | — |
+   | **pt es nl fr de la ru en jam ha** | — | — | — | **≤14%** | 2.1–7.7 |
+
+   **The order was right and the objection was measuring the wrong thing.**
+   `yo ko xh sw` are the four worst by a wide margin and are the first group;
+   `tr` and `he` follow immediately. The one real change is **`th` moves out
+   of the first group** — its cloze now works (§29), so its 41% sits below
+   `tr` and `he` rather than beside `ko`. Note `tr` and `he` fail differently
+   from `yo ko xh`: they have sentences (avg 1.7–1.9) that are mostly
+   fragments, so the floor and a re-prune reach them, while `yo ko xh` have
+   almost nothing to prune and need authoring.
+
+   **Revised first group: `yo ko xh sw`, then `tr he th tl fa ca id el`, then
+   `mi hi ar it ro`, then the rest.** Ten courses still need nothing here.
 
 **8 · The supply queue, by course.** Top-2,000 words with sentences but
 none in the §23 band (§26, right-hand column): tr 1,617 · he 1,538 · it

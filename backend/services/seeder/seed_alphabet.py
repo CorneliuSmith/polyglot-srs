@@ -23,7 +23,7 @@ import os
 
 import asyncpg
 
-from .base import COMMAND_TIMEOUT, DATA_DIR
+from .base import COMMAND_TIMEOUT, DATA_DIR, close_quietly
 
 logger = logging.getLogger("seed_alphabet")
 
@@ -366,7 +366,7 @@ async def seed(db_url: str, code: str) -> int:
         logger.info("OK %s: seeded %d letters", code, n)
         return n
     finally:
-        await conn.close()
+        await close_quietly(conn)
 
 
 async def main() -> None:

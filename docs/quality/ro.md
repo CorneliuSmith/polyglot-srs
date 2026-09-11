@@ -261,3 +261,23 @@ were, listed in `docs/decisions/2026-09-07-file-headword-repairs.md`.
 Related and still open (DEBT): rank 4 `si` is glossed "si (musical note
 B)" where the frequency plainly belongs to `și` ("and").
 
+## Definitions that gave a relation and no meaning (10 Sep 2026)
+
+**116 definitions rewritten** in the rank 201–1000 band. Each stated a
+grammatical relation to another word in this language and no English meaning —
+the class the owner named ("coche as the definition for coches"), CHECKS §36.
+The band boundary is the finding: Phase 2d repaired the top-200 and the defect
+resumed at exactly rank 201.
+
+- `aceasta` was "nominative/accusative feminine singular of acesta" → "this; this one, this thing — feminine singular of acesta"
+- `vino` was "second-person singular imperative of veni" → "come!, come here! — singular imperative of a veni"
+
+The house shape is meaning first, relation in parentheses, and the English must
+match the FORM rather than the lemma. Written by a maker and judged by an
+adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
+hiding a person the form genuinely has. `relation_only_gloss` now measures
+what remains in this course.
+
+**Band 1001–2000, same day: 251 more.**
+- `plină` was "indefinite nominative/accusative feminine singular of plin" → "full, filled (feminine singular of plin)"
+- `rea` was "nominative/accusative feminine singular of rău" → "bad; nasty, mean, unkind (feminine singular of rău)"
