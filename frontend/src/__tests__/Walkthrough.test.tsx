@@ -26,8 +26,8 @@ describe('Walkthrough', () => {
   it('"don\'t show again" (default on) persists dismissal via Get started', () => {
     const onClose = vi.fn()
     render(<Walkthrough onClose={onClose} />)
-    // welcome, language, learn/review, gym, tutor, read, speak → own text
-    for (let n = 0; n < 7; n++) fireEvent.click(screen.getByText('Next'))
+    // welcome, language, learn/review, gym, tutor, read, speak, write → own text
+    for (let n = 0; n < 8; n++) fireEvent.click(screen.getByText('Next'))
     fireEvent.click(screen.getByText('Get started'))
     expect(setWalkthroughDone).toHaveBeenCalledWith(true)
     expect(setWalkthroughVersion).toHaveBeenCalledWith(TOUR_VERSION)

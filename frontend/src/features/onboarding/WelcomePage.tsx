@@ -6,6 +6,7 @@ import {
   Languages,
   MessagesSquare,
   Route,
+  Signature,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
@@ -46,6 +47,12 @@ const TOOLS: {
     icon: BookOpen,
     nameKey: 'welcome.readerName',
     blurbKey: 'welcome.readerBlurb',
+  },
+  {
+    route: '/write',
+    icon: Signature,
+    nameKey: 'welcome.writeName',
+    blurbKey: 'welcome.writeBlurb',
   },
   {
     route: '/letters',

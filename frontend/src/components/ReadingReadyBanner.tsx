@@ -6,7 +6,7 @@ import { usePendingReadingStore } from '../stores/pendingReadingStore'
 
 /** Routes where a floating card would land on top of a learner mid-answer.
  * The reading waits — it is already saved, and nothing about it expires. */
-const SESSION_ROUTES = ['/review', '/cram', '/learn', '/gym', '/speak']
+const SESSION_ROUTES = ['/review', '/cram', '/learn', '/gym', '/speak', '/write']
 
 /**
  * "Your text is ready" — the other half of letting someone leave the

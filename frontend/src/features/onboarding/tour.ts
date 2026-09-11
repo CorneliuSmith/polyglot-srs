@@ -19,5 +19,7 @@
  *     carries walkthroughVersion 0 whatever their walkthroughDone says).
  * 1 → adds Speak, rewrites Read for the level dial and the shelf, and points
  *     at the tutor's memory panel.
+ * 2 → adds Write (handwriting, checked by a reader and measured on the
+ *     device).
  */
-export const TOUR_VERSION = 1
+export const TOUR_VERSION = 2

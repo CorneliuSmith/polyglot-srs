@@ -37,7 +37,12 @@ MAX_IMAGE_BYTES = 1_500_000
 MAX_EXPECTED_CHARS = 400
 CONFIDENCE = ("low", "medium", "high")
 
-_ASSESS_TOOL = {
+def _assess_tool(explain_in: str) -> dict:
+    """The tool schema, with the language every note is written in named
+    in the field descriptions as well as the system prompt: with it only
+    in the prompt, a Spanish-support learner once got the word diff in
+    Spanish and the letterform notes in English."""
+    return {
     "name": "emit_assessment",
     "description": "Read the handwriting and report on it.",
     "input_schema": {
@@ -74,7 +79,7 @@ _ASSESS_TOOL = {
                         "written": {"type": "string"},
                         "note": {
                             "type": "string",
-                            "description": "One short line, in the learner's language.",
+                            "description": f"One short line, written in {explain_in}.",
                         },
                     },
                     "required": ["expected", "written", "note"],
@@ -95,7 +100,7 @@ _ASSESS_TOOL = {
                 "description": (
                     "At most two notes on letterforms that cost a reader "
                     "something — the most useful two, not every flaw. Each "
-                    "names the letter and says what to change."
+                    f"names the letter and says what to change, in {explain_in}."
                 ),
                 "items": {
                     "type": "object",
@@ -120,7 +125,7 @@ _ASSESS_TOOL = {
                      "legibility", "letterform_notes", "confidence"],
         "additionalProperties": False,
     },
-}
+    }
 
 
 def _system_prompt(language_name: str, support_language: str | None,
@@ -258,7 +263,7 @@ async def assess_handwriting(
                 {"type": "text", "text": ask},
             ],
         }],
-        tools=[_ASSESS_TOOL],
+        tools=[_assess_tool(support_language or "English")],
         tool_choice={"type": "tool", "name": "emit_assessment"},
     )
     counts = _usage(response)

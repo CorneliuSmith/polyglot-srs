@@ -33,6 +33,7 @@ const IMMERSIVE = [
   '/gym',
   '/read',
   '/tutor',
+  '/write',
   '/onboarding',
   '/welcome',
 ]

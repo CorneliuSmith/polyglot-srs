@@ -7,6 +7,7 @@ no API key, the same pattern as Speak.
 from __future__ import annotations
 
 import io
+import json
 import time
 from unittest.mock import AsyncMock, patch
 
@@ -157,6 +158,10 @@ class TestAssess:
         assert content[0]["source"]["media_type"] == "image/png"
         assert "Я иду домой" in content[1]["text"]
         assert kwargs["tool_choice"]["name"] == "emit_assessment"
+        # The notes' language is named in the schema too, not only the
+        # prompt — a diff in Spanish beside notes in English was the result
+        # of naming it once.
+        assert "French" in json.dumps(kwargs["tools"][0])
         assert result["legibility"] == 4
 
     async def test_no_payload_is_an_error_not_a_verdict(self):
