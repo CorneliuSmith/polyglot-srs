@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { fitComposed } from './composer'
+import type { Composed } from './composer'
 import { fromGlyphBox } from './glyphBox'
 
 /**
@@ -10,33 +12,42 @@ import { fromGlyphBox } from './glyphBox'
 export default function StrokePreview({
   strokes,
   size = 160,
+  composed,
+  width,
+  height,
   playing = true,
   onDone,
 }: {
   strokes: number[][][]
   size?: number
+  /** A composed word or line instead of one glyph: drawn into width × height. */
+  composed?: Composed
+  width?: number
+  height?: number
   playing?: boolean
   onDone?: () => void
 }) {
   const ref = useRef<HTMLCanvasElement>(null)
   const [tick, setTick] = useState(0)
+  const cw = composed ? (width ?? 320) : size
+  const ch = composed ? (height ?? 120) : size
 
   useEffect(() => {
     const canvas = ref.current
     if (!canvas) return
     const dpr = window.devicePixelRatio || 1
-    canvas.width = size * dpr
-    canvas.height = size * dpr
+    canvas.width = cw * dpr
+    canvas.height = ch * dpr
     const ctx = canvas.getContext?.('2d')
     if (!ctx) return
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-    const paths = fromGlyphBox(strokes, size)
+    const paths = composed ? fitComposed(composed, cw, ch).strokes : fromGlyphBox(strokes, size)
     const total = paths.reduce((n, s) => n + s.length, 0)
     let shown = playing ? 0 : total
     let raf = 0
     let last = 0
     const draw = () => {
-      ctx.clearRect(0, 0, size, size)
+      ctx.clearRect(0, 0, cw, ch)
       ctx.lineCap = 'round'
       ctx.lineJoin = 'round'
       // The finished form, faint, under the animation.
@@ -87,15 +98,15 @@ export default function StrokePreview({
     return () => {
       if (raf) cancelAnimationFrame(raf)
     }
-  }, [strokes, size, playing, tick, onDone])
+  }, [strokes, size, composed, cw, ch, playing, tick, onDone])
 
   return (
     <canvas
       ref={ref}
       data-testid="stroke-preview"
-      width={size}
-      height={size}
-      style={{ width: size, height: size }}
+      width={cw}
+      height={ch}
+      style={{ width: cw, height: ch, maxWidth: '100%' }}
       className="rounded-xl border border-gray-200 bg-white cursor-pointer"
       onClick={() => setTick((n) => n + 1)}
       aria-label="Stroke order preview — tap to replay"

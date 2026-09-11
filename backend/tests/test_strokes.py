@@ -230,6 +230,33 @@ class TestLettersProgress:
         else:
             assert resp.json()["known"] is False
 
+    def test_a_traced_word_records_each_form_once(self, client):
+        calls: list[tuple] = []
+
+        async def fetchrow(sql, *a):
+            if "FROM languages" in sql:
+                return {"name": "Arabic", "code": "ar", "tutor_model": None}
+            if "RETURNING attempts" in sql:
+                calls.append(a)
+                return {"attempts": 1, "passes": 1 if a[2] else 0, "best_score": a[3]}
+            return None
+        client.fake_conn.fetchrow = AsyncMock(side_effect=fetchrow)
+        other = "33333333-3333-3333-3333-333333333333"
+        resp = client.post("/api/write/progress/batch", headers=_auth_headers(),
+                           json={"language_id": TEST_LANGUAGE_ID, "attempts": [
+                               {"glyph_id": GLYPH_ID, "passed": True, "score": 0.8},
+                               {"glyph_id": other, "passed": False, "score": 0.2},
+                               {"glyph_id": GLYPH_ID, "passed": False, "score": 0.1},
+                           ]})
+        assert resp.status_code == 200, resp.text
+        if client.tables:
+            # The repeat of the first form is folded: one row per form.
+            assert [c[1] for c in calls] == [GLYPH_ID, other]
+            assert [i["glyph_id"] for i in resp.json()["items"]] == [GLYPH_ID, other]
+            assert resp.json()["items"][0]["passes"] == 1
+        else:
+            assert resp.json() == {"items": []}
+
     def test_progress_lists_the_learners_forms(self, client):
         resp = client.get(f"/api/write/progress?language_id={TEST_LANGUAGE_ID}&style=naskh",
                           headers=_auth_headers())

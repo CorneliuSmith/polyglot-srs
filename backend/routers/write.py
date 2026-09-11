@@ -434,6 +434,38 @@ async def progress(language_id: str, style: str | None = None,
         return {"items": await letters_progress(conn, user["id"], script_of(code), style)}
 
 
+class _Attempt(BaseModel):
+    glyph_id: str
+    passed: bool
+    score: float = 0.0
+
+
+class LetterAttempts(BaseModel):
+    language_id: str
+    attempts: list[_Attempt] = []
+
+
+@router.post("/progress/batch")
+async def progress_attempts(body: LetterAttempts, user: dict = Depends(get_current_user)):
+    """A traced word or line's Write step: one attempt per letter form it
+    contains, at most one per form (the caller folds repeats)."""
+    if len(body.attempts) > 200:
+        raise HTTPException(status_code=422, detail="Too many attempts in one batch")
+    async with rls_connection(user["id"]) as conn:
+        await _language(conn, body.language_id)
+        items = []
+        seen: set[str] = set()
+        for a in body.attempts:
+            if a.glyph_id in seen:
+                continue
+            seen.add(a.glyph_id)
+            row = await record_letter_attempt(conn, user["id"], a.glyph_id,
+                                              passed=a.passed, score=a.score)
+            if row:
+                items.append(row)
+    return {"items": items}
+
+
 @router.post("/progress")
 async def progress_attempt(body: LetterAttempt, user: dict = Depends(get_current_user)):
     """One attempt at writing a form from memory (the Write step). Known

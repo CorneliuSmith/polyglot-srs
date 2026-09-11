@@ -813,6 +813,39 @@ fills in, and a learner can go back to any letter. The reader that
 adapts to a hand (§11) plays no part here; a template is the speaker's
 authored form, and the question is whether the learner can produce it.
 
+**Traced words and sentences** (Phase 4; `composer.ts`, `WordsMode.tsx`,
+`matchComposed` in `matcher.ts`). A word's template is not authored, it
+is *composed* from the reviewed letter forms by the script's rules, so
+the supply is every card and every example line the day the letters
+exist. The composed frame is one line, letters in cells: cased scripts
+pick lower or upper; Arabic picks each letter's positional form from its
+neighbours' joining class (the six right-joining-only letters break the
+chain) and runs right to left; a Hangul syllable comes apart into its
+jamo, each scaled into its cell of the block by the vowel's orientation,
+the tail below; Cyrillic and Latin *cursive* run one letter's last stroke
+on into the next's first, so a joined word is one continuous stroke.
+Every point remembers its letter (`owners`), because the verdict is per
+letter, not per stroke: the whole ink and the whole template become one
+point sequence each and are aligned by dynamic time warping, so a word
+written in one flow is segmented by where it best fits each letter in
+turn, and a letter drawn in two strokes instead of one still lands on
+its letter. Trace aligns open-ended against the template's prefix — a
+half-written word matches half the template, and letters snap solid one
+at a time; Write fits the ink's box to the template's (width and height
+separately: a wide hand is not a wrong one) and aligns end to end. A
+letter is *missing* when no ink is its own or nothing is anywhere near
+it, *not the shape* when its mean aligned distance is over the tolerance
+(0.18 of the line height tracing, 0.13 from memory). Write → *Trace* is
+the mode: Word or Sentence prompts from the same source as Free write,
+only those the library can compose in full; a sentence is worked line by
+line (whole words, as many letters as the canvas holds); each letter
+form written from memory counts toward "known" through
+`POST /api/write/progress/batch`, one attempt per form. The same matcher
+runs over *Free write*'s ink when the expected text composes and fits one
+line, giving a letter-by-letter row under the reader's verdict, and the
+compare view then shows the expected text in the speaker's own forms
+above the font — the composed hand, not a typeface.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of

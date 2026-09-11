@@ -121,6 +121,12 @@ items are built on request, in a session.
   **Phase 3, guided Letters — built 11 Sep 2026** (migration 20261021 to
   push): Write → *Letters* appears once a script has a reviewed form;
   Learn → Trace → Write per form, the on-device matcher names the stroke
-  and the reason, three clean writes make a letter known. Phase 4 (traced
-  words and sentences) is what remains of the plan.
+  and the reason, three clean writes make a letter known. **Phase 4,
+  traced words and sentences — built 11 Sep 2026**: Write → *Trace*,
+  templates composed from the reviewed forms (cursive joins, Arabic
+  forms, Hangul blocks), a verdict per letter from memory, sentences
+  line by line; the same letter-by-letter row on Free write's ink and
+  the composed hand in its compare view. What remains of the plan is
+  content — a script's forms traced and reviewed, exemplar sentences —
+  and the per-script composition exceptions tuned against them (DEBT).
 
