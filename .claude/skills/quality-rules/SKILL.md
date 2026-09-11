@@ -448,6 +448,29 @@ rate, say so — that result matters more than the phase closing quietly.
     `test_no_course_grows_grader_collisions` is the instrument — when it
     fires after a repair, read the repaired rows before raising the ceiling.
 
+64. **A correction phrased as an INSTRUCTION cannot be applied
+    mechanically.** A reviewer that returns `fix: "Add a third row: | ㄹ | …"`
+    has written to an editor, not to a learner; an applier that pastes `fix`
+    verbatim ships the instruction. Three reached the Korean corpus on 10 Sep
+    2026 and **two survived the gate**, because an instruction line does not
+    break a table's shape — and in both the instruction REPLACED the row it
+    described, so the table lost its consonant row while its drills went on
+    answering consonant stems. Ask a reviewer for replacement CONTENT, and
+    when a `fix` is an instruction, apply it by hand.
+    (`test_no_editorial_instructions.py`; the structural-noun discriminator
+    matters — grammar prose is full of legitimate imperatives that operate on
+    the LANGUAGE, "Replace the object with a short pronoun".)
+
+65. **A guard that reads a DECLARATION measures the declaration, not the
+    thing.** `test_every_paradigm_cell_has_a_drill` opens `if not paradigm:
+    continue`, so a point that teaches a four-cell table while declaring two
+    passes clean — which is how the owner found ذلك/تلك taught, drilled once
+    each, and tagged `cell: null` so they sit outside the card's cell
+    rotation. 481 points ship a real table; **344 declare no paradigm at
+    all.** Before trusting a coverage number, check what fraction of the
+    population the guard can even see.
+
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one

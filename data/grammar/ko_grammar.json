@@ -1122,7 +1122,7 @@
       "title": "Future with (으)ㄹ 거예요 (갈 거예요)",
       "level": "A2",
       "function": "Plans and predictions: stem + ㄹ/을 거예요",
-      "explanation": "The everyday future is **(으)ㄹ 거예요**: 내일 갈 거예요 (I'll go tomorrow).\n\n| stem ends in | form | example |\n| --- | --- | --- |\n| a vowel | `ㄹ 거예요` | 가다 → 갈 거예요 |\nAdd a third row: | ㄹ | `거예요`, with no 을 | 살다 → 살 거예요 |\n\nIt covers both plans (I'm going to…) and guesses about the present: 지금 집에 있을 거예요 (he's probably home now).",
+      "explanation": "The everyday future is **(으)ㄹ 거예요**: 내일 갈 거예요 (I'll go tomorrow).\n\n| stem ends in | form | example |\n| --- | --- | --- |\n| a vowel | `ㄹ 거예요` | 가다 → 갈 거예요 |\n| a consonant | `을 거예요` | 먹다 → 먹을 거예요 |\n| ㄹ | `거예요`, with no 을 | 살다 → 살 거예요 |\n\nIt covers both plans (I'm going to…) and guesses about the present: 지금 집에 있을 거예요 (he's probably home now).",
       "references": [
         {
           "title": "Wikipedia: Korean verbs",
@@ -13014,7 +13014,7 @@
       "title": "Korean Questions ~ㄴ/은가(요)",
       "level": "B1",
       "function": "Ask a softer question about a present state, mostly with adjectives and 이다.",
-      "explanation": "**~ㄴ/은가(요)?** asks softly about a present state, mostly with adjectives and 이다. Attach ~ㄴ/은 to the stem exactly as you would when describing a noun, then add 가(요).\n\n| stem | ending | question |\n| --- | --- | --- |\n| ends in a vowel (예쁘다, 복잡하다) | `-ㄴ가(요)` | 예쁜가(요)?, 복잡한가(요)? |\nAdd one row after the consonant row: | ends in ㄹ (길다, 멀다) | `-ㄴ가(요)`, and the ㄹ drops | 긴가(요)?, 먼가(요)? |\n| 이다 | `-ㄴ가(요)` | 인가(요)? |\n| 아니다 | `-ㄴ가(요)` | 아닌가(요)? |\n\nAdding 요 makes it polite, but the form is still less formal than the high-respect ~ㅂ/습니까. It is only conjugated into the present tense, so it asks about a present situation. Against a plain ~아/어요? question the nuance is softer and more tentative — closer to wondering aloud than to demanding an answer. 아닌가(요)? is very commonly tacked onto the end of a statement to mean 'no?/isn't it?' when you doubt yourself.",
+      "explanation": "**~ㄴ/은가(요)?** asks softly about a present state, mostly with adjectives and 이다. Attach ~ㄴ/은 to the stem exactly as you would when describing a noun, then add 가(요).\n\n| stem | ending | question |\n| --- | --- | --- |\n| ends in a vowel (예쁘다, 복잡하다) | `-ㄴ가(요)` | 예쁜가(요)?, 복잡한가(요)? |\n| ends in a consonant (작다, 좋다) | `-은가(요)` | 작은가(요)?, 좋은가(요)? |\n| ends in ㄹ (길다, 멀다) | `-ㄴ가(요)`, and the ㄹ drops | 긴가(요)?, 먼가(요)? |\n| 이다 | `-ㄴ가(요)` | 인가(요)? |\n| 아니다 | `-ㄴ가(요)` | 아닌가(요)? |\n\nAdding 요 makes it polite, but the form is still less formal than the high-respect ~ㅂ/습니까. It is only conjugated into the present tense, so it asks about a present situation. Against a plain ~아/어요? question the nuance is softer and more tentative — closer to wondering aloud than to demanding an answer. 아닌가(요)? is very commonly tacked onto the end of a statement to mean 'no?/isn't it?' when you doubt yourself.",
       "culture_note": "",
       "source": "ai",
       "reviewed": false,
