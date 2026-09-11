@@ -2037,6 +2037,104 @@ survey selects the column its predicate judges on (a predicate reading an
 unfetched column is a silent no-op), and that alphabet rows are lifted out
 before the grouping that would protect them.
 
+## §38 The headword that is missing a mark its language requires (11 Sep 2026)
+
+Quality rule 7 — orthography and the word list come before sentences —
+measured across every course with a dictionary, using the kaikki extracts
+already declared in `source_data.SOURCES` (rule 61). **544 defect rows, 16 of
+them inside the top 200.**
+
+| | |
+|---|---:|
+| bare (misspelled, no correct twin) | 202 |
+| typo-mass (the stripped form outranks its real twin) | 248 |
+| **real pairs, recorded so no sweep touches them** | **1,735** |
+| undecidable | 109 |
+
+**The top-200, which is what a learner meets first:** `xh uthixo` → **uThixo**
+(rank 2; isiXhosa capitalises the proper stem after its class prefix),
+`ro si` → **și** (rank 4), `it perche` → **perché** (64), `it cosi` → **così**
+(97), `el γι` → **γι’** (101), `hi सिर्फ` → **सिर्फ़** (116), `it po` →
+**po'** (121), `it gia` → **già** (162).
+
+**Romanian `si` at rank 4 is the sharpest case of the class.** kaikki gives
+bare `si` exactly one sense — the musical note B — while the course's own
+sentence bank writes `și` **556 times and `si` three**, and all three sit
+inside one sentence that is itself diacritic-stripped. The fourth-commonest
+word in the language had its frequency held by a misspelling.
+
+**Hindi is the worst course (220), almost entirely nuqta** — `ज़`/`ज`,
+`फ़`/`फ` are distinct letters, and the file's own glosses say so ("nuqtaless
+form of …"). Swahili came back completely clean.
+
+### The whole set, applied (11 Sep 2026)
+
+All 544 are now acted on: **189 headwords repaired in place**, **251 typo-mass
+rows excluded** with twin pointers, 1,735 real pairs recorded and untouched.
+
+**The collision ratchet caught an error in the repair itself**, which is what
+it is for. Māori went 24 → 26 because `maaka` → **māka** and `maata` →
+**māta** were repaired into forms that fold onto the real words `maka`
+("throw", rank 190) and `mata` ("eye", 161). Reading the repaired rows showed
+why: both are **given names** — "equivalent to English Mark / Martha" — and
+this programme retires given names (645 on 25 Aug, "unanswerable from a
+definition"). A name is not a spelling defect; repairing one manufactures a
+collision with a real word.
+
+Checking the other 237 bare repairs the same way found three more: `hi
+सुकरात` (Socrates), `pt antonio` (a given name), and — the one that is NOT a
+name and stays repaired — `xh matshi` → **Matshi**, which is the month March
+and ordinary vocabulary. The four are excluded under **both** spellings so
+neither can return.
+
+**Quality rule 10, stated the other way round:** a fold may excuse a mark, and
+it may never launder a word — but the reverse also holds. *Adding* a mark can
+create a collision that was not there, so a repair pass has to re-check the
+fold-image it leaves behind, not only the one it started from.
+
+### Three shapes, and conflating them destroys words
+
+- **bare** — repair the headword in place.
+- **typo-mass** — exclude the stripped row with a twin pointer. **Never
+  re-point its lemma**: the row's rank is evidence about the misspelling, not
+  about the word (rule 10).
+- **real pair** — both spellings are real, different words. **1,735 of these**,
+  and they are the reason the pass is worth more than a sweep: Romanian's
+  suffixed definite article IS a bare final `-a` (`casă → casa`), which
+  `ro.md` teaches as its headline A1 example. A naive fold-and-fix would have
+  "corrected" 627 correct Romanian words. They are recorded WITH their reason
+  so the next sweep stops at them.
+
+### Two things only a reader would catch
+
+**Māori's three defects are not missing macrons.** `maaka`, `maata` are
+19th-century doubled-vowel missionary orthography, which `mi.md` declares out
+of scope, and each row's own `en` column documents its own defect.
+
+**Catalan `sóc` is the reverse shape** — the MARKED form is the wrong one.
+The 2016 IEC reform removed the accent, so `soc` is standard; the file's own
+gloss reads "superseded spelling of soc". A rule that assumes the marked form
+is always right would have gone the wrong way.
+
+### A rule-9 violation nobody had checked
+
+`ro.md` requires `ș`/`ț` to be the comma-below characters U+0219/U+021B, never
+the Turkish cedillas. The frequency file is clean and the grammar file is
+clean — but `data/ro_sentences.tsv` carries **21 cedilla characters across 16
+sentences**, and two of those are diacritic-stripped in running text. The
+doc's claim is scoped to the grammar file and is true there; the sentence bank
+is the one place it never looked, and it is where `si` earned rank 4.
+
+### What the repair did to the grader, and why that is right
+
+`test_the_fold_level_guard_catches_marks_nfd_cannot_strip` asserted that
+typing `si` for `și` grades WRONG_FORM — "that is a different word". Removing
+the junk row flipped it to CORRECT_SLOPPY, which is **the better answer**: the
+learner typed the right word without its diacritic. WRONG_FORM was only
+correct while a bogus row made `si` look real. The test now runs on
+`ține`/`tine` (to hold; you, stressed after a preposition), a pair `ro.md`
+lists itself.
+
 ## Prompt ↔ rule parity
 
 Which runtime prompt encodes which rule, so drift is reviewable. The rules

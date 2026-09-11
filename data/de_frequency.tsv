@@ -72,7 +72,7 @@ rank	word	pos	en
 71	keine	pron	feminine nominative/accusative of kein
 72	oder	conj	or
 73	nach	prep	after, past (later in time)
-74	s	noun	abbreviation of Süd (“south”)
+74	's	noun	abbreviation of Süd (“south”)
 75	nichts	pron	nothing
 76	man	pron	one, you, they
 77	muss	verb	first/third-person singular present of müssen
@@ -377,7 +377,7 @@ rank	word	pos	en
 376	glück	noun	happiness, joy, bliss (state or emotion)
 377	letzte	adj	last
 378	freunde	noun	friends
-379	n	article	nonstandard form of 'n
+379	'n	article	nonstandard form of 'n
 380	all	det	all; every (in time intervals, with plural noun)
 381	darauf	adv	after (behind; later in time; following)
 382	ende	noun	end, finish; conclusion
@@ -659,7 +659,6 @@ rank	word	pos	en
 660	trotzdem	adv	anyhow, nevertheless
 661	doktor	noun	doctor; doctor, physician
 662	tja	intj	well, hmm; Used to express acceptance of one's misfortune; oh well, welp
-663	new	adj	new; modern, recent, latest
 664	voll	adj	full; filled; full (not hungry anymore)
 665	film	verb	singular imperative of filmen
 666	überall	adv	everywhere; anywhere (in whatever place)
@@ -815,7 +814,6 @@ rank	word	pos	en
 816	leuten	noun	dative plural of Leute
 817	besonders	adv	especially, particularly
 818	schöne	adj	strong/mixed nominative/accusative feminine singular
-819	ma	adv	pronunciation spelling of mal
 820	schicken	verb	to send, to dispatch (a person, letter, money etc. to a destination or a person)
 821	person	noun	person, individual
 822	schätze	verb	first-person singular present
@@ -1044,7 +1042,7 @@ rank	word	pos	en
 1045	sekunden	noun	plural of Sekunde (“second”)
 1046	wofür	adv	for what, wherefore, why
 1047	erzähl	verb	singular imperative of erzählen
-1048	nen	article	nonstandard form of 'n
+1048	'nen	article	nonstandard form of 'n
 1049	beweise	noun	nominative/accusative/genitive plural of Beweis
 1050	nahm	verb	preterite of nehmen (“to take”): took
 1051	aller	adj	strong/mixed nominative masculine singular
@@ -6283,7 +6281,6 @@ rank	word	pos	en
 6310	königlichen	adj	strong genitive masculine/neuter singular
 6311	stadtrat	noun	city council
 6312	pressekonferenz	noun	press conference
-6313	nich	adv	pronunciation spelling of nicht, representing Northern Germany German
 6314	geschaut	verb	past participle of schauen
 6315	zugegeben	verb	past participle of zugeben
 6316	komisches	adj	strong/mixed nominative/accusative neuter singular of komisch
@@ -7844,7 +7841,6 @@ rank	word	pos	en
 7879	k.o.	adj	abbreviation of König (“king”)
 7880	rückt	verb	second-person plural present
 7881	drohte	verb	first/third-person singular preterite
-7882	scheiss	verb	singular imperative of scheissen
 7883	zurückkehrt	verb	third-person singular dependent present
 7884	verlangst	verb	second-person singular present of verlangen
 7885	zünden	verb	to kindle; to ignite a fire or any comparable combustion
@@ -9037,7 +9033,7 @@ rank	word	pos	en
 9076	idiotin	noun	(female) idiot
 9077	gleichgültig	adj	indifferent; unimportant
 9078	gefangenschaft	noun	imprisonment, captivity
-9079	russ	noun	Switzerland and Liechtenstein standard spelling of Ruß
+9079	Ruß	noun	Switzerland and Liechtenstein standard spelling of Ruß
 9080	westlich	adj	west, western
 9081	samt	noun	velvet
 9082	mail	verb	singular imperative of mailen
@@ -9113,7 +9109,6 @@ rank	word	pos	en
 9152	iren	noun	plural of Ire
 9153	triumph	noun	triumph
 9154	begrenzt	verb	past participle of begrenzen
-9155	ham	verb	contraction of haben; pronunciation spelling of haben
 9156	streichhölzer	noun	nominative/accusative/genitive plural of Streichholz (“match”)
 9157	erscheinung	noun	appearance (way of being perceived by others)
 9158	neid	noun	envy, jealousy

@@ -114,7 +114,6 @@ rank	word	pos	en
 113	आपको	pron	dative of आप (āp); to you (polite)
 114	जाना	verb	to go, leave, depart
 115	अरे	intj	hey, oh, arrey (used chiefly in calling to or addressing inferiors)
-116	सिर्फ	adv	nuqtaless form of सिर्फ़ (sirf)
 117	बंद	adj	closed, shut; clogged
 118	उन्हें	pron	dative plural of वह (vah)
 119	सही	adj	right, correct, accurate
@@ -124,7 +123,6 @@ rank	word	pos	en
 123	तुम्हारे	pron	direct masculine plural
 124	प्यार	noun	love, strong affection
 125	वो	pron	that; those
-126	जरूरत	noun	nuqtaless form of ज़रूरत (zarūrat)
 127	लोगों	noun	oblique plural of लोग (log)
 128	हुआ	verb	masculine singular perfective participle
 129	करें	verb	first/third-person plural future subjunctive
@@ -182,7 +180,6 @@ rank	word	pos	en
 181	दूर	adj	distant, far; away, off
 182	हे	intj	vocative particle: O!
 183	होने	verb	oblique infinitive
-184	फोन	noun	nuqtaless form of फ़ोन (fon)
 185	भाई	noun	brother; used to refer to any male person
 186	वास्तव	noun	reality; real, actual
 187	शुरू	noun	beginning; commencement
@@ -226,7 +223,6 @@ rank	word	pos	en
 225	आपके	pron	direct masculine plural
 226	हमारी	pron	feminine singular of हमारा (hamārā)
 227	बताओ	verb	second-person familiar future subjunctive
-228	खुद	pron	nuqtaless form of ख़ुद (xud)
 229	गई	verb	feminine singular perfective participle
 230	अपना	pron	reflexive pronoun: oneself
 231	खैर	intj	nuqtaless form of ख़ैर (xair)
@@ -281,12 +277,9 @@ rank	word	pos	en
 280	जाते	verb	masculine plural habitual participle
 281	चले	verb	masculine plural perfective participle
 282	बोल	noun	word; speech, speaking; conversation
-283	गलत	adj	nuqtaless form of ग़लत (ġalat)
-284	ज्यादा	adj	nuqtaless form of ज़्यादा (zyādā)
 285	महसूस	adj	felt, sensed, perceived
 286	चाहती	verb	feminine singular habitual participle
 287	सकती	verb	feminine singular habitual participle
-288	यकीन	noun	nuqtaless form of यक़ीन (yaqīn)
 289	इसलिए	adv	therefore, hence
 290	पी	verb	stem; feminine singular perfective participle
 291	डर	noun	fear, fright, dread
@@ -304,7 +297,6 @@ rank	word	pos	en
 303	बड़ा	adj	big, large, huge
 304	बीच	noun	middle, centre
 305	दूसरे	adj	oblique/vocative masculine singular
-306	काफी	adv	nuqtaless form of काफ़ी (kāfī)
 307	ध्यान	noun	attention, focus
 308	हुई	verb	feminine singular perfective participle
 309	तब	adv	then, afterwards
@@ -328,7 +320,6 @@ rank	word	pos	en
 327	बेटे	noun	inflection of बेटा (beṭā)
 328	मुझ	pron	oblique singular of मैं (ma͠i)
 329	पानी	noun	water; rain, monsoon
-330	दरवाजा	noun	nuqtaless form of दरवाज़ा (darvāzā)
 331	महोदय	noun	sir, gentleman; mister
 332	आग	noun	fire, flame
 333	देता	verb	masculine singular habitual participle
@@ -359,11 +350,9 @@ rank	word	pos	en
 358	क्षमा	noun	a pardon, forgiveness
 359	पिछले	adj	oblique/vocative masculine singular
 360	मारने	verb	oblique infinitive
-361	बंदूक	noun	nuqtaless form of बंदूक़ (bandūq)
 362	रहते	verb	masculine plural habitual participle
 363	खाना	noun	food, meal
 364	राजा	noun	king, monarch, sovereign, ruler
-365	इंतजार	noun	wait, waiting; expectation
 366	उनकी	pron	direct feminine singular
 367	सुबह	noun	morning, dawn
 368	सिर	noun	head; brain, mind
@@ -374,7 +363,6 @@ rank	word	pos	en
 373	प्राप्त	adj	obtained, got, procured, acquired
 374	घंटे	noun	oblique/vocative singular
 375	उम्मीद	noun	hope; expectation
-376	खुश	adj	nuqtaless form of ख़ुश (xuś)
 377	अंत	noun	ending, conclusion
 378	करती	verb	feminine singular habitual participle
 379	करेगा	verb	second-person singular intimate masculine future indicative
@@ -404,7 +392,6 @@ rank	word	pos	en
 403	चुका	verb	direct masculine singular perfective participle
 404	प्रिय	adj	dear; favorite
 405	झूठ	noun	lie, falsehood
-406	खुशी	adj	happiness; pleasure
 407	नरक	noun	hell, underworld, purgatory
 408	आशा	noun	hope; expectation
 409	चुप	adj	silent, quiet; still
@@ -454,7 +441,6 @@ rank	word	pos	en
 453	नमस्ते	intj	A salutation; a greeting used for most purposes including hello, goodbye, etc.
 454	सारे	adj	oblique/vocative masculine singular
 455	कमीना	adj	bastardly, lowly, base
-456	मौका	noun	nuqtaless form of मौक़ा (mauqā)
 457	देते	verb	masculine plural habitual participle
 458	छोटा	adj	little, small; younger, junior, minor, lesser
 459	भाड़	noun	oven (for parching grain)
@@ -465,7 +451,6 @@ rank	word	pos	en
 464	परवाह	noun	care, heed, notice
 465	कैसा	det	what type of, what kind of
 466	होती	verb	feminine singular habitual participle
-467	गलती	noun	nuqtaless form of ग़लती (ġaltī)
 468	राम	name	Shri Rāma, the seventh avatar of Lord Vishnu
 469	नष्ट	adj	destroyed, spoiled, ruined
 470	स्वागत	noun	welcome
@@ -475,7 +460,6 @@ rank	word	pos	en
 474	मूर्ख	adj	stupid, dumb, foolish, idiotic
 475	सिकंदर	noun	king, ruler
 476	मालिक	noun	God, the Lord; boss, supervisor
-477	कसम	noun	nuqtaless form of क़सम (qasam)
 478	गंदगी	noun	filth, dirt; a vulgarity, expletive
 479	रखें	verb	first/third-person plural future subjunctive
 480	नौकरी	noun	job, employment, service
@@ -491,12 +475,10 @@ rank	word	pos	en
 490	बातें	noun	direct plural of बात (bāt)
 491	अकेले	adv	alone, by oneself
 492	किस	pron	oblique singular of क्या (kyā, “what”)
-493	साफ	adj	nuqtaless form of साफ़ (sāf)
 494	भरोसा	noun	trust, faith, reliance, dependence
 495	जहाँ	adv	wherever
 496	सारा	det	whole, entire; all
 497	नया	adj	new
-498	करीब	adj	nuqtaless form of क़रीब (qarīb)
 499	जान	noun	life, soul; spirit, vitality, stamina
 500	तुलना	verb	to be weighed
 501	इतने	det	oblique/vocative masculine singular
@@ -507,7 +489,6 @@ rank	word	pos	en
 506	जल्द	noun	haste, speed, swiftness
 507	पति	noun	husband; master, lord
 508	गयी	verb	feminine singular perfective participle
-509	जहाज	noun	nuqtaless form of जहाज़ (jahāz)
 510	हवा	noun	air; wind; breeze
 511	आती	verb	feminine singular habitual participle
 512	जाएगी	verb	second-person singular intimate feminine future indicative
@@ -528,7 +509,6 @@ rank	word	pos	en
 527	करनी	noun	deed, act
 528	स्कूल	noun	school
 529	जेल	noun	jail, the slammer
-530	तरफ	noun	nuqtaless form of तरफ़ (taraf)
 531	बड़े	adj	oblique/vocative masculine singular
 532	पल	noun	jiffy, moment (technically a measure of time equal to 24 seconds)
 533	अंतिम	adj	final, last
@@ -548,7 +528,6 @@ rank	word	pos	en
 547	महिलाओं	noun	oblique plural of महिला (mahilā)
 548	पूछ	noun	questioning, curiosity
 549	लगभग	adv	approximately; nearly, almost
-550	नफरत	noun	nuqtaless form of नफ़रत (nafrat)
 551	बताने	verb	oblique infinitive
 552	देखें	verb	first/third-person plural future subjunctive
 553	सप्ताह	noun	week
@@ -566,7 +545,6 @@ rank	word	pos	en
 565	क्षेत्र	noun	field, area of study
 566	भर	adv	all, every; whole, entire
 567	मामले	noun	direct plural; oblique/vocative singular
-568	खबर	noun	nuqtaless form of ख़बर (xabar)
 569	ज़रूरत	noun	necessity; requirement
 570	सड़क	noun	road
 571	हत्या	noun	murder, assassination, killing
@@ -576,14 +554,11 @@ rank	word	pos	en
 575	संदेश	noun	message
 576	माफ़	adj	forgiven, pardoned
 577	शब्द	noun	word, term; sound
-578	खिलाफ	noun	nuqtaless form of ख़िलाफ़ (xilāf)
-579	खून	noun	nuqtaless form of ख़ून (xūn)
 580	जॉन	name	a male given name, John, from English
 581	लाने	verb	oblique infinitive
 582	शक्ति	noun	power, energy, potency
 583	जाए	verb	masculine plural perfective participle
 584	भोजन	noun	food
-585	आवाज	noun	nuqtaless form of आवाज़ (āvāz)
 586	हिस्सा	noun	part, share, piece
 587	वही	pron	that, that very one
 588	भेजा	noun	brain; brain, mind; thought process
@@ -612,7 +587,6 @@ rank	word	pos	en
 611	स्वीकार	noun	acceptance (of an assignment, proposal, etc.)
 612	जिस	pron	oblique of जो (jo, “whoever, whichever”)
 613	जीवित	adj	alive, living
-614	बाकी	noun	nuqtaless form of बाक़ी (bāqī)
 615	पार	noun	the other side; limit, end
 616	दस	num	ten
 617	कमरे	noun	oblique/vocative singular
@@ -650,7 +624,6 @@ rank	word	pos	en
 649	प्रार्थना	noun	prayer, worship
 650	यीशु	name	Jesus
 651	अनुमति	noun	permission, authorization, consent
-652	मजबूत	adj	nuqtaless form of मज़बूत (mazbūt)
 653	लड़कियों	noun	oblique plural of लड़की (laṛkī)
 654	भेज	verb	stem; second-person singular intimate present imperative
 655	विकल्प	noun	choice, alternative
@@ -658,11 +631,9 @@ rank	word	pos	en
 657	खोजने	verb	oblique infinitive
 658	नंबर	noun	number, numeral
 659	मैडम	noun	madam, madame
-660	खतरा	noun	nuqtaless form of ख़तरा (xatrā)
 661	विशेष	adj	distinguished, special
 662	दूसरी	adj	direct/oblique/vocative feminine singular/plural of दूसरा (dūsrā)
 663	उत्तर	adj	north, northern
-664	दिमाग	noun	nuqtaless form of दिमाग़ (dimāġ)
 665	मुक्त	adj	free; liberated, unfettered
 666	उनका	pron	genitive plural of वह (vah); their
 667	उनमें	pron	inessive plural of वह (vah)
@@ -676,7 +647,6 @@ rank	word	pos	en
 675	ऐसी	det	direct/oblique/vocative feminine singular/plural of ऐसा (aisā)
 676	श्रीमान	noun	mister (term of address for a man)
 677	हालांकि	conj	although, however
-678	जिंदा	noun	nuqtaless form of ज़िंदा (zindā)
 679	पैर	noun	foot
 680	युवा	adj	young
 681	तय	adj	decided, finalized, agreed on
@@ -702,7 +672,6 @@ rank	word	pos	en
 701	भविष्य	noun	the future (that which is yet to happen)
 702	जला	verb	direct masculine singular perfective participle
 703	सामान्य	adj	common, general
-704	खाली	adj	nuqtaless form of ख़ाली (xālī)
 705	निर्णय	noun	decision; judgment, verdict
 706	दूसरों	noun	oblique plural of दूसरा (dūsrā)
 707	गति	noun	motion; speed
@@ -713,7 +682,6 @@ rank	word	pos	en
 712	परमाणु	noun	paramanu, atoms composing the classical elements
 713	बिस्तर	noun	bed, mattress, bedding
 714	अधिकार	noun	right, prerogative
-715	गायब	adj	nuqtaless form of ग़ायब (ġāyab, ġāyb)
 716	कपड़े	noun	direct plural; oblique/vocative singular
 717	लक्ष्य	noun	aim; object (to be aimed at)
 718	तेज	noun	spirit, vigour, life
@@ -721,7 +689,6 @@ rank	word	pos	en
 720	दौरान	noun	revolving, turning, whirling
 721	चलिए	verb	third-person plural present imperative
 722	जाती	verb	inflection of जाना (jānā, “to go”)
-723	तरीका	noun	nuqtaless form of तरीक़ा (tarīqā)
 724	चेहरा	noun	face, countenance
 725	जबकि	conj	whenever; as, for
 726	तुरंत	adv	at once, immediately
@@ -732,7 +699,6 @@ rank	word	pos	en
 731	संभव	adj	possible
 732	कुतिया	noun	bitch, female dog
 733	सक्षम	adj	capable, able, competent
-734	कॉफी	noun	nuqtaless form of कॉफ़ी (kŏfī)
 735	सावधान	adj	careful; wary
 736	पहुँच	noun	arrival; acknowledgment (of arrival, of a letter, goods)
 737	सांस	noun	breath, respiration
@@ -740,7 +706,7 @@ rank	word	pos	en
 739	सपना	noun	dream, reverie, vision
 740	बिजली	noun	electricity; lightning, thunder
 741	इंजन	noun	engine; locomotive, railway engine
-742	तरीके	noun	direct plural; oblique/vocative singular
+742	तरीक़े	noun	direct plural; oblique/vocative singular
 743	लड़कों	noun	oblique plural of लड़का (laṛkā)
 744	दुकान	noun	shop
 745	संपर्क	noun	contact; link, connection
@@ -769,10 +735,8 @@ rank	word	pos	en
 768	मृत्यु	noun	death; personification of Yama, the God of death
 769	चाय	noun	tea (plant, beverage)
 770	सात	num	seven
-771	खराब	adj	nuqtaless form of ख़राब (xarāb)
 772	आत्मा	noun	soul, spirit, self
-773	नुकसान	noun	nuqtaless form of नुक़सान (nuqsān)
-774	खर्च	noun	nuqtaless form of ख़र्च (xarc)
+773	नुक़सान	noun	nuqtaless form of नुक़सान (nuqsān)
 775	पड़ता	verb	direct masculine singular habitual participle
 776	लाख	num	one hundred thousand, lakh
 777	समझा	verb	masculine singular perfective participle
@@ -784,7 +748,6 @@ rank	word	pos	en
 783	लेते	verb	masculine plural habitual participle
 784	खींच	noun	pulling, extending, tugging, drawing
 785	दूँगा	verb	first-person singular masculine future indicative of देना (denā)
-786	जमीन	noun	nuqtaless form of ज़मीन (zamīn)
 787	कार्य	noun	work, task; action, operation
 788	सामना	noun	confrontation; opposition, competition
 789	बजे	adv	o'clock
@@ -793,9 +756,7 @@ rank	word	pos	en
 792	लें	verb	first/third-person plural future subjunctive
 793	सूअर	noun	pig, boar; pork
 794	चाची	noun	father's younger brother's wife
-795	लेफ्टिनेंट	noun	nuqtaless form of लेफ़्टिनेंट (lefṭineṇṭ)
 796	देखेंगे	verb	first/third-person plural masculine future indicative
-797	चीजें	noun	direct plural of चीज (cīz)
 798	छोड़ने	verb	oblique infinitive
 799	पीछा	noun	rear, hind part
 800	बढ़	verb	stem; second-person singular intimate present imperative
@@ -812,7 +773,6 @@ rank	word	pos	en
 811	काट	verb	stem; second-person singular intimate present imperative
 812	बनाना	verb	to make, create, produce
 813	गड़बड़	adj	irregular, messy
-814	फैसला	noun	nuqtaless form of फ़ैसला (faislā)
 815	ज़रूर	adv	certainly, surely
 816	प्रतीक्षा	noun	waiting, awaiting
 817	थोड़ी	adj	direct/oblique/vocative feminine singular/plural of थोड़ा (thoṛā)
@@ -828,7 +788,6 @@ rank	word	pos	en
 827	मारे	verb	masculine plural perfective participle
 828	मील	noun	mile (unit of measurement)
 829	जानना	verb	to know, comprehend, understand
-830	वक्त	noun	nuqtaless form of वक़्त (vaqt)
 831	धोखा	noun	fraud, cheating, deception
 832	चिंतित	adj	preoccupied, perplexed
 833	जन्मदिन	noun	birthday
@@ -856,9 +815,9 @@ rank	word	pos	en
 855	कैमरा	noun	camera
 856	भयानक	adj	scary, horrible, terrifying
 857	अचानक	adv	suddenly; unexpectedly
-858	कानून	noun	nuqtaless form of क़ानून (qānūn)
+858	क़ानून	noun	nuqtaless form of क़ानून (qānūn)
 859	उसी	pron	emphatic of उस (us): only that, just that
-860	खतरनाक	adj	dangerous
+860	ख़तरनाक	adj	dangerous
 861	बच	verb	stem; second-person singular intimate present imperative
 862	स्थान	noun	place, site, location
 863	भागो	noun	vocative plural of भाग (bhāg)
@@ -911,7 +870,6 @@ rank	word	pos	en
 911	मुख्य	adj	chief; main, principal
 912	शराब	noun	alcohol; alcoholic drink
 913	सज्जनों	noun	oblique plural of सज्जन (sajjan)
-914	फर्क	noun	nuqtaless form of फ़र्क़ (farq)
 915	राजनीति	noun	politics
 916	प्रणाली	noun	a system (as of a government, script, etc.)
 917	दिखाई	noun	seeing, viewing
@@ -929,10 +887,8 @@ rank	word	pos	en
 929	किसका	pron	genitive singular of कौन (kaun, “who”)
 930	लिये	verb	masculine plural perfective participle
 931	समाज	noun	society, community
-932	बाजार	noun	nuqtaless form of बाज़ार (bāzār)
 933	विस्फोट	noun	explosion, blast
 934	प्रति	noun	copy
-935	जोर	adv	nuqtaless form of ज़ोर (zor)
 936	मिलते	verb	masculine plural habitual participle
 937	जन्म	noun	birth; existence, life
 938	सूची	noun	list, catalogue
@@ -941,7 +897,7 @@ rank	word	pos	en
 941	इमारत	noun	building
 942	गांव	noun	village, hamlet
 943	सचिव	noun	secretary
-944	आखिरी	adj	nuqtaless form of आख़िरी (āxirī)
+944	आख़िरी	adj	nuqtaless form of आख़िरी (āxirī)
 945	स्तर	noun	level, slope
 946	इंदु	noun	the moon; camphor
 947	रुक	verb	stem; second-person singular intimate present imperative
@@ -950,7 +906,6 @@ rank	word	pos	en
 950	उनसे	pron	instrumental plural
 951	जाये	verb	masculine plural perfective participle
 952	गंदा	adj	dirty, filthy, unclean
-953	गुड	noun	jaggery (traditional unrefined sugar)
 954	शो	noun	show, program
 955	बोलो	verb	second-person plural subjunctive
 956	भीड़	noun	crowd; rush, traffic, crowding
@@ -980,8 +935,6 @@ rank	word	pos	en
 980	वर्षों	noun	oblique plural of वर्ष (varṣ)
 981	साँस	noun	breath, respiration
 982	गुप्त	adj	secret; private; hidden, clandestine; confidential
-983	चीजों	noun	oblique plural of चीज (cīz)
-984	खास	adj	nuqtaless form of ख़ास (xās)
 985	वकील	noun	lawyer
 986	परीक्षण	noun	examination, investigation
 987	अद्भुत	adj	fantastic, marvellous, astonishing
@@ -994,14 +947,12 @@ rank	word	pos	en
 994	ऊर्जा	noun	energy; power
 995	चलता	verb	direct masculine singular habitual participle
 996	आइए	verb	third-person plural present imperative of आना (ānā)
-997	चाकू	noun	nuqtaless form of चाक़ू (cāqū)
 998	दल	noun	group, team; party
 999	हवाई	adj	air
 1000	मम्मी	noun	mom, mommy; a mummy
 1001	इतिहास	noun	history
 1002	लड़ने	verb	oblique infinitive
-1003	चीज	noun	nuqtaless form of चीज़ (cīz)
-1004	गरीब	adj	nuqtaless form of ग़रीब (ġarīb)
+1004	ग़रीब	adj	nuqtaless form of ग़रीब (ġarīb)
 1005	विमान	noun	aeroplane, aircraft, airliner, jet
 1006	सीखा	verb	direct masculine singular perfective participle
 1007	शीर्ष	noun	head, apex, top
@@ -1078,7 +1029,7 @@ rank	word	pos	en
 1078	परेशानी	noun	distress; aggravation, vexation
 1079	कोना	noun	corner
 1080	भूलना	verb	to forget
-1081	गुस्सा	adj	nuqtaless form of ग़ुस्सा (ġussā)
+1081	ग़ुस्सा	adj	nuqtaless form of ग़ुस्सा (ġussā)
 1082	सैनिक	adj	military, army
 1083	नज़र	noun	sight, vision, glance, look
 1084	एजेंट	noun	agent
@@ -1092,8 +1043,8 @@ rank	word	pos	en
 1092	लगाना	verb	to put, spread, apply, affix
 1093	गहरी	adj	direct/oblique/vocative feminine singular/plural of गहरा (gahrā)
 1094	डालो	verb	second-person familiar future subjunctive
-1095	कीमत	noun	nuqtaless form of क़ीमत (qīmat)
-1096	खरीदने	verb	oblique infinitive
+1095	क़ीमत	noun	nuqtaless form of क़ीमत (qīmat)
+1096	ख़रीदने	verb	oblique infinitive
 1097	अलार्म	noun	an alarm
 1098	आम	noun	mango
 1099	चीज़	noun	thing, object, item
@@ -1156,7 +1107,7 @@ rank	word	pos	en
 1156	मालूम	adj	known; evident, clear; obvious
 1157	तकनीक	noun	technique
 1158	बनना	verb	to become; to be made
-1159	खरीद	verb	nuqtaless form of ख़रीद (xarīd)
+1159	ख़रीद	verb	nuqtaless form of ख़रीद (xarīd)
 1160	जाम	noun	goblet, bowl, cup, (usually of wine)
 1161	गीत	noun	song
 1162	बर्लिन	name	Berlin (the capital and largest city of Germany)
@@ -1194,7 +1145,6 @@ rank	word	pos	en
 1194	अपमान	noun	disrespect, slander
 1195	जिसका	pron	genitive singular of जो (jo, “whoever, whichever”)
 1196	चलने	verb	oblique infinitive
-1197	नजर	noun	nuqtaless form of नज़र (nazar)
 1198	कार्यक्रम	noun	program, itinerary
 1199	जानवर	noun	animal; a savage, uncivilized person
 1200	उड़	verb	stem; second-person singular intimate present imperative
@@ -1216,7 +1166,6 @@ rank	word	pos	en
 1216	मान	verb	accept, agree, believe, obey — the stem of मानना, before लेना and जाना and in the imperative (मान लो — suppose, assume; हार मत मानो — don't give up; वह मान गया — he relented); also a noun: respect, honour; pride (m.), and in technical use a measure or value
 1217	भीख	noun	begging, alms
 1218	पुष्टि	noun	nourishment, thriving
-1219	खयाल	noun	nuqtaless form of ख़याल (xayāl)
 1220	मेहनत	noun	effort, labour
 1221	नारंगी	noun	orange (fruit)
 1222	मौसम	noun	season; weather
@@ -1253,7 +1202,7 @@ rank	word	pos	en
 1253	तोड़ने	verb	oblique infinitive
 1254	कहती	verb	feminine singular habitual participle
 1255	विशाल	adj	large
-1256	कारखाना	noun	nuqtaless form of कारख़ाना (kārxānā)
+1256	कारख़ाना	noun	nuqtaless form of कारख़ाना (kārxānā)
 1257	गाड़ी	noun	car, truck, bus
 1258	नियम	noun	rule, law, principle, observance
 1259	आशीर्वाद	noun	blessing, benediction
@@ -1289,8 +1238,7 @@ rank	word	pos	en
 1289	रखते	verb	masculine plural habitual participle
 1290	जिससे	pron	instrumental singular of जो (jo)
 1291	ढंग	noun	mode, manner, way
-1292	फिल्म	noun	nuqtaless form of फ़िल्म (film)
-1293	नक्शा	noun	nuqtaless form of नक़्शा (naqśā)
+1293	नक़्शा	noun	nuqtaless form of नक़्शा (naqśā)
 1294	अभ्यास	noun	practice, exercise
 1295	चालक	noun	driver; conductor
 1296	धमकी	noun	threat
@@ -1320,12 +1268,11 @@ rank	word	pos	en
 1320	जायेंगे	verb	first/third-person plural masculine future indicative
 1321	धूल	noun	dust
 1322	रहेंगे	verb	first/third-person plural masculine future indicative
-1323	जरूरी	adj	nuqtaless form of ज़रूरी (zarūrī)
 1324	आधे	adj	direct masculine plural
 1325	बेला	noun	time, period, occasion
 1326	पहन	verb	stem; second-person singular intimate present imperative
 1327	खोना	verb	to lose (a possession or part etc.)
-1328	मंजिल	noun	storey, floor (of a building)
+1328	मंज़िल	noun	storey, floor (of a building)
 1329	अनुसार	noun	accord, agreement
 1330	आवाज़	noun	voice; call, cry
 1331	चाहिये	verb	third-person plural present imperative
@@ -1372,7 +1319,6 @@ rank	word	pos	en
 1372	अंकल	noun	uncle; respectful form of address for any elder man
 1373	विधायक	noun	legislator, lawmaker
 1374	काश	conj	I wish, if only
-1375	आखिर	adv	nuqtaless form of आख़िर (āxir)
 1376	सोचने	verb	oblique infinitive
 1377	प्रतिक्रिया	noun	reaction, response
 1378	अधिकतम	adj	most, greatest in quantity
@@ -1405,7 +1351,6 @@ rank	word	pos	en
 1405	शुक्र	adj	resplendent
 1406	उनको	pron	dative plural of वह (vah); to them; to him, her (polite)
 1407	निकालो	verb	second-person familiar future subjunctive
-1408	जिंदगी	noun	life (as in the state of being alive)
 1409	जंग	noun	war, battle
 1410	कार्यवाही	noun	operation, execution (of a procedure)
 1411	संजय	adj	victorious, triumphant
@@ -1429,18 +1374,15 @@ rank	word	pos	en
 1429	मीटर	noun	metre, as a unit of measurement
 1430	खींचो	verb	second-person familiar future subjunctive
 1431	सहायक	adj	assisting, assistant
-1432	प्लीज	noun	please
 1433	घटिया	adj	inferior, of poor quality
 1434	बहाना	noun	excuse, justification
 1435	छोड़ना	verb	to release, let go
-1436	सफेद	adj	nuqtaless form of सफ़ेद (safed)
 1437	जीता	verb	direct masculine singular perfective participle
 1438	अदालत	noun	court of law
 1439	रोशनी	noun	light; lamp; any source of light
 1440	छी	intj	yuck, eww, yech
 1441	जनाब	noun	sir, mister
 1442	तैयारी	noun	readiness; preparation
-1443	हजार	num	a thousand
 1444	लकड़ी	noun	stick; wood, timber
 1445	खोल	noun	an outer covering; case, sheath, cover, shell
 1446	धीमी	adj	direct/oblique/vocative feminine singular/plural of धीमा (dhīmā)
@@ -1473,7 +1415,7 @@ rank	word	pos	en
 1473	संयंत्र	noun	plant; factory; equipment, apparatus
 1474	दर	noun	rate, price; interest rate
 1475	खोलने	verb	oblique infinitive
-1476	खरीदा	verb	direct masculine singular perfective participle
+1476	ख़रीदा	verb	direct masculine singular perfective participle
 1477	मांस	noun	meat; flesh
 1478	डेटा	noun	data
 1479	रहस्य	noun	secret, mystery
@@ -1507,10 +1449,9 @@ rank	word	pos	en
 1507	भेजने	verb	oblique infinitive
 1508	स्वतंत्रता	noun	independence; freedom, liberty
 1509	घाव	noun	wound, sore, bruise
-1510	जरूर	adv	nuqtaless form of ज़रूर (zarūr)
 1511	कड़ी	noun	link (in a chain)
 1512	अतिरिक्त	adj	extra, additional, added
-1513	कागज	noun	nuqtaless form of काग़ज़ (kāġaz)
+1513	काग़ज़	noun	nuqtaless form of काग़ज़ (kāġaz)
 1514	गर्मी	noun	heat; hot months; summer
 1515	शिविर	noun	a camp, encampment, tent
 1516	अक्सर	adv	often, usually, frequently
@@ -1521,7 +1462,6 @@ rank	word	pos	en
 1521	करोगी	verb	second-person familiar feminine future indicative of करना (karnā)
 1522	गैस	noun	a gas; buildup of gas in the body
 1523	पहने	verb	masculine plural perfective participle
-1524	ताजा	adj	nuqtaless form of ताज़ा (tāzā)
 1525	अड्डा	noun	a place or an area serving a particular purpose
 1526	झटका	noun	jerk, sudden movement
 1527	पिंजरा	noun	cage
@@ -1597,7 +1537,7 @@ rank	word	pos	en
 1597	बेचने	verb	oblique infinitive
 1598	समझौता	noun	compromise, agreement, deal
 1599	गेंद	noun	ball; sphere
-1600	फसल	noun	nuqtaless form of फ़सल (fasal)
+1600	फ़सल	noun	nuqtaless form of फ़सल (fasal)
 1601	फ़ाइल	noun	file
 1602	खोखला	adj	hollow, excavated, empty
 1603	हटाना	verb	to remove (especially of a physical obstacle)
@@ -1627,7 +1567,6 @@ rank	word	pos	en
 1627	दिखाता	verb	direct masculine singular habitual participle
 1628	प्रतियोगिता	noun	competition, contest
 1629	दीवारों	noun	oblique plural of दीवार (dīvār)
-1630	रोज	adv	nuqtaless form of रोज़ (roz)
 1631	अस्पष्ट	adj	unclear, obscure, difficult to comprehend
 1632	पाउंड	noun	pound (unit of weight)
 1633	करेगी	verb	second-person singular intimate feminine future indicative
@@ -1652,7 +1591,6 @@ rank	word	pos	en
 1652	कुल	noun	community, kinship group
 1653	लगाओ	verb	second-person familiar future subjunctive
 1654	चुड़ैल	noun	witch, demoness
-1655	मेज	noun	nuqtaless form of मेज़ (mez)
 1656	पोशाक	noun	attire, dress, clothing
 1657	दिलचस्प	adj	interesting, enthralling, engrossing, intriguing
 1658	जमा	noun	gathering, meeting, collection
@@ -1670,7 +1608,7 @@ rank	word	pos	en
 1670	जागो	verb	second-person familiar future subjunctive
 1671	सोमवार	noun	Monday
 1672	तथ्य	noun	fact, truth, reality
-1673	मंजूरी	noun	nuqtaless form of मंज़ूरी (manzūrī)
+1673	मंज़ूरी	noun	nuqtaless form of मंज़ूरी (manzūrī)
 1674	टैक्सी	noun	taxi
 1675	शोर	noun	noise, din, clamor
 1676	देवता	noun	god; deity
@@ -1689,7 +1627,7 @@ rank	word	pos	en
 1689	सच्चाई	noun	reality; veracity
 1690	सहयोगी	noun	ally
 1691	स्वर्ग	noun	paradise, heaven, abode of the gods
-1692	सबक	noun	nuqtaless form of सबक़ (sabaq)
+1692	सबक़	noun	nuqtaless form of सबक़ (sabaq)
 1693	बेहद	adj	limitless, abundant
 1694	ट्रेन	noun	train, rail
 1695	काले	adj	oblique/vocative masculine singular
@@ -1714,13 +1652,12 @@ rank	word	pos	en
 1714	चीनी	noun	Chinese person
 1715	स्वतंत्र	adj	independent; free, liberated
 1716	असफल	adj	unsuccessful, failed; fruitless
-1717	अफसोस	noun	nuqtaless form of अफ़सोस (afsos)
 1718	बुलाना	verb	to shout; to call out
 1719	प्रबंधक	noun	manager, administrator
 1720	बाइक	noun	motorcycle
 1721	सरल	adj	easy; simple, straightforward
 1722	आदत	noun	habit
-1723	खजाना	noun	nuqtaless form of ख़ज़ाना (xazānā)
+1723	ख़ज़ाना	noun	nuqtaless form of ख़ज़ाना (xazānā)
 1724	हटना	verb	to move aside; to withdraw
 1725	खिड़की	noun	window
 1726	क्रिसमस	name	Christmas (festival observed on December 25 commemorating the birth of Jesus Christ)
@@ -1826,7 +1763,7 @@ rank	word	pos	en
 1828	द्वार	noun	door; gate, opening; any means of entrance
 1829	आधी	adj	direct/oblique/vocative feminine singular/plural of आधा (ādhā)
 1830	नमक	noun	salt
-1831	यकीनन	noun	nuqtaless form of यक़ीनन (yaqīnan)
+1831	यक़ीनन	noun	nuqtaless form of यक़ीनन (yaqīnan)
 1832	मर्दों	noun	oblique plural of मर्द (mard)
 1833	सेक्स	noun	sex
 1834	अभाव	noun	non-existence; lack, deficiency
@@ -1834,7 +1771,6 @@ rank	word	pos	en
 1836	विभाजित	adj	divided; separated
 1837	ज़िंदगी	noun	life (as in the state of being alive)
 1838	केंद्रित	adj	centred, fixed, focused
-1839	खूब	adj	nuqtaless form of ख़ूब (xūb)
 1840	दांत	noun	tooth (m.) — the anusvāra spelling of दाँत (गला हुआ दांत — the decayed tooth; दाँत साफ़ करना — to brush one's teeth); separately, a Sanskritic adjective: dental; restrained, subdued
 1841	आज्ञा	noun	order, command; an order or commandment of a spiritual master or guru to a disciple
 1842	स्नान	noun	the act of bathing, ablution
@@ -1844,7 +1780,7 @@ rank	word	pos	en
 1846	गंदी	adj	direct/oblique/vocative feminine singular/plural of गंदा (gandā)
 1847	अल्लाह	noun	Allah; God
 1848	कठोर	adj	hard; harsh
-1849	जिला	noun	nuqtaless form of ज़िला (zilā)
+1849	ज़िला	noun	nuqtaless form of ज़िला (zilā)
 1850	रूस	name	Russia (a transcontinental country in Eastern Europe and North Asia)
 1851	प्रसिद्ध	adj	renowned, famous, well-known
 1852	चयन	noun	choice, selection
@@ -1905,7 +1841,6 @@ rank	word	pos	en
 1907	भरने	verb	oblique infinitive
 1908	किसान	noun	farmer, cultivator
 1909	मिसाइल	noun	missile
-1910	फायदा	noun	nuqtaless form of फ़ायदा (fāydā)
 1911	भावनाओं	noun	oblique plural of भावना (bhāvnā)
 1912	जासूस	noun	spy; detective
 1913	गर्भवती	adj	pregnant
@@ -1990,7 +1925,7 @@ rank	word	pos	en
 1992	बीवी	noun	woman, lady; wife
 1993	उतारो	verb	second-person familiar future subjunctive
 1994	क्रोध	noun	anger, fury
-1995	शेख	noun	sheik; teacher; professor (title of professors and spiritual leaders)
+1995	शेख़	noun	sheik; teacher; professor (title of professors and spiritual leaders)
 1996	आकर्षित	adj	attracted; charmed, allured
 1997	शासन	noun	rule, government
 1998	नेताओं	noun	oblique plural of नेता (netā)
@@ -2105,7 +2040,7 @@ rank	word	pos	en
 2108	लोगो	noun	vocative plural of लोग (log)
 2109	उसमें	pron	inessive singular of वह (vah)
 2110	जिन्होंने	pron	ergative plural of जो (jo, “whoever, whichever”)
-2111	खरगोश	noun	nuqtaless form of ख़रगोश (xargoś)
+2111	ख़रगोश	noun	nuqtaless form of ख़रगोश (xargoś)
 2112	वैसा	det	like that, of that sort
 2113	माला	noun	garland, wreath
 2114	हिल	verb	stem; second-person singular intimate present imperative
@@ -2115,7 +2050,6 @@ rank	word	pos	en
 2118	अपराधियों	noun	oblique plural of अपराधी (aprādhī)
 2119	रोका	verb	masculine singular perfective participle
 2120	खोलें	verb	first/third-person plural future subjunctive
-2121	तलाक	adj	nuqtaless form of तलाक़ (talāq)
 2122	ईंधन	noun	fuel
 2123	वाक़ई	adv	truly, actually; really
 2124	अटक	noun	obstacle, stoppage
@@ -2130,7 +2064,7 @@ rank	word	pos	en
 2133	होंगी	verb	first/third-person plural feminine future indicative of होना (honā)
 2134	कांच	noun	glass (substance)
 2135	बहनों	noun	oblique plural of बहन (bahan)
-2136	गलतियों	noun	oblique plural of गलती (galtī)
+2136	ग़लतियों	noun	oblique plural of गलती (galtī)
 2137	सर्विस	noun	service; duty, work
 2138	आयोजन	noun	organisation
 2139	खाओ	verb	second-person familiar future subjunctive
@@ -2146,7 +2080,6 @@ rank	word	pos	en
 2149	साधन	noun	means; medium; method
 2150	पाता	verb	direct masculine singular habitual participle
 2151	पशु	noun	domesticated animal
-2152	एडी	noun	heel
 2153	विकास	noun	development, growth
 2154	आंदोलन	noun	movement, a change in trend
 2155	रास	noun	reins
@@ -2199,7 +2132,7 @@ rank	word	pos	en
 2202	जिन्हें	pron	dative plural of जो (jo, “whoever, whichever”)
 2203	खींचने	verb	oblique infinitive
 2204	सुअर	noun	pig, boar; pork
-2205	फ्लैट	noun	apartment, flat
+2205	फ़्लैट	noun	apartment, flat
 2206	जंगला	noun	fencing, railing
 2207	हज़ार	num	a thousand
 2208	दान	noun	donation, charity, gift, offering, something given
@@ -2257,7 +2190,7 @@ rank	word	pos	en
 2261	अनाथ	noun	orphan
 2262	ठहरो	verb	second-person familiar future subjunctive
 2263	राजकुमार	noun	prince
-2264	खुशबू	noun	nuqtaless form of ख़ुशबू (xuśbū)
+2264	ख़ुशबू	noun	nuqtaless form of ख़ुशबू (xuśbū)
 2265	माँगने	verb	oblique infinitive
 2266	चढ़	verb	stem; second-person singular intimate present imperative
 2267	शराबी	adj	drunk
@@ -2330,14 +2263,13 @@ rank	word	pos	en
 2334	भेड़ियों	noun	oblique plural of भेड़िया (bheṛiyā)
 2335	शेष	noun	residue, result
 2336	सुरंग	noun	tunnel; an underground passage (often used to trespass)
-2337	बगीचा	noun	nuqtaless form of बग़ीचा (baġīcā)
 2338	बेचारा	adj	helpless; forlorn
 2339	सुनेगा	verb	second-person singular intimate masculine future indicative
 2340	क़ब्ज़ा	noun	occupation; annexation, takeover
 2341	नमूना	noun	specimen, sample, example
 2342	सच्चा	adj	true; truthful, honest
 2343	विशेषज्ञ	noun	expert, professional
-2344	सुराग	noun	nuqtaless form of सुराग़ (surāġ)
+2344	सुराग़	noun	nuqtaless form of सुराग़ (surāġ)
 2345	वित्तीय	adj	financial, monetary, fiscal
 2346	उतर	verb	stem; second-person singular intimate present imperative
 2347	बूंद	noun	droplet, drop (especially of water)
@@ -2443,7 +2375,6 @@ rank	word	pos	en
 2447	काटा	verb	direct masculine singular perfective participle
 2448	प्रभावशाली	adj	effective, influential
 2449	हेलिकॉप्टर	noun	helicopter
-2450	तरीकों	noun	oblique plural of तरीका (tarīqā)
 2451	मनहूस	adj	unfortunate, unlucky, ill-omened, inauspicious
 2452	निकलते	verb	masculine plural habitual participle
 2453	राष्ट्र	noun	nation (sovereign state)
@@ -2454,7 +2385,6 @@ rank	word	pos	en
 2458	शुल्क	noun	fee, payment, charge
 2459	पूछें	verb	first/third-person plural future subjunctive
 2460	डालते	verb	masculine plural habitual participle
-2461	जहर	noun	nuqtaless form of ज़हर (zahar)
 2462	साड़ी	noun	sari (traditional dress of women in the Indian Subcontinent)
 2463	चुराया	verb	direct masculine singular perfective participle
 2464	बच्चो	noun	vocative plural of बच्चा (baccā)
@@ -2467,7 +2397,6 @@ rank	word	pos	en
 2471	बनाती	verb	feminine singular habitual participle
 2472	बोलने	verb	oblique infinitive
 2473	खड़ी	adj	direct/oblique/vocative feminine singular/plural of खड़ा (khaṛā)
-2474	अंग्रेजी	adj	nuqtaless form of अंग्रेज़ी (aṅgrezī)
 2475	आतंकवादियों	noun	oblique plural of आतंकवादी (ātaṅkvādī)
 2476	घोषित	adj	declared, proclaimed
 2477	किताबें	noun	direct plural of किताब (kitāb)
@@ -2617,7 +2546,6 @@ rank	word	pos	en
 2621	बहाल	adj	in the previous state, restored to the status quo ante; in good health (again)
 2622	ईश्वर	noun	God, Ishvara; lord, master
 2623	शिक्षित	adj	literate, educated
-2624	खासकर	adv	nuqtaless form of ख़ासकर (xāskar)
 2625	कुत्तों	noun	oblique plural of कुत्ता (kuttā)
 2626	लेनी	verb	feminine singular infinitive participle of लेना (lenā)
 2627	अत्यधिक	adj	excessive, disproportionate, over the top
@@ -2672,7 +2600,7 @@ rank	word	pos	en
 2676	शुक्रवार	noun	Friday
 2677	आदर्श	adj	perfect, ideal, model
 2678	खोया	verb	masculine singular perfective participle
-2679	कबूल	noun	nuqtaless form of क़बूल (qabūl)
+2679	क़बूल	noun	nuqtaless form of क़बूल (qabūl)
 2680	तकनीकी	adj	technical
 2681	अनुरूप	adj	corresponding, similar (having shared qualities etc.)
 2682	आंसू	noun	tear
@@ -2683,7 +2611,7 @@ rank	word	pos	en
 2687	अनुचित	adj	improper, unsuitable (not considered correct)
 2688	हरी	adj	feminine of हरा (harā)
 2689	बेटों	noun	oblique plural of बेटा (beṭā)
-2690	मरीज	noun	nuqtaless form of मरीज़ (marīz)
+2690	मरीज़	noun	nuqtaless form of मरीज़ (marīz)
 2691	सनकी	adj	eccentric, whimsical, capricious, crazy, obsessive, fanatical, cranky, irritable
 2692	दूल्हे	noun	direct plural; oblique/vocative singular
 2693	अंगूर	noun	grape
@@ -2712,7 +2640,7 @@ rank	word	pos	en
 2716	बेचैन	adj	nervous, jittery, restless
 2717	विकिपीडिया	name	Wikipedia
 2718	बैल	noun	ox; bullock; Taurus
-2719	दिक्कत	noun	nuqtaless form of दिक़्क़त (diqqat)
+2719	दिक़्क़त	noun	nuqtaless form of दिक़्क़त (diqqat)
 2720	अर्जित	adj	acquired, obtained, earned
 2721	पढ़ाई	noun	study, learning
 2722	आधुनिक	adj	modern, contemporary
@@ -2729,7 +2657,6 @@ rank	word	pos	en
 2733	पाला	noun	hoar-frost; dew
 2734	गूंगा	adj	mute, dumb; dumbstruck, speechless
 2735	अस्थायी	adj	impermanent, unstable, transient; prone to moving
-2736	अखबार	noun	nuqtaless form of अख़बार (axbār)
 2737	दुखद	adj	painful, sorrowful, sad
 2738	बीन	noun	pungi; Rudra veena
 2739	प्रसारण	noun	spreading, expanding
@@ -2745,7 +2672,6 @@ rank	word	pos	en
 2749	सावधानी	noun	precaution, care
 2750	कच्चे	adj	direct masculine plural
 2751	उत्तेजित	adj	stimulated; excited
-2752	सख्त	adj	nuqtaless form of सख़्त (saxt)
 2753	सदी	noun	century
 2754	घृणा	noun	hatred, disgust
 2755	विवरण	noun	report, statement
@@ -2784,7 +2710,7 @@ rank	word	pos	en
 2789	यातना	noun	torture; torment, anguish
 2790	पंप	noun	pump
 2791	पनीर	noun	paneer; cheese
-2792	हक	noun	right, prerogative, entitlement
+2792	हक़	noun	right, prerogative, entitlement
 2793	व्हिस्की	noun	whiskey
 2794	व्यावहारिक	adj	practical, useful, applied
 2795	धरना	verb	to beat, give a beating
@@ -2827,7 +2753,7 @@ rank	word	pos	en
 2832	मासूम	adj	innocent; dependent, immature
 2833	एकत्र	adj	gathered in one place, accumulated, collected
 2834	संरक्षित	adj	protected, defended
-2835	गुलाम	noun	nuqtaless form of ग़ुलाम (ġulām)
+2835	ग़ुलाम	noun	nuqtaless form of ग़ुलाम (ġulām)
 2836	एकल	adj	alone, sole
 2837	असामान्य	adj	unusual, extraordinary, special
 2838	मंडल	noun	Mandala; disc
@@ -2845,7 +2771,6 @@ rank	word	pos	en
 2850	सलाहकार	noun	advisor
 2851	मकान	noun	house
 2852	रूम	noun	room
-2853	राजी	adj	nuqtaless form of राज़ी (rāzī)
 2854	आर्थिक	adj	financial, economic
 2855	रहूँगा	verb	first-person singular masculine future indicative of रहना (rahnā)
 2856	कार्यकर्ताओं	noun	oblique plural of कार्यकर्ता (kāryakartā)
@@ -2903,7 +2828,6 @@ rank	word	pos	en
 2908	आपदा	noun	disaster, calamity
 2909	प्रतिस्पर्धा	noun	competition
 2910	जनसंख्या	noun	population
-2911	टेलीफोन	noun	nuqtaless form of टेलीफ़ोन (ṭelīfon)
 2912	दानव	adj	relating to the Danavas
 2913	यूँ	adv	pronunciation spelling of यों (yõ)
 2914	पहुँचे	noun	direct plural; oblique/vocative singular
@@ -2932,7 +2856,7 @@ rank	word	pos	en
 2937	विक्रेता	noun	seller; salesman, salesperson
 2938	दावत	noun	party, feast, banquet
 2939	दबाओ	verb	second-person familiar future subjunctive
-2940	खुराक	noun	nuqtaless form of ख़ुराक (xurāk)
+2940	ख़ुराक	noun	nuqtaless form of ख़ुराक (xurāk)
 2941	बैंकों	noun	oblique plural of बैंक (baiṅk)
 2942	बहादुरी	noun	heroism (courage, bravery)
 2943	दिये	verb	masculine plural perfective participle
@@ -2959,7 +2883,7 @@ rank	word	pos	en
 2964	तोप	noun	cannon, gun; cool person, badass
 2965	सशस्त्र	adj	armed
 2966	डरो	noun	vocative plural of डर (ḍar)
-2967	गैर	noun	nuqtaless form of ग़ैर (ġair)
+2967	ग़ैर	noun	nuqtaless form of ग़ैर (ġair)
 2968	क्रांति	noun	revolution
 2969	महारत	noun	skill, expertise, expert knowledge
 2970	लिखना	verb	to write
@@ -2973,7 +2897,7 @@ rank	word	pos	en
 2978	नाविक	noun	sailor, seaman
 2979	सुई	noun	needle (for knitting and otherwise)
 2980	फट	noun	a sudden movement
-2981	जिले	noun	direct plural; oblique/vocative singular
+2981	ज़िले	noun	direct plural; oblique/vocative singular
 2982	पुनर्निर्माण	noun	reconstruction, remaking
 2983	लोकतंत्र	noun	democracy
 2984	आज़ाद	adj	free; independent
@@ -3039,7 +2963,7 @@ rank	word	pos	en
 3044	हथकड़ी	noun	handcuff
 3045	सच्चे	adj	direct masculine plural
 3046	मुट्ठी	noun	fist
-3047	खरीदना	verb	nuqtaless form of ख़रीदना (xarīdnā)
+3047	ख़रीदना	verb	nuqtaless form of ख़रीदना (xarīdnā)
 3048	ढाल	noun	slope, scarp; slope, gradient
 3049	हीरा	noun	diamond (a type of rare gemstone)
 3050	दस्ताना	noun	glove
@@ -3081,7 +3005,7 @@ rank	word	pos	en
 3086	प्रोग्राम	noun	program (set of structured activities; leaflet listing information)
 3087	क्यूबा	name	Cuba (a country, the largest island (based on land area) in the Caribbean)
 3088	सालो	noun	vocative plural of साला (sālā)
-3089	फिदा	noun	devoted, infatuated
+3089	फ़िदा	noun	devoted, infatuated
 3090	संचार	noun	communication
 3091	तेरी	pron	feminine singular of तेरा (terā)
 3092	हंस	noun	swan; goose
@@ -3104,14 +3028,12 @@ rank	word	pos	en
 3109	एकजुटता	noun	unity, oneness
 3110	पौधों	noun	oblique plural of पौधा (paudhā)
 3111	हराया	verb	direct masculine singular perfective participle
-3112	इलाके	noun	direct plural; oblique/vocative singular
 3113	विधवा	noun	widow (a woman whose husband has died)
 3114	लड़ो	verb	second-person familiar future subjunctive
 3115	उल्टी	noun	vomit
 3116	किलोमीटर	noun	kilometre
 3117	आस-पास	adv	around, nearby, in the vicinity
 3118	टूटी	verb	feminine singular perfective participle
-3119	मुताबिक	adj	nuqtaless form of मुताबिक़ (mutābiq)
 3120	गठबंधन	noun	tying of the nuptial knot
 3121	स्वचालित	adj	automatic
 3122	सिक्के	noun	direct plural; oblique/vocative singular
@@ -3122,7 +3044,6 @@ rank	word	pos	en
 3127	सहज	adj	simple, easy; innate, instinctive, natural
 3128	खेतों	noun	oblique plural of खेत (khet)
 3129	योद्धाओं	noun	oblique plural of योद्धा (yoddhā)
-3130	तारीफ	noun	nuqtaless form of तारीफ़ (tārīf)
 3131	शिखर	noun	pinnacle, apex; peak, summit (of a mountain)
 3132	संदर्भ	noun	reference, source
 3133	प्रकट	adj	visible, manifest, perceptible
@@ -3145,7 +3066,7 @@ rank	word	pos	en
 3150	पापों	noun	oblique plural of पाप (pāp)
 3151	वस्तुओं	noun	oblique plural of वस्तु (vastu)
 3152	ऊंचाई	noun	height (see notes)
-3153	मंजूर	adj	nuqtaless form of मंज़ूर (manzūr)
+3153	मंज़ूर	adj	nuqtaless form of मंज़ूर (manzūr)
 3154	विस्तृत	adj	comprehensive, thorough, exhaustive
 3155	नामुमकिन	adj	impossible
 3156	कश	noun	inhaling, drawing
@@ -3237,7 +3158,6 @@ rank	word	pos	en
 3242	कहकर	verb	conjunctive form of कहना (kahnā)
 3243	ख़त्म	adj	completed, finished
 3244	मालिकों	noun	oblique plural of मालिक (mālik)
-3245	जरूरतों	noun	oblique plural of जरूरत (jarūrat)
 3246	चालीस	num	forty
 3247	वर्णन	noun	description, characterization
 3248	पत्रकार	noun	journalist
@@ -3256,7 +3176,7 @@ rank	word	pos	en
 3261	चश्मा	noun	spectacles, glasses
 3262	भेजे	noun	oblique/vocative singular
 3263	प्रेत	noun	the spirit of a dead person
-3264	खरीदें	verb	first/third-person plural future subjunctive
+3264	ख़रीदें	verb	first/third-person plural future subjunctive
 3265	लड़ा	verb	direct masculine singular perfective participle
 3266	प्रोत्साहित	adj	stimulated, encouraged, invigorated
 3267	लौटे	verb	masculine plural perfective participle
@@ -3282,7 +3202,6 @@ rank	word	pos	en
 3287	राजनीतिज्ञ	noun	politician
 3288	उतरना	verb	to get down; to descend, dismount
 3289	समझाया	verb	direct masculine singular perfective participle
-3290	फैसले	noun	direct plural; oblique/vocative singular
 3291	गुफा	noun	cave, cavern
 3292	घटनाओं	noun	oblique plural of घटना (ghaṭnā)
 3293	लाजवाब	adj	unique, beyond compare
@@ -3334,7 +3253,7 @@ rank	word	pos	en
 3339	मूर्खतापूर्ण	adj	foolish, dumb (of an act, decision, etc.)
 3340	निर्यात	noun	export; exported goods
 3341	लेखा	noun	account, record
-3342	खरीदता	verb	direct masculine singular habitual participle
+3342	ख़रीदता	verb	direct masculine singular habitual participle
 3343	नीति	noun	policy, political science
 3344	जुंग	noun	emotion; impulse
 3345	डालूँगा	verb	first-person singular masculine future indicative of डालना (ḍālnā)
@@ -3352,7 +3271,7 @@ rank	word	pos	en
 3357	आखरी	adj	nuqtaless form of आख़री (āxrī)
 3358	संवेदनशील	adj	sensitive
 3359	संकोच	noun	timidity, shyness
-3360	आतिशबाजी	noun	nuqtaless form of आतिशबाज़ी (ātiśbāzī)
+3360	आतिशबाज़ी	noun	nuqtaless form of आतिशबाज़ी (ātiśbāzī)
 3361	चांदी	noun	silver (metal); wealth, riches
 3362	कमा	verb	stem; second-person singular intimate present imperative
 3363	झलक	noun	glance, glimpse
@@ -3390,7 +3309,7 @@ rank	word	pos	en
 3395	अंगूठे	noun	direct plural; oblique/vocative singular
 3396	नेटवर्क	noun	network
 3397	कील	noun	nail, tack; peg
-3398	कतार	noun	nuqtaless form of क़तार (qatār)
+3398	क़तार	noun	nuqtaless form of क़तार (qatār)
 3399	त्याग	noun	leaving, relinquishing
 3400	कोड़ा	noun	whip
 3401	पटाखा	noun	firework, firecracker; explosive
@@ -3422,7 +3341,7 @@ rank	word	pos	en
 3427	नशेड़ी	noun	druggie, addict, junkie
 3428	शिक्षिका	noun	A female teacher.
 3429	संकल्प	noun	definite intention, resolve, will, resolution
-3430	आगजनी	noun	nuqtaless form of आगज़नी (āgzanī)
+3430	आगज़नी	noun	nuqtaless form of आगज़नी (āgzanī)
 3431	बन्द	adj	closed, shut; clogged
 3432	अनुदान	noun	grant, subsidy (a monetary gift to an organization or person for a specific purpose)
 3433	अनुसरण	noun	practice, carrying out of a tradition
@@ -3432,7 +3351,7 @@ rank	word	pos	en
 3437	साक्ष्य	noun	evidence; testimony
 3438	बैठी	verb	feminine singular perfective participle
 3439	परंतु	conj	but, however
-3440	किला	noun	nuqtaless form of क़िला (qilā)
+3440	क़िला	noun	nuqtaless form of क़िला (qilā)
 3441	दिखावा	noun	ostentation, showiness, flamboyance
 3442	डिब्बे	noun	direct plural; oblique/vocative singular
 3443	अपेक्षा	noun	requirement, necessity
@@ -3483,7 +3402,6 @@ rank	word	pos	en
 3488	मूल्यांकन	noun	assessment, evaluation, valuation
 3489	दुबारा	adv	again (another time)
 3490	सेवानिवृत्ति	noun	retirement
-3491	कलम	noun	nuqtaless form of क़लम (qalam)
 3492	गाय	noun	cow; a naive person; innocent, docile or gentle person
 3494	गायों	noun	oblique plural of गाय (gāy)
 3495	सदन	noun	house; chamber; residence, domicile
@@ -3491,7 +3409,6 @@ rank	word	pos	en
 3497	दुश्मनी	noun	enmity; hatred, hate
 3498	अलगाव	noun	split, separation
 3499	केंद्रीय	adj	central
-3500	फ्रांस	name	nuqtaless form of फ़्रांस (frāns)
 3501	उत्सर्जन	noun	emission, release, discharge
 3502	हल्के	adj	light (in weight) — masculine plural or oblique of हल्का (halkā)
 3503	नकार	noun	the letter or the sound of न (na)
@@ -3553,7 +3470,7 @@ rank	word	pos	en
 3559	उत्पाद	noun	product
 3560	भरना	verb	to fill, make full
 3561	छुट्टियों	noun	oblique plural of छुट्टी (chuṭṭī)
-3562	गम	noun	nuqtaless form of ग़म (ġam)
+3562	ग़म	noun	nuqtaless form of ग़म (ġam)
 3563	मिलाने	verb	oblique infinitive
 3564	नरम	adj	soft; smooth
 3565	सचेत	adj	aware, conscious
@@ -3575,7 +3492,7 @@ rank	word	pos	en
 3581	तानाशाह	noun	dictator
 3582	इनसे	pron	instrumental plural
 3583	क्यूँ	adv	pronunciation spelling of क्यों (kyõ)
-3584	तरक्की	noun	nuqtaless form of तरक़्क़ी (taraqqī)
+3584	तरक़्क़ी	noun	nuqtaless form of तरक़्क़ी (taraqqī)
 3585	अमर	adj	immortal, eternal, deathless, undying
 3586	नाकाम	adj	failed; unsuccessful
 3587	रिकार्ड	noun	record (information put into a lasting physical medium)
@@ -3674,7 +3591,7 @@ rank	word	pos	en
 3681	सुखद	adj	pleasant; comforting
 3682	रत्न	noun	gemstone, jewel, gem
 3683	समापन	noun	ending, termination
-3684	खुलासा	noun	nuqtaless form of ख़ुलासा (xulāsā)
+3684	ख़ुलासा	noun	nuqtaless form of ख़ुलासा (xulāsā)
 3685	जापान	name	Japan (a country in East Asia)
 3686	भ्रष्ट	adj	corrupt, unprincipled
 3687	लिखित	adj	written
@@ -3683,7 +3600,6 @@ rank	word	pos	en
 3690	बिल्ला	noun	tomcat (male cat)
 3691	मुकुट	noun	crown, diadem; crest
 3692	अपंग	adj	maimed; infirm, helpless
-3693	जोरदार	adj	nuqtaless form of ज़ोरदार (zordār)
 3694	जया	noun	epithet of goddess Durga and Parvati.
 3695	अटैची	noun	briefcase, attaché case
 3696	नज़रें	noun	direct plural of नज़र (nazar)
@@ -3704,7 +3620,7 @@ rank	word	pos	en
 3711	भतीजी	noun	brother's daughter; fraternal niece
 3712	सुस्त	adj	slow (not quick in motion)
 3713	केतली	noun	kettle, teakettle
-3714	कयामत	noun	nuqtaless form of क़यामत (qayāmat)
+3714	क़यामत	noun	nuqtaless form of क़यामत (qayāmat)
 3715	धार	noun	flow, current, stream, channel (of a river)
 3716	सिलसिले	noun	direct plural; oblique/vocative singular
 3717	न्यायाधीश	noun	justice, judge
@@ -3758,7 +3674,6 @@ rank	word	pos	en
 3765	आनन्द	noun	bliss, pleasure, happiness, joy
 3766	जानें	verb	first/third-person plural future subjunctive
 3767	अवरोध	noun	obstruction, blockage
-3768	धोखेबाज	noun	nuqtaless form of धोखेबाज़ (dhokhebāz)
 3769	ऊनी	adj	woolen, made of wool
 3770	अलमारी	noun	cupboard, shelf; almirah
 3771	शार्क	noun	shark (scaleless cartilaginous fish)
@@ -3770,7 +3685,6 @@ rank	word	pos	en
 3777	बन्दूक	noun	nuqtaless form of बन्दूक़ (bandūq)
 3778	यहूदिया	name	Judea
 3779	अनुशासन	noun	discipline
-3780	आजाद	adj	nuqtaless form of आज़ाद (āzād)
 3781	बाढ़	noun	flood, deluge, torrent
 3782	सूजन	noun	swelling, inflammation
 3783	ज़्यादातर	adv	principally, mostly
@@ -3815,7 +3729,6 @@ rank	word	pos	en
 3822	बलात्कारी	noun	rapist
 3823	संगत	noun	company, accompaniment
 3824	बाइबिल	name	Bible
-3825	जबरदस्त	adj	nuqtaless form of ज़बरदस्त (zabardast)
 3826	महीना	noun	month
 3827	बरसात	noun	rain; the rainy season
 3828	हिलाना	verb	to move, to make something move
@@ -3845,7 +3758,7 @@ rank	word	pos	en
 3852	हनीमून	noun	honeymoon
 3853	संभोग	noun	sex, coitus, sexual intercourse, copulation
 3854	रास्तों	noun	oblique plural of रास्ता (rāstā)
-3855	कीमतों	noun	oblique plural of कीमत (qīmat)
+3855	क़ीमतों	noun	oblique plural of कीमत (qīmat)
 3856	हवाओं	noun	oblique plural of हवा (havā)
 3857	शान्ति	noun	peace, tranquility, quiet, ease
 3858	हारने	verb	oblique infinitive
@@ -3880,7 +3793,6 @@ rank	word	pos	en
 3887	महफ़ूज़	adj	safe, secured
 3888	मॉल	noun	mall
 3889	करवाने	verb	oblique infinitive
-3890	फालतू	adj	nuqtaless form of फ़ालतू (fāltū)
 3891	रखेगा	verb	second-person singular intimate masculine future indicative
 3892	मुसलमान	noun	a Muslim
 3893	खिड़कियों	noun	oblique plural of खिड़की (khiṛkī)
@@ -4165,7 +4077,7 @@ rank	word	pos	en
 4172	पाकिस्तानी	adj	Pakistani
 4173	गब्बर	adj	proud, haughty, arrogant
 4174	बर्बर	adj	barbaric, brutal, savage
-4175	हकीकत	noun	nuqtaless form of हक़ीक़त (haqīqat)
+4175	हक़ीक़त	noun	nuqtaless form of हक़ीक़त (haqīqat)
 4176	अयोध्या	adj	unconquerable, undefeatable
 4177	जापानी	adj	Japanese
 4178	पुनर्जन्म	noun	reincarnation; rebirth
@@ -4212,7 +4124,7 @@ rank	word	pos	en
 4219	लगाते	verb	masculine plural habitual participle
 4220	सुदूर	adj	very far off, remote, distant
 4221	अलग-अलग	adj	synonym of अलग (alag)
-4222	उर्फ	adj	nuqtaless form of उर्फ़ (urf)
+4222	उर्फ़	adj	nuqtaless form of उर्फ़ (urf)
 4223	करों	noun	oblique plural of कर (kar)
 4224	अनुशासित	adj	disciplined, regulated, controlled
 4225	वैश्विक	adj	global
@@ -4220,7 +4132,7 @@ rank	word	pos	en
 4227	मूवी	noun	movie
 4228	हफ़्ते	noun	oblique/vocative singular
 4229	बचाता	verb	direct masculine singular habitual participle
-4230	गीजर	noun	nuqtaless form of गीज़र (gīzar, “water heater”)
+4230	गीज़र	noun	nuqtaless form of गीज़र (gīzar, “water heater”)
 4231	छुपाने	verb	oblique infinitive
 4232	मारेगा	verb	second-person singular intimate masculine future indicative
 4233	काटो	verb	second-person familiar future subjunctive
@@ -4274,7 +4186,7 @@ rank	word	pos	en
 4281	सौर	adj	solar, pertaining to the sun
 4282	भूतकाल	noun	the past; past tense
 4283	दुकानों	noun	oblique plural of दुकान (dukān)
-4284	किले	noun	direct plural; oblique/vocative singular
+4284	क़िले	noun	direct plural; oblique/vocative singular
 4285	एकत्रित	adj	gathered, accumulated, collected, consolidated
 4286	खोजेंगे	verb	first/third-person plural masculine future indicative
 4287	उतरने	verb	oblique infinitive
@@ -4307,7 +4219,7 @@ rank	word	pos	en
 4314	मिलन	noun	meeting, encounter
 4315	कृत्रिम	adj	synthetic, man-made, artificial
 4316	स्ट्रॉबेरी	noun	strawberry
-4317	खरीदी	verb	feminine singular perfective participle
+4317	ख़रीदी	verb	feminine singular perfective participle
 4318	हरामी	adj	haram, forbidden
 4319	व्याख्या	noun	interpretation; explanation, commentary, description
 4320	चोटी	noun	braid; lock of hair
@@ -4337,7 +4249,6 @@ rank	word	pos	en
 4344	झंडे	noun	direct plural; oblique/vocative singular
 4345	हस्तांतरण	noun	transfer
 4346	तितली	noun	butterfly; flirt, coquette
-4347	आवाजें	noun	direct plural of आवाज (āvāz)
 4348	अकादमी	noun	academy
 4349	लुप्त	adj	disappeared, missing, gone
 4350	सामरिक	adj	strategic, concerning war
@@ -4349,13 +4260,13 @@ rank	word	pos	en
 4356	असहज	adj	uncomfortable, uneasy
 4357	ऐश	noun	lifestyle; pleasure, enjoyment, delight
 4358	शुरुआती	adj	initial, beginning, preliminary
-4359	प्याज	noun	nuqtaless form of प्याज़ (pyāz)
+4359	प्याज़	noun	nuqtaless form of प्याज़ (pyāz)
 4360	उत्पादों	noun	oblique plural of उत्पाद (utpād)
 4361	अनुवादित	adj	translated
 4362	संपूर्ण	adj	complete, entire, whole
 4363	संकीर्ण	adj	narrow
 4364	प्रमाण	noun	proof, evidence, vindication, authentication, attestation
-4365	अंग्रेज	noun	nuqtaless form of अंग्रेज़ (aṅgrez)
+4365	अंग्रेज़	noun	nuqtaless form of अंग्रेज़ (aṅgrez)
 4366	पकाया	verb	direct masculine singular perfective participle
 4367	शैतानी	adj	diabolical; satanic
 4368	विद्यालय	noun	school, college, academy
@@ -4398,7 +4309,6 @@ rank	word	pos	en
 4405	अंग्रेज़ी	adj	English; British; of or pertaining to the English language
 4407	फीका	adj	washed out, faint, faded
 4408	सिसकना	verb	to weep, sob, cry haltingly
-4409	आजादी	noun	nuqtaless form of आज़ादी (āzādī)
 4410	सुनाया	verb	direct masculine singular perfective participle
 4411	चैट	noun	chat
 4412	तोड़कर	verb	conjunctive form of तोड़ना (toṛnā)
@@ -4466,9 +4376,9 @@ rank	word	pos	en
 4474	राजदूत	noun	ambassador, diplomat
 4475	वैज्ञानिकों	noun	oblique plural of वैज्ञानिक (vaijñānik)
 4476	आयीं	verb	feminine plural perfective participle
-4477	खबरों	noun	oblique plural of खबर (xabar)
+4477	ख़बरों	noun	oblique plural of खबर (xabar)
 4478	पक्षों	noun	oblique plural of पक्ष (pakṣ)
-4479	जबरदस्ती	noun	nuqtaless form of ज़बरदस्ती (zabardastī)
+4479	ज़बरदस्ती	noun	nuqtaless form of ज़बरदस्ती (zabardastī)
 4480	बजाते	verb	masculine plural habitual participle
 4481	तर्क	noun	an argument, reasoning
 4482	विलक्षणता	noun	extraordinariness, remarkability, peculiarity
@@ -4514,13 +4424,12 @@ rank	word	pos	en
 4522	सजावट	noun	decoration, ornamentation
 4523	कहावत	noun	proverb, saying, adage
 4524	हिंदुओं	noun	oblique plural of हिंदू (hindū)
-4525	नब्ज	noun	nuqtaless form of नब्ज़ (nabz)
+4525	नब्ज़	noun	nuqtaless form of नब्ज़ (nabz)
 4526	जानू	noun	an endearing term used to address a loved one; darling
 4527	भाड़ा	noun	fare; rent, rental fee
 4528	स्टालिन	name	Joseph Stalin
 4529	सिद्ध	adj	completed, accomplished, done
 4530	आजीवन	adj	for life, lifelong
-4531	अर्जी	noun	nuqtaless form of अर्ज़ी (arzī)
 4532	बंदरों	noun	oblique plural of बंदर (bandar)
 4533	निकालते	verb	masculine plural habitual participle
 4534	बूआ	noun	father's sister; paternal aunt
@@ -4640,7 +4549,7 @@ rank	word	pos	en
 4648	हवाला	noun	reference, citing
 4649	रचना	verb	to be made, composed
 4650	पुतला	noun	dummy, mannequin; effigy
-4651	किस्म	noun	nuqtaless form of क़िस्म (qism)
+4651	क़िस्म	noun	nuqtaless form of क़िस्म (qism)
 4652	डंडा	noun	stick, staff
 4653	पट्टा	noun	deed (legal document conferring rights over property)
 4654	निकम्मा	adj	unemployed, without work
@@ -4689,7 +4598,7 @@ rank	word	pos	en
 4697	हिलता	verb	direct masculine singular habitual participle
 4698	बासी	adj	stale (of food)
 4699	मंदबुद्धि	noun	stupid, foolish, dumb, goofy
-4700	फरार	noun	nuqtaless form of फ़रार (farār)
+4700	फ़रार	noun	nuqtaless form of फ़रार (farār)
 4701	सिनेमा	noun	cinema; film, movie
 4702	मित्रा	noun	female friend
 4703	वित्त	noun	finance, commerce
@@ -4742,7 +4651,6 @@ rank	word	pos	en
 4750	तुरन्त	adv	at once, immediately
 4751	तूने	pron	ergative of तू (tū)
 4752	चेहरों	noun	oblique plural of चेहरा (cehrā)
-4753	गरीबी	noun	nuqtaless form of ग़रीबी (ġarībī)
 4754	अवशेष	noun	remain, remnant, leftover
 4755	पालना	verb	to rear, raise, nurture (children, pets)
 4756	रूमाल	noun	handkerchief; napkin
@@ -4758,7 +4666,7 @@ rank	word	pos	en
 4766	राजकोष	noun	treasury, exchequer, fisc
 4767	सामूहिक	adj	collective, combined
 4768	धोखे	noun	direct plural; oblique/vocative singular
-4769	कसाई	noun	nuqtaless form of क़साई (qasāī)
+4769	क़साई	noun	nuqtaless form of क़साई (qasāī)
 4770	कंगन	noun	bangle, bracelet, usually made of metal
 4771	रखिए	verb	third-person plural present imperative
 4772	अनाथालय	noun	orphanage
@@ -4858,7 +4766,6 @@ rank	word	pos	en
 4867	लेखन	noun	writing, composition
 4868	मिलें	verb	first/third-person plural future subjunctive
 4869	आर्मी	noun	army
-4870	मोजा	noun	nuqtaless form of मोज़ा (mozā)
 4871	ब्याह	noun	marriage, wedding
 4872	आश्वासन	noun	assurance, commitment, vow
 4873	तंदुरुस्त	adj	healthy, in good health
@@ -4980,7 +4887,7 @@ rank	word	pos	en
 4990	गुनगुना	adj	lukewarm
 4991	बाजरा	noun	pearl millet, Pennisetum glaucum
 4992	वनों	noun	oblique plural of वन (van)
-4993	कायम	adj	nuqtaless form of क़ायम (qāyam)
+4993	क़ायम	adj	nuqtaless form of क़ायम (qāyam)
 4994	घुड़सवार	noun	horserider; cavalry
 4995	मंशा	noun	aim, intention, goal
 4996	सरदार	noun	Sardar (noble or military title)
@@ -5017,7 +4924,7 @@ rank	word	pos	en
 5027	धरातल	noun	surface of the Earth, ground
 5028	सुनाने	verb	oblique infinitive
 5029	ललित	adj	beautiful, lovely, graceful
-5030	अखबारों	noun	oblique plural of अखबार (axbār)
+5030	अख़बारों	noun	oblique plural of अखबार (axbār)
 5031	दिवंगत	adj	gone to heaven, deceased, late
 5032	कोला	noun	jackal
 5033	पेशी	noun	muscle; sinew
@@ -5244,8 +5151,7 @@ rank	word	pos	en
 5255	चुराने	verb	oblique infinitive
 5256	उदासीन	adj	indifferent, uncaring, apathetic
 5257	पायी	verb	feminine singular perfective participle
-5258	माइक्रोफोन	noun	nuqtaless form of माइक्रोफ़ोन (māikrofon)
-5259	चीजो	noun	vocative plural of चीज (cīz)
+5259	चीज़ो	noun	vocative plural of चीज (cīz)
 5260	साप्ताहिक	adj	weekly
 5261	गीतों	noun	oblique plural of गीत (gīt)
 5262	महानिरीक्षक	noun	inspector general
@@ -5365,7 +5271,6 @@ rank	word	pos	en
 5376	बीबी	noun	woman, lady; wife
 5377	पढ़कर	verb	conjunctive form of पढ़ना (paṛhnā)
 5378	तत्वों	noun	oblique plural of तत्व (tatva)
-5379	गुफ़ा	noun	pronunciation spelling of गुफा (guphā)
 5380	अपुष्ट	adj	unconfirmed, unverified
 5381	चढ़ा	verb	direct masculine singular perfective participle
 5382	मिलेंगी	verb	first/third-person plural feminine future indicative
@@ -5406,7 +5311,6 @@ rank	word	pos	en
 5417	तला	noun	bottom, lowest part
 5418	सर्वाधिक	adj	predominant, principal, most of all
 5419	जड़ें	noun	direct plural of जड़ (jaṛ)
-5420	फेसबुक	name	nuqtaless form of फ़ेसबुक (fesbuk)
 5421	जाएँगी	verb	first/third-person plural feminine future indicative
 5422	घूमती	verb	feminine singular habitual participle
 5423	कपास	noun	cotton (material and plant)
@@ -5488,7 +5392,6 @@ rank	word	pos	en
 5499	बैंको	noun	vocative plural of बैंक (baiṅk)
 5500	टपक	verb	stem; second-person singular intimate present imperative
 5501	दोहराया	verb	direct masculine singular perfective participle
-5502	अफगानिस्तान	name	nuqtaless form of अफ़ग़ानिस्तान (afġānistān)
 5503	मौसी	noun	maternal aunt (mother's sister)
 5504	मूत्राशय	noun	urinary bladder
 5505	सूटकेस	noun	suitcase
@@ -5506,7 +5409,7 @@ rank	word	pos	en
 5517	प्यासा	adj	thirsty
 5518	वोदका	noun	vodka
 5519	शह	noun	check; semblance of status or importance
-5520	गर्लफ्रेंड	noun	nuqtaless form of गर्लफ़्रेंड (garlafreṇḍ)
+5520	गर्लफ़्रेंड	noun	nuqtaless form of गर्लफ़्रेंड (garlafreṇḍ)
 5521	कली	noun	bud (of a flower)
 5522	बुलाकर	verb	conjunctive form of बुलाना (bulānā)
 5523	रुझान	noun	trend, inclination
@@ -5549,7 +5452,6 @@ rank	word	pos	en
 5561	रिश्तेदारों	noun	oblique plural of रिश्तेदार (riśtedār)
 5562	अनुयायी	noun	follower; adherent
 5563	मादक	noun	a drug, narcotic, addictive substance
-5564	अंदाज	noun	nuqtaless form of अंदाज़ (andāz)
 5565	सबब	noun	excuse; cause, reason
 5566	जिनको	pron	dative plural of जो (jo, “whoever, whichever”)
 5567	सहेंगे	verb	first/third-person plural masculine future indicative
@@ -5574,7 +5476,7 @@ rank	word	pos	en
 5586	कार्बनिक	adj	organic
 5587	अकड़	noun	conceit, arrogance, vanity (excessive self-esteem; disregard for the opinions of others)
 5588	नीरस	adj	without sap, without taste or flavor
-5589	जिलों	noun	oblique plural of जिला (jilā)
+5589	ज़िलों	noun	oblique plural of जिला (jilā)
 5590	उजाला	noun	light
 5591	भस्म	noun	ash, charred residue
 5592	डायनासोर	noun	dinosaur
@@ -5957,7 +5859,7 @@ rank	word	pos	en
 5970	अत्याधुनिक	adj	state of the art, ultramodern, cutting-edge
 5971	चौबीस	num	twenty-four
 5972	लायेगा	verb	second-person singular intimate masculine future indicative
-5973	कहर	noun	nuqtaless form of क़हर (qahar)
+5973	क़हर	noun	nuqtaless form of क़हर (qahar)
 5974	गुप्तचर	noun	spy, agent, informant
 5975	अमृत	noun	an elixir; a substance that gives immortality to the user
 5976	सहवास	noun	coresidence, cohabitation
@@ -6006,7 +5908,7 @@ rank	word	pos	en
 6019	ढूंढो	verb	second-person familiar future subjunctive
 6020	तथास्तु	phrase	so be it, amen
 6021	अल्प	adj	a little (a small amount of)
-6022	कीमतें	noun	direct plural of कीमत (qīmat)
+6022	क़ीमतें	noun	direct plural of कीमत (qīmat)
 6023	सेव	noun	synonym of सेवँई (sevãī, “sevai; type of wheat noodle”)
 6024	तैसा	det	synonym of वैसा (vaisā)
 6025	सितार	noun	sitar; zither
@@ -6071,15 +5973,14 @@ rank	word	pos	en
 6084	ताना	noun	fling; jibe
 6085	चाँदनी	noun	moonlight; canopy, covering for a roof
 6086	असहमति	noun	disagreement, discord
-6087	नालायक	adj	nuqtaless form of नालायक़ (nālāyaq)
+6087	नालायक़	adj	nuqtaless form of नालायक़ (nālāyaq)
 6088	पपड़ी	noun	crust
 6089	पहुँचाना	verb	to convey, transmit; cause to feel
 6090	नासरी	adj	Nazarene
-6091	बत्तख	noun	nuqtaless form of बत्तख़ (battax)
+6091	बत्तख़	noun	nuqtaless form of बत्तख़ (battax)
 6092	काटते	verb	masculine plural habitual participle
 6093	बौछार	noun	a shower, spray or burst of heavy wind, water or rain
 6094	मसाले	noun	direct plural; oblique/vocative singular
-6095	इज्जत	noun	nuqtaless form of इज़्ज़त (izzat)
 6096	शवों	noun	oblique plural of शव (śav)
 6097	फटना	verb	to be torn, ripped
 6098	चा	noun	tea (plant, beverage)
@@ -6109,7 +6010,7 @@ rank	word	pos	en
 6123	विलक्षण	adj	having different marks, varying in character, different, differing from
 6124	बस्ता	noun	backpack; bundle, package
 6125	बोतलों	noun	oblique plural of बोतल (botal)
-6126	गुब्बारे	noun	direct plural; oblique/vocative singular
+6126	ग़ुब्बारे	noun	direct plural; oblique/vocative singular
 6127	टोली	noun	group, party, band
 6128	कच्ची	adj	direct/oblique/vocative feminine singular/plural of कच्चा (kaccā)
 6129	शौच	noun	purification, cleansing
@@ -6137,7 +6038,6 @@ rank	word	pos	en
 6151	इम	adv	in this manner
 6152	भिक्षा	noun	begging, alms, charity
 6153	ट्यूशन	noun	tuition
-6154	खबरें	noun	direct plural of खबर (xabar)
 6155	चुटकुला	noun	joke, jest; quip, pun
 6156	जानलेवा	adj	dangerous, risky
 6157	गुमनामी	noun	anonymity
@@ -6163,7 +6063,7 @@ rank	word	pos	en
 6177	निपटाने	verb	oblique infinitive
 6178	लोकतांत्रिक	adj	democratic
 6179	चुंबक	noun	magnet
-6180	टेलीग्राफ	noun	nuqtaless form of टेलीग्राफ़ (ṭelīgrāf)
+6180	टेलीग्राफ़	noun	nuqtaless form of टेलीग्राफ़ (ṭelīgrāf)
 6181	छाँट	verb	direct masculine singular perfective participle
 6182	धारणा	noun	belief, notion; determination, steel
 6183	दिशाओं	noun	oblique plural of दिशा (diśā)
@@ -6175,7 +6075,7 @@ rank	word	pos	en
 6189	खगोलीय	adj	astronomical; celestial, heavenly
 6190	मस्तूल	noun	mast
 6191	घंटो	noun	vocative plural of घंटा (ghaṇṭā)
-6192	जंजीर	noun	nuqtaless form of ज़ंजीर (zañjīr)
+6192	ज़ंजीर	noun	nuqtaless form of ज़ंजीर (zañjīr)
 6193	कलह	noun	conflict, strife, squabble
 6194	बिंदी	noun	a bindi, a small decorative dot applied to the head in South Asia
 6195	लावा	noun	bringer
@@ -6183,10 +6083,9 @@ rank	word	pos	en
 6197	मास	noun	a month; moon
 6198	व्यय	noun	expenditure, spending
 6199	हिलाने	verb	oblique infinitive
-6200	इलाकों	noun	oblique plural of इलाका (ilākā)
+6200	इलाक़ों	noun	oblique plural of इलाका (ilākā)
 6201	नौकरियाँ	noun	direct plural of नौकरी (naukrī)
 6202	बहुराष्ट्रीय	adj	multinational
-6203	फ्रांसीसी	adj	nuqtaless form of फ़्रांसीसी (frānsīsī)
 6204	सर्वसम्मति	noun	unanimity, complete agreement
 6205	जुए	noun	direct plural; oblique/vocative singular
 6206	ठहर	verb	stem; second-person singular intimate present imperative
@@ -6223,7 +6122,7 @@ rank	word	pos	en
 6237	चरणों	noun	oblique plural of चरण (caraṇ)
 6238	बांझ	adj	infertile, barren
 6239	नावों	noun	oblique plural of नाव (nāv)
-6240	किस्मों	noun	oblique plural of किस्म (qism)
+6240	क़िस्मों	noun	oblique plural of किस्म (qism)
 6241	कथित	adj	said, spoken; narrated
 6242	बारहमासी	adj	perennial, everlasting
 6243	भट्ठी	noun	oven, furnace, kiln
@@ -6313,7 +6212,7 @@ rank	word	pos	en
 6327	औज़ार	noun	tool, instrument
 6328	झूमना	verb	to sway; to rock
 6329	विस्मय	noun	daze, surprise, consternation
-6330	बगावत	noun	nuqtaless form of बग़ावत (baġāvat)
+6330	बग़ावत	noun	nuqtaless form of बग़ावत (baġāvat)
 6331	फोटोग्राफर	noun	nuqtaless form of फ़ोटोग्रफ़र (foṭografar)
 6332	भीतरी	adj	inner
 6333	जीवंत	adj	alive, lively, vivid, animated, vibrant,
@@ -6368,13 +6267,12 @@ rank	word	pos	en
 6382	गहन	adj	dense, crowded; profound
 6383	कोस	noun	a coss; distance equalling about two miles
 6384	प्रदर्शित	adj	shown, exhibited, displayed
-6385	नुस्खे	noun	direct plural; oblique/vocative singular
+6385	नुस्ख़े	noun	direct plural; oblique/vocative singular
 6386	नाली	noun	gutter, ditch, drain
 6387	बरामदा	noun	verandah
 6388	रक्तपात	noun	bloodshed; violence
 6389	स्लाइस	noun	slice (of bread)
 6390	सहर्ष	adv	joyfully, gladly, cheerfully, delightfully
-6391	फौज	noun	nuqtaless form of फ़ौज (fauj)
 6392	जागोगे	verb	second-person familiar masculine future indicative of जागना (jāgnā)
 6393	बाँटने	verb	oblique infinitive
 6394	बनावटी	adj	artificial; counterfeit
@@ -6383,7 +6281,7 @@ rank	word	pos	en
 6397	खोजते	verb	masculine plural habitual participle
 6398	मवेशी	noun	cattle
 6399	आइंदा	adj	coming, future
-6400	फिल्मी	adj	nuqtaless form of फ़िल्मी (filmī)
+6400	फ़िल्मी	adj	nuqtaless form of फ़िल्मी (filmī)
 6401	दुर्भावनापूर्ण	adj	malevolent, malicious
 6402	रवैया	noun	behavior, conduct, manner, attitude
 6403	पाखंडी	noun	a hypocrite, impostor, heretic
@@ -6489,7 +6387,6 @@ rank	word	pos	en
 6504	डैन	noun	synonym of डैना (ḍainā, “wing”)
 6505	गौण	adj	secondary; subsidiary, auxiliary, minor
 6506	इर्द-गिर्द	adv	around, nearby, in the vicinity
-6507	शख्स	noun	nuqtaless form of शख़्स (śaxs)
 6508	पाऊँगी	verb	first-person singular feminine future indicative of पाना (pānā)
 6509	नपुंसक	adj	impotent (incapable of sexual intercourse)
 6510	थक्का	noun	clot, lump, coagulum
@@ -6512,7 +6409,7 @@ rank	word	pos	en
 6527	जमे	verb	masculine plural perfective participle
 6528	धड़	noun	body, main part; torso
 6529	मानकों	noun	oblique plural of मानक (mānak)
-6530	गुलेल	noun	nuqtaless form of ग़ुलेल (ġulel)
+6530	ग़ुलेल	noun	nuqtaless form of ग़ुलेल (ġulel)
 6531	पेचीदा	adj	complex, complicated, tricky, convoluted, labyrinthine
 6532	पकवान	noun	any cooked or prepared food; cooking
 6533	सुशी	noun	sushi
@@ -6654,11 +6551,10 @@ rank	word	pos	en
 6670	टका	noun	a two paisa coin
 6671	नेत्रहीन	adj	visually impaired, blind
 6672	अम्लीय	adj	acidic
-6673	नाखून	noun	nuqtaless form of नाख़ून (nāxūn)
+6673	नाख़ून	noun	nuqtaless form of नाख़ून (nāxūn)
 6674	दाना	noun	grain (collectively)
 6675	तलना	verb	to fry
 6676	कार्यभार	noun	responsibility, charge
-6677	औजार	noun	nuqtaless form of औज़ार (auzār)
 6678	तर्कहीन	adj	illogical, irrational, unreasonable, baseless
 6679	समाधि	noun	grave, tomb, mausoleum
 6680	अवांछित	adj	undesired, unwanted
@@ -6730,7 +6626,7 @@ rank	word	pos	en
 6747	साज़िश	noun	conspiracy, scheme, plot
 6748	दक्षिणपंथी	noun	rightist, right-winger
 6749	होड़	noun	a wager, bet; rivalry, spirit of competition
-6750	सरगना	noun	nuqtaless form of सरग़ना (sarġanā)
+6750	सरग़ना	noun	nuqtaless form of सरग़ना (sarġanā)
 6751	कूटनीति	noun	diplomacy
 6752	टेलीफ़ोन	noun	telephone
 6753	काटी	verb	feminine singular perfective participle
@@ -6762,14 +6658,13 @@ rank	word	pos	en
 6779	गॉर्डन	name	a surname, Gordon, from Scottish Gaelic
 6780	कोरा	adj	blank, empty; unused, new
 6781	खोले	verb	masculine plural perfective participle
-6782	अंग्रेजों	noun	oblique plural of अंग्रेज (aṅgrez)
 6783	छोकरी	noun	young girl
 6784	बर्ख़ास्त	noun	dismissal, firing, removal from office
 6785	क़ायदा	noun	law, rule; custom, practice
 6786	झुंझलाहट	noun	irritation, annoyance
 6787	भटकाना	verb	to cause to stray or to wander, to lead astray
 6788	आतंकवाद	noun	terrorism
-6789	खरीदते	verb	masculine plural habitual participle
+6789	ख़रीदते	verb	masculine plural habitual participle
 6790	निर्वात	noun	vacuum
 6791	मतभेद	noun	discordance, disagreement, schism
 6792	उपायों	noun	oblique plural of उपाय (upāy)
@@ -6796,7 +6691,7 @@ rank	word	pos	en
 6813	प्रशासकों	noun	oblique plural of प्रशासक (praśāsak)
 6814	अपरिपक्व	adj	unripened, immature
 6815	कूप	noun	a well; a hole, hollow, cavity
-6816	खरीदेंगे	verb	first/third-person plural masculine future indicative
+6816	ख़रीदेंगे	verb	first/third-person plural masculine future indicative
 6817	लौटेंगे	verb	first/third-person plural masculine future indicative
 6818	झंझट	noun	difficulty, trouble, issue, problem
 6819	भेजेगा	verb	second-person singular intimate masculine future indicative
@@ -6812,7 +6707,7 @@ rank	word	pos	en
 6829	जमती	verb	feminine singular habitual participle
 6830	जंक्शन	noun	junction
 6831	कन्या	noun	girl; virgin
-6832	खैरात	noun	nuqtaless form of ख़ैरात (xairāt)
+6832	ख़ैरात	noun	nuqtaless form of ख़ैरात (xairāt)
 6833	ख़बर	noun	news; information, intelligence, knowledge
 6834	उपभोक्ताओं	noun	oblique plural of उपभोक्ता (upbhoktā)
 6835	बनवाया	verb	direct masculine singular perfective participle
@@ -6863,7 +6758,7 @@ rank	word	pos	en
 6880	भेजेंगे	verb	first/third-person plural masculine future indicative
 6881	भेद	noun	differentiation, difference
 6882	विक्रय	noun	sale, selling
-6883	गलतियाँ	noun	direct plural of गलती (galtī)
+6883	ग़लतियाँ	noun	direct plural of गलती (galtī)
 6884	जलाकर	verb	conjunctive form of जलाना (jalānā)
 6885	प्रचंड	adj	intense, strong
 6886	झंडी	noun	a small flag
@@ -6872,7 +6767,7 @@ rank	word	pos	en
 6889	कॉफ़ी	noun	coffee
 6890	बेढंग	adj	uncouth
 6891	आदाब	intj	hello, greetings
-6892	अर्ज	noun	nuqtaless form of अर्ज़ (arz)
+6892	अर्ज़	noun	nuqtaless form of अर्ज़ (arz)
 6893	केला	noun	banana; plantain (Musa sapientum)
 6894	छुए	verb	masculine plural perfective participle
 6895	मेज़बान	noun	host (of an event)
@@ -6888,13 +6783,13 @@ rank	word	pos	en
 6905	लुभाने	verb	oblique infinitive
 6906	लेस्टर	name	Leicester (a city in Leicestershire, East Midlands, England)
 6908	सौहार्दपूर्ण	adj	friendly, amicable
-6909	वाकिफ	adj	nuqtaless form of वाक़िफ़ (vāqif)
+6909	वाक़िफ़	adj	nuqtaless form of वाक़िफ़ (vāqif)
 6910	काटकर	verb	conjunctive form of काटना (kāṭnā)
 6911	किन	pron	oblique plural of कौन (kaun, “who”)
 6912	बचाती	verb	feminine singular habitual participle
 6913	चौरासी	num	eighty-four
 6914	धरोहर	noun	heritage, birthright; inheritance
-6915	बाजीगर	noun	nuqtaless form of बाज़ीगर (bāzīgar)
+6915	बाज़ीगर	noun	nuqtaless form of बाज़ीगर (bāzīgar)
 6916	गश्त	noun	patrol, watch
 6917	मारती	verb	feminine singular habitual participle
 6918	यूरोपीय	adj	European
@@ -6922,7 +6817,7 @@ rank	word	pos	en
 6940	गुल	noun	raw or unrefined sugar, molasses, jaggery
 6941	मेज़	noun	table
 6942	बौर	noun	a cluster of blossoms (esp. that of the neem or mango trees)
-6943	ख्वाब	noun	nuqtaless form of ख़्वाब (xvāb)
+6943	ख़्वाब	noun	nuqtaless form of ख़्वाब (xvāb)
 6944	अमूल्य	adj	invaluable (having too great of a value to express)
 6945	उड़ती	verb	feminine singular habitual participle
 6946	खोजकर	verb	conjunctive form of खोजना (khojnā)
@@ -6934,7 +6829,7 @@ rank	word	pos	en
 6952	रीढ़	noun	spine, backbone
 6953	बाज़ार	noun	market; bazaar
 6954	आंदोलनकारी	adj	agitational, agitating, protesting
-6955	हुजूर	noun	nuqtaless form of हुज़ूर (huzūr)
+6955	हुज़ूर	noun	nuqtaless form of हुज़ूर (huzūr)
 6956	इंडिया	name	India (a country in South Asia)
 6957	अफ़रा-तफ़री	noun	stampede; chaos, commotion
 6958	पलटो	verb	second-person familiar future subjunctive
@@ -7326,7 +7221,6 @@ rank	word	pos	en
 7347	मशरूम	noun	mushroom
 7348	कमिश्नर	noun	commissioner
 7349	गुदगुदाना	verb	to tickle, titillate
-7350	इजाजत	noun	nuqtaless form of इजाज़त (ijāzat)
 7351	संस्कारों	noun	oblique plural of संस्कार (sanskār)
 7352	खुलवाने	verb	oblique infinitive
 7353	खायेगी	verb	second-person singular intimate feminine future indicative
@@ -7448,7 +7342,7 @@ rank	word	pos	en
 7469	आँकना	verb	to value, appraise, assess (weight, measure, number, condition)
 7470	सुपुर्द	noun	charge, trust
 7471	मृग	noun	deer; antelope
-7472	कुदरत	noun	divine power, nature
+7472	क़ुदरत	noun	divine power, nature
 7473	मसलन	adv	for example
 7474	हैरत	noun	surprisement; astonishment
 7475	लौटोगे	verb	second-person familiar masculine future indicative of लौटना (lauṭnā)
@@ -7509,7 +7403,7 @@ rank	word	pos	en
 7530	गूँजना	verb	to echo, resound, reverbrate
 7531	यशगान	noun	song of praise, eulogy, praise
 7532	लुढ़को	verb	second-person familiar future subjunctive
-7533	खयालों	noun	nuqtaless form of ख़यालों (xayālõ)
+7533	ख़यालों	noun	nuqtaless form of ख़यालों (xayālõ)
 7534	जुटाना	verb	to gather, amass, accumulate
 7535	लिखाई	noun	writing (act of)
 7536	हिलाकर	verb	conjunctive form of हिलाना (hilānā)
@@ -7604,7 +7498,6 @@ rank	word	pos	en
 7625	छठे	num	direct masculine plural
 7626	स्वाति	name	Swati nakshatra
 7627	सर्किल	noun	circle
-7628	सुकरात	name	nuqtaless form of सुक़रात (suqrāt)
 7629	खुलना	verb	to open, be opened
 7630	यारों	noun	oblique plural of यार (yār)
 7631	अरविंद	noun	lotus
@@ -7616,7 +7509,7 @@ rank	word	pos	en
 7637	चौकों	noun	oblique plural of चौका (caukā)
 7638	चुदाई	noun	sexual intercourse
 7639	लटकते	verb	masculine plural habitual participle
-7640	खरीदे	verb	masculine plural perfective participle
+7640	ख़रीदे	verb	masculine plural perfective participle
 7641	गंगा	name	Ganges, Ganga; a female given name, Ganga, from Sanskrit
 7642	अनन्त	adj	endless, boundless, eternal, infinite
 7643	मनुष्यो	noun	vocative plural of मनुष्य (manuṣya)
@@ -7864,7 +7757,7 @@ rank	word	pos	en
 7886	अटके	verb	masculine plural perfective participle
 7887	लटकाना	verb	to hang, suspend
 7888	अफ़ीमची	noun	opium-addict; druggie
-7889	खत	noun	nuqtaless form of ख़त (xat)
+7889	ख़त	noun	nuqtaless form of ख़त (xat)
 7890	प्राग	name	Prague (the capital city of the Czech Republic)
 7891	पिंड	noun	lump, ball, something round
 7892	बचायेगी	verb	second-person singular intimate feminine future indicative
@@ -7934,7 +7827,7 @@ rank	word	pos	en
 7956	चलों	noun	oblique plural of चल (cal)
 7957	काँख	noun	armpit
 7958	देवदार	noun	the Himalayan cedar, deodar, Cedrus deodara
-7959	करीब-करीब	adv	nuqtaless form of क़रीब-क़रीब (qarīb-qarīb)
+7959	क़रीब-क़रीब	adv	nuqtaless form of क़रीब-क़रीब (qarīb-qarīb)
 7960	आहा	intj	oh, ah (human scream)
 7961	मछलियों	noun	oblique plural of मछली (machlī)
 7962	बचीं	verb	feminine plural perfective participle
@@ -8076,7 +7969,7 @@ rank	word	pos	en
 8101	लगवा	verb	stem; second-person singular intimate present imperative
 8102	अलिखित	adj	unwritten
 8103	घोल	noun	mixture, mix (in which something is dissolved)
-8104	जिंदाबाद	noun	long live...!
+8104	ज़िंदाबाद	noun	long live...!
 8105	वास्ता	noun	something intermediate or between
 8106	लगाऊँगा	verb	first-person singular masculine future indicative of लगाना (lagānā)
 8107	पिस	verb	stem; second-person singular present imperative
@@ -8124,7 +8017,6 @@ rank	word	pos	en
 8149	दिलायी	verb	feminine singular perfective participle
 8150	उठीं	verb	feminine plural perfective participle
 8151	रामबाण	noun	a potent and effective medicine, elixir
-8152	आजमाना	verb	nuqtaless form of आज़माना (āzmānā)
 8153	खटमल	noun	bedbug
 8154	मायूस	adj	despondent, heartsick, despirited, downcast
 8155	छठा	num	sixth
@@ -8198,7 +8090,7 @@ rank	word	pos	en
 8225	पाजी	noun	term of address to men of the same age, common among Punjabis
 8226	चिपकी	verb	feminine singular perfective participle
 8227	प्राधिकार	noun	authority, power
-8228	किलों	noun	oblique plural of किला (qilā)
+8228	क़िलों	noun	oblique plural of किला (qilā)
 8229	प्रज्वलन	noun	ignition, kindling, flaming
 8230	कक्षों	noun	oblique plural of कक्ष (kakṣ)
 8231	विद्रोही	adj	rebellious, revolutionary
@@ -8402,7 +8294,7 @@ rank	word	pos	en
 8430	खाके	verb	conjunctive form of खाना (khānā)
 8431	पंजा	noun	paw; claw; the hand
 8435	मर्ज	noun	nuqtaless form of मर्ज़ (marz)
-8436	इंतकाल	noun	nuqtaless form of इंतक़ाल (intaqāl)
+8436	इंतक़ाल	noun	nuqtaless form of इंतक़ाल (intaqāl)
 8437	अख़बार	noun	newspaper
 8438	लगवाना	verb	to cause to be attached, applied, put
 8439	लौटते	verb	masculine plural habitual participle
@@ -8463,7 +8355,7 @@ rank	word	pos	en
 8494	सीलिंग	noun	ceiling
 8495	अराजक	adj	anarchic, anarchical
 8496	भूतल	noun	ground, floor, surface of the Earth
-8497	अगवा	noun	nuqtaless form of अग़वा (aġvā)
+8497	अग़वा	noun	nuqtaless form of अग़वा (aġvā)
 8498	ठहरें	verb	first/third-person plural future subjunctive
 8499	हमबिस्तरी	noun	sharing the same bed, sex, copulation
 8500	आड़ा	adj	crooked, diagonal, slanted
@@ -8586,7 +8478,7 @@ rank	word	pos	en
 8617	प्रतिलिपियाँ	noun	direct plural of प्रतिलिपि (pratilipi)
 8618	आसक्त	adj	strongly attached to
 8619	वैक्सीन	noun	vaccine; vaccination
-8620	दवाखाना	noun	nuqtaless form of दवाख़ाना (davāxānā)
+8620	दवाख़ाना	noun	nuqtaless form of दवाख़ाना (davāxānā)
 8621	आँकड़े	noun	direct plural; oblique/vocative singular
 8622	तिनका	noun	straw (dried stalks of a grain)
 8623	खटारा	adj	working flakily; barely functioning; decrepit; wrecky; rickety; ramshackle; useless
@@ -8602,7 +8494,7 @@ rank	word	pos	en
 8633	मुहिम	noun	campaign; voyage, expedition
 8634	ढूँढ़ूँगा	verb	first-person singular masculine future indicative of ढूँढ़ना (ḍhū̃ṛhnā)
 8635	साया	noun	shadow; shade
-8636	अक्ल	noun	understanding, wisdom
+8636	अक़्ल	noun	understanding, wisdom
 8637	यहाँ-वहाँ	adv	here and there
 8638	भागता	verb	direct masculine singular habitual participle
 8639	नौबत	noun	condition, circumstances, period (favourable for something to happen); a chance
@@ -8616,7 +8508,7 @@ rank	word	pos	en
 8647	लिहाज़ा	adv	thus, so
 8648	प्रवासी	noun	migrant, emigrant, expatriate
 8649	पाक	adj	clean, pure
-8650	अफसर	noun	nuqtaless form of अफ़सर (afsar)
+8650	अफ़सर	noun	nuqtaless form of अफ़सर (afsar)
 8651	रातोंरात	adv	overnight
 8652	टटोलना	verb	to feel, grope; fumble
 8653	बिंदास	adj	carefree, relaxed
@@ -8940,7 +8832,7 @@ rank	word	pos	en
 8972	पृथक	adj	separate, distinct
 8973	सहेजना	verb	to preserve, save
 8974	ढुलाई	noun	carrying, transporting (as of goods)
-8975	काजी	noun	qadi
+8975	क़ाज़ी	noun	qadi
 8976	पगडंडी	noun	track, footpath (a trail used by pedestrians)
 8977	हकलाना	verb	to stutter, stammer
 8978	खोदी	verb	feminine singular perfective participle
@@ -8955,7 +8847,7 @@ rank	word	pos	en
 8987	जिनपर	pron	upon whom, upon which
 8988	इतराना	verb	to strut, swagger
 8989	चौकन्ना	adj	alert, vigilant, watchful, on guard
-8990	फिल्माना	verb	nuqtaless form of फ़िल्माना (filmānā)
+8990	फ़िल्माना	verb	nuqtaless form of फ़िल्माना (filmānā)
 8991	अपशब्दों	noun	oblique plural of अपशब्द (apśabd)
 8992	सीमाएँ	noun	direct plural of सीमा (sīmā)
 8993	पिक्चर	noun	movie, film
@@ -9027,7 +8919,7 @@ rank	word	pos	en
 9059	किरदार	noun	character; contribution
 9060	रूह	noun	soul, spirit
 9061	छीनने	verb	oblique infinitive
-9062	खाकी	adj	nuqtaless form of ख़ाकी (xākī)
+9062	ख़ाकी	adj	nuqtaless form of ख़ाकी (xākī)
 9063	महिलाओ	noun	vocative plural of महिला (mahilā)
 9064	पचाना	verb	to digest; to ferment; fizz
 9065	निकालकर	verb	conjunctive form of निकालना (nikālnā)
@@ -9158,7 +9050,7 @@ rank	word	pos	en
 9190	संस्करणों	noun	oblique plural of संस्करण (sanskaraṇ)
 9191	पहुँचेगी	verb	second-person singular intimate feminine future indicative
 9192	परिसंघ	noun	confederation
-9193	तरबूज	noun	nuqtaless form of तरबूज़ (tarbūz)
+9193	तरबूज़	noun	nuqtaless form of तरबूज़ (tarbūz)
 9194	भुनना	verb	to be dehydrated, parched, dry
 9195	पैदाइशी	adj	innate, intrinsic, natural
 9196	छापने	verb	oblique infinitive
@@ -9168,12 +9060,12 @@ rank	word	pos	en
 9200	रुकती	verb	feminine singular habitual participle
 9201	रुकेगी	verb	second-person singular intimate feminine future indicative
 9202	जगाए	verb	masculine plural perfective participle
-9203	खरीदेगा	verb	second-person singular intimate masculine future indicative
+9203	ख़रीदेगा	verb	second-person singular intimate masculine future indicative
 9204	अंडाशय	noun	ovary
 9205	नतीजतन	adv	consequently, as a result, thus
 9206	देहांत	noun	death
 9207	उड़ना	verb	to fly, soar, glide
-9208	कैंची	noun	nuqtaless form of क़ैंची (qa͠icī)
+9208	क़ैंची	noun	nuqtaless form of क़ैंची (qa͠icī)
 9209	दालचीनी	noun	cinnamon
 9210	हाला	noun	wine; fermented grape juice
 9211	करवाती	verb	feminine singular habitual participle
@@ -9196,7 +9088,7 @@ rank	word	pos	en
 9228	कुदाल	noun	hoe
 9229	तप	noun	devout austerity; asceticism
 9230	बेजान	adj	lifeless, inert
-9231	तकदीर	noun	nuqtaless form of तक़दीर (taqdīr)
+9231	तक़दीर	noun	nuqtaless form of तक़दीर (taqdīr)
 9232	भेदी	adj	splitting, dividing
 9233	ढाये	verb	masculine plural perfective participle
 9234	सावन	noun	the fifth month of the Hindu calendar
@@ -9250,7 +9142,7 @@ rank	word	pos	en
 9282	ढोंग	noun	deception, deceit, pretence, sham, trickery, fraud
 9283	पीनी	verb	feminine singular infinitive participle of पीना (pīnā)
 9284	सतर्कता	noun	alertness, vigilance, caution, watchfulness, carefulness
-9285	ताल्लुक	noun	nuqtaless form of ताल्लुक़ (tālluq)
+9285	ताल्लुक़	noun	nuqtaless form of ताल्लुक़ (tālluq)
 9286	चिकना	adj	smooth, polished; slippery
 9287	प्रवण	adj	inclined to, predisposed to
 9288	पाबंदी	noun	restriction, curtailment
@@ -9343,7 +9235,7 @@ rank	word	pos	en
 9376	समानांतर	adj	parallel
 9377	पतलू	noun	skinny one
 9378	हेलीकॉप्टर	noun	helicopter
-9379	जरूरतें	noun	direct plural of जरूरत (jarūrat)
+9379	ज़रूरतें	noun	direct plural of जरूरत (jarūrat)
 9380	बॉयफ़्रेंड	noun	boyfriend
 9381	सोचेंगी	verb	first/third-person plural feminine future indicative
 9382	गे	noun	gay, homosexual

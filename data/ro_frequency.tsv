@@ -2,7 +2,6 @@ rank	word	pos	en
 1	de	prep	of, from (material, origin, source); to (with a verb: de făcut)
 2	nu	adv	no; not
 3	să	conj	Subordinative conjunction: to
-4	si	noun	si (musical note B)
 5	o	article	a, an (feminine); her, it (object pronoun); will (in o să + verb)
 6	în	prep	in, into, within
 7	ce	pron	what
@@ -117,7 +116,6 @@ rank	word	pos	en
 116	vei	verb	will
 117	bun	adj	good
 118	sigur	adj	sure, certain to be true
-119	as	noun	ace
 120	vor	verb	third-person plural present indicative of vrea
 121	vrea	verb	to want; Used to form other tenses.
 122	mare	adj	big, large, great
@@ -706,7 +704,6 @@ rank	word	pos	en
 710	însă	conj	but, yet, however
 711	afaceri	noun	plural of afacere
 712	plăcea	verb	to please; to be pleasant, pleasing
-713	vad	noun	ford
 714	mâncare	noun	food
 715	ajung	verb	first-person singular present indicative/subjunctive
 716	picioare	noun	indefinite nominative/accusative/genitive/dative plural of picior
@@ -726,7 +723,6 @@ rank	word	pos	en
 730	deoarece	conj	since, because
 731	lucrez	verb	first-person singular present indicative of lucra
 732	luptă	noun	fight, battle, struggle (f.) — o luptă grea “a hard fight”, am ieșit din luptă “I got out of the fight”; also he/she fights and the imperative fight! (a lupta: Luptă! “Fight!”, Ridică-te și luptă “Get up and fight”)
-733	cat	noun	floor (storey)
 734	film	noun	movie, film
 735	întrebat	verb	past participle of întreba
 736	prietene	noun	indefinite plural
@@ -737,7 +733,6 @@ rank	word	pos	en
 741	mor	verb	first-person singular present indicative/subjunctive
 742	vedere	noun	sight (the act of seeing)
 743	iubito	noun	vocative singular of iubită
-744	politie	noun	polity, state, republic
 745	seară	noun	evening
 746	apa	noun	definite nominative/accusative singular of apă (“water”)
 747	dăm	verb	first-person plural present indicative/subjunctive of da
@@ -2333,7 +2328,6 @@ rank	word	pos	en
 2341	familiile	noun	definite nominative/accusative plural of familie
 2342	sărutat	noun	kiss
 2343	altora	pron	genitive/dative plural of altul
-2344	statie	noun	article of a document
 2345	greșit	adj	wrong
 2346	pază	noun	guard; watch (act of guarding)
 2347	ridice	verb	third-person plural present subjunctive of ridica
@@ -2691,7 +2685,6 @@ rank	word	pos	en
 2701	state	noun	plural of stat
 2702	calculator	noun	calculator (device)
 2703	trai	noun	living
-2704	dam	noun	cowshed
 2705	oxigen	noun	oxygen (chemical element)
 2706	lux	noun	lux
 2707	bicicleta	noun	definite nominative/accusative singular of bicicletă
@@ -4643,7 +4636,7 @@ rank	word	pos	en
 4658	price	noun	disagreement, argument
 4659	oaie	noun	sheep (general)
 4660	promovare	noun	promotion
-4661	smecher	adj	sly, crafty; cool, awesome
+4661	șmecher	adj	sly, crafty; cool, awesome
 4662	plumb	noun	lead (metal); lead (chemical element)
 4663	hercule	noun	hercules; Hercules
 4665	traseu	noun	route
@@ -4674,7 +4667,7 @@ rank	word	pos	en
 4690	pătruns	adj	pierced; well-done (about food)
 4691	ansamblu	noun	ensemble
 4692	umilit	adj	humiliated
-4693	pasaport	noun	passport
+4693	pașaport	noun	passport
 4694	produc	verb	first-person singular present indicative/subjunctive
 4695	delicioasă	adj	nominative/accusative feminine singular of delicios
 4696	mări	noun	"plural of mare (""sea"")"
@@ -5129,7 +5122,6 @@ rank	word	pos	en
 5147	asumat	noun	assumption
 5148	observe	verb	third-person singular/plural present subjunctive of observa
 5149	grevă	noun	strike (work stoppage)
-5150	pastra	noun	A card game.
 5151	informa	verb	to inform
 5152	comic	adj	comical
 5153	misterioasă	adj	nominative/accusative feminine singular of misterios
@@ -5475,7 +5467,7 @@ rank	word	pos	en
 5493	dealer	noun	dealer
 5494	circul	verb	first-person singular present indicative/subjunctive of circula
 5495	mini	adj	mini
-5496	scolar	adj	schoolboy
+5496	școlar	adj	schoolboy
 5497	tâmpită	noun	female equivalent of tâmpit
 5498	mâncând	verb	gerund of mânca (“eating”)
 5499	operat	adj	operated
@@ -5872,7 +5864,7 @@ rank	word	pos	en
 5890	stelelor	noun	definite genitive/dative/vocative plural of stea
 5891	satan	noun	devil, Satan; evil man
 5892	pricina	noun	definite nominative/accusative singular of pricină
-5893	postal	adj	postal
+5893	poștal	adj	postal
 5894	complot	noun	complot, conspiracy
 5895	chineză	adj	nominative/accusative feminine singular of chinez
 5896	ancora	verb	to anchor
@@ -6321,7 +6313,6 @@ rank	word	pos	en
 6341	vopsit	adj	painted
 6342	antrena	verb	to train; to train, to coach
 6343	înnebuni	verb	to go mad; to drive crazy
-6344	zahar	noun	sugar (class of molecules)
 6345	înving	verb	first-person singular present indicative/subjunctive
 6346	încurajat	adj	encouraged
 6347	seminar	noun	seminar
@@ -6353,7 +6344,6 @@ rank	word	pos	en
 6374	container	noun	shipping container
 6375	scorpion	noun	scorpion
 6376	amendament	noun	amendment
-6377	pasare	noun	passing
 6378	formidabil	adj	formidable
 6379	fermecat	adj	charmed
 6380	concret	adj	concrete
@@ -7979,7 +7969,7 @@ rank	word	pos	en
 8006	pedofil	noun	pedophile
 8007	latură	noun	side; aspect
 8008	creator	adj	creative
-8009	stampila	verb	to stamp
+8009	ștampila	verb	to stamp
 8010	teză	noun	thesis — a proposition put forward and argued; (school) an end-of-term written examination paper (f., pl. teze) — teză de doctorat “doctoral thesis”, teză la matematică “end-of-term maths paper”
 8011	cazare	noun	accommodation
 8012	culturii	noun	definite genitive/dative singular of cultură
@@ -9244,7 +9234,7 @@ rank	word	pos	en
 9274	culeg	verb	first-person singular present indicative/subjunctive
 9275	portabil	adj	portable
 9276	regala	verb	to feast
-9277	cosciug	noun	coffin
+9277	coșciug	noun	coffin
 9278	hoț	noun	thief
 9279	alpinism	noun	mountaineering
 9280	cititul	adj	definite nominative/accusative masculine/neuter singular of citit
