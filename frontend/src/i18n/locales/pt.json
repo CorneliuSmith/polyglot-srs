@@ -1782,7 +1782,11 @@
     "baselineCoverage": "Estas linhas mostram {{covered}} de {{total}} formas de letras.",
     "baselineFinish": "Concluir",
     "baselineNotToday": "Você já definiu uma referência hoje; volte amanhã para refazê-la.",
-    "baselineEmpty": "Este curso ainda não tem linhas para uma referência."
+    "baselineEmpty": "Este curso ainda não tem linhas para uma referência.",
+    "neatRelGood": "como de costume",
+    "neatRelOk": "abaixo do seu habitual",
+    "neatRelPoor": "bem abaixo do seu habitual",
+    "neatRelHint": "Medido a partir dos seus traços neste aparelho e comparado com a sua referência — a sua letra habitual, não uma barra fixa."
   },
   "more": {
     "donateTea": "Me pague um chá 🍵",

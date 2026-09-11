@@ -750,6 +750,17 @@ become unlimited spend; the end stamps `stats.baseline_at` and the
 coverage reached, the zero point for the Progress trend and for the
 personal neatness of Phase D.
 
+**Personal neatness** (§12 D). The panel's four verdicts are absolute
+until a baseline exists; after one they are *relative*: `neatness.ts`
+exposes the raw measures (drift, wobble, size and spacing coefficients
+of variation, slant spread), the baseline session averages the confirmed
+lines' measures into the writer's *usual* (`stats.baseline_neatness`,
+stored by `POST /api/write/baseline/done`), and `neatnessRelative` grades
+each session as a ratio of that usual — within 15 % is "as your usual",
+up to half again "below your usual", past that "well below". Each ratio
+has a floor so a very tidy baseline does not turn ordinary wobble into a
+collapse. The panel says which yardstick it is using.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of

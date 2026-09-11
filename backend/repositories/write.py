@@ -225,7 +225,8 @@ def readout(stats: dict) -> dict:
     return {"right": right, "wrong": wrong, "total": right + wrong,
             "letters_to_watch": [{"letter": k, "count": int(v)} for k, v in watch],
             "legibility_mean": stats.get("legibility_mean"),
-            "history": stats.get("history") or []}
+            "history": stats.get("history") or [],
+            "baseline_neatness": stats.get("baseline_neatness")}
 
 
 def _loads(value, default):
@@ -480,8 +481,26 @@ async def baseline_state(conn: asyncpg.Connection, user_id: str,
             "last": last}
 
 
+_NEATNESS_KEYS = ("drift", "wobble", "sizeCv", "slantSd", "spacingCv", "clusters")
+
+
+def _clean_neatness(value) -> dict | None:
+    """The client's averaged measures, numbers only, nothing else."""
+    if not isinstance(value, dict):
+        return None
+    out = {}
+    for k in _NEATNESS_KEYS:
+        v = value.get(k)
+        if v is None:
+            out[k] = None
+        elif isinstance(v, (int, float)) and not isinstance(v, bool):
+            out[k] = round(float(v), 4)
+    return out if any(v is not None for v in out.values()) else None
+
+
 async def record_baseline(conn: asyncpg.Connection, user_id: str,
-                          language_id: str, coverage: dict | None = None) -> dict:
+                          language_id: str, coverage: dict | None = None,
+                          neatness: dict | None = None) -> dict:
     """The session is done: stamp the profile. The zero point for the
     Progress trend and the personal neatness of Phase D."""
     if not await _hand_tables(conn):
@@ -496,6 +515,11 @@ async def record_baseline(conn: asyncpg.Connection, user_id: str,
     if coverage:
         stats["baseline_coverage"] = {"covered": int(coverage.get("covered", 0)),
                                       "total": int(coverage.get("total", 0))}
+    # The writer's usual (§12 D): the panel judges later sessions against
+    # it. A redo replaces it; a baseline of skipped lines leaves it alone.
+    cleaned = _clean_neatness(neatness)
+    if cleaned:
+        stats["baseline_neatness"] = cleaned
     await _save_profile(conn, user_id, language_id, habits, stats)
     return stats
 

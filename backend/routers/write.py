@@ -344,6 +344,7 @@ class BaselineDone(BaseModel):
     language_id: str
     covered: int | None = None
     total: int | None = None
+    neatness: dict | None = None
 
 
 @router.get("/baseline")
@@ -371,6 +372,7 @@ async def baseline_done(body: BaselineDone, user: dict = Depends(get_current_use
         stats = await record_baseline(
             conn, user["id"], body.language_id,
             {"covered": body.covered, "total": body.total}
-            if body.covered is not None else None)
+            if body.covered is not None else None,
+            neatness=body.neatness)
     return {"baseline_at": stats.get("baseline_at"), "baselines": stats.get("baselines", 0)}
 

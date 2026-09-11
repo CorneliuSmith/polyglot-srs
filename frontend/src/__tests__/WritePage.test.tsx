@@ -320,7 +320,7 @@ describe('WritePage', () => {
     expect(summary).toHaveTextContent(/1 of 2 lines right/)
     expect(summary).toHaveTextContent(/30 of 40/)
     expect(summary).toHaveTextContent('ы')
-    await waitFor(() => expect(mockFinish).toHaveBeenCalledWith({ languageId: 'lang-ru', covered: 30, total: 40 }))
+    await waitFor(() => expect(mockFinish).toHaveBeenCalledWith(expect.objectContaining({ languageId: 'lang-ru', covered: 30, total: 40 })))
     fireEvent.click(screen.getByTestId('baseline-finish'))
     expect(await screen.findByTestId('kind-free')).toBeInTheDocument()
   })

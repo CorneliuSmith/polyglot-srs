@@ -313,7 +313,8 @@ class TestReadout:
         assert [x["letter"] for x in r["letters_to_watch"]] == ["أ", "د", "е", "м", "о"]
         assert r["history"] == [3, 4]
         assert readout({}) == {"right": 0, "wrong": 0, "total": 0, "letters_to_watch": [],
-                               "legibility_mean": None, "history": []}
+                               "legibility_mean": None, "history": [],
+                               "baseline_neatness": None}
 
     def test_habit_counts_only_repeat_offenders(self):
         habits = [{"letter": "д", "count": 3}, {"letter": "е", "count": 1}]
@@ -709,15 +710,20 @@ class TestBaseline:
         assert body["allowed"] is client.hand
         assert body["adapt"] is client.hand
 
-    def test_done_stamps_the_profile(self, client):
+    def test_done_stamps_the_profile_with_the_writers_usual(self, client):
         resp = client.post("/api/write/baseline/done", headers=_auth_headers(),
-                           json={"language_id": TEST_LANGUAGE_ID, "covered": 90, "total": 100})
+                           json={"language_id": TEST_LANGUAGE_ID, "covered": 90, "total": 100,
+                                 "neatness": {"drift": 0.0123456, "wobble": 0.1, "sizeCv": 0.3,
+                                              "slantSd": None, "spacingCv": 0.4, "clusters": 7,
+                                              "junk": "ignored"}})
         assert resp.status_code == 200, resp.text
         saves = _executed(client, "INSERT INTO writing_profiles")
         if client.hand:
             assert saves
             stats = json.loads(saves[-1][4])
             assert stats["baselines"] == 1 and stats["baseline_coverage"] == {"covered": 90, "total": 100}
+            assert stats["baseline_neatness"] == {"drift": 0.0123, "wobble": 0.1, "sizeCv": 0.3,
+                                                  "slantSd": None, "spacingCv": 0.4, "clusters": 7.0}
         else:
             assert not saves and resp.json()["baselines"] == 0
 

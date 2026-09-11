@@ -1782,7 +1782,11 @@
     "baselineCoverage": "Estas líneas muestran {{covered}} de {{total}} formas de letras.",
     "baselineFinish": "Listo",
     "baselineNotToday": "Ya configuraste una línea base hoy; vuelve mañana para rehacerla.",
-    "baselineEmpty": "Este curso aún no tiene líneas para una línea base."
+    "baselineEmpty": "Este curso aún no tiene líneas para una línea base.",
+    "neatRelGood": "como de costumbre",
+    "neatRelOk": "por debajo de lo habitual",
+    "neatRelPoor": "muy por debajo de lo habitual",
+    "neatRelHint": "Medido a partir de tus trazos en este dispositivo y comparado con tu línea base: tu letra habitual, no un listón fijo."
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",

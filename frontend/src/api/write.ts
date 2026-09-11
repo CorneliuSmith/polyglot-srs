@@ -58,6 +58,16 @@ export interface HandReadout {
   letters_to_watch: { letter: string; count: number }[]
   legibility_mean: number | null
   history: number[]
+  /** The writer's usual, from their baseline session — the yardstick
+   * the neatness panel uses when present (§12 D). */
+  baseline_neatness?: {
+    drift: number
+    wobble: number
+    sizeCv: number
+    slantSd: number | null
+    spacingCv: number | null
+    clusters: number
+  } | null
 }
 
 export interface Misread {
@@ -192,10 +202,15 @@ export async function finishWriteBaseline(args: {
   languageId: string
   covered: number
   total: number
+  /** The average of the eight lines' raw neatness measures — the writer's usual. */
+  neatness?: HandReadout['baseline_neatness']
 }): Promise<{ baseline_at: string | null; baselines: number }> {
   const response = await apiClient.post<{ baseline_at: string | null; baselines: number }>(
     '/api/write/baseline/done',
-    { language_id: args.languageId, covered: args.covered, total: args.total },
+    {
+      language_id: args.languageId, covered: args.covered, total: args.total,
+      neatness: args.neatness ?? null,
+    },
   )
   return response.data
 }

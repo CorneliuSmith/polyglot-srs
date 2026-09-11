@@ -112,7 +112,8 @@ items are built on request, in a session.
   M"; letters it trips on; "again — 3×" on repeated notes; Progress
   strip; per-course aggregate in Workspace → Insights) — **built 11 Sep
   2026**. The **baseline session** — **built 11 Sep 2026** (Write → "Set
-  up my hand", Account → same) — eight prompts covering every letter in every
+  up my hand", Account → same), and with it **personal neatness** — the
+  panel judges against your own baseline once you have one — eight prompts covering every letter in every
   form, each confirmed by the writer, so the reader has the hand in one
   sitting and the Progress trend has a zero point.
 

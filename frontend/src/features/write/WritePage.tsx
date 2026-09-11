@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Check, Eraser, Loader2, Undo2 } from 'lucide-react'
 import {
   assessWriting,
@@ -25,8 +25,8 @@ import InkCanvas from './InkCanvas'
 import { compactStrokes, hasInk } from './ink'
 import type { Stroke } from './ink'
 import { renderInkToPng } from './inkExport'
-import { neatness } from './neatness'
-import type { Verdict } from './neatness'
+import { averageMeasures, measures, neatness, neatnessRelative } from './neatness'
+import type { NeatnessMeasures, Verdict } from './neatness'
 import { defaultStyle, ensureHandFont, handFontFor, hasCursiveToggle } from './handFont'
 
 /** What the learner is writing against. `own` is text they typed
@@ -39,6 +39,8 @@ interface BaselineRun {
   info: WriteBaseline
   index: number
   results: { right: boolean; misread: Misread[] }[]
+  /** Each confirmed line's raw neatness — averaged into the writer's usual. */
+  measures: NeatnessMeasures[]
   done: boolean
 }
 
@@ -68,6 +70,7 @@ export default function WritePage() {
   const navigate = useNavigate()
   const location = useLocation()
   const { t } = useTranslation()
+  const queryClient = useQueryClient()
   const activeLanguageId = usePrefsStore((s) => s.activeLanguageId)
 
   const { data: languages = [] } = useQuery({
@@ -136,7 +139,13 @@ export default function WritePage() {
     : kind === 'free' ? null
     : (current?.answer ?? null)
 
-  const report = useMemo(() => neatness(strokes), [strokes])
+  // Against the writer's own usual once a baseline exists; fixed bars
+  // before that (§12 D).
+  const usual = profile?.readout?.baseline_neatness ?? null
+  const report = useMemo(
+    () => (usual ? neatnessRelative(strokes, usual) : neatness(strokes)),
+    [strokes, usual],
+  )
   const inked = hasInk(strokes)
   const meter = allowance ?? status?.allowance ?? null
 
@@ -219,7 +228,7 @@ export default function WritePage() {
         setBaselineError(t('write.baselineEmpty'))
         return
       }
-      setBaseline({ info, index: 0, results: [], done: false })
+      setBaseline({ info, index: 0, results: [], measures: [], done: false })
       reset()
     },
     onError: () => setBaselineError(t('write.checkFailed')),
@@ -228,14 +237,21 @@ export default function WritePage() {
     mutationFn: (run: BaselineRun) =>
       finishWriteBaseline({
         languageId: activeLanguageId!, covered: run.info.covered, total: run.info.total,
+        neatness: averageMeasures(run.measures),
       }),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ['hand-profile'] }),
   })
-  const advanceBaseline = (verdict: { right: boolean; misread: Misread[] }) => {
+  const advanceBaseline = (verdict: { right: boolean; misread: Misread[] }, skipped = false) => {
+    // A confirmed line's measures are the writer's usual; a skipped one is not.
+    const m = skipped ? null : measures(strokes)
     setBaseline((b) => {
       if (!b) return b
       const results = [...b.results, verdict]
       const last = b.index + 1 >= b.info.prompts.length
-      const next = { ...b, results, index: b.index + 1, done: last }
+      const next = {
+        ...b, results, index: b.index + 1, done: last,
+        measures: m ? [...b.measures, m] : b.measures,
+      }
       if (last) finishBaseline.mutate(next)
       return next
     })
@@ -245,7 +261,7 @@ export default function WritePage() {
     setLearned(null)
     setError(null)
   }
-  const skipBaseline = () => advanceBaseline({ right: false, misread: [] })
+  const skipBaseline = () => advanceBaseline({ right: false, misread: [] }, true)
   const leaveBaseline = () => {
     setBaseline(null)
     reset()
@@ -646,10 +662,11 @@ function NeatnessPanel({
     { key: 'slant', label: t('write.neatSlant'), verdict: report.slant },
     { key: 'spacing', label: t('write.neatSpacing'), verdict: report.spacing },
   ]
+  const rel = !!report.relative
   const word = (v: Verdict) =>
-    v === 'good' ? t('write.neatGood')
-    : v === 'ok' ? t('write.neatOk')
-    : v === 'poor' ? t('write.neatPoor')
+    v === 'good' ? t(rel ? 'write.neatRelGood' : 'write.neatGood')
+    : v === 'ok' ? t(rel ? 'write.neatRelOk' : 'write.neatOk')
+    : v === 'poor' ? t(rel ? 'write.neatRelPoor' : 'write.neatPoor')
     : t('write.neatNa')
   const tone = (v: Verdict) =>
     v === 'good' ? 'text-green-700'
@@ -669,7 +686,9 @@ function NeatnessPanel({
           </div>
         ))}
       </dl>
-      <p className="mt-2 text-[11px] leading-snug text-gray-400">{t('write.neatHint')}</p>
+      <p className="mt-2 text-[11px] leading-snug text-gray-400">
+        {rel ? t('write.neatRelHint') : t('write.neatHint')}
+      </p>
     </div>
   )
 }

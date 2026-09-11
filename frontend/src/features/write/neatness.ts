@@ -25,6 +25,9 @@ export interface NeatnessReport {
   /** Ink groups the measures were taken over — roughly letters or joined
    * runs. Exposed so a caller can say "not enough written yet". */
   clusters: number
+  /** True when the verdicts are against the writer's own baseline rather
+   * than fixed thresholds (§12 D). */
+  relative?: boolean
 }
 
 interface Cluster {
@@ -121,6 +124,93 @@ function strokeSlantDeg(stroke: Stroke): number | null {
   while (deg <= -90) deg += 180
   while (deg > 90) deg -= 180
   return deg
+}
+
+/** The raw numbers behind the verdicts — what a baseline stores as the
+ * writer's usual, so later sessions can be judged against it (§12 D). */
+export interface NeatnessMeasures {
+  drift: number
+  wobble: number
+  sizeCv: number
+  slantSd: number | null
+  spacingCv: number | null
+  clusters: number
+}
+
+export function measures(strokes: Stroke[]): NeatnessMeasures | null {
+  const clusters = clusterStrokes(strokes)
+  if (clusters.length < MIN_CLUSTERS) return null
+  const heights = clusters.map((c) => c.maxY - c.minY)
+  const medianHeight =
+    [...heights].sort((a, b) => a - b)[Math.floor(heights.length / 2)] || 1
+  const centres = clusters.map((c) => (c.minX + c.maxX) / 2)
+  const bottoms = clusters.map((c) => c.maxY)
+  const fitted = slope(centres, bottoms)
+  const mx = mean(centres)
+  const my = mean(bottoms)
+  const residuals = bottoms.map((y, i) => y - (my + Math.tan(fitted) * (centres[i] - mx)))
+  const slants = strokes.map(strokeSlantDeg).filter((d): d is number => d !== null)
+  const gaps: number[] = []
+  for (let i = 1; i < clusters.length; i++) {
+    gaps.push(Math.max(0, clusters[i].minX - clusters[i - 1].maxX))
+  }
+  return {
+    drift: Math.abs(fitted),
+    wobble: stddev(residuals) / medianHeight,
+    sizeCv: cv(heights),
+    slantSd: slants.length >= 3 ? stddev(slants) : null,
+    spacingCv: gaps.length >= 3 && mean(gaps) > 0 ? cv(gaps) : null,
+    clusters: clusters.length,
+  }
+}
+
+/** Average of several sessions' measures — the baseline's eight lines
+ * become one "usual". Nulls are skipped per field. */
+export function averageMeasures(all: NeatnessMeasures[]): NeatnessMeasures | null {
+  if (all.length === 0) return null
+  const avg = (pick: (m: NeatnessMeasures) => number | null): number | null => {
+    const xs = all.map(pick).filter((x): x is number => x !== null)
+    return xs.length ? Math.round(mean(xs) * 10000) / 10000 : null
+  }
+  return {
+    drift: avg((m) => m.drift) ?? 0,
+    wobble: avg((m) => m.wobble) ?? 0,
+    sizeCv: avg((m) => m.sizeCv) ?? 0,
+    slantSd: avg((m) => m.slantSd),
+    spacingCv: avg((m) => m.spacingCv),
+    clusters: Math.round(avg((m) => m.clusters) ?? 0),
+  }
+}
+
+/**
+ * Verdicts against the writer's OWN usual (§12 D): each measure as a
+ * ratio of the baseline's, with a floor so a very tidy baseline does not
+ * make ordinary wobble read as a collapse. Within 15 % of usual is
+ * "as usual"; up to half again is "below usual"; past that, well below.
+ */
+export function neatnessRelative(strokes: Stroke[], usual: NeatnessMeasures): NeatnessReport {
+  const m = measures(strokes)
+  const na: NeatnessReport = {
+    baseline: 'na', size: 'na', slant: 'na', spacing: 'na',
+    clusters: m?.clusters ?? 0, relative: true,
+  }
+  if (!m) return na
+  const rel = (value: number | null, base: number | null, floor: number): Verdict => {
+    if (value === null || base === null) return 'na'
+    const ratio = value / Math.max(base, floor)
+    return ratio <= 1.15 ? 'good' : ratio <= 1.5 ? 'ok' : 'poor'
+  }
+  const order: Verdict[] = ['good', 'ok', 'poor']
+  const worst = (a: Verdict, b: Verdict): Verdict =>
+    a === 'na' ? b : b === 'na' ? a : order[Math.max(order.indexOf(a), order.indexOf(b))]
+  return {
+    baseline: worst(rel(m.drift, usual.drift, 0.02), rel(m.wobble, usual.wobble, 0.08)),
+    size: rel(m.sizeCv, usual.sizeCv, 0.2),
+    slant: rel(m.slantSd, usual.slantSd, 5),
+    spacing: rel(m.spacingCv, usual.spacingCv, 0.3),
+    clusters: m.clusters,
+    relative: true,
+  }
 }
 
 export function neatness(strokes: Stroke[]): NeatnessReport {

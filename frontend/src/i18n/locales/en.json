@@ -1782,7 +1782,11 @@
     "baselineCoverage": "These lines show {{covered}} of {{total}} letter forms.",
     "baselineFinish": "Done",
     "baselineNotToday": "You set a baseline today — come back tomorrow to redo it.",
-    "baselineEmpty": "This course has no lines to set a baseline with yet."
+    "baselineEmpty": "This course has no lines to set a baseline with yet.",
+    "neatRelGood": "as your usual",
+    "neatRelOk": "below your usual",
+    "neatRelPoor": "well below your usual",
+    "neatRelHint": "Measured from your strokes on this device and compared with your baseline — your own usual hand, not a fixed bar."
   },
   "more": {
     "donateTea": "Donate a tea 🍵",

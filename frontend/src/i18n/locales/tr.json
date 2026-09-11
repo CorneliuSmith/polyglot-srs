@@ -1782,7 +1782,11 @@
     "baselineCoverage": "Bu satırlar {{total}} harf biçiminden {{covered}} tanesini gösteriyor.",
     "baselineFinish": "Bitti",
     "baselineNotToday": "Bugün zaten bir temel örnek ayarladınız; yenilemek için yarın gelin.",
-    "baselineEmpty": "Bu kursta henüz temel örnek için satır yok."
+    "baselineEmpty": "Bu kursta henüz temel örnek için satır yok.",
+    "neatRelGood": "her zamanki gibi",
+    "neatRelOk": "her zamankinin altında",
+    "neatRelPoor": "her zamankinin çok altında",
+    "neatRelHint": "Bu cihazda çizgilerinizden ölçüldü ve temel örneğinizle karşılaştırıldı — sabit bir çıta değil, kendi her zamanki el yazınız."
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",
