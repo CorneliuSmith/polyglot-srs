@@ -428,7 +428,7 @@ rank	word	pos	en
 429	doden	verb	to kill
 430	stoppen	verb	to stop, to halt
 431	moeilijk	adj	hard, difficult
-432	dr	pron	Contracted form of haar
+432	d'r	pron	Contracted form of haar
 433	sinds	conj	since
 434	land	noun	land, country, realm, territory
 435	spelen	verb	to play; to play (a game)
@@ -541,7 +541,6 @@ rank	word	pos	en
 542	vergeet	verb	first/second/third-person singular present indicative
 543	vooruit	adv	ahead, onward
 544	hoort	verb	second/third-person singular present indicative
-545	oke	intj	okay, correct, acceptable, satisfactory
 546	baan	noun	a road, way, path
 547	dicht	adj	closed, shut; thick, tight, dense
 548	inderdaad	adv	indeed
@@ -2430,7 +2429,6 @@ rank	word	pos	en
 2436	hee	intj	hey
 2437	tweeën	noun	plural of twee; dative singular of twee
 2438	zielig	adj	sad, pitiful; pathetic
-2439	my	pron	me; first-person singular objective personal pronoun
 2440	hal	noun	hall, hallway
 2441	letterlijk	adv	literally
 2442	banden	verb	plural past indicative
@@ -3384,7 +3382,7 @@ rank	word	pos	en
 3392	brandstof	noun	fuel
 3393	verwoest	verb	first/second/third-person singular present indicative
 3394	verf	noun	paint
-3395	k	pron	nonstandard form of 'k
+3395	'k	pron	nonstandard form of 'k
 3396	hector	name	Hector (hero from the Iliad)
 3397	munitie	noun	ammunition, munition
 3398	paleis	noun	palace
@@ -3669,7 +3667,6 @@ rank	word	pos	en
 3677	jongedame	noun	miss, young lady
 3678	goedkope	adj	masculine/feminine singular attributive
 3679	bewaking	noun	surveillance, watch
-3680	by	prep	at, with; by, close to
 3681	huil	verb	first-person singular present indicative
 3682	klimmen	verb	to climb
 3683	november	noun	November
@@ -4100,7 +4097,7 @@ rank	word	pos	en
 4108	uitnodigen	verb	to invite
 4109	nucleaire	adj	indefinite masculine and feminine singular
 4110	verklaard	verb	past participle of verklaren
-4111	ofzo	intj	misspelling of of zo
+4111	of zo	intj	misspelling of of zo
 4112	minuutje	noun	diminutive of minuut
 4113	uitstappen	verb	to get off (a vehicle or a vessel)
 4114	dadelijk	adv	presently, very soon, at once
@@ -8689,7 +8686,7 @@ rank	word	pos	en
 8709	schoonzoon	noun	son-in-law (male partner of one's child)
 8710	opvallend	adj	striking, notable
 8711	betalingen	noun	plural of betaling
-8712	mn	pron	contraction of mijn
+8712	m'n	pron	contraction of mijn
 8713	behandelingen	noun	plural of behandeling
 8714	smeerlappen	noun	plural of smeerlap
 8715	peper	noun	pepper (Piper nigrum or the spice obtained from its berries)

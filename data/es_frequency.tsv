@@ -3128,7 +3128,6 @@ rank	word	pos	en
 3144	contesta	noun	answer; reply; contest
 3145	casarte	verb	infinitive of casar combined with te
 3146	manda	noun	vow
-3147	dias	noun	plural of dia
 3148	prisioneros	noun	plural of prisionero
 3149	echado	verb	past participle of echar
 3150	trajiste	verb	second-person singular preterite indicative of traer
@@ -3506,7 +3505,6 @@ rank	word	pos	en
 3522	pudieron	verb	third-person plural preterite indicative of poder
 3523	tocando	verb	gerund of tocar
 3524	profesora	noun	female equivalent of profesor (“teacher”)
-3525	dejame	verb	second-person singular voseo imperative of dejar combined with me
 3526	expresión	noun	expression
 3527	asesinada	adj	feminine singular of asesinado
 3528	escándalo	noun	scandal
@@ -3684,7 +3682,6 @@ rank	word	pos	en
 3702	oxígeno	noun	oxygen
 3703	experimento	noun	experiment
 3704	absurdo	adj	absurd, preposterous, ludicrous, ridiculous
-3705	algun	adj	apocopic form of alguno; some, any
 3706	destruido	adj	destroyed
 3707	habrían	verb	third-person plural conditional of haber
 3708	ponerle	verb	to have sex
@@ -4752,7 +4749,6 @@ rank	word	pos	en
 4771	creído	adj	big-headed, conceited, stuck up, arrogant, smug
 4772	adolescentes	adj	plural of adolescente
 4773	llenos	adj	masculine plural of lleno
-4774	ultima	verb	third-person singular present indicative
 4775	altas	adj	feminine plural of alto
 4776	cambiará	verb	third-person singular future indicative of cambiar
 4777	inteligentes	adj	plural of inteligente
@@ -5900,7 +5896,7 @@ rank	word	pos	en
 5922	houston	name	Houston
 5923	polis	noun	plural of poli
 5924	reconocido	adj	recognized, acknowledged
-5925	videos	noun	plural of video
+5925	vídeos	noun	plural of video
 5926	gripe	noun	flu, influenza
 5927	ataca	verb	third-person singular present indicative
 5928	sacarle	verb	infinitive of sacar combined with le
@@ -6267,7 +6263,6 @@ rank	word	pos	en
 6289	tocaba	verb	first/third-person singular imperfect indicative of tocar
 6290	dallas	verb	second-person singular present indicative of dallar
 6291	lamentablemente	adv	unfortunately
-6292	tenias	noun	plural of tenia
 6293	vivas	adj	feminine plural of vivo
 6294	queden	verb	third-person plural present subjunctive
 6295	ilegales	adj	plural of ilegal
@@ -7227,7 +7222,7 @@ rank	word	pos	en
 7252	trece	num	thirteen
 7253	violín	noun	violin (string instrument)
 7254	navegar	verb	to navigate, to sail
-7255	picnic	noun	misspelling of pícnic
+7255	pícnic	noun	misspelling of pícnic
 7256	incómoda	adj	feminine singular of incómodo
 7257	patrones	noun	plural of patrón
 7258	examinar	verb	to examine
@@ -7376,7 +7371,6 @@ rank	word	pos	en
 7401	champaña	noun	champagne
 7402	palomitas	noun	plural of palomita
 7403	registrar	verb	to register, record
-7404	quedate	verb	second-person singular voseo imperative of quedar combined with te
 7405	detenerlos	verb	infinitive of detener combined with los
 7406	agresivo	adj	aggressive
 7407	grites	verb	second-person singular present subjunctive of gritar
@@ -9466,7 +9460,6 @@ rank	word	pos	en
 9493	encargará	verb	third-person singular future indicative of encargar
 9494	espectro	noun	spectrum; spectre, ghost
 9495	sábados	noun	plural of sábado
-9496	record	noun	record
 9497	pensarás	verb	second-person singular future indicative of pensar
 9498	dispararme	verb	infinitive of disparar combined with me
 9499	alexis	name	a male given name from Ancient Greek, equivalent to English Alexis
@@ -9779,7 +9772,6 @@ rank	word	pos	en
 9807	vigilado	verb	past participle of vigilar
 9808	jedi	noun	Jedi (a fictional order of beings)
 9809	marchando	verb	gerund of marchar
-9810	anos	noun	plural of ano
 9811	sirenas	noun	plural of sirena
 9812	bebía	verb	first/third-person singular imperfect indicative of beber
 9813	veterano	adj	veteran

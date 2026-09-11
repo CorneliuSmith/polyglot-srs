@@ -8,10 +8,13 @@ ar	إ	Alif with hamza below, a letter form/orthographic variant rather than a wo
 ar	ا	The letter alif, listed by its alphabet identity.
 ar	ابريل	"mark-only twin of إبريل: Bare alef for a hamza-seated alef, gloss ""alternative spelling of أَبْرِيل"", and another of the 11 twins deleted on 20 Aug 2026 — the canonical أبريل already sits at file rank 3124 with the full ""Apri (twin pass, 7 Sep 2026)"
 ar	استوديو	"mark-only twin of إستوديو: Bare alef against the hamza-seated headword both the file (rank 4402, ""studio"") and ar_morphology.json use (إستوديو, Gender m.), and the production row's own gloss calls it an ""alternative spelling"" — (twin pass, 7 Sep 2026)"
+ar	اسرائيل	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: إسرائيل) — orthography audit, 11 Sep 2026
+ar	اطباء	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: أطباء) — orthography audit, 11 Sep 2026
 ar	اقوياء	"mark-only twin of أقوياء: Bare alef for the hamza seat أ in أقوياء; the production gloss ""alternative spelling of أَقْوِيَاء"" adds nothing, so the file's form is the one that should be drawn. (twin pass, 7 Sep 2026)"
 ar	الإثنين	"mark-only twin of الاثنين: Same word with the wrong mark in the other direction: the alef of اثنين is hamzat wasl and is written bare, so الإثنين adds a hamza seat MSA does not write — the row's own gloss says ""misspelling of ا (twin pass, 7 Sep 2026)"
 ar	الاحد	"mark-only twin of الأحد: Bare alef where أحد takes the hamza seat أ (ال + أحد); the row's own gloss reads ""alternative form of اَلْأَحَد (al-ʔaḥad, ""Sunday"")"", and the file's الأحد ""Sunday"" at rank 2341 is the form to keep. (twin pass, 7 Sep 2026)"
 ar	انا	"mark-only twin of أنا: Bare alef where the policy requires the hamza seat أ — ar.md names this exact word (""never bare ا for أنا, أنت""), the row's own gloss is ""alternative spelling of أَنَا"", and انا is one of the 11 junk (twin pass, 7 Sep 2026)"
+ar	انتم	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: أنتم) — orthography audit, 11 Sep 2026
 ar	انواع	"mark-only twin of أنواع: Bare alef for the required hamza seat أ in أنواع (plural of نَوْع); the production gloss is literally ""alternative spelling of أَنْوَاع"", so it carries no sense the file row lacks. (twin pass, 7 Sep 2026)"
 ar	ة	Tāʾ marbūṭa, the feminine ending letter, which only occurs word-finally attached to a stem.
 ar	ث	The letter thāʾ, an alphabet letter with no lexical meaning.
@@ -21,24 +24,35 @@ ar	خ	The letter khāʾ, listed by its alphabet/abjad-numeral identity.
 ar	ذ	The letter dhāl, listed by its alphabet/abjad-numeral identity.
 ar	ر	The letter rāʾ, an alphabet letter with no lexical meaning.
 ar	ز	The letter zāy, listed by its alphabet/abjad-numeral identity.
+ar	سيء	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: سيئ) — orthography audit, 11 Sep 2026
 ar	ش	The letter shīn, listed by its alphabet identity.
 ar	شي	"typo-mass of شيء (thing, rank 19; final hamza dropped in casual typing); kaikki joined it to the rare verbal noun of شوى, ""grilling"""
 ar	ض	The letter ḍād, an alphabet letter with no lexical meaning.
 ar	ظ	The letter ẓāʾ, an alphabet letter with no lexical meaning.
 ar	غ	The letter ghayn, the last of the abjad numeral series, not a word.
+ar	نفا	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: نفى) — orthography audit, 11 Sep 2026
 ar	نيك	obscene; the gloss euphemises it as a verbal noun. Not a card for a learning app
 ar	هـ	written notation for هجري placed after a Hegira year and read aloud as the full word; ar.md already records this row as real notation at a low rank, kept only because normalize strips the kashida
 ar	ى	Alif maqṣūra, a word-final letter form/ending, never a standalone word.
 ca	adn	initialism of àcid desoxiribonucleic, spelled out letter by letter rather than pronounced or inflected as a word; nothing to produce from a definition, and no sentence in the bank uses it
+ca	adéu	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: adeu) — orthography audit, 11 Sep 2026
 ca	anton	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ca	aprés	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: après) — orthography audit, 11 Sep 2026
 ca	arteria	mark-only twin of artèria: No Catalan corpus writes 'craftiness' more often than 'artery', but the unaccented row sits at r7384 above artèria at r9059, so the rank belongs to artèria and the row is its unaccented duplicate, not (second reader overturned the first) (twin pass, 7 Sep 2026)
 ca	b	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	bebé	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: bebè) — orthography audit, 11 Sep 2026
 ca	bosch	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ca	c	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	café	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: cafè) — orthography audit, 11 Sep 2026
 ca	cdc	initialism of a political party name, Convergència Democràtica de Catalunya - a written short form of a proper noun, and at rank 8690 nothing a learner must produce
+ca	comés	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: comès) — orthography audit, 11 Sep 2026
+ca	conéixer	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: conèixer) — orthography audit, 11 Sep 2026
 ca	cóm	pointer gloss: names another spelling and carries no meaning of its own (twin: com r21)
 ca	d	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	dóna	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: dona) — orthography audit, 11 Sep 2026
+ca	dónes	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: dones) — orthography audit, 11 Sep 2026
 ca	e	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	entés	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: entès) — orthography audit, 11 Sep 2026
 ca	estàn	mark-only twin of estan: The row's own gloss says 'misspelling of estan' — the pointer-gloss class already excluded for ca (cóm, fóra) — and standard Catalan writes estan (r184) with no accent. (twin pass, 7 Sep 2026)
 ca	eua	initialism of a proper name, Estats Units d'Amèrica, read as the full name or as letters; a written short form, not a vocabulary card
 ca	f	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
@@ -55,6 +69,9 @@ ca	l	a single letter glossed by its position in the alphabet, not a word — pro
 ca	m	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	maría	mark-only twin of maria: Catalan writes the name Maria with no accent — the acute is Spanish orthography, out of scope the same way ca.md puts Valencian out of scope — and a village of a few hundred people cannot carry r9421. (twin pass, 7 Sep 2026)
 ca	n	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	nét	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: net) — orthography audit, 11 Sep 2026
+ca	néta	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: neta) — orthography audit, 11 Sep 2026
+ca	néts	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: nets) — orthography audit, 11 Sep 2026
 ca	p	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	paula	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ca	pompeu	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -65,10 +82,15 @@ ca	s	a single letter glossed by its position in the alphabet, not a word — pro
 ca	sóc	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: soc r924) — orthography audit, 11 Sep 2026
 ca	t	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	v	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	vénen	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: venen) — orthography audit, 11 Sep 2026
+ca	véns	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: vens) — orthography audit, 11 Sep 2026
+ca	vés	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ves) — orthography audit, 11 Sep 2026
 ca	à	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	è	The gloss describes the letter e carrying a grave accent — an accented letter of the alphabet, not a Catalan word.
 ca	é	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	ó	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	ós	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: os) — orthography audit, 11 Sep 2026
+ca	óssos	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ossos) — orthography audit, 11 Sep 2026
 de	a.	written short form of alt; alt is its own card
 de	albert	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	alexander	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -150,6 +172,7 @@ de	grossen	mark-only twin of großen: grossen is the Swiss ss spelling of große
 de	gus	initialism of Gemeinschaft Unabhaengiger Staaten - a geopolitical name with a spoken full form, no sentences in the course bank
 de	gustav	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	h.	written short form of Haft; appears only in legal shorthand
+de	ham	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: haben) — orthography audit, 11 Sep 2026
 de	hannah	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	hans	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	harry	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -208,6 +231,7 @@ de	luther	generic personal-name gloss with no English equivalent named — a car
 de	läßt	mark-only twin of lasst: läßt is the pre-1996 spelling of lässt, which the file already has at rank 488; the paired lasst (2nd plural, rank 530) is a third form dragged in by the fold, not the replacement. (twin pass, 7 Sep 2026)
 de	m	The gloss says outright it is the thirteenth letter of the German alphabet.
 de	m.	written short form of mit; mit is its own high-frequency card
+de	ma	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: mal) — orthography audit, 11 Sep 2026
 de	magnus	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	manuel	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	marc	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -238,6 +262,8 @@ de	mußt	mark-only twin of müsst: mußt is a listed pre-1996 spelling of musst,
 de	mußte	mark-only twin of müsste: mußte is on the pre-1996 list and its modern form musste is in the file at rank 485; the paired müsste is Konjunktiv II, a different form the fold collides with. (twin pass, 7 Sep 2026)
 de	nadia	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	natalie	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+de	new	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: neu) — orthography audit, 11 Sep 2026
+de	nich	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: nicht) — orthography audit, 11 Sep 2026
 de	nico	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	nicolas	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	nicole	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -275,6 +301,7 @@ de	ronald	generic personal-name gloss with no English equivalent named — a car
 de	s.	written short form of siehe used in footnotes (s. o., s. u.); read-only, never produced from a meaning
 de	sabine	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	samantha	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+de	scheiss	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: scheiß) — orthography audit, 11 Sep 2026
 de	scheisse	mark-only twin of scheiße: Self-identified 'Switzerland and Liechtenstein standard spelling of Scheiße'; the ß form is at rank 284 and Swiss ss is out of scope. (twin pass, 7 Sep 2026)
 de	schultz	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 de	se	written short form of Softwareentwickler in job ads; not a spoken word
@@ -330,6 +357,8 @@ el	αρά	mark-only twin of άρα: The recorded verdict contradicts both the re
 el	αριθ.	dotted form standing for αριθμός (number) on forms and signs - the gloss's αριθμητικός is the wrong expansion; either way a written short form whose full word is its own card
 el	β	rank 2 - nothing glossed as an initialism is the 2nd most frequent token in Greek; the mass is the LETTER beta, and the course's own sentence (σχέδιο Β - Plan B) uses it as the letter, not as a short form of βορράς
 el	βα	weather-map initialism for βορειοανατολικός (NE); read aloud as the full adjective, which is the card a learner needs
+el	βράδι	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: βράδυ) — orthography audit, 11 Sep 2026
+el	γειά	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: γεια) — orthography audit, 11 Sep 2026
 el	δ	rank 4 - this is the letter delta carrying letter frequency, not a written short form of δεσποινίς; no abbreviation sits that high
 el	δρ	written short form (δρχ/δρ for δραχμή, and Δρ for Doctor) - a currency symbol of a retired currency, never a string a learner produces from a meaning
 el	εε	written-only short form: Greek reads ΕΕ aloud as Ευρωπαϊκή Ένωση, so the expanded phrase is what a learner must be able to produce
@@ -350,6 +379,8 @@ el	ρ.	grammar-book abbreviation for ρήμα; a label in a dictionary entry, no
 el	ς	The word-final form of the letter sigma — a glyph variant, explicitly glossed as a letter.
 el	σ.	bibliographic short form for σελίδα; the learner needs σελίδα
 el	τ.	catalogue short form for τεμάχιο (also τόμος); written-only
+el	τί	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: τι) — orthography audit, 11 Sep 2026
+el	τίς	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: τις) — orthography audit, 11 Sep 2026
 el	φ.	short form of φύλλο in issue and sheet numbering; written-only
 en	ac	WordNet matched the CHEMICAL SYMBOL, not the word — glossed 'a radioactive element of the actinide series'
 en	al	WordNet matched the CHEMICAL SYMBOL, not the word — glossed 'a silvery ductile metallic element found pri'
@@ -456,10 +487,12 @@ es	ahi	mark-only twin of ahí: Self-identifying 'misspelling of ahí'; ahí is o
 es	ahogo	"mark-only twin of ahogó: ahogó (preterite of ahogar) requires the acute; accentless ahogo is 1sg of the same lemma, and the noun ""breathlessness, suffocation"" cannot carry rank 3871. (twin pass, 7 Sep 2026)"
 es	aja	"mark-only twin of ajá: ajá is final-stressed and must carry the acute; ""adze"" is not current Spanish (the tool is azuela), so the gloss is extraction debris and rank 9113 is accentless ajá — the only real bare aja is a form (twin pass, 7 Sep 2026)"
 es	alexander	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+es	algun	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: algún) — orthography audit, 11 Sep 2026
 es	alli	mark-only twin of allí: Stored as 'misspelling of allí'; oxytone ending in a vowel requires the acute, 0 sentences and 0 cards against allí r189. (twin pass, 7 Sep 2026)
 es	anderson	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	andré	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	ano	mark-only twin of año: The verdict contradicts its own file_fix, which says retire on the montana/montaña precedent; ñ is a letter, but rank 5542 against año r331 is ñ-dropped typing, and leaving the label distinct_word put (second reader overturned the first) (twin pass, 7 Sep 2026)
+es	anos	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: años) — orthography audit, 11 Sep 2026
 es	aqui	mark-only twin of aquí: The row's own stored definition is 'misspelling of aquí' — aquí is oxytone ending in a vowel, so the acute is obligatory; 0 sentences and 0 cards, and the file's aquí sits at r33. (twin pass, 7 Sep 2026)
 es	ariel	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	arrojo	"mark-only twin of arrojó: The acute separates 1sg arrojo from 3sg preterite arrojó inside one lemma (arrojar); the literary noun arrojo ""daring"" is real but cannot carry rank 4625. (twin pass, 7 Sep 2026)"
@@ -480,8 +513,10 @@ es	d	texting shorthand for de; de is rank-1 vocabulary with its own card and is 
 es	d.	written short form of the honorific Don, read aloud in full
 es	daisy	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	davis	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+es	dejame	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: déjame) — orthography audit, 11 Sep 2026
 es	despues	mark-only twin of después: Stored as 'misspelling of después'; oxytone ending in -s requires the acute, and despues is not a separate Spanish word. (twin pass, 7 Sep 2026)
 es	dia	mark-only twin of día: Rank-impossible gloss, the exact class already in data/vocab_exclusions.tsv for es (tenia, numero, linea, ultimo): rank 1991 is carried by unaccented typing of día r134, not by a Spanish name for the (twin pass, 7 Sep 2026)
+es	dias	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: días) — orthography audit, 11 Sep 2026
 es	diego	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	dificil	mark-only twin of difícil: Stored as 'misspelling of difícil' — a paroxytone ending in -l is always written with the acute; no distinct meaning, 0 sentences, 0 cards. (twin pass, 7 Sep 2026)
 es	diselo	"the file's worse spelling of díselo, replaced there 7 Sep 2026: The file's own gloss on row 3628 already reads ""misspelling of díselo"", so retiring the unaccented form costs nothing; the accent is obligatory becaus"
@@ -563,8 +598,10 @@ es	podre	"mark-only twin of podré: podré ""I will be able"" needs the acute; t
 es	practicamente	"mark-only twin of prácticamente: Adverbs in -mente keep the base adjective's written accent (práctico → prácticamente), and both rows carry the identical gloss ""practically"" — this is the accentless misspelling, nothing else. (twin pass, 7 Sep 2026)"
 es	prometio	"mark-only twin of prometió: prometió (preterite of prometer) needs its acute; ""promethium"" is a chemical element nobody meets in a course and cannot carry rank 2389 — the textbook rank-impossible unaccented twin. (twin pass, 7 Sep 2026)"
 es	q	texting shorthand for que; que is rank-high vocabulary with its own card and is what a learner writes
+es	quedate	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: quédate) — orthography audit, 11 Sep 2026
 es	r	single letter standing for rey in chess and card notation; rey is the word and is its own card
 es	razon	mark-only twin of razón: razón (rank 233) is a final-stressed word that must carry the acute; a surname gloss cannot hold rank 5443 — this is the same unaccented-twin shape as the already-excluded es numero/linea/musica rows. (twin pass, 7 Sep 2026)
+es	record	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: récord) — orthography audit, 11 Sep 2026
 es	rené	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	richard	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 es	rita	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -581,9 +618,11 @@ es	srta.	written short form of senorita, read aloud in full; senorita is the car
 es	t	single letter used as the technical symbol for tiempo; tiempo is the word a learner must produce and it has its own card
 es	tambien	mark-only twin of también: Stored as 'misspelling of también; obsolete spelling of también' — oxytone ending in -n requires the acute; the row carries no meaning of its own, 0 sentences, 0 cards. (twin pass, 7 Sep 2026)
 es	tenia	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: tenía r174)
+es	tenias	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: tenías) — orthography audit, 11 Sep 2026
 es	tí	mark-only twin of ti: Spurious mark in the other direction — RAE writes ti with no accent (no homograph to separate, so the tilde diacrítica has no job), and the production row says so itself ('misspelling of ti'); the fil (twin pass, 7 Sep 2026)
 es	ud.	written short form of usted and never said as U-D; usted is the pronoun the learner produces
 es	uds.	written short form of ustedes, always read in full; ustedes is the pronoun to produce
+es	ultima	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: última) — orthography audit, 11 Sep 2026
 es	ultimo	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: último r542)
 es	unete	"mark-only twin of únete: únete ""join"" (unir + te) is esdrújula and written with the acute; ""an Internet currency established in Spain in 2013"" is extraction debris, not a Spanish word. (twin pass, 7 Sep 2026)"
 es	up	rank 5900 in a Spanish corpus is the English word up in titles and quoted dialogue, not the Argentine initialism Unidad Previsional the gloss names; an initialism of an institution is not a vocabulary card in either reading
@@ -617,6 +656,7 @@ fr	alexis	generic personal-name gloss with no English equivalent named — a car
 fr	alfred	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	alicia	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	alle	mark-only twin of allé: alle is allé with the acute stripped; the 'she' gloss is the popular/regional spelling of elle that fr.md puts out of scope ('Québécois morphology and lexicon' excluded), and it cannot carry rank 456 (twin pass, 7 Sep 2026)
+fr	allo	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: allô) — orthography audit, 11 Sep 2026
 fr	am	written clock abbreviation of the Latin ante meridiem, and not French usage at that — French writes the 24-hour clock
 fr	amanda	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	andrea	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -632,6 +672,7 @@ fr	bea	initialism of an air-accident agency name; a proper name in abbreviated f
 fr	bella	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	big	rank 2440 is the English big carried in borrowed phrases — the sentence bank has Big Bang — not an initialism of bureau de l inspecteur general
 fr	bo	initialism BO for bande originale, read letter by letter; the learner needs bande originale
+fr	boeuf	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: bœuf) — orthography audit, 11 Sep 2026
 fr	boite	post-1990 rectification spelling — an official variant of the same word, not a second word (twin: boîte r932)
 fr	brian	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	brown	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -649,6 +690,10 @@ fr	chloe	"mark-only twin of chloé: The row says it: ""alternative form of Chlo�
 fr	christopher	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	clara	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	claudia	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+fr	coeur	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: cœur) — orthography audit, 11 Sep 2026
+fr	coeurs	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: cœurs) — orthography audit, 11 Sep 2026
+fr	complétement	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: complètement) — orthography audit, 11 Sep 2026
+fr	connait	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: connaît) — orthography audit, 11 Sep 2026
 fr	connaitre	post-1990 rectification spelling — an official variant of the same word, not a second word (twin: connaître r906)
 fr	cyril	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	d	the letter d — rank 1275 is the elided preposition d of d un and d accord, not the chess queen
@@ -668,6 +713,7 @@ fr	e	the letter e — rank 1959 is the letter and the ordinal suffix in 2e and 3
 fr	earl	initialism of a farm-company legal form; rank 3938 is more plausibly the English name and title Earl, and neither is a French word a learner produces
 fr	egypte	the file's worse spelling of égypte, replaced there 7 Sep 2026: The reader note asked for the capitalised `Égypte`, but the file lowercases every headword including the 183 name rows, so the file spelling is `égypt
 fr	el	initialism of a journal title; the string also collects the Spanish article in borrowed names, and neither reading is a French word to produce
+fr	entrainement	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: entraînement) — orthography audit, 11 Sep 2026
 fr	entrainer	mark-only twin of entraîner: entrainer is the post-1990 rectified spelling of entraîner and its gloss is the bare pointer 'post-1990 spelling of entraîner' — one word, one card, and the file keeps the circumflex form with the rea (twin pass, 7 Sep 2026)
 fr	entraineur	"mark-only twin of entraîneur: Pointer gloss ""post-1990 spelling of entraîneur"" — the 1990 rectification of î, one word with two official spellings (CHECKS §3), and entraîneur is the kept one. (twin pass, 7 Sep 2026)"
 fr	entrainé	mark-only twin of entraîné: Same word, same participle: entrainé is entraîné with the circumflex dropped by the post-1990 rectification, so it is one card with the file's form, not two. (twin pass, 7 Sep 2026)
@@ -751,11 +797,18 @@ fr	nicole	generic personal-name gloss with no English equivalent named — a car
 fr	nikita	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	nina	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	no	written short form; the course own sentence uses it as no. 354618, the numero abbreviation, and the gloss nord-ouest is a second written short form — neither is a word
+fr	noeud	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: nœud) — orthography audit, 11 Sep 2026
 fr	o	the letter o — both course sentences prove it: one is the vocative O brave nouveau monde, the other is literally about the shape of the letter, Tes O ressemblent a des A
+fr	oeil	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: œil) — orthography audit, 11 Sep 2026
+fr	oeuf	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: œuf) — orthography audit, 11 Sep 2026
+fr	oeufs	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: œufs) — orthography audit, 11 Sep 2026
+fr	oeuvre	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: œuvre) — orthography audit, 11 Sep 2026
+fr	oeuvres	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: œuvres) — orthography audit, 11 Sep 2026
 fr	p	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 fr	p.	written short form with a period for page; the learner needs page
 fr	pa	initialism PA for porte-avions, and the Pa unit symbol; the learner needs porte-avions
 fr	pam	initialism of a UN agency name, programme alimentaire mondial; rank 4987 is more plausibly the given name Pam, and neither is a vocabulary card
+fr	parait	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: paraît) — orthography audit, 11 Sep 2026
 fr	paraitre	"mark-only twin of paraître: Self-identifying pointer gloss ""post-1990 spelling of paraître"", the same rectification class CHECKS §3 names (boite, maitre, connaitre) — official variant of one word, so one card. (twin pass, 7 Sep 2026)"
 fr	patrick	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	pauline	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -764,6 +817,7 @@ fr	peggy	generic personal-name gloss with no English equivalent named — a card
 fr	pere	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: père r144)
 fr	pete	rank 1870 is the given name Pete, which is exactly what the course sentence for this row shows, plus the accent-stripped pete from peter; the plastics code PETE holds none of it
 fr	philippe	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+fr	plait	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: plaît) — orthography audit, 11 Sep 2026
 fr	pr	written title Pr for professeur; the learner needs professeur
 fr	q	the letter q — rank 6992 is the letter and the stripped qu of qu il, not the quintal unit
 fr	qg	initialism QG for quartier general, read letter by letter; the learner needs quartier general
@@ -783,9 +837,12 @@ fr	sdf	initialism of sans domicile fixe, said letter by letter rather than as a 
 fr	simone	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	smith	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	so	compass initialism SO for sud-ouest; a learner needs sud-ouest, which is its own card
+fr	soeur	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: sœur) — orthography audit, 11 Sep 2026
+fr	soeurs	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: sœurs) — orthography audit, 11 Sep 2026
 fr	soul	"mark-only twin of soûl: The gloss is a double pointer, ""post-1990 spelling of soûl, itself an alternative form of saoul"" — the rectification class CHECKS §3 rules one card, not two; note only that rank 4883 may partly be the (twin pass, 7 Sep 2026)"
 fr	st	St, the written short form of saint before a name; the steam gloss is wrong about the string, and both readings are abbreviations
 fr	stp	texting shorthand for s il te plait — exactly the class the owner said may come back in a slang deck later, which is a different product
+fr	sure	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: sûre) — orthography audit, 11 Sep 2026
 fr	surement	post-1990 rectification spelling — an official variant of the same word, not a second word (twin: sûrement r598)
 fr	sylvia	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	t	the letter t — rank 1126 is the elided t of t aime plus the euphonic -t- of a-t-il, not the chess rook
@@ -801,6 +858,8 @@ fr	v	a single letter glossed by its position in the alphabet, not a word — pro
 fr	vanessa	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 fr	ve	written short form — Ve for the fifth in Ve siecle, Vve for veuve; a superscript ordinal, not a word
 fr	vince	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+fr	voeu	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: vœu) — orthography audit, 11 Sep 2026
+fr	voeux	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: vœux) — orthography audit, 11 Sep 2026
 fr	voila	typo-mass of voilà; the passé simple of voiler is real but never first-year
 fr	w	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 fr	william	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -811,6 +870,7 @@ fr	z	a single letter glossed by its position in the alphabet, not a word — pro
 fr	z'	a colloquial liaison respelling (z'avez), not standard written French — the course teaches standard metropolitan French (fr.md, 7 Sep 2026)
 fr	â	The gloss names it outright as the letter a with a circumflex, an alphabet entry rather than vocabulary.
 fr	égo	"mark-only twin of ego: Same word twice with a character-identical gloss (""ego, the ego""): standard French writes the Latin borrowing unaccented, so the extra acute — the reverse direction from the usual dropped mark — is a (twin pass, 7 Sep 2026)"
+fr	évènement	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: événement) — orthography audit, 11 Sep 2026
 ha	abdulhamid	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	abubakar	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	ahmad	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -822,6 +882,7 @@ ha	balaraba	generic personal-name gloss with no English equivalent named — a c
 ha	barau	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	bello	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	binta	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ha	bukatar	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: buƙatar) — orthography audit, 11 Sep 2026
 ha	faruku	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	gagarau	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	ganau	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -833,6 +894,8 @@ ha	hasan	generic personal-name gloss with no English equivalent named — a card
 ha	husaini	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	jatau	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	jummai	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ha	kabila	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ƙabila) — orthography audit, 11 Sep 2026
+ha	kokarin	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ƙoƙarin) — orthography audit, 11 Sep 2026
 ha	ladi	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	lami	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	maigado	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -849,30 +912,136 @@ ha	tunau	generic personal-name gloss with no English equivalent named — a card
 ha	umaru	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ha	zubairu	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 hi	अ	The first vowel of the Devanagari alphabet, listed by its letter identity rather than any meaning.
+hi	अंग्रेजी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अंग्रेज़ी) — orthography audit, 11 Sep 2026
+hi	अंग्रेजों	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अंग्रेज़ों) — orthography audit, 11 Sep 2026
+hi	अंदाज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अंदाज़) — orthography audit, 11 Sep 2026
+hi	अखबार	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अख़बार) — orthography audit, 11 Sep 2026
+hi	अफगानिस्तान	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अफ़ग़ानिस्तान) — orthography audit, 11 Sep 2026
+hi	अफसोस	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अफ़सोस) — orthography audit, 11 Sep 2026
+hi	अर्जी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: अर्ज़ी) — orthography audit, 11 Sep 2026
+hi	आखिर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: आख़िर) — orthography audit, 11 Sep 2026
+hi	आजमाना	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: आज़माना) — orthography audit, 11 Sep 2026
+hi	आजाद	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: आज़ाद) — orthography audit, 11 Sep 2026
+hi	आजादी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: आज़ादी) — orthography audit, 11 Sep 2026
+hi	आवाज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: आवाज़) — orthography audit, 11 Sep 2026
+hi	आवाजें	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: आवाज़ें) — orthography audit, 11 Sep 2026
 hi	इ	The name of the third vowel of the alphabet, not a word.
+hi	इंतजार	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: इंतज़ार) — orthography audit, 11 Sep 2026
+hi	इजाजत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: इजाज़त) — orthography audit, 11 Sep 2026
+hi	इज्जत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: इज़्ज़त) — orthography audit, 11 Sep 2026
+hi	इलाके	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: इलाक़े) — orthography audit, 11 Sep 2026
 hi	ई	The name of the fourth vowel of the alphabet, not a word.
 hi	ऊ	The name of the sixth vowel of the alphabet, not a vocabulary item.
+hi	एडी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: एड़ी) — orthography audit, 11 Sep 2026
+hi	औजार	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: औज़ार) — orthography audit, 11 Sep 2026
 hi	क	A bare consonant letter of the Devanagari alphabet.
+hi	करीब	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: क़रीब) — orthography audit, 11 Sep 2026
+hi	कलम	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: क़लम) — orthography audit, 11 Sep 2026
+hi	कसम	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: क़सम) — orthography audit, 11 Sep 2026
+hi	काफी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: काफ़ी) — orthography audit, 11 Sep 2026
+hi	कॉफी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: कॉफ़ी) — orthography audit, 11 Sep 2026
 hi	ख	A bare consonant letter of the Devanagari alphabet.
+hi	खतरा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़तरा) — orthography audit, 11 Sep 2026
+hi	खबर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़बर) — orthography audit, 11 Sep 2026
+hi	खबरें	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़बरें) — orthography audit, 11 Sep 2026
+hi	खयाल	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़याल) — orthography audit, 11 Sep 2026
+hi	खराब	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़राब) — orthography audit, 11 Sep 2026
+hi	खर्च	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़र्च) — orthography audit, 11 Sep 2026
+hi	खाली	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ाली) — orthography audit, 11 Sep 2026
+hi	खास	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ास) — orthography audit, 11 Sep 2026
+hi	खासकर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ासकर) — orthography audit, 11 Sep 2026
+hi	खिलाफ	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़िलाफ़) — orthography audit, 11 Sep 2026
+hi	खुद	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ुद) — orthography audit, 11 Sep 2026
+hi	खुश	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ुश) — orthography audit, 11 Sep 2026
+hi	खुशी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ुशी) — orthography audit, 11 Sep 2026
+hi	खून	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ून) — orthography audit, 11 Sep 2026
+hi	खूब	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ख़ूब) — orthography audit, 11 Sep 2026
+hi	गरीबी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ग़रीबी) — orthography audit, 11 Sep 2026
+hi	गलत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ग़लत) — orthography audit, 11 Sep 2026
+hi	गलती	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ग़लती) — orthography audit, 11 Sep 2026
+hi	गायब	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ग़ायब) — orthography audit, 11 Sep 2026
+hi	गुड	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: गुड़) — orthography audit, 11 Sep 2026
+hi	गुफ़ा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: गुफा) — orthography audit, 11 Sep 2026
 hi	घ	A bare consonant letter of the Devanagari alphabet.
+hi	चाकू	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: चाक़ू) — orthography audit, 11 Sep 2026
+hi	चीज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: चीज़) — orthography audit, 11 Sep 2026
+hi	चीजें	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: चीज़ें) — orthography audit, 11 Sep 2026
+hi	चीजों	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: चीज़ों) — orthography audit, 11 Sep 2026
 hi	छ	A bare consonant letter of the Devanagari alphabet.
 hi	ज	A bare consonant letter of the Devanagari alphabet.
+hi	जबरदस्त	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़बरदस्त) — orthography audit, 11 Sep 2026
+hi	जमीन	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़मीन) — orthography audit, 11 Sep 2026
+hi	जरूर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़रूर) — orthography audit, 11 Sep 2026
 hi	जरूरत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़रूरत r569) — orthography audit, 11 Sep 2026
+hi	जरूरतों	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़रूरतों) — orthography audit, 11 Sep 2026
+hi	जरूरी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़रूरी) — orthography audit, 11 Sep 2026
+hi	जहर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़हर) — orthography audit, 11 Sep 2026
+hi	जहाज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: जहाज़) — orthography audit, 11 Sep 2026
+hi	जिंदगी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़िंदगी) — orthography audit, 11 Sep 2026
+hi	जिंदा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़िंदा) — orthography audit, 11 Sep 2026
+hi	जोर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़ोर) — orthography audit, 11 Sep 2026
+hi	जोरदार	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़ोरदार) — orthography audit, 11 Sep 2026
+hi	ज्यादा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़्यादा) — orthography audit, 11 Sep 2026
 hi	ट	A bare consonant letter of the Devanagari alphabet.
+hi	टेलीफोन	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: टेलीफ़ोन) — orthography audit, 11 Sep 2026
 hi	डॉ	the written title before a name, read aloud as डॉक्टर - the textbook dr. case; डॉक्टर is the string a learner must produce and is its own card
 hi	त	A bare consonant letter of the Devanagari alphabet.
+hi	तरफ	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: तरफ़) — orthography audit, 11 Sep 2026
+hi	तरीका	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: तरीक़ा) — orthography audit, 11 Sep 2026
+hi	तरीकों	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: तरीक़ों) — orthography audit, 11 Sep 2026
+hi	तलाक	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: तलाक़) — orthography audit, 11 Sep 2026
+hi	ताजा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ताज़ा) — orthography audit, 11 Sep 2026
+hi	तारीफ	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: तारीफ़) — orthography audit, 11 Sep 2026
 hi	थ	A bare consonant letter of the Devanagari alphabet.
 hi	द	A bare consonant letter of the Devanagari alphabet; a Hindi consonant sign carries no vowel and is not a pronounceable word.
+hi	दरवाजा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: दरवाज़ा) — orthography audit, 11 Sep 2026
+hi	दिमाग	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: दिमाग़) — orthography audit, 11 Sep 2026
+hi	धोखेबाज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: धोखेबाज़) — orthography audit, 11 Sep 2026
+hi	नजर	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: नज़र) — orthography audit, 11 Sep 2026
+hi	नफरत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: नफ़रत) — orthography audit, 11 Sep 2026
+hi	प्लीज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: प्लीज़) — orthography audit, 11 Sep 2026
+hi	फर्क	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़र्क़) — orthography audit, 11 Sep 2026
+hi	फायदा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ायदा) — orthography audit, 11 Sep 2026
+hi	फालतू	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ालतू) — orthography audit, 11 Sep 2026
+hi	फिल्म	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़िल्म) — orthography audit, 11 Sep 2026
+hi	फेसबुक	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ेसबुक) — orthography audit, 11 Sep 2026
+hi	फैसला	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ैसला) — orthography audit, 11 Sep 2026
+hi	फैसले	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ैसले) — orthography audit, 11 Sep 2026
 hi	फोन	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ोन r881) — orthography audit, 11 Sep 2026
+hi	फौज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ौज) — orthography audit, 11 Sep 2026
+hi	फ्रांस	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़्रांस) — orthography audit, 11 Sep 2026
+hi	फ्रांसीसी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़्रांसीसी) — orthography audit, 11 Sep 2026
 hi	ब	A bare consonant letter of the Devanagari alphabet.
+hi	बंदूक	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: बंदूक़) — orthography audit, 11 Sep 2026
+hi	बगीचा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: बग़ीचा) — orthography audit, 11 Sep 2026
+hi	बाकी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: बाक़ी) — orthography audit, 11 Sep 2026
+hi	बाजार	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: बाज़ार) — orthography audit, 11 Sep 2026
 hi	म	A bare consonant letter of the Devanagari alphabet.
+hi	मजबूत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: मज़बूत) — orthography audit, 11 Sep 2026
+hi	माइक्रोफोन	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: माइक्रोफ़ोन) — orthography audit, 11 Sep 2026
+hi	मुताबिक	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: मुताबिक़) — orthography audit, 11 Sep 2026
+hi	मेज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: मेज़) — orthography audit, 11 Sep 2026
+hi	मोजा	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: मोज़ा) — orthography audit, 11 Sep 2026
+hi	मौका	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: मौक़ा) — orthography audit, 11 Sep 2026
+hi	यकीन	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: यक़ीन) — orthography audit, 11 Sep 2026
 hi	र	A bare consonant letter of the Devanagari alphabet.
+hi	राजी	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: राज़ी) — orthography audit, 11 Sep 2026
+hi	रोज	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: रोज़) — orthography audit, 11 Sep 2026
 hi	ल	A bare consonant letter of the Devanagari alphabet, glossed as the twenty-eighth consonant.
+hi	लेफ्टिनेंट	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: लेफ़्टिनेंट) — orthography audit, 11 Sep 2026
+hi	वक्त	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: वक़्त) — orthography audit, 11 Sep 2026
 hi	श	A bare consonant letter of the Devanagari alphabet.
+hi	शख्स	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: शख़्स) — orthography audit, 11 Sep 2026
 hi	स	A bare consonant letter of the Devanagari alphabet.
+hi	सख्त	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: सख़्त) — orthography audit, 11 Sep 2026
 hi	सपा	initialism of the party name समाजवादी पार्टी - a written short form of a proper noun at rank 7730, not vocabulary a learner produces from a definition
+hi	सफेद	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: सफ़ेद) — orthography audit, 11 Sep 2026
+hi	साफ	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: साफ़) — orthography audit, 11 Sep 2026
 hi	सिर्फ	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: सिर्फ़ r2315) — orthography audit, 11 Sep 2026
+hi	सुकरात	a personal name (Socrates); unanswerable from a definition
+hi	सुक़रात	a personal name (Socrates); unanswerable from a definition
 hi	ह	A bare consonant letter of the Devanagari alphabet.
+hi	हजार	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: हज़ार) — orthography audit, 11 Sep 2026
 hi	१	The Devanagari digit 1; the word is एक, not the glyph.
 hi	१०	The Devanagari digits for 10; the word is दस, not this glyph string.
 hi	१००	The Devanagari digits for 100; the word is सौ, not this three-glyph numeral.
@@ -913,11 +1082,14 @@ id	uu	initialism of undang-undang used in statute citations; undang-undang is th
 id	yg	chat and SMS shorthand for yang; yang is its own card and is the string to produce - this is the class the owner would put in a later slang deck
 it	amanda	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	an	initialism of the political party Alleanza Nazionale, written AN; a proper-noun initialism, not vocabulary
+it	andro	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: andrò) — orthography audit, 11 Sep 2026
 it	b	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	boris	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	bush	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+it	bè	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: beh) — orthography audit, 11 Sep 2026
 it	c	chess notation for cavallo, and elsewhere c. for circa; a symbol standing for a fuller word, never produced as speech
 it	c.	a period-marked score abbreviation (glossed here for grancassa); a notation symbol standing for a fuller word, with no spoken form of its own
+it	caffe	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: caffè) — orthography audit, 11 Sep 2026
 it	carla	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	cha	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	chandler	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -927,18 +1099,23 @@ it	claudia	generic personal-name gloss with no English equivalent named — a ca
 it	cm	texting shorthand for come as glossed, and in ordinary text the unit symbol for centimetri; both readings are shortenings, and the SMS one belongs to a later slang deck
 it	co	the two-letter province code for Como used on plates and addresses; the place name Como is the word, and CO is never said
 it	cosi	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: così r104) — orthography audit, 11 Sep 2026
+it	cosi'	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: così) — orthography audit, 11 Sep 2026
 it	d	chess notation for donna (the queen); a board symbol, spoken as donna
 it	david	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+it	diro	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: dirò) — orthography audit, 11 Sep 2026
 it	doris	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	dott.	written title for dottore, always spoken in full; the period is part of the shortening and dottore is the card a learner needs
 it	dott.ssa	written contraction of dottoressa with a suspended ending; spoken in full, so dottoressa is the vocabulary item
 it	e'	misspelling of è — not a headword a learner types (7 Sep 2026)
+it	eta	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: età) — orthography audit, 11 Sep 2026
 it	f	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	ferrari	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+it	finche	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: finché) — orthography audit, 11 Sep 2026
 it	finchè	"mark-only twin of finché: Same grave-for-acute error as perchè — standard Italian writes `finché` with the acute — and the row's stored definition is ""misspelling of finché"", so it is a duplicate spelling, not a second word. (twin pass, 7 Sep 2026)"
 it	g	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	george	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	gia	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: già r191) — orthography audit, 11 Sep 2026
+it	giu	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: giù) — orthography audit, 11 Sep 2026
 it	h	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	ingrid	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	irene	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -952,6 +1129,7 @@ it	kent	generic personal-name gloss with no English equivalent named — a card 
 it	l	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	lara	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	laura	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+it	liberta	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: libertà) — orthography audit, 11 Sep 2026
 it	maura	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	max	written shorthand for massimo in notices and specs (max 3 giorni); spoken Italian says massimo, and the rank is inflated by the personal name Max. Nothing for a learner to produce
 it	meg	glossed as an acronym for metodo di eliminazione di Gauss, a technical term no learner produces; the rank 4767 mass almost certainly comes from the English name Meg and from meg for megabyte rather than from the Gaussian-elimination sense, so nothing here is an Italian word
@@ -971,6 +1149,7 @@ it	perche	the stated meaning cannot carry this rank; the frequency is the marked
 it	perchè	"mark-only twin of perché: Grave accent where the course's own profile line requires the acute (`perché` is named explicitly as the acute case), and the production row self-identifies: its definition is literally ""misspelling o (twin pass, 7 Sep 2026)"
 it	peter	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	pieta	"mark-only twin of pietà: The final grave on the oxytone `pietà` is obligatory in standard Italian; bare `pieta` is not a modern word (the row itself only claims ""alternative form of pietà""), making this the same typo-mass sha (twin pass, 7 Sep 2026)"
+it	pipi	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: pipì) — orthography audit, 11 Sep 2026
 it	po	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: po' r1466) — orthography audit, 11 Sep 2026
 it	portera	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	q	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
@@ -981,13 +1160,17 @@ it	robert	generic personal-name gloss with no English equivalent named — a car
 it	s	written short form of sud on maps and compass points; the learner needs sud, which is its own card. Rank 821 is far too low for letter mass - the letter-mass artefact sits in the top dozen ranks (Greek beta at 2), so this is an abbreviation ruling, not a letter one
 it	s.	written short form of San or Santo in place and church names; always read as San or Santo, and those are the words to learn
 it	sabrina	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+it	saro	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: sarò) — orthography audit, 11 Sep 2026
 it	sergio	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	sig.	the written title Mr, always read aloud as signore; the trailing period marks it as a shortening. Learners need signore
 it	sig.na	written contraction of signorina; read aloud in full, and signorina is the card
 it	sig.ra	written contraction of signora with a suspended ending; read aloud as signora, which is the card a learner must produce
 it	spa	the company-form initialism written S.p.A. after a firm name, standing for societa per azioni; a legal designator on letterheads, not a word a learner produces from a meaning
+it	stara	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: starà) — orthography audit, 11 Sep 2026
+it	staro	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: starò) — orthography audit, 11 Sep 2026
 it	t	chess notation for torre - a single-letter piece symbol read aloud as torre; the word to learn is torre
 it	tim	initialism of Telecom Italia Mobile, a company brand written TIM; not vocabulary in any sense and expanded only in corporate prose
+it	trovero	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: troverò) — orthography audit, 11 Sep 2026
 it	u	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	v	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	walter	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1052,7 +1235,11 @@ mi	haimona	generic personal-name gloss with no English equivalent named — a ca
 mi	hakari	"mark-only twin of hākari: The verdict label contradicts its own reason text and file_fix (both say ""retire instead"" and refuse a new row), and the evidence backs the prose, not the label: kaikki's bare `hakari` sense is ""roe (second reader overturned the first) (twin pass, 7 Sep 2026)"
 mi	hare	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 mi	himiona	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+mi	maaka	a given name (English Mark); unanswerable from a definition, like the 645 retired on 25 Aug
+mi	maata	a given name (English Martha); unanswerable from a definition, like the 645 retired on 25 Aug
 mi	morehu	"mark-only twin of mōrehu: Same lexeme with the macron on the first vowel dropped — kaikki carries `morehu` and `mōrehu` as parallel entries with overlapping senses (""remnants of tribes, survivors"" vs ""remnant, survivor""), no s (twin pass, 7 Sep 2026)"
+mi	māka	a given name (English Mark); unanswerable from a definition, like the 645 retired on 25 Aug
+mi	māta	a given name (English Martha); unanswerable from a definition, like the 645 retired on 25 Aug
 mi	nga	"mark-only twin of ngā: The production row is the missing-macron spelling of the plural article and its own gloss admits it — ""macronless spelling of ngā"" — which is the exact defect mi.md names at rank 7 and records as alre (twin pass, 7 Sep 2026)"
 mi	ra	"Ra (Egyptian god of the Sun) at rank 37 — a kaikki artifact; the rank belongs to rā ""day"", which the course uses 20 times and which this pass adds"
 mi	riria	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1082,6 +1269,7 @@ nl	astrid	generic personal-name gloss with no English equivalent named — a car
 nl	bart	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	bella	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	bruno	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+nl	by	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: bij) — orthography audit, 11 Sep 2026
 nl	carmen	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	caroline	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	chris	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1132,6 +1320,7 @@ nl	mia	generic personal-name gloss with no English equivalent named — a card c
 nl	miriam	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	monica	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	mr.	written title abbreviation of meester, full stop and all; read aloud as the full word and doubled with English Mr. in the corpus
+nl	my	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: mij) — orthography audit, 11 Sep 2026
 nl	n	rank 35 - nothing abbreviating noord is the 35th most frequent token in Dutch; the mass is the letter n plus the apostrophe-stripped clitic 'n (reduced een), so the rank is evidence about the letter, not an abbreviation ruling
 nl	nadia	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	nadine	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1141,6 +1330,7 @@ nl	no	rank 3116 is not noordoost - no Dutch text uses a compass initialism that 
 nl	nora	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	ns	written initialism of the company name Nederlandse Spoorwegen; a name in short written form
 nl	ok	rank 612 is not operatiekamer - it is the okay interjection, which the course already cards twice as oké at rank 106 and oke at 545; this third spelling is a variant twin holding mass, not a word of its own
+nl	oke	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: oké) — orthography audit, 11 Sep 2026
 nl	p	bare Latin letter; chess notation for paard cannot earn rank 6564, so the mass is the letter in initials, abbreviations and lists
 nl	rebecca	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 nl	rené	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1165,16 +1355,24 @@ nl	who	initialism of an organisation name - and the English letters at that, sin
 nl	x	bare Latin letter; its rank comes from letter and multiplication-sign use, not from the shorthand x for keer, and either reading is a written symbol rather than a producible word
 nl	y	The gloss says it is the twenty-fifth letter of the Dutch alphabet.
 nl	z	rank 135 - far too high for a compass abbreviation; the mass is the letter z plus apostrophe-stripped z'n (reduced zijn), an extraction artefact
+pt	Antônio	a given name; unanswerable from a definition, like the 645 retired on 25 Aug
+pt	actividade	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: atividade) — orthography audit, 11 Sep 2026
+pt	acto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ato) — orthography audit, 11 Sep 2026
+pt	actor	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ator) — orthography audit, 11 Sep 2026
+pt	actual	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: atual) — orthography audit, 11 Sep 2026
+pt	acção	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ação) — orthography audit, 11 Sep 2026
 pt	agua	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: água r377)
 pt	al	rank 1831 is impossible for the niche term alojamento local; the mass is foreign tokens such as et al. and Arabic al-, and an initialism either way
 pt	alcool	mark-only twin of álcool: Drops the acute of álcool (file rank 2265); pre-reform pointer gloss naming another spelling and carrying no meaning of its own. (twin pass, 7 Sep 2026)
 pt	alem	mark-only twin of além: Self-labelled pre-reform spelling of além — the acute on the final syllable is required. (twin pass, 7 Sep 2026)
 pt	alexander	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	alpha	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: alfa) — orthography audit, 11 Sep 2026
 pt	am	two-letter state code for Amazonas; also the radio band and English am, all written short forms
 pt	amanha	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: amanhã r309)
 pt	amen	mark-only twin of ámen: The production row is a self-identified obsolete spelling of amém and carries no meaning, so it must stop being drawn — but note the file's form is not the Brazilian one either. (twin pass, 7 Sep 2026)
 pt	anna	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	anthony	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	antonio	a given name; unanswerable from a definition, like the 645 retired on 25 Aug
 pt	ate	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: até r95)
 pt	açucar	mark-only twin of açúcar: Keeps the cedilla but drops the acute of açúcar (file rank 2718); a pre-reform pointer row with no meaning of its own. (twin pass, 7 Sep 2026)
 pt	b	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
@@ -1189,31 +1387,50 @@ pt	carlos	generic personal-name gloss with no English equivalent named — a car
 pt	cerimónia	the file's worse spelling of cerimônia, replaced there 7 Sep 2026: European spelling out; the 'fazer cerimônia' sense is very common in spoken Brazilian and was absent from the old row, which was a bare pointer at the
 pt	christopher	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	ciumes	mark-only twin of ciúmes: The row labels itself the pre-1943 spelling of ciúmes, and the authoritative variety here is post-Acordo Brazilian, which writes the acute. (twin pass, 7 Sep 2026)
+pt	colecção	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: coleção) — orthography audit, 11 Sep 2026
 pt	colónia	the file's worse spelling of colônia, replaced there 7 Sep 2026: European spelling out; the cologne sense is everyday Brazilian and the old row was a bare pointer with no meaning of its own.
+pt	contacto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: contato) — orthography audit, 11 Sep 2026
+pt	correcto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: correto) — orthography audit, 11 Sep 2026
 pt	cú	mark-only twin of cu: Here the mark is spurious rather than missing: a monosyllable ending in -u takes no accent, the stored gloss admits 'misspelling of cu', and the file's unaccented form is the correct written form. (twin pass, 7 Sep 2026)
 pt	d	written short form of the title Dom; no sentences, and nothing is produced from a definition here
 pt	d.	written short form of the title Dom, dotted variant of the same non-word
 pt	d.c.	written dating abbreviation for depois de Cristo; the learner reads it but never produces it from a meaning
 pt	danielle	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	detective	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: detetive) — orthography audit, 11 Sep 2026
 pt	deviamos	mark-only twin of devíamos: Drops the acute of devíamos and the stored gloss literally reads 'misspelling of devíamos' — the self-identifying misspelling class CHECKS §3 deletes mechanically. (twin pass, 7 Sep 2026)
 pt	diego	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	directamente	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: diretamente) — orthography audit, 11 Sep 2026
+pt	directo	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: direto) — orthography audit, 11 Sep 2026
+pt	director	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: diretor) — orthography audit, 11 Sep 2026
+pt	direcção	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: direção) — orthography audit, 11 Sep 2026
 pt	distancia	mark-only twin of distância: Self-labelled pre-reform spelling of distância — the circumflex on â is required, and the rare verb form distancia is not what this row glosses. (twin pass, 7 Sep 2026)
 pt	dr	the gloss picked the slang sense discussao de relacionamento; the token at this rank is undotted Dr for doutor, and both are written short forms
 pt	dr.	written title short form of doutor; the learner must produce doutor, which is its own card
 pt	dêem	the file's worse spelling of deem, replaced there 7 Sep 2026: The Acordo Ortográfico dropped the circumflex on -eem hiatus, so dêem is no longer a valid spelling in either variety; deem is not yet a headword, and
+pt	electricidade	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: eletricidade) — orthography audit, 11 Sep 2026
 pt	electrico	mark-only twin of eléctrico: electrico is the fully unaccented pre-reform form and a pointer gloss, so it retires — though the file's eléctrico is itself a pre-Acordo spelling whose gloss says only 'pre-reform spelling'. (twin pass, 7 Sep 2026)
+pt	ella	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ela) — orthography audit, 11 Sep 2026
 pt	elvis	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	es	initialism of Espírito Santo, a Brazilian state; grades as 'és' (rank 110)
+pt	espectacular	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: espetacular) — orthography audit, 11 Sep 2026
 pt	espectaculo	mark-only twin of espectáculo: espectaculo is the unaccented pre-reform form with a pointer gloss and must stop being drawn; note the file's espectáculo is also pre-Acordo and its gloss reads only 'pre-reform spelling'. (twin pass, 7 Sep 2026)
+pt	espectáculo	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: espetáculo) — orthography audit, 11 Sep 2026
 pt	esperavamos	mark-only twin of esperávamos: Self-labelled pre-reform spelling of esperávamos — the acute on the antepenult is required by the current orthography. (twin pass, 7 Sep 2026)
 pt	espirito	mark-only twin of espírito: Self-labelled pre-reform spelling of espírito — the acute is required by the current orthography. (twin pass, 7 Sep 2026)
+pt	estavamos	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: estávamos) — orthography audit, 11 Sep 2026
 pt	esther	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	està	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: está) — orthography audit, 11 Sep 2026
 pt	et	initialism of extraterrestre read letter by letter; no sentences in the bank, and the full word is what a definition should elicit
 pt	eua	initialism spelled out letter by letter; os Estados Unidos is the ordinary spoken form a learner needs
 pt	ex.	written short form of por exemplo; the learner produces por exemplo, not the dotted stub
+pt	exactamente	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: exatamente) — orthography audit, 11 Sep 2026
+pt	exacto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: exato) — orthography audit, 11 Sep 2026
+pt	excepto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: exceto) — orthography audit, 11 Sep 2026
 pt	f	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 pt	facil	mark-only twin of fácil: Drops the acute of fácil (file rank 497); a pre-reform pointer gloss that names another spelling and carries no meaning of its own. (twin pass, 7 Sep 2026)
+pt	facto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: fato) — orthography audit, 11 Sep 2026
 pt	familia	mark-only twin of família: Self-identified obsolete spelling of família (file rank 247) with the acute dropped; its 2 sentences should be re-tagged to the accented headword rather than kept under a pointer row. (twin pass, 7 Sep 2026)
+pt	frances	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: francês) — orthography audit, 11 Sep 2026
 pt	frequencia	mark-only twin of frequência: Drops the circumflex of frequência; the row's own gloss is a self-identified pre-reform pointer with no meaning, and rank 9183 is unaccented typing of the file's rank-3156 word. (twin pass, 7 Sep 2026)
 pt	fácilmente	mark-only twin of facilmente: The acute on a -mente adverb is pre-1971 orthography (and the correct Spanish spelling, which likely inflated the rank); post-Acordo Brazilian writes facilmente unmarked, and the production row is a p (twin pass, 7 Sep 2026)
 pt	fôr	mark-only twin of for: The differential circumflex on fôr was abolished by the 1971 Brazilian reform; the modern written form is for, and the production row is a pointer with no meaning of its own. (twin pass, 7 Sep 2026)
@@ -1222,13 +1439,17 @@ pt	garcia	generic personal-name gloss with no English equivalent named — a car
 pt	gémeos	the file's worse spelling of gêmeos, replaced there 7 Sep 2026: Two faults in one row: the European spelling and a bare inflection stub ('plural of gémeo'); the singular gêmeo/gémeo has no row at all, so this plura
 pt	génio	the file's worse spelling of gênio, replaced there 7 Sep 2026: génio is the European spelling and out of scope as a production target; the temper sense is the one a Brazilian learner meets most and the file's old 
 pt	h	written short form of hora; the only sentence uses it inside the clock form 2h30, and hora is what a learner must produce
+pt	ha	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: há) — orthography audit, 11 Sep 2026
 pt	havai	the file's worse spelling of havaí, replaced there 7 Sep 2026: Brazilian Portuguese stresses and accents the final syllable (Havaí) where European Portuguese writes Havai; the old row stated no meaning at all, onl
+pt	he	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: é) — orthography audit, 11 Sep 2026
 pt	historia	pointer gloss: names another spelling and carries no meaning of its own (twin: história r312)
 pt	i	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 pt	ian	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	idéia	pointer gloss: names another spelling and carries no meaning of its own (twin: ideia r257)
+pt	idéias	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ideias) — orthography audit, 11 Sep 2026
 pt	india	mark-only twin of índia: india is the acute-less spelling (its own gloss says pre-reform, of Índia), and the file already holds the accented form that serves both the country and the feminine of índio. (twin pass, 7 Sep 2026)
 pt	industria	mark-only twin of indústria: Drops the acute of indústria (file rank 3689); the stored row is a pre-reform pointer, so retiring it loses no sense, and the frequency is unaccented typing of the twin. (twin pass, 7 Sep 2026)
+pt	inspector	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: inspetor) — orthography audit, 11 Sep 2026
 pt	iris	the file's worse spelling of íris, replaced there 7 Sep 2026: Unaccented twin, invalid since the 1943 reform in Brazil; íris is invariable in the plural (as íris), and the masculine o íris for 'rainbow' survives 
 pt	isabella	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	isabelle	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1262,6 +1483,8 @@ pt	numero	the stated meaning cannot carry this rank; the frequency is the unacce
 pt	nº	typographic symbol for numero; numero is the word a learner writes
 pt	nã	eye-dialect spelling of não; grades as 'na' (rank 29) and teaches a spelling nobody writes
 pt	obama	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	objectivo	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: objetivo) — orthography audit, 11 Sep 2026
+pt	objecto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: objeto) — orthography audit, 11 Sep 2026
 pt	obvio	"mark-only twin of óbvio: The first reader's own reason and file_fix both conclude ""retire"" — obvio is a real 1sg of obviar but nobody writes it at rank 9908, so the frequency is unaccented óbvio (r1661), which is precisely th (second reader overturned the first) (twin pass, 7 Sep 2026)"
 pt	ola	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: olá r117)
 pt	opera	mark-only twin of ópera: As glossed the row is simply ópera with the acute dropped (it says so itself); the homographic verb form opera 'he/she operates' would need its own differently-glossed row, not this pre-reform pointer (twin pass, 7 Sep 2026)
@@ -1279,15 +1502,19 @@ pt	possivel	mark-only twin of possível: Drops the acute of possível (file rank
 pt	principe	mark-only twin of príncipe: Self-labelled pre-reform spelling of príncipe — the acute is required on the proparoxytone. (twin pass, 7 Sep 2026)
 pt	principio	mark-only twin of princípio: The row's own gloss calls it the pre-reform spelling of princípio, i.e. the acute dropped; the homographic verb form principio 'I begin' (principiar) is a different card that this row does not gloss a (twin pass, 7 Sep 2026)
 pt	prof.	written title short form of professor; professor is its own card and is what a learner produces
+pt	projecto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: projeto) — orthography audit, 11 Sep 2026
+pt	protecção	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: proteção) — orthography audit, 11 Sep 2026
 pt	prémio	the file's worse spelling of prêmio, replaced there 7 Sep 2026: European spelling out; note the sibling row prémios (rank 6002, 'plural of prémio') is a second pre-reform stub that will still point at the retired s
 pt	pára	pointer gloss: names another spelling and carries no meaning of its own (twin: para r9)
 pt	pénis	the file's worse spelling of pênis, replaced there 7 Sep 2026: European spelling out; pênis is not yet a headword.
 pt	pêlo	pointer gloss: names another spelling and carries no meaning of its own (twin: pelo r143)
+pt	pêlos	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: pelos) — orthography audit, 11 Sep 2026
 pt	pólo	the file's worse spelling of polo, replaced there 7 Sep 2026: Post-Acordo the acute on the open diphthong is gone and polo also absorbs the old pôlo, so the single spelling now carries all three senses; polo is n
 pt	q	texting shorthand for que, the owner's own example; may return in a slang deck, which is a different product
 pt	qué	"mark-only twin of quê: A duck-quack interjection cannot carry rank 5686 while quê (r108) holds 'what' with three real sentences, which is the exact shape of the course's own exclusion precedent (""the stated meaning cannot c (second reader overturned the first) (twin pass, 7 Sep 2026)"
 pt	r	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 pt	r.	written short form of rua in street names; rua is the card
+pt	reacção	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: reação) — orthography audit, 11 Sep 2026
 pt	reagan	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	regina	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	rita	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1310,6 +1537,7 @@ pt	t	A letter used as a shape name for a multi-plug adaptor; not vocabulary a le
 pt	tambem	pointer gloss: names another spelling and carries no meaning of its own (twin: também r103)
 pt	taxi	mark-only twin of táxi: Self-labelled pre-reform spelling of táxi — the acute is required in the current orthography. (twin pass, 7 Sep 2026)
 pt	taylor	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+pt	tecto	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: teto) — orthography audit, 11 Sep 2026
 pt	tinhamos	mark-only twin of tínhamos: Drops the acute of tínhamos (imperfect of ter, file rank 893); a self-identified obsolete spelling, so its one sentence belongs on the accented card. (twin pass, 7 Sep 2026)
 pt	tobias	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 pt	tony	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1323,6 +1551,7 @@ pt	v.	written short form of via in street names; via is the word
 pt	vc	texting shorthand for voce; voce is the core card and the form a learner must produce
 pt	ve	mark-only twin of vê: Not a distinct word: the Norse god is itself written Vé with an accent, so the headword 've' spells neither word, and rank 9923 is unaccented typing of vê (file rank 442) — proper-noun extraction debr (twin pass, 7 Sep 2026)
 pt	vitima	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: vítima r847)
+pt	vêem	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: veem) — orthography audit, 11 Sep 2026
 pt	vôo	pointer gloss: names another spelling and carries no meaning of its own (twin: voo r1521)
 pt	w	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 pt	washington	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1337,6 +1566,8 @@ pt	â	The gloss describes an adverb-forming suffix, so this row is extraction de
 pt	ã	The nasal-tilde vowel character itself, glossed as a letter — it never stands alone as a word.
 pt	ç	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 pt	ê	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+pt	óptima	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ótima) — orthography audit, 11 Sep 2026
+pt	óptimo	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ótimo) — orthography audit, 11 Sep 2026
 ro	2-a	the ordinal written with a digit, a doua spelled as a 2-a; doua is the word a learner must produce
 ro	3-a	the ordinal written with a digit, a treia spelled as a 3-a - the French 7e case; the learner needs treia, which is a word and its own card
 ro	ab	written code for the county Alba; Alba is the name, the two-letter code belongs on a number plate
@@ -1365,6 +1596,7 @@ ro	buza	the file's worse spelling of buză, replaced there 7 Sep 2026: `buze` (r
 ro	băiatu	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	c	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	carmen	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ro	cat	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: cât) — orthography audit, 11 Sep 2026
 ro	catedrala	the file's worse spelling of catedrală, replaced there 7 Sep 2026: Straight inflection-stub to lemma; morphology already carries `catedrală` (f., pl. catedrale), so the card gets its gender chip for free.
 ro	ceata	the file's worse spelling of ceată, replaced there 7 Sep 2026: CHECK BEFORE SHIPPING: `ceață` “fog” is absent from the file and folds to this same `ceata` string, and the one sentence-corpus hit for the string is 
 ro	cianura	"mark-only twin of cianură: The `ă`→`a` is the definite-article suffix, so `cianura` is ""the cyanide"" — the same lexeme as the file's `cianură` — and the stored verb gloss ""to cyanate"" is rank-impossible metallurgical jargon a l (twin pass, 7 Sep 2026)"
@@ -1383,6 +1615,7 @@ ro	d	a single letter glossed by its position in the alphabet, not a word — pro
 ro	d-ta	hyphenated written shortening of dumneata; the full pronoun is what a learner says and must produce
 ro	d-voastră	hyphenated written shortening of dumneavoastra, a page convention only; the full pronoun is the card
 ro	daca	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: dacă r36)
+ro	dam	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: dăm) — orthography audit, 11 Sep 2026
 ro	damian	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	dc	texting shorthand for de ce; de and ce are both cards and the question phrase De ce is already a drilled answer
 ro	dex	short form of the title Dictionarul explicativ al limbii romane; the name of one book, and a title abbreviation is not vocabulary
@@ -1461,11 +1694,14 @@ ro	nt	written code for the county Neamt; the county name Neamt is the word, the 
 ro	oarba	mark-only twin of oarbă: A Galați river name; oarba is otherwise only the definite of oarbă, the feminine of orb 'blind' (file 4506). (twin pass, 7 Sep 2026)
 ro	otel	the file's worse spelling of oțel, replaced there 7 Sep 2026: The old “hotel” gloss is a duplicate misparse — `hotel` already holds r934 with that meaning — so rank 3064 belongs to `oțel`.
 ro	p	rank 2349 for a lone letter p is the letter, not chat shorthand for pe; standalone p in Romanian text is pagina, punct, an initial or a list marker, and pe is its own card
+ro	pasare	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: pasăre) — orthography audit, 11 Sep 2026
+ro	pastra	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: păstra) — orthography audit, 11 Sep 2026
 ro	pavel	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	pizda	the file's worse spelling of pizdă, replaced there 7 Sep 2026: Ship this only if the course admits vulgar register — the ro guide's Register line says neutral standard Romanian and the file's only precedent is `(s
 ro	pl	glossed as a censored vulgar shorthand, but the real source of a rank this deep is pl. for plural in grammatical and dictionary text; an abbreviation under either reading
 ro	poanta	the file's worse spelling of poantă, replaced there 7 Sep 2026: The old gloss “alternative form of ponta” was a dictionary artefact — `a ponta` (“to clock in; to bet”) is a different word and has no row in this fil
 ro	politia	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: poliția r3470)
+ro	politie	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: poliție) — orthography audit, 11 Sep 2026
 ro	print	the file's worse spelling of prinț, replaced there 7 Sep 2026: `prințesă` already holds r9642, so this completes the pair; the English loan “print” is not standard Romanian and folds to `prinț` in any case.
 ro	priza	mark-only twin of priză: Without the breve, priza is the definite form of the file's priză 'socket'; the row's 'to snuff' is the marginal homograph verb a priza, not a second word the course needs drawn. (twin pass, 7 Sep 2026)
 ro	pt	texting and note-taking shorthand for pentru; pentru is its own card, and the owner keeps shorthand for a possible later slang deck
@@ -1493,6 +1729,7 @@ ro	sir	the file's worse spelling of șir, replaced there 7 Sep 2026: `șir` is n
 ro	soacra	the file's worse spelling of soacră, replaced there 7 Sep 2026: Straight inflection-stub to lemma, but `soacră` has no entry in data/ro_morphology.json, so the card will show no gender chip until one is added.
 ro	spânzură	mark-only twin of spânzura: spânzură is the third-person singular of the file's a spânzura 'to hang'; the final breve is the tense ending, and the noun gloss 'pendulum' is an extraction error, not a second lexeme. (twin pass, 7 Sep 2026)
 ro	stanca	mark-only twin of stânca: stanca is the â-less typing of stânca 'the rock' (lemma stâncă, r4133) carrying a Brăila village gloss; separately the file's stânca row is a bare inflection stub that deserves 'the rock (definite of (twin pass, 7 Sep 2026)
+ro	statie	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: stație) — orthography audit, 11 Sep 2026
 ro	sârma	mark-only twin of sârmă: A river in Neamț harvested as a homograph of sârma 'the wire'; the lemma sârmă is in the file at 5524. (twin pass, 7 Sep 2026)
 ro	t	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	tamara	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1504,6 +1741,7 @@ ro	u	a single letter glossed by its position in the alphabet, not a word — pro
 ro	unealta	mark-only twin of unealtă: Inflection-stub row for the definite form of unealtă 'tool, instrument' (file 7039); the -a is the suffixed article, not a dropped breve, and either way it is the same word. (twin pass, 7 Sep 2026)
 ro	v	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	v.	reference-book shortening of vezi used in dictionaries and footnotes; vezi is the word and is its own card
+ro	vad	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: văd) — orthography audit, 11 Sep 2026
 ro	vama	mark-only twin of vamă: A village in Iași and a Satu Mare commune, harvested as a homograph of vama 'the customs post'; the lemma vamă is in the file at 7944. (twin pass, 7 Sep 2026)
 ro	varza	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	veronica	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1515,6 +1753,7 @@ ro	wolf	generic personal-name gloss with no English equivalent named — a card 
 ro	x	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	y	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	z	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ro	zahar	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: zahăr) — orthography audit, 11 Sep 2026
 ro	â	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	î	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	îndemâna	mark-only twin of îndemână: In running text îndemâna is the definite/genitive of the file's adverbial îndemână ('la îndemâna cuiva'), so the final ă is inflection rather than a second lexeme, and 'to facilitate' is a dictionary- (twin pass, 7 Sep 2026)
@@ -1532,6 +1771,7 @@ ru	г-жа	written short form of gospozha, read aloud in full; gospozha is the w
 ru	г-н	written short form of gospodin, read aloud in full; gospodin is the word a learner must produce and is its own card
 ru	г.	written short form of god (and of gorod in addresses), read aloud in full; god is its own card
 ru	дает	mark-only twin of даёт: даёт without its ё; the row glosses itself as an alternative spelling. (twin pass, 7 Sep 2026)
+ru	даешь	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: даёшь) — orthography audit, 11 Sep 2026
 ru	днем	mark-only twin of днём: The adverb is днём; the ё-less spelling is a typing variant, not another word. (twin pass, 7 Sep 2026)
 ru	ее	mark-only twin of её: ё dropped from её; the gloss is the self-identifying pointer 'alternative spelling of её' and no separate word ее exists. (twin pass, 7 Sep 2026)
 ru	еще	mark-only twin of ещё: The ё-less typing of ещё, and the row says so itself: its only gloss is the pointer 'alternative spelling of ещё', no meaning of its own. (twin pass, 7 Sep 2026)
@@ -1562,6 +1802,7 @@ ru	п	rank 17 - the letter pe holds this mass; both course sentences show it onl
 ru	партнер	mark-only twin of партнёр: партнёр without its ё; the file already teaches партнёр at rank 2029. (twin pass, 7 Sep 2026)
 ru	пес	mark-only twin of пёс: пёс 'dog' written without ё; pointer gloss and no rival lexeme. (twin pass, 7 Sep 2026)
 ru	прием	mark-only twin of приём: приём 'reception' spelt without ё; pointer gloss, no rival word. (twin pass, 7 Sep 2026)
+ru	путем	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: путём) — orthography audit, 11 Sep 2026
 ru	ребенок	mark-only twin of ребёнок: ребёнок written without ё; self-identifying pointer gloss and no rival lexeme. (twin pass, 7 Sep 2026)
 ru	ружье	the file's worse spelling of ружьё, replaced there 7 Sep 2026: ружье is genuinely the prepositional singular (о ружье́) as well as the ё-less twin, but the row's only content was that inflection stub and the grade
 ru	с.	written citation shortening of stranica (and of selo), expanded when read; stranica is its own card
@@ -1622,6 +1863,7 @@ tr	abdullah	generic personal-name gloss with no English equivalent named — a c
 tr	adal	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	akm	initialism of Ataturk Kultur Merkezi; the one sentence is akmaya, a form of akmak, so not even this string
 tr	ali	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	amin	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: âmin) — orthography audit, 11 Sep 2026
 tr	ap	initialism of an English news agency; the one sentence is the name Apita, a different string
 tr	ark	rank 925 with a sentence about arkada; the frequency belongs to arka and arkadas, not to a clipping of arkadas
 tr	ayda	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1657,6 +1899,7 @@ tr	fast	the rank belongs to the borrowed compound fast food in both sentences, n
 tr	fatma	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	ferdi	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	g	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+tr	gayrı	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: gayri) — orthography audit, 11 Sep 2026
 tr	gülen	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	güler	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	h	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
@@ -1665,19 +1908,28 @@ tr	halil	generic personal-name gloss with no English equivalent named — a card
 tr	hasan	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	hass	euphemistic clipping of a vulgar interjection; the one sentence is hassa, a different word, and a clipped swear is read rather than produced
 tr	hatice	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	hikaye	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: hikâye) — orthography audit, 11 Sep 2026
+tr	hikayeler	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: hikâyeler) — orthography audit, 11 Sep 2026
+tr	hikayeyi	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: hikâyeyi) — orthography audit, 11 Sep 2026
 tr	hüseyin	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	i	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	ii	Roman numeral II (II. Dünya Savaşı) read as a word; 'abbreviation of iyi' is not a Turkish word (7 Sep 2026)
+tr	imkansız	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: imkânsız) — orthography audit, 11 Sep 2026
 tr	irmak	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	istakoz	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ıstakoz) — orthography audit, 11 Sep 2026
 tr	işık	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	j	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	k	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	kai	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	kase	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: kâse) — orthography audit, 11 Sep 2026
+tr	kağıt	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: kâğıt) — orthography audit, 11 Sep 2026
 tr	kg	unit symbol for kilogram (the kolay gelsin gloss is the wrong reading of the string); a unit symbol is read, never produced from a definition
 tr	korum	extraction debris from koruma: both of the card's sentences are koruma/korumak and neither contains this form (10 Sep 2026)
 tr	l	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	leyla	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	lâkin	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: lakin) — orthography audit, 11 Sep 2026
 tr	m	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+tr	mahkum	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: mahkûm) — orthography audit, 11 Sep 2026
 tr	mahmut	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	mahçup	"mark-only twin of mahcup: Here the mark runs the other way — TDK writes mahcup with plain `c` (Arabic maḥcūb) and `mahçup` is the common ç-hypercorrection, self-identified by its own gloss ""misspelling of mahcup""; it is not a (twin pass, 7 Sep 2026)"
 tr	makbule	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1695,7 +1947,10 @@ tr	olm	rank 139 is impossible for texting shorthand; both course sentences are o
 tr	olsan	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	oral	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	p	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+tr	plân	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: plan) — orthography audit, 11 Sep 2026
 tr	r	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+tr	rüzgar	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: rüzgâr) — orthography audit, 11 Sep 2026
+tr	rüzgarı	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: rüzgârı) — orthography audit, 11 Sep 2026
 tr	s	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	sa	rank 962 for a texting greeting is impossible; both sentences are cok sayida, so the mass is sayi, not an initialism of selamunaleykum
 tr	satılmış	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1706,10 +1961,13 @@ tr	sinan	generic personal-name gloss with no English equivalent named — a card
 tr	sinem	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	st	written abbreviation only, and in the sentences it is the English Saint in St. Michel and St. Peter
 tr	sun	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	sutyen	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: sütyen) — orthography audit, 11 Sep 2026
 tr	t	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+tr	tabiî	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: tabii) — orthography audit, 11 Sep 2026
 tr	tarık	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	te	vowel-harmony spelling of ta; one card, typed as any of its forms (tr.md, 7 Sep 2026)
 tr	tem	calendar abbreviation of Temmuz and an initialism of a police unit; both sentences are tema (theme), a different word
+tr	tir	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: tır) — orthography audit, 11 Sep 2026
 tr	tura	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	u	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	ulaş	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1735,6 +1993,7 @@ tr	üzer	generic personal-name gloss with no English equivalent named — a card
 tr	ı	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	ş	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	şerife	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+tr	şikayet	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: şikâyet) — orthography audit, 11 Sep 2026
 tr	şub	calendar abbreviation of Subat; the sentences carry Subata and subesi, the full words
 xh	n	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 xh	nokuzola	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
