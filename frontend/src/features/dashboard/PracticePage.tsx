@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
-import { BookOpen, Dumbbell, MessagesSquare, Mic } from 'lucide-react'
+import { BookOpen, Dumbbell, MessagesSquare, Mic, PenLine } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { getGymManifest } from '../../api/gym'
 import { usePrefsStore } from '../../stores/prefsStore'
@@ -139,12 +139,13 @@ export default function PracticePage() {
           <DirArrow className="flex-none text-lang-on/70 group-hover:text-lang-on" />
         </button>
 
-        {/* The quiet row. Two or three across depending on whether this
-            language has a Gym — both fit a phone without shrinking the tap
-            targets, which four never did. */}
+        {/* The quiet row. Three across, or two-by-two when this language
+            has a Gym — four in a row never fit a phone without shrinking
+            the tap targets. Write is always here: its free-write mode needs
+            no authored content, so every course has it. */}
         <div
           data-testid="feature-tiles"
-          className={`grid gap-3 ${hasGym ? 'grid-cols-3' : 'grid-cols-2'}`}
+          className={`grid gap-3 ${hasGym ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3'}`}
         >
           {hasGym && (
             <FeatureTile
@@ -169,6 +170,14 @@ export default function PracticePage() {
             caption={t('dashboard.tutorCaption')}
             testId="tile-tutor"
             onClick={() => navigate('/tutor')}
+            disabled={!activeLanguageId}
+          />
+          <FeatureTile
+            icon={PenLine}
+            label={t('nav.write')}
+            caption={t('dashboard.writeCaption')}
+            testId="tile-write"
+            onClick={() => navigate('/write')}
             disabled={!activeLanguageId}
           />
         </div>

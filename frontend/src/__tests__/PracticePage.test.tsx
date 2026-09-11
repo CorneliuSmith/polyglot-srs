@@ -54,7 +54,7 @@ describe('PracticePage', () => {
     const speak = await screen.findByTestId('tile-speak')
 
     expect(speak.className).toContain('bg-lang')
-    for (const other of ['tile-read', 'tile-tutor']) {
+    for (const other of ['tile-read', 'tile-tutor', 'tile-write']) {
       expect(screen.getByTestId(other).className).not.toContain('bg-lang ')
     }
   })
@@ -79,14 +79,14 @@ describe('PracticePage', () => {
       expect(screen.queryByTestId('tile-gym')).toBeInTheDocument(),
     )
     // Gym, Read, Tutor — Speak has its own row above them.
-    expect(screen.getByTestId('feature-tiles').className).toContain('grid-cols-3')
+    expect(screen.getByTestId('feature-tiles').className).toContain('sm:grid-cols-4')
   })
 
   it('drops to two across for an uninflected language', async () => {
     renderPage()
     await screen.findByTestId('tile-read')
     expect(screen.queryByTestId('tile-gym')).not.toBeInTheDocument()
-    expect(screen.getByTestId('feature-tiles').className).toContain('grid-cols-2')
+    expect(screen.getByTestId('feature-tiles').className).toContain('grid-cols-3')
   })
 
   it('disables the language-dependent entries with no course chosen', async () => {

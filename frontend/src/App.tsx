@@ -62,6 +62,7 @@ const LearnPage = lazyWithRetry(() => import('./features/review/LearnPage'))
 const TutorPage = lazyWithRetry(() => import('./features/tutor/TutorPage'))
 const ReaderPage = lazyWithRetry(() => import('./features/reader/ReaderPage'))
 const SpeakPage = lazyWithRetry(() => import('./features/speak/SpeakPage'))
+const WritePage = lazyWithRetry(() => import('./features/write/WritePage'))
 const LettersPage = lazyWithRetry(() => import('./features/letters/LettersPage'))
 const RecommendationsPage = lazyWithRetry(() => import('./features/recommendations/RecommendationsPage'))
 const LanguageAboutPage = lazyWithRetry(() => import('./features/about/LanguageAboutPage'))
@@ -139,6 +140,7 @@ const router = createBrowserRouter([
       { path: '/tutor', element: <TutorPage /> },
       { path: '/read', element: <ReaderPage /> },
       { path: '/speak', element: <SpeakPage /> },
+      { path: '/write', element: <WritePage /> },
       { path: '/letters', element: <LettersPage /> },
       { path: '/recommendations', element: <RecommendationsPage /> },
       // Staff triage. The panel already existed inside Settings → Admin;

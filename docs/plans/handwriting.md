@@ -6,9 +6,14 @@ written, then has the learner translate and write words and sentences that
 are assessed for correctness — Russian cursive alone and connected, Arabic
 positional forms — placed in **Practice**.
 
-**Status: plan only. Nothing is built.** The alphabet decks stay as they
-are (owner, 11 Sep 2026): the question of what to do with them is the last
-section, not the first.
+**Status: Phase 1 (Free write) built and merged 11 Sep 2026** — the
+canvas, the on-device neatness panel, the vision assessment on the AI
+allowance, the compare view, prompts from the learner's own cards and the
+course's lines, the Practice tile, for every course. Not yet built from
+Phase 1: the low-confidence staff queue (DEBT.md, *Write, Phase 1*).
+Phases 0's stroke-matcher spike and 2–6 are not started. The alphabet
+decks stay as they are (owner, 11 Sep 2026): the question of what to do
+with them is the last section, not the first.
 
 Revised the same day on two owner points: tracing must extend to words and
 whole sentences in the real joined hand (Russian cursive, Arabic initial /

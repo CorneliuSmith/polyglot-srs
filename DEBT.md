@@ -382,6 +382,36 @@ about languages outside its ten-language table. Both are deliberate — the
 cost of a false positive is a deleted English cue, so it is tuned to stay
 quiet when unsure.
 
+### Write, Phase 1: what Free write does not do yet
+
+Shipped 11 Sep 2026 (`docs/plans/handwriting.md`, Phase 1). Three gaps a
+reader of the plan would expect to find built, and will not:
+
+- **No staff queue for low-confidence reads.** The plan sends a *low*
+  confidence assessment to a Workshop queue with its PNG kept for 30
+  days. Not built: the ink is never stored (by design) and no queue kind
+  exists, so a learner who keeps getting "not sure I read that right" has
+  the transcription to go on and nothing else. Build it when the
+  Workshop's feedback queue gains a `writing` kind; until then the answer
+  to "the reader keeps misreading my Thai" is the transcription itself.
+- **No per-letter stroke verdict.** "Correct" is the model's reading of
+  the text, and "legible" its judgement as a reader. The form / order /
+  direction check per letter needs the script's authored templates
+  (Phase 2–4). The neatness panel is the exact, on-device half until then.
+- **No handwriting face for Hebrew or Greek.** `handFont.ts` maps each
+  script to a Google Fonts handwriting family (Caveat for Latin and
+  Cyrillic, Aref Ruqaa for Arabic and Persian, Kalam, Nanum Pen Script,
+  Sriracha). Google serves nothing handwritten for Hebrew or Greek, so
+  their compare view falls back to the browser's generic `cursive`, which
+  on most systems is a Latin face and shows the text in the default UI
+  font. An OFL Hebrew cursive font can be self-hosted (the plan names
+  the option); nobody has picked one.
+
+Also worth knowing: the `style` flag (print / cursive) reaches the model
+only for scripts `hasCursiveToggle` allows — Arabic, Persian, Hangul,
+Thai, Devanagari and Hebrew send none, and Russian defaults to cursive
+because that is what Russians write.
+
 ### A fill predicate stricter than the serve predicate is a permanent English row
 
 Fixed twice on 8 Sep 2026 (examples: `reviewed` alone versus the review
