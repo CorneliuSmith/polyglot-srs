@@ -694,6 +694,30 @@ authoring, but each needs a reader of its language to confirm before a
 durable deletion — which is why they are written down instead of swept
 (quality rule 27 and the Romanian `-ă`/`-a` refusal).
 
+## The alphabet decks carry a frequency rank they have no business having (10 Sep 2026)
+
+All 166 alphabet rows sit in `vocabulary` with `frequency_rank` **1–40**,
+colliding one-for-one with the most frequent real words: Korean rank 1 is both
+`그` ("that") and `ㄱ`, rank 2 both `우리` ("we") and `ㄴ`, and so on through
+Korean's first forty. That number is a sequence position inside the Alphabet
+deck wearing a frequency column's clothes.
+
+**No learner is harmed.** The Learn draw joins `cl.level = v.level`
+(`cards.py`), the deck is level A0 and vocabulary is A1+, so the two never mix
+at draw time, and the UI switches input mode for a `letter` card.
+
+**Tools are harmed, repeatedly.** Anything reading by rank sees 166 phantom
+high-frequency words. It is why `reconcile`'s `gone` column counted the decks
+as ungoverned and a sweep nearly deleted all 166 with their 17 learner cards
+(#434, the `other` column was added to stop it), and it distorted two separate
+measurements during the 10 Sep definition work before being noticed each time.
+
+**The fix is a migration plus a seeder change** — letters should carry a
+distinct ordering column, or none — and it is deliberately not bundled with
+the card fix (CHECKS §37), which needed no migration and could ship at once.
+Until then, every query over `vocabulary` by rank should exclude
+`part_of_speech = 'letter'`, and the ones that matter already do.
+
 ## 14 words serve a sentence about Tatoeba because it is all they have (10 Sep 2026)
 
 `names_the_corpus` removed 45 of the 59 rows whose sentence is about the
