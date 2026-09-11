@@ -322,7 +322,6 @@ rank	word	pos	en
 323	الذين	pron	animate masculine plural of اَلَّذِي (allaḏī, “who, that, which”)
 324	كلمة	noun	speech, utterance, statement
 325	جانب	noun	side
-326	سيء	adj	misspelling of سَيِّئ (sayyiʔ)
 327	بدون	prep	without
 328	لكم	verb	to punch, to box
 329	جاء	verb	to come; to bring
@@ -1251,7 +1250,6 @@ rank	word	pos	en
 1254	قميص	noun	shirt (a sleeved upper-body garment)
 1255	إحضار	noun	bringing, fetching, getting, sending for
 1256	شمال	noun	left hand; left side
-1257	انتم	pron	you, ye (masculine plural subject pronoun)
 1258	شديد	adj	violent, strong, intense, severe, hard, difficult, acute, extreme
 1259	كشف	verb	to remove, to uncover, to reveal
 1260	لمن	det	whose; for those who
@@ -6730,7 +6728,6 @@ rank	word	pos	en
 6748	ديانة	noun	religion, confession, denomination, sect
 6749	شوكولاتة	noun	chocolate
 6750	سخف	verb	to ridicule, belittle,
-6751	اسرائيل	name	unhamzated form of إِسْرَائِيل
 6752	شاسع	adj	far (away), distant, remote
 6753	انتخابات	noun	plural of اِنْتِخَاب (intiḵāb)
 6754	نقع	verb	to soak; to rive, to slaughter, to jugulate
@@ -8319,7 +8316,6 @@ rank	word	pos	en
 8339	يئس	verb	to give up hope, to despair, to be hopeless
 8340	فجل	noun	radish
 8341	خنفساء	noun	dung beetle, scarab; beetle
-8342	نفا	verb	alternative form of نَفَى (nafā)
 8343	روائح	noun	plural of رَائِحَة (rāʔiḥa)
 8344	تراوح	verb	to vary, to alternate; to range
 8345	شام	verb	to have sheathed, to have hidden, to have concealed
@@ -8498,7 +8494,6 @@ rank	word	pos	en
 8518	وسواس	noun	temptation, insinuation
 8519	أمعاء	noun	plural of مِعًى (miʕan, “gut, intestines”)
 8520	اهتمامات	noun	plural of اِهْتِمَام (ihtimām)
-8521	اطباء	noun	plural of طَبِيب (ṭabīb)
 8522	هيهات	verb	it is far; it is impossible; no way
 8523	مرموق	verb	passive participle of رَمَقَ (ramaqa)
 8524	طليعة	noun	forefront, vanguard
