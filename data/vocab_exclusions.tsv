@@ -62,6 +62,7 @@ ca	pèr	mark-only twin of per: Standard Catalan has no `pèr` — the r10 prepos
 ca	q	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	r	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	s	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
+ca	sóc	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: soc r924) — orthography audit, 11 Sep 2026
 ca	t	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	v	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ca	à	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
@@ -856,11 +857,13 @@ hi	ख	A bare consonant letter of the Devanagari alphabet.
 hi	घ	A bare consonant letter of the Devanagari alphabet.
 hi	छ	A bare consonant letter of the Devanagari alphabet.
 hi	ज	A bare consonant letter of the Devanagari alphabet.
+hi	जरूरत	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: ज़रूरत r569) — orthography audit, 11 Sep 2026
 hi	ट	A bare consonant letter of the Devanagari alphabet.
 hi	डॉ	the written title before a name, read aloud as डॉक्टर - the textbook dr. case; डॉक्टर is the string a learner must produce and is its own card
 hi	त	A bare consonant letter of the Devanagari alphabet.
 hi	थ	A bare consonant letter of the Devanagari alphabet.
 hi	द	A bare consonant letter of the Devanagari alphabet; a Hindi consonant sign carries no vowel and is not a pronounceable word.
+hi	फोन	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: फ़ोन r881) — orthography audit, 11 Sep 2026
 hi	ब	A bare consonant letter of the Devanagari alphabet.
 hi	म	A bare consonant letter of the Devanagari alphabet.
 hi	र	A bare consonant letter of the Devanagari alphabet.
@@ -868,6 +871,7 @@ hi	ल	A bare consonant letter of the Devanagari alphabet, glossed as the twenty
 hi	श	A bare consonant letter of the Devanagari alphabet.
 hi	स	A bare consonant letter of the Devanagari alphabet.
 hi	सपा	initialism of the party name समाजवादी पार्टी - a written short form of a proper noun at rank 7730, not vocabulary a learner produces from a definition
+hi	सिर्फ	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: सिर्फ़ r2315) — orthography audit, 11 Sep 2026
 hi	ह	A bare consonant letter of the Devanagari alphabet.
 hi	१	The Devanagari digit 1; the word is एक, not the glyph.
 hi	१०	The Devanagari digits for 10; the word is दस, not this glyph string.
@@ -922,6 +926,7 @@ it	clara	generic personal-name gloss with no English equivalent named — a card
 it	claudia	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	cm	texting shorthand for come as glossed, and in ordinary text the unit symbol for centimetri; both readings are shortenings, and the SMS one belongs to a later slang deck
 it	co	the two-letter province code for Como used on plates and addresses; the place name Como is the word, and CO is never said
+it	cosi	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: così r104) — orthography audit, 11 Sep 2026
 it	d	chess notation for donna (the queen); a board symbol, spoken as donna
 it	david	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	doris	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -933,6 +938,7 @@ it	ferrari	generic personal-name gloss with no English equivalent named — a ca
 it	finchè	"mark-only twin of finché: Same grave-for-acute error as perchè — standard Italian writes `finché` with the acute — and the row's stored definition is ""misspelling of finché"", so it is a duplicate spelling, not a second word. (twin pass, 7 Sep 2026)"
 it	g	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	george	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+it	gia	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: già r191) — orthography audit, 11 Sep 2026
 it	h	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	ingrid	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	irene	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -961,9 +967,11 @@ it	p	a single letter glossed by its position in the alphabet, not a word — pro
 it	paghera	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	paul	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	pc	initialism of personal computer, spelled out letter by letter as pi-ci rather than pronounced as a word, so it fails the acronym-become-word test; computer is the ordinary word and has its own card
+it	perche	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: perché r80) — orthography audit, 11 Sep 2026
 it	perchè	"mark-only twin of perché: Grave accent where the course's own profile line requires the acute (`perché` is named explicitly as the acute case), and the production row self-identifies: its definition is literally ""misspelling o (twin pass, 7 Sep 2026)"
 it	peter	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	pieta	"mark-only twin of pietà: The final grave on the oxytone `pietà` is obligatory in standard Italian; bare `pieta` is not a modern word (the row itself only claims ""alternative form of pietà""), making this the same typo-mass sha (twin pass, 7 Sep 2026)"
+it	po	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: po' r1466) — orthography audit, 11 Sep 2026
 it	portera	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 it	q	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 it	quì	mark-only twin of qui: The mark runs the other way here — a spurious grave added to the monosyllable `qui`, which standard Italian (and the file, rank 35) writes bare — but the verdict is the same: the file form is right an (twin pass, 7 Sep 2026)
@@ -1343,6 +1351,7 @@ ro	anton	generic personal-name gloss with no English equivalent named — a card
 ro	arat	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: arăt, absent from the file — arat has swallowed its mass)
 ro	arca	the file's worse spelling of arcă, replaced there 7 Sep 2026: Not the same word as `arc` (r5132, “bow; arch”), which keeps its own row; the old gloss “backer, protector” has nothing behind it in Romanian.
 ro	arsura	mark-only twin of arsură: arsura is the definite form of arsură 'burn' with the breve lost, glossed as a Vaslui commune; the file's marked lemma is the card to draw. (twin pass, 7 Sep 2026)
+ro	as	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: aș r1004) — orthography audit, 11 Sep 2026
 ro	b	rank 1636 for a bare letter b cannot come from a plate and address code for Bucuresti; the mass is the letter itself in list markers, initials and units, and the letter is already seeded by seed_alphabet
 ro	beatrice	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	bender	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1478,6 +1487,7 @@ ro	sarata	mark-only twin of sărată: A Botoșani village name folding onto săr
 ro	scântei	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	sebastian	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	serghei	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ro	si	the stated meaning cannot carry this rank; the frequency is the marked twin (twin: și r96) — orthography audit, 11 Sep 2026
 ro	singer	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 ro	sir	the file's worse spelling of șir, replaced there 7 Sep 2026: `șir` is not yet a headword and `sir` is only ever English here — all three sentence-corpus hits for `sir` are in the English column, where the Romani
 ro	soacra	the file's worse spelling of soacră, replaced there 7 Sep 2026: Straight inflection-stub to lemma, but `soacră` has no entry in data/ro_morphology.json, so the card will show no gender chip until one is added.
