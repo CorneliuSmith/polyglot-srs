@@ -10,6 +10,13 @@ positional forms — placed in **Practice**.
 are (owner, 11 Sep 2026): the question of what to do with them is the last
 section, not the first.
 
+Revised the same day on two owner points: tracing must extend to words and
+whole sentences in the real joined hand (Russian cursive, Arabic initial /
+medial / final), not stop at letters — §1 and §4.2; and a learner who
+already writes wants, above all, to write freely and be told whether it is
+correct and legible — that is now **Free write**, the first mode to ship
+(§1, §4.3, §7).
+
 **Name: Write.** It joins Speak in the half of Practice where the learner
 *produces* language. The app has typing (the transliteration keyboards) and
 speaking (Speak); it has never asked anyone to form a letter by hand, which
@@ -58,19 +65,73 @@ Open Practice → **Write** → pick what to practise.
 ┌───────────────────────────────────────────┐
 │  Write                 Russian · cursive  │
 │                                           │
+│  FREE WRITE   write anything — a prompt,  │
+│               your own text — and be told │
+│               if it is correct & legible  │
+│                                           │
 │  LETTERS      а б в г д е ё ж з и й к л   │
 │               ● ● ● ● ◐ ○ ○ ○ ○ ○ ○ ○ ○   │
 │               Learn · Trace · Write       │
 │                                           │
-│  WORDS        write the words you are     │
-│               learning, joined up         │
-│                                           │
-│  SENTENCES    translate and write —       │
-│               checked when you're done    │
+│  WORDS &      trace or write, joined up,  │
+│  SENTENCES    in the real hand            │
 │                                           │
 │  [ print | cursive ]   [ alone | joined ] │
 └───────────────────────────────────────────┘
 ```
+
+### Free write — for the learner who already writes
+
+The mode the owner asked for first, and the one that needs no authored
+content, so it ships first. Pick a prompt — a sentence to translate (the
+support-locale line the app already holds for every example and drill), a
+word from your own cards, or **type any text you want to practise** — or
+write with no prompt at all. Write it by hand. Tap **Check**.
+
+```
+   Write in Russian:  "I am going home."
+ ┌─────────────────────────────────────────┐
+ │                                         │
+ │            (your ink)                   │
+ │                                         │
+ └─────────────────────────────────────────┘
+                                   ( Check )
+
+   Read as:     Я иду домой              ✓ correct
+   Legibility:  clear                    ●●●●○
+   Notes:       the д is open at the top — a reader could
+                take it for а · the м lacks its entry hook
+   Neatness:    baseline ✓  size ✓  slant ✓  spacing ~
+   ┌──────────────── compare ────────────────┐
+   │  Я иду домой        ← a native hand     │
+   │  (your ink)         ← yours, aligned    │
+   └──────────────────────────────────────────┘
+```
+
+Four things come back, from two sources:
+
+- **Read as / correct** — a vision-capable model reads the ink and
+  compares it to the expected text (or, with no prompt, just transcribes
+  and checks the spelling and grammar of what you wrote). The transcription
+  is always shown: if the assessor misread you, you see that rather than a
+  silent fail.
+- **Legibility and notes** — the model's verdict as a *reader*: could a
+  native reader read this at speed, and which letterforms cost them. At
+  most two notes, the most useful ones. This is the "is it legible"
+  answer, and a model that reads is the right judge of it — with the
+  transcription as the calibration.
+- **Neatness** — computed on the device from the ink, no model: baseline
+  drift, letter-size consistency, slant consistency, spacing regularity.
+  Mechanical, exact, free, and the things a writing teacher marks first.
+- **Compare** — the expected text rendered in a handwriting-style face
+  (later, in the composed native-hand template, §4.2), with your ink
+  aligned under it, so you can see the shapes side by side yourself.
+
+Once a script's stroke templates exist (Phases 2–3), the same matcher that
+grades traced letters runs over free ink too, and "correct" gains a
+per-letter stroke verdict — the form, order and direction of each letter,
+not only what the text said. Free write does not wait for that; it gets
+better as the content lands.
 
 ### Letters — learn, trace, write
 
@@ -105,15 +166,33 @@ steps within the letter, not separate letters — you meet ب, then ب at the
 start of a word, then in the middle, then at the end, each with the joining
 stroke that makes it so.
 
-### Words — joined up
+### Words and sentences — trace, then write, in the real hand
 
-The prompt is a word the learner is actually studying (their due or recent
-cards — the SRS already knows which). They write it in one go. The check
-walks their ink against the composed template and reports per letter: the
-ones that match turn green, the ones that don't show the expected shape
-beside what they drew. Russian cursive with the connections; Arabic with
-the positional forms; Hangul assembled into its syllable blocks; Devanagari
-with the headline drawn last.
+Tracing does not stop at letters. A word or a whole sentence has a stroke
+template too — composed from the letter templates by the script's joining
+rules (§4.2) — so the same Learn → Trace → Write steps apply to *any* text:
+the app animates the word in joined Russian cursive with its connections,
+or the Arabic word with each letter in its initial, medial or final form,
+shows it faintly, and the learner traces it stroke by stroke, then writes
+it from memory. Because the template is composed, the supply is unlimited:
+every word on the learner's cards, every example and drill sentence.
+
+The prompt for *Write* is a word or sentence the learner is actually
+studying (their due or recent cards — the SRS already knows which). The
+check walks their ink against the composed template and reports per
+letter: the ones that match turn green, the ones that don't show the
+expected form beside what they drew. Russian cursive with the connections;
+Arabic with the positional forms; Hangul assembled into its syllable
+blocks; Devanagari with the headline drawn last.
+
+**Exemplar sentences.** A composed word is faithful to the forms but can
+look assembled next to a real hand. So each script also gets a small set —
+a dozen or two — of **speaker-traced exemplar sentences**: a native writer
+writes them in one flow in the Workshop's Strokes panel, and that ink is
+stored as-is. They are the Learn models a beginner watches, the "native
+hand" in Free write's compare panel, and the yardstick the composer is
+tuned against (compose the same sentence, overlay the exemplar, fix the
+joins until they agree).
 
 ```
    Write:  дом   (house)
@@ -125,22 +204,11 @@ with the headline drawn last.
    д ✓   о ✓   м ✗  the м starts with a hook — [show]
 ```
 
-### Sentences — translate and write
-
-The prompt is a sentence in the learner's own language (the support-locale
-line the app already holds for every example and drill); the learner writes
-the course-language sentence by hand. When they tap **Check**, the ink goes
-to the assessor and comes back as:
-
-```
-   You wrote:   Я иду домой
-   Expected:    Я иду домой                          ✓ correct
-   Handwriting: clear · the д could be more open — [show]
-```
-
-or, on a miss, the transcription with the differing words marked, the
-expected sentence, and one or two notes on letterforms. This is also the
-step that catches "you wrote the right letters in the wrong words".
+Translate-and-write is Free write with a prompt: the sentence in the
+learner's own language, the course-language answer expected. On a miss the
+transcription shows the differing words marked, the expected sentence, and
+the letterform notes. This is also the step that catches "you wrote the
+right letters in the wrong words".
 
 ### The two toggles
 
@@ -251,11 +319,15 @@ a page each — but it is where the feel has to be tuned on real hands, which
 is why Phase 0 builds a spike of it for Russian before anything is
 committed to.
 
-### 4.3 Sentences — a model that can see
+### 4.3 Free writing — a model that can see, plus what the ink itself says
 
-Free writing has no template. The client renders the ink to a PNG (the
+Free writing has no template (until §4.2's composer exists for the
+script, after which the matcher of §4.1 runs over free ink as well and adds
+a per-letter stroke verdict). The client renders the ink to a PNG (the
 canvas's own export, ~1000×400 px, a few kilobytes) and posts it with the
-expected sentence. The backend calls a vision-capable Claude model
+expected sentence — or with nothing, when the learner wrote without a
+prompt, in which case the model transcribes and judges the spelling and
+grammar of what it read. The backend calls a vision-capable Claude model
 (`resolve_model("write_assess")`, one tier above the translate tier — the
 same rule the checker follows) with a tool schema:
 
@@ -270,7 +342,17 @@ confidence      low | medium | high
 
 Confidence *low* is shown as "I'm not sure I read this right — here is
 what I saw" rather than as a fail, and lands in a staff queue (the existing
-feedback queue, kind `writing`) so a speaker can look. Spend draws on the
+feedback queue, kind `writing`) so a speaker can look.
+
+**Neatness, on the device.** Independent of the model, the ink yields
+four mechanical measures a writing teacher marks first, each exact and
+free: *baseline drift* (fit a line through stroke bottoms; report the
+slope and wobble), *size consistency* (variance of stroke heights,
+x-height band), *slant consistency* (variance of the dominant stroke
+angle), *spacing regularity* (variance of gaps between ink clusters along
+the baseline; for Arabic, between joined groups). Shown as ✓ / ~ / ✗ with
+a one-line tip. These need no template, no model and no content, so they
+are in the first shipped version. Spend draws on the
 learner's AI allowance exactly as Speak's turns do — one assessment is one
 "message" — after a cheap on-device gate (enough ink, more than one
 stroke) so an empty box costs nothing.
@@ -309,6 +391,12 @@ one-line hint per stroke ("start at the top"), preview the animation, save.
 A reviewer for that language marks it reviewed. About a minute per form;
 the whole of Russian cursive is an evening, Arabic a weekend.
 
+The same panel records **exemplar sentences**: the author writes a given
+sentence in one flow, as they would on paper, and the ink is stored whole
+(strokes, order, timing) against the sentence text — no cutting into
+letters. A dozen per script, chosen to cover every letter in every form
+(a pangram-style set the panel can propose from the alphabet).
+
 **A file path for bulk work.** `data/strokes/{script}.json` — the same
 pattern as `data/alphabet/{code}.json`: a reviewed set authored elsewhere
 seeds without touching code. Templates carry `source` and `reviewed` like
@@ -341,6 +429,9 @@ Tables (one migration, owner-applied, code degrades without it as usual):
   print | cursive`), `style` (`print | cursive | naskh | ruqah`), `strokes`
   jsonb, `joins` jsonb (entry, exit, joins_next), `hints` jsonb, `source`,
   `reviewed`, `created_by`. Unique on (script, glyph, form, style).
+- `script_exemplars` — `script`, `language_code`, `style`, `text`,
+  `strokes` jsonb (the whole sentence as written), `source`, `reviewed`,
+  `created_by`. The native-hand models and the composer's yardstick.
 - `writing_progress` — per (user, glyph) attempts, passes, best score,
   last practised. Drives the letter strip and, later, an SRS-style
   revisit of weak letters.
@@ -357,20 +448,26 @@ authored, counts — what the Practice tile keys on); `GET
 /api/write/words?language_id` (the learner's own current words); `GET
 /api/write/sentences?language_id` (support-locale prompts with their
 course-language answers, from the example and drill tables); `POST
-/api/write/assess` (PNG + expected → verdict; allowance-gated). Workshop:
+/api/write/assess` (PNG + expected text, or PNG alone → verdict;
+allowance-gated); `GET /api/write/exemplars?script&style`. Workshop:
 `PUT /api/contribute/strokes` and the review flag.
 
 ---
 
 ## 7. Phases
 
+Free write comes first because it needs nothing authored: the day it
+ships, the owner can write Russian or Arabic and be told whether it is
+correct and legible. Everything traced depends on strokes existing, so it
+follows the authoring tool.
+
 | Phase | What lands | Size |
 |---|---|---|
-| **0 — Spike** | The canvas, stroke capture, the letter matcher, and a *rough* Russian cursive composer, with five Russian cursive letters and five Arabic forms traced by hand. Tried on a phone and a mouse. Decides the tolerances and whether the progressive matcher feels right. **No schema, no UI polish.** | 2–3 days |
-| **1 — Strokes in the Workshop** | The authoring panel, the tables, the import path, reviewed flag. The owner or a speaker traces Russian cursive (66) and Arabic (~100). | ~1 week build; content in parallel |
-| **2 — Write: Letters** | The Practice tile and page, the three-step letter flow, per-form steps, progress strip, print/cursive toggle. Ships for any script with reviewed strokes. | ~1 week |
-| **3 — Write: Words** | The composers (Cyrillic joins, Arabic/Persian forms, Hangul blocks, Devanagari headline, Thai/Hebrew/Greek/Latin placement) and progressive matching; prompts from the learner's own cards. | 1–2 weeks, ru/ar first |
-| **4 — Write: Sentences** | Vision assessment on the allowance, the on-device gate, feedback UI, low-confidence queue in the Workshop. | ~1 week |
+| **0 — Spike** | The canvas and stroke capture on a phone and a mouse; a first pass of the vision assessment prompt on real handwriting samples (the owner's, in Russian and Arabic) to see how it reads a beginner and an adult hand; the letter matcher and a *rough* Russian cursive composer on five hand-traced letters, to settle the tolerances. **No schema, no UI polish.** | 2–3 days |
+| **1 — Write: Free write** | The Practice tile and page; the canvas; prompts from the learner's own cards, from the example/drill translations, or typed; vision assessment on the allowance with the on-device gate; the neatness panel; the compare view in a handwriting-style face; the low-confidence queue in the Workshop. **Ships for every course at once — no content needed.** | ~1.5 weeks |
+| **2 — Strokes in the Workshop** | The authoring panel (single forms *and* one-flow exemplar sentences), the tables, the import path, reviewed flag. The owner or a speaker traces Russian cursive (66) and Arabic (~100) and a dozen exemplar sentences each. | ~1 week build; content in parallel |
+| **3 — Write: Letters** | The three-step letter flow, per-form steps, progress strip, print/cursive toggle. Ships per script as its strokes are reviewed. | ~1 week |
+| **4 — Write: Words and sentences, traced** | The composers (Cyrillic joins, Arabic/Persian forms, Hangul blocks, Devanagari headline, Thai/Hebrew/Greek/Latin placement) tuned against the exemplars; progressive matching; Learn → Trace → Write over any word or sentence; the same matcher over free ink for per-letter verdicts in Free write; the composed native hand replaces the font in the compare view. | 1–2 weeks, ru/ar first |
 | **5 — The rest of the scripts** | Hebrew, Greek, Hindi, Thai, Korean, Persian as their strokes are authored; the shared Latin engine for the English course. | content-paced |
 | **6 — Native apps** | ML Kit Digital Ink via a Capacitor plugin for offline word recognition, if the phone apps plan proceeds. | later |
 
@@ -381,7 +478,8 @@ Thai, whose composition rules are the most work.
 
 Total: roughly five to seven weeks of build across phases 0–4, plus ten to
 twenty hours of speaker tracing and review, plus the reviewed strokes being
-the gate for each script going live.
+the gate for each script's *traced* modes going live. Free write is live
+for every course from Phase 1.
 
 ---
 
@@ -443,6 +541,13 @@ Nothing in Phases 0–4 depends on this choice.
 - **Beginner handwriting misread by the model** at the sentence level,
   most likely in Devanagari and Thai. Mitigation: show the transcription;
   low confidence is not a fail; the reviewer queue.
+- **"Legible" is a judgement, not a measurement.** The model answers as a
+  reader, which is the right question, but it is one reader. Mitigation:
+  the neatness panel is exact and separate; the compare view lets the
+  learner judge shapes themselves; and once templates exist the per-letter
+  stroke verdict is a fact, not an opinion. Phase 0 tests the assessor on
+  the owner's own hand first, so its calibration is known before anyone
+  else sees a verdict.
 - **Content stalls a script.** A script with no reviewed strokes simply
   does not show Write — the same rule as Gym for a language with no form
   categories. Nothing half-authored reaches a learner.
