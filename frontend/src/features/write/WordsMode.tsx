@@ -53,11 +53,13 @@ export default function WordsMode({
   code,
   style,
   glyphs,
+  fontFamily = 'cursive',
 }: {
   languageId: string
   code: string | undefined
   style: string
   glyphs: Glyph[]
+  fontFamily?: string
 }) {
   const { t } = useTranslation()
   const queryClient = useQueryClient()
@@ -77,32 +79,38 @@ export default function WordsMode({
   }, [])
   const maxCells = Math.max(6, Math.min(14, Math.floor(width / 60)))
 
-  // Only what the library can compose in full.
-  const traceable = useMemo(
-    () => prompts.filter((p: WritePrompt) => compose(p.answer, code, style, glyphs).missing.length === 0),
-    [prompts, code, style, glyphs],
-  )
-  const firstMissing = prompts.length > 0 && traceable.length === 0
-    ? compose(prompts[0].answer, code, style, glyphs).missing
-    : []
+  // What the library can compose in full comes first; the rest is traced
+  // over the hand font, with no stroke verdict until its letters exist.
+  const traceable = useMemo(() => {
+    const full = prompts.filter((p: WritePrompt) => compose(p.answer, code, style, glyphs).missing.length === 0)
+    const rest = prompts.filter((p: WritePrompt) => !full.includes(p))
+    return [...full, ...rest]
+  }, [prompts, code, style, glyphs])
 
   const [index, setIndex] = useState(0)
   const [line, setLine] = useState(0)
   const [step, setStep] = useState<Step>('learn')
   const [strokes, setStrokes] = useState<Stroke[]>([])
   const [verdict, setVerdict] = useState<ComposedMatch | null>(null)
+  const [reveal, setReveal] = useState(false)
   const current = traceable[index % Math.max(1, traceable.length)]
   const pieces = useMemo(() => (current ? lines(current.answer, maxCells) : []), [current, maxCells])
   const text = pieces[Math.min(line, Math.max(0, pieces.length - 1))] ?? ''
-  const composed: Composed | null = useMemo(
+  const composition = useMemo(
     () => (text ? compose(text, code, style, glyphs) : null),
     [text, code, style, glyphs],
   )
+  // The template, when every letter of the line has its strokes.
+  const composed: Composed | null = composition && composition.missing.length === 0 ? composition : null
+  const missing = composition?.missing ?? []
   const frame = useMemo(() => (composed ? fitComposed(composed, width, CANVAS) : null), [composed, width])
+  const rtl = !!composition && composition.letters.length > 1
+    && composition.letters[0].x > composition.letters[composition.letters.length - 1].x
 
   useEffect(() => {
     setStrokes([])
     setVerdict(null)
+    setReveal(false)
   }, [index, line, step, source])
   useEffect(() => {
     setIndex(0)
@@ -183,15 +191,11 @@ export default function WordsMode({
   )
 
   if (isLoading) return <p className="text-sm text-gray-500">{t('common.loading')}</p>
-  if (!current || !composed || !frame) {
+  if (!current || !composition) {
     return (
       <div className="space-y-2">
         {sourceTabs}
-        <p data-testid="trace-empty" className="text-sm text-gray-500">
-          {firstMissing.length > 0
-            ? t('write.notTraceable', { letters: firstMissing.join(' ') })
-            : t('write.noTraceable')}
-        </p>
+        <p data-testid="trace-empty" className="text-sm text-gray-500">{t('write.noTraceable')}</p>
       </div>
     )
   }
@@ -238,10 +242,24 @@ export default function WordsMode({
           <p className="text-xs text-gray-500">{t('write.lineOf', { n: line + 1, total: pieces.length })}</p>
         )}
 
-        {step === 'learn' && (
+        {step === 'learn' && composed && (
           <div className="space-y-1" data-testid="trace-learn">
             <StrokePreview strokes={[]} composed={composed} width={Math.min(width, 640)} height={CANVAS} />
             <p className="text-xs text-gray-500">{t('write.learnHint')}</p>
+          </div>
+        )}
+        {step === 'learn' && !composed && (
+          <div className="space-y-1" data-testid="trace-learn-font">
+            <LanguageWrapper languageCode={code ?? 'en'}>
+              <p
+                dir={rtl ? 'rtl' : 'ltr'}
+                className="rounded-xl border border-gray-200 bg-white px-4 py-6 text-center text-5xl leading-relaxed text-gray-800"
+                style={{ fontFamily: `${fontFamily}, cursive` }}
+              >
+                {text}
+              </p>
+            </LanguageWrapper>
+            <p className="text-xs text-gray-500">{t('write.noStrokesWord', { letters: missing.join(' ') })}</p>
           </div>
         )}
 
@@ -255,9 +273,10 @@ export default function WordsMode({
               }}
               height={CANVAS}
               baseline={false}
-              rtl={composed.letters.length > 0 && composed.letters[0].x > composed.letters[composed.letters.length - 1].x}
-              guideStrokes={step === 'trace' ? frame.strokes : undefined}
+              rtl={rtl}
+              guideStrokes={step === 'trace' && frame ? frame.strokes : undefined}
               guideDone={doneStrokes}
+              guide={!composed && (step === 'trace' || reveal) ? { text, fontFamily, scale: 0.6 } : undefined}
             />
             <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="text-xs text-gray-500">
@@ -283,7 +302,17 @@ export default function WordsMode({
                 >
                   {t('write.clear')}
                 </button>
-                {step === 'write' && (
+                {step === 'write' && !composed && (
+                  <button
+                    type="button"
+                    onClick={() => setReveal((r) => !r)}
+                    data-testid="trace-reveal"
+                    className="rounded-xl border border-lang px-3 py-1.5 text-sm font-semibold text-lang"
+                  >
+                    {reveal ? t('write.hideLetter') : t('write.showLetter')}
+                  </button>
+                )}
+                {step === 'write' && composed && (
                   <button
                     type="button"
                     onClick={check}
@@ -296,9 +325,14 @@ export default function WordsMode({
                 )}
               </div>
             </div>
+            {!composed && (
+              <p data-testid="trace-no-check" className="text-xs text-gray-500">
+                {t('write.noStrokesWord', { letters: missing.join(' ') })}
+              </p>
+            )}
             {/* Letter by letter — live while tracing, on Check when writing. */}
-            {(step === 'trace' ? traced : verdict) && (
-              <LetterRow match={(step === 'trace' ? traced : verdict)!} composed={composed} reason={reason} live={step === 'trace'} />
+            {composed && (step === 'trace' ? traced : verdict) && (
+              <LetterRow match={(step === 'trace' ? traced : verdict)!} composed={composed!} reason={reason} live={step === 'trace'} />
             )}
             {traceComplete && (
               <p data-testid="trace-complete" className="text-sm text-green-800">{t('write.traceDone')}</p>

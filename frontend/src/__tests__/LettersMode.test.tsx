@@ -78,9 +78,13 @@ describe('LettersMode', () => {
   it('shows the strip in alphabet order with known letters marked, and the hints', async () => {
     renderMode()
     const strip = await screen.findByTestId('letters-strip')
-    expect(strip.children).toHaveLength(2)
+    // Every form of every letter: the two authored ones solid, the rest dashed.
+    expect(strip.children).toHaveLength(4)
     expect(strip.children[0]).toHaveTextContent('т')
-    expect(strip.children[1].className).toContain('green')
+    expect(strip.children[1]).toHaveTextContent('Т')
+    expect(strip.children[1]).toHaveAttribute('data-authored', 'no')
+    expect(strip.children[1].className).toContain('dashed')
+    expect(strip.children[2].className).toContain('green')
     expect(screen.getByText('down')).toBeInTheDocument()
     expect(screen.getByText('across')).toBeInTheDocument()
   })
@@ -120,9 +124,18 @@ describe('LettersMode', () => {
     await waitFor(() => expect(mockRecord).toHaveBeenCalledWith(expect.objectContaining({ passed: false })))
   })
 
-  it('says so when nothing is reviewed yet', async () => {
+  it('teaches over the hand font while a letter has no strokes, and never grades it', async () => {
     mockGlyphs.mockResolvedValue({ script: 'cyrillic', glyphs: [], exemplars: [] })
     renderMode()
-    expect(await screen.findByTestId('letters-empty')).toBeInTheDocument()
+    expect(await screen.findByTestId('letters-learn-font')).toHaveTextContent('т')
+    expect(screen.getByText(/speaker still has to trace/)).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('step-trace'))
+    expect(screen.getByTestId('ink-canvas')).toBeInTheDocument()
+    expect(screen.getByTestId('letters-no-check')).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('step-write'))
+    expect(screen.queryByTestId('letters-check')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('letters-reveal'))
+    expect(screen.getByTestId('letters-reveal')).toHaveTextContent('Hide')
+    expect(mockRecord).not.toHaveBeenCalled()
   })
 })

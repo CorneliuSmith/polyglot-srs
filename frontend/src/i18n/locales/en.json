@@ -1817,14 +1817,18 @@
     "nextStep": "Next",
     "kindTrace": "Trace",
     "lineOf": "Line {{n}} of {{total}}",
-    "notTraceable": "Not traceable yet — no strokes for: {{letters}}",
     "noTraceable": "Nothing here can be traced yet — a speaker is still tracing the letters.",
     "letterByLetter": "Letter by letter",
     "letterMissing": "missing",
     "letterShape": "not the shape — compare with the form shown",
     "wordOk": "Every letter matches.",
     "wordNotYet": "Not every letter yet",
-    "compareComposed": "In the speaker's hand, composed from their letter forms"
+    "compareComposed": "In the speaker's hand, composed from their letter forms",
+    "paperHint": "The paper slides along as you write; drag the strip below, or use two fingers, to move.",
+    "noStrokesYet": "No stroke order for this letter yet — a speaker still has to trace it. Trace over the letter as it is written, then write it from memory.",
+    "noStrokesWord": "No stroke check yet — no strokes for: {{letters}}. Trace over the written word, then write it from memory.",
+    "showLetter": "Show",
+    "hideLetter": "Hide"
   },
   "more": {
     "donateTea": "Donate a tea 🍵",

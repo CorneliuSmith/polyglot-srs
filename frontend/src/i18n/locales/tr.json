@@ -1817,14 +1817,18 @@
     "nextStep": "Sonraki",
     "kindTrace": "Üzerinden çiz",
     "lineOf": "Satır {{n}} / {{total}}",
-    "notTraceable": "Henüz çizilemiyor — şu harflerin çizgileri yok: {{letters}}",
     "noTraceable": "Burada henüz çizilecek bir şey yok — bir konuşmacı harfleri hâlâ çiziyor.",
     "letterByLetter": "Harf harf",
     "letterMissing": "eksik",
     "letterShape": "şekil tutmuyor — gösterilen biçimle karşılaştır",
     "wordOk": "Bütün harfler uyuyor.",
     "wordNotYet": "Henüz tüm harfler değil",
-    "compareComposed": "Konuşmacının el yazısıyla, harf biçimlerinden oluşturuldu"
+    "compareComposed": "Konuşmacının el yazısıyla, harf biçimlerinden oluşturuldu",
+    "paperHint": "Kâğıt siz yazdıkça kayar; hareket etmek için aşağıdaki şeridi sürükleyin ya da iki parmak kullanın.",
+    "noStrokesYet": "Bu harf için henüz çizgi sırası yok — bir konuşmacının önce onu çizmesi gerekiyor. Harfi yazıldığı gibi üzerinden çizin, sonra ezberden yazın.",
+    "noStrokesWord": "Henüz çizgi kontrolü yok — şu harflerin çizgileri yok: {{letters}}. Yazılı kelimenin üzerinden çizin, sonra ezberden yazın.",
+    "showLetter": "Göster",
+    "hideLetter": "Gizle"
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",

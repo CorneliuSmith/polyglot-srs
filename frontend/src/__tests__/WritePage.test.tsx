@@ -52,6 +52,7 @@ vi.mock('../api/strokes', () => ({
     script: 'cyrillic', available: false, expected_forms: 0, alphabet_size: 0, styles: {},
   }),
   getGlyphs: vi.fn().mockResolvedValue({ script: 'cyrillic', glyphs: [], exemplars: [] }),
+  getAlphabet: vi.fn().mockResolvedValue({ code: 'ru', script: 'cyrillic', styles: ['cursive', 'print'], letters: [] }),
   recordLetterAttempts: vi.fn(),
 }))
 // jsdom has no canvas; the export is the seam.

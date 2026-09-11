@@ -66,7 +66,7 @@ describe('WordsMode', () => {
     mockRecord.mockResolvedValue([])
   })
 
-  it('shows only what the library can compose, learns, traces letter by letter, then writes and records each form', async () => {
+  it('puts what the library can compose first, learns, traces letter by letter, then writes and records each form', async () => {
     renderMode()
     await waitFor(() => expect(screen.getByTestId('trace-text')).toHaveTextContent('lo'))
     expect(screen.getByTestId('trace-learn')).toBeInTheDocument()
@@ -115,9 +115,21 @@ describe('WordsMode', () => {
     }))
   })
 
-  it('says which letters are missing when nothing can be traced', async () => {
+  it('traces over the hand font when a letter has no strokes, naming it, and never grades', async () => {
     mockPrompts.mockResolvedValue([{ prompt: 'x', answer: 'lx', source: 'course' }])
     renderMode()
-    await waitFor(() => expect(screen.getByTestId('trace-empty')).toHaveTextContent('x'))
+    await waitFor(() => expect(screen.getByTestId('trace-text')).toHaveTextContent('lx'))
+    expect(screen.getByTestId('trace-learn-font')).toHaveTextContent('lx')
+    expect(screen.getByText(/no strokes for: x/)).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('trace-step-write'))
+    expect(screen.queryByTestId('trace-check')).not.toBeInTheDocument()
+    expect(screen.getByTestId('trace-reveal')).toBeInTheDocument()
+    expect(mockRecord).not.toHaveBeenCalled()
+  })
+
+  it('says so when there are no prompts at all', async () => {
+    mockPrompts.mockResolvedValue([])
+    renderMode()
+    await waitFor(() => expect(screen.getByTestId('trace-empty')).toBeInTheDocument())
   })
 })
