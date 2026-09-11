@@ -29,6 +29,8 @@ export default function InkCanvas({
   className = '',
   guide,
   baseline = true,
+  guideStrokes,
+  guideDone,
 }: {
   strokes: Stroke[]
   onChange: (strokes: Stroke[]) => void
@@ -38,6 +40,10 @@ export default function InkCanvas({
   className?: string
   guide?: CanvasGuide
   baseline?: boolean
+  /** Template strokes drawn faintly under the ink — the Trace step. Each
+   * index in `guideDone` is drawn solid (a matched stroke snaps). */
+  guideStrokes?: Stroke[]
+  guideDone?: number[]
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const drawing = useRef<Stroke | null>(null)
@@ -70,6 +76,32 @@ export default function InkCanvas({
       ctx.fillText(guide.text, cssWidth / 2, cssHeight / 2)
       ctx.restore()
     }
+    if (guideStrokes && guideStrokes.length > 0) {
+      ctx.save()
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+      guideStrokes.forEach((gs, i) => {
+        if (gs.length === 0) return
+        const done = guideDone?.includes(i)
+        ctx.strokeStyle = done ? 'rgba(22,163,74,0.45)' : 'rgba(120,120,120,0.25)'
+        ctx.lineWidth = done ? 5 : 8
+        ctx.beginPath()
+        ctx.moveTo(gs[0].x, gs[0].y)
+        for (const p of gs) ctx.lineTo(p.x, p.y)
+        ctx.stroke()
+        // A numbered start point per stroke.
+        ctx.fillStyle = done ? 'rgba(22,163,74,0.9)' : 'rgba(120,120,120,0.6)'
+        ctx.beginPath()
+        ctx.arc(gs[0].x, gs[0].y, 8, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.fillStyle = '#fff'
+        ctx.font = 'bold 10px sans-serif'
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'middle'
+        ctx.fillText(String(i + 1), gs[0].x, gs[0].y)
+      })
+      ctx.restore()
+    }
     if (baseline) {
       ctx.save()
       ctx.strokeStyle = 'rgba(120,120,120,0.35)'
@@ -93,7 +125,7 @@ export default function InkCanvas({
       for (let i = 1; i < stroke.length; i++) ctx.lineTo(stroke[i].x, stroke[i].y)
       ctx.stroke()
     }
-  }, [strokes, height, guide, baseline])
+  }, [strokes, height, guide, baseline, guideStrokes, guideDone])
 
   const point = (e: ReactPointerEvent<HTMLCanvasElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()

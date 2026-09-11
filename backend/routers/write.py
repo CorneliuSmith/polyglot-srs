@@ -27,7 +27,13 @@ from pydantic import BaseModel
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
 from backend.repositories.profile import effective_support_locale
-from backend.repositories.strokes import list_exemplars, list_glyphs, manifest
+from backend.repositories.strokes import (
+    letters_progress,
+    list_exemplars,
+    list_glyphs,
+    manifest,
+    record_letter_attempt,
+)
 from backend.repositories.tutor import log_tutor_usage
 from backend.repositories.write import (
     adapt_enabled,
@@ -410,4 +416,32 @@ async def glyphs(language_id: str, style: str | None = None,
         return {"script": script,
                 "glyphs": await list_glyphs(conn, script, style, reviewed_only=True),
                 "exemplars": await list_exemplars(conn, script, style, reviewed_only=True)}
+
+
+class LetterAttempt(BaseModel):
+    language_id: str
+    glyph_id: str
+    passed: bool
+    score: float = 0.0
+
+
+@router.get("/progress")
+async def progress(language_id: str, style: str | None = None,
+                   user: dict = Depends(get_current_user)):
+    """The learner's guided-Letters record for this course, per form."""
+    async with rls_connection(user["id"]) as conn:
+        _, code, _ = await _language(conn, language_id)
+        return {"items": await letters_progress(conn, user["id"], script_of(code), style)}
+
+
+@router.post("/progress")
+async def progress_attempt(body: LetterAttempt, user: dict = Depends(get_current_user)):
+    """One attempt at writing a form from memory (the Write step). Known
+    after three passes."""
+    async with rls_connection(user["id"]) as conn:
+        await _language(conn, body.language_id)
+        row = await record_letter_attempt(conn, user["id"], body.glyph_id,
+                                          passed=body.passed, score=body.score)
+    return row or {"glyph_id": body.glyph_id, "attempts": 0, "passes": 0,
+                   "best_score": 0.0, "known": False}
 

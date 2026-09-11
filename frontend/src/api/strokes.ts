@@ -123,3 +123,33 @@ export async function reviewExemplar(id: string, languageId: string, reviewed = 
 export async function deleteExemplar(id: string, languageId: string): Promise<void> {
   await apiClient.delete(`/api/contribute/exemplars/${id}`, { params: { language_id: languageId } })
 }
+
+/** Guided Letters progress (Phase 3): per reviewed form, the learner's
+ * attempts and passes from the Write step; known after three passes. */
+export interface LetterProgress {
+  glyph_id: string
+  attempts: number
+  passes: number
+  best_score: number
+  known: boolean
+  last_at?: string | null
+}
+
+export async function getLettersProgress(languageId: string, style?: string): Promise<LetterProgress[]> {
+  const r = await apiClient.get<{ items: LetterProgress[] }>('/api/write/progress', {
+    params: { language_id: languageId, style },
+  })
+  return r.data.items
+}
+
+export async function recordLetterAttempt(args: {
+  languageId: string
+  glyphId: string
+  passed: boolean
+  score: number
+}): Promise<LetterProgress> {
+  const r = await apiClient.post<LetterProgress>('/api/write/progress', {
+    language_id: args.languageId, glyph_id: args.glyphId, passed: args.passed, score: args.score,
+  })
+  return r.data
+}

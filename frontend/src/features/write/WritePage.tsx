@@ -15,6 +15,8 @@ import {
 import type { TutorAllowance } from '../../api/tutor'
 import type { ConfirmResult, Misread, WriteAssessment, WriteBaseline, WriteKind, WriteStyle } from '../../api/write'
 import { getLanguages } from '../../api/profile'
+import { getStrokeManifest } from '../../api/strokes'
+import LettersMode from './LettersMode'
 import { usePrefsStore } from '../../stores/prefsStore'
 import AiDisclaimer from '../../components/AiDisclaimer'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -31,7 +33,7 @@ import { defaultStyle, ensureHandFont, handFontFor, hasCursiveToggle } from './h
 
 /** What the learner is writing against. `own` is text they typed
  * themselves; `free` is nothing at all. */
-type PromptKind = 'sentence' | 'word' | 'own' | 'free'
+type PromptKind = 'sentence' | 'word' | 'own' | 'free' | 'letters'
 
 /** A baseline session in progress (§12.2): the eight prompts, where the
  * writer is, and each line's verdict so the end can sum them. */
@@ -87,6 +89,19 @@ export default function WritePage() {
     enabled: !!activeLanguageId,
     retry: false,
   })
+  // The stroke library decides whether guided Letters is offered: a
+  // style is live once any of its forms is reviewed (Phase 3).
+  const { data: strokeManifest } = useQuery({
+    queryKey: ['write-manifest', activeLanguageId],
+    queryFn: () => getStrokeManifest(activeLanguageId!),
+    enabled: !!activeLanguageId,
+    retry: false,
+  })
+  const letterStyles = Object.entries(strokeManifest?.styles ?? {})
+    .filter(([, v]) => v.reviewed > 0)
+    .map(([k]) => k)
+  const [letterStyle, setLetterStyle] = useState<string | null>(null)
+  const activeLetterStyle = letterStyle ?? letterStyles[0] ?? null
   // The hand profile decides whether "Set up my hand" is offered — it
   // needs the toggle on and the migration present.
   const { data: profile } = useQuery({
@@ -288,6 +303,7 @@ export default function WritePage() {
   }
 
   const kinds: { key: PromptKind; label: string }[] = [
+    ...(letterStyles.length > 0 ? [{ key: 'letters' as PromptKind, label: t('write.kindLetters') }] : []),
     { key: 'sentence', label: t('write.kindSentence') },
     { key: 'word', label: t('write.kindWord') },
     { key: 'own', label: t('write.kindOwn') },
@@ -414,7 +430,28 @@ export default function WritePage() {
 
         )}
 
-        {!baseline && (
+        {kind === 'letters' && activeLetterStyle && activeLanguageId && (
+          <div className="space-y-2">
+            {letterStyles.length > 1 && (
+              <div className="flex rounded-full border border-gray-200 bg-white p-0.5 text-xs font-semibold w-fit">
+                {letterStyles.map((s) => (
+                  <button
+                    key={s}
+                    type="button"
+                    aria-pressed={activeLetterStyle === s}
+                    onClick={() => setLetterStyle(s)}
+                    className={`rounded-full px-3 py-1 ${activeLetterStyle === s ? 'bg-lang text-lang-on' : 'text-gray-600'}`}
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
+            <LettersMode languageId={activeLanguageId} code={code} style={activeLetterStyle} />
+          </div>
+        )}
+
+        {!baseline && kind !== 'letters' && (
         <div className="rounded-2xl border border-gray-200 bg-white p-4">
           {promptKind && (
             promptsLoading ? (
@@ -471,6 +508,8 @@ export default function WritePage() {
         )}
 
         {/* The surface */}
+        {kind !== 'letters' && (
+        <>
         <div className="space-y-2">
           <InkCanvas strokes={strokes} onChange={setStrokes} rtl={rtl} disabled={check.isPending} />
           <div className="flex items-center justify-between gap-2">
@@ -642,6 +681,8 @@ export default function WritePage() {
 
         {meter && <UsageMeter allowance={meter} />}
         <AiDisclaimer />
+        </>
+        )}
       </div>
     </div>
   )

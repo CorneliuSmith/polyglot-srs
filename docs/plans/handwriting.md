@@ -163,6 +163,8 @@ one-line hint per stroke. *Trace* shows the letter faintly and accepts one
 stroke at a time, snapping it solid when it matches. *Write* is a blank
 box; the learner draws from memory and gets a verdict per stroke. A letter
 is "known" after N clean writes, and the strip at the top fills in.
+(Built 11 Sep 2026: N is three; `writing_progress` keeps attempts, passes
+and the best score per form.)
 
 For scripts with more than one form of a letter (Arabic: alone / start /
 middle / end; Russian: print / cursive, lower / upper; Hebrew: print /
@@ -471,7 +473,7 @@ follows the authoring tool.
 | **0 — Spike** | The canvas and stroke capture on a phone and a mouse; a first pass of the vision assessment prompt on real handwriting samples (the owner's, in Russian and Arabic) to see how it reads a beginner and an adult hand; the letter matcher and a *rough* Russian cursive composer on five hand-traced letters, to settle the tolerances. **No schema, no UI polish.** | 2–3 days |
 | **1 — Write: Free write** | The Practice tile and page; the canvas; prompts from the learner's own cards, from the example/drill translations, or typed; vision assessment on the allowance with the on-device gate; the neatness panel; the compare view in a handwriting-style face; the low-confidence queue in the Workshop. **Ships for every course at once — no content needed.** | ~1.5 weeks |
 | **2 — Strokes in the Workshop** | **Built 11 Sep 2026** (migration 20261020 to push). The Strokes content kind in the Workshop: the letter × form grid with draft / reviewed status, tracing over a faint font glyph with a hint per stroke, animated preview, save as draft, reviewer sign-off; one-flow exemplar sentences; `data/strokes/{script}.json` import. Content — the owner or a speaker tracing Russian cursive (66) and Arabic (~100) and a dozen exemplars each — is what makes a script go live. | ~1 week build; content in parallel |
-| **3 — Write: Letters** | The three-step letter flow, per-form steps, progress strip, print/cursive toggle. Ships per script as its strokes are reviewed. | ~1 week |
+| **3 — Write: Letters** | **Built 11 Sep 2026** (migration 20261021 to push). The three-step letter flow (Learn animates, Trace snaps each matched stroke, Write checks from memory and names the stroke and the reason on a miss), per-form steps, the progress strip (known after three clean writes), the print/cursive toggle; the on-device matcher (`matcher.ts`). The *Letters* kind appears on Write the moment a script has one reviewed form. | ~1 week |
 | **4 — Write: Words and sentences, traced** | The composers (Cyrillic joins, Arabic/Persian forms, Hangul blocks, Devanagari headline, Thai/Hebrew/Greek/Latin placement) tuned against the exemplars; progressive matching; Learn → Trace → Write over any word or sentence; the same matcher over free ink for per-letter verdicts in Free write; the composed native hand replaces the font in the compare view. | 1–2 weeks, ru/ar first |
 | **5 — The rest of the scripts** | Hebrew, Greek, Hindi, Thai, Korean, Persian as their strokes are authored; the shared Latin engine for the English course. | content-paced |
 | **6 — Native apps** | ML Kit Digital Ink via a Capacitor plugin for offline word recognition, if the phone apps plan proceeds. | later |

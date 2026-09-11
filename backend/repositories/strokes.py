@@ -199,3 +199,47 @@ async def manifest(conn: asyncpg.Connection, code: str, script: str) -> dict:
         out["styles"][style] = entry
     out["alphabet_size"] = len(alphabet_for(code))
     return out
+
+
+# ---------------------------------------------------------------------------
+# Guided Letters progress (Phase 3; migration 20261021, probed).
+# ---------------------------------------------------------------------------
+
+KNOWN_PASSES = 3
+
+
+async def letters_progress(conn: asyncpg.Connection, user_id: str,
+                           script: str, style: str | None) -> list[dict]:
+    """The learner's record per reviewed form of this script/style."""
+    if not await table_present(conn, "writing_progress") or not await _present(conn):
+        return []
+    rows = await conn.fetch(
+        """SELECT p.glyph_id, p.attempts, p.passes, p.best_score, p.last_at
+             FROM writing_progress p JOIN script_glyphs g ON g.id = p.glyph_id
+            WHERE p.user_id = $1 AND g.script = $2 AND ($3::text IS NULL OR g.style = $3)""",
+        user_id, script, style)
+    return [{"glyph_id": str(r["glyph_id"]), "attempts": int(r["attempts"]),
+             "passes": int(r["passes"]), "best_score": float(r["best_score"]),
+             "known": int(r["passes"]) >= KNOWN_PASSES,
+             "last_at": r["last_at"].isoformat() if r["last_at"] else None} for r in rows]
+
+
+async def record_letter_attempt(conn: asyncpg.Connection, user_id: str,
+                                glyph_id: str, *, passed: bool, score: float) -> dict | None:
+    """One Write-step attempt at a form. Trace and Learn record nothing —
+    only writing from memory counts toward "known"."""
+    if not await table_present(conn, "writing_progress"):
+        return None
+    row = await conn.fetchrow(
+        """INSERT INTO writing_progress (user_id, glyph_id, attempts, passes, best_score, last_at)
+           VALUES ($1, $2, 1, $3, $4, now())
+           ON CONFLICT (user_id, glyph_id) DO UPDATE SET
+               attempts = writing_progress.attempts + 1,
+               passes = writing_progress.passes + $3,
+               best_score = GREATEST(writing_progress.best_score, $4),
+               last_at = now()
+           RETURNING attempts, passes, best_score""",
+        user_id, glyph_id, 1 if passed else 0, max(0.0, min(1.0, float(score))))
+    return {"glyph_id": glyph_id, "attempts": int(row["attempts"]),
+            "passes": int(row["passes"]), "best_score": float(row["best_score"]),
+            "known": int(row["passes"]) >= KNOWN_PASSES}

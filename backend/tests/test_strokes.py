@@ -212,3 +212,25 @@ class TestAuthoringEndpoints:
             assert resp.json()["text"] == "أنا أحب البيت"
         else:
             assert resp.status_code == 503
+
+
+class TestLettersProgress:
+    def test_an_attempt_is_recorded_and_known_after_three_passes(self, client):
+        client.fake_conn.fetchrow = AsyncMock(side_effect=lambda sql, *a: (
+            {"name": "Arabic", "code": "ar", "tutor_model": None} if "FROM languages" in sql
+            else {"attempts": 4, "passes": 3, "best_score": 0.9} if "RETURNING attempts" in sql
+            else None))
+        resp = client.post("/api/write/progress", headers=_auth_headers(),
+                           json={"language_id": TEST_LANGUAGE_ID, "glyph_id": GLYPH_ID,
+                                 "passed": True, "score": 0.9})
+        assert resp.status_code == 200, resp.text
+        if client.tables:
+            assert resp.json() == {"glyph_id": GLYPH_ID, "attempts": 4, "passes": 3,
+                                   "best_score": 0.9, "known": True}
+        else:
+            assert resp.json()["known"] is False
+
+    def test_progress_lists_the_learners_forms(self, client):
+        resp = client.get(f"/api/write/progress?language_id={TEST_LANGUAGE_ID}&style=naskh",
+                          headers=_auth_headers())
+        assert resp.status_code == 200 and resp.json() == {"items": []}
