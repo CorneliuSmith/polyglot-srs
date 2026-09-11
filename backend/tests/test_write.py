@@ -16,6 +16,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
+from backend.services.ink_method import compact, method_line, summarize_method
 from backend.services.write_assess import (
     _system_prompt,
     assess_handwriting,
@@ -181,6 +182,116 @@ class TestAssess:
                 await assess_handwriting(_PNG, "Russian", "x")
 
 
+class TestMethod:
+    """How the ink was made, from the strokes alone."""
+
+    def _bar(self, x, top=0, h=40, t0=0, n=10):
+        return [{"x": x, "y": top + h * i / (n - 1), "t": t0 + i * 20} for i in range(n)]
+
+    def test_three_lifted_strokes_running_down(self):
+        st = [self._bar(10), self._bar(40, t0=300), self._bar(70, t0=600)]
+        m = summarize_method(st)
+        assert m["strokes"] == 3 and m["lifts"] == 2
+        assert m["dominant_direction"] == "down"
+        assert m["joined_runs"] == 0
+        assert m["duration_ms"] == 780
+        line = method_line(m)
+        assert "3 strokes" in line and "lifted" in line and "down" in line
+
+    def test_one_long_run_is_joined_writing(self):
+        # A single stroke sweeping left across several letters' worth.
+        run = [{"x": 300 - i * 10, "y": 20 + (i % 3) * 5, "t": i * 15} for i in range(40)]
+        m = summarize_method([run, self._bar(320, t0=1000)])
+        assert m["joined_runs"] == 1
+        assert m["reads_right_to_left"] is True
+        assert "without lifting" in method_line(m)
+
+    def test_compact_resamples_and_drops_taps(self):
+        long = [{"x": i, "y": i, "t": i} for i in range(500)]
+        st = compact([long, [{"x": 1, "y": 1}], "garbage", [[3, 4, 5], [6, 7, 8]]])
+        assert len(st) == 2
+        assert len(st[0]) == 64 and st[0][0] == [0, 0, 0] and st[0][-1] == [499, 499, 499]
+        assert st[1] == [[3, 4, 5], [6, 7, 8]]
+
+    def test_nothing_from_nothing(self):
+        assert summarize_method(None) == {} and method_line({}) == ""
+
+
+@pytest.mark.asyncio
+class TestReferences:
+    async def test_the_writers_samples_and_known_forms_reach_the_reader(self):
+        class Block:
+            type = "tool_use"
+            input = {"transcription": "أن", "matches_target": True, "word_diffs": [],
+                     "legibility": 4, "letterform_notes": [], "confidence": "high"}
+
+        class FakeResponse:
+            content = [Block()]
+            usage = None
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.write_assess.get_settings",
+                   return_value=settings), \
+             patch("backend.services.write_assess.AsyncAnthropic") as client_cls:
+            create = AsyncMock(return_value=FakeResponse())
+            client_cls.return_value.messages.create = create
+            await assess_handwriting(
+                _PNG, "Arabic", "أن",
+                references=[{"text": "أنا", "image": _PNG,
+                             "method": {"strokes": 3, "lifts": 2, "duration_ms": 900}}],
+                known=["أ — hamza drawn as its own stroke, up and right of the alif"],
+                method={"strokes": 3, "lifts": 2, "dominant_direction": "down",
+                        "duration_ms": 1200},
+            )
+        kwargs = create.await_args.kwargs
+        content = kwargs["messages"][0]["content"]
+        images = [c for c in content if c["type"] == "image"]
+        texts = [c["text"] for c in content if c["type"] == "text"]
+        # The reference comes first, labelled with what it reads and how
+        # it was made; the canvas comes last with its own method.
+        assert len(images) == 2
+        assert texts[0].startswith("Reference:") and "أنا" in texts[0] and "3 strokes" in texts[0]
+        assert "Now the canvas" in texts[1] and "How it was made" in texts[1]
+        assert "Known forms of THIS writer" in kwargs["system"]
+        assert "hamza" in kwargs["system"]
+
+    async def test_without_a_profile_the_call_is_phase_one(self):
+        class FakeResponse:
+            content = []
+            usage = None
+
+        settings = FakeSettings()
+        settings.tutor_dev_mock = False
+        settings.anthropic_api_key = "sk-test"
+        with patch("backend.services.write_assess.get_settings",
+                   return_value=settings), \
+             patch("backend.services.write_assess.AsyncAnthropic") as client_cls:
+            create = AsyncMock(return_value=FakeResponse())
+            client_cls.return_value.messages.create = create
+            with pytest.raises(ValueError):
+                await assess_handwriting(_PNG, "Arabic", "أن")
+        content = create.await_args.kwargs["messages"][0]["content"]
+        assert [c["type"] for c in content] == ["image", "text"]
+        assert "Known forms" not in create.await_args.kwargs["system"]
+
+
+class TestDiffWords:
+    def test_the_models_asides_are_stripped_from_diff_words(self):
+        out = normalize_assessment({
+            "transcription": "ين", "matches_target": False, "legibility": 2,
+            "confidence": "low", "letterform_notes": [],
+            "word_diffs": [{"expected": "أن", "written": "(approx) ين", "note": "x"}],
+        })
+        assert out["word_diffs"][0]["written"] == "ين"
+        # ...but a word that is nothing but an aside is left alone.
+        out = normalize_assessment({
+            "transcription": "x", "word_diffs": [{"expected": "a", "written": "(unclear)", "note": ""}],
+        })
+        assert out["word_diffs"][0]["written"] == "(unclear)"
+
+
 # ---------------------------------------------------------------------------
 # Endpoints
 # ---------------------------------------------------------------------------
@@ -201,11 +312,36 @@ def _conn() -> AsyncMock:
     return conn
 
 
-@pytest.fixture()
-def client():
+def _conn_with_hand_tables() -> AsyncMock:
+    """The 20261019 tables present: to_regclass answers, the toggle row is
+    absent (= on), one sample is kept."""
+    conn = _conn()
+
+    async def fetchval(sql, *args):
+        if "to_regclass" in sql:
+            return True
+        if "count(*)" in sql:
+            return 1
+        return None
+
+    conn.fetchval = AsyncMock(side_effect=fetchval)
+
+    async def fetchrow(sql, *args):
+        if "FROM languages" in sql:
+            return {"name": "Arabic", "code": "ar", "tutor_model": None}
+        if "count(*) AS n" in sql:
+            return {"n": 1, "c": 1}
+        return None
+
+    conn.fetchrow = AsyncMock(side_effect=fetchrow)
+    return conn
+
+
+@pytest.fixture(params=["bare", "hand"])
+def client(request):
     from contextlib import asynccontextmanager
 
-    conn = _conn()
+    conn = _conn() if request.param == "bare" else _conn_with_hand_tables()
 
     @asynccontextmanager
     async def fake_conn(*args):
@@ -228,6 +364,7 @@ def client():
         app = create_app()
         with TestClient(app, raise_server_exceptions=True) as c:
             c.fake_conn = conn
+            c.hand = request.param == "hand"
             yield c
 
 
@@ -312,10 +449,121 @@ class TestWriteEndpoints:
             resp = _post(client, expected="x")
         assert resp.status_code in (402, 403, 429), resp.text
 
-    def test_the_ink_is_never_stored(self, client):
-        """The log keeps the verdict, not the handwriting — the same rule
-        Speak follows for audio."""
+    def test_the_ink_is_stored_only_as_the_writers_sample(self, client):
+        """The attempt log keeps the verdict, never the handwriting — the
+        rule Speak follows for audio. The ONE place ink goes is the
+        writer's own sample table, and only with their toggle on (which the
+        tables being present implies, since no row means on)."""
         _post(client, expected="Я иду домой")
         for call in client.fake_conn.execute.await_args_list:
-            for arg in call.args[1:]:
-                assert not (isinstance(arg, (bytes, bytearray)))
+            has_bytes = any(isinstance(a, (bytes, bytearray)) for a in call.args[1:])
+            if has_bytes:
+                assert client.hand and "INSERT INTO writing_samples" in call.args[0]
+        if not client.hand:
+            assert not _executed(client, "INSERT INTO writing_samples")
+
+
+def _executed(client, needle: str) -> list:
+    return [c.args for c in client.fake_conn.execute.await_args_list
+            if needle in c.args[0]]
+
+
+class TestHandProfile:
+    def test_profile_says_whether_the_tables_exist(self, client):
+        resp = client.get(
+            f"/api/write/profile?language_id={TEST_LANGUAGE_ID}",
+            headers=_auth_headers())
+        assert resp.status_code == 200
+        body = resp.json()
+        assert body["available"] is client.hand
+        assert body["adapt"] is client.hand   # on by default once the tables exist
+        if client.hand:
+            assert body["samples"] == 1 and body["confirmed"] == 1
+
+    def test_confirm_keeps_the_sample_with_its_method_and_marks_the_forms_fine(self, client):
+        strokes = json.dumps([[[10, 0, 0], [10, 40, 200]], [[40, 0, 300], [40, 40, 500]],
+                              [[70, 0, 600], [70, 40, 800]]])
+        resp = client.post(
+            "/api/write/confirm", headers=_auth_headers(),
+            files={"image": ("ink.png", io.BytesIO(_PNG), "image/png")},
+            data={"language_id": TEST_LANGUAGE_ID, "text": " أن ", "letters": "أ, ن",
+                  "strokes": strokes},
+        )
+        assert resp.status_code == 200, resp.text
+        if not client.hand:
+            assert resp.json() == {"kept": False, "reason": "adapt_off", "samples": 0}
+            assert not _executed(client, "INSERT INTO writing_samples")
+            return
+        assert resp.json()["kept"] is True and resp.json()["samples"] == 1
+        inserts = _executed(client, "INSERT INTO writing_samples")
+        assert len(inserts) == 1
+        args = inserts[0]
+        assert args[3] == "أن" and args[4] == _PNG and args[7] is True
+        # The method rides along: the strokes, compacted, and their summary.
+        assert json.loads(args[5])[0][0] == [10, 0, 0]
+        assert json.loads(args[6])["strokes"] == 3
+        # ...and the flagged letters become known-fine habits.
+        profiles = _executed(client, "INSERT INTO writing_profiles")
+        assert len(profiles) == 1
+        habits = json.loads(profiles[0][3])
+        assert {h["letter"] for h in habits} == {"أ", "ن"}
+        assert all(h["confirmed_ok"] for h in habits)
+
+    def test_confirm_needs_text(self, client):
+        resp = client.post(
+            "/api/write/confirm", headers=_auth_headers(),
+            files={"image": ("ink.png", io.BytesIO(_PNG), "image/png")},
+            data={"language_id": TEST_LANGUAGE_ID, "text": "  "},
+        )
+        assert resp.status_code == 422
+
+    def test_a_check_with_the_toggle_on_shows_the_reader_the_writers_hand(self, client):
+        refs = [{"text": "أنا", "image": _PNG, "method": {"strokes": 2, "lifts": 1, "duration_ms": 500}}]
+        with patch("backend.routers.write.reference_samples",
+                   new=AsyncMock(return_value=refs)) as ref_fn, \
+             patch("backend.routers.write.assess_handwriting",
+                   new=AsyncMock(return_value=({
+                       "transcription": "أن", "matches_target": True, "word_diffs": [],
+                       "legibility": 4, "letterform_notes": [{"letter": "أ", "note": "n"}],
+                       "confidence": "high"}, {}))) as assess_fn:
+            resp = _post(client, expected="أن",
+                         strokes=json.dumps([[[0, 0, 0], [0, 30, 100]]]))
+        assert resp.status_code == 200, resp.text
+        body = resp.json()
+        assert body["adapt"] is client.hand
+        kwargs = assess_fn.await_args.kwargs
+        if client.hand:
+            ref_fn.assert_awaited_once()
+            assert kwargs["references"] == refs
+            assert kwargs["method"]["strokes"] == 1
+            # A sure, matching read is kept as an (unconfirmed) sample, and
+            # the note counts against its letter.
+            kept = _executed(client, "INSERT INTO writing_samples")
+            assert len(kept) == 1 and kept[0][7] is False
+            assert _executed(client, "INSERT INTO writing_profiles")
+        else:
+            ref_fn.assert_not_awaited()
+            assert kwargs["references"] == []
+            assert not _executed(client, "INSERT INTO writing_samples")
+
+    def test_turning_the_toggle_off_deletes_everything(self, client):
+        resp = client.put("/api/write/profile", headers=_auth_headers(),
+                          json={"adapt": False})
+        assert resp.status_code == 200 and resp.json() == {"adapt": False}
+        deletes = _executed(client, "DELETE FROM writing_samples")
+        if client.hand:
+            assert _executed(client, "INSERT INTO writing_settings")
+            assert deletes and "language_id" not in deletes[0][0]
+        else:
+            assert not deletes
+
+    def test_reset_forgets_one_language_or_all(self, client):
+        client.post("/api/write/profile/reset", headers=_auth_headers(),
+                    json={"language_id": TEST_LANGUAGE_ID})
+        client.post("/api/write/profile/reset", headers=_auth_headers(), json={})
+        deletes = _executed(client, "DELETE FROM writing_samples")
+        if client.hand:
+            assert len(deletes) == 2
+            assert "language_id" in deletes[0][0] and "language_id" not in deletes[1][0]
+        else:
+            assert not deletes

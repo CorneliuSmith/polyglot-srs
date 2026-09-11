@@ -4,6 +4,10 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { MemoryRouter } from 'react-router-dom'
 import WritePage from '../features/write/WritePage'
 
+// jsdom has no 2D canvas either; the component guards for a null context,
+// and the stub keeps jsdom's "not implemented" noise out of the output.
+HTMLCanvasElement.prototype.getContext = (() => null) as unknown as typeof HTMLCanvasElement.prototype.getContext
+
 // jsdom has no PointerEvent, and testing-library's fallback Event carries
 // no clientX/clientY — every point would be NaN and no ink would register.
 // A MouseEvent with a pointerId is all the canvas reads.
@@ -37,14 +41,16 @@ vi.mock('../api/write', () => ({
   getWriteStatus: vi.fn(),
   getWritePrompts: vi.fn(),
   assessWriting: vi.fn(),
+  confirmWriting: vi.fn(),
 }))
 // jsdom has no canvas; the export is the seam.
 vi.mock('../features/write/inkExport', () => ({
   renderInkToPng: vi.fn().mockResolvedValue(new Blob(['png'], { type: 'image/png' })),
 }))
 
-import { assessWriting, getWritePrompts, getWriteStatus } from '../api/write'
+import { assessWriting, confirmWriting, getWritePrompts, getWriteStatus } from '../api/write'
 const mockStatus = getWriteStatus as ReturnType<typeof vi.fn>
+const mockConfirm = confirmWriting as ReturnType<typeof vi.fn>
 const mockPrompts = getWritePrompts as ReturnType<typeof vi.fn>
 const mockAssess = assessWriting as ReturnType<typeof vi.fn>
 
@@ -114,7 +120,7 @@ describe('WritePage', () => {
     mockAssess.mockResolvedValue({
       transcription: 'Я иду домой', matches_target: true, word_diffs: [],
       legibility: 4, letterform_notes: [{ letter: 'д', note: 'Close the loop.' }],
-      confidence: 'high', expected: 'Я иду домой', allowance: ALLOWANCE,
+      confidence: 'high', expected: 'Я иду домой', adapt: true, allowance: ALLOWANCE,
     })
     renderPage()
     await screen.findByTestId('write-prompt')
@@ -137,7 +143,7 @@ describe('WritePage', () => {
       transcription: 'Я иду домои', matches_target: false,
       word_diffs: [{ expected: 'домой', written: 'домои', note: 'й has a breve.' }],
       legibility: 2, letterform_notes: [], confidence: 'low',
-      expected: 'Я иду домой', allowance: ALLOWANCE,
+      expected: 'Я иду домой', adapt: true, allowance: ALLOWANCE,
     })
     renderPage()
     await screen.findByTestId('write-prompt')
@@ -151,7 +157,7 @@ describe('WritePage', () => {
     mockAssess.mockResolvedValue({
       transcription: 'привет', matches_target: true, word_diffs: [],
       legibility: 5, letterform_notes: [], confidence: 'high',
-      expected: 'привет', allowance: ALLOWANCE,
+      expected: 'привет', adapt: true, allowance: ALLOWANCE,
     })
     renderPage()
     await screen.findByTestId('write-prompt')
@@ -183,4 +189,81 @@ describe('WritePage', () => {
     renderPage()
     expect(await screen.findByTestId('write-no-prompts')).toBeInTheDocument()
   })
+
+  it('lets the writer overrule a misread, and sends how the ink was made', async () => {
+    mockAssess.mockResolvedValue({
+      transcription: 'ين', matches_target: false,
+      word_diffs: [{ expected: 'أن', written: 'ين', note: 'hamza' }],
+      legibility: 2, letterform_notes: [{ letter: 'أ', note: 'floating hamza' }],
+      confidence: 'low', expected: 'أن', adapt: true, allowance: ALLOWANCE,
+    })
+    mockConfirm.mockResolvedValue({ kept: true, samples: 3 })
+    renderPage()
+    await screen.findByTestId('write-prompt')
+    scribble(screen.getByTestId('ink-canvas'))
+    fireEvent.click(screen.getByTestId('write-check'))
+    const confirm = await screen.findByTestId('write-confirm')
+    // Strokes ride along with the Check, compacted.
+    expect(mockAssess.mock.calls[0][0].strokes.length).toBe(4)
+    fireEvent.click(confirm)
+    expect(await screen.findByTestId('write-learned')).toHaveTextContent(/3 samples/)
+    const args = mockConfirm.mock.calls[0][0]
+    expect(args).toMatchObject({ languageId: 'lang-ru', text: 'أن', letters: ['أ'] })
+    expect(args.strokes.length).toBe(4)
+    expect(args.image).toBeInstanceOf(Blob)
+  })
+
+  it('offers no confirm button when the reader is not learning the hand', async () => {
+    mockAssess.mockResolvedValue({
+      transcription: 'x', matches_target: false, word_diffs: [], legibility: 2,
+      letterform_notes: [], confidence: 'low', expected: 'y', adapt: false, allowance: ALLOWANCE,
+    })
+    renderPage()
+    await screen.findByTestId('write-prompt')
+    scribble(screen.getByTestId('ink-canvas'))
+    fireEvent.click(screen.getByTestId('write-check'))
+    await screen.findByTestId('write-result')
+    expect(screen.queryByTestId('write-confirm')).not.toBeInTheDocument()
+  })
+
+  it('free writing confirms an editable reading', async () => {
+    mockAssess.mockResolvedValue({
+      transcription: 'привет', matches_target: true, word_diffs: [], legibility: 4,
+      letterform_notes: [], confidence: 'medium', expected: null, adapt: true, allowance: ALLOWANCE,
+    })
+    mockConfirm.mockResolvedValue({ kept: true, samples: 1 })
+    renderPage()
+    await screen.findByTestId('write-prompt')
+    fireEvent.click(screen.getByTestId('kind-free'))
+    scribble(screen.getByTestId('ink-canvas'))
+    fireEvent.click(screen.getByTestId('write-check'))
+    // No "Correct" badge for free writing — the reader cannot know; the
+    // writer is asked instead.
+    expect(await screen.findByTestId('write-verdict')).not.toHaveTextContent(/^Correct$/)
+    expect(screen.getByText(/Is this what you wrote/)).toBeInTheDocument()
+    fireEvent.click(screen.getByTestId('write-not-it'))
+    const box = await screen.findByTestId('write-confirm-text')
+    expect(box).toHaveValue('привет')
+    fireEvent.change(box, { target: { value: 'привет!' } })
+    fireEvent.click(screen.getByTestId('write-confirm'))
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalled())
+    expect(mockConfirm.mock.calls[0][0].text).toBe('привет!')
+  })
+
+  it('free writing: "yes" confirms the reading as read', async () => {
+    mockAssess.mockResolvedValue({
+      transcription: 'أنا', matches_target: true, word_diffs: [], legibility: 3,
+      letterform_notes: [], confidence: 'high', expected: null, adapt: true, allowance: ALLOWANCE,
+    })
+    mockConfirm.mockResolvedValue({ kept: true, samples: 2 })
+    renderPage()
+    await screen.findByTestId('write-prompt')
+    fireEvent.click(screen.getByTestId('kind-free'))
+    scribble(screen.getByTestId('ink-canvas'))
+    fireEvent.click(screen.getByTestId('write-check'))
+    fireEvent.click(await screen.findByTestId('write-confirm'))
+    await waitFor(() => expect(mockConfirm).toHaveBeenCalled())
+    expect(mockConfirm.mock.calls[0][0].text).toBe('أنا')
+  })
 })
+

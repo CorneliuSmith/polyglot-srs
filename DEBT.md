@@ -398,6 +398,16 @@ reader of the plan would expect to find built, and will not:
   the text, and "legible" its judgement as a reader. The form / order /
   direction check per letter needs the script's authored templates
   (Phase 2–4). The neatness panel is the exact, on-device half until then.
+  The writer's own strokes ARE kept with each sample now (§11, Phase A),
+  so the material for a personal tolerance exists before the matcher does.
+- **Habits are collected but not yet counted back to the learner.** Phase
+  B of §11 — "your д again, third time", the Progress trend from
+  `writing_profiles.stats` — is not built. Confirmed-fine forms already
+  stop being flagged; recurring ones are stored and unused.
+- **Ink retention is now conditional, not absent.** With *Adapt to my
+  handwriting* on (the default), up to twelve canvases per language are
+  kept as the writer's samples; the switch and its Reset delete them.
+  The earlier "the ink is never stored" is true of the attempt log only.
 - **No handwriting face for Hebrew or Greek.** `handFont.ts` maps each
   script to a Google Fonts handwriting family (Caveat for Latin and
   Cyrillic, Aref Ruqaa for Arabic and Persian, Kalam, Nanum Pen Script,

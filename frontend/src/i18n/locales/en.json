@@ -1155,6 +1155,18 @@
       "forgetAllConfirm": "Forget everything the tutor remembers for {{name}}? Your past session records stay.",
       "sessionsStay": "Past sessions stay in your history; only what the tutor carries forward is cleared."
     },
+    "hand": {
+      "title": "Adapt to my handwriting",
+      "desc": "Keeps a few of your own writing samples — the picture, the text, and how you drew it — so the reader learns your hand (up to twelve per language). Turn it off and they are deleted.",
+      "kept": "{{count}} samples kept for {{language}} — {{confirmed}} confirmed by you.",
+      "none": "Nothing kept yet for {{language}}.",
+      "reset": "Reset {{language}}",
+      "resetAll": "Reset all languages",
+      "resetConfirm": "Forget everything the reader has learned about your handwriting in {{name}}?",
+      "offConfirm": "Turn this off? Every sample the reader kept of your handwriting will be deleted.",
+      "all": "all languages",
+      "thisLanguage": "this language"
+    },
     "email": {
       "title": "Email",
       "dailyTitle": "Daily reminder",
@@ -1733,7 +1745,19 @@
     "neatOk": "uneven",
     "neatPoor": "wandering",
     "neatNa": "—",
-    "neatHint": "Measured from your strokes on this device: how straight the line sits, how even the letters are, how consistent the slant, how regular the gaps."
+    "neatHint": "Measured from your strokes on this device: how straight the line sits, how even the letters are, how consistent the slant, how regular the gaps.",
+    "confirmExpected": "That’s what I wrote — learn my hand",
+    "confirmReading": "Confirm what I wrote",
+    "confirmPlaceholder": "What you wrote",
+    "confirming": "Learning…",
+    "learned": "Learned — {{count}} samples of your hand are kept for this language.",
+    "confirmFailed": "That didn’t save — try again.",
+    "adaptOff": "The reader isn’t learning your hand — turn it on in Account.",
+    "spellingOk": "Spelling looks right",
+    "spellingCheck": "Spelling needs a look",
+    "isThisIt": "Is this what you wrote?",
+    "yesThatsIt": "Yes",
+    "noIWrote": "No — I wrote…"
   },
   "more": {
     "donateTea": "Donate a tea 🍵",

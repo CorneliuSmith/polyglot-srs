@@ -15,6 +15,7 @@ import logging
 import asyncpg
 
 from backend.services.auto_translate import table_present
+from backend.services.ink_method import compact, summarize_method
 
 logger = logging.getLogger("write")
 
@@ -123,3 +124,199 @@ async def record_attempt(
         )
     except Exception as exc:  # noqa: BLE001 — a log line, never the verdict
         logger.debug("writing attempt not recorded: %s", exc)
+
+
+# ---------------------------------------------------------------------------
+# The hand profile (docs/plans/handwriting.md, §11): what the reader is
+# told about THIS writer, and the samples it is shown. Everything here is
+# probed — migration 20261019 is owner-applied — and everything degrades
+# to "no references, nothing kept", which is exactly Phase 1.
+# ---------------------------------------------------------------------------
+
+SAMPLE_CAP = 12
+REFERENCE_LIMIT = 3
+HABIT_CAP = 20
+
+
+async def _hand_tables(conn: asyncpg.Connection) -> bool:
+    return (await table_present(conn, "writing_settings")
+            and await table_present(conn, "writing_profiles")
+            and await table_present(conn, "writing_samples"))
+
+
+async def adapt_enabled(conn: asyncpg.Connection, user_id: str) -> bool:
+    """The account toggle. On by default; off without the tables, since
+    there is nowhere to keep anything."""
+    if not await _hand_tables(conn):
+        return False
+    row = await conn.fetchval(
+        "SELECT adapt FROM writing_settings WHERE user_id = $1", user_id)
+    return True if row is None else bool(row)
+
+
+async def set_adapt(conn: asyncpg.Connection, user_id: str, adapt: bool) -> None:
+    """Flip the toggle. OFF deletes every sample and every habit the
+    reader had — the promise under the switch is 'turn it off and they
+    are deleted', not 'paused'."""
+    if not await _hand_tables(conn):
+        return
+    await conn.execute(
+        """INSERT INTO writing_settings (user_id, adapt, updated_at)
+           VALUES ($1, $2, now())
+           ON CONFLICT (user_id) DO UPDATE
+             SET adapt = EXCLUDED.adapt, updated_at = now()""",
+        user_id, adapt)
+    if not adapt:
+        await reset_hand(conn, user_id, None)
+
+
+async def reset_hand(conn: asyncpg.Connection, user_id: str,
+                     language_id: str | None) -> None:
+    """Forget what the reader learned — for one language, or all."""
+    if not await _hand_tables(conn):
+        return
+    if language_id:
+        await conn.execute(
+            "DELETE FROM writing_samples WHERE user_id = $1 AND language_id = $2",
+            user_id, language_id)
+        await conn.execute(
+            "DELETE FROM writing_profiles WHERE user_id = $1 AND language_id = $2",
+            user_id, language_id)
+    else:
+        await conn.execute("DELETE FROM writing_samples WHERE user_id = $1", user_id)
+        await conn.execute("DELETE FROM writing_profiles WHERE user_id = $1", user_id)
+
+
+async def hand_profile(conn: asyncpg.Connection, user_id: str,
+                       language_id: str) -> dict:
+    """What the Account page and the Write page show: the toggle, the
+    habits, the counts. `available` is false without the migration."""
+    if not await _hand_tables(conn):
+        return {"available": False, "adapt": False, "habits": [],
+                "stats": {}, "samples": 0, "confirmed": 0}
+    adapt = await adapt_enabled(conn, user_id)
+    prof = await conn.fetchrow(
+        "SELECT habits, stats FROM writing_profiles "
+        "WHERE user_id = $1 AND language_id = $2", user_id, language_id)
+    counts = await conn.fetchrow(
+        """SELECT count(*) AS n, count(*) FILTER (WHERE confirmed) AS c
+             FROM writing_samples WHERE user_id = $1 AND language_id = $2""",
+        user_id, language_id)
+    habits = _loads(prof["habits"], []) if prof else []
+    stats = _loads(prof["stats"], {}) if prof else {}
+    return {"available": True, "adapt": adapt, "habits": habits,
+            "stats": stats, "samples": int(counts["n"] if counts else 0),
+            "confirmed": int(counts["c"] if counts else 0)}
+
+
+def _loads(value, default):
+    if value is None:
+        return default
+    if isinstance(value, (list, dict)):
+        return value
+    try:
+        return json.loads(value)
+    except (TypeError, ValueError):
+        return default
+
+
+async def reference_samples(conn: asyncpg.Connection, user_id: str,
+                            language_id: str,
+                            limit: int = REFERENCE_LIMIT) -> list[dict]:
+    """The samples shown to the reader: confirmed first, newest first."""
+    if not await _hand_tables(conn):
+        return []
+    rows = await conn.fetch(
+        """SELECT text, image, method FROM writing_samples
+            WHERE user_id = $1 AND language_id = $2
+            ORDER BY confirmed DESC, created_at DESC LIMIT $3""",
+        user_id, language_id, limit)
+    return [{"text": r["text"], "image": bytes(r["image"]),
+             "method": _loads(r["method"], {})} for r in rows]
+
+
+async def keep_sample(conn: asyncpg.Connection, user_id: str, language_id: str,
+                      text: str, image: bytes, confirmed: bool,
+                      strokes=None) -> int:
+    """Keep one sample — the picture, the text, and HOW it was made (the
+    compacted strokes and their method summary) — then trim to the cap,
+    unconfirmed oldest first, so a writer's own confirmations are the last
+    thing to go. Returns the number kept for the language."""
+    if not await _hand_tables(conn):
+        return 0
+    st = compact(strokes) if strokes else []
+    await conn.execute(
+        """INSERT INTO writing_samples
+               (user_id, language_id, text, image, strokes, method, confirmed)
+           VALUES ($1, $2, $3, $4, $5::jsonb, $6::jsonb, $7)""",
+        user_id, language_id, text, image,
+        json.dumps(st) if st else None, json.dumps(summarize_method(st)),
+        confirmed)
+    await conn.execute(
+        """DELETE FROM writing_samples WHERE id IN (
+             SELECT id FROM writing_samples
+              WHERE user_id = $1 AND language_id = $2
+              ORDER BY confirmed DESC, created_at DESC
+             OFFSET $3)""",
+        user_id, language_id, SAMPLE_CAP)
+    return int(await conn.fetchval(
+        "SELECT count(*) FROM writing_samples WHERE user_id = $1 AND language_id = $2",
+        user_id, language_id) or 0)
+
+
+async def note_habits(conn: asyncpg.Connection, user_id: str, language_id: str,
+                      notes: list[dict], *, confirmed_ok: bool,
+                      legibility: int | None = None) -> list[dict]:
+    """Merge letterform notes into the hand's habits. A note the reader
+    made counts once more against its letter; a form the writer confirmed
+    is marked known-fine and is never flagged again. Capped by count so
+    the profile stays a list of habits, not a log."""
+    if not await _hand_tables(conn):
+        return []
+    row = await conn.fetchrow(
+        "SELECT habits, stats FROM writing_profiles "
+        "WHERE user_id = $1 AND language_id = $2", user_id, language_id)
+    habits: list[dict] = _loads(row["habits"], []) if row else []
+    stats: dict = _loads(row["stats"], {}) if row else {}
+    by_letter = {h.get("letter"): h for h in habits if isinstance(h, dict)}
+    for n in notes:
+        letter = str(n.get("letter") or "").strip()
+        if not letter:
+            continue
+        h = by_letter.get(letter)
+        if h is None:
+            h = {"letter": letter, "note": "", "count": 0, "confirmed_ok": False}
+            by_letter[letter] = h
+        h["count"] = int(h.get("count", 0)) + 1
+        note = str(n.get("note") or "").strip()
+        if note:
+            h["note"] = note
+        if confirmed_ok:
+            h["confirmed_ok"] = True
+    merged = sorted(by_letter.values(),
+                    key=lambda h: (-int(h.get("confirmed_ok", False)),
+                                   -int(h.get("count", 0))))[:HABIT_CAP]
+    if legibility is not None:
+        n = int(stats.get("n", 0))
+        mean = float(stats.get("legibility_mean", 0.0))
+        stats = {"n": n + 1,
+                 "legibility_mean": round((mean * n + legibility) / (n + 1), 2)}
+    await conn.execute(
+        """INSERT INTO writing_profiles (user_id, language_id, habits, stats, updated_at)
+           VALUES ($1, $2, $3::jsonb, $4::jsonb, now())
+           ON CONFLICT (user_id, language_id) DO UPDATE
+             SET habits = EXCLUDED.habits, stats = EXCLUDED.stats,
+                 updated_at = now()""",
+        user_id, language_id, json.dumps(merged), json.dumps(stats))
+    return merged
+
+
+def known_forms(habits: list[dict]) -> list[str]:
+    """The habits the reader is told not to flag: the ones the writer has
+    confirmed legible, as 'letter — note' lines."""
+    out = []
+    for h in habits:
+        if isinstance(h, dict) and h.get("confirmed_ok") and h.get("letter"):
+            note = str(h.get("note") or "").strip()
+            out.append(f"{h['letter']}" + (f" — {note}" if note else ""))
+    return out

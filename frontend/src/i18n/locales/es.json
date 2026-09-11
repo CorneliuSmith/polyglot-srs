@@ -1155,6 +1155,18 @@
       "forgetAllConfirm": "¿Olvidar todo lo que el tutor recuerda de {{name}}? Tus sesiones pasadas se conservan.",
       "sessionsStay": "Las sesiones pasadas quedan en tu historial; solo se borra lo que el tutor arrastra entre sesiones."
     },
+    "hand": {
+      "title": "Adaptarse a mi letra",
+      "desc": "Guarda unas pocas muestras de tu escritura — la imagen, el texto y cómo la trazaste — para que el lector aprenda tu letra (hasta doce por idioma). Si lo desactivas, se borran.",
+      "kept": "{{count}} muestras guardadas para {{language}}; {{confirmed}} confirmadas por ti.",
+      "none": "Aún no hay nada guardado para {{language}}.",
+      "reset": "Restablecer {{language}}",
+      "resetAll": "Restablecer todos los idiomas",
+      "resetConfirm": "¿Olvidar todo lo que el lector aprendió sobre tu letra en {{name}}?",
+      "offConfirm": "¿Desactivar? Se borrarán todas las muestras de tu letra que guardó el lector.",
+      "all": "todos los idiomas",
+      "thisLanguage": "este idioma"
+    },
     "email": {
       "title": "Correo",
       "dailyTitle": "Recordatorio diario",
@@ -1733,7 +1745,19 @@
     "neatOk": "desigual",
     "neatPoor": "errática",
     "neatNa": "—",
-    "neatHint": "Medido a partir de tus trazos en este dispositivo: qué tan recta va la línea, qué tan parejas son las letras, qué tan constante es la inclinación y qué tan regulares son los espacios."
+    "neatHint": "Medido a partir de tus trazos en este dispositivo: qué tan recta va la línea, qué tan parejas son las letras, qué tan constante es la inclinación y qué tan regulares son los espacios.",
+    "confirmExpected": "Eso es lo que escribí: aprende mi letra",
+    "confirmReading": "Confirmar lo que escribí",
+    "confirmPlaceholder": "Lo que escribiste",
+    "confirming": "Aprendiendo…",
+    "learned": "Aprendido: se guardan {{count}} muestras de tu letra para este idioma.",
+    "confirmFailed": "No se guardó; inténtalo de nuevo.",
+    "adaptOff": "El lector no está aprendiendo tu letra; actívalo en Cuenta.",
+    "spellingOk": "La ortografía parece correcta",
+    "spellingCheck": "La ortografía necesita revisión",
+    "isThisIt": "¿Es esto lo que escribiste?",
+    "yesThatsIt": "Sí",
+    "noIWrote": "No, escribí…"
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",

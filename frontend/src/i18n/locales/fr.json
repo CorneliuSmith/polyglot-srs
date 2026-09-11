@@ -1155,6 +1155,18 @@
       "forgetAllConfirm": "Oublier tout ce que le tuteur retient pour {{name}} ? Vos sessions passées sont conservées.",
       "sessionsStay": "Les sessions passées restent dans votre historique ; seul ce que le tuteur garde d’une session à l’autre est effacé."
     },
+    "hand": {
+      "title": "S’adapter à mon écriture",
+      "desc": "Conserve quelques échantillons de votre écriture — l’image, le texte et la façon dont vous l’avez tracée — pour que le lecteur apprenne votre main (jusqu’à douze par langue). Désactivez, et ils sont supprimés.",
+      "kept": "{{count}} échantillons conservés pour {{language}} — {{confirmed}} confirmés par vous.",
+      "none": "Rien de conservé pour {{language}} pour l’instant.",
+      "reset": "Réinitialiser {{language}}",
+      "resetAll": "Réinitialiser toutes les langues",
+      "resetConfirm": "Oublier tout ce que le lecteur a appris de votre écriture en {{name}} ?",
+      "offConfirm": "Désactiver ? Tous les échantillons de votre écriture conservés par le lecteur seront supprimés.",
+      "all": "toutes les langues",
+      "thisLanguage": "cette langue"
+    },
     "email": {
       "title": "E-mail",
       "dailyTitle": "Rappel quotidien",
@@ -1733,7 +1745,19 @@
     "neatOk": "inégal",
     "neatPoor": "irrégulier",
     "neatNa": "—",
-    "neatHint": "Mesuré à partir de vos traits sur cet appareil : la droiture de la ligne, la régularité des lettres, la constance de l’inclinaison et celle des espaces."
+    "neatHint": "Mesuré à partir de vos traits sur cet appareil : la droiture de la ligne, la régularité des lettres, la constance de l’inclinaison et celle des espaces.",
+    "confirmExpected": "C’est ce que j’ai écrit — apprends ma main",
+    "confirmReading": "Confirmer ce que j’ai écrit",
+    "confirmPlaceholder": "Ce que vous avez écrit",
+    "confirming": "Apprentissage…",
+    "learned": "Appris — {{count}} échantillons de votre écriture sont conservés pour cette langue.",
+    "confirmFailed": "Non enregistré ; réessayez.",
+    "adaptOff": "Le lecteur n’apprend pas votre écriture ; activez-le dans Compte.",
+    "spellingOk": "L’orthographe semble correcte",
+    "spellingCheck": "L’orthographe est à revoir",
+    "isThisIt": "Est-ce bien ce que vous avez écrit ?",
+    "yesThatsIt": "Oui",
+    "noIWrote": "Non, j’ai écrit…"
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",

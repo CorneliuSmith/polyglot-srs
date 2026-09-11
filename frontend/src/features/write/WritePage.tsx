@@ -5,6 +5,7 @@ import { useMutation, useQuery } from '@tanstack/react-query'
 import { Check, Eraser, Loader2, Undo2 } from 'lucide-react'
 import {
   assessWriting,
+  confirmWriting,
   getWritePrompts,
   getWriteStatus,
 } from '../../api/write'
@@ -18,7 +19,7 @@ import SectionHeader from '../../components/SectionHeader'
 import UsageMeter from '../../components/UsageMeter'
 import { PAGE_WIDE } from '../../lib/layout'
 import InkCanvas from './InkCanvas'
-import { hasInk } from './ink'
+import { compactStrokes, hasInk } from './ink'
 import type { Stroke } from './ink'
 import { renderInkToPng } from './inkExport'
 import { neatness } from './neatness'
@@ -79,6 +80,12 @@ export default function WritePage() {
   const [result, setResult] = useState<WriteAssessment | null>(null)
   const [allowance, setAllowance] = useState<TutorAllowance | null>(null)
   const [error, setError] = useState<string | null>(null)
+  // "I wrote this": the reader's reading, editable, and what happened when
+  // the writer confirmed it.
+  const [reading, setReading] = useState('')
+  const [learned, setLearned] = useState<number | null>(null)
+  // Free writing: "is this what you wrote?" — No opens the reading to edit.
+  const [editing, setEditing] = useState(false)
 
   useEffect(() => {
     setStyle(defaultStyle(code))
@@ -119,17 +126,45 @@ export default function WritePage() {
         expected,
         kind: apiKind,
         style: hasCursiveToggle(code) ? style : null,
+        strokes: compactStrokes(strokes),
       })
     },
     onMutate: () => {
       setError(null)
+      setLearned(null)
     },
     onSuccess: (data) => {
       setResult(data)
       setAllowance(data.allowance)
+      setReading(data.expected ?? data.transcription)
+      setEditing(false)
     },
     onError: () => {
       setError(t('write.checkFailed'))
+    },
+  })
+
+  // The writer's word over the reader's: the canvas becomes a confirmed
+  // sample of their hand, and the letters the reader flagged stop being
+  // flagged. Free, and the single most useful thing they can tap after
+  // a misread.
+  const confirm = useMutation({
+    mutationFn: async () => {
+      const image = await renderInkToPng(strokes)
+      if (!image) throw new Error('no-canvas')
+      return confirmWriting({
+        languageId: activeLanguageId!,
+        image,
+        text: reading.trim(),
+        letters: (result?.letterform_notes ?? []).map((n) => n.letter).filter(Boolean),
+        strokes: compactStrokes(strokes),
+      })
+    },
+    onSuccess: (data) => {
+      setLearned(data.kept ? data.samples : -1)
+    },
+    onError: () => {
+      setError(t('write.confirmFailed'))
     },
   })
 
@@ -137,6 +172,7 @@ export default function WritePage() {
     setStrokes([])
     setResult(null)
     setError(null)
+    setLearned(null)
   }
 
   const next = () => {
@@ -327,7 +363,74 @@ export default function WritePage() {
         <NeatnessPanel report={report} inked={inked} />
 
         {result && (
-          <ResultPanel result={result} code={code} rtl={rtl} fontFamily={font.family} />
+          <ResultPanel result={result} code={code} rtl={rtl} fontFamily={font.family}>
+            {/* Offered when the reader could be wrong: a miss, an unsure
+                read, or free writing with no expected text at all. A sure,
+                matching read was already kept as a sample server-side. */}
+            {result.adapt && inked && result.transcription &&
+              (!result.matches_target || result.confidence === 'low' || !result.expected) && (
+              <div data-testid="write-confirm-box" className="space-y-2 border-t border-gray-100 pt-3">
+                {learned !== null ? (
+                  <p data-testid="write-learned" className="text-sm text-green-800">
+                    {learned < 0 ? t('write.adaptOff') : t('write.learned', { count: learned })}
+                  </p>
+                ) : !result.expected && !editing ? (
+                  // The writer's verdict on the reading — the one signal
+                  // the reader cannot produce itself.
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm text-gray-700">{t('write.isThisIt')}</span>
+                    <button
+                      type="button"
+                      onClick={() => confirm.mutate()}
+                      disabled={confirm.isPending || !reading.trim() || !result.transcription}
+                      data-testid="write-confirm"
+                      className="rounded-xl border border-lang bg-white px-3 py-2 text-sm font-semibold text-lang hover:bg-lang-soft/40 disabled:opacity-50"
+                      style={{ minHeight: '40px' }}
+                    >
+                      {confirm.isPending ? t('write.confirming') : t('write.yesThatsIt')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEditing(true)}
+                      disabled={confirm.isPending}
+                      data-testid="write-not-it"
+                      className="rounded-xl border border-gray-200 bg-white px-3 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-50"
+                      style={{ minHeight: '40px' }}
+                    >
+                      {t('write.noIWrote')}
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {!result.expected && (
+                      <input
+                        type="text"
+                        value={reading}
+                        onChange={(e) => setReading(e.target.value)}
+                        placeholder={t('write.confirmPlaceholder')}
+                        data-testid="write-confirm-text"
+                        dir={rtl ? 'rtl' : 'ltr'}
+                        autoFocus
+                        className="w-full rounded-xl border border-gray-200 px-3 py-2 text-base"
+                      />
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => confirm.mutate()}
+                      disabled={confirm.isPending || !reading.trim()}
+                      data-testid="write-confirm"
+                      className="rounded-xl border border-lang bg-white px-3 py-2 text-sm font-semibold text-lang hover:bg-lang-soft/40 disabled:opacity-50"
+                      style={{ minHeight: '40px' }}
+                    >
+                      {confirm.isPending
+                        ? t('write.confirming')
+                        : result.expected ? t('write.confirmExpected') : t('write.confirmReading')}
+                    </button>
+                  </>
+                )}
+              </div>
+            )}
+          </ResultPanel>
         )}
 
         {meter && <UsageMeter allowance={meter} />}
@@ -385,22 +488,32 @@ function ResultPanel({
   code,
   rtl,
   fontFamily,
+  children,
 }: {
   result: WriteAssessment
   code: string | undefined
   rtl: boolean
   fontFamily: string
+  children?: React.ReactNode
 }) {
   const { t } = useTranslation()
   const nothing = !result.transcription
   const unsure = result.confidence === 'low'
+  // With nothing expected, "correct" would be the reader grading the
+  // spelling of its OWN reading — meaningless to the writer, who is the
+  // only one who knows what was written. Free writing gets a spelling
+  // line and the question "is this what you wrote?" (below), not a badge.
+  const free = !result.expected
   const badge = nothing
     ? null
     : unsure
       ? { text: t('write.unsure'), cls: 'bg-amber-50 text-amber-800 border-amber-200' }
-      : result.matches_target
-        ? { text: t('write.correct'), cls: 'bg-green-50 text-green-800 border-green-200' }
-        : { text: t('write.incorrect'), cls: 'bg-red-50 text-red-800 border-red-200' }
+      : free
+        ? { text: result.matches_target ? t('write.spellingOk') : t('write.spellingCheck'),
+            cls: 'bg-gray-50 text-gray-700 border-gray-200' }
+        : result.matches_target
+          ? { text: t('write.correct'), cls: 'bg-green-50 text-green-800 border-green-200' }
+          : { text: t('write.incorrect'), cls: 'bg-red-50 text-red-800 border-red-200' }
   return (
     <div data-testid="write-result" className="rounded-2xl border border-gray-200 bg-white p-4 space-y-3">
       <div>
@@ -481,6 +594,7 @@ function ResultPanel({
           <p className="text-[11px] text-gray-400">{t('write.compareHint')}</p>
         </div>
       )}
+      {children}
     </div>
   )
 }

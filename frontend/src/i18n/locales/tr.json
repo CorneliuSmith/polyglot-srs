@@ -1155,6 +1155,18 @@
       "forgetAllConfirm": "Öğretmenin {{name}} için hatırladığı her şey unutulsun mu? Geçmiş oturum kayıtlarınız kalır.",
       "sessionsStay": "Geçmiş oturumlar geçmişinizde kalır; yalnızca öğretmenin ileriye taşıdıkları silinir."
     },
+    "hand": {
+      "title": "El yazıma uyum sağla",
+      "desc": "Yazınızdan birkaç örnek saklar — görüntü, metin ve nasıl çizdiğiniz — böylece okuyucu el yazınızı öğrenir (dil başına en fazla on iki). Kapatırsanız silinir.",
+      "kept": "{{language}} için {{count}} örnek saklanıyor — {{confirmed}} tanesini siz onayladınız.",
+      "none": "{{language}} için henüz bir şey saklanmadı.",
+      "reset": "{{language}} sıfırla",
+      "resetAll": "Tüm dilleri sıfırla",
+      "resetConfirm": "Okuyucunun {{name}} el yazınız hakkında öğrendiği her şey unutulsun mu?",
+      "offConfirm": "Kapatılsın mı? Okuyucunun sakladığı tüm el yazısı örnekleriniz silinecek.",
+      "all": "tüm diller",
+      "thisLanguage": "bu dil"
+    },
     "email": {
       "title": "E-posta",
       "dailyTitle": "Günlük hatırlatma",
@@ -1733,7 +1745,19 @@
     "neatOk": "düzensiz",
     "neatPoor": "dağınık",
     "neatNa": "—",
-    "neatHint": "Bu cihazda çizgilerinizden ölçüldü: satırın ne kadar düz olduğu, harflerin ne kadar eşit olduğu, eğimin ne kadar tutarlı ve boşlukların ne kadar düzenli olduğu."
+    "neatHint": "Bu cihazda çizgilerinizden ölçüldü: satırın ne kadar düz olduğu, harflerin ne kadar eşit olduğu, eğimin ne kadar tutarlı ve boşlukların ne kadar düzenli olduğu.",
+    "confirmExpected": "Bunu yazdım — el yazımı öğren",
+    "confirmReading": "Yazdığımı onayla",
+    "confirmPlaceholder": "Ne yazdınız",
+    "confirming": "Öğreniliyor…",
+    "learned": "Öğrenildi — bu dil için el yazınızdan {{count}} örnek saklanıyor.",
+    "confirmFailed": "Kaydedilemedi; tekrar deneyin.",
+    "adaptOff": "Okuyucu el yazınızı öğrenmiyor; Hesap’tan açın.",
+    "spellingOk": "Yazım doğru görünüyor",
+    "spellingCheck": "Yazıma bakmak gerek",
+    "isThisIt": "Yazdığınız bu mu?",
+    "yesThatsIt": "Evet",
+    "noIWrote": "Hayır, şunu yazdım…"
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",

@@ -681,6 +681,37 @@ because it needs no authored content. Three parts, deliberately separate:
   20261018, probed) and **the ink never is** — the same rule as Speak's
   audio.
 
+**The reader learns the writer's hand** (§11 of the plan; migration
+20261019, probed). Three things, all the learner's own and all deleted by
+the Account toggle *Adapt to my handwriting* or its Reset:
+
+- **Samples** (`writing_samples`) — up to twelve per language of the
+  writer's own canvases: the PNG, the text it reads, and *how it was
+  made*: the strokes, compacted to ≤ 64 integer `[x, y, t]` points each,
+  and a method summary (`services/ink_method.py`: stroke count, lifts,
+  joined runs, dominant direction, right-to-left, duration, speed). A
+  sample is kept when the writer **confirms** a reading (`POST
+  /api/write/confirm`, free — no model call), or when the reader was sure
+  and right; never from a low-confidence read, which would teach the
+  wrong hand. Up to three ride along with every Check as reference images
+  ("this writer's own hand, confirmed; it reads X; written in 3 strokes
+  with the pen lifted…"), confirmed first.
+- **Habits** (`writing_profiles.habits`) — per letter: the reader's last
+  note, how often it recurred, and whether the writer confirmed the form
+  legible. Confirmed forms are passed to the reader as *known — do not
+  flag*; the rest are the material for the recurring-note count and the
+  Progress trend (Phase B).
+- **The method told to the reader** — the current canvas's own method
+  line goes into the request as fact ("written in 4 strokes, pen lifted
+  between strokes, mostly running down, over 2.1 s"), because a hamza
+  drawn as its own stroke or an alif drawn bottom-to-top is something the
+  picture can only guess at.
+
+The confirm button appears only when the reader could be wrong — a miss,
+a low-confidence read, or free writing with no expected text (where the
+reading is editable). With the toggle off, or before the migration, every
+call is exactly the Phase 1 call and nothing is kept.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of
