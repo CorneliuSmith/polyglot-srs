@@ -313,3 +313,43 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+## Sentence authoring, wave 1 — the top-500 band (11 Sep 2026)
+
+**528 of Korean's top-1,000 words had no sentence the card could blank**, rank
+10 `있다` among them, so those cards fell back to a definition-only prompt.
+Wave 1 covered the top-500: **540 sentences for 180 words, every row verified
+clozable by the gate**, and the floor pass then dropped 120 fragments the new
+sentences superseded. The band's gap went **188 → 8**.
+
+Written to CHECKS §23 — three sentences per word, differing in kind, 7–14
+어절, a finite verb and a real scene. The constraint that shapes Korean
+authoring is that `find_cloze` needs the SURFACE form, so a dictionary-form
+headword (`있다`, `없다`) must stand as its own 어절 — which the 한다체 plain
+style does naturally (`학생이 도서관에 있다`), while 있어요 would never blank.
+
+**What the checkers refused is the useful part:**
+
+- **`남자 분` — a misspacing the gate cannot see.** 남자분 is one word
+  (표준국어대사전), and it was the space itself that made the blank land on
+  bare 남자. The row would have taught the wrong spacing in the only sentence
+  a learner sees that word in. **The gate's silence on spacing is a blind
+  spot, not a clearance** — every bare-어절 slot needs an orthography check by
+  eye (집 앞 골목, 이름 석 자, 오 남매 and 하다 보면 all checked out; only this
+  one did not).
+- **`그녀` pointed at one's own grandmother** — translationese. A Korean
+  writes 할머니의 젊은 시절, never pronominalising a close elder. Moved to song
+  lyrics, where the literary pronoun actually lives.
+- **`꼭 잠갔는지`** — off-gloss sense. 꼭 잠그다 is the set collocation for
+  closing a valve *tight*, not "without fail", so the sentence taught a sense
+  the definition does not name (rule 6). The adverb belongs on the checking
+  verb: 잠갔는지 꼭 확인해 주세요.
+- **Three `하다 보-` frames in one set** — one construction three times, which
+  §23 names explicitly. 하다 만 N is a second bare-어절 slot that fixes the
+  repetition and the objectless pro-verb together.
+
+**One word was rightly skipped rather than authored:** `하` ("last, lowest
+grade") is the Hanja 下 surfacing as an extraction fragment, and §28 fails
+outright — a blank in `상 중 ___` is satisfied by 상 and 중 equally. It belongs
+in `vocab_exclusions.tsv`, not in a later authoring attempt.
+
