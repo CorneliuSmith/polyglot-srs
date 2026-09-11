@@ -15,8 +15,14 @@ import {
 import type { TutorAllowance } from '../../api/tutor'
 import type { ConfirmResult, Misread, WriteAssessment, WriteBaseline, WriteKind, WriteStyle } from '../../api/write'
 import { getLanguages } from '../../api/profile'
-import { getStrokeManifest } from '../../api/strokes'
+import { getGlyphs, getStrokeManifest } from '../../api/strokes'
 import LettersMode from './LettersMode'
+import WordsMode, { LetterRow } from './WordsMode'
+import StrokePreview from './StrokePreview'
+import { compose } from './composer'
+import type { Composed } from './composer'
+import { matchComposed } from './matcher'
+import type { ComposedMatch, LetterReason } from './matcher'
 import { usePrefsStore } from '../../stores/prefsStore'
 import AiDisclaimer from '../../components/AiDisclaimer'
 import LanguageWrapper from '../../components/LanguageWrapper'
@@ -33,7 +39,7 @@ import { defaultStyle, ensureHandFont, handFontFor, hasCursiveToggle } from './h
 
 /** What the learner is writing against. `own` is text they typed
  * themselves; `free` is nothing at all. */
-type PromptKind = 'sentence' | 'word' | 'own' | 'free' | 'letters'
+type PromptKind = 'sentence' | 'word' | 'own' | 'free' | 'letters' | 'traced'
 
 /** A baseline session in progress (§12.2): the eight prompts, where the
  * writer is, and each line's verdict so the end can sum them. */
@@ -102,6 +108,16 @@ export default function WritePage() {
     .map(([k]) => k)
   const [letterStyle, setLetterStyle] = useState<string | null>(null)
   const activeLetterStyle = letterStyle ?? letterStyles[0] ?? null
+  // The reviewed forms, for the traced modes and for the letter-by-letter
+  // verdict on free ink. Nothing is fetched until a script has some.
+  const { data: library } = useQuery({
+    queryKey: ['write-glyphs', activeLanguageId, activeLetterStyle],
+    queryFn: () => getGlyphs(activeLanguageId!, activeLetterStyle!),
+    enabled: !!activeLanguageId && !!activeLetterStyle,
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  })
+  const glyphs = useMemo(() => library?.glyphs ?? [], [library])
   // The hand profile decides whether "Set up my hand" is offered — it
   // needs the toggle on and the migration present.
   const { data: profile } = useQuery({
@@ -163,6 +179,22 @@ export default function WritePage() {
   )
   const inked = hasInk(strokes)
   const meter = allowance ?? status?.allowance ?? null
+
+  // Letter by letter on free ink (Phase 4): once the library can compose
+  // the expected text in full and it fits one line, the same matcher
+  // that judges a traced word judges this ink — exact, on the device,
+  // beside the reader's verdict.
+  const composed: Composed | null = useMemo(() => {
+    if (!result?.expected || glyphs.length === 0 || !activeLetterStyle) return null
+    const c = compose(result.expected, code, activeLetterStyle, glyphs)
+    return c.missing.length === 0 && c.letters.length > 0 && c.letters.length <= 14 ? c : null
+  }, [result?.expected, glyphs, code, activeLetterStyle])
+  const letterMatch: ComposedMatch | null = useMemo(
+    () => (composed && inked ? matchComposed(strokes, composed, { tolerance: 0.14 }) : null),
+    [composed, strokes, inked],
+  )
+  const letterReason = (r: LetterReason | undefined) =>
+    r === 'missing' ? t('write.letterMissing') : r === 'shape' ? t('write.letterShape') : ''
 
   const check = useMutation({
     mutationFn: async () => {
@@ -303,7 +335,10 @@ export default function WritePage() {
   }
 
   const kinds: { key: PromptKind; label: string }[] = [
-    ...(letterStyles.length > 0 ? [{ key: 'letters' as PromptKind, label: t('write.kindLetters') }] : []),
+    ...(letterStyles.length > 0
+      ? [{ key: 'letters' as PromptKind, label: t('write.kindLetters') },
+         { key: 'traced' as PromptKind, label: t('write.kindTrace') }]
+      : []),
     { key: 'sentence', label: t('write.kindSentence') },
     { key: 'word', label: t('write.kindWord') },
     { key: 'own', label: t('write.kindOwn') },
@@ -430,7 +465,7 @@ export default function WritePage() {
 
         )}
 
-        {kind === 'letters' && activeLetterStyle && activeLanguageId && (
+        {(kind === 'letters' || kind === 'traced') && activeLetterStyle && activeLanguageId && (
           <div className="space-y-2">
             {letterStyles.length > 1 && (
               <div className="flex rounded-full border border-gray-200 bg-white p-0.5 text-xs font-semibold w-fit">
@@ -447,11 +482,15 @@ export default function WritePage() {
                 ))}
               </div>
             )}
-            <LettersMode languageId={activeLanguageId} code={code} style={activeLetterStyle} />
+            {kind === 'letters' ? (
+              <LettersMode languageId={activeLanguageId} code={code} style={activeLetterStyle} />
+            ) : (
+              <WordsMode languageId={activeLanguageId} code={code} style={activeLetterStyle} glyphs={glyphs} />
+            )}
           </div>
         )}
 
-        {!baseline && kind !== 'letters' && (
+        {!baseline && kind !== 'letters' && kind !== 'traced' && (
         <div className="rounded-2xl border border-gray-200 bg-white p-4">
           {promptKind && (
             promptsLoading ? (
@@ -508,7 +547,7 @@ export default function WritePage() {
         )}
 
         {/* The surface */}
-        {kind !== 'letters' && (
+        {kind !== 'letters' && kind !== 'traced' && (
         <>
         <div className="space-y-2">
           <InkCanvas strokes={strokes} onChange={setStrokes} rtl={rtl} disabled={check.isPending} />
@@ -567,7 +606,10 @@ export default function WritePage() {
         <NeatnessPanel report={report} inked={inked} />
 
         {result && (
-          <ResultPanel result={result} code={code} rtl={rtl} fontFamily={font.family}>
+          <ResultPanel result={result} code={code} rtl={rtl} fontFamily={font.family} composed={composed}>
+            {letterMatch && composed && (
+              <LetterRow match={letterMatch} composed={composed} reason={letterReason} />
+            )}
             {/* Offered when the reader could be wrong: a miss, an unsure
                 read, or free writing with no expected text at all. A sure,
                 matching read was already kept as a sample server-side. */}
@@ -739,12 +781,15 @@ function ResultPanel({
   code,
   rtl,
   fontFamily,
+  composed,
   children,
 }: {
   result: WriteAssessment
   code: string | undefined
   rtl: boolean
   fontFamily: string
+  /** The expected text in the speaker's hand, when the library can compose it. */
+  composed?: Composed | null
   children?: React.ReactNode
 }) {
   const { t } = useTranslation()
@@ -839,6 +884,12 @@ function ResultPanel({
       {result.expected && (
         <div>
           <p className="text-xs uppercase tracking-wide text-gray-500">{t('write.compare')}</p>
+          {composed && (
+            <div className="mt-1" data-testid="write-compare-composed">
+              <StrokePreview strokes={[]} composed={composed} width={Math.min(560, 40 + composed.letters.length * 44)} height={110} />
+              <p className="text-[11px] text-gray-400">{t('write.compareComposed')}</p>
+            </div>
+          )}
           <p
             data-testid="write-compare"
             dir={rtl ? 'rtl' : 'ltr'}

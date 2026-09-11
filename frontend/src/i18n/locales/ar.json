@@ -1887,7 +1887,17 @@
     "strokeN": "الضربة {{n}}",
     "prevLetter": "السابق",
     "nextLetter": "الحرف التالي",
-    "nextStep": "التالي"
+    "nextStep": "التالي",
+    "kindTrace": "تتبّع",
+    "lineOf": "السطر {{n}} من {{total}}",
+    "notTraceable": "لا يمكن تتبّعه بعد — لا توجد خطوط للحروف: {{letters}}",
+    "noTraceable": "لا شيء هنا يمكن تتبّعه بعد — ما زال متحدث أصلي يرسم الحروف.",
+    "letterByLetter": "حرفًا حرفًا",
+    "letterMissing": "ناقص",
+    "letterShape": "الشكل غير مطابق — قارن بالشكل المعروض",
+    "wordOk": "كل الحروف مطابقة.",
+    "wordNotYet": "ليست كل الحروف بعد",
+    "compareComposed": "بخط المتحدث الأصلي، مركَّبًا من أشكال حروفه"
   },
   "more": {
     "donateTea": "اشترِ لي شايًا 🍵",

@@ -437,6 +437,31 @@ reader of the plan would expect to find built, and will not:
   without it the strip never fills and the Write step's verdict is shown
   but not kept, with nothing said. The Letters kind itself needs only
   reviewed forms (20261020), so the two can land at different times.
+- **The composers are placement, not calligraphy.** Letters sit in equal
+  cells on one line; a cursive join is a straight run from the previous
+  letter's last point to the next's first (`joins.entry/exit` are unset,
+  see below), so the plan's exceptions — letters after о joining from
+  the top, the hook on л м я only word-initially — are not applied;
+  Arabic gets no لا ligature and no harakat; Devanagari gets no
+  half-forms and no shared headline (each authored letter carries its
+  own); Thai marks are dropped (`cells` keeps a base letter's combining
+  marks for the verdict's label, nobody has authored a mark). Each is a
+  page of rules per script that `composer.ts` is shaped to take; the
+  exemplar sentences (§5) are the yardstick to tune them against, and
+  none has been traced yet. Until then a composed word looks assembled
+  beside a real hand — which is what the exemplars are for.
+- **Traced sentences are worked one line at a time, and a long word
+  shrinks.** `lines()` breaks on whole words to as many letters as the
+  canvas is wide (60 px a letter, 6–14); a single word longer than that
+  stands alone and is scaled down. Free write's letter-by-letter row and
+  composed compare appear only when the expected text composes into at
+  most 14 letters — a two-line sentence's ink cannot be box-fitted to a
+  one-line template. Multi-line composition (and a Trace that scrolls)
+  is the fix.
+- **The word matcher's tolerances are hand-set too.** 0.18 tracing and
+  0.13 from memory, in `WordsMode.tsx`; 0.14 for the Free write row.
+  Same story as the letter matcher: chosen on synthetic strokes, to be
+  read off the first real session.
 - **Entry and exit points are stored but not yet set.** `script_glyphs.
   joins` exists for the Cyrillic composer (Phase 4) and the panel writes
   `{}`; the composer will default to first-point-in / last-point-out

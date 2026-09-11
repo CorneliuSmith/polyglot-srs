@@ -153,3 +153,16 @@ export async function recordLetterAttempt(args: {
   })
   return r.data
 }
+
+/** Several forms at once — a traced word or line's Write step, one
+ * attempt per letter form it contains. */
+export async function recordLetterAttempts(args: {
+  languageId: string
+  attempts: { glyphId: string; passed: boolean; score: number }[]
+}): Promise<LetterProgress[]> {
+  const r = await apiClient.post<{ items: LetterProgress[] }>('/api/write/progress/batch', {
+    language_id: args.languageId,
+    attempts: args.attempts.map((a) => ({ glyph_id: a.glyphId, passed: a.passed, score: a.score })),
+  })
+  return r.data.items
+}

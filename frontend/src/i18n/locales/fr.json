@@ -1814,7 +1814,17 @@
     "strokeN": "Trait {{n}}",
     "prevLetter": "Précédente",
     "nextLetter": "Lettre suivante",
-    "nextStep": "Suivant"
+    "nextStep": "Suivant",
+    "kindTrace": "Tracer",
+    "lineOf": "Ligne {{n}} sur {{total}}",
+    "notTraceable": "Pas encore traçable — aucun tracé pour : {{letters}}",
+    "noTraceable": "Rien à tracer ici pour l’instant : un locuteur trace encore les lettres.",
+    "letterByLetter": "Lettre par lettre",
+    "letterMissing": "manquante",
+    "letterShape": "pas la bonne forme : comparez avec celle affichée",
+    "wordOk": "Toutes les lettres correspondent.",
+    "wordNotYet": "Pas encore toutes les lettres",
+    "compareComposed": "De la main du locuteur, composé à partir de ses formes de lettres"
   },
   "more": {
     "donateTea": "Offrez-moi un thé 🍵",

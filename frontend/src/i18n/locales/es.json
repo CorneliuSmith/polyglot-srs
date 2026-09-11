@@ -1814,7 +1814,17 @@
     "strokeN": "Trazo {{n}}",
     "prevLetter": "Anterior",
     "nextLetter": "Siguiente letra",
-    "nextStep": "Siguiente"
+    "nextStep": "Siguiente",
+    "kindTrace": "Calcar",
+    "lineOf": "Línea {{n}} de {{total}}",
+    "notTraceable": "Todavía no se puede calcar: faltan los trazos de {{letters}}",
+    "noTraceable": "Aquí no hay nada que calcar todavía: un hablante sigue trazando las letras.",
+    "letterByLetter": "Letra por letra",
+    "letterMissing": "falta",
+    "letterShape": "no tiene la forma: compárala con la que se muestra",
+    "wordOk": "Todas las letras coinciden.",
+    "wordNotYet": "Todavía no todas las letras",
+    "compareComposed": "En la mano del hablante, compuesto a partir de sus formas de letras"
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",

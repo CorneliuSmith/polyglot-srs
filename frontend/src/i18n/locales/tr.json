@@ -1814,7 +1814,17 @@
     "strokeN": "Çizgi {{n}}",
     "prevLetter": "Önceki",
     "nextLetter": "Sonraki harf",
-    "nextStep": "Sonraki"
+    "nextStep": "Sonraki",
+    "kindTrace": "Üzerinden çiz",
+    "lineOf": "Satır {{n}} / {{total}}",
+    "notTraceable": "Henüz çizilemiyor — şu harflerin çizgileri yok: {{letters}}",
+    "noTraceable": "Burada henüz çizilecek bir şey yok — bir konuşmacı harfleri hâlâ çiziyor.",
+    "letterByLetter": "Harf harf",
+    "letterMissing": "eksik",
+    "letterShape": "şekil tutmuyor — gösterilen biçimle karşılaştır",
+    "wordOk": "Bütün harfler uyuyor.",
+    "wordNotYet": "Henüz tüm harfler değil",
+    "compareComposed": "Konuşmacının el yazısıyla, harf biçimlerinden oluşturuldu"
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",
