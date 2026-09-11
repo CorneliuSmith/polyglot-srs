@@ -1340,6 +1340,7 @@ ro	alexa	generic personal-name gloss with no English equivalent named — a card
 ro	amara	mark-only twin of amară: A Buzău village and an Ialomița town; the unmarked string is otherwise the breve-less amară, feminine of amar 'bitter'. (twin pass, 7 Sep 2026)
 ro	amica	the file's worse spelling of amică, replaced there 7 Sep 2026: `amic` (r3655) is already glossed properly, so this completes the pair; `amicul` (r2490) is still a bare definite stub for a later batch.
 ro	anton	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ro	arat	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: arăt, absent from the file — arat has swallowed its mass)
 ro	arca	the file's worse spelling of arcă, replaced there 7 Sep 2026: Not the same word as `arc` (r5132, “bow; arch”), which keeps its own row; the old gloss “backer, protector” has nothing behind it in Romanian.
 ro	arsura	mark-only twin of arsură: arsura is the definite form of arsură 'burn' with the breve lost, glossed as a Vaslui commune; the file's marked lemma is the card to draw. (twin pass, 7 Sep 2026)
 ro	b	rank 1636 for a bare letter b cannot come from a plate and address code for Bucuresti; the mass is the letter itself in list markers, initials and units, and the letter is already seeded by seed_alphabet
@@ -1455,6 +1456,7 @@ ro	pavel	generic personal-name gloss with no English equivalent named — a card
 ro	pizda	the file's worse spelling of pizdă, replaced there 7 Sep 2026: Ship this only if the course admits vulgar register — the ro guide's Register line says neutral standard Romanian and the file's only precedent is `(s
 ro	pl	glossed as a censored vulgar shorthand, but the real source of a rank this deep is pl. for plural in grammatical and dictionary text; an abbreviation under either reading
 ro	poanta	the file's worse spelling of poantă, replaced there 7 Sep 2026: The old gloss “alternative form of ponta” was a dictionary artefact — `a ponta` (“to clock in; to bet”) is a different word and has no row in this fil
+ro	politia	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: poliția r3470)
 ro	print	the file's worse spelling of prinț, replaced there 7 Sep 2026: `prințesă` already holds r9642, so this completes the pair; the English loan “print” is not standard Romanian and folds to `prinț` in any case.
 ro	priza	mark-only twin of priză: Without the breve, priza is the definite form of the file's priză 'socket'; the row's 'to snuff' is the marginal homograph verb a priza, not a second word the course needs drawn. (twin pass, 7 Sep 2026)
 ro	pt	texting and note-taking shorthand for pentru; pentru is its own card, and the owner keeps shorthand for a possible later slang deck
@@ -1484,6 +1486,7 @@ ro	stanca	mark-only twin of stânca: stanca is the â-less typing of stânca 'th
 ro	sârma	mark-only twin of sârmă: A river in Neamț harvested as a homograph of sârma 'the wire'; the lemma sârmă is in the file at 5524. (twin pass, 7 Sep 2026)
 ro	t	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 ro	tamara	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
+ro	tara	the stated meaning cannot carry this rank; the frequency is the unaccented twin (twin: țara r5528)
 ro	tava	mark-only twin of tavă: The row's own gloss calls it an 'alternative form of tavă' — a pointer with no meaning of its own, and the breve-less spelling is also the definite tava 'the tray'. (twin pass, 7 Sep 2026)
 ro	teza	the file's worse spelling of teză, replaced there 7 Sep 2026: Keep the school sense in the gloss: a learner meets `teză` as the termly exam long before the academic thesis.
 ro	tîrziu	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
@@ -1661,6 +1664,7 @@ tr	j	a single letter glossed by its position in the alphabet, not a word — pro
 tr	k	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	kai	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	kg	unit symbol for kilogram (the kolay gelsin gloss is the wrong reading of the string); a unit symbol is read, never produced from a definition
+tr	korum	extraction debris from koruma: both of the card's sentences are koruma/korumak and neither contains this form (10 Sep 2026)
 tr	l	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)
 tr	leyla	generic personal-name gloss with no English equivalent named — a card cannot be answered from it; owner decision 25 Aug 2026, place names and equivalent-naming rows kept
 tr	m	a single letter glossed by its position in the alphabet, not a word — production-only row the file sweeps never saw (#416 class, 7 Sep 2026)

@@ -1944,11 +1944,29 @@ repair passes run, and a threshold set there is a number nobody could defend
 (the `gender_marking` argument). **Unlike the other report rules its target is
 zero**, so it is ready for promotion once the courses reach it.
 
-It reports **4,982** across 24 courses. The regex is anchored at both ends on
+It reported **4,982** across 24 courses on 10 Sep; three passes the same day
+took it to **37**, and every one of those 37 is accounted for: 19 abbreviations
+held for **decision B**, 16 unmarked or alternative-form twins held for
+**decision D** option 3, and 2 extraction-debris rows already excluded (they
+clear on the next file rebuild, since `vocab_exclusions.tsv` is applied by the
+file loader and not at audit time). The regex is anchored at both ends on
 purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
 the rule would push editors off the one shape the programme has settled on.
 24 findings sampled at random were 24 true positives (rule 19 — verify every
 hit before it becomes a number).
+ The regex is anchored at both ends on
+purpose: `"arrive (present subjunctive of llegar)"` must never be reported, or
+the rule would push editors off the one shape the programme has settled on.
+24 findings sampled at random were 24 true positives (rule 19 — verify every
+hit before it becomes a number).
+
+**The third pass exposed my own under-coverage.** The first two passes were
+exported with a regex I wrote against production, narrower than the audit
+rule — no `vocative`, `locative`, `definite`, `form of`, `alternative form`,
+`abbreviation` — so 277 rows inside the band were never sent to a maker. The
+fix is the lesson: **export from the rule's own findings, not from a second
+regex that means to say the same thing.** Two regexes for one concept is two
+definitions of the defect.
 
 **Rule 19 then caught the rule itself.** The first draft matched a bare
 `first`/`second`/`third`, which are English ORDINALS as well as the opening of

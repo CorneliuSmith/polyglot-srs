@@ -606,6 +606,7 @@ ca	penses	verb	you think (second-person singular present of pensar)
 ca	penso	verb	I think (first-person singular present of pensar)
 ca	per	prep	by, by means of (fet ___ ell, done by him); because of, out of; through, along (passejar ___ Barcelona, to stroll through Barcelona)
 ca	perdut	verb	lost; mislaid, missing (past participle of perdre)
+ca	perfecta	adj	perfect, flawless, just right; complete, with nothing missing — the form used with a feminine singular noun (f. sg. of perfecte)
 ca	perquè	conj	because, for the reason that (no vinc ___ estic malalt, I am not coming because I am ill); so that, with the subjunctive
 ca	persones	noun	people, persons (f. plural of persona)
 ca	però	conj	but; however, though
@@ -853,6 +854,7 @@ ca	units	adj	united, joined together — masculine plural of unit
 ca	uns	article	some, a few — masculine plural of un; before a number, about or roughly
 ca	va	verb	did (third-person singular present indicative of anar; with an infinitive it makes the everyday past: va dir, he said); he/she/it goes: com va?, how is it going?; also vain, in the fixed phrase en va, in vain
 ca	vacances	noun	a holiday, time off (f. plural of vacança, nearly always used in the plural)
+ca	vagi	verb	may go, should go, go — the subjunctive that follows deixa que, vull que and the like; one form covers first and third person alike, so it can be me going, him or her going, or you going formally (present subjunctive of anar)
 ca	vagis	verb	you go (second-person singular present subjunctive of anar)
 ca	vaig	verb	I go, I'm going; with an infinitive it makes the everyday past: vaig menjar, I ate
 ca	vaixells	noun	ships, boats (m. plural of vaixell)
@@ -920,6 +922,7 @@ de	also	conj	therefore, in that case — draws a conclusion, or restarts a sente
 de	am	contraction	contraction of an + dem: at the, on the, in the (dative); before a superlative — the most (am besten, best); am + nominalised infinitive — in the middle of
 de	amerika	name	America, the Americas; America, the United States
 de	an	prep	at, on, against — touching a vertical surface or edge (the wall, the window, the river); to, of (think or write ___ someone)
+de	andere	adj	other, different, further; used on its own as a noun it means others, other people, or the other one — alles ___ is everything else, viele ___ is many others (an inflected form of the adjective ander-)
 de	andre	pron	other (contracted form of andere); also Andre, a male given name, variant of Andreas
 de	angefangen	verb	started, begun (past participle of anfangen)
 de	angegriffen	verb	attacked, assaulted (past participle of angreifen)
@@ -1457,6 +1460,7 @@ de	versuche	verb	I try, I am trying (first-person singular present of versuchen)
 de	versucht	verb	tried, attempted (past participle of versuchen); also he/she/it tries, you (pl.) try
 de	vertraut	verb	he/she/it trusts, relies on (third-person singular present of vertrauen); also familiar, well acquainted with something, as an adjective
 de	verändert	verb	changed, altered (past participle of verändern); also he/she/it changes, alters
+de	vom	contraction	from the, of the, off the — von merged with dem, before a masculine or neuter noun in the dative (___ Bahnhof, from the station); it also marks who did something in a passive sentence
 de	von	prep	from (an origin, a sender, a starting point); of, belonging to — the everyday stand-in for the genitive ('the car ___ my father')
 de	vorbereitet	verb	prepared, got ready (past participle of vorbereiten)
 de	wache	verb	I keep watch; I wake up (first-person singular present of wachen / aufwachen; ich wache früh auf — I wake up early); Wache (die) — guard duty, sentry duty; guard post; vigil, wake
@@ -2389,6 +2393,7 @@ es	hubiese	verb	had done something — I had, or he or she had, in a wish or an 
 es	hubo	verb	there was, there were — one finished occasion (preterite of haber)
 es	huellas	noun	footprints, tracks; fingerprints; traces left behind (plural of huella)
 es	humanos	adj	human; also human beings, people (masculine plural of humano)
+es	i	verb	the Roman numeral one, written after the name of a monarch or a pope and read as primero (Carlos ___, Charles the First); also the ninth letter of the alphabet, and in voseo speech the command form of ir, go
 es	iba	verb	I was going, he was going, she was going; you were going (formal) — imperfect of ir; with a plus an infinitive, was about to
 es	iban	verb	they were going, they used to go; you all were going (ustedes) — third-person plural imperfect of ir
 es	ibas	verb	you were going, you used to go (second-person singular imperfect of ir)
@@ -2559,6 +2564,7 @@ es	pequeños	adj	small, little; young (masculine plural of pequeño)
 es	perdiendo	verb	losing; wasting time (gerund of perder)
 es	perdió	verb	lost; missed a train or a chance; with se, got lost (third-person singular preterite of perder)
 es	perdí	verb	I lost; I missed a train or a chance (first-person singular preterite of perder)
+es	perfecta	adj	perfect, flawless, just right; of eyesight or a fit, exact — the form used with a feminine singular noun (f. sg. of perfecto)
 es	perros	noun	dogs (plural of perro)
 es	personas	noun	people, persons — individuals counted one by one (plural of la persona)
 es	pidió	verb	asked for, requested; ordered food (third-person singular preterite of pedir)
@@ -3008,9 +3014,14 @@ fr	auras	verb	you will have (singular — future of avoir); of age, you will be
 fr	aurez	verb	you will have (vous — plural or polite singular; future of avoir); with a past participle, you will have done something
 fr	auriez	verb	you would have (vous — plural or polite singular; conditional of avoir); with a past participle, you should have or would have done something
 fr	autres	adj	others, the other ones — the plural form (les ___ sont partis, d'___ idées)
+fr	aux	contraction	to the, at the, in the; of the — before a plural noun, à merged with les
 fr	avaient	verb	they had (third-person plural imperfect of avoir)
+fr	avais	verb	I had; you had (singular) — used to have; one form for both persons in the imperfect of avoir, and as auxiliary, I had done, you had done
+fr	avait	verb	he had, she had, it had; used to have (third-person singular imperfect of avoir); as auxiliary it makes the pluperfect, he had already done it
+fr	avez	verb	you have (addressing more than one person, or one politely) — the vous form of avoir, and the auxiliary that builds a past with a participle
 fr	aviez	verb	you had (plural or polite vous — imperfect of avoir)
 fr	avions	noun	planes, aircraft (m., plural of avion); also we had, we used to have (first-person plural imperfect of avoir)
+fr	avons	verb	we have (first-person plural present of avoir); also the auxiliary for our past, we have done
 fr	ayez	verb	have; that you have (vous — plural or polite singular; present subjunctive of avoir); also the vous command form, as in do not be afraid
 fr	balles	noun	bullets; also balls, the small kind (f., plural of balle)
 fr	beaux	adj	beautiful, handsome; fine, lovely (masculine plural of beau)
@@ -3121,6 +3132,7 @@ fr	disant	verb	saying, telling (present participle of dire); with en, by saying 
 fr	dise	verb	I say; he says, she says — the subjunctive used after avant que, à moins que and the like (first- and third-person singular present subjunctive of dire)
 fr	disent	verb	they say, they tell (third-person plural present of dire)
 fr	dit	verb	third-person singular present and past participle of dire — says, said (dit-il = he said; j'ai tout dit = I've said everything); (as adj.) known as, alias
+fr	dois	verb	I must, I have to; you must, you have to (singular); also I owe, you owe — one form for both persons in the present of the verb devoir
 fr	doivent	verb	they must, they have to (third-person plural present of devoir)
 fr	dollars	noun	dollars (plural of dollar, m.)
 fr	données	noun	data, figures (f., plural of donnée); also given (feminine plural past participle of donner)
@@ -3149,10 +3161,12 @@ fr	entendu	verb	heard (past participle of entendre); also understood or agreed
 fr	entré	verb	went in, came in; entered (past participle of entrer)
 fr	entrée	noun	(f.) an entrance, a way in (à l'entrée du bâtiment); an entry, admission (entrée libre = free admission); a starter, an appetizer (in a meal); also elle est entrée = she came in (feminine past participle of entrer)
 fr	envoyé	verb	sent (past participle of envoyer)
+fr	es	verb	you are (informal singular) — the tu form of être
 fr	espérais	verb	I was hoping, I hoped; you were hoping (singular) (first- and second-person singular imperfect of espérer)
 fr	essayé	verb	tried, attempted; tried on (past participle of essayer)
 fr	est	verb	is (he, she, it — from être); east
 fr	et	conj	and; and then, plus (the final -t is silent and never liaised)
+fr	eu	verb	had, got (past participle of avoir); with avoir it makes the past, I had, she has had; also, colloquially, tricked or caught out
 fr	excuse	verb	excuse, forgive — from excuser (excuse-moi = excuse me, sorry; je m'excuse = I'm sorry); (as noun, f.) an excuse (une bonne excuse); mes excuses = my apologies
 fr	excuses	noun	apologies; the reasons someone gives to get out of blame (f., plural of excuse); also you forgive, you pardon (second-person singular of excuser)
 fr	failli	verb	came close to; nearly did something (past participle of faillir, used with a following infinitive)
@@ -3168,6 +3182,7 @@ fr	fasse	verb	I do, I make; he does, she does — present subjunctive of faire, 
 fr	fatigué	verb	tired, worn out (past participle of fatiguer, mostly used as an adjective); with être and de, fed up with something
 fr	faudra	verb	it will be necessary; we will have to; it will take, of time (third-person singular future of falloir, used only with il)
 fr	faudrait	verb	we should, one ought to; it would be necessary (third-person singular conditional of falloir, used only with il)
+fr	faut	verb	it is necessary; one must, we have to, something has to be done — the impersonal present of falloir, which occurs only with il
 fr	femmes	noun	women; wives (plural of femme, f.)
 fr	fera	verb	he will do, she will do; it will make (third-person singular future of faire)
 fr	ferai	verb	I will do, I will make (first-person singular future of faire)
@@ -3289,6 +3304,7 @@ fr	moments	noun	brief stretches of time; times, occasions (m., plural of moment)
 fr	monte	verb	I climb, go up; he, she climbs (from monter)
 fr	montre	verb	shows, show — from montrer (montre-moi = show me; il montre du doigt = he points at); se montrer = to show up, to appear; (as noun, f.) a watch, a wristwatch
 fr	montré	verb	showed, pointed out (past participle of montrer); se montrer = to show up, or to turn out to be
+fr	mort	verb	died, has died; dead (past participle of mourir, which builds its past with être rather than avoir)
 fr	morte	adj	dead — of a woman or a feminine noun (feminine singular of mort)
 fr	morts	adj	dead (masculine plural of mort); as a noun, the dead
 fr	mots	noun	words; also a short note or message (plural of mot, m.)
@@ -3312,6 +3328,7 @@ fr	né	verb	born (past participle of naître); with être it states when someone
 fr	oeufs	noun	eggs — plural of œuf, spelled here without the ligature
 fr	offert	verb	gave as a present; offered (past participle of offrir)
 fr	offre	verb	offers, offer — from offrir (je t'offre un verre = I'll buy you a drink; on te l'offre = it's on us); (as noun, f.) an offer, a bid; l'offre et la demande = supply and demand
+fr	ont	verb	they have (third-person plural present of avoir); also the auxiliary for their past, they have done
 fr	onu		the United Nations - the international organisation of member states, said aloud as a single word rather than letter by letter
 fr	ordres	noun	orders, instructions; also order, the way things are arranged (plural of ordre, m.)
 fr	oreilles	noun	ears (f., plural of oreille)
@@ -3327,10 +3344,12 @@ fr	paraît	verb	it seems, it appears; he looks, she looks a certain way (third-p
 fr	parce	conj	because — occurs only in the two-word pair ___ que (je pars ___ que je suis fatigué)
 fr	parents	noun	parents; also relatives more generally (plural of parent, m.)
 fr	parfait	adj	perfect, flawless; just right
+fr	parfaite	adj	perfect, flawless, just right — describing a feminine noun; the feminine form of parfait
 fr	paris	noun	Paris (the capital and largest city of France)
 fr	parlais	verb	I was speaking, I talked; you were talking (singular) (first- and second-person singular imperfect of parler)
 fr	parlait	verb	he spoke, she spoke; was talking, used to talk (third-person singular imperfect of parler)
 fr	parlant	verb	speaking, talking (present participle of parler), often after a noun: a lawyer who speaks French
+fr	parle	verb	I speak, I talk; he speaks, she speaks, one speaks (present of the verb meaning to speak); also the command to one person, speak!, say it!
 fr	parles	verb	you speak, you talk (singular — present of parler); with de, you are talking about something
 fr	parlez	verb	you speak, you talk; speak! — plural or polite vous, present and imperative of parler
 fr	parlé	verb	spoken, talked; talked about (past participle of parler)
@@ -3361,7 +3380,9 @@ fr	petit-déjeuner	noun	breakfast (m.) — also written petit déjeuner
 fr	petite	adj	small, little; of a girl, young (feminine singular of petit)
 fr	petites	adj	small, little; short (feminine plural of petit)
 fr	petits	adj	small, little; short — of masculine plurals (masculine plural of petit); as a noun, little ones or young
+fr	peut	verb	he can, she can, it can; one can, may, might (third-person singular present of pouvoir)
 fr	peuvent	verb	they can, they are able to; they may (third-person plural present of pouvoir)
+fr	peux	verb	I can, I may; you can, you may (singular) — one form for both persons in the present of pouvoir
 fr	photos	noun	photos, pictures (plural of photo, f.)
 fr	picard	noun	Picard (language)
 fr	pieds	noun	feet (plural of pied, m.); also the feet or legs a piece of furniture stands on
@@ -3442,6 +3463,7 @@ fr	réussi	verb	succeeded, managed it; passed, of an exam (past participle of r�
 fr	rêves	noun	dreams (m., plural of rêve); also you dream (second-person singular of rêver)
 fr	s'	pron	himself, herself, itself, themselves — the form se takes before a vowel (il ___appelle = his name is)
 fr	sa	det	his, her, its — a single owner, before a feminine noun (___ mère, ___ voiture); leur is used when several people own it
+fr	sais	verb	I know; you know (singular) — one form serves both persons in the present of savoir
 fr	sait	verb	he knows, she knows, one knows — a fact or how to do something (third-person singular present of savoir)
 fr	saura	verb	he will know, she will know; with on, we will find out (third-person singular future of savoir)
 fr	sauvé	verb	saved, rescued (past participle of sauver); se sauver = to run off, to escape
@@ -3460,6 +3482,7 @@ fr	semblant	verb	seeming, appearing to be (present participle of sembler); with 
 fr	sent	verb	he feels, she feels; it smells or gives off a smell (third-person singular present of sentir)
 fr	senti	verb	felt; also smelled (past participle of sentir); se sentir bien = to feel good
 fr	sentiments	noun	feelings; what one feels for another person (m., plural of sentiment)
+fr	sera	verb	he will be, she will be, it will be (third-person singular future of être)
 fr	serai	verb	I will be (first-person singular future of être)
 fr	serais	verb	I would be; you would be (singular) — conditional of être
 fr	serait	verb	he would be, she would be, it would be (third-person singular conditional of être)
@@ -3478,14 +3501,17 @@ fr	signé	verb	signed, put a signature to (past participle of signer)
 fr	soeur	noun	sister; nun (f.) — nonstandard spelling of sœur
 fr	soeurs	noun	sisters — plural of sœur, spelled here without the ligature
 fr	soient	verb	they are; that they be (third-person plural present subjunctive of être, after je veux que, pour que and the like)
+fr	sois	verb	that I be; that you be (singular) — the subjunctive of être used after que; also the command to one person, be!
 fr	soit	verb	third-person singular present subjunctive of être — (that it) be: il faut que ce soit fait = it has to be done; quoi que ce soit = anything at all; soit A soit B = either A or B
 fr	soldats	noun	soldiers; troops (m., plural of soldat)
 fr	sommes	verb	we are (first-person plural present of être)
 fr	son	det	his, her, its — a single owner, before a masculine noun (___ père, ___ nom); also (noun, m.) a sound
+fr	sont	verb	they are (third-person plural present of être)
 fr	sort	verb	third-person singular present of sortir — goes out, comes out (il sort ce soir = he's going out tonight; ça sort d'où ? = where does that come from?); (as noun, m.) fate, destiny; a spell (jeter un sort = to cast a spell)
 fr	sorte	noun	(f.) sort, kind, type (une sorte de = a sort of; toutes sortes de = all kinds of); en quelque sorte = in a way; de sorte que, faire en sorte que = so that, to see to it that; also que je/il sorte = that I/he go out (subjunctive of sortir)
 fr	sorti	verb	gone out, come out; out of the house (past participle of sortir)
 fr	souvenirs	noun	memories, recollections; also keepsakes brought back from a trip (m., plural of souvenir)
+fr	soyez	verb	that you be (several people, or one politely) — the subjunctive of être used after que; also the command form, be!, as in do not be late
 fr	stéphanie	name	a female given name, masculine equivalent Stéphane [=Stephen], equivalent to English Stephanie
 fr	suis	verb	I am (from être); also I follow (from suivre - same form, different verb)
 fr	suivi	verb	past participle of suivre — followed (je l'ai suivi dans sa chambre = I followed him into his room); took (il a suivi mon conseil = he took my advice; suivre un cours = to take a course); (as noun, m.) follow-up, monitoring, tracking
@@ -3528,6 +3554,8 @@ fr	un	article	a, an (masculine); one (the number)
 fr	une	article	a, an (feminine); one (the number)
 fr	va	verb	third-person singular present of aller — goes (ça va = it's fine, how are you?); il va + infinitive = he is going to (on va voir = we'll see); also the singular imperative: va = go!
 fr	vacances	noun	holidays, vacation; time off work or school (f., used only in the plural)
+fr	vais	verb	I go, I am going (present of aller); with an adverb of manner it reports how someone is doing or feeling — I am well, I am not well at all; before an infinitive it makes the near future, I am going to
+fr	vas	verb	you go, you are going (informal singular of aller); before an infinitive it makes the near future, you are going to
 fr	vaut	verb	it is worth, he is worth (third-person singular present of valoir); with mieux, it is better to do something
 fr	vendu	verb	sold (past participle of vendre); also sold out, betrayed
 fr	venu	verb	come, arrived (past participle of venir); with être, came or has come
@@ -3537,6 +3565,7 @@ fr	verra	verb	he will see, she will see; with on, we will see (third-person sing
 fr	verras	verb	you will see (second-person singular future of voir)
 fr	veuillez	verb	please do something — the polite vous command form of vouloir that opens a request
 fr	veulent	verb	they want, they wish (third-person plural present of vouloir)
+fr	veut	verb	he wants, she wants; one wants, one wishes (third-person singular present of vouloir)
 fr	veux	verb	want — the I-and-you-singular present (je ___ un café, tu ___ quoi?)
 fr	victimes	noun	victims; the people harmed or killed (f., plural of victime)
 fr	vieille	adj	old (feminine singular of vieux)
@@ -3567,6 +3596,7 @@ fr	vous	pron	you — when addressing more than one person, or one person politel
 fr	voyons	verb	we see (first-person plural present of voir); on its own, come now or let us see
 fr	vraie	adj	true; real, genuine (feminine singular of vrai)
 fr	vrais	adj	true; real, genuine (masculine plural of vrai)
+fr	vu	verb	seen (past participle of voir); with avoir it makes the past, I saw, he has seen it
 fr	vue	verb	seen — agreeing with a feminine object (feminine past participle of voir); as a noun (f.), sight or a view
 fr	vus	verb	seen (masculine plural past participle of voir, agreeing with a plural object or a reciprocal subject: they had not seen each other)
 fr	vécu	verb	lived; been through, experienced (past participle of vivre)
@@ -3578,11 +3608,14 @@ fr	ça	pron	that, it — the everyday spoken word for a thing or a situation (__
 fr	écoutez	verb	you listen; listen! — plural or polite vous, present and imperative of écouter
 fr	écrit	verb	written (past participle of écrire); also he writes, she writes, in the present
 fr	étaient	verb	they were (third-person plural imperfect of être)
+fr	étais	verb	I was; you were (singular) — used to be, was being; one form for both persons in the imperfect of être
+fr	était	verb	he was, she was, it was; used to be, was being (third-person singular imperfect of être; also the on form, we were)
 fr	étant	verb	being (present participle of être), used to give a reason: my mother being ill, I looked after her
 fr	étiez	verb	you were (plural or polite vous — imperfect of être)
 fr	étions	verb	we were, we used to be (first-person plural imperfect of être)
 fr	étoiles	noun	stars (f., plural of étoile)
 fr	été	verb	been — the past participle used after avoir (j'ai ___ malade, ça a ___ dur); also (noun, m.) the summer
+fr	êtes	verb	you are (addressing several people, or one politely) — the vous form of être; also the auxiliary that builds the past of reflexive verbs and verbs of motion, you have gone, you have been had
 ha	alhaji	noun	a title placed before a man's name saying he has made the pilgrimage to Mecca.
 ha	amma	conj	but; however, yet (opens the contrasting clause, and can begin a sentence)
 ha	awaki	noun	goats - plural of akuya, a goat (f.)
@@ -3721,6 +3754,7 @@ he	מתאר	verb	describes, depicts (m. sg. present of תיאר) — הספר מ
 he	נשא	verb	married (a woman) — נשא לאישה / נשא את X לאישה, the commonest use by far in biographical prose: הוא נשא לאישה את בת דודתו 'he married his cousin'; also to carry, to bear, to lift; נשא נאום 'delivered a speech', נשא בתואר 'held the title'
 he	ספרה	noun	her book — ספר (book, m.) with the 3rd f. sg. possessive suffix: ספרה הראשון 'her first book', את ספרה 'her book'; as a noun in its own right (f.): a digit, a single numeral; rarely: a sphere, a domain
 he	עכשיו	adv	now, right now; at this moment — as opposed to earlier or later
+he	עליו	prep	on him, about him, concerning him; also on it or about it of a masculine thing, and in some uses over him or above it — the preposition על carrying its third-person masculine singular ending, his
 he	עמו	prep	with him, along with him, in his company (the preposition עם, with, plus the ending -ו, him); with other vowels, his people
 he	פה	adv	in this place — the everyday spoken word, interchangeable with כאן; the same spelling is also the word for mouth
 he	פנה	verb	to turn to, to approach, to appeal to — פנה אל 'turned to, addressed'; to turn, to head (in a direction); to take up (a field) — פנה להוראה 'went into teaching'
@@ -3882,45 +3916,64 @@ id	bantu	verb	to lend a hand with someone's task, to assist; tolong is the word 
 id	bertindak	verb	to act, to take action; to behave in some way towards a matter (the ber- form of tindak, a step or an act)
 id	dan	conj	and (joining words, phrases, and whole clauses)
 id	di	prep	marks where something is — in, at, on ('___ Jakarta'); before a person or a time, pada does this job
+id	diadakan	verb	be held, be organised; be arranged and take place, of a meeting or a festival (the passive di- form of mengadakan, to hold an event)
+id	diambil	verb	be taken; be picked up, fetched or removed from where it was, as a photo taken somewhere (the passive di- form of ambil, to take)
+id	dianggap	verb	be considered, be regarded as; be taken to be something, rightly or not (the passive di- form of menganggap, to consider)
 id	diangkat	verb	be lifted, be picked up; be appointed to a position; of a child, adopted (passive of angkat, to lift)
 id	diatur	verb	be arranged, be organised; be regulated or set by an authority, as prices are (passive of atur, to arrange)
 id	dibagi	verb	be divided, be split up; be shared out among people; in sums, divided by (passive of bagi, to share out)
+id	dibangun	verb	be built, be constructed; be put up, of a house, a bridge or a road (the passive di- form of membangun, to build)
 id	dibantu	verb	be helped, be assisted, be given a hand with a task (passive of bantu, to help)
 id	dibawa	verb	be carried, be brought along; be taken somewhere, as a patient to hospital (passive of bawa, to carry)
 id	dibentuk	verb	be formed, be shaped; be set up, of a committee or a government (passive di- form of membentuk, to form)
+id	diberi	verb	be given something, be handed it - the person receiving is the subject; with tahu, to be told (the passive di- form of beri, to give)
+id	diberikan	verb	be given to somebody, be handed over; be granted or awarded - the thing passed along is the subject (the passive di- form of memberikan, to give)
+id	dibuat	verb	be made, be produced; be built or created, of a thing or a film (the passive di- form of buat, to make)
+id	dibuka	verb	be opened; open up, of a window or a door, or of a shop or hospital starting business (the passive di- form of buka, to open)
 id	dibunuh	verb	be killed, be murdered, be put to death (passive of bunuh, to kill)
 id	dicetak	verb	be printed, be run off; in sport, of a goal or points, be scored (passive of cetak, printing)
+id	didirikan	verb	be founded, be established; be erected or set up, of a building or an institution (the passive di- form of mendirikan, to set up)
 id	diduga	verb	be suspected, be alleged; be guessed at - and before a verb, allegedly (passive of duga, to suppose)
 id	didukung	verb	be supported, be backed - of a plan, a candidate, a claim (passive of dukung, to support)
+id	digunakan	verb	be used, get used; be put to work for some purpose, as a tool or a language (the passive di- form of menggunakan, to use)
 id	dihancurkan	verb	be destroyed, be demolished, be smashed up (passive of hancur, shattered)
 id	dihasilkan	verb	be produced, be generated; come out as the result of a process (passive of hasil, a result)
 id	dijual	verb	be sold, be sold off; be up for sale, be on offer (passive of menjual, to sell)
 id	dikalahkan	verb	be defeated, be beaten - of a team or an opponent (passive of kalah, to lose)
 id	dikeluarkan	verb	be taken out, be put out; be issued; be thrown out or dropped, as from a team (passive of keluar, to go out)
+id	dikenal	verb	be known, be recognised; be known as something or by some name (the passive di- form of kenal, to know a person or a thing)
+id	diketahui	verb	be known, be found out; be a matter of common knowledge - of a fact, not of a person one is acquainted with (the passive di- form of mengetahui, to know a fact)
 id	dikirim	verb	be sent, be sent off - of a letter, a parcel, a message (passive of mengirim, to send)
+id	dilakukan	verb	be done, be carried out; get performed, of a task, a job or an action (the passive di- form of melakukan, to do)
 id	dilihat	verb	be seen, be looked at; seen from somewhere, as a viewpoint on a thing (passive of lihat, to see)
 id	dimainkan	verb	be played - a game, a piece of music, a part on stage (passive of main, to play)
 id	dimanfaatkan	verb	be put to use, be made use of; be taken advantage of, be exploited (passive of manfaat, benefit)
 id	diminta	verb	be asked to do something, be requested; of a thing, be asked for (passive of minta, to ask for)
+id	dimulai	verb	be started, be begun; begin, of an event getting under way (the passive di- form of memulai, to start)
 id	dinamai	verb	be given a name, be named after a person or a place (passive of nama, a name)
 id	dinamakan	verb	be called, be given a name - as in our galaxy is called the Milky Way (passive of nama, a name)
 id	dinyatakan	verb	be declared, be officially stated - found guilty, ruled valid, tested positive (passive of menyatakan, to declare)
 id	dioperasikan	verb	be operated, be run, be worked - of a machine, a line or a service (passive of operasi, operation)
+id	dipakai	verb	be worn, be used; be put on, of clothes, or be made use of, of a thing (the passive di- form of pakai, to wear or to use)
 id	dipandang	verb	be looked at, be gazed at; be regarded or seen as something (passive of pandang, to look at)
 id	dipanggil	verb	be called, be summoned, be sent for - of a person called by name (passive of panggil, to call)
 id	dipasang	verb	be put up, be installed, be fitted - a sign, a lamp, a device (passive of pasang, to set in place)
 id	dipengaruhi	verb	be influenced, be affected by something, be shaped by it (passive of pengaruh, influence)
 id	dipercaya	verb	be trusted, be believed; trustworthy, reliable, worth taking at his word (passive of percaya, to trust)
 id	dipilih	verb	be chosen, be picked out; be elected to a post (passive of pilih, to choose)
+id	diproduksi	verb	be produced, be manufactured; be made in quantity, of goods or a film (the passive di- form of produksi, production)
 id	dirancang	verb	be designed, be drawn up, be planned out in advance (passive of rancang, to design)
 id	direncanakan	verb	be planned, be arranged in advance - by design rather than by accident (passive of rencana, a plan)
+id	dirilis	verb	be released, come out; be put before the public, of a film, an album or software (the passive di- form of rilis, a release)
 id	disediakan	verb	be provided, be laid on, be made ready for someone (passive of menyediakan, to provide)
 id	ditambah	verb	plus, in adding numbers, as in three plus two; more generally, be added to, be topped up (passive of menambah, to add)
 id	ditambahkan	verb	be added - an entry put onto a list, an ingredient put into a dish (passive of tambah, to add)
+id	ditemukan	verb	be found, be discovered; turn up, of a thing looked for or come across (the passive di- form of menemukan, to find)
 id	diterima	verb	be received, be accepted; be taken in, be made welcome, as of a guest in a house (passive of menerima, to receive)
 id	diterjemahkan	verb	be translated into another language (passive of terjemah, translation)
 id	ditolak	verb	be rejected, be turned down, be refused - an offer, an application (passive of menolak, to reject)
 id	ditujukan	verb	be aimed at, be directed to, be addressed to a person (passive of tuju, to aim)
+id	ditulis	verb	be written; be written down or composed, of a book, a letter or a language it is set in (the passive di- form of menulis, to write)
 id	ditutup	verb	be closed, be shut; be shut down for good, of a factory or a road (passive of tutup, to close)
 id	ingin	verb	to wish for, to long for — a felt desire, and the more formal word; mau is the plain everyday 'want'
 id	jika	conj	if, in the event that (formal and written; everyday speech says kalau)
@@ -3943,17 +3996,27 @@ id	memakan	verb	to eat up, to devour; to take up time, money or effort (the meN-
 id	memanfaatkan	verb	to make use of, to take advantage of - a chance, a situation, a resource (the meN-...-kan form of manfaat, benefit)
 id	memanggil	verb	to call someone, to call out to them; to summon or send for a person (the meN- form of panggil, to call)
 id	membahas	verb	to discuss, to go over, to deal with a subject (the meN- form of bahas)
+id	membangun	verb	build, construct; put up or develop something, as a bridge or a city (the active meN- form of bangun, to rise or stand up)
 id	membedakan	verb	to tell apart, to distinguish one thing from another (the meN-...-kan form of beda, a difference)
+id	membentuk	verb	form, shape; set up or establish, as a committee or a government (the active meN- form of bentuk, shape or form)
+id	memberikan	verb	give, hand over; grant or provide something to somebody (the active meN-...-kan form of beri, to give)
 id	memberitahu	verb	to tell someone, to let them know, to inform them of something (beri, to give, plus tahu, to know)
 id	memenuhi	verb	to meet or fulfil a need, a demand or a condition; to fill a space right up (the meN-...-i form of penuh, full)
 id	memerintah	verb	to rule, to govern, to hold power over a country (the meN- form of perintah, a command)
+id	meminta	verb	ask for, request; call for something, as help or more money (the active meN- form of minta, to ask for)
 id	memperkenalkan	verb	to introduce - one person to another, or a subject to an audience (the memper-...-kan form of kenal, to be acquainted)
 id	memproduksi	verb	to produce, to manufacture, to turn out goods (the meN- form of produksi, production)
+id	mempunyai	verb	have, own; possess something, whether an object or a quality (the active meN- form of punya, to have)
 id	menangani	verb	to handle, to deal with, to take charge of a matter (the meN-...-i form of tangan, a hand)
 id	mencakup	verb	to cover, to include, to take in - of a scope, a rule or a range (the meN- form of cakup)
 id	mencatat	verb	to note down, to write down, to record; to register a figure or a result (the meN- form of catat, a note)
 id	mencetak	verb	to score - a goal, a run, points in a game; also to print, to run off copies (the meN- form of cetak, printing)
+id	mendapat	verb	get, receive; come to have something, as in getting into trouble (the active meN- form of dapat in its sense of to obtain)
+id	mendapatkan	verb	get, obtain; come by something, acquire it (the active meN-...-kan form of dapat in its sense of to obtain)
+id	mendirikan	verb	set up, put up; found or establish something, as a shop, a tent or a school (the active meN- form of dirikan, built on diri, to stand)
+id	mendukung	verb	support, back; stand behind a person, a project or an effort (the active meN- form of dukung, to carry on the back)
 id	menentang	verb	to oppose, to go against, to stand up against a person or an idea (the meN- form of tentang; the bare root is the preposition about)
+id	menerima	verb	receive, accept; take in what is offered, or come to terms with what has happened (the active meN- form of terima, to receive)
 id	mengadakan	verb	to hold, to put on - a party, a meeting, an event; to bring something into being (the meN-...-kan form of ada, to exist)
 id	mengajak	verb	to invite someone along, to ask them to come and do something with you (the meN- form of ajak)
 id	mengalahkan	verb	to defeat, to beat an opponent; to overcome something (the meN-...-kan form of kalah, to lose)
@@ -3961,13 +4024,18 @@ id	mengandung	verb	to contain, to have something in it, of a dish or a drink; of
 id	mengapa	adv	asks for the reason, in formal or written style; ordinary speech uses kenapa instead
 id	mengatur	verb	to arrange, to organise; to regulate or set - traffic, files, a machine (the meN- form of atur)
 id	mengeluarkan	verb	to take out, to bring out; to issue or give off; to lay out money on something (the meN-...-kan form of keluar, to go out)
+id	mengenai	verb	about, concerning, regarding, as in an opinion about taxes; also to hit or strike a target (built on kenai, to hit something)
 id	mengenal	verb	to know a person, to be acquainted with them; to recognise something (the meN- form of kenal, acquainted)
 id	mengerti	verb	to catch the meaning of what someone says ('I don't ___ the question'); paham is the firmer grasp
+id	mengetahui	verb	know, be aware of; find out - of a fact, not of being acquainted with a person (the active meN- form of tahu, to know, through ketahui)
+id	menghasilkan	verb	produce, yield; bring in or earn, whether money, a result or an answer (the active meN- form of hasilkan, built on hasil, a result)
 id	menghentikan	verb	to stop something, to bring it to a halt, to put an end to it (the meN-...-kan form of henti, a halt)
 id	menjalankan	verb	to run something - a machine, a program, a business; to carry a plan out (the meN-...-kan form of jalan, to go)
+id	menuju	verb	head for, go toward; make for a destination, as in heading to school (the active meN- form of tuju, aim or direction)
 id	menunggu	verb	to wait, to wait for a person or a thing to come (the meN- form of tunggu, to wait)
 id	menyebar	verb	to spread, to get about, to reach far and wide - of news, a language, a disease (the meN- form of sebar, to scatter)
 id	menyelesaikan	verb	to finish, to get done; to settle or solve a problem (the meN-...-kan form of selesai, finished)
+id	merilis	verb	release, put out; bring out an album, a film or a piece of software (the active meN- form of rilis, a release)
 id	meskipun	conj	even though — concedes a fact the main clause overrides; the me- form carrying -pun, twin of walaupun
 id	pada	prep	at, on — used before a time or a person ('___ Monday', 'it depends ___ him'), where di marks a place
 id	paham	verb	to have a firm grasp of a subject; also the understanding itself; mengerti is catching a meaning
@@ -4089,6 +4157,7 @@ it	buone	adj	good, nice; kind - with feminine plural nouns (feminine plural of b
 it	buoni	adj	good, nice; kind (masculine plural of buono); as a noun, vouchers, coupons
 it	c'	adv	the elided form used before è and era: ___'è 'there is', ___'era 'there was'
 it	caduto	verb	fallen, fallen over, dropped (past participle of cadere)
+it	caffe	adj	coffee, the drink and the roasted beans it is made from; also the bar or café where it is served (masculine, unchanged in the plural)
 it	calmati	verb	calm down, take it easy - the informal command from calmarsi; also calmed, settled (masculine plural of the participle of calmare)
 it	cambiato	verb	changed; exchanged, swapped (past participle of cambiare)
 it	cani	noun	dogs (plural of cane, m.)
@@ -4254,6 +4323,7 @@ it	fidanzata	adj	engaged, betrothed - of a woman (feminine singular of fidanzato
 it	fidanzato	noun	boyfriend, fiancé (m.); as an adjective, engaged to be married, spoken for
 it	fidati	verb	trust me, take my word for it - the informal command from fidarsi; also trusted, reliable (masculine plural of fidato)
 it	figo	adj	cool, great
+it	finche	noun	until, up to the moment when; also for as long as, during the whole time that — a conjunction joining two clauses, often with a following non (aspetta ___ non torno, wait until I get back)
 it	fine	noun	end (la fine): alla fine 'in the end', la fine del film; in the compound il fine settimana, weekend; purpose, aim (il fine): il fine giustifica i mezzi; as an adjective, thin, fine, refined
 it	finisce	verb	he finishes, it ends, it runs out; you finish (formal Lei) - third-person singular present of finire
 it	finita	adj	finished, over, done — of a woman or a feminine noun (feminine singular of finito, past participle of finire)
@@ -4396,6 +4466,7 @@ it	pensava	verb	he thought, she used to think; you thought (formal Lei) - third-
 it	pensavo	verb	I thought; I was thinking (first-person singular imperfect of pensare)
 it	penso	verb	I think, I have in mind ('___ a te' 'I'm thinking of you'); I'll see to it ('ci ___ io') - mulling over, not credo's believing
 it	perche	conj	because; why (in a question) — correctly written perché, with the accent
+it	perfetta	adj	perfect, flawless, exactly right — the form used with a feminine singular noun (f. sg. of perfetto)
 it	perso	verb	lost; missed; wasted (past participle of perdere)
 it	persone	noun	people, persons (f., plural of persona)
 it	pezzi	noun	pieces, bits, chunks; parts of a machine (plural of pezzo, m.)
@@ -4886,23 +4957,29 @@ la	tuus	det	belonging to you, one person spoken to — the singular form; vester
 la	vel	conj	or, where either option will do and both may hold — a free choice, unlike the exclusive aut
 la	vir	noun	a grown male, a man as opposed to a woman; also a husband
 mi	a	particle	of, belonging to — the possession class for food, work and things one controls; also precedes personal names used as subject
+mi	ahatia	verb	have something done to it, be interfered with — the form that asks what happened to it or forbids touching it (passive of aha, meaning what)
 mi	ahau	pron	I, me — first person singular, the longer form; au is the shorter variant used in the same places
 mi	ahua	verb	be heaped up or shaped by hand — the passive of ahu. Not āhua: appearance, form
 mi	ai	particle	points back to a stated reason, time or place; marks habitual action; then
 mi	ao	noun	the world; also daylight, the dawning of day ('te ___ hurihuri', the ever-changing world)
+mi	atawhaitia	verb	be cared for, be treated with kindness; also the command look after them (passive of atawhai)
 mi	au	pron	I, me — first person singular, the short form; ahau is the longer variant, interchangeable with it
 mi	aua	det	those ones already mentioned — the plural of taua; also 'dunno' as an exclamation
 mi	e	particle	is/are ...-ing (with ana); before numbers 2-9; O (calling someone); by (passive)
 mi	hari	verb	glad, joyful; joy and delight — also to carry or convey something along
 mi	hei	particle	marks what something will be or be used as, and where it will be — 'as, for' ('___ aha?', what for?)
+mi	hiahiatia	verb	be wanted, be needed — the form used to say that somebody wants it (passive of hiahia, to want)
 mi	hoki	adv	also, too, as well; to return, go back
+mi	horoia	verb	be washed, be scrubbed clean; also the command wash it (passive of horoi)
 mi	hunga	noun	a group of people taken together, the folk who do or share something ('te ___ mahi', the workers)
 mi	hura	verb	to uncover, to unveil — take the covering off so it can be seen
 mi	i	particle	marks a past action; also marks the direct object of a verb, and 'at, in, from' a past location
 mi	inu	verb	to drink, to swallow liquid ('ka ___ ia i te wai', he drinks the water)
+mi	inumia	verb	be drunk up, be swallowed down — of a liquid someone finishes off (passive of inu, to drink)
 mi	iwi	noun	tribe, extended kin group; a people or nation — also bone, the same form
 mi	ka	particle	marks the next event as it happens, moving a narrative along — neither completed nor in progress ('___ haere ia', he goes)
 mi	kainga	verb	be eaten — the passive of kai, what gets consumed. Not kāinga: home, village
+mi	karakiatia	verb	have a prayer or ritual chant said over it, be blessed in that way (passive of karakia)
 mi	katoa	det	all, every; everyone, everything; completely, entirely (following what it modifies)
 mi	kau	noun	a cow, cattle; also to swim or wade across water
 mi	kia	particle	marks something wished, intended or urged — 'let it be…', 'so that…', and heads greetings ('___ ora', be well)
@@ -4913,6 +4990,7 @@ mi	kua	particle	marks a state now reached or an action now done — 'has/have �
 mi	maha	noun	many, numerous — a large number of separate things, where nui is size or amount
 mi	mai	adv	shows movement or action directed toward the speaker — placed after the verb ('haere ___', come here)
 mi	mana	noun	prestige, authority and spiritual power that a person or group holds and that others recognise
+mi	manaakitia	verb	be looked after, be cared for, be shown hospitality as a guest (passive of manaaki)
 mi	mara	noun	a garden, a plot cultivated for food; also used to address a friend ('e ___', mate)
 mi	matau	noun	the right-hand side, opposite the left; also a fish-hook
 mi	mou	pron	for you, about you — the o-category form addressed to one person ('he waiata ___', a song about you); the a-category form is māu
@@ -4921,6 +4999,8 @@ mi	nei	particle	attaches to a word or phrase to mark it as near the speaker or t
 mi	noa	particle	just, merely, with nothing added or required; also free of tapu, ordinary and unrestricted
 mi	nui	adj	big, large; many, much, plentiful; great, important
 mi	o	particle	of, belonging to (the o-category: elders, body parts, feelings, houses, vehicles)
+mi	paingia	verb	be liked, be approved of — the form used to say that somebody likes it (passive of pai, good)
+mi	pania	verb	be smeared on, be spread over a surface such as bread or a wall (passive of pani)
 mi	pera	adv	like that, in that manner — doing it the way just mentioned ('me ___', do it like that)
 mi	pukapuka	noun	a book; a letter or written document
 mi	raro	noun	the underside, the area below — with i or ki it gives 'under, beneath' ('i ___ i te tēpu', under the table)
@@ -4928,9 +5008,11 @@ mi	rawa	adv	very, too — follows the word it strengthens ('pai ___', very good)
 mi	reo	noun	language, the tongue a people speak; also voice, speech ('te ___ Māori')
 mi	runga	adv	the top or upper part — with i or ki it gives 'on, above' ('i ___ i te tēpu', on the table)
 mi	tae	verb	to arrive, to reach a place or a point; also colour
+mi	takea	verb	originate from, be descended from a source (passive of take, to originate)
 mi	tama	noun	son; a boy or young man
 mi	tamahine	noun	daughter — a person's female child
 mi	tamariki	noun	children — more than one child; the plural of tamaiti
+mi	tangihia	verb	be mourned, be wept over (passive of tangi, to weep)
 mi	taro	noun	the starchy root crop with large heart-shaped leaves, a staple food; also a short while
 mi	tatau	verb	to count, to tally one by one; also a door or doorway
 mi	te	article	the (singular; plural is ngā); the, generically, for a whole class of things
@@ -4939,9 +5021,20 @@ mi	teka	noun	a lie, a falsehood; to say what is not true ('he ___', that's a lie
 mi	tekau	num	ten (10) — the number after nine
 mi	tika	verb	correct, right, proper; fair and just — also straight or direct
 mi	tino	adv	very, really — strengthens the word right after it ('___ pai', very good); also utmost, absolute
+mi	totea	verb	be salted, have salt put on it (passive of tote, to salt)
 mi	tuakana	noun	an older brother or sister of the same sex as the speaker — a boy's older brother, a girl's older sister
+mi	turakina	verb	be pushed over, be knocked flat, be pulled down (passive of turaki)
+mi	utaina	verb	be loaded on board, be put aboard a vehicle or vessel (passive of uta, to load — not the uta that means inland)
+mi	utua	verb	be paid, be paid for, be settled — of a bill, a wage or a debt (passive of utu)
 mi	whai	verb	to follow after, to pursue something one wants; also to have or possess it ('___ rawa', wealthy)
+mi	whakaahuatia	verb	be photographed, be filmed, be pictured (passive of whakaahua)
+mi	whakaaria	verb	be shown, be put on display, be revealed to onlookers (passive of whakaari)
+mi	whakaarohia	verb	be thought about, be considered, be turned over in the mind (passive of whakaaro)
+mi	whakaaturia	verb	be shown, be displayed to someone; also the command show it (passive of whakaatu)
+mi	whakahaerea	verb	be run, be organised, be carried out — of a meeting, an event or a process (passive of whakahaere)
 mi	whakahokia	verb	be returned, be given back — the passive of whakahoki, where the thing sent back is the subject
+mi	whakamahia	verb	be used, be put to work, be employed for a job (passive of whakamahi)
+mi	whakangaromia	verb	be destroyed, be wiped out, be lost for good (passive of whakangaro)
 mi	whakarongo	verb	to listen, to pay attention to what is being said ('___ mai!', listen up)
 mi	whakawhiti	verb	to cross, to cross over (a river, a road); to take across, to ferry across; to transfer, to shift; to exchange, to swap
 nl	a	noun	the first letter of the Dutch alphabet: wie a zegt, moet ook b zeggen — in for a penny, in for a pound; also in abbreviations such as a.u.b. (alstublieft) — please; and a rare noun, de a — a small stream, chiefly in place names like de Aa
@@ -5103,6 +5196,7 @@ nl	gezien	verb	seen — the past participle of 'to see', used after hebben ('ik 
 nl	gezocht	verb	searched, looked for — past participle of zoeken (ik heb overal gezocht, I've looked everywhere; het boek waar ik naar heb gezocht); as an adjective: wanted, sought-after (een gezochte crimineel)
 nl	ging	verb	went — the past singular of 'to go' ('hij ___ naar huis').
 nl	goede	adj	good — the -e form of goed (een goede vader, het goede boek); het goede — what is good, the good
+nl	goeie	adj	good, fine, right, decent — the everyday spoken form of the inflected goed, used before a noun (een ___ vraag, a good question)
 nl	grapje	noun	joke, a little joke — to make one is to be kidding, to be only joking (het; diminutive of grap, joke)
 nl	griet	noun	girl, (young or any) female, often derogatory: broad
 nl	groter	adj	bigger, larger; taller (comparative of groot)
@@ -5422,6 +5516,7 @@ pt	animais	noun	animals, creatures (plural of animal)
 pt	anos	noun	years — as a span of time or someone's age (tenho vinte ___, há dois ___ = two years ago).
 pt	antiga	adj	old, ancient; former, previous (feminine of antigo)
 pt	ao	contraction	to the, at the — the preposition 'to' merged with the masculine singular 'the' (vou ___ cinema, ___ meio-dia).
+pt	aos	contraction	to the, at the, for the — before a masculine plural noun, a merged with os; with a number of years it gives an age (morreu ___ noventa anos, died at ninety)
 pt	apareceu	verb	he showed up, she turned up; you showed up (você); it appeared (preterite of aparecer)
 pt	apenas	adv	merely, no more than — the formal restrictive word (custou ___ dez euros); unlike só it never means 'alone'.
 pt	aquela	det	that one over there — a feminine thing away from both speaker and listener (feminine of aquele)
@@ -5517,6 +5612,7 @@ pt	deixei	verb	I left something behind; I let or allowed something (preterite of
 pt	deixes	verb	(that) you leave, let or allow — the form after não in a command to tu, do not leave me (present subjunctive of deixar)
 pt	deixou	verb	he left, she left; he let, she let; you left (você) — preterite of deixar; with claro, made it clear
 pt	dela	contraction	her, hers; of her, of it — belonging to a woman or a feminine thing (a casa ___, o nome ___).
+pt	delas	contraction	their, theirs; of them — belonging to a group of women or of feminine things, de merged with elas (a casa ___, their house)
 pt	dele	contraction	his; of him, of it — belonging to a man or a masculine thing (o carro ___, o nome ___).
 pt	deles	contraction	their, of them; theirs — belonging to a group of men or a mixed group (de + eles)
 pt	dentes	noun	teeth (plural of dente); also the cloves of garlic and the teeth of a comb
@@ -5525,9 +5621,11 @@ pt	desapareceu	verb	he disappeared, she disappeared, it vanished (preterite of d
 pt	descobriu	verb	he discovered, she found out; you found out (você) — uncovered something new (preterite of descobrir)
 pt	desculpa	noun	an apology, or 'sorry!' said as one (___, foi sem querer); also the excuse or pretext someone offers.
 pt	desculpas	noun	apologies, said as sorry; also excuses or pretexts (plural of desculpa)
+pt	dessa	contraction	of that, from that, about that — before a feminine noun close to the listener, de merged with essa (a porta ___ casa, the door of that house)
 pt	dessas	contraction	of those, from those near you (feminine — contraction of de + essas)
 pt	desse	contraction	of that, from that; about that — with a masculine noun (de + esse); the same spelling is also if I gave, if he gave, from dar
 pt	desses	contraction	of those, from those near you (masculine — contraction de + esses); also (if) you gave (tu, imperfect subjunctive of dar)
+pt	desta	contraction	of this, from this, about this — before a feminine noun, de merged with esta (a cor ___ flor, the colour of this flower)
 pt	destas	contraction	of these, from these (feminine — contraction of de + estas)
 pt	deste	contraction	of this, from this; about this — with a masculine noun (de + este); the same spelling is also you gave, the tu form of dar
 pt	destes	contraction	of these, from these (masculine — contraction of de + estes)
@@ -5693,6 +5791,7 @@ pt	haverá	verb	there will be; it will exist (future of haver)
 pt	havia	verb	there was, there were (imperfect of haver); as an auxiliary before a participle, had done something
 pt	hei	verb	I shall, I am going to, I am bound to — with de plus an infinitive (first-person present of haver)
 pt	hera	noun	ivy (the climbing plant); also Hera, the Greek goddess of marriage
+pt	hey	verb	a shout to catch somebody's attention or to greet a friend casually, taken over from English and common in speech and messaging; the verb form it is filed under is hei, first-person singular present of haver — shall, as in hei de voltar, I shall come back
 pt	hipóteses	noun	possibilities, scenarios; hypotheses; a pior das X, the worst case (plural of hipótese)
 pt	histórias	noun	stories, tales; history (plural of história)
 pt	homem	noun	man — an adult male person (um ___ alto, o ___ que mora ali).
@@ -5798,6 +5897,7 @@ pt	más	adj	bad, poor in quality; nasty, wicked (feminine plural of mau)
 pt	mãos	noun	hands (f. pl. of mão — feminine despite the -ão ending)
 pt	médicos	noun	doctors, physicians (plural of médico); also medical, of medicine
 pt	na	pron	in the (em + a, feminine singular)
+pt	naquela	contraction	in that, on that, at that — before a feminine noun further off from both speakers, em merged with aquela (___ época, back in that period)
 pt	nas	pron	in the (em + as, feminine plural)
 pt	nasa		the space agency of the United States government (f.) - an acronym said as a single word rather than spelled out, and used with the feminine article
 pt	negra	adj	black, very dark (feminine of negro); also Black, of African descent
@@ -5805,6 +5905,10 @@ pt	negócios	noun	business (m. pl. of negócio); deals, affairs
 pt	nela	contraction	in her, in it; on her, on it; about her (contraction of em + ela)
 pt	nele	prep	in him, in it; on him, on it — contraction of em + ele (pensei nele = I thought about him; havia algo nele = there was something in it); feminine nela, plurals neles, nelas
 pt	nenhuma	pron	no, not any; none, not a single one — with a feminine noun (feminine of nenhum)
+pt	nessa	contraction	in that, on that, at that — before a feminine noun close to the listener, em merged with essa (entrei ___ loja, I went into that shop)
+pt	nesta	contraction	in this, on this, at this — before a feminine noun, em merged with esta (moro ___ rua, I live on this street)
+pt	nisso	contraction	in that, on that, about that — pointing back at a thing or an idea just mentioned, em merged with isso (nem pensei ___, I did not even think about that)
+pt	nisto	contraction	in this, on this, about this — pointing at the thing or the idea at hand, with no noun following it; em merged with isto, and the counterpart of neste
 pt	no	prep	in the, on the (em + o)
 pt	noites	noun	nights, evenings (plural of noite)
 pt	nomes	noun	names; what people or things are called (plural of nome)
@@ -5819,6 +5923,7 @@ pt	nova	adj	new (feminine of novo: uma casa nova); young, younger (ela é mais n
 pt	novas	adj	new, brand new; young (feminine plural of novo); as a noun, news
 pt	novos	adj	new, brand new; young (masculine plural of novo)
 pt	num	contraction	in a, into a — em + um, masculine (moro ___ apartamento); in casual Brazilian speech also 'not' before a verb.
+pt	numa	contraction	in a, into a, at a — before a feminine noun, em merged with uma (mora ___ cidade pequena, lives in a small town)
 pt	números	noun	numbers, figures; issues of a magazine (plural of número)
 pt	o	article	the (masculine singular); him, it (as a direct object)
 pt	objecto	noun	object (pre-Acordo European spelling of objeto)
@@ -5847,6 +5952,7 @@ pt	parece	verb	it seems, it looks like; he/she looks (___ que vai chover, ela __
 pt	parecem	verb	they seem, they look; you seem (plural); things appear to be so (present of parecer)
 pt	pareces	verb	you seem, you look, you come across as (tu form of parecer)
 pt	parecia	verb	he seemed, she seemed, it looked like; I seemed (imperfect of parecer)
+pt	paris	verb	the French capital on the Seine, and by extension the fashion and the style people associate with that city; as a verb form it is the second-person plural present of parir, you give birth
 pt	partes	noun	parts, portions; sections or sides (plural of parte); also you leave or you break something (tu form of partir)
 pt	partida	noun	a match, a game, a round of play; a departure or start (as a noun, f.); also broken or cracked (feminine of partido)
 pt	partido	adj	broken, split, cracked (past participle of partir: coração partido = broken heart); departed, gone (já terei partido = I'll already have left); (as a noun, m.) party (political group)
@@ -6130,6 +6236,7 @@ pt	vês	verb	you see (tu form of ver)
 pt	vítimas	noun	victims; casualties of an accident or a crime (plural of vítima)
 pt	zangado	verb	angry, cross, annoyed (past participle of zangar)
 pt	à	contraction	to the, at the (a + a, feminine singular — the crase à: à noite, à casa dela); in set phrases, in the manner of (à moda de)
+pt	às	contraction	to the, at the — the preposition a merged with the feminine plural article; with a clock time it means at (chegou ___ dez, arrived at ten)
 pt	é	verb	is (he, she, it — from ser); are (with você); that's right, yeah (agreeing)
 pt	éramos	verb	we were, we used to be — identity or a lasting trait (imperfect of ser)
 pt	és	verb	you are — the tu form, for lasting traits (___ muito simpático); estás is the passing-state one.
@@ -6155,6 +6262,8 @@ ro	acestea	det	these; these ones, these things — feminine and neuter plural of
 ro	acestei	det	of this, to this — feminine genitive-dative singular of acest
 ro	acestor	det	of these, to these (genitive-dative plural of acest and această)
 ro	acestui	det	of this, to this — masculine and neuter genitive-dative singular of acest
+ro	adaptarea	noun	the adaptation, the adjustment (f.) — the definite form of adaptare
+ro	adevărul	noun	the truth (n.) — adevăr with the definite article suffixed
 ro	adn		the genetic material that carries an organism's inherited information, the double helix found in every cell - neuter, taking its article as a suffix
 ro	ador	verb	I love something dearly, I am mad about it; I worship (first-person singular present of the verb meaning to dote on something)
 ro	adormit	verb	fallen asleep; asleep (past participle of a adormi)
@@ -6168,6 +6277,7 @@ ro	aia	det	that one, feminine — the everyday form ('fata ___' = that girl)
 ro	aibă	verb	that he, she or they have — third-person present subjunctive of a avea, used after să
 ro	ajuns	verb	arrived, reached, got there (past participle of a ajunge); also used after de to mean enough
 ro	ajut	verb	I help, I am helping (first-person singular present of a ajuta)
+ro	ajutorul	noun	the help, the assistance (n.) — ajutor with the definite article suffixed
 ro	albă	adj	white (feminine singular of alb)
 ro	alegeri	noun	elections; choices (indefinite plural of alegere, f. “choice, election”)
 ro	alta	pron	another one, a different one — feminine of altul, standing on its own with no noun after it
@@ -6179,6 +6289,7 @@ ro	americani	adj	American; American men — masculine plural (masculine plural o
 ro	amintit	verb	remembered; mentioned, brought up (past participle of a-și aminti / a aminti: mi-am amintit totul “I remembered everything”, a amintit de boala ta “he mentioned your illness”); as an adjective: aforementioned
 ro	ani	noun	years ('am douăzeci de ___' = I'm twenty years old)
 ro	anii	noun	the years (definite plural of an, m.)
+ro	anul	noun	the year (m.) — an with the definite article suffixed; capitalised and paired with Nou it names New Year
 ro	anului	noun	of the year, to the year; the year’s (definite genitive-dative singular of an, m.)
 ro	apare	verb	he appears, she appears, it appears; it shows up, it comes out (third-person singular present of a apărea)
 ro	apărut	verb	appeared, showed up, turned up; came out (past participle of a apărea)
@@ -6207,19 +6318,24 @@ ro	avut	verb	had — the past participle ('am ___ noroc' = I was lucky)
 ro	bag	verb	I put in, I insert, I stick something in; reflexively, I get involved (first-person singular present of a băga)
 ro	bagi	verb	you put in, you stick something in; reflexively, you meddle (second-person singular present of a băga, informal)
 ro	banca	noun	the bank — where money is kept; the same noun also means a bench (definite form of bancă, f.)
+ro	banii	noun	the money, the cash (m. pl.) — the definite plural of ban, a coin
 ro	baza	verb	to rely on, to count on — a se baza pe (nu te poți baza pe Tom “you can't rely on Tom”, un om pe care te poți baza “a man you can count on”); to be based on, to rest on; also the definite form of bază (f.) “the base, the basis” — baza de date “the database”
 ro	bei	verb	you drink (second-person singular of a bea: bei cafea? “do you drink coffee?”, ce vrei să bei? “what would you like to drink?”); rarely a noun: bey, an Ottoman title (m.)
 ro	bem	verb	we drink (first-person plural present of a bea; also the form after să)
 ro	bilete	noun	tickets; notes, slips of paper (plural of bilet, n.)
 ro	bine	adv	well; fine, all right, OK (as a reply); good, wellbeing (n.)
+ro	biroul	noun	the office; the desk (n.) — birou with the definite article suffixed
 ro	biserica	noun	the church (definite form of biserică, f.)
 ro	boala	noun	the illness, the disease, the sickness (definite form of boală, f.)
 ro	boboci	noun	buds; ducklings (plural of boboc)
 ro	bucur	verb	I am glad, I am pleased (with mă); I gladden, I cheer someone up — first-person singular present of a bucura
+ro	buna	adj	the good one (f.), the good — feminine definite form of the adjective bun
 ro	bune	adj	good — the feminine and neuter plural of bun
 ro	buni	adj	good, kind — masculine plural of bun
 ro	bunica	noun	the grandmother, grandma (definite form of bunică, f.)
 ro	bună	adj	good, with a feminine noun ('o carte ___'); on its own, 'hello' as a greeting
+ro	băiatul	noun	the boy (m.) — băiat with the definite article suffixed
+ro	băiete	noun	boy!, lad! — băiat in the vocative, used to call out to a boy
 ro	bărbatul	noun	the man; the husband (definite form of bărbat, m.)
 ro	băut	verb	drunk, drank (past participle of a bea); with de, for drinking, something to drink
 ro	ca	adv	like, as — sets up a comparison ('alb ___ zăpada' = white as snow); with să, 'in order to'
@@ -6227,10 +6343,15 @@ ro	cadavrul	noun	the body, the corpse (definite form of cadavru, n.)
 ro	cai	noun	horses (plural of cal, m.); also the unit of engine power, horsepower
 ro	calea	noun	the way, the path; the road, the avenue — definite form of cale (f.)
 ro	calul	noun	the horse; the knight in chess (definite form of cal, m.)
+ro	camera	noun	the room, the chamber (f.) — with the definite article suffixed
 ro	camerele	noun	the rooms; also the cameras (definite plural of cameră, f.)
+ro	capul	noun	the head (n.) — cap with the definite article suffixed
+ro	cartea	noun	the book; the playing card (f.) — carte with the definite article suffixed
+ro	casa	noun	the house, the home (f.) — the noun for a dwelling with its definite article suffixed
 ro	casei	noun	of the house, to the house; the house’s (definite genitive-dative singular of casă, f.)
 ro	caut	verb	I look for, I am searching for (first-person singular present of a căuta)
 ro	caute	verb	(that) he/she/it look for, search for; (that) they seek — third-person subjunctive of a căuta, after să
+ro	cazul	noun	the case, the circumstance, the situation (n.) — caz with the definite article suffixed
 ro	cazuri	noun	cases, instances, situations (plural of caz, n.)
 ro	cealaltă	det	the other one, the other — feminine singular of celălalt
 ro	ceea	pron	used only before ce, for 'what, the thing that' ('___ ce contează' = what matters)
@@ -6241,6 +6362,7 @@ ro	celui	det	of the one, to the one — genitive-dative masculine/neuter singula
 ro	ceri	verb	you ask for, you request (second-person singular present of a cere, informal)
 ro	cheia	noun	the key; in music, the clef (definite form of cheie, f.)
 ro	chem	verb	I call someone, I send for someone (first-person singular present of the verb meaning to call)
+ro	chestia	noun	the thing, the thingy; the business, the matter (f.) — chestie with the definite article suffixed
 ro	chestiile	noun	the things, the stuff, the gadgets (definite plural of chestie, f., informal)
 ro	cina	noun	dinner, supper — the definite form of cină, f. (am pregătit cina “I made dinner”, a lua cina “to have dinner”, cina va fi gata “dinner will be ready”); as a verb: a cina “to dine”
 ro	cinstit	verb	honest, upright, fair (past participle of a cinsti, to honour, used as an adjective)
@@ -6252,6 +6374,9 @@ ro	conduci	verb	you drive; you lead, you are in charge (second-person singular p
 ro	continuam	verb	I was carrying on, I kept going; we were carrying on (first-person singular and plural imperfect of a continua — the two share this form)
 ro	continui	verb	I keep on, I carry on; you keep on, you carry on (first- and second-person singular present of a continua); also the masculine plural of continuu, unbroken
 ro	continuă	verb	keep going!, carry on!, go on — imperative of a continua; also he or she continues, and, as an adjective, continuous (feminine of continuu)
+ro	copii	noun	children, kids (m. pl.) — the plural of copil, without the definite article
+ro	copiii	noun	the children, the kids (m. pl.) — the definite plural of copil
+ro	copilul	noun	the child, the baby, the kid (m.) — copil with the definite article suffixed
 ro	copilului	noun	of the child, to the child; the child’s (definite genitive-dative singular of copil, m.)
 ro	cred	verb	I believe, I think ('___ că da' = I think so)
 ro	crezi	verb	you think, you believe ('___ că vine?' = do you think he's coming?)
@@ -6286,22 +6411,33 @@ ro	devenit	verb	become, turned into (past participle of a deveni)
 ro	devii	verb	you become, you are becoming (second-person singular present of a deveni, informal)
 ro	devine	verb	he becomes, she becomes, it becomes; is turning into — third-person singular present of a deveni
 ro	din	prep	out of, from inside ('___ casă' = out of the house); of, among ('unul ___ ei' = one of them)
+ro	dintr-o	contraction	from a, out of a; in one (f.) — din run together with the feminine article o before a feminine noun
 ro	dintr-un	contraction	out of a, from a; from one of — before a masculine or neuter noun (din plus un run together)
 ro	directorul	noun	the manager, the head, the principal (definite form of director, m.)
 ro	discutam	verb	I was talking, I was discussing; we were talking (first-person singular and plural imperfect of a discuta — the two share this form)
 ro	discutat	verb	discussed, talked over (past participle of a discuta: am discutat problema “we discussed the matter”, despre ce ați discutat ieri? “what did you discuss yesterday?”); as an adjective: debated, disputed
 ro	dispari	verb	you disappear, you vanish; as a command, get lost!, clear off! (second-person singular of a dispărea, informal)
+ro	doamna	noun	the lady, the woman; Mrs or Ms before a name (f.) — with the definite article suffixed
+ro	doamne	noun	ladies, women — the plural of doamnă without the article; capitalised and standing alone it is the vocative O Lord!, God!
 ro	doare	verb	it hurts, it aches; with a pronoun in front, it hurts me, it hurts you — third-person singular present of a durea
+ro	doctorul	noun	the doctor, the physician (m.) — doctor with the definite article suffixed
 ro	doi	num	two — with masculine nouns ('___ băieți' = two boys)
 ro	dolari	noun	dollars (plural of dolar, m.)
 ro	domenii	noun	fields, domains (plural of domeniu “field, domain”)
+ro	domnul	noun	the gentleman, the man; Mr before a name; capitalised, the Lord (m.) — domn with the definite article suffixed
 ro	domnule	noun	sir — how you address a man you are speaking to ('da, ___' = yes, sir)
+ro	domnului	noun	of the gentleman, to the gentleman; of Mr before a name — the genitive-dative definite form of domn
 ro	dormit	verb	slept (past participle of a dormi: ai dormit bine? “did you sleep well?”, n-am dormit de trei zile “I haven't slept for three days”); as a noun: sleep, sleeping (neuter)
 ro	două	num	two — with feminine or neuter nouns ('___ fete' = two girls)
+ro	dracu	noun	the devil (m.) — drac with the shortened definite ending -u, common in curses meaning to hell with it
+ro	dragostea	noun	love, the love someone feels (f.) — dragoste with the definite article suffixed
 ro	dreaptă	adj	right, right-hand; straight; fair, just (feminine singular of drept)
+ro	dreptul	noun	the law as a field of study; the right, the entitlement (n.) — drept with the definite article suffixed; after de-a it forms a set adverb meaning downright, outright
+ro	drumul	noun	the road, the way; the journey (n.) — drum with the definite article suffixed
 ro	ducem	verb	we take, we carry, we lead; reflexively, we go (first-person plural present of a duce; also the form after să)
 ro	duci	verb	you carry, you take (one person); with te, you go, you are heading — second-person singular present of a duce
 ro	dus	verb	taken, carried; gone (past participle of a duce: s-a dus acasă “he went home”); as an adjective: departed, absent-minded
+ro	dă	verb	gives, he or she gives; also the singular imperative give!, hand over! — present tense of the verb meaning to give
 ro	dăm	verb	we give; let us give — first-person plural present of a da
 ro	e	verb	is (everyday short form of este); eh! (surprise, annoyance)
 ro	echipa	noun	the team (definite form of echipă, f.: echipa noastră “our team”, echipa are nevoie de mine “the team needs me”); as a verb: a echipa “to equip”
@@ -6315,17 +6451,27 @@ ro	fac	verb	I do, I make ('___ o cafea' = I'm making a coffee); also they do
 ro	facem	verb	we do, we make ('ce ___?' = what shall we do?)
 ro	faci	verb	you do, you make ('ce ___?' = what are you doing?)
 ro	facă	verb	that he, she or they do, make — third-person present subjunctive of a face, used after să
+ro	familia	noun	the family, the household (f.) — familie with the definite article suffixed
+ro	familiei	noun	of the family, to the family — the genitive-dative definite form of familie
+ro	faptul	noun	the fact; the deed (n.) — fapt with the definite article suffixed; followed by că it introduces a clause, the fact that
 ro	fata	noun	the girl — 'the' is built into the ending ('___ de la școală' = the girl from school)
 ro	faza	noun	the phase, the stage (definite form of fază, f.); colloquially, the situation or the incident
+ro	felul	noun	the way, the manner; the sort or kind; a course of a meal (n.) — fel with the definite article suffixed
+ro	femeia	noun	the woman; the wife (f.) — femeie with the definite article suffixed
+ro	femeile	noun	the women; the wives (f. pl.) — the definite plural of femeie
 ro	fete	noun	girls; daughters (plural of fată, f.)
+ro	fetele	noun	the girls; the daughters (f. pl.) — the definite plural of fată
 ro	fetelor	noun	girls! — addressing a group of women; also of the girls, to the girls (vocative and genitive-dative plural of fată, f.)
 ro	fie	verb	let it be, that it be — the subjunctive 'be' ('să ___ bine'); also 'either... or'
 ro	fii	verb	be! — the command form ('___ atent' = be careful); also 'sons'
+ro	fiica	noun	the daughter (f.) — with the definite article suffixed
 ro	filme	noun	films, movies (plural of film, n.)
 ro	filmul	noun	the film, the movie (definite form of film, n.)
 ro	fim	verb	that we be; let us be — first-person plural present subjunctive of a fi, used after să
 ro	firma	noun	the company, the business; also a shop sign (definite form of firmă, f.)
 ro	fiu	verb	(that) I be — first-person singular subjunctive of a fi (vreau să fiu “I want to be”, să fiu sincer “to be honest”); son (m.)
+ro	fiul	noun	the son (m.) — fiu with the definite article suffixed
+ro	fiule	noun	son!, my son (m.) — fiu in the vocative, the way a parent addresses his son
 ro	fiului	noun	of the son, to the son; the son’s (definite genitive-dative singular of fiu, m.)
 ro	focul	noun	the fire (definite form of foc, n.)
 ro	folosească	verb	(that) he/she/it use; (that) they use — third-person subjunctive of a folosi, after să
@@ -6334,6 +6480,7 @@ ro	forma	noun	the form, the shape (definite form of formă, f.: sub forma unui c
 ro	fost	verb	been (past participle of a fi: a fost “it was”, am fost “I have been”); former, ex- (fostul primar)
 ro	fosta	noun	the former one; the ex — a former wife or girlfriend (definite feminine of fost, former)
 ro	fotografii	noun	photographs, pictures (plural of fotografie, f.); the same spelling is also the plural of fotograf, photographers
+ro	fratele	noun	the brother; also mate, bro as a way of addressing a man (m.) — frate with the definite article suffixed
 ro	fratelui	noun	of the brother, to the brother; the brother’s (definite genitive-dative singular of frate, m.)
 ro	frica	noun	the fear (definite form of frică, f.)
 ro	frumoasa	adj	beautiful, lovely, good-looking (feminine of frumos carrying the definite ending; as a noun, the beauty)
@@ -6344,10 +6491,13 @@ ro	fă	verb	do it!, make!, go on and do — singular imperative of a face
 ro	făcea	verb	he was doing, she was doing; he used to make, she used to make (third-person singular imperfect of a face)
 ro	făceam	verb	I was doing, I was making; we were doing (first-person singular and plural imperfect of a face — the two share this form)
 ro	gemeni	noun	twins (plural of geamăn “twin”)
+ro	genul	noun	the type, the sort, the kind; the genre (n.) — gen with the definite article suffixed
 ro	grade	noun	degrees — of temperature or of an angle (plural of grad, n.)
 ro	gratie	noun	bar on a window or door; (in the plural) grating, grille
+ro	grija	noun	the worry, the concern; the care taken of someone or something (f.) — with the definite article suffixed
 ro	griji	noun	worries, cares (plural of grijă, f.); a-și face griji “to worry”: nu-ți face griji “don't worry”
 ro	grosolan	adj	roughly; coarsely; in an unrefined manner
+ro	gura	noun	the mouth (f.) — with the definite article suffixed
 ro	gândeam	verb	I was thinking, I used to think; we were thinking — imperfect of a gândi, usually with a reflexive pronoun
 ro	gândim	verb	we think; reflexively, we think about something (first-person plural present of a gândi; also the form after să)
 ro	găsească	verb	(that) he/she/it find; (that) they find — third-person subjunctive of a găsi, after să
@@ -6358,7 +6508,9 @@ ro	haina	noun	the coat, the jacket; the garment (definite form of haină, f.)
 ro	haine	noun	clothes, garments (plural of haină, f.)
 ro	ia	verb	takes; take! (3rd person singular and imperative of a lua: ia loc “have a seat”, ia-mă cu tine “take me with you”); as an interjection: hey, look here
 ro	iasă	verb	(that) he/she/it go out, come out; (that) they leave — third-person subjunctive of a ieși, after să
+ro	ideea	noun	the idea, the thought, the notion (f.) — idee with the definite article suffixed
 ro	iei	verb	you take, you pick up (one person) — second-person singular present of a lua
+ro	inima	noun	the heart (f.) — with the definite article suffixed
 ro	intre	verb	that he, she or they enter, come in — third-person present subjunctive of a intra, used after să
 ro	intri	verb	you go in, you come in, you enter (second-person singular present of a intra, informal)
 ro	intru	verb	I enter, I go in, I come in (first-person singular present of a intra)
@@ -6366,20 +6518,25 @@ ro	istoria	noun	the history; the story (definite form of istorie, f.)
 ro	italieni	noun	Italians (plural of italian)
 ro	iubirea	noun	the love, the affection (definite form of iubire, f.)
 ro	iubita	noun	the girlfriend; the beloved, the sweetheart (definite form of iubită, f.)
+ro	iubito	noun	darling!, sweetheart!, baby! — the vocative of iubită, how you address a woman you love
 ro	iubitul	noun	the boyfriend; the beloved (definite form of iubit, m.)
 ro	iubitule	noun	darling!, sweetheart! — addressing a man (vocative of iubit, beloved)
 ro	joacă	verb	plays; play! (third-person singular and imperative of a juca: Tom nu joacă “Tom doesn't play”, joacă fotbal “he plays football”); as a noun: play, playing (f.) — o joacă de copil “child's play”
 ro	joci	verb	you play; you gamble; reflexively, you play around (second-person singular present of a juca, informal)
+ro	jocul	noun	the game, the play; the dance (n.) — joc with the definite article suffixed
 ro	jocuri	noun	games; matches; dances (plural of joc, n.)
 ro	jucat	verb	played (past participle of a juca: am jucat fotbal ieri “I played soccer yesterday”, m-am jucat cu fratele meu “I played with my brother”); as a noun: playing (neuter)
 ro	judecată	noun	judgment, opinion; reasoning, good sense (feminine noun); also judged, tried in court (feminine of the participle judecat)
+ro	jurul	noun	the space around something (n.) — the definite form of jur; with a possessive or genitive it means around, round about
 ro	l-am	contraction	'him/it' + 'have': '___ văzut' = I saw him
 ro	lase	verb	(that) he/she/it leave, let, allow; (that) they let — third-person subjunctive of a lăsa, after să
 ro	le	pron	them, to them — unstressed, before the verb ('___ văd' = I see them (f.), '___ dau' = I give them)
 ro	leah	noun	Pole (an old ethnonym, also used as a surname)
 ro	legea	noun	the law (definite form of lege, f.)
+ro	legătura	noun	the connection, the link; the contact between people (f.) — with the definite article suffixed
 ro	liberă	adj	free, unoccupied; off, as in a day off (feminine singular of liber)
 ro	limba	noun	the language; the tongue (definite form of limbă, f.)
+ro	locul	noun	the place, the spot; the seat (n.) — loc with the definite article suffixed; before a genitive it means in place of someone
 ro	locuri	noun	places, spots; seats, room (plural of loc, n.)
 ro	locurile	noun	the places, the spots; the seats (definite plural of loc, n.)
 ro	lovit	verb	hit, struck (past participle of a lovi: de ce m-ai lovit? “why did you hit me?”, a fost lovit de o mașină “he was hit by a car”); as a noun: the hitting, the striking (n.) — the ordinary word for a blow is lovitură
@@ -6390,9 +6547,12 @@ ro	lucrez	verb	I work, I am working (first-person singular present of a lucra)
 ro	lucreze	verb	(that) he/she/it work; (that) they work — third-person subjunctive of a lucra, after să
 ro	lucrul	noun	the thing, the object; the work (definite form of lucru, n.)
 ro	lucruri	noun	things, objects; matters (plural of lucru, n.)
+ro	lucrurile	noun	the things, the stuff, the possessions (n. pl.) — the definite plural of lucru
 ro	ludovic	noun	a male given name from Latin
 ro	lui	pron	"his; to him, him; and before a man's name it marks possession: lui Ion ""Ion's"""
 ro	lumea	noun	the world, or people in general — 'the' is built into the ending ('___ zice că...' = people say that...)
+ro	lumii	noun	of the world, to the world; of the people — the genitive-dative definite form of lume
+ro	lumina	noun	the light (f.) — with the definite article suffixed
 ro	lungă	adj	long (feminine singular of lung)
 ro	lupte	verb	(that) he/she/they fight — third-person subjunctive of a lupta, after să; also fights, battles, struggles, the plural of luptă, f.
 ro	luptă	noun	fight, battle, struggle (f.) — o luptă grea “a hard fight”, am ieșit din luptă “I got out of the fight”; also he/she fights and the imperative fight! (a lupta: Luptă! “Fight!”, Ridică-te și luptă “Get up and fight”)
@@ -6402,6 +6562,7 @@ ro	lăsat	verb	left, let (past participle of a lăsa: m-a lăsat să plec “he 
 ro	m-am	contraction	'myself' + 'have' — starts a reflexive past ('___ trezit' = I woke up)
 ro	mai	adv	"more, the comparative marker (mai mare ""bigger""); still, any more; again; May (m.)"
 ro	mama	noun	the mother, mum — 'the' is built into the ending ('___ mea' = my mother)
+ro	mamei	noun	to the mother, of the mother — mamă in the genitive-dative with the definite article
 ro	marea	noun	the sea (definite form of the noun mare, f.); also the great, the big — the definite feminine of the adjective mare
 ro	mari	adj	big, large, great — the plural of mare, for all three genders
 ro	marte	noun	Mars (planet)
@@ -6427,18 +6588,24 @@ ro	miliarde	noun	billions, thousands of millions (plural of miliard, n.)
 ro	milioane	noun	millions (plural of milion, n.)
 ro	minciuni	noun	lies, falsehoods (plural of minciună, f.)
 ro	mine	pron	me, after a preposition — the stressed form ('cu ___' = with me, 'pentru ___' = for me)
+ro	mintea	noun	the mind; good sense, judgement (f.) — minte with the definite article suffixed
 ro	minute	noun	minutes, minutes of time (plural of minut, n.)
 ro	moare	verb	dies, is dying (third-person singular of a muri: e păcat când moare cineva “it's a pity when somebody dies”, moare de foame “he's starving”); rarely a noun: brine for pickling (f.)
+ro	moartea	noun	death, the death of someone (f.) — moarte with the definite article suffixed
 ro	moartă	adj	dead — feminine singular of mort
 ro	moară	verb	(that) he/she/they die — third-person subjunctive of a muri (s-ar putea să moară “they could die”, nu vrem să mai moară oameni “we don't want more people to die”); as a noun: mill (f.) — moară de vânt “windmill”
 ro	modul	noun	the way, the manner (definite form of mod, n.: modul în care vorbește “the way he speaks”, în modul acesta “in this way”); also: the module, the unit; the modulus
 ro	momente	noun	moments, brief stretches of time (plural of moment, n.)
+ro	momentul	noun	the moment, the point in time when something happens (n.) — moment with the definite article suffixed
 ro	mori	verb	you die, you are dying (one person) — second-person singular present of a muri
 ro	motive	noun	reasons, grounds; the reason why something was done (plural of motiv, n.)
+ro	motivul	noun	the reason, the grounds; the motive (n.) — motiv with the definite article suffixed
 ro	multe	adj	many — with feminine or neuter plural things ('___ cărți' = many books)
 ro	multă	det	much, a lot of, plenty of — feminine singular of mult
+ro	munca	noun	the work, the labour, the job (f.) — with the definite article suffixed
 ro	murit	verb	died, dead (past participle of a muri)
 ro	mut	verb	I move, I move house (first-person singular of a muta / a se muta: o să mă mut în Paris “I'm going to move to Paris”, nu eram în stare să mut biroul “I couldn't move the desk by myself”); as an adjective: mute, dumb, speechless — a rămas mut “he was left speechless”, film mut “silent film”
+ro	mâinile	noun	the hands (f. pl.) — the definite plural of mână
 ro	mâncarea	noun	the food; the meal (definite form of mâncare, f.)
 ro	mâncat	verb	eaten, ate (past participle of a mânca)
 ro	mâncăm	verb	we eat (first-person plural present of a mânca; also the form after să)
@@ -6448,6 +6615,7 @@ ro	mănânce	verb	(that) he/she/it eat; (that) they eat — third-person subjunc
 ro	mănânci	verb	you eat (second-person singular present of a mânca, informal)
 ro	n-am	contraction	I don't have, I haven't — the shortened negative ('___ timp' = I don't have time)
 ro	naiba	noun	devil, deuce (chiefly in exclamations: la naiba! “damn!”, unde naiba “where the hell”)
+ro	nava	noun	the ship, the vessel (f.) — with the definite article suffixed
 ro	ne	pron	"us; to us; ourselves, each other (ne vedem ""we see each other"")"
 ro	neagră	adj	black (feminine singular of negru)
 ro	nebuni	adj	crazy, mad — masculine plural of nebun (toți sunteți nebuni “you're all crazy”); as a noun: madmen, lunatics (un cuib de nebuni “a den of crazies”); rarely a verb: a nebuni “to go mad, to drive mad”
@@ -6460,40 +6628,51 @@ ro	nimănui	pron	to no one, to nobody; no one else’s (genitive-dative of nimen
 ro	nisa	name	Nice (city in southern France)
 ro	noaptea	noun	the night (definite form of noapte, f.: noaptea trecută “last night”, în noaptea aceea “that night”); as an adverb: at night, by night
 ro	norocul	noun	the luck, the good fortune (definite form of noroc, n.)
+ro	noul	adj	the new one, the new (m./n.) — definite masculine form of nou, placed before its noun
 ro	nouă	adj	new (feminine singular of nou: o casă nouă “a new house”, o nouă zi “a new day”); nine; (to) us (stressed dative of noi: nouă ne place “we like it”)
+ro	numărul	noun	the number; the phone number (n.) — număr with the definite article suffixed
 ro	nunta	noun	the wedding (definite form of nuntă, f.)
 ro	o	article	a, an (feminine); her, it (object pronoun); will (in o să + verb)
 ro	oamenii	noun	the people — 'the' is built into the ending ('___ de aici' = the people here)
 ro	observat	verb	noticed, spotted; observed (past participle of a observa, used with am and a to make the past)
+ro	ochii	noun	the eyes (m. pl.) — the definite plural of ochi; keeping watch over someone is expressed with this word
 ro	ochiul	noun	the eye (definite form of ochi, m.)
 ro	ocupi	verb	you occupy, you take up room or time; reflexively, you deal with or look after something (second-person singular present of a ocupa, informal)
 ro	ofer	verb	I offer, I give someone something (first-person singular present of the verb meaning to offer)
 ro	oh	intj	cry of pain, regret or dismay — the o-vowel one, written the way English writes it; ah and vai are separate cards ('___, nu!')
 ro	omori	verb	you kill, you are killing (second-person singular present of a omorî, informal)
+ro	omul	noun	the man; the human being, the person (m.) — om with the definite article suffixed
+ro	omule	noun	hey man!, mate!, my friend! — om in the vocative, used to address someone directly
 ro	omului	noun	of the man, to the man; of a person — as in the phrase for human rights (definite genitive-dative singular of om, m.)
 ro	onu		the United Nations - the international organisation of member states, said aloud as a single word rather than letter by letter
 ro	oprească	verb	(that) he/she/it stop, halt; (that) they stop — third-person subjunctive of a opri, after să
 ro	oprim	verb	we stop, we halt something; reflexively, we come to a stop (first-person plural present of a opri; also the form after să)
+ro	ora	noun	the hour, the o'clock time; also a class period at school (f.) — with the definite article suffixed
 ro	ouă	noun	eggs (plural of ou, n.)
 ro	ozn		a UFO, an unidentified flying object seen in the sky - neuter, plural in -uri
+ro	pana	noun	the feather; the wedge; a breakdown, a flat tyre or a power cut (f.) — with the definite article suffixed
 ro	panama	noun	Panama (a country in Central America)
 ro	pantaloni	noun	trousers, pants (plural of pantalon, m.)
 ro	pantofi	noun	shoes (plural of pantof, m.)
 ro	par	verb	I seem; they seem (a părea: îți par bătrân? “do I seem old to you?”, ei par mișcați “they seem moved”, mi se par prea mari “they seem too big to me”); as an adjective: even, divisible by two (număr par); as a noun: stake, pole (m.)
 ro	pare	verb	it seems, he/she seems ('mi se ___ bine' = it seems fine to me)
 ro	pari	verb	you seem, you look (second-person singular present of a părea); also stakes or poles, the plural of par, m., and even numbers
+ro	partea	noun	the part, the share; the side someone takes (f.) — parte with the definite article suffixed
 ro	pară	verb	(that it) seem, appear — third-person subjunctive of a părea (bărbații vor să pară masculini “men like to look masculine”, ca să pară mai tânăr “so as to look younger”); as a noun: pear (f.); flame
 ro	pentru	prep	"for (a person, a purpose, a length of time); because of; pentru că ""because"""
 ro	perfectă	adj	perfect, flawless (feminine singular of the adjective perfect)
+ro	persoana	noun	the person, the individual (f.) — with the definite article suffixed
 ro	pescari	noun	fishermen (plural of pescar “fisherman”)
 ro	petrecerea	noun	the party, the celebration (definite form of petrecere, f.)
 ro	piatra	noun	the stone, the rock (definite form of piatră, f.)
+ro	picioare	noun	legs, feet (n. pl.) — the plural of picior, which covers both the leg and the foot; standing upright is expressed with this word
 ro	piciorul	noun	the leg; the foot (definite form of picior, n.)
 ro	pisica	noun	the cat (definite form of pisică, f.)
 ro	plac	verb	I like (you, him); they please, they are liked (a plăcea, normally with a dative for “to like”: îmi plac câinii “I like dogs”, nu te mai plac “I don't like you anymore”); as a noun: liking (pe plac “to one's liking”)
 ro	place	verb	it pleases — how liking is said ('îmi ___ cafeaua' = I like coffee)
 ro	placi	verb	you appeal to someone, someone likes you; colloquially, you like her or him (second-person singular present of a plăcea, informal)
 ro	placă	verb	(that) one likes it, that it pleases — third-person subjunctive of a plăcea (sper c-o să-ți placă “I hope you'll like it”, ar trebui să-ți placă “you should enjoy this”); as a noun: plate, sheet; record (f.)
+ro	planul	noun	the plan, the scheme; the plane or level (n.) — plan with the definite article suffixed
 ro	planuri	noun	plans; also planes or levels (plural of plan, n.)
 ro	planurile	noun	the plans (definite plural of plan, n.)
 ro	plec	verb	I leave, I am leaving; I go, I set off — first-person singular present of a pleca
@@ -6509,21 +6688,29 @@ ro	poată	verb	(that) he/she/it can, be able to; (that) they can — third-perso
 ro	port	verb	I wear; I carry (first-person singular of a purta: port ochelari de soare “I'm wearing sunglasses”, ce să port diseară? “what should I wear tonight?”); also a noun: port, harbour (neuter)
 ro	postul	noun	the job, the post, the position; a radio or TV station; also a religious fast (definite form of post, n.)
 ro	pot	verb	I can; they can (a putea: nu pot “I can't”, pot să vin “I can come”); rarely a noun: the pot, the stakes in a card game (neuter)
+ro	povestea	noun	the story, the tale (f.) — poveste with the definite article suffixed
 ro	poza	noun	the photo, the picture (definite form of poză, f.: uită-te la poza de pe birou “look at that picture on the desk”, i-a arătat poza mea “she showed him my picture”); also a verb: a poza “to pose; to photograph”
 ro	prefer	verb	I like better, I would rather, I would sooner (first-person singular present of the verb meaning to choose one thing over another)
 ro	pregătită	adj	ready, prepared; trained (feminine singular of pregătit)
+ro	prietena	noun	the girlfriend; the female friend (f.) — with the definite article suffixed
 ro	prieteni	noun	friends (plural of prieten, m.)
+ro	prietenii	noun	the friends; also the boyfriends (m. pl.) — the definite plural of prieten
+ro	prietenul	noun	the friend; the boyfriend (m.) — prieten with the definite article suffixed
 ro	primii	adj	the first ones, the first — masculine plural (masculine plural of primul); also I received, in the literary past of a primi
 ro	primit	verb	received, got, was given (past participle of a primi)
+ro	primul	adj	the first one, the first (m./n.) — definite masculine form of prim; it heads the phrase for first aid
 ro	prins	verb	caught, seized, grabbed (past participle of a prinde)
 ro	proastă	adj	stupid, foolish; also poor, bad in quality — feminine singular of prost
+ro	problema	noun	the problem, the trouble; the exercise to be solved (f.) — with the definite article suffixed
 ro	problemele	noun	the problems, the troubles (definite plural of problemă, f.)
+ro	propria	adj	one's own (f.), his own or her own — feminine of propriu, placed before its noun
 ro	pui	noun	chicken; chick, young of an animal (m.) — pui de somn “a nap”; also you put, you place (2nd person singular of a pune: de ce pui asta aici? “why are you putting that here?”, te rog să pui asta la loc “please put this back”)
 ro	puncte	noun	points, marks scored; dots (plural of punct, n.)
 ro	punem	verb	we put, we place, we set down (first-person plural present of a pune; also the form after să)
 ro	pus	verb	put, placed, set down (past participle of a pune)
 ro	puteam	verb	I could, I was able to; we could, we were able to — imperfect of a putea
 ro	putem	verb	we can, we are able to ('___ să mergem' = we can go)
+ro	puterea	noun	the power, the strength; the ability to do something (f.) — putere with the definite article suffixed
 ro	puterile	noun	the powers; the strength (definite plural of putere, f.)
 ro	puteți	verb	you can, you are able to — plural, and the polite singular with dumneavoastră (second-person plural present of a putea)
 ro	putina	noun	the wooden tub, the barrel (definite form of putină, f.)
@@ -6534,11 +6721,13 @@ ro	părut	verb	seemed, appeared (past participle of a părea: mi s-a părut “i
 ro	razi	verb	you shave; you scrape or grate something (second-person singular present of a rade, informal)
 ro	rea	adj	bad; nasty, mean, unkind (feminine singular of rău)
 ro	reală	adj	real, actual (feminine singular of real)
+ro	regele	noun	the king (m.) — rege with the definite article suffixed
 ro	regelui	noun	of the king, to the king; the king’s (definite genitive-dative singular of rege, m.)
 ro	regina	noun	the queen (definite form of regină, f.)
 ro	regulile	noun	the rules (definite plural of regulă, f.)
 ro	rele	adj	bad, evil, harmful — with feminine and neuter plural nouns (plural of rău)
 ro	repet	verb	I repeat, I say it again (first-person singular present of the verb meaning to repeat)
+ro	restul	noun	the rest, the remainder; the change handed back (n.) — rest with the definite article suffixed
 ro	ridicat	verb	raised, lifted; picked up (past participle of a ridica: și-a ridicat pălăria “he raised his hat”, ne-am ridicat “we stood up”); as an adjective: raised, high, rolled up; as a noun: lifting, raising (neuter)
 ro	rog	verb	I ask, I beg — in 'te ___' and 'vă ___' it is how you say please
 ro	rugam	verb	I was asking, I was pleading; we were asking (first-person singular and plural imperfect of a ruga — the two share this form)
@@ -6561,6 +6750,7 @@ ro	scos	verb	took out, pulled out; removed, brought out (past participle of a sc
 ro	scrii	verb	you write (second-person singular present of a scrie, informal)
 ro	scuze	noun	sorry, apologies; excuses (plural of scuză, f.); also that he or she apologize — subjunctive of a scuza
 ro	scăpat	verb	escaped, got away; got rid of — a scăpa de (past participle of a scăpa: am scăpat de pericol “we escaped the danger”, n-am idee cum a scăpat “I have no idea how he got away”); also dropped, let slip (i-a scăpat paharul “he dropped the glass”); transitively: got someone out of it, saved (m-a scăpat de o amendă “he got me out of a fine”)
+ro	seama	noun	the account, the reckoning, consideration (f.) — with the definite article suffixed; chiefly in the set phrase meaning to realize or become aware of something
 ro	secunde	noun	seconds, seconds of time (plural of secundă, f.)
 ro	semne	noun	signs; marks, signals (plural of semn, n.)
 ro	sentimente	noun	feelings, emotions (plural of sentiment, n.)
@@ -6569,9 +6759,13 @@ ro	siguri	adj	sure, certain; safe — masculine plural (masculine plural of sigu
 ro	sigură	adj	sure, certain; safe — feminine singular of sigur
 ro	simplă	adj	simple, plain, straightforward (feminine singular of simplu)
 ro	simte	verb	he feels, she feels, it feels — third-person singular present of a simți, usually with the reflexive se
+ro	singura	adj	the only one (f.), the sole one — feminine definite form of singur
 ro	singuri	adj	alone, on their own; by themselves (masculine plural of singur)
+ro	singurul	adj	the only one (m.), the only person or thing — definite masculine form of singur
 ro	singură	adj	alone, on her own, by herself; single, sole — feminine singular of singur
+ro	sora	noun	the sister; also a nurse (f.) — with the definite article suffixed
 ro	spart	verb	broken, smashed; broken into (past participle of a sparge)
+ro	spatele	noun	the back, the rear (n.) — the definite form of spate; before a possessive or genitive it works as the preposition behind
 ro	speciale	adj	special — with feminine and neuter plural nouns (plural of special)
 ro	specială	adj	special (feminine singular of special)
 ro	sper	verb	I hope (first-person singular present of a spera)
@@ -6597,20 +6791,25 @@ ro	sunt	verb	I am; they are (one form serves both)
 ro	superi	verb	you get annoyed, you mind; you upset someone (second-person singular present of a supăra, informal)
 ro	suport	verb	I bear it, I put up with it; I can stand (first-person singular of a suporta: nu-l suport pe omul ăla! “I can't stand that man!”, nu mai suport! “I can't take it anymore!”); also a noun: support, stand, holder (neuter)
 ro	sute	noun	hundreds (plural of sută, f.)
+ro	sângele	noun	the blood (n.) — sânge with the definite article suffixed
 ro	sînt	verb	I am; they are — the pre-1993 spelling of sunt (first-person singular and third-person plural present of a fi)
 ro	să	conj	puts the next verb in the subjunctive after want/can/must: 'vreau ___ merg' = I want to go
 ro	să-i	contraction	the subjunctive marker + 'to him/her': 'vreau ___ spun' = I want to tell him
 ro	să-l	contraction	the subjunctive marker + 'him': 'vreau ___ văd' = I want to see him
 ro	să-mi	contraction	the subjunctive marker + 'to me': 'vreau ___ spui' = I want you to tell me
 ro	săi	adj	his, her — the possessive used before masculine plural nouns (masculine plural of său)
+ro	săptămâna	noun	the week (f.) — with the definite article suffixed; with a demonstrative after it, this week or that week
 ro	săteni	noun	villagers (plural of sătean “villager”)
 ro	ta	det	your, one person's — with a feminine noun ('casa ___' = your house)
 ro	tai	verb	I cut, I chop; you cut (first- and second-person singular present of a tăia — the two share this form)
 ro	tale	pron	your, yours — the form used with feminine plural nouns (of tău)
 ro	tari	adj	strong, hard, tough; loud — plural for all three genders (plural of tare)
 ro	tati	noun	dad, daddy — the affectionate form of tată (m.)
+ro	tatăl	noun	the father, the dad (m.) — tată with the definite article suffixed
+ro	tatălui	noun	of the father, to the father — the genitive-dative definite form of tată
 ro	te	pron	you, one person, as the object of a verb — unstressed, before it ('___ văd' = I see you); also 'yourself'
 ro	telefoane	noun	telephones, phones; phone calls (plural of telefon, n.)
+ro	telefonul	noun	the telephone, the phone (n.) — telefon with the definite article suffixed
 ro	termin	verb	I finish, I complete, I get something done (first-person singular present of the verb meaning to finish)
 ro	terminam	verb	I was finishing; we were finishing (first-person singular and plural imperfect of a termina — the two share this form)
 ro	termine	verb	(that) he/she/it finish, complete; (that) they finish — third-person subjunctive of a termina, after să
@@ -6621,12 +6820,15 @@ ro	tine	pron	"you (sg.), the stressed form used after prepositions: cu tine ""wi
 ro	tipa	noun	the girl, the woman — the female counterpart of tip (definite form of tipă, f., informal)
 ro	tipi	noun	guys, blokes, fellows (plural of tip, m., informal)
 ro	tipii	noun	the guys, the blokes (definite plural of tip, m., informal)
+ro	tipul	noun	the guy, the bloke (m.); also the type, the sort (n.) — tip with the definite article suffixed
 ro	toate	det	all, all of them — with feminine or neuter plurals ('___ cărțile' = all the books)
 ro	toată	det	the whole of, all — with a feminine noun ('___ ziua' = all day)
 ro	tot	adv	still, keeps on ('___ mai plouă' = it's still raining); also 'all, the whole of' ('___ orașul')
 ro	totul	noun	everything, the whole of it ('___ e bine' = everything is fine)
 ro	toți	det	all, everyone; all the — before a masculine plural noun (masculine plural of tot)
+ro	traducerea	noun	the translation (f.) — traducere with the definite article suffixed
 ro	tragi	verb	you pull, you draw, you drag; you fire a shot (second-person singular present of a trage, informal)
+ro	treaba	noun	the job, the work at hand; the matter, someone's own business (f.) — with the definite article suffixed
 ro	trebuit	verb	had to, needed to; was necessary (past participle of a trebui); with ar fi, should have
 ro	trenul	noun	the train (definite form of tren, n.)
 ro	trimis	verb	sent, sent off (past participle of a trimite)
@@ -6636,6 +6838,8 @@ ro	tăi	pron	your, yours — the form used with masculine plural nouns (of tău)
 ro	uit	verb	I forget; with mă, I look at, I watch — first-person singular present of a uita
 ro	uite	verb	look!, here you are — points something out ('___ aici' = look here, '___-l' = there he is)
 ro	uită	verb	he, she or they look at, are watching (with the reflexive se); also he, she or they forget — third-person present of a uita; also the singular imperative, look!
+ro	ultima	adj	the last, the final one (f.) — feminine definite form of ultim; with dată it makes the phrase for the last time
+ro	ultimul	adj	the last one, the final one (m./n.) — definite masculine form of ultim
 ro	umana	adj	human, of human beings (feminine of uman carrying the definite ending)
 ro	umane	adj	human, of human beings — with feminine and neuter plural nouns (plural of uman)
 ro	un	article	a, an — before a masculine or neuter noun ('___ băiat', '___ scaun'); the feminine form is a separate card
@@ -6657,6 +6861,7 @@ ro	viața	noun	the life (definite form of viață, f.)
 ro	vii	verb	you come, you are coming (one person) — second-person singular present of a veni; also alive, living, as the plural of viu
 ro	viitorul	noun	the future (definite form of viitor, n.)
 ro	vin	verb	I come; they come (a veni: vin acum “I'm coming”, ei vin “they're coming”); wine (neuter)
+ro	vina	noun	the blame, the fault, the guilt (f.) — with the definite article suffixed; used in the phrase for putting the blame on someone
 ro	vine	verb	he comes, she comes, it comes; he is coming — third-person singular present of a veni
 ro	vino	verb	come!, come here! — singular imperative of a veni
 ro	vină	verb	(that) he/she/they come — third-person subjunctive of a veni (vreau să vină “I want him to come”, i-am cerut să vină “I asked him to come”); as a noun: guilt, fault, blame (f.) — e de vină “he is to blame”
@@ -6664,12 +6869,15 @@ ro	visele	noun	the dreams (definite plural of vis, n.)
 ro	visul	noun	the dream (definite form of vis, n.)
 ro	voastră	det	your, yours — feminine singular, addressed to more than one person (of vostru)
 ro	voi	pron	you, a group being addressed — the subject form ('___ ce faceți?'); also 'I will' before a verb ('___ pleca')
+ro	voia	noun	he or she wanted, was wanting — imperfect of a vrea, and I wanted too, since both persons share this form; as a noun it is the will or the permission, the definite form of voie
 ro	vom	verb	will — the 'we' form of the future ('___ pleca' = we will leave)
 ro	vor	verb	they want ('___ să vină'); also the 'they' form of the future ('___ veni' = they will come)
+ro	vorba	noun	the word, the talk, what is being said (f.) — with the definite article suffixed; it heads the phrase meaning it is a matter of, it is about
 ro	vorbească	verb	that he, she or they speak, talk — third-person present subjunctive of a vorbi, used after să
 ro	vreau	verb	I want ('___ să plec' = I want to leave)
 ro	vrei	verb	you want ('___ să vii?' = do you want to come?)
 ro	vrem	verb	we want (first-person plural present of a vrea)
+ro	vremea	noun	the weather; the time, the age one lives in (f.) — vreme with the definite article suffixed
 ro	vremuri	noun	times, ages — a stretch of history (plural of vreme, f.)
 ro	vreo	det	some, any — feminine of vreun, before a feminine noun; before a number it means about, roughly
 ro	vrut	verb	wanted — the past participle ('am ___ să te sun' = I wanted to call you)
@@ -7069,6 +7277,7 @@ sw	anakula	verb	he is eating, she is eating; he or she eats — third-person sin
 sw	anataka	verb	he wants, she wants; he or she intends to — third-person singular present of -taka; Swahili marks no gender here
 sw	anaweza	verb	he can, she can; he or she is able to — third-person singular present of -weza
 sw	andikwa	verb	to be written, to be written down or recorded; to be enrolled or taken on — passive of -andika (to write)
+sw	angani	noun	in the sky, up in the air; also out in space - locative of anga, the sky (class 5, no plural)
 sw	ardhini	noun	on the ground, in the earth, in the soil; down on the land — locative of ardhi, land or earth (class 9/10)
 sw	bali	conj	but rather, on the contrary — corrects the negative just stated ('not this ___ that')
 sw	barabarani	noun	on the road, in the street, out on the highway, as in a road accident — locative of barabara, road (class 9/10)
@@ -7079,8 +7288,10 @@ sw	chini	adv	below (in a lower place); down (from a high to a low position, down
 sw	chochote	adj	anything at all, whatever it may be (of a class 7 thing: kitu ___ = any thing whatever)
 sw	chukua	verb	to take (into possession); to carry, bring, take along
 sw	dhulumiwa	verb	to be wronged, to be treated unjustly, to be oppressed or cheated — passive of -dhulumu (to wrong)
+sw	duniani	noun	in the world, on earth; worldwide - locative of dunia, world or Earth (class 9/10)
 sw	falme	noun	kingdoms, realms, dominions; the reigns of kings — plural of the class 11 noun meaning kingdom or kingship (class 11/10)
 sw	fanya	verb	do!, make — the bare stem and command form, not the 'to ___' infinitive; also to pretend
+sw	fanywa	verb	to be done, to be made, to be turned into something - passive of -fanya (to do, to make)
 sw	faraghani	noun	in private, privately, alone with someone, out of earshot — locative of faragha, privacy (class 9/10)
 sw	fifia	verb	to lose strength; to dwindle, fade, disappear
 sw	fuata	verb	to follow (to come after); to imitate; to abide by (to comply with)
@@ -7089,7 +7300,9 @@ sw	fungu	noun	a bunch (a group of a number of similar things); a portion or slic
 sw	fungua	verb	Conversive form of -funga: to open, to unfasten; to give birth
 sw	funguliwa	verb	to be opened, to be unlocked, to be untied or undone — passive of -fungua (to open)
 sw	gari	noun	car (automobile); vehicle (any vehicle, including wagons and trains)
+sw	gerezani	noun	in prison, in jail; off to prison - locative of gereza, a prison (class 5/6)
 sw	geuka	verb	to turn (toward a direction); to be changed, to turn into (stative form of -geua)
+sw	gizani	noun	in the dark, in darkness - locative of giza, darkness (class 5, no plural)
 sw	hakuna	verb	there is no…, there are none ('___ matata' = there's no trouble)
 sw	hao	adj	those people just mentioned, those ones (class 2: watu ___ = those people)
 sw	hapa	adv	here, at this place, right where the speaker is
@@ -7107,8 +7320,11 @@ sw	huo	adj	that one just mentioned (with class 3 and 11 nouns: mti ___ = that tr
 sw	huu	adj	this one here (with class 3 and 11 nouns: mti ___ = this tree)
 sw	huyo	det	that person, that one (class 1 — the one just mentioned or near you)
 sw	huyu	adj	this person here, this one (class 1: mtu ___ = this person)
+sw	ikiwa	verb	if, in case, in the event that - a conjunction built on -wa (to be) with the -ki- conditional, literally if it is
 sw	ile	adj	that one over there, away from us both (with class 4 and 9 nouns: nyumba ___ = that house)
+sw	ingawa	verb	although, even though, despite the fact that - a concessive conjunction built on -wa (to be) with -nga-
 sw	ingiza	verb	to admit, to let in; to bring in, to import, to introduce (causative form of -ingia)
+sw	isipokuwa	verb	except, except for; unless - built on -wa (to be) with the negative -sipo-, literally if it is not
 sw	jaliwa	verb	to be granted something, to be blessed with it, to be favoured — passive of -jali (to care about, to mind)
 sw	jamaa	noun	relative, family member; the family as a whole; (colloquially) dude, guy, bloke, used of someone you don't know
 sw	jambo	noun	matter, affair, issue — something that happens or is dealt with, not a physical object; also a greeting
@@ -7125,6 +7341,7 @@ sw	kabidhiwa	verb	to be handed over, to be entrusted with, to be put in charge o
 sw	kama	conj	like, as (comparison); if, whether; about, roughly (with a number)
 sw	kashfa	noun	scandal (an incident that brings disgrace); slander, libel, insult; also an uncovering, an exposing
 sw	kaza	verb	Causative form of -kaa: to persist, intensify; to tighten
+sw	kichwani	noun	on the head, in one's head - locative of kichwa, the head (class 7/8)
 sw	kijijini	noun	in the village, at the village, back in the village — locative of kijiji, village (class 7/8)
 sw	kitandani	noun	in bed, on the bed, at the bedside — locative of kitanda, bed (class 7/8)
 sw	kiungo	noun	spice (plant matter used to season or flavour food); junction or joint, esp. a part of the body where bones join; body part, organ
@@ -7191,6 +7408,7 @@ sw	kukabidhi	verb	to hand over, to entrust, to give into someone's charge — in
 sw	kukamilisha	verb	to complete, to finish off, to perfect, to bring to completion — infinitive of -kamilisha
 sw	kukata	verb	to cut, to cut off, to chop; to cut down or reduce; paired with the word for desire it means to give up hope — infinitive of -kata
 sw	kukataliwa	verb	to be refused, to be rejected, to be turned down — infinitive passive of -kataa (to refuse)
+sw	kukawa	verb	to be late, to be delayed, to take a long time - infinitive of -kawa (to delay, tarry)
 sw	kukesha	verb	to stay awake all night, to keep vigil, to sit up until morning — infinitive of -kesha
 sw	kuketi	verb	to sit down, to take a seat, to be seated — infinitive of -keti
 sw	kukosea	verb	to make a mistake, to get something wrong; to wrong or offend someone — infinitive of -kosea
@@ -7339,6 +7557,7 @@ sw	mafarakano	noun	divisions, rifts, splits; discord or estrangement between peo
 sw	magonjwa	noun	diseases, illnesses, ailments — plural of ugonjwa (class 11, taking a class 6 plural)
 sw	magoti	noun	knees — plural of goti (class 5/6); after kwa, on your knees
 sw	magugu	noun	weeds, the unwanted plants in a field — plural of gugu (class 5/6)
+sw	mahakamani	noun	in court, at the courthouse; off to court - locative of mahakama, a court of law (class 9/10)
 sw	mahakimu	noun	judges, magistrates — plural of hakimu (class 5/6, of people)
 sw	mahitaji	noun	needs, requirements; also demand, as against supply — plural of uhitaji
 sw	majeraha	noun	wounds, injuries — plural of jeraha (class 5/6)
@@ -7392,6 +7611,7 @@ sw	mazoezi	noun	exercises, drills, practice; training or a rehearsal — plural 
 sw	mbingu	noun	the heavens, the sky — as in the heavens and the earth
 sw	mbinguni	noun	in heaven, to heaven; up in the sky — the place form
 sw	meno	noun	teeth — plural of jino, a tooth (class 5/6); a dentist is literally a doctor of these
+sw	mezani	noun	on the table, at the table - locative of meza, a table (class 9/10)
 sw	miaka	noun	years — plural of mwaka (class 3/4); also how age is given, as in thirty years
 sw	michezo	noun	games, sports; plays and performances — plural of mchezo (class 3/4)
 sw	midomo	noun	lips; mouths; the beaks or bills of birds — plural of mdomo (class 3/4)
@@ -7405,6 +7625,7 @@ sw	miji	noun	towns, cities — plural of mji (class 3/4)
 sw	mikate	noun	loaves of bread, breads — plural of mkate (class 3/4)
 sw	mikia	noun	tails, the tails of animals — plural of mkia (class 3/4)
 sw	mikono	noun	hands; arms — plural of mkono (class 3/4)
+sw	mikononi	noun	in the hands, in the hands of somebody; on the arms - locative of mikono, hands or arms (plural of mkono, class 3/4)
 sw	mikutano	noun	meetings, conferences, gatherings held for a purpose — plural of mkutano (class 3/4)
 sw	milango	noun	doors; gates — plural of mlango (class 3/4)
 sw	milima	noun	mountains, hills, high ground — plural of mlima (class 3/4)
@@ -7422,15 +7643,19 @@ sw	mizabibu	noun	grapevines, vines — plural of mzabibu (class 3/4)
 sw	mizeituni	noun	olive trees — plural of mzeituni (class 3/4)
 sw	mizigo	noun	loads, burdens; luggage, baggage, cargo — plural of mzigo (class 3/4)
 sw	mizizi	noun	roots, the roots of a plant; also origins or causes — plural of mzizi (class 3/4)
+sw	mjini	noun	in town, in the city; into town - locative of mji, a town or settlement (class 3/4)
+sw	mkoani	noun	in the region, in the province; out in the provinces - locative of mkoa, an administrative region (class 3/4)
 sw	mkononi	noun	in the hand, in the hands, in someone's grip; on the arm — locative of mkono, hand or arm (class 3/4)
 sw	mkuu	adj	chief, head, senior; great (with class 1 or 3 nouns: kuhani ___ = chief priest)
 sw	mlangoni	noun	at the door, in the doorway; up to the door — locative of mlango, door (class 3/4)
 sw	mlikuwa	verb	you were — speaking to more than one person; second-person plural past of -wa
+sw	mlimani	noun	on the mountain, up the hill; up to the mountain - locative of mlima, a mountain or hill (class 3/4)
 sw	mmoja	num	one, a single (class 1/3/11: mtu mmoja = one person); a certain one, someone
 sw	mnafanya	verb	you do, you are doing; you make — said to more than one person (second-person plural present of -fanya)
 sw	mnahitaji	verb	you need, you require — said to more than one person (second-person plural present of -hitaji)
 sw	mnataka	verb	you want, you all want — second-person plural present of -taka
 sw	mnaweza	verb	you can, you are able to — said to more than one person (second-person plural present of -weza)
+sw	moyoni	noun	in the heart, deep down, inwardly - locative of moyo, the heart (class 3/4)
 sw	msalaba	noun	cross — the Christian cross; also a cross-shaped post, or the cross shape itself
 sw	mungu	noun	God (the single deity of monotheism); also a god, a deity
 sw	mwana	noun	child (a son or daughter); in compounds, someone who does or is connected with something
@@ -7452,12 +7677,14 @@ sw	ndiwe	verb	it is you — the emphatic copula picking out one person, as in it
 sw	ndiye	verb	it is he, it is she — points out the very person meant ('that is the one')
 sw	nenda	verb	go — a command to one person; imperative singular of -enda
 sw	nendeni	verb	go — a command to more than one person; imperative plural of -enda
+sw	nguvuni	noun	in the grip of a force, under someone's power; in a state of strength - locative of nguvu, strength or authority (class 9/10)
 sw	ni	particle	is, am, are — the link between a subject and what it is (Yeye ___ mwalimu = He is a teacher)
 sw	nilikwenda	verb	I went, I did go, I had gone — first-person singular past of -enda (to go)
 sw	nitakuwa	verb	I will be, I shall be — first-person singular future of -wa (to be)
 sw	niwe	verb	that I be, for me to be, let me be, I should be — first-person singular subjunctive of -wa (to be), the form used after wanting or intending
 sw	nje	adv	outside, out of doors (___ ya nyumba = outside the house)
 sw	njema	adj	good, kind, wholesome — the moral 'good', not the 'nice-looking' one (with class 9/10 nouns: habari ___ = good news)
+sw	njiani	noun	on the way, on the road; along the path - locative of njia, road or path (class 9/10)
 sw	njoni	verb	come! come here! — an order given to more than one person (plural imperative of -ja, to come)
 sw	njoo	verb	come, come here — a command to one person; imperative singular of -ja
 sw	nyakati	noun	times, occasions, periods; spells of time, as in at times of illness — plural of wakati (class 11/10)
@@ -7478,7 +7705,9 @@ sw	pima	verb	to test, examine; to measure, weigh, estimate; to criticise
 sw	porini	noun	in the bush, out in the wild, in open uncultivated country — locative of pori, wilderness or bushland (class 5/6)
 sw	roma	name	Rome (the capital city of Italy); also ancient Rome and its empire
 sw	safarini	noun	on a journey, on a trip, away travelling; on the road — locative of safari, journey (class 9/10)
+sw	samehewa	verb	to be forgiven, to be pardoned - passive of -samehe (to forgive)
 sw	sema	verb	say!, speak! — the bare stem and command form, not the 'to ___' infinitive
+sw	shambani	noun	on the farm, out in the fields; off to the farm - locative of shamba, a cultivated plot or farm (class 5/6)
 sw	shamu	name	Syria (the modern country); historically Greater Syria, the Levant
 sw	shangazwa	verb	to be surprised, to be amazed, to be astonished — passive of -shangaza (to astonish)
 sw	shika	verb	to hold, possess; to arrest; to stick, adhere
@@ -7500,6 +7729,7 @@ sw	teswa	verb	to be tortured, to be persecuted, to be made to suffer — passive
 sw	teuliwa	verb	to be chosen, to be selected, to be appointed to a post — passive of -teua (to choose)
 sw	thibitishwa	verb	to be confirmed, to be proved, to be verified — passive of -thibitisha (to confirm)
 sw	tumboni	noun	in the stomach, in the belly; inside the womb — locative of tumbo (class 5/6)
+sw	tumwa	verb	to be sent, to be dispatched on an errand - passive of -tuma (to send)
 sw	tunataka	verb	we want, we would like; we need — first-person plural present of -taka
 sw	tunaweza	verb	we can, we are able to, we could — first-person plural present of -weza
 sw	tutakuwa	verb	we will be, we shall be — first-person plural future of -wa (to be)
@@ -7508,6 +7738,7 @@ sw	ujao	verb	coming, next, forthcoming, still to come — the relative form of -
 sw	ukingoni	noun	at the edge, on the brink, on the verge; on the bank or the rim of something — locative of ukingo, edge (class 11/10)
 sw	ukweli	noun	the truth, honesty — the abstract quality of being true, as a thing you tell or hide
 sw	ule	adj	that one over there (with class 3 and 11 nouns: mti ___ = that tree)
+sw	ulimwenguni	noun	in the world, throughout the world; on earth - locative of ulimwengu, the world or universe (class 11)
 sw	umbwa	verb	to be created, to be formed, to be shaped or made — passive of -umba (to create)
 sw	umwa	verb	to be in pain, to ache; to be sick (passive form of -uma)
 sw	unakuja	verb	you are coming, you come — said to one person (second-person singular present of -ja); with a class 3 or class 11 noun as subject the same form means it is coming
@@ -7863,6 +8094,7 @@ tl	rating	noun	rating; audience or review score (English loan, standard in Filip
 tl	rin	adv	too, also — the r-form, used after a word ending in a vowel, w or y ('ako ___'); din follows a consonant
 tl	san	pron	where? — the clipped everyday spelling of saan, normal in speech and texting ('___ ka pupunta?')
 tl	segundo	noun	second, the unit of time - sixty of them make a minute
+tl	sina	article	marks two or more named people as the ones the sentence is about, whether they are acting or being acted on — roughly and company or the group around; ___ Maria at Jose means Maria and Jose and whoever is with them (the plural counterpart of si)
 tl	sino	pron	who? (the ang-set question word; nino = by whom, kanino = whose, to whom)
 tl	subalit	conj	but, however — the heavier, more literary of the two written contrast words; ngunit is the everyday written one
 tl	taong	noun	'year' or 'person' with the linker -ng attached, tying it to the word that follows ('___ 1990', the year 1990)
@@ -7880,6 +8112,7 @@ tr	adamları	noun	the men as an object of a verb; his men — iş ___: businessm
 tr	adamların	noun	of the men, the men's; also your men (genitive plural of adam: man, or the plural with the second-person possessive)
 tr	adamı	noun	the man — as a definite object (accusative of adam: man); also the man of, in compounds: iş ___, businessman
 tr	adamım	noun	I am a man — the noun adam with the first-person singular ending; also my man
+tr	adamın	noun	the man's, of the man — o ___ kim olduğu: who that man is; the same ending also gives your man (adam: man, with the genitive or the second-person possessive)
 tr	adil	adj	fair, just
 tr	adım	noun	my name (first-person singular possessive of ad: name); also a separate word meaning step, pace
 tr	adına	noun	in the name of, on behalf of; to his name, to your name (dative of ad: name, with a possessive)
@@ -7922,6 +8155,7 @@ tr	andan	noun	from that moment — şu ___ itibaren: from now on (ablative of an
 tr	ankara	name	Ankara (the capital city of Turkey and of Ankara Province); by metonymy, the Turkish government
 tr	anladım	verb	I understood, I got it (first-person singular past of anlamak)
 tr	anlamadım	verb	first-person singular negative past of anlamak: I didn't understand, I didn't catch that (soyadınızı anlamadım — I didn't catch your last name); on its own, as a set phrase: I don't understand, sorry?
+tr	anlamı	noun	the meaning of it, its sense or point — bir ___ yok: it makes no sense (anlam: meaning, purpose, with the accusative or the third-person possessive)
 tr	anlat	verb	tell it!, describe it!, explain! (second-person singular imperative of anlatmak)
 tr	anlaşılan	verb	understood, the one that is understood — by everyone (participle of anlaşılmak: to be understood); also as an adverb, apparently, it seems
 tr	anlıyor	verb	he understands, she understands (third-person singular present of anlamak)
@@ -7935,6 +8169,8 @@ tr	arabada	noun	in the car, by car — büyük bir ___ gelmek: to arrive in a bi
 tr	arabam	noun	my car — benim bir ___ var: I have a car (first-person singular possessive of araba: car)
 tr	arabası	noun	his car, her car — çocuk ___: pram, pushchair (third-person possessive of araba: car, cart)
 tr	arabaya	noun	to the car, into the car — ___ sahip olmak: to own a car (dative of araba: car)
+tr	arabayı	noun	the car — the vehicle as the definite object of a verb: ___ burada durdur, stop the car here (accusative of araba: car, cart)
+tr	arada	noun	in between, in the gap, in the interval; bu ___: by the way, meanwhile (locative of ara: gap, interval, break)
 tr	aram	noun	the space between me and someone else; my relations with someone (first-person singular possessive of ara: gap, space between); senin ve benim ___da: between you and me
 tr	arama	noun	search (arama ve kurtarma — search and rescue, arama izni — a search warrant); a (phone) call (arama yapmak — to make a call); also the second-person singular negative imperative of aramak: don't call!, don't look for! (beni arama — don't call me)
 tr	aramız	noun	the space between us; how things stand between us (first-person plural possessive of ara: gap, space between); ___da: between us, among us
@@ -8005,6 +8241,8 @@ tr	begüm	noun	begum; also a female given name
 tr	bekle	verb	wait!, hold on! (second-person singular imperative of beklemek: to wait for)
 tr	beklemek	verb	To wait for, to await.; To expect, to anticipate; To watch over something or someone; to guard, to keep an eye on.
 tr	belirgin	adj	distinct, clear, evident, pronounced
+tr	bende	pron	on me, with me, in my keeping — the shape Turkish uses for having something: ___ bir tane yok, I don't have one (locative of ben: I, me)
+tr	benden	pron	from me; than me — the source-and-comparison form (ablative of ben: I, me); O ___ uzun: he is taller than I am
 tr	beni	pron	me (ben as the object of a verb: beni bekle, wait for me)
 tr	benim	pron	my; mine; it's me, I am the one (as a predicate)
 tr	bereketli	adj	fertile, plentiful, abundant; blessed
@@ -8025,6 +8263,7 @@ tr	biter	verb	it ends, it finishes, it runs out (third-person singular aorist of
 tr	bitmek	verb	to end, to finish; to grow, to sprout; to cease
 tr	bitti	verb	it ended, it is over; it ran out (third-person singular past of bitmek: to end)
 tr	bizde	pron	with us, at our place, in our hands — ___ var: we have one (locative of biz: we)
+tr	bizden	pron	from us, of us; than us — ___ biri: one of us (ablative of biz: we)
 tr	bize	pron	to us, for us ('___ gel', come to us)
 tr	boktan	noun	crappy, lousy, rotten — used as an insult before a noun; literally out of excrement (ablative of bok: excrement)
 tr	boyu	noun	his height, how tall someone is; also along, throughout — gün ___: all day long (third-person possessive of boy: height, stature)
@@ -8035,6 +8274,7 @@ tr	buldu	verb	he found, she found, it found — bana iş ___: he found me a job 
 tr	bulunma	noun	verbal noun of bulunmak: being present, being somewhere
 tr	buna	pron	to this, at this, for this ('___ bak', look at this)
 tr	bunda	pron	in this, about this, with this — ___ yanlış bir şey yok: there is nothing wrong with this (locative of bu: this)
+tr	bundan	pron	from this; than this; other than this (ablative of bu: this); ___ başka: apart from this, besides this
 tr	bunlar	pron	these, these ones (plural of bu: this)
 tr	bunlara	pron	to these, at these — ___ bak: look at these (dative plural of bu: this)
 tr	bunlardan	pron	from these, out of these, one of these (ablative plural of bu: this)
@@ -8095,10 +8335,12 @@ tr	dolgun	adj	having a full, round shape; plump, chubby, full-figured; high, sat
 tr	dostum	noun	my close friend, my buddy - a warmer word than arkadaş, used to address someone ('nasılsın ___?', how are you, pal?)
 tr	doğrudan	adv	directly, straight, right (doğrudan eve geliyorum — I'm coming straight home; doğrudan doğruya — directly, outright); as a modifier: direct (doğrudan ilişki — a direct connection) — literally the ablative of doğru
 tr	dur	verb	stop!, hold on! - telling one person to stop or wait ('___ bir dakika', wait a minute)
+tr	durumu	noun	the situation, the state of things — as a definite object, and as the second half of a compound: hava ___, the weather report (durum: situation, condition, with the accusative or the third-person possessive)
 tr	duyurmak	verb	to announce, to make known; to make oneself heard
 tr	dökmek	verb	to pour, pour out; to spill, shed; to throw out, empty (a container)
 tr	dön	verb	turn!; come back! (second-person singular imperative of dönmek)
 tr	dünyada	noun	locative of dünya: in the world, on earth (dünyada kaç ülke var — how many countries are there in the world); as an emphatic with a negative: never, not for anything (dünyada olmaz — no way)
+tr	dünyanın	noun	the world's, of the world — ___ en iyi işi: the best job in the world (genitive of dünya: world, earth)
 tr	dünyaya	noun	to the world, into the world — ___ gelmek: to be born (dative of dünya: world)
 tr	dünyayı	noun	the world as the object of a verb — ___ daha iyi bir yer yapmak: to make the world a better place (accusative of dünya: world)
 tr	düşmek	verb	to fall, fall down; to drop, go down, decrease; to subtract, deduct
@@ -8109,6 +8351,7 @@ tr	edecek	verb	he will do, she will do; it will be done (third-person singular f
 tr	edeceksin	verb	you will do, you will make — hareket ___: you will set off (second-person singular future of etmek: to do)
 tr	edeceğim	verb	I will do, I will make (first-person singular future of etmek); yardım ___: I will help
 tr	edeceğiz	verb	we will do, we will make, we will give — ziyaret ___: we will visit (first-person plural future of etmek: to do)
+tr	eden	verb	doing, making; the one who does it — joins a noun to build a verb and then describes: yardım ___ çocuk, the boy who helps; hareket ___ bir şey, something that moves (participle of etmek: to do, to make)
 tr	eder	verb	he does, she does; it comes to, it amounts to — yardım ___ misin: will you help (third-person singular aorist of etmek)
 tr	ederim	verb	I do, I make - chiefly in set phrases ('teşekkür ___', thank you; 'rica ___', you're welcome)
 tr	ederiz	verb	we do, we make, we will do; yardım ___: we will help (first-person plural aorist of etmek: to do)
@@ -8119,6 +8362,7 @@ tr	ediyorum	verb	I am doing, I am making — with a noun in front it builds a ve
 tr	efendim	noun	yes?, pardon? - answering when called or on the phone; also 'sir, madam' addressing someone politely
 tr	ekin	noun	crop; culture; also a unisex given name and a surname
 tr	elbet	adv	of course, surely (variant of elbette)
+tr	elde	noun	in hand, in one's possession, to hand — ___ etmek: to obtain, to come by, to achieve (el: hand, possession, with the locative)
 tr	ele	noun	to the hand, into someone's hands (dative of el: hand); ___ almak: to take up, to deal with
 tr	elim	noun	my hand (first-person singular possessive of el: hand); ___den gelen: what I am able to do
 tr	elimde	noun	in my hand, in my possession — ___ bir kitap var: I have a book in my hand; ___ değil: I cannot help it (locative of el: hand, with the first-person possessive)
@@ -8243,13 +8487,17 @@ tr	güncelleme	noun	update, a change to a more recent version (verbal noun of g�
 tr	günde	noun	in a day, per day — ___ bir kez: once a day, ___ dört kez: four times a day (locative of gün: day)
 tr	günden	noun	from that day — üç ___ sonra: three days later, üç ___ önce: more than three days ago (ablative of gün: day)
 tr	günler	noun	days (plural of gün: day); iyi ___: good day, a greeting
+tr	günü	noun	the day — as a definite object, and as the day belonging to something: iş ___, a workday (gün: day, with the accusative or the third-person possessive)
 tr	günün	noun	your day; of the day (second-person singular possessive or genitive of gün: day); doğum ___: your birthday
 tr	haberi	noun	the news as an object of a verb; his news, word of it — ___ olmak: to be aware of something (accusative or third-person possessive of haber: news)
 tr	hadi	interjection	come on!, hurry up!, let's go! - the short everyday spelling (the fuller variant adds a y)
 tr	hak	noun	right, legal entitlement, claim; justice, fairness (stem hakk-)
 tr	hakkı	noun	his right, their entitlement — oy ___: the right to vote (third-person possessive or accusative of hak: right, entitlement, stem hakk-)
+tr	hal	noun	state, condition — how someone or something is (ne haldesin? how are you?); also a wholesale produce market
 tr	hala	adv	still, yet (the circumflex of hâlâ is routinely dropped in writing); paternal aunt, father's sister
+tr	halde	noun	in the state of, in a condition of — behind olduğu ___: even though, despite; and fena ___: badly, in a bad way (hal: state, condition, with the locative)
 tr	hatam	noun	my mistake, my fault — benim ___: my bad (first-person singular possessive of hata: error, mistake)
+tr	hatta	noun	on the line — a phone line or a route: ___ kal, hold the line; diğer bir ___, on another line (hat: line, with the locative). Spelt the same as the adverb meaning even, moreover
 tr	havada	noun	in the air; in such weather — böyle bir ___: in weather like this (locative of hava: weather, air)
 tr	havaya	noun	into the air; to the weather — kötü ___ rağmen: in spite of the bad weather (dative of hava: weather, air)
 tr	hayatı	noun	his life, her life; life — as a definite object (possessive or accusative of hayat: life)
@@ -8317,6 +8565,8 @@ tr	kadir	noun	a male given name from Arabic meaning 'powerful, mighty', also one
 tr	kadına	noun	to the woman, for a woman — genç bir ___ aşık olmak: to fall in love with a young woman (dative of kadın: woman)
 tr	kadınlar	noun	women (plural of kadın: woman)
 tr	kadınların	noun	of the women, women's — ___ sayısı: the number of women; also your women (genitive plural of kadın: woman)
+tr	kadını	noun	the woman — a particular woman as the definite object of a verb: ___ nerede gördün?, where did you see the woman? (kadın: woman, with the accusative)
+tr	kadının	noun	the woman's, of the woman — bir ___ yeri: a woman's place; yaşlı bir ___ sesi: the voice of an old lady (kadın: woman, with the genitive)
 tr	kal	verb	stay!, remain! (second-person singular imperative of kalmak: to stay)
 tr	kaldı	verb	he stayed, she stayed; it was left over, it remained (third-person singular past of kalmak)
 tr	kaldırmak	verb	to lift up, raise, elevate; to remove, take away, put something out of reach
@@ -8357,6 +8607,7 @@ tr	kaçamak	noun	An undesirable act done in secrecy, chiefly an extramarital aff
 tr	kemal	noun	a male given name from Arabic; (as a common noun) perfection
 tr	kendine	pron	to yourself, to himself, to herself; for one's own sake (dative of kendi: self)
 tr	kes	verb	cut it!, cut it off!; stop it! (second-person singular imperative of kesmek); ___ şunu: cut it out
+tr	kimin	noun	whose, of whom (genitive of kim: who); Bu ___?: whose is this?
 tr	kimse	pron	anyone - almost always with a negative verb, so in effect 'nobody' ('___ yok', there is nobody)
 tr	kip	noun	mood (in grammar); form, example
 tr	kitle	noun	a body of people, a crowd, an audience; mass (a quantity of matter cohering into one body); (medical) a mass, a lump
@@ -8449,13 +8700,16 @@ tr	olun	verb	be!, become! — addressing more than one person, or one politely (
 tr	olur	verb	all right, OK - agreeing to a request; it happens, it can be done
 tr	oluşturmak	verb	to give rise to, to create; to form, to constitute, to comprise
 tr	onda	pron	on him, on her, with them, about it (locative of o: he, she, it); also at ten o'clock (locative of on: ten)
+tr	ondan	pron	from him, from her, from it; than that one — also the reason reading, because of that (ablative of o: he, she, it)
 tr	onlara	pron	to them, for them (dative plural of o: he, she, it)
+tr	onlardan	pron	from them, of them; than them — ___ bazıları: some of them (ablative of onlar: they, them)
 tr	onları	pron	them - 'they' as the object of a verb ('___ gördüm', I saw them)
 tr	onların	pron	their, of them (genitive plural of o: he, she, it)
 tr	onu	pron	him; her; it; that one (o as the object of a verb)
 tr	onun	pron	his, her, its; of that one ('___ evi', his house)
 tr	orası	pron	that place, there — the spot being talked about (third-person possessive of ora: there)
 tr	ortada	noun	in the middle; out in the open, there for all to see — ___ bir şey var: something is up (locative of orta: middle)
+tr	ortadan	noun	from the middle, out of the way, out of sight — ___ kaybolmak: to vanish, to disappear (orta: middle, centre, with the ablative)
 tr	ortaya	noun	into the open, to the middle (dative of orta: middle); ___ çıkmak: to come out, to turn up
 tr	otuzbir	noun	alternative spelling of otuz bir
 tr	oy	noun	vote; opinion, thought, vision
@@ -8465,6 +8719,7 @@ tr	oyun	noun	game, amusement, entertainment; play, drama (a theatrical piece)
 tr	oyunu	noun	the game as an object of a verb; his game, her play — ___ oynamak: to play the game (accusative or third-person possessive of oyun: game, play)
 tr	panel	noun	A panel that contains personal information (such as Turkish Identification Number, name and surname, place of residence and family tree) of the residents of Türkiye.
 tr	paraya	noun	for money, to money — ___ mal olmak: to cost money, ___ ihtiyacı olmak: to need money (dative of para: money)
+tr	parayı	noun	the money, that particular cash — money as the definite object of a verb (accusative of para: money); ___ verdi: he handed the money over
 tr	partisi	noun	her party, his party — doğum günü ___: birthday party (third-person possessive of parti: party)
 tr	parçası	noun	a piece of it, part of it (third-person singular possessive of parça: piece); işin bir ___: part of the job
 tr	patırtı	noun	a thudding or banging noise; clatter, clamour; a noisy disturbance, a quarrel, a row
@@ -8496,6 +8751,8 @@ tr	sayılmaz	verb	it does not count, it is not considered so; not really, not ex
 tr	sayılır	verb	it counts, it is considered so; also as a hedge: sort of, more or less (third-person singular aorist of sayılmak: to be counted, to be regarded as)
 tr	sayın	adj	dear, esteemed, honourable — the formal title used in addressing someone or referring to them
 tr	selam	intj	hi, hey - the casual greeting between friends; also greetings sent to someone ('___ söyle', say hi to him)
+tr	sende	pron	on you, with you, in your keeping — the shape Turkish uses for you having something: ___ var mı?, do you have one? (locative of sen: you, singular informal)
+tr	senden	pron	from you; than you — singular and informal (ablative of sen: you); O ___ uzun: he is taller than you
 tr	seni	pron	you (singular, informal, as the object of a verb: seni seviyorum, I love you)
 tr	senin	pron	your; yours (singular, informal)
 tr	sergi	noun	an exhibition, a gallery (of works on display); a display platform or stall for goods; an exposition, a fair
@@ -8508,9 +8765,11 @@ tr	seviyorsun	verb	you like, you love — hangi konuları ___: which subjects do
 tr	seviyorum	verb	I love, I like (first-person singular present of sevmek); seni ___: I love you
 tr	seyretmek	verb	to watch (for entertainment, education, etc.); to observe the state or development of something; to watch without getting involved
 tr	seçmek	verb	to choose, select; to elect
+tr	silahı	noun	the gun, the weapon — as a definite object, and as his or her weapon: kimin ___ var?, who has the gun? (silah: weapon, with the accusative or the third-person possessive)
 tr	siper	noun	cover, shelter, refuge; visor, brim; trench, dugout
 tr	sistemi	noun	the system as an object of a verb; its system — bilgisayar ___: computer system (accusative or third-person possessive of sistem: system)
 tr	sizde	pron	with you, at your place, in your hands — sıra ___: it is your turn; plural or polite singular (locative of siz: you)
+tr	sizden	pron	from you, of you — plural or polite, addressing a group: ___ bir iyilik istiyorum, I want a favour of you; ___ kaç kişi?, how many of you? (ablative of siz: you)
 tr	sizi	pron	you, the group or the person addressed politely, as the object of a verb ('___ anlıyorum', I understand you)
 tr	sona	noun	to the end (dative of son: end); baştan ___: from beginning to end; ___ ermek: to come to an end
 tr	sonlandırmak	verb	causative of sonlanmak: to end, to bring to an end
@@ -8556,6 +8815,7 @@ tr	tapu	noun	deed (document); deed office, for example the registrar of landowne
 tr	taraf	noun	side, one half (left or right, front or back); side, faction (a family's side, a team's supporters); party (to a contract or a legal action)
 tr	tarafta	noun	on that side, in that part — ön ___: at the front, hangi ___: on which side (locative of taraf: side)
 tr	tarafında	noun	on his side, on your side, on the side of it — karşı ___: across from it (locative of taraf: side, with the second- or third-person possessive)
+tr	tarafından	noun	by — the phrase that names the doer of a passive: onun ___ yapılan, painted by him; also on the side of, anne ___ dedesi, his grandfather on the mother's side (taraf: side, party, carrying the third-person possessive and the ablative)
 tr	tatbikat	noun	drill (an activity done as an exercise or practice, particularly in preparation for some possible future event or occurrence)
 tr	tekrar	adv	once more, over again - repeating what was done ('___ söyle', say it once more); as a noun, a repeat
 tr	telefonda	noun	on the phone — başka bir ___: on another line (locative of telefon: telephone)
@@ -8619,6 +8879,7 @@ tr	yap	verb	do it!, make it! (second-person singular imperative of yapmak)
 tr	yapacak	verb	he will do, she will make (third-person singular future of yapmak); the same form modifies a noun: ___ bir şey, something to do
 tr	yapacağız	verb	we will do, we will make (first-person plural future of yapmak)
 tr	yapalım	verb	let us do it, shall we do it (first-person plural optative of yapmak)
+tr	yapan	verb	making, doing; the one who makes it, the person who does it — kuralları ___ kişi: the person who makes the rules (participle of yapmak: to make, to do)
 tr	yapar	verb	he does, she makes — habitually or as a general fact (third-person singular aorist of yapmak); yemek ___: cooks
 tr	yaparım	verb	I do, I would do — as a habit or an offer (first-person singular aorist of yapmak)
 tr	yapayım	verb	let me do it, shall I do it? (first-person singular optative of yapmak: to do, to make)
@@ -8642,8 +8903,10 @@ tr	yaşa	verb	live it!, go on living! — a command to one person; also as a che
 tr	yaşayan	verb	the one who lives, living there, a resident (participle of yaşamak: to live)
 tr	ye	verb	eat!, eat it! (second-person singular imperative of yemek: to eat)
 tr	yedi	num	seven (saat yedi — seven o'clock, on yedi — seventeen); just as often the third-person singular past of yemek: ate, had (ekmek yedi — he ate bread, kafayı yedi — he went crazy, dayak yedi — he got a beating)
+tr	yemeği	noun	the meal, the food — as a definite object, and in compounds: akşam ___, dinner (yemek as a noun: food, meal, with the accusative or the third-person possessive)
 tr	yenileme	noun	renewing, renewal; restoration
 tr	yer	noun	place, location; the ground, the earth, floor
+tr	yerde	noun	on the ground, on the floor; in a place (locative of yer: place, ground, floor); ___ bir şey var mı?: is there something on the floor?
 tr	yerden	noun	from the place, from the ground — olduğu ___ uzakta: far from where it happened (ablative of yer: place, ground)
 tr	yere	noun	to the place, to the ground, down (dative of yer: place, ground); başka bir ___: somewhere else
 tr	yeri	noun	its place, the place of; the place — as a definite object (possessive or accusative of yer: place); park ___: parking space
@@ -8680,9 +8943,11 @@ tr	çizmek	verb	to draw (a line), to sketch; to scratch
 tr	çocuk	noun	child, kid; a boy or young person ('küçük bir ___', a little child)
 tr	çocuklar	noun	children, kids; also used to address a group: guys (plural of çocuk: child)
 tr	çocuklara	noun	to the children, for the children — ___ nazik olmak: to be kind to children (dative plural of çocuk: child)
+tr	çocukları	noun	the children, the kids — as a definite object, and with the same ending his, her or their children; erkek ___: the boys (çocuk: child, plural, with the accusative or the third-person possessive)
 tr	çocukların	noun	of the children, the children's; also your children (genitive plural of çocuk: child, or the plural with the second-person possessive)
 tr	çocuğa	noun	to the child, to the boy, for the kid (dative of çocuk: child)
 tr	çocuğu	noun	his child, her child; the child — as a definite object (possessive or accusative of çocuk: child)
+tr	çocuğun	noun	the child's, of the child — and with the very same ending, your child: ___ var mı?, do you have a kid? (çocuk: child, with the genitive or the second-person possessive)
 tr	çok	det	very (before an adjective: '___ güzel', very nice); much, many, a lot of
 tr	çoktan	adv	already, long since; a long time ago
 tr	çözmek	verb	to solve, resolve, decipher, figure out; to untie, unfasten, unbutton; to unravel, disentangle, undo
@@ -8701,6 +8966,7 @@ tr	öldürür	verb	it kills, he kills, she will kill (third-person singular aori
 tr	ölen	verb	the one who dies, the one who died, the dead one (participle of ölmek: to die)
 tr	ölümü	noun	his death, her death; the death as an object of a verb — onun ___ büyük bir kayıp: his death is a great loss (third-person possessive or accusative of ölüm: death)
 tr	ölür	verb	he dies, she dies, it dies (third-person singular aorist of ölmek: to die)
+tr	önceden	noun	beforehand, in advance, ahead of time; previously — iki gün ___: two days earlier; ___ olduğu gibi: the way he used to be (önce: before, with the ablative)
 tr	önder	noun	leader; also a male and female given name
 tr	önemi	noun	its importance, how much it matters — ne ___ var: what does it matter (third-person possessive of önem: importance)
 tr	örtülü	adj	covered, veiled, wrapped with something; covert, secret, clandestine
@@ -8727,6 +8993,7 @@ tr	şiddet	noun	violence, brute force; severity, vehemence, harshness; strength,
 tr	şirketi	noun	the company as an object of a verb; its firm — enerji ___: energy company (accusative or third-person possessive of şirket: company)
 tr	şuna	pron	to that, at that one there (dative of şu: that); ___ bak: look at that
 tr	şunları	pron	those ones, those there — as the object of a verb (accusative plural of şu: that over there)
+tr	şunu	pron	that one, that thing over there — as the definite object of a verb (accusative of şu: that, that yonder); Bunu ya da ___ al: take this or that
 xh	abafana	noun	young men, lads; boys — plural of umfana (class 1/2), older than the amakhwenkwe
 xh	abafazi	noun	women, grown females; wives — more than one
 xh	abantu	noun	people, persons; human beings (class 1/2, sg. umntu)
@@ -8747,6 +9014,9 @@ xh	amathambo	noun	bones, more than one; the ones a dog chews and that ache after
 xh	amazinyo	noun	teeth — plural of izinyo (class 5/6)
 xh	amehlo	noun	eyes (class 5/6, sg. iliso)
 xh	cwaka	noun	dead silence, a total hush; said of a place that suddenly goes completely quiet ('the hall fell ___')
+xh	ekuqaleni	noun	at first, in the beginning, at the start - locative of ukuqala, the beginning (class 15)
+xh	emilanjeni	noun	at the rivers, in or among the rivers - locative of the plural imilambo, rivers (from umlambo, class 3/4)
+xh	emlanjeni	noun	at the river, in the river, down to the river - locative of umlambo, a river (class 3/4)
 xh	emva	adv	behind, at the back; after (in emva kwa- 'after, behind'; emva koko 'after that')
 xh	ezi	pron	these, right here; the near demonstrative for class 8 plural nouns ('___ shoes are both soaked')
 xh	ibandla	noun	a congregation; the body of people who worship together, or an assembly gathered to decide something
@@ -8762,6 +9032,7 @@ xh	iminwe	noun	fingers — plural of umnwe (class 3/4)
 xh	imithi	noun	trees, more than one; the ones you plant for shade or the municipality cuts down
 xh	inene	adv	truly, indeed — opens a statement to swear it is so ('___, I have never seen such a thing')
 xh	inkunzi	noun	a bull; the male of cattle or of another species ('grandfather sold the black ___')
+xh	izagwityi	noun	quails - the small ground-nesting game birds (plural of isagwityi, class 7/8)
 xh	izakhiwo	noun	buildings, structures - the ones people put up (plural of isakhiwo, class 7/8)
 xh	izalathiso	noun	pointers, indicators; the index or list of references at the back of a book (plural of isalathiso, class 7/8)
 xh	izandla	noun	hands, more than one; the ones you wash before eating and that go numb in cold water
@@ -8778,6 +9049,7 @@ xh	izicaka	noun	servants, hired hands; people in another person's service — pl
 xh	izicelo	noun	requests; applications, the ones you put in for a job or a grant (plural of isicelo, class 7/8)
 xh	izichotho	noun	hailstones, falls of hail - the ice that comes down in a storm (plural of isichotho, class 7/8)
 xh	izicwangciso	noun	plans, arrangements worked out in advance (plural of isicwangciso, a plan; class 7/8)
+xh	izidanga	noun	degrees, academic qualifications - the ones conferred at a graduation (plural of isidanga, class 7/8)
 xh	izidenge	noun	fools, simpletons — plural of isidenge (class 7/8)
 xh	izidlele	noun	cheeks — plural of isidlele (class 7/8)
 xh	izidlo	noun	meals; feasts, occasions of eating together — plural of isidlo (class 7/8)
@@ -8788,6 +9060,7 @@ xh	iziganeko	noun	events, incidents - the things that happen and get talked abou
 xh	izigidi	noun	millions - the number, as in millions of rand or millions of people (plural of isigidi, a million; class 7/8)
 xh	izigidimi	noun	messengers, people sent to carry word — plural of isigidimi (class 7/8)
 xh	izigqibo	noun	decisions - the choices people settle on after weighing things up (plural of isigqibo, class 7/8)
+xh	izigxina	noun	permanent arrangements, things settled for good; cases of permanence - plural of isigxina, permanence (class 7/8)
 xh	izihange	noun	robbers, bandits; violent thugs — plural of isihange (class 7/8)
 xh	izihlalo	noun	seats, chairs - anything you sit on (plural of isihlalo, class 7/8)
 xh	izihlangu	noun	shoes - the ones you wear on your feet; in the older sense, shields (plural of isihlangu, class 7/8)
