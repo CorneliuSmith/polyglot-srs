@@ -407,6 +407,17 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
+- **A Latin-script course's stroke library is a–z only.** `alphabet_for`
+  gives Spanish, Turkish, Yoruba and the rest the 26 base letters; their
+  own letters and marks (ñ ç ß ğ ş ı ă ș ț; Hausa ɓ ɗ ƙ; Yoruba ẹ ọ ṣ)
+  are not in the grid, so nobody can author them. The alphabet decks
+  cover only the non-Latin scripts, which is where the list came from.
+  Fix: a per-language extras table in `services/scripts.py`, or read the
+  letters the course's own sentences use, as the baseline coverage does.
+- **Entry and exit points are stored but not yet set.** `script_glyphs.
+  joins` exists for the Cyrillic composer (Phase 4) and the panel writes
+  `{}`; the composer will default to first-point-in / last-point-out
+  until the panel gets a way to place them.
 - **The baseline's lines are a greedy pick, not an authored set.** Until
   a script has speaker-reviewed exemplar sentences (§5), the eight lines
   come from the course's A1/A2 sentences by set cover; on a small course

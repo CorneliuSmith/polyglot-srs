@@ -1838,7 +1838,8 @@
     "content": {
       "aria": "Content type",
       "grammar": "grammar",
-      "vocab": "vocab"
+      "vocab": "vocab",
+      "strokes": "strokes"
     }
   }
 }

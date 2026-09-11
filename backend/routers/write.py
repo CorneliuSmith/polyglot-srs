@@ -27,6 +27,7 @@ from pydantic import BaseModel
 from backend.dependencies import get_current_user
 from backend.repositories.pool import rls_connection
 from backend.repositories.profile import effective_support_locale
+from backend.repositories.strokes import list_exemplars, list_glyphs, manifest
 from backend.repositories.tutor import log_tutor_usage
 from backend.repositories.write import (
     adapt_enabled,
@@ -51,6 +52,7 @@ from backend.services.generate import generation_available
 from backend.services.ink_method import summarize_method
 from backend.services.models import resolve_model
 from backend.services.rate_limit import tutor_chat_limiter
+from backend.services.scripts import alphabet_for, script_of, styles_of
 from backend.services.write_assess import (
     MAX_EXPECTED_CHARS,
     MAX_IMAGE_BYTES,
@@ -375,4 +377,37 @@ async def baseline_done(body: BaselineDone, user: dict = Depends(get_current_use
             if body.covered is not None else None,
             neatness=body.neatness)
     return {"baseline_at": stats.get("baseline_at"), "baselines": stats.get("baselines", 0)}
+
+
+@router.get("/alphabet")
+async def alphabet(language_id: str, user: dict = Depends(get_current_user)):
+    """The course's script, the styles it is written in, and its letters
+    with their forms — the frame of the stroke library."""
+    async with rls_connection(user["id"]) as conn:
+        _, code, _ = await _language(conn, language_id)
+    script = script_of(code)
+    return {"code": code, "script": script, "styles": styles_of(script),
+            "letters": alphabet_for(code)}
+
+
+@router.get("/manifest")
+async def write_manifest(language_id: str, user: dict = Depends(get_current_user)):
+    """How much of the course's stroke library exists — per style, authored
+    and reviewed — so the Write page knows whether guided Letters can run."""
+    async with rls_connection(user["id"]) as conn:
+        _, code, _ = await _language(conn, language_id)
+        return await manifest(conn, code, script_of(code))
+
+
+@router.get("/glyphs")
+async def glyphs(language_id: str, style: str | None = None,
+                 user: dict = Depends(get_current_user)):
+    """The reviewed stroke templates a learner traces (and the reviewed
+    exemplar sentences they watch). Drafts never reach here."""
+    async with rls_connection(user["id"]) as conn:
+        _, code, _ = await _language(conn, language_id)
+        script = script_of(code)
+        return {"script": script,
+                "glyphs": await list_glyphs(conn, script, style, reviewed_only=True),
+                "exemplars": await list_exemplars(conn, script, style, reviewed_only=True)}
 

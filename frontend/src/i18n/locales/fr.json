@@ -1838,7 +1838,8 @@
     "content": {
       "aria": "Type de contenu",
       "grammar": "grammaire",
-      "vocab": "vocabulaire"
+      "vocab": "vocabulaire",
+      "strokes": "tracés"
     }
   }
 }

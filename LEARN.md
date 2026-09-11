@@ -761,6 +761,33 @@ up to half again "below your usual", past that "well below". Each ratio
 has a floor so a very tidy baseline does not turn ordinary wobble into a
 collapse. The panel says which yardstick it is using.
 
+**The stroke library** (Phase 2; `services/scripts.py`,
+`repositories/strokes.py`, migration 20261020). The strokes that teach a
+letter are *content*, authored by a speaker and signed off by a reviewer,
+exactly like a sentence or a gloss. `script_glyphs` holds one row per
+(script, glyph, form, style): the ordered strokes in a 1000×1000 box
+(`glyphBox.ts` normalises a canvas's ink into it and back), a hint per
+stroke, entry/exit for joining scripts, and `reviewed`. Forms follow the
+hand, not the font — Arabic letters take up to four positional forms and
+the six right-joining-only letters two; cased scripts lower and upper;
+everything else one — and styles are the hands a script is taught in
+(Russian cursive and print, Arabic Naskh then ruqʿah, Hebrew cursive and
+print, Latin print and cursive). `script_exemplars` holds sentences a
+speaker wrote whole, in one flow: the Learn models and the composer's
+yardstick. The Workshop's **Strokes** content kind
+(`features/contribute/StrokesPanel.tsx`) draws the grid of every letter ×
+form with its status, opens a form over a faint font glyph to trace (the
+Letters page's ZWJ trick shapes Arabic positional forms), records the
+strokes in order with a hint each, previews the animation
+(`StrokePreview.tsx`), saves as a draft, and lets a reviewer mark it
+reviewed — a re-save drops a form back to draft, never self-certified.
+Writes go through `PUT /api/contribute/strokes` on the privileged
+connection behind the language roles; learners read only reviewed rows
+(`GET /api/write/glyphs`) and the Write page keys the guided Letters
+mode (Phase 3) on `GET /api/write/manifest`. A reviewed set authored
+elsewhere lands through `data/strokes/{script}.json`
+(`seeder/seed_strokes.py`), the alphabet decks' pattern.
+
 Prompts come from content the app already holds (`repositories/write.py`):
 a sentence is an example line with its meaning in the learner's support
 locale (own cards first, then the course's A1/A2 lines), a word is one of

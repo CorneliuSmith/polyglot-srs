@@ -2170,6 +2170,151 @@ async def analytics_features(
                 "features": await admin_feature_popularity(conn, days)}
 
 
+# ---------------------------------------------------------------------------
+# The Strokes panel (docs/plans/handwriting.md, §5): a speaker traces how
+# each letter is written; a reviewer signs it off. Writes go through the
+# privileged connection (the tables have read policies only), behind the
+# same language roles every other content write uses.
+# ---------------------------------------------------------------------------
+
+
+class StrokesUpsert(BaseModel):
+    language_id: str
+    glyph: str = Field(min_length=1, max_length=8)
+    form: str = Field(min_length=1, max_length=16)
+    style: str = Field(min_length=1, max_length=16)
+    strokes: list
+    joins: dict | None = None
+    hints: list[str] | None = None
+
+
+class ExemplarCreate(BaseModel):
+    language_id: str
+    style: str = Field(min_length=1, max_length=16)
+    text: str = Field(min_length=1, max_length=200)
+    strokes: list
+
+
+async def _strokes_script(user_id: str, language_id: str, *, review: bool) -> tuple[str, str]:
+    from backend.services.scripts import script_of
+
+    await _require_language_role(user_id, language_id, review=review)
+    async with rls_connection(user_id) as conn:
+        code = await conn.fetchval("SELECT code FROM languages WHERE id = $1", language_id)
+    if not code:
+        raise HTTPException(status_code=404, detail="Unknown language")
+    return code, script_of(code)
+
+
+@router.get("/strokes")
+async def strokes_list(language_id: str, style: str | None = None,
+                       user: dict = Depends(get_current_user)):
+    """Every form authored for the course's script, drafts included, plus
+    the exemplars — what the panel's grid is drawn from."""
+    from backend.repositories.strokes import list_exemplars, list_glyphs
+
+    _, script = await _strokes_script(user["id"], language_id, review=False)
+    async with rls_connection(user["id"]) as conn:
+        return {"script": script,
+                "glyphs": await list_glyphs(conn, script, style, reviewed_only=False),
+                "exemplars": await list_exemplars(conn, script, style, reviewed_only=False)}
+
+
+@router.put("/strokes")
+async def strokes_upsert(body: StrokesUpsert, user: dict = Depends(get_current_user)):
+    """Save one letter form's strokes. Saving drops a reviewed form back to
+    draft — a reviewer looks again, always."""
+    from backend.repositories.strokes import upsert_glyph
+    from backend.services.scripts import forms_for, styles_of
+
+    _, script = await _strokes_script(user["id"], body.language_id, review=False)
+    if body.style not in styles_of(script):
+        raise HTTPException(status_code=422, detail=f"style must be one of {styles_of(script)}")
+    if body.form not in forms_for(script, body.glyph):
+        raise HTTPException(status_code=422, detail=f"form must be one of {forms_for(script, body.glyph)}")
+    try:
+        async with privileged_connection() as conn:
+            row = await upsert_glyph(
+                conn, script=script, glyph=body.glyph, form=body.form,
+                style=body.style, strokes=body.strokes, joins=body.joins,
+                hints=body.hints, user_id=user["id"])
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    if row is None:
+        raise HTTPException(status_code=503, detail="The stroke library is not set up on this server yet")
+    return row
+
+
+@router.post("/strokes/{glyph_id}/review")
+async def strokes_review(glyph_id: str, language_id: str, reviewed: bool = True,
+                         user: dict = Depends(get_current_user)):
+    from backend.repositories.strokes import set_glyph_reviewed
+
+    await _strokes_script(user["id"], language_id, review=True)
+    async with privileged_connection() as conn:
+        if not await set_glyph_reviewed(conn, glyph_id, reviewed):
+            raise HTTPException(status_code=404, detail="Unknown form")
+    return {"id": glyph_id, "reviewed": reviewed}
+
+
+@router.delete("/strokes/{glyph_id}")
+async def strokes_delete(glyph_id: str, language_id: str,
+                         user: dict = Depends(get_current_user)):
+    from backend.repositories.strokes import delete_glyph
+
+    await _strokes_script(user["id"], language_id, review=False)
+    async with privileged_connection() as conn:
+        if not await delete_glyph(conn, glyph_id):
+            raise HTTPException(status_code=404, detail="Unknown form")
+    return {"deleted": glyph_id}
+
+
+@router.put("/exemplars")
+async def exemplar_create(body: ExemplarCreate, user: dict = Depends(get_current_user)):
+    """One sentence written whole, in one flow — a Learn model and the
+    composer's yardstick."""
+    from backend.repositories.strokes import add_exemplar
+    from backend.services.scripts import styles_of
+
+    code, script = await _strokes_script(user["id"], body.language_id, review=False)
+    if body.style not in styles_of(script):
+        raise HTTPException(status_code=422, detail=f"style must be one of {styles_of(script)}")
+    try:
+        async with privileged_connection() as conn:
+            row = await add_exemplar(
+                conn, script=script, language_code=code, style=body.style,
+                text=body.text, strokes=body.strokes, user_id=user["id"])
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    if row is None:
+        raise HTTPException(status_code=503, detail="The stroke library is not set up on this server yet")
+    return row
+
+
+@router.post("/exemplars/{exemplar_id}/review")
+async def exemplar_review(exemplar_id: str, language_id: str, reviewed: bool = True,
+                          user: dict = Depends(get_current_user)):
+    from backend.repositories.strokes import set_exemplar_reviewed
+
+    await _strokes_script(user["id"], language_id, review=True)
+    async with privileged_connection() as conn:
+        if not await set_exemplar_reviewed(conn, exemplar_id, reviewed):
+            raise HTTPException(status_code=404, detail="Unknown exemplar")
+    return {"id": exemplar_id, "reviewed": reviewed}
+
+
+@router.delete("/exemplars/{exemplar_id}")
+async def exemplar_delete(exemplar_id: str, language_id: str,
+                          user: dict = Depends(get_current_user)):
+    from backend.repositories.strokes import delete_exemplar
+
+    await _strokes_script(user["id"], language_id, review=False)
+    async with privileged_connection() as conn:
+        if not await delete_exemplar(conn, exemplar_id):
+            raise HTTPException(status_code=404, detail="Unknown exemplar")
+    return {"deleted": exemplar_id}
+
+
 @router.get("/analytics/handwriting")
 async def analytics_handwriting(user: dict = Depends(get_current_user)):
     """The handwriting reader per course (admin): writers with a profile,

@@ -23,6 +23,7 @@ import type { GrammarPointEdit } from '../../api/contribute'
 import { usePrefsStore } from '../../stores/prefsStore'
 import DrillsEditor from './DrillsEditor'
 import VocabReviewPanel from './VocabReviewPanel'
+import StrokesPanel from './StrokesPanel'
 import FeedbackPanel from './FeedbackPanel'
 import IssuesPanel from './IssuesPanel'
 import ChangeRequestsPanel from './ChangeRequestsPanel'
@@ -861,7 +862,7 @@ export default function ContributorPage() {
   const [tab, setTab] = useState<WorkspaceTab>(linkedTab ?? 'contribute')
   // Grammar points have a full authoring surface; vocab is browse + votable
   // suggestions (WP32). The toggle scopes the Contribute/Review content list.
-  const [contentKind, setContentKind] = useState<'grammar' | 'vocab'>('grammar')
+  const [contentKind, setContentKind] = useState<'grammar' | 'vocab' | 'strokes'>('grammar')
   // The Admin tab had become one scroll of eleven stacked panels — finding
   // the language switches meant scrolling past every chart (owner: "the
   // admin page needs to be organized"). One panel group on screen at a
@@ -1036,7 +1037,7 @@ export default function ContributorPage() {
                 role="tablist"
                 aria-label={t('workspace.content.aria')}
               >
-                {(['grammar', 'vocab'] as const).map((k) => (
+                {(['grammar', 'vocab', 'strokes'] as const).map((k) => (
                   <button
                     key={k}
                     type="button"
@@ -1326,6 +1327,16 @@ export default function ContributorPage() {
 
             {/* Vocab review surface (WP32): browse + votable suggestions,
                 shown for both Contribute and Review when Vocab is selected. */}
+            {/* The stroke library (docs/plans/handwriting.md, §5): how each
+                letter is written, traced by a speaker, signed off by a
+                reviewer. Same surface for Workshop and Review. */}
+            {contentKind === 'strokes' && focusPanel === null && (
+              <StrokesPanel
+                languageId={activeLanguageId}
+                languageCode={languageCode}
+                canReview={(data.can_review ?? false) || data.is_admin}
+              />
+            )}
             {contentKind === 'vocab' && focusPanel === null && (
               <VocabReviewPanel
                 languageId={activeLanguageId}
