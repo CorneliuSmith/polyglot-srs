@@ -322,7 +322,6 @@ word	sentence	translation	difficulty_rank
 하자	우리와 함께 하자.	Join us.	520
 충분히	이제 충분히 했습니다.	Now I've had enough.	522
 어떻게	어떻게 말해요?	How do you say it?	523
-말하다	어떻게 말해요?	How do you say it?	523
 천천히	천천히 하세요.	Don't hurry.	531
 하세요	천천히 하세요.	Don't hurry.	531
 증거	증거 있어?	Do you have proof?	533
@@ -346,39 +345,24 @@ word	sentence	translation	difficulty_rank
 싫어요	세상이 싫어요.	I hate this world.	577
 저는	저는 당신 이름이 싫어요.	I don't like your name.	577
 싫어요	저는 당신 이름이 싫어요.	I don't like your name.	577
-사랑하다	사랑해요.	I love you.	595
-사랑하다	사랑은 사랑을 사랑해요.	Love loves love.	595
-사랑하다	사랑합니다.	I love you.	595
 어머니	어머니를 사랑해요?	Do you love your mother?	595
 시작	시작이 좋아.	That's a good start.	605
 멀리	나는 더 이상 멀리 갈 수 없다.	I can't go any farther.	608
 이상	나는 더 이상 멀리 갈 수 없다.	I can't go any farther.	608
 저는	저는 잘 모릅니다.	How should I know?	609
-모르다	저는 잘 모릅니다.	How should I know?	609
-모르다	그 사람을 모릅니다.	I don't know him.	609
-모르다	모릅니다.	I don't know.	609
 개	그 개한테 가까이 가지 마.	Don't go near the dog.	622
 가까이	그 개한테 가까이 가지 마.	Don't go near the dog.	622
 잠깐	잠깐 실례합니다.	Excuse me a minute.	624
-섹스	섹스는 좋다.	Sex is good.	632
 저리	저리 가.	Beat it.	635
 가	저리 가.	Beat it.	635
 저리	저리 가!	Go away!	635
 가	저리 가!	Go away!	635
 저리	저리 가, 톰.	Go away, Tom.	635
-지구	지구는 달보다 훨씬 커.	The earth is far bigger than the moon.	644
 커	지구는 달보다 훨씬 커.	The earth is far bigger than the moon.	644
-열쇠	내 열쇠가 필요하다.	I need my keys.	650
 공격	공격!	Attack!	652
 커피	커피 좋아해요?	Do you like coffee?	656
-좋아하다	커피 좋아해요?	Do you like coffee?	656
 랩	랩 좋아해요?	Do you like rap?	656
-좋아하다	랩 좋아해요?	Do you like rap?	656
-좋아하다	차 좋아해요?	Do you like tea?	656
 차	차 좋아해요?	Do you like tea?	656
-가다	우리는 집에 갑니다.	We are going home.	660
-가다	학교에 갑니다.	I go to school.	660
-화장실	나는 화장실에 가야 합니다.	I have to go to the toilet.	670
 크게	더 크게.	Louder.	671
 모두들	모두들 안녕!	Hello everyone!	674
 없었다	방 안에 남는 게 거의 없었다.	There was almost nothing in the room.	676
@@ -390,20 +374,13 @@ word	sentence	translation	difficulty_rank
 써	난 이제 편지 안 써.	I don't write letters anymore.	679
 이제	난 이제 편지 안 써.	I don't write letters anymore.	679
 편지	난 이제 편지 안 써.	I don't write letters anymore.	679
-보이다	좋아 보이네요.	It looks good.	693
-보이다	잘 보이죠?	Can you see it well?	693
-믿다	신을 믿어요?	Do you believe in God?	694
 자주	여기 자주 와?	Do you come here a lot?	696
 이게	이게 도움이 될 지도 몰라.	This may help you.	698
 지도	이게 도움이 될 지도 몰라.	This may help you.	698
 도움	이게 도움이 될 지도 몰라.	This may help you.	698
 절대로	절대로!	Definitely!	708
 모	너는 절대 모를 걸.	You'll never know.	732
-손님	손님이 있다.	We've got a visitor.	734
 아이고	아이고!	Whoops!	740
-컴퓨터	컴퓨터를 가지고 있어요.	I have a computer.	742
-컴퓨터	컴퓨터를 가지고 있어.	I have a computer.	742
-컴퓨터	컴퓨터가 있어요.	I have a computer.	742
 어떻게	사업 어떻게 되어 가?	How's the business going?	750
 헨리	제 이름은 헨리 입니다.	My name's Henry.	752
 제	제 이름은 헨리 입니다.	My name's Henry.	752
@@ -415,15 +392,10 @@ word	sentence	translation	difficulty_rank
 모든	너는 모든 것에 책임이 있어.	You're responsible for everything.	767
 것	너는 모든 것에 책임이 있어.	You're responsible for everything.	767
 같다	비가 올 것 같네요.	It looks like it's going to rain.	768
-비	비가 올 것 같네요.	It looks like it's going to rain.	768
 올	비가 올 것 같네요.	It looks like it's going to rain.	768
-진심	진심으로 감사합니다.	I thank you from the bottom of my heart.	772
 은행	은행 해요?	Is the bank open?	774
 은행	그 은행은 어디에 있어요?	Where is the bank?	774
 은행	그 은행은 어디 있어?	Where is the bank?	774
-하나님	하나님을 믿어요?	Do you believe in God?	782
-믿다	하나님을 믿어요?	Do you believe in God?	782
-감사하다	감사해요.	Thank you.	792
 농담	농담 아니야.	I'm not joking.	800
 농담	농담은 그만 둬.	Stop joking.	800
 한잔	차 한잔 해, 톰.	Drink your tea, Tom.	809
@@ -442,10 +414,6 @@ word	sentence	translation	difficulty_rank
 병	그녀는 그 병을 열 수 없었다.	She couldn't open that bottle.	831
 열	그녀는 그 병을 열 수 없었다.	She couldn't open that bottle.	831
 문자	제 문자 못 받았어요?	Did you not get my text?	835
-받다	제 문자 못 받았어요?	Did you not get my text?	835
-원하다	그 여자는 무엇을 원해요?	What does she want?	837
-원하다	그 고양이는 무엇을 원해요?	What does the cat want?	837
-원하다	나는 배를 원해요.	I want a boat.	837
 여자친구	여자친구 있어요?	Do you have a girlfriend?	841
 여자친구	여자친구 있어?	Do you have a girlfriend?	841
 여자친구	저는 여자친구에게 전화를 했습니다.	I called my girlfriend.	841
@@ -455,9 +423,6 @@ word	sentence	translation	difficulty_rank
 몇	"""형제가 몇 명이나 있어?"" ""한 명 있어."""	"""How many brothers have you got?"" ""One."""	844
 형제	"""형제가 몇 명이나 있어?"" ""한 명 있어."""	"""How many brothers have you got?"" ""One."""	844
 오케이	오케이.	Okay.	850
-가다	그분은 학교에 버스로 갑니다.	He goes to school by bus.	854
-버스	그분은 학교에 버스로 갑니다.	He goes to school by bus.	854
-버스	버스로 가자.	Let's go by bus.	854
 연락	나중에 호텔로 연락 바랍니다.	Please call me at my hotel later.	862
 어째서	어째서 그런 짓을?	What are you doing that for?	864
 하느님	하느님 감사합니다.	Thank God.	879
@@ -473,18 +438,11 @@ word	sentence	translation	difficulty_rank
 남자친구	아니야, 새 남자친구가 아니야.	No, he's not my new boyfriend.	884
 남자친구	남자친구 있어요?	Do you have a boyfriend?	884
 남자친구	남자친구 있어?	Do you have a boyfriend?	884
-모자	우리는 모자가 필요하다.	We need hats.	887
 평화	사랑과 평화.	Love and Peace.	894
 평화	우리는 평화를 원합니다.	We want peace.	894
-반갑다	반갑습니다.	Nice to meet you.	897
-반갑다	반갑습니다!	Nice to meet you!	897
-이해하다	이해했습니다.	I think I understand.	902
-이해하다	이해합니다.	I understand you.	902
-이해하다	이해해요.	I understand you.	902
 안녕히	안녕히 가세요!	Goodbye!	907
 안녕히	안녕히 가세요.	Goodbye.	907
 맥주	나는 맥주가 좋아.	I like beer.	941
-제안	제안이 있습니다.	I have a suggestion.	944
 가만	가만 있어.	Be calm.	953
 개	나는 사과가 몇 개 있어요.	I have a few apples.	957
 몇	나는 사과가 몇 개 있어요.	I have a few apples.	957
@@ -495,7 +453,6 @@ word	sentence	translation	difficulty_rank
 공원	그는 공원 내 어딘가에 있다.	He's somewhere in the park.	997
 어딘가	그는 공원 내 어딘가에 있다.	He's somewhere in the park.	997
 요리	요리 좋아해요?	Do you like cooking?	1001
-느낌	아무런 느낌도 안 나.	I don't feel anything at all.	1008
 아무런	아무런 느낌도 안 나.	I don't feel anything at all.	1008
 천천히	천천히 걸어.	Walk slowly.	1011
 걸어	천천히 걸어.	Walk slowly.	1011
@@ -530,7 +487,6 @@ word	sentence	translation	difficulty_rank
 너희들	너희들의 결혼을 축하해요.	Let me congratulate you on your marriage.	1113
 축하하다	너희들의 결혼을 축하해요.	Let me congratulate you on your marriage.	1113
 축하하다	당신의 얼굴에 축하합니다.	Congratulations on your face.	1113
-여성	세계 여성의 날을 축하합니다.	Happy International Women's Day!	1113
 늘	그녀는 안다. 늘 안다.	She knows. She always knows.	1130
 안다	우리 아버지는 비행기를 몰 줄 안다.	My father can fly an airplane.	1130
 줄	우리 아버지는 비행기를 몰 줄 안다.	My father can fly an airplane.	1130
@@ -547,14 +503,11 @@ word	sentence	translation	difficulty_rank
 못하다	나는 영어를 못합니다.	I don't understand English.	1148
 영어	나는 영어를 못합니다.	I don't understand English.	1148
 영어	영어 좋아해요?	Do you like English?	1148
-말하다	이것을 영어로 어떻게 말해요?	How do you say this in English?	1148
 영어	이것을 영어로 어떻게 말해요?	How do you say this in English?	1148
 못하다	영어를 못해요.	I don't speak English.	1148
 못하다	영어를 못합니다.	I don't speak English.	1148
-말하다	영어로 말해요!	Speak English.	1148
 이따	이따 봐!	See you later!	1165
 매일	공부는 매일 하고 있어?	Do you study every day?	1177
-모자	나는 그녀의 모자가 싫다.	I hate her hat.	1179
 싫다	난 그 사람과 아무것도 하기 싫다.	I want nothing to do with him.	1179
 하기	난 그 사람과 아무것도 하기 싫다.	I want nothing to do with him.	1179
 아무것	난 그 사람과 아무것도 하기 싫다.	I want nothing to do with him.	1179
@@ -578,7 +531,6 @@ word	sentence	translation	difficulty_rank
 예쁘다	이 여자 엄청 예쁘다.	This woman is very good looking.	1324
 예쁘다	그녀는 정말 예쁘다.	She is very pretty.	1324
 예쁘다	그녀는 예쁩니다.	She is beautiful.	1324
-변화	사회가 변화하고 있다.	Society is changing.	1325
 사회	사회가 변화하고 있다.	Society is changing.	1325
 건배	건강을 위해 건배!	Drink to my health!	1326
 건배	건강을 위해 건배.	Drink to my health.	1326
@@ -626,7 +578,6 @@ word	sentence	translation	difficulty_rank
 살	나는 새 차를 살 여유가 없다.	I can't afford a new car.	1693
 여유	나는 새 차를 살 여유가 없다.	I can't afford a new car.	1693
 오다	비가 옵니다.	It's raining.	1696
-비	비가 옵니다.	It's raining.	1696
 도착하다	언제 도착했어요?	When did you arrive?	1710
 언제	언제 도착했어요?	When did you arrive?	1710
 극장	극장에 가자.	Let's go to the cinema.	1740
@@ -682,7 +633,6 @@ word	sentence	translation	difficulty_rank
 크다	와! 정말 크다.	Wow, that's so big.	1989
 크다	내 개는 큽니다.	My dog is big.	1989
 크다	나는 너보다 크다.	I'm bigger than you.	1989
-버스	저 버스는 어디로 가나요?	Where does that bus go?	1994
 마을	우리 마을에 도서관이 하나 있다.	There is a library in our city.	2024
 도서관	우리 마을에 도서관이 하나 있다.	There is a library in our city.	2024
 별명	별명 있어요?	Do you have a nickname?	2080
@@ -717,7 +667,6 @@ word	sentence	translation	difficulty_rank
 확신하다	확신해요.	I'm sure.	2221
 쉬다	그는 오늘 쉽니다.	He is taking a day off today.	2239
 심하다	그 아이는 장난이 심하다.	That child is full of mischief.	2241
-장난	그 아이는 장난이 심하다.	That child is full of mischief.	2241
 자주	저는 자주 책을 읽습니다.	I often read books.	2269
 읽다	저는 자주 책을 읽습니다.	I often read books.	2269
 전화하다	토마스한테 전화해요.	I phone Thomas.	2274
@@ -985,10 +934,8 @@ word	sentence	translation	difficulty_rank
 다른	다음을 발음이 다른 한 개는?	Which of the following is pronounced differently?	3848
 발음	다음을 발음이 다른 한 개는?	Which of the following is pronounced differently?	3848
 느끼다	최근에 스트레스를 느낍니다.	I've been feeling stressed lately.	3858
-최근	최근에 스트레스를 느낍니다.	I've been feeling stressed lately.	3858
 빨간색	빨간색 연필 줘.	Give me a red pencil.	3888
 다하다	최선을 다하다	I have to do my best.	3892
-최선	최선을 다하다	I have to do my best.	3892
 긍정적	긍정적으로 있어.	Stay positive.	3914
 나이스	나이스 샷!	Nice shot!	3919
 손해	손해 볼 게 없다.	I have nothing to lose.	3941
@@ -1016,7 +963,6 @@ word	sentence	translation	difficulty_rank
 테니스	일주일에 몇 번 테니스 쳐?	How many times a week do you play tennis?	4258
 일주일	일주일에 몇 번 테니스 쳐?	How many times a week do you play tennis?	4258
 비어	내 가방은 비어 있다.	My bag is empty.	4274
-가방	내 가방은 비어 있다.	My bag is empty.	4274
 호주	호주에서는 인기가 있어요.	It's popular in Australia.	4286
 권	이 책 세 권은 톰 거야.	These three books belong to Tom.	4305
 세	이 책 세 권은 톰 거야.	These three books belong to Tom.	4305
@@ -1027,14 +973,12 @@ word	sentence	translation	difficulty_rank
 바구니	바구니에 사과 몇 개가 있다.	There are some apples in the basket.	4410
 정해	네가 정해.	You decide.	4420
 휴지	화장실에 휴지가 없다.	There's no toilet paper in the bathroom.	4424
-화장실	화장실에 휴지가 없다.	There's no toilet paper in the bathroom.	4424
 취하다	그는 취했어요.	He is drunk.	4489
 취하다	그는 취했습니다.	He is drunk.	4489
 종종	나는 종종 프랑스어로 꿈을 꿔.	I often dream in French.	4502
 프랑스어	나는 종종 프랑스어로 꿈을 꿔.	I often dream in French.	4502
 꿈	나는 종종 프랑스어로 꿈을 꿔.	I often dream in French.	4502
 프랑스어	프랑스어 할 줄 아는 사람 여기 있어?	Is there anybody here who speaks French?	4502
-단어	이 단어는 프랑스어가 아니야.	This word isn't French.	4502
 조금	그녀는 프랑스어도 조금 할 줄 안다.	She can also speak a little bit of French.	4502
 회사	우리 회사의 몇몇 사람들은 프랑스어를 할 줄 안다.	Several people in our office can speak French.	4502
 몇몇	우리 회사의 몇몇 사람들은 프랑스어를 할 줄 안다.	Several people in our office can speak French.	4502
@@ -1045,7 +989,6 @@ word	sentence	translation	difficulty_rank
 돌고래	돌고래처럼 수영을 잘해요.	He can swim like a dolphin.	4562
 잘하다	돌고래처럼 수영을 잘해요.	He can swim like a dolphin.	4562
 가득하다	가방이 가득합니다.	The bag is full.	4593
-가방	가방이 가득합니다.	The bag is full.	4593
 터키	터키에 살아요.	I live in Turkey.	4615
 시즌	야구 시즌이 시작되었어요.	Baseball season has begun.	4689
 시작되다	야구 시즌이 시작되었어요.	Baseball season has begun.	4689
@@ -1055,7 +998,6 @@ word	sentence	translation	difficulty_rank
 관련	아버지는 철도 관련 일을 하고 있습니다.	My dad works on the railways.	4801
 아버지	아버지는 철도 관련 일을 하고 있습니다.	My dad works on the railways.	4801
 공산주의자	난 공산주의자가 아니야.	I'm not a communist.	4806
-지구	지구는 태양보다 작아요.	The earth is smaller than the sun.	4825
 주자	탐에게 여유를 좀 주자.	Let's cut Tom some slack.	4893
 복구	당신은 복구	You recovered.	4897
 지루하다	당신은 지루합니다.	You're boring.	4909
@@ -1108,9 +1050,7 @@ word	sentence	translation	difficulty_rank
 다	5 곱하기 7은 35다.	Five times seven is thirty-five.	5477
 은	5 곱하기 7은 35다.	Five times seven is thirty-five.	5477
 설거지	설거지 해.	Wash up.	5508
-최근	그녀는 최근에 아기를 낳았어요.	She recently gave birth.	5536
 낳다	그녀는 최근에 아기를 낳았어요.	She recently gave birth.	5536
-최근	그녀는 최근에 아기를 낳았습니다.	She recently gave birth.	5536
 낳다	그녀는 최근에 아기를 낳았습니다.	She recently gave birth.	5536
 더하기	5 더하기 2는 7이다.	Five plus two equals seven.	5561
 더하기	3 더하기 5는 8이다.	3 plus 5 is 8.	5561
@@ -1190,7 +1130,6 @@ word	sentence	translation	difficulty_rank
 유로	저는 하루에 100유로를 법니다.	I make €100 a day.	19999
 불구	그가 사과를 했음에도 불구하고, 난 아직 화가 나 있어요.	Even though he apologized, I'm still furious.	19999
 화가	그가 사과를 했음에도 불구하고, 난 아직 화가 나 있어요.	Even though he apologized, I'm still furious.	19999
-우주	그러나 우주는 무한하다.	But the universe is infinite.	19999
 그러나	그러나, 그 반대도 또한 항상 진실이다.	And yet, the contrary is always true as well.	19999
 또한	그러나, 그 반대도 또한 항상 진실이다.	And yet, the contrary is always true as well.	19999
 항상	그러나, 그 반대도 또한 항상 진실이다.	And yet, the contrary is always true as well.	19999
@@ -1216,7 +1155,6 @@ word	sentence	translation	difficulty_rank
 선물	산타 할아버지, 크리스마스 선물로 여자친구를 받고 싶어요	Santa Claus, I want to receive a girlfriend for Christmas.	19999
 산타	산타 할아버지, 크리스마스 선물로 여자친구를 받고 싶어요	Santa Claus, I want to receive a girlfriend for Christmas.	19999
 크리스마스	산타 할아버지, 크리스마스 선물로 여자친구를 받고 싶어요	Santa Claus, I want to receive a girlfriend for Christmas.	19999
-중국	이것은 중국의 부채입니다.	This is a Chinese fan.	19999
 보다	네가 나를 사랑하는 것 보다 내가 너를 더 사랑해.	I love you more than you love me.	19999
 내가	네가 나를 사랑하는 것 보다 내가 너를 더 사랑해.	I love you more than you love me.	19999
 걸음	천리길도 한 걸음부터.	A journey of a thousand miles starts with a single step.	19999
@@ -1226,7 +1164,6 @@ word	sentence	translation	difficulty_rank
 슈퍼	주말에 나는 슈퍼에서 아르바이트한다.	I work at the supermarket on the weekends.	19999
 월	나는 1972년 10월 10일에 태어났다.	I was born on October 10, 1972.	19999
 증거	증거가 있습니까?	Is there any proof?	19999
-손가락	나는 손가락을 베었다.	I have cut my finger.	19999
 거울	거울 속을 들여다보아라.	Just look in the mirror.	19999
 그리고	1, 3 그리고 5는 홀수이다.	One, three, and five are odd numbers.	19999
 그리고	2, 4 그리고 6은 짝수이다.	Two, four, six, etc. are even numbers.	19999
@@ -1254,7 +1191,6 @@ word	sentence	translation	difficulty_rank
 강의	세계의 가장 긴 강의 이름이 뭐지?	What is the longest river in the world?	19999
 관광	다음 관광 여행이 언제예요?	When is the next guided tour?	19999
 살인자	살인자는 살인을 자백했다.	The murderer confessed his crime.	19999
-살인	살인자는 살인을 자백했다.	The murderer confessed his crime.	19999
 보통	보통 몇 시에 아침에 드셔요?	What time do you usually eat breakfast?	19999
 별로	요즘에는 운동을 별로 안 해요.	I don't exercise a lot these days.	19999
 운동	요즘에는 운동을 별로 안 해요.	I don't exercise a lot these days.	19999
@@ -1265,13 +1201,11 @@ word	sentence	translation	difficulty_rank
 비디오	비디오 게임 이나 해요.	Let's play video games or something.	19999
 게임	비디오 게임 이나 해요.	Let's play video games or something.	19999
 이번	이번 주말에 뭐 먹고 싶어요?	What do you want to eat this weekend?	19999
-중국	중국에 가고 싶었어요	I wanted to go to China.	19999
 일찍	일찍 일어났어요.	I got up early.	19999
 일찍	어제는 일찍 일어났어요.	I got up early yesterday.	19999
 놀다	순이가 놀아요.	Suni is playing.	19999
 논리	거기에 논리가 어디 있지?	Where is the logic in that?	19999
 호박	호박은 녹색입니다.	Courgettes are green.	19999
-비	비가 그쳤다.	It has stopped raining.	19999
 거리	뉴욕에서부터 런던까지는 거리가 얼마나 됩니까?	How far is it from New York to London?	19999
 런던	뉴욕에서부터 런던까지는 거리가 얼마나 됩니까?	How far is it from New York to London?	19999
 뉴욕	뉴욕에서부터 런던까지는 거리가 얼마나 됩니까?	How far is it from New York to London?	19999
@@ -1286,7 +1220,6 @@ word	sentence	translation	difficulty_rank
 눈물	그녀의 눈에 눈물이 고였다.	Her eyes welled up with tears.	19999
 가스	가스 냄새가 난다.	I smell gas.	19999
 계산서	계산서를 주세요.	Check, please.	19999
-지구	지구는 하나의 행성입니다.	Earth is a planet.	19999
 이상한	그는 이상하고, 나는 이상한 사람 싫어.	He is strange, and I don't like strange people.	19999
 이상	그는 이상하고, 나는 이상한 사람 싫어.	He is strange, and I don't like strange people.	19999
 들	너를 들을 수 있지만, 볼 수 없어요.	I can hear you, but I can't see you.	19999
@@ -1375,11 +1308,9 @@ word	sentence	translation	difficulty_rank
 되어	그의 방은 언제나 정돈이 잘 되어 있다.	His room is always tidy.	19999
 정돈	그의 방은 언제나 정돈이 잘 되어 있다.	His room is always tidy.	19999
 언제나	그의 방은 언제나 정돈이 잘 되어 있다.	His room is always tidy.	19999
-화장실	화장실이 어디죠?	Where is the toilet?	19999
 분만	1분만 도와주시겠어요?	Can you help me for just a minute?	19999
 제안하다	우리는 요금을 올릴 것을 제안합니다.	We suggest raising the fees.	19999
 요금	우리는 요금을 올릴 것을 제안합니다.	We suggest raising the fees.	19999
-살인	그 남자는 살인으로 수배중이다.	The man is wanted for murder.	19999
 지게	그는 빚을 지게 되었다.	He has gone into debt.	19999
 빚	그는 빚을 지게 되었다.	He has gone into debt.	19999
 세상에	세상에 공짜가 어딨어?	Nothing is free.	19999
@@ -1400,7 +1331,6 @@ word	sentence	translation	difficulty_rank
 첫눈	우린 서로 첫눈에 반했어요.	It was love at first sight.	19999
 나랑	나랑 사귈래요?	Would you like to go out with me?	19999
 정글	사자는 정글의 왕이다.	The lion is the king of the jungle.	19999
-크리스	크리스는 운전할 차가 없었어요.	Chris didn't have a car to drive.	19999
 잔	사과 주스 두 잔 주세요.	Two glasses of apple juice, please.	19999
 주스	사과 주스 두 잔 주세요.	Two glasses of apple juice, please.	19999
 상황	상황은 우리가 생각했던 것보다 나쁘다.	The situation is worse than we believed.	19999
@@ -1444,11 +1374,8 @@ word	sentence	translation	difficulty_rank
 보	난 야구 시합을 티비로 보는 것이 제일 좋다.	I like nothing so much as to watch baseball games on television.	19999
 시합	난 야구 시합을 티비로 보는 것이 제일 좋다.	I like nothing so much as to watch baseball games on television.	19999
 마음대로	마음대로 생각해.	Think whatever you want.	19999
-진심	폐를 끼쳐서 진심으로 죄송합니다.	I sincerely regret having caused you such an inconvenience.	19999
 폐	폐를 끼쳐서 진심으로 죄송합니다.	I sincerely regret having caused you such an inconvenience.	19999
 리가	그녀가 그런 일을 했을 리가 없다.	She cannot have done such a thing.	19999
-기계	이 기계가 잠시 고장났었다.	This machine was out of order for a while.	19999
-최선	그는 최선을 다한다.	He's doing his best.	19999
 속	핸드백 속에 너무 많은 것을 넣었군.	You carry too much stuff in your purse.	19999
 핸드백	핸드백 속에 너무 많은 것을 넣었군.	You carry too much stuff in your purse.	19999
 기자회견	그들은 기자회견 일정을 잡았다.	They have scheduled a press conference.	19999
@@ -1496,7 +1423,6 @@ word	sentence	translation	difficulty_rank
 잔돈	잔돈은 가지세요.	Keep the change.	19999
 약	그 약을 먹으세요.	Take the medicine.	19999
 카드	카드 돼요?	Does my card work here?	19999
-등	2, 4, 6 등은 짝수이다.	2, 4, 6 etc. are even numbers.	19999
 임신	나는 임신 4개월이다.	I am four months pregnant.	19999
 설마	설마 일이 이렇게 될 줄이야.	How could things have happened this way?	19999
 일이	설마 일이 이렇게 될 줄이야.	How could things have happened this way?	19999
@@ -1529,7 +1455,6 @@ word	sentence	translation	difficulty_rank
 아무튼	아무튼 좋았겠다.	Anyway, that must have been good.	19999
 아까	아까 한 말 취소야.	I take back what I said.	19999
 라디오	라디오를 켜세요.	Turn on the radio.	19999
-잭	잭은 우표를 모은다.	Jack collects stamps.	19999
 수건	수건 좀 주시겠습니까?	Can you pass me the towel?	19999
 지역	이 지역에 사세요?	Do you live in the area?	19999
 언제	언제 일어났어?	When did you get up?	19999
@@ -1548,7 +1473,6 @@ word	sentence	translation	difficulty_rank
 신문	그 사람 밥 먹는 중에 신문 읽는 버릇이 있어.	He has the habit of reading the newspaper while he eats.	19999
 가만히	날 좀 가만히 내버려 둬.	Why don't you leave me alone?	19999
 작년	그 사람 작년에 담배 끊었어.	He stopped smoking last year.	19999
-중국	중국까지 안전한 여행 하세요!	Have a safe trip to China!	19999
 필요	나한테 전화 할 필요 없어.	You don't need to give me a call.	19999
 가게	이 가게 마음에 안들어.	I don't like this store.	19999
 계속	계속 걱정했어.	We've been worried.	19999
@@ -1584,7 +1508,6 @@ word	sentence	translation	difficulty_rank
 준	네가 그에게 준 것을 얘기해 줘.	Tell me what you gave him.	19999
 할인	톰은 더 큰 할인을 원했습니다.	Tom wanted a bigger discount.	19999
 요청하다	톰은 할인을 요청했습니다.	Tom asked for a discount.	19999
-파리	파리는 프랑스의 수도다.	Paris is the capital of France.	19999
 딸기	요즘 딸기가 제철입니다.	Strawberries are in season now.	19999
 마디	그는 사람들에게 말 한 마디 없이 사무실을 떠났다.	He left the office without saying a word to anyone.	19999
 없이	그는 사람들에게 말 한 마디 없이 사무실을 떠났다.	He left the office without saying a word to anyone.	19999
@@ -1599,7 +1522,6 @@ word	sentence	translation	difficulty_rank
 지갑	지갑을 잃어버렸어.	I lost my wallet.	19999
 카메라	이 카메라는 쌉니다.	This camera is cheap.	19999
 운전	운전 조심하세요.	Drive carefully.	19999
-숲	숲은 매우 고요했다.	The forest was very tranquil.	19999
 피아노	우리 여동생은 날마다 피아노를 친다.	My younger sister plays piano every day.	19999
 날마다	우리 여동생은 날마다 피아노를 친다.	My younger sister plays piano every day.	19999
 여동생	우리 여동생은 날마다 피아노를 친다.	My younger sister plays piano every day.	19999
@@ -1621,7 +1543,6 @@ word	sentence	translation	difficulty_rank
 가위	이 가위 잘 안들어요.	These scissors don't cut well.	19999
 뒤	그는 큰 바위 뒤에 숨었다.	He hid himself behind a large rock.	19999
 바위	그는 큰 바위 뒤에 숨었다.	He hid himself behind a large rock.	19999
-효과	그 약은 효과가 있었다.	That medicine worked.	19999
 저것	저것은 가루약이다.	That's powdered medicine.	19999
 의학	그녀는 의학 전공이다.	She majors in medicine.	19999
 책임	이제 내가 책임을 지고 있다.	I'm in charge now.	19999
@@ -1638,13 +1559,10 @@ word	sentence	translation	difficulty_rank
 그게	그게 내가 이 모든 것을 한 이유이다.	That's why I've done all this.	19999
 사건	우리는 그 사건을 검토할 필요가 있다.	We need to review the case.	19999
 필요	우리는 그 사건을 검토할 필요가 있다.	We need to review the case.	19999
-열쇠	열쇠는 내 가방에 있었다.	The keys were in my bag.	19999
-가방	열쇠는 내 가방에 있었다.	The keys were in my bag.	19999
 만날	우리는 10월에 다시 만날 것이다.	We'll meet again in October.	19999
 사업	이것은 우리 사업을 다치게 할 수도 있다.	This could hurt our business.	19999
 수도	이것은 우리 사업을 다치게 할 수도 있다.	This could hurt our business.	19999
 침실	네 침실 좀 정리해라.	Please tidy up your bedroom.	19999
-결혼식	우리의 결혼식은 내일이다.	Our wedding is tomorrow.	19999
 주	기름 가격은 이번 주에 떨어졌다.	The price of oil is down this week.	19999
 기름	기름 가격은 이번 주에 떨어졌다.	The price of oil is down this week.	19999
 가격	기름 가격은 이번 주에 떨어졌다.	The price of oil is down this week.	19999
@@ -1696,7 +1614,6 @@ word	sentence	translation	difficulty_rank
 자비	자비를 베푸소서!	Grant us peace!	19999
 혼	그의 혼에 평화를!	Peace to his ashes!	19999
 두세	저를 내버려 두세요!	Leave me in peace!	19999
-의식	언어는 의식을 만든다.	Language creates conscience.	19999
 다섯	저는 다섯 개의 언어를 합니다.	I speak five languages.	19999
 북한	"북한은 한국어로 ""조선""이라고 불린다."	"North Korea is called ""Chosŏn"" in Korean."	19999
 조선	"북한은 한국어로 ""조선""이라고 불린다."	"North Korea is called ""Chosŏn"" in Korean."	19999
@@ -1747,7 +1664,6 @@ word	sentence	translation	difficulty_rank
 발톱	고양이가 발톱을 감춘다.	The cat hides its claws.	19999
 어머	어머, 부끄러워.	My goodness, how embarrassing.	19999
 벌써	벌써 아홉시다.	It is already nine o'clock.	19999
-설명	그들의 설명은 모호했다.	Their explanation was confusing.	19999
 사진	내가 그 사람한테 사진 좀 찍어 달라고 했어요.	I asked him to take some pictures.	19999
 목격자	목격자가 한 명 있었다.	There was one witness.	19999
 사용자	나는 (언어?)모국어 사용자가 아닙니다.	I am not a native speaker.	19999
@@ -1814,14 +1730,12 @@ word	sentence	translation	difficulty_rank
 인기	너는 어떻게 그렇게 인기가 많니?	Why are you so popular?	19999
 조용히	조용히 해 주세요.	Please keep your voices down.	19999
 미안	의심해서 미안.	I'm sorry I doubted you.	19999
-단어	왜 그 단어를 잊어버렸니?	Why have you forgotten the word?	19999
 이젠	이젠 끝장이야!	We are done for!	19999
 전등	전등이 꺼졌다.	The light went out.	19999
 니	니가 언제부터 아버지 말을 들었어?	How long have you listened to your father?	19999
 올	그는 분명히 올 것이다.	He will definitely come.	19999
 분명히	그는 분명히 올 것이다.	He will definitely come.	19999
 웃음	웃음이 나오기도 해요.	Sometimes I laugh.	19999
-목적	그것이 그의 목적이라고 생각해요.	I think it is his intention.	19999
 연구실	연구실로 돌아가.	Get back to the lab.	19999
 집중력	집중력이 점차 떨어진다.	I am losing my focus.	19999
 모래	아이들은 바닷가에서 모래로 성을 쌓고 있다.	Kids are building sand castles on the beach.	19999
@@ -1868,7 +1782,6 @@ word	sentence	translation	difficulty_rank
 한번	나중에 한번 다시 와도 돼?	Can I come some other time?	19999
 월요일	지금 월요일이라는 것을 자각하고 있어.	I'm aware this is Monday.	19999
 평판	내 평판은 파탄났어.	My reputation has been destroyed.	19999
-변화	우린 변화가 필요해.	We need change.	19999
 셔츠	난 이 셔츠는 사지 않겠어.	I won't buy this shirt.	19999
 사지	난 이 셔츠는 사지 않겠어.	I won't buy this shirt.	19999
 탄약	탄약이 바닥나고 있어.	We're running out of ammo.	19999
@@ -1888,10 +1801,7 @@ word	sentence	translation	difficulty_rank
 마약	톰은 마약 중독자가 아냐.	Tom isn't a drug addict.	19999
 중독자	톰은 마약 중독자가 아냐.	Tom isn't a drug addict.	19999
 코카인	난 코카인 중독자야.	I'm a cocaine addict.	19999
-인류	넌 인류의 마지막 희망이야.	You're the last hope for humanity.	19999
 마지막	넌 인류의 마지막 희망이야.	You're the last hope for humanity.	19999
-구멍	조심해. 바닥에 구멍이 있어.	Be careful. There's a hole in the floor.	19999
-바닥	조심해. 바닥에 구멍이 있어.	Be careful. There's a hole in the floor.	19999
 파티	나는 그 사람의 생일 파티에 못 갔어.	I failed to go to his birthday party.	19999
 그게	그게 그 사람들이 죽은 이유야?	Is that why they died?	19999
 준비	난 아직 죽을 준비가 안됐어.	I'm not ready to die yet.	19999
@@ -1909,7 +1819,6 @@ word	sentence	translation	difficulty_rank
 잡지	이 잡지 내가 가져도 돼?	May I have this magazine?	19999
 호주	우린 지난주에 호주에 있었어.	We were in Australia last week.	19999
 지난주	우린 지난주에 호주에 있었어.	We were in Australia last week.	19999
-꼬마	꼬마가 된 기분이야.	I feel like a little kid.	19999
 완전히	그 데이터는 완전히 쓸모없었어.	The data was completely useless.	19999
 데이터	그 데이터는 완전히 쓸모없었어.	The data was completely useless.	19999
 외국	외국에 나가본 적 있어?	Have you ever been to a foreign country?	19999
@@ -1969,7 +1878,6 @@ word	sentence	translation	difficulty_rank
 토대	과학은 아주 주의깊은 관찰을 토대로 해.	Science is based on very careful observations.	19999
 관찰	과학은 아주 주의깊은 관찰을 토대로 해.	Science is based on very careful observations.	19999
 고치	난 컴퓨터를 고치는 것은 불가능해.	I'm not able to fix the computer.	19999
-바이러스	톰 컴퓨터는 바이러스에 감염되었어.	A virus infected Tom's computer.	19999
 대	톰은 컴퓨터를 세 대 가지고 있어.	Tom has three computers.	19999
 배우	프랑스어 배우는 것은 그다지 관심 없어.	I'm not very interested in learning French.	19999
 그다지	프랑스어 배우는 것은 그다지 관심 없어.	I'm not very interested in learning French.	19999
@@ -2003,10 +1911,8 @@ word	sentence	translation	difficulty_rank
 지하실	지하실은 어두워.	It's dark in the basement.	19999
 빨간색	빨간색 신발을 원했어.	I wanted red shoes.	19999
 손톱	그 사람의 손톱은 빨간색이야.	Her nails are red.	19999
-건물	이 건물의 지붕은 초록색이야.	This building has a green roof.	19999
 지붕	이 건물의 지붕은 초록색이야.	This building has a green roof.	19999
 초록색	신호는 초록색으로 바뀌었어.	The signal turned green.	19999
-신호	신호는 초록색으로 바뀌었어.	The signal turned green.	19999
 초록색	초록색이 너한테 어울려.	Green suits you.	19999
 의	6의 제곱은 36이야.	Six squared equals thirty-six.	19999
 이야	6의 제곱은 36이야.	Six squared equals thirty-six.	19999
@@ -2020,9 +1926,7 @@ word	sentence	translation	difficulty_rank
 버전	이 소프트웨어의 가장 최신 버전을 갖고 있어?	Do you have the most recent version of this software?	19999
 항체	항체는 감염과 바이러스를 퇴치해.	Antibodies fight off infections and viruses.	19999
 감염	항체는 감염과 바이러스를 퇴치해.	Antibodies fight off infections and viruses.	19999
-바이러스	항체는 감염과 바이러스를 퇴치해.	Antibodies fight off infections and viruses.	19999
 박테리아	바이러스는 박테리아보다 훨씬 작아.	Viruses are much smaller than bacteria.	19999
-바이러스	바이러스는 박테리아보다 훨씬 작아.	Viruses are much smaller than bacteria.	19999
 핸드폰	핸드폰 갖고 있어?	Do you have a cell phone?	19999
 칠	너 오르간 칠 수 있어?	Are you able to play organ?	19999
 간신히	난 코드를 간신히 해독했어.	I managed to crack the code.	19999
@@ -2039,7 +1943,6 @@ word	sentence	translation	difficulty_rank
 신체	뇌는 신체 에너지 중 25%를 소비해.	Brains consume 25% of the body's energy.	19999
 보름달	오늘밤엔 보름달을 볼 수 있어.	A full moon can be seen tonight.	19999
 상상	내가 얼마나 바빴는지 상상도 못 할 걸?	You can't imagine how busy I was.	19999
-규칙	톰은 규칙을 몰라.	Tom doesn't know the rules.	19999
 딸	내 딸은 아직 3 살 아래야.	My daughter is still under three years old.	19999
 딸	내 딸은 아직 꽤 어려.	My daughter is still quite young.	19999
 의향	몇 가지 질문에 답할 의향 있어?	Would you mind answering a few questions?	19999
@@ -2069,9 +1972,6 @@ word	sentence	translation	difficulty_rank
 선글라스	이 선글라스 얼마였어?	How much did these sunglasses cost?	19999
 달러	그 미술작품은 적어도 1,000 달러는 될 거야.	The painting will cost at least 1,000 dollars.	19999
 적어도	그 미술작품은 적어도 1,000 달러는 될 거야.	The painting will cost at least 1,000 dollars.	19999
-행운	행운을 빌어.	Good luck.	19999
-왼쪽	왼쪽으로 돌아.	Turn left.	19999
-오른쪽	오른쪽으로 돌아.	Turn right.	19999
 타이밍	타이밍 좋네.	Nice timing.	19999
 인내심	인내심을 가져.	Be patient.	19999
 죽지	아무도 죽지 않았어.	Nobody died.	19999
@@ -2108,7 +2008,6 @@ word	sentence	translation	difficulty_rank
 결정	결정 했니?	Have you made your decision?	19999
 여권	여권 있습니까?	Do you have your passport?	19999
 어린	우린 아직 너무 어린 것 같아.	I think that we're still too young.	19999
-최선	난 최선을 다할 거야.	I'm going to do my best.	19999
 말없이	나한테 말없이 어디 갔었어?	Where did you go without telling me?	19999
 이빨	이빨에 뭔가 끼어있어.	You've got something in your teeth.	19999
 소설	난 프랑스 소설을 읽고 있어.	I'm reading a French novel.	19999
@@ -2117,14 +2016,12 @@ word	sentence	translation	difficulty_rank
 수업	나는 프랑스어 수업을 듣고 있어.	I'm taking a French class.	19999
 널	난 널 내일 도와줄 수 있어.	I can help you tomorrow.	19999
 오래	얼마나 오래 거기 있을 거야?	How long are you going to be there?	19999
-단어	이건 프랑스어 단어가 아니야.	This isn't a French word.	19999
 새해	새해 복 많이 받아.	Happy New Year!	19999
 복	새해 복 많이 받아.	Happy New Year!	19999
 새해	새해 복 많이 받으세요.	Happy New Year!	19999
 복	새해 복 많이 받으세요.	Happy New Year!	19999
 부상	몇몇 다른 사람들이 부상을 입었다.	Several other people were wounded.	19999
 건	그만 두는 건 너무 어려워.	It's really hard to stop.	19999
-임무	우린 임무를 성공적으로 수행했어.	We carried out our mission successfully.	19999
 성공적	우린 임무를 성공적으로 수행했어.	We carried out our mission successfully.	19999
 명의	내 수업에는 서른 명의 학생이 있어.	There are thirty students in my class.	19999
 서른	내 수업에는 서른 명의 학생이 있어.	There are thirty students in my class.	19999
@@ -2141,7 +2038,6 @@ word	sentence	translation	difficulty_rank
 최소한	난 가장 최소한의 정도만 했어.	I only did the bare minimum.	19999
 실제	그 사람들의 실제 무슨 속셈인 거야?	What are their true intentions?	19999
 얘기	그 사람은 우리한테 그런 얘기는 안 했어.	She didn't tell us about that.	19999
-효과	침술이 정말로 효과가 있어?	Does acupuncture really work?	19999
 정말로	침술이 정말로 효과가 있어?	Does acupuncture really work?	19999
 레스토랑	레스토랑에서 보자.	I'll see you at the restaurant.	19999
 회사	톰은 기술 회사에 일하고 있어.	Tom works for a tech company.	19999
@@ -2166,7 +2062,6 @@ word	sentence	translation	difficulty_rank
 태양	두 시간 후에 태양이 떨어질 거야.	The sun will go down in two hours.	19999
 굽	케이크 굽는 거 좋아해?	Do you like baking cakes?	19999
 틀림없이	그 사람은 틀림없이 음악가일 거야.	He must be a musician.	19999
-길이	이 테이블 길이는 1미터야.	The table is a metre wide.	19999
 테이블	이 테이블 길이는 1미터야.	The table is a metre wide.	19999
 컵	그는 컵에 우유를 좀 부었다.	She poured some milk into a cup.	19999
 완전	그래. 나 이거 완전 싫어.	Good. I hate this a lot.	19999
@@ -2174,13 +2069,11 @@ word	sentence	translation	difficulty_rank
 정보	이 정보는 우리한테 정말 중요해.	This information is very important to us.	19999
 중요하다	이 정보는 우리한테 있어서 정말 중요해요.	This information is very important to us.	19999
 정보	이 정보는 우리한테 있어서 정말 중요해요.	This information is very important to us.	19999
-작업	그는 서류 작업을 싫어한다.	He hates paperwork.	19999
 서류	그는 서류 작업을 싫어한다.	He hates paperwork.	19999
 약간	그녀는 머리가 약간 이상한 사람이다.	She's a basket case.	19999
 강제	그녀는 강제로 그를 앉혔다.	She forced him to sit down.	19999
 출구	실례합니다. 출구가 어디인가요?	Excuse me, where's the exit?	19999
 의도	내 의도는 그 반대였다.	I meant the opposite.	19999
-제안	나는 제안을 철회했다.	I withdrew the offer.	19999
 사실은	사실은 그렇지 않았다.	That wasn't the case.	19999
 이유	무슨 이유로 의사를 찾으시나요?	What do you need a doctor for?	19999
 기사도	기사도는 죽지 않았다.	Chivalry isn't dead.	19999
@@ -2235,7 +2128,6 @@ word	sentence	translation	difficulty_rank
 의견	그것에 대한 당신의 의견은 무엇인가?	What's your opinion on that?	19999
 대한	그것에 대한 당신의 의견은 무엇인가?	What's your opinion on that?	19999
 하지만	나는 많은 운동은 잘 하지만 수영은 못한다.	I'm good at many sports, but I can't swim.	19999
-거래	거래는 거의 끝났다.	The deal is all but done.	19999
 발표	그 발표 들었니?	Did you hear the announcement?	19999
 날로	오늘은 다시 한 번 우리에게 위대한 날로 기억 될 것 입니다.	Today will once again be remembered as a great day for us.	19999
 그중	그중 하나를 고르세요.	Choose one from among these.	19999
@@ -2280,7 +2172,6 @@ word	sentence	translation	difficulty_rank
 치킨	치킨 주세요.	Chicken, please.	19999
 부활절	부활절 잘 보내세요!	Happy Easter!	19999
 서	거기 서! 도둑아!	Stop! Thief!	19999
-어이	어이가 없네!	What nonsense!	19999
 직접	내가 직접 먹을 것을 샀다.	I bought myself something to eat.	19999
 자켓	어느 자켓이 톰 꺼야?	Which jacket is Tom's?	19999
 만	이 책은 다시 읽어볼 만 하다.	This book is worth reading again.	19999
@@ -2295,7 +2186,6 @@ word	sentence	translation	difficulty_rank
 위로	이 엘리베이터는 6층 위로 가지 않는다.	This elevator does not go above the sixth floor.	19999
 엘리베이터	이 엘리베이터는 6층 위로 가지 않는다.	This elevator does not go above the sixth floor.	19999
 답장	그는 내 편지에 답장을 하지 않았다.	He didn't reply to my letter.	19999
-느낌	느낌이 어때?	How do you feel?	19999
 메시지	저한테 온 메시지 있나요?	Are there any messages for me?	19999
 단	내 여동생은 단 것을 좋아한다.	My sister has a sweet tooth.	19999
 여동생	내 여동생은 단 것을 좋아한다.	My sister has a sweet tooth.	19999
@@ -2335,8 +2225,6 @@ word	sentence	translation	difficulty_rank
 맨날	넌 왜 맨날 학교에 늦니?	Why are you always late for school?	19999
 건너	그가 거리를 건너는 것을 보았다.	I saw him crossing the street.	19999
 재미	이 소설 재미 없어.	This novel bores me.	19999
-나무	그는 나무에서 떨어졌다.	He fell from the tree.	19999
-나무	그는 나무에서 추락했다.	He fell from the tree.	19999
 노크	누군가 문에 노크를 했다.	Someone knocked on the door.	19999
 똑똑	누군가 문을 똑똑 두드렸다.	Someone knocked on the door.	19999
 경치	여기서 보는 경치가 멋있다.	It is a nice view from here.	19999
@@ -2354,12 +2242,9 @@ word	sentence	translation	difficulty_rank
 여친	크리스마스에 여친에게 뭘 사줬니?	What have you bought your girlfriend for Christmas?	19999
 콘서트	지난해에 콘서트를 몇 번이나 갔어?	How many concerts did you go to last year?	19999
 지난해	지난해에 콘서트를 몇 번이나 갔어?	How many concerts did you go to last year?	19999
-군대	나폴레옹은 군대를 러시아로 진격시켰다.	Napoleon marched his armies into Russia.	19999
 나폴레옹	나폴레옹은 군대를 러시아로 진격시켰다.	Napoleon marched his armies into Russia.	19999
-손님	손님이 오셨어요.	We've got a visitor.	19999
 총	그는 총을 내려놓았다.	He laid down the gun.	19999
 윙크	그는 나에게 윙크를 했다.	He gave me a wink.	19999
-등	내가 1등을 했어!	I've won first prize!	19999
 사원	내일 사원에 한번 가보자.	Let's visit some temples tomorrow.	19999
 경주	경주에서 이겼습니까?	Did you win the race?	19999
 결혼	나는 당신과 결혼하고 싶지 않다.	I don't want to marry you.	19999
@@ -2378,7 +2263,6 @@ word	sentence	translation	difficulty_rank
 두부	두부를 좋아하시나요?	Do you like tofu?	19999
 보지	나는 텔레비전을 보지 않는다.	I don't watch television.	19999
 교회	그는 교회에 거의 가지 않는다.	He seldom goes to church.	19999
-그곳	나는 어제 그곳에 갔다.	I went there yesterday.	19999
 저것	저것은 새입니까?	Is that a bird?	19999
 웹사이트	웹사이트가 있습니까?	Do you have a website?	19999
 히틀러	1939년 히틀러는 폴란드를 침공했다.	Hitler invaded Poland in 1939.	19999
@@ -2395,9 +2279,7 @@ word	sentence	translation	difficulty_rank
 호수	그 호수의 오래된 교회는 정말 아름답다.	The old church by the lake is very beautiful.	19999
 목욕	그는 매일 아침 목욕을 한다.	He takes a bath every morning.	19999
 권	나는 책 몇 권을 읽었다.	I read some books.	19999
-귀	이 소리는 귀에 익다.	This sounds familiar.	19999
 익	귀에 익은 소리인걸.	This sounds familiar.	19999
-귀	귀에 익은 소리인걸.	This sounds familiar.	19999
 이상하다	톰은 이상하다.	Tom's weird.	19999
 따뜻하다	물이 따뜻하다.	The water is warm.	19999
 바닐라	나는 바닐라 아이스크림을 정말 좋아한다.	I love vanilla ice cream.	19999
@@ -2405,12 +2287,9 @@ word	sentence	translation	difficulty_rank
 일기	나는 여행 중에 보통 일기를 쓴다.	I usually keep a diary when I travel.	19999
 계정	페이스북 계정 있으신가요?	Can I find you on Facebook?	19999
 페이스북	페이스북 계정 있으신가요?	Can I find you on Facebook?	19999
-트럭	개가 트럭에 치였다.	The dog was hit by a truck.	19999
 미래	아무도 미래를 예언할 수 없다.	No one can foretell the future.	19999
 의자	고양이 한 마리가 의자 위에 앉아 있다.	A cat was sitting on the chair.	19999
-그곳	그 길은 그곳에서 좌회전한다.	The road turns left there.	19999
 복수	나는 복수를 원한다.	I want revenge.	19999
-구멍	이 양동이는 구멍이 뚫렸다.	There's a hole in this bucket.	19999
 양동이	이 양동이는 구멍이 뚫렸다.	There's a hole in this bucket.	19999
 처음	나는 그를 처음 봤다.	I had never seen him before.	19999
 인사	그는 그 여자에게 인사를 건넸다.	He said hello to the woman.	19999
@@ -2420,12 +2299,10 @@ word	sentence	translation	difficulty_rank
 샤워	나는 샤워를 했다.	I took a shower.	19999
 거지	왜 프랑스어를 배워야 하는 거지?	Why should I learn French?	19999
 부자	그는 매우 부자라고 한다.	It is said that he was very rich.	19999
-보이다	당신은 피곤해 보입니다.	You're looking tired.	19999
 마흔	우리 반 학생은 마흔 명이다.	There are forty students in our class.	19999
 맥주	맥주 두 잔 주세요.	Two beers, please.	19999
 양파	양파는 감자보다 빨리 익는다.	Onions cook more quickly than potatoes.	19999
 감자	양파는 감자보다 빨리 익는다.	Onions cook more quickly than potatoes.	19999
-직업	제 직업은 카셀러입니다.	Selling cars is my job.	19999
 파는	제가 하는 일은 차를 파는 겁니다.	Selling cars is my job.	19999
 레스토랑	우리 레스토랑이 최고다.	Our restaurant is the best.	19999
 알콜	그녀는 알콜 중독자다.	She's an alcoholic.	19999
@@ -2434,9 +2311,7 @@ word	sentence	translation	difficulty_rank
 사료	우리 개에게 언제 사료를 줘야 하나요?	When should I feed my dog?	19999
 지난주	나는 지난주에 그를 봤다.	I saw him last week.	19999
 자식	그녀에게는 자식이 열 명 있다.	She has ten children.	19999
-공	공은 둥글다.	Balls are round.	19999
 새로	차를 새로 살 생각이다.	I think I'll buy a new car.	19999
-그곳	그곳에 내가 살고 있다.	That's where I live.	19999
 농부	누군가는 농부, 누군가는 사냥꾼이었다.	Some were farmers, some were hunters.	19999
 결론	어떻게 이런 결론에 도달하셨나요?	How did you arrive at this conclusion?	19999
 유명하다	톰은 유명하다.	Tom's famous.	19999
@@ -2451,9 +2326,7 @@ word	sentence	translation	difficulty_rank
 보호	톰은 보호가 필요하다.	Tom needs protection.	19999
 가실	어디로 가실 건가요?	Where will you go?	19999
 도둑	그 도둑은 달아났다.	The thief ran away.	19999
-장	1장부터 시작합시다.	Let's begin with the first chapter.	19999
 검은	그 검은 상자를 저와 함께 열어요.	Would you like to open that black box with me?	19999
-정부	그는 정부를 싫어한다.	He hates the government.	19999
 베이징	베이징은 덥나요?	Is Beijing hot?	19999
 그저	널 만나서 그저 기쁘다.	I'm just happy to see you.	19999
 기쁘다	널 만나서 그저 기쁘다.	I'm just happy to see you.	19999
@@ -2498,7 +2371,6 @@ word	sentence	translation	difficulty_rank
 말하기	프랑스어를 말하기는 쉽지 않다.	To speak French is difficult.	19999
 설거지	설거지 했어?	Did you wash the dishes?	19999
 골프	오후에 골프 치러 갈래?	How about playing golf this afternoon?	19999
-나무	나무가 탄다.	Wood burns.	19999
 재빨리	그는 손을 재빨리 씻었다.	He washed his hands quickly.	19999
 온도	온도가 올라가고 있다.	The temperature is rising.	19999
 가끔씩	난 아직도 가끔씩 그것을 한다.	I still sometimes do that.	19999
@@ -2522,7 +2394,6 @@ word	sentence	translation	difficulty_rank
 그나저나	그나저나, 숙제는 다 했니?	By the way, have you done your homework?	19999
 비행기	비행기는 오후 2시 30분에 보스턴을 떠났다.	The plane took off from Boston at 2:30.	19999
 사	내 여동생은 아버지에게 새 자전거를 사 달라고 부탁했다.	My sister asked my father to buy her a new bicycle.	19999
-운명	운명을 받아들여라.	Accept your fate.	19999
 시카고	나는 보스턴이나 시카고에서 살고 싶다.	I want to live in Boston or Chicago.	19999
 아마도	아마도 회사에 늦을 것 같다.	Chances are that I'll be late for work.	19999
 회사	아마도 회사에 늦을 것 같다.	Chances are that I'll be late for work.	19999
@@ -2544,7 +2415,6 @@ word	sentence	translation	difficulty_rank
 금요일	나는 그녀를 닷새 전, 그러니까 지난 금요일에 역에서 봤다.	I saw her at the station five days ago, that is, last Friday.	19999
 닷새	나는 그녀를 닷새 전, 그러니까 지난 금요일에 역에서 봤다.	I saw her at the station five days ago, that is, last Friday.	19999
 이곳	그는 며칠 전 이곳을 떠났다.	He left here a few days ago.	19999
-능력	당신의 능력을 그들에게 펼쳐라.	Show them what you can do.	19999
 엿	경찰은 엿이나 먹어.	Fuck the police.	19999
 온종일	나는 온종일 배고팠다.	I've been hungry all day.	19999
 오래	너는 먹는 데 왜 그렇게 오래 걸려?	Why do you take so long to eat?	19999
@@ -2560,10 +2430,8 @@ word	sentence	translation	difficulty_rank
 영토	러시아의 아시아 쪽 영토는 중국보다 넓다.	The Asian part of Russia is larger than China.	19999
 스키	나는 지난 주말에 스키를 탔다.	I was skiing last weekend.	19999
 당시	이 문제는 그 당시에 훨씬 더 만연했다.	This issue was much more prevalent back then.	19999
-용기	그럴 용기는 있어?	You think you can do this?	19999
 완전히	완전히 하얗네.	Wow, it's totally white.	19999
 쉽다	이 책을 읽는 것은 나에게 쉽다.	It is easy for me to read this book.	19999
-코	코가 막혔다.	My nose is stuffed up.	19999
 동생	내 동생은 한 작은 마을에 살고 있어.	My brother lives in a small village.	19999
 마을	내 동생은 한 작은 마을에 살고 있어.	My brother lives in a small village.	19999
 햄버거	햄버거 얼마나 샀어?	How many hamburgers did you buy?	19999
@@ -2585,45 +2453,35 @@ word	sentence	translation	difficulty_rank
 여전히	우리는 여전히 친구사이다.	We're still friends.	19999
 성경	그것은 성경에서 나왔습니다.	It's from the Bible.	19999
 하느님	하느님을 기억하라.	Remember God.	19999
-변화	사람들은 변화를 두려워한다.	People are afraid of change.	19999
 무엇이든	내 이름이 무엇이든 상관없어.	It doesn't matter what my name is.	19999
 벌써	벌써 집에 갈 시간이야.	It's already time to go home.	19999
 똑같이	남자와 여자는 똑같이 운전을 잘 못한다.	Men and women are equally bad at driving.	19999
 화제	화제를 바꿔보자.	Let's change the subject.	19999
 남	왜 넌 남 마음을 안 생각해?	Why don't you think about other people's feelings?	19999
-진심	진심으로 사과드립니다.	I sincerely apologize.	19999
 쓴	그는 너에게 자기가 쓴 글을 읽어줬다.	He read to you what he wrote.	19999
 글	그는 너에게 자기가 쓴 글을 읽어줬다.	He read to you what he wrote.	19999
 김치	한국 사람이라면 김치를 먹어야지.	A Korean person ought to eat kimchi.	19999
 언니	그녀는 내 언니가 아니라 어머니예요.	She is not my sister but my mother.	19999
 바라다	그가 곧 좋아지기를, 진심으로 바랍니다.	I hope with all my heart that he'll be better soon.	19999
 귀신	귀신이 실제로 존재합니까?	Are ghosts real?	19999
-트럭	나는 트럭을 운전했었다.	I used to drive a truck.	19999
 강	나일강만큼 긴 강은 세상에 없다.	No river in the world is longer than the Nile.	19999
 부탁합니다	내일 아침 6시에 모닝콜 부탁합니다.	I'd like a wake-up call at six tomorrow morning.	19999
 자연	자연은 매혹적이다.	Nature is fascinating.	19999
-귀	귀가 안 들리시나요?	Are you deaf?	19999
-구멍	구멍이 좁다.	The hole is narrow.	19999
 골반	그녀의 골반은 날씬하다.	She has narrow hips.	19999
 알	밀가루와 계란 두 알을 섞으세요.	Mix flour with two eggs.	19999
 원숭이	원숭이는 나무를 탄다.	Monkeys climb trees.	19999
 원숭이	원숭이는 나무에 오른다.	Monkeys climb trees.	19999
 납	납은 쉽게 구부러진다.	Lead bends easily.	19999
 쉽게	납은 쉽게 구부러진다.	Lead bends easily.	19999
-숲	그는 숲에 들어섰다.	They entered the forest.	19999
-숲	그는 숲으로 들어갔다.	They entered the forest.	19999
 정의	우리는 정의를 요구한다.	We demand justice.	19999
 정면	정면을 보세요.	Look straight ahead.	19999
 똑바로	똑바로 앉으세요.	Sit up straight.	19999
 스틱	스틱 몰 줄 알아?	Can you drive stick?	19999
-무릎	무릎을 구부리세요.	Bend your knees.	19999
 슈퍼맨	슈퍼맨은 철을 구부릴 수 있다.	Superman can bend iron.	19999
 철	슈퍼맨은 철을 구부릴 수 있다.	Superman can bend iron.	19999
-그대	그대는 달린다.	You run.	19999
 이래	이래도 가능할까?	Is it still possible?	19999
 근데	저는 이 버스를 탈 예정이었는데, 근데 너무 가득 차 있어요.	I was going to take this bus, but it's very full.	19999
 가득	저는 이 버스를 탈 예정이었는데, 근데 너무 가득 차 있어요.	I was going to take this bus, but it's very full.	19999
-용기	여러분, 조금만 용기를 내주세요.	Everyone, please show more courage.	19999
 나비	우리 나라에는 나비가 거의 없어요.	Butterflies are very rare in our country.	19999
 붕대	붕대는 어떻게 감나요?	How do I apply a bandage?	19999
 목이	목이 조금 마릅니다.	My throat is a bit dry.	19999
@@ -2649,7 +2507,6 @@ word	sentence	translation	difficulty_rank
 인사	그가 작별 인사도 안하고 가버렸다.	She left without saying goodbye.	19999
 작별	그가 작별 인사도 안하고 가버렸다.	She left without saying goodbye.	19999
 메세지	내 메세지 받았어?	Did you get my message?	19999
-희망	모든 희망을 버리거라.	Abandon all hope.	19999
 따뜻하다	날이 따뜻하다.	It's a warm day.	19999
 악어	악어는 파충류이다.	Crocodiles are reptiles.	19999
 시작되다	장마철이 시작되었어요.	Rainy season has begun.	19999
@@ -2685,21 +2542,17 @@ word	sentence	translation	difficulty_rank
 잃다	저는 열세 살 때 교통사고로 부모님을 잃었어요.	My parents died in an automobile accident when I was thirteen.	19999
 교통사고	저는 열세 살 때 교통사고로 부모님을 잃었어요.	My parents died in an automobile accident when I was thirteen.	19999
 자녀	자녀가 있습니까?	Do you have children?	19999
-하나님	하나님을 믿습니까?	Do you believe in God?	19999
 시리아	한국이 시리아와 수교했다.	South Korea established diplomatic relations with Syria.	19999
 교과서	교과서를 펴세요.	Open your textbooks.	19999
 테러	러시아는 테러 국가입니다.	Russia is a terrorist state.	19999
 전화번호	전화번호가 뭐예요?	What's your phone number?	19999
 택시	거기까지 택시로 가는 데 얼마나 걸려요?	How long does it take to get there by taxi?	19999
 시내	여기에서 시내까지 어떻게 갑니까?	How do you get downtown from here?	19999
-왼쪽	왼쪽으로 돌아주세요.	Please turn to the left.	19999
-오른쪽	오른쪽으로 돌아주세요.	Please turn to the right.	19999
 읽다	어제 흥미로운 이야기를 읽었어요.	Yesterday I read an interesting story.	19999
 술	더 이상 술을 마시지 않아요.	I no longer drink.	19999
 임신	그녀는 임신 중입니다.	She's pregnant.	19999
 너네	대통령 탄핵 미국 너네도 할 수 있어.	You guys in America can impeach your president too.	19999
 뭔지	그건 뭔지 몰라?	You don't know what that is?	19999
-모자	그는 모자를 샀다.	He bought a hat.	19999
 우크라이나	러시아가 우크라이나를 침공했다.	Russia invaded Ukraine.	19999
 크림	크림은 우크라이나입니다!	Crimea is Ukraine!	19999
 구경	구경 좀 할게요.	I'm just browsing.	19999
@@ -2719,8 +2572,6 @@ word	sentence	translation	difficulty_rank
 우크라이나	저는 우크라이나 사람이에요.	I'm Ukrainian.	19999
 우크라이나	나는 우크라이나 사람이에요.	I'm Ukrainian.	19999
 저분	저분은 선생님입니다.	He is a teacher.	19999
-직업	직업이 뭐예요?	What's your job?	19999
-직업	직업은 무엇입니까?	What is your occupation?	19999
 이따	이따 봐요!	See you later!	19999
 정원	고양이가 정원에서 놀고 있습니다.	The cat is playing in the garden.	19999
 우표	우표는 어느 우체국에서라도 살 수 있습니다.	You can buy stamps at any post office.	19999
@@ -2736,7 +2587,6 @@ word	sentence	translation	difficulty_rank
 이집트	저는 이집트 사람입니다.	I am Egyptian.	19999
 잠시	나는 도쿄로 가는 길에 오사카에 잠시 들렀다.	I stopped off at Osaka on my way to Tokyo.	19999
 오사카	나는 도쿄로 가는 길에 오사카에 잠시 들렀다.	I stopped off at Osaka on my way to Tokyo.	19999
-목적	그녀는 목적을 달성했다.	She achieved her goal.	19999
 현금	현금으로 낼게요.	I'll pay in cash.	19999
 표	한국까지 비행기 표가 얼마쯤 해요?	How much is a plane ticket to South Korea?	19999
 계산서	계산서 주세요.	Give me the bill, please.	19999
@@ -2798,16 +2648,12 @@ word	sentence	translation	difficulty_rank
 가시다	영화 보러 가시죠.	Let's go to the cinema.	19999
 댁	어머님께서 댁에 계십니까?	Is your mother at home?	19999
 어머님	어머님께서 댁에 계십니까?	Is your mother at home?	19999
-하나님	하나님을 믿지 않아요.	I don't believe in God.	19999
 어머	어머 가엾어라.	What a pity!	19999
 성함	성함이 어떻게 되세요?	What is your name?	19999
 바느질	그 방은 바느질이 될 정도로 밝지는 않다.	There's not enough light in that room to do needlework.	19999
 만화	이 만화 아세요?	Do you know this comic?	19999
 룰	게임의 룰 알고 있어?	Do you know the rules of the game?	19999
 부자	그녀가 그를 부자로 만들었다.	She made him rich.	19999
-기사	기사를 하나 쓰고 싶다.	I want to write an article.	19999
-기사	기사를 하나 쓰고 싶습니다.	I want to write an article.	19999
-기사	기사를 하나 쓰고 싶어요.	I want to write an article.	19999
 정치	정치에 관심 있으십니까?	Are you interested in politics?	19999
 드라마	한국 드라마를 보세요?	Do you watch Korean dramas?	19999
 드라마	한국 드라마를 보십니까?	Do you watch Korean dramas?	19999
@@ -2823,7 +2669,6 @@ word	sentence	translation	difficulty_rank
 메시지	메시지를 남겼어요.	I left you a message.	19999
 메시지	메시지를 남겼습니다.	I left you a message.	19999
 큰소리	큰소리로 말하지 마!	Don't talk so loudly!	19999
-대화	저 말, 대화가 가능해.	That horse can talk.	19999
 오랜	드디어 그녀는 오랜 친구와 연락을 할 수 있었다.	At last, she was able to contact her old friend.	19999
 드디어	드디어 그녀는 오랜 친구와 연락을 할 수 있었다.	At last, she was able to contact her old friend.	19999
 그러면	그러면 네가 위험해져.	That will put you in danger.	19999
@@ -2837,7 +2682,6 @@ word	sentence	translation	difficulty_rank
 하면	이 소프트웨어 어떻게 하면 업데이트할 수 있어?	How can I update this software?	19999
 소프트웨어	이 소프트웨어 어떻게 하면 업데이트할 수 있어?	How can I update this software?	19999
 낮잠	저는 낮잠을 자겠습니다.	I'm going to take a nap.	19999
-잭	잭은 8월 10일에 태어났다.	Jack was born on August tenth.	19999
 폭우	폭우 때문에 우리는 출발을 늦춰야했다.	The heavy rain compelled us to put off our departure.	19999
 출발	폭우 때문에 우리는 출발을 늦춰야했다.	The heavy rain compelled us to put off our departure.	19999
 아무것	매튜는 아무것도 제대로 볼 수가 없었다.	Matthew couldn't see anything properly.	19999
@@ -2860,7 +2704,6 @@ word	sentence	translation	difficulty_rank
 예쁜	파티에 입을 예쁜 걸 하나 사는 게 어때?	Why don't you go buy yourself something pretty to wear to the party?	19999
 동영상	누가 동영상 보고 싶어?	Who wants to watch a video?	19999
 발걸음	난 네 발걸음 소리를 알아챘다.	I recognized the sound of your footsteps.	19999
-그리	그림 그리는 거 좋아해?	Do you like drawing?	19999
 토마스	나는 토마스와 통화 중이야.	I'm talking on the phone with Thomas.	19999
 니	톰, 니가 알아야 될 게 있어.	Tom, there's something you should know about me.	19999
 생일파티	올해 생일파티 할 계획이야?	Are you planning to have a birthday party this year?	19999
@@ -3457,3 +3300,963 @@ word	sentence	translation	difficulty_rank
 대로	어머니가 알려 주신 대로 끓였는데도 그 맛이 도무지 안 나요.	I made it exactly as my mother told me to, and still it doesn't taste right.	499
 대로	설명서에 적힌 대로 조립했더니 의자가 한 번에 완성됐어요.	I put the chair together following the instructions and it came out right first time.	499
 대로	인생이 계획한 대로 흘러가지 않는다는 걸 서른이 넘어서 알았어요.	It took me past thirty to learn that life does not run to plan.	499
+대화	저녁을 먹으면서 아이랑 학교 이야기로 한참 대화 나눴어요.	Over dinner we got into a long talk with our child about school.	500
+대화	부장님이 신입 사원들과 따로 대화 자리를 만들어 점심을 사 주셨어요.	The manager set up a separate chance to talk with the new hires and bought them lunch.	500
+대화	오래 싸운 친구와는 사과보다 솔직한 대화 한 번이 더 급해요.	With a friend you have been fighting with for months, one honest talk matters more than an apology.	500
+게다가	오늘은 늦잠을 잤고 게다가 지하철까지 연착돼서 지각했어요.	I overslept today, and on top of that the subway ran late, so I was late.	501
+게다가	그 식당은 반찬이 넉넉하고 게다가 김치찌개 맛이 집밥 같아요.	That place gives you plenty of side dishes, and what is more, its kimchi stew tastes like home cooking.	501
+게다가	이번 달은 월세를 올려 달라고 하고 게다가 보일러까지 고장 났어요.	This month the landlord asked for more rent, and to make things worse the boiler broke down.	501
+미래	아이 이름으로 적금을 들면서 미래 학비를 조금씩 모으고 있어요.	We opened a savings account in our child's name and are putting aside tuition for later, bit by bit.	502
+미래	회사에서 미래 먹거리를 찾는다고 신사업 팀을 새로 꾸렸어요.	The company put together a new venture team, saying it has to find what will feed it years from now.	502
+미래	스무 살 때는 미래 걱정보다 당장 오늘이 더 무서웠어요.	At twenty, what lay ahead worried me less than getting through the day in front of me.	502
+얼른	국이 식으니까 얼른 와서 한 그릇 더 드세요.	The soup is going cold, so come over right now and have another bowl.	504
+얼른	마감이 코앞이라 점심만 얼른 먹고 사무실로 돌아왔어요.	The deadline was right on top of me, so I bolted down lunch and went straight back to the office.	504
+얼른	명절에 모인 어색한 자리가 불편해서 얼른 끝나기만 속으로 바랐어요.	The awkward holiday gathering made me uneasy, and inwardly I just wanted it over and done with.	504
+이후	둘째가 태어난 이후 집에서 조용히 커피 마실 틈이 없어요.	Since our second child was born there has been no quiet moment at home to drink a coffee.	505
+이후	추석 연휴 이후 사무실 분위기가 한결 느슨해졌어요.	Following the Chuseok holidays the mood in the office loosened up noticeably.	505
+이후	그 일로 크게 다툰 이후 서로 연락을 끊고 지내요.	From the big argument over that business onward, the two of us have kept out of touch.	505
+솔직히	솔직히 말하면 김장 담그는 날이 일 년 중에 제일 힘들어요.	To be frank, the day we make the winter kimchi is the hardest of the whole year.	507
+솔직히	회의에서 솔직히 의견을 말했다가 괜히 분위기만 어색해졌어요.	I gave my opinion straight out in the meeting and only made the room awkward.	507
+솔직히	친구 새 머리 모양이 솔직히 조금 어색했지만 잘 어울린다고 했어요.	My friend's new haircut looked a bit odd to me, truth be told, but I said it suited her.	507
+마이크	노래방에서 조카가 마이크 놓을 생각을 안 해서 다들 웃었어요.	At the noraebang my nephew showed no sign of ever putting the microphone down, and we all laughed.	508
+마이크	발표 직전에 마이크 소리가 안 나와서 급하게 건전지를 갈았어요.	Right before the presentation the mic gave no sound, so we hurriedly changed the batteries.	508
+마이크	결혼식 축가를 부르려고 마이크 앞에 서니 손이 덜덜 떨렸어요.	The moment I stood in front of the mic to sing at the wedding, my hands began to shake.	508
+예전	이사 준비를 하다가 예전 사진첩이 나와서 한참 들여다봤어요.	While packing for the move an old photo album turned up and I sat looking through it for ages.	509
+예전	예전 직장 동료가 명절 인사차 오랜만에 연락을 해 왔어요.	A colleague from my former workplace got in touch after a long while to say hello for the holiday.	509
+예전	시장 골목이 예전 모습 그대로라서 괜히 마음이 뭉클했어요.	The market alley looked exactly the way it did back then, and it moved me more than I expected.	509
+범인	드라마에서 범인 정체가 밝혀지는 장면을 이불 속에서 봤어요.	I watched the scene where the guilty one's identity comes out from under my blanket.	512
+범인	경찰이 편의점 앞 골목에서 범인 얼굴을 찍은 영상을 확보했어요.	The police secured footage from the alley by the convenience store showing the offender's face.	512
+범인	첫 회부터 그 사람이 범인 같다고 혼자 계속 우겼어요.	From the very first episode I kept insisting to myself that he was the one who did it.	512
+거리	첫눈이 와서 거리 곳곳에 사람들이 멈춰 서서 사진을 찍었어요.	The first snow fell and people stopped all along the streets to take pictures.	514
+거리	홍대 거리 공연을 구경하다가 하마터면 막차를 놓칠 뻔했어요.	I was watching a performance out on the street in Hongdae and very nearly missed the last train.	514
+거리	명절 아침이라 거리 양쪽 가게가 다 문을 닫아 썰렁했어요.	It was a holiday morning, so the shops on both sides were shut and the whole road felt bare.	514
+아가씨	옆집에 새로 이사 온 아가씨 둘이 시루떡을 돌렸어요.	Two young women who had just moved in next door came round handing out steamed rice cake.	517
+아가씨	한복집 사장님이 아가씨 손님에게 어울리는 색을 골라 주셨어요.	The owner of the hanbok shop picked out a color that suited the young customer.	517
+아가씨	할머니는 손녀를 볼 때마다 우리 아가씨 다 컸다며 웃으세요.	Every time she sees her granddaughter, Grandmother laughs that her little lady is all grown up.	517
+얘	얘 오늘 유치원에서 상 받았다고 아침부터 자랑이 대단해요.	The little one got a prize at kindergarten today and has been showing off about it since morning.	518
+얘	친구 아들인데 옆에 앉은 얘 이름을 아직도 제대로 못 외웠어요.	He is my friend's son, sitting right here beside me, and I still have not got his name straight.	518
+얘	길에서 데려온 고양이인데 얘 없었으면 그 겨울을 어떻게 났을까요.	I took this cat in off the street, and without the little thing how would I have got through that winter?	518
+역시	어머니 말씀대로 김치찌개는 역시 묵은지를 넣어야 제맛이 나요.	Just as my mother said, kimchi stew only tastes right when you put well-aged kimchi in it.	520
+역시	마감을 앞두고 보니 역시 이번에도 밤을 새우게 생겼어요.	With the deadline close, it looks like I will be up all night this time too, sure enough.	520
+역시	합격 소식을 듣고 역시 우리 딸이라며 아버지가 크게 웃으셨어요.	When he heard she had passed, Father laughed out loud and said that was his daughter for you.	520
+말하다	국어 시간에 선생님이 칠판에 '말하다'를 쓰고 높임말을 물으셨어요.	In Korean class the teacher wrote the plain form meaning to speak on the board and asked us for its honorific.	522
+말하다	부장님이 회의에서 한참 말하다 갑자기 창밖을 보며 입을 다무셨어요.	The manager went on for a while in the meeting, then suddenly looked out the window and fell silent.	522
+말하다	속상한 일은 혼자 참지 말고 말하다 보면 마음이 풀려요.	Do not bottle up what upsets you; once you get it out, your heart eases.	522
+약속	아이와 주말에 놀이공원 가기로 한 약속 때문에 야근을 미뤘어요.	I put off working late because of what I had pledged to my child about the amusement park.	523
+약속	약속 시간보다 삼십 분 일찍 도착해서 카페에서 기다렸어요.	I arrived half an hour before we were due to meet and waited in a cafe.	523
+약속	지키지도 못할 약속 탓에 서로 마음만 더 상했어요.	Pledges neither of us could keep only left us both more hurt.	523
+나라	지도를 펴 놓고 아이와 나라 이름을 하나씩 짚어 봤어요.	We spread the map out and pointed at the names of the countries one by one with our child.	524
+나라	우리 회사 제품이 이웃 나라 시장에서 먼저 인기를 끌었어요.	Our company's product caught on first in the market of the state next door.	524
+나라	타지에서 명절을 보내니 나라 밖에 혼자 떨어진 기분이었어요.	Spending the holiday far from home, I felt like someone left alone beyond his own borders.	524
+거래	중고 거래 약속을 잡고 아파트 정문 앞에서 물건을 넘겼어요.	We arranged a second-hand sale and I handed the item over at the apartment's front gate.	525
+거래	새 거래 은행을 정하려고 수수료를 꼼꼼히 비교해 봤어요.	To settle on a new bank to do business with, I compared the fees carefully.	525
+거래	말을 자꾸 바꾸는 업체와는 거래 자체를 하고 싶지 않아요.	With a firm that keeps changing its story, I do not even want to do business at all.	525
+감정	아이가 화가 날 때 감정 표현을 말로 하도록 가르치고 있어요.	We are teaching our child to put what he feels into words when he gets angry.	527
+감정	고객 앞에서는 감정 조절이 제일 어려운 일 같아요.	In front of customers, keeping what you feel in check seems the hardest part of the job.	527
+감정	오래 눌러 둔 감정 탓인지 사소한 말에도 눈물이 났어요.	Perhaps from holding it in so long, even a small remark brought tears.	527
+밑	침대 밑 먼지를 쓸어 내다가 잃어버린 귀걸이를 찾았어요.	While sweeping the dust out from beneath the bed I found the earring I had lost.	531
+밑	사무실 복사기 밑 배선이 헐거워졌다고 해서 기사님을 불렀어요.	They said the wiring underneath the office copier had come loose, so we called a technician.	531
+밑	밑 빠진 독에 물 붓는 기분이라 이번 달은 저축을 포기했어요.	It felt like pouring water into a jar with no base, so I gave up saving this month.	531
+살인	동네에 살인 사건이 났다는 소문 때문에 밤마다 문단속을 두 번씩 해요.	A rumor that there had been a killing in the neighborhood has us checking the locks twice a night.	533
+살인	검찰이 살인 혐의로 기소했다는 기사가 아침 뉴스에 나왔어요.	The morning news carried a report that prosecutors had indicted him on a charge of killing.	533
+살인	소설 속 살인 장면이 너무 잔인해서 중간에 책을 덮었어요.	The killing scene in the novel was so brutal that I shut the book halfway.	533
+필	시장에서 무명 두 필 끊어다가 아이들 이불 홑청을 새로 했어요.	I bought two bolts of cotton at the market and made new covers for the children's quilts.	534
+필	포목점 주인이 광목 열 필 값을 계산기로 두드려 보여 줬어요.	The draper tapped out the price of ten rolls of cotton sheeting on a calculator and showed me.	534
+필	혼수로 받은 명주 다섯 필 가운데 아직 하나도 못 썼어요.	Of the five rolls of silk I was given as wedding goods, I have not used a single one yet.	534
+부분	설명서에서 이해가 안 되는 부분 몇 군데에 색연필로 표시했어요.	I marked a few places in the manual that I could not make sense of with a colored pencil.	535
+부분	보고서는 결론 부분 먼저 쓰고 나머지를 채우는 편이에요.	With a report I tend to write the closing section first and fill in the rest afterwards.	535
+부분	영화에서 주인공이 어머니께 전화하는 부분 하나만 계속 생각나요.	Only the one stretch of the film where the hero phones his mother keeps coming back to me.	535
+사무실	퇴근하면서 사무실 불이랑 창문을 하나하나 확인하고 나왔어요.	On my way home I checked the lights and windows one by one before leaving.	537
+사무실	이사 온 사무실 근처에 점심 먹을 만한 식당이 많아요.	There are plenty of decent lunch places near the place we moved our work into.	537
+사무실	에어컨을 세게 트는 바람에 사무실 안이 한겨울처럼 추워요.	Someone has the air conditioning on full, so it is as cold in here as midwinter.	537
+만큼	반찬은 드실 만큼 덜어 가시고 남기지 마세요.	Take only as much of the side dishes as you will eat, and please leave nothing.	541
+만큼	일한 만큼 제대로 쳐주는 회사를 만나기가 쉽지 않아요.	It is not easy to find a company that pays you properly in proportion to the work you put in.	541
+만큼	기대가 컸던 만큼 결과를 보고 더 크게 실망했어요.	My hopes had been high, and to that same degree the result disappointed me.	541
+관계	명절마다 시댁 식구들과 관계 때문에 며칠씩 속을 끓여요.	Every holiday I stew for days over how things stand with my husband's family.	543
+관계	거래처와 관계 회복이 급해서 담당자를 직접 찾아갔어요.	Repairing things with the client was urgent, so I went to see the person in charge myself.	543
+관계	오래된 친구일수록 관계 유지에 더 공을 들여야 하는 것 같아요.	The older the friendship, the more effort it seems to take to keep the tie alive.	543
+그렇지만	아이가 감기에 걸려 밤새 보챘어요. 그렇지만 아침에는 열이 내렸어요.	The baby had a cold and fussed all night. Even so, the fever was down by morning.	545
+그렇지만	월급은 예전 직장보다 적어요. 그렇지만 집이 가까워서 훨씬 나아요.	The pay is less than at my old job. Still, home is close by, which makes it far better.	545
+그렇지만	그 영화는 결말이 좀 허무했어요. 그렇지만 음악만큼은 오래 기억에 남아요.	That film's ending felt a bit hollow. All the same, the music has stayed with me.	545
+행동	아이는 어른 행동 하나하나를 그대로 따라 하더라고요.	Children copy every single thing a grown-up does, exactly as it is.	548
+행동	신입이라도 회의에서 보인 행동 덕분에 금방 신뢰를 얻었어요.	New as she was, what she did in the meeting quickly earned her trust.	548
+행동	저는 말보다 행동 먼저 보여 주는 사람한테 마음이 가요.	I am drawn to people who show you what they will do before they talk about it.	548
+짐	이사 전날 밤까지 짐 싸느라 온 식구가 고생했어요.	The whole family had a rough time packing right up to the night before the move.	549
+짐	출장 떠나는 선배 짐 옮기는 걸 도우러 주차장까지 내려갔어요.	I went down to the parking lot to help carry the bags of a senior colleague leaving on a business trip.	549
+짐	부모님께 손을 벌리는 게 늘 마음의 짐 같아요.	Asking my parents for money always feels like a weight on my mind.	549
+찾다	잃어버린 우산을 사무실 곳곳에서 찾다 결국 포기했어요.	I hunted all over the office for the umbrella I had lost and in the end gave up.	551
+찾다	서랍에서 도장을 찾다 오래된 편지가 나와서 한참 읽었어요.	Rummaging in the drawer for my seal, I came across an old letter and read it for a long while.	551
+찾다	중고 시장에서 마음에 드는 책상을 찾다 보면 하루가 금방 가요.	Once you start going through the second-hand market for a desk you like, a day passes in no time.	551
+시체	등산객이 계곡 근처에서 시체 한 구를 발견해 경찰에 신고했어요.	A hiker found a dead body near the valley stream and reported it to the police.	552
+시체	법의학 다큐멘터리에서 시체 부검 과정을 설명하는데 차마 못 봤어요.	A forensics documentary was explaining how an autopsy is done and I could not bring myself to watch.	552
+시체	밤새 야근을 하고 나니 거울 속 얼굴이 시체 같았어요.	After working through the night, the face in the mirror looked like a corpse.	552
+새끼	옆집 진돗개가 새끼 다섯 마리를 낳아서 온 동네가 구경 갔어요.	The Jindo dog next door had a litter of five, and the whole neighborhood went to look.	554
+새끼	동물 병원에서 새끼 고양이 예방 접종을 두 번이나 맞혔어요.	At the animal clinic we had the kitten vaccinated twice over.	554
+새끼	어미 새가 새끼 입에 벌레를 넣어 주는 모습이 참 뭉클했어요.	The sight of the mother bird putting an insect into her little one's beak was truly moving.	554
+목소리	전화를 받자마자 어머니 목소리 톤이 평소와 달라서 놀랐어요.	The moment I picked up, my mother did not sound the way she usually does and it startled me.	556
+목소리	회의실이 울려서 목소리 좀 낮춰 달라는 부탁을 받았어요.	The meeting room echoes, so I was asked to speak a little more softly.	556
+목소리	라디오 진행자 목소리 하나에 위로를 받는 밤이 있어요.	There are nights when nothing but the sound of the radio host is a comfort.	556
+임무	강아지 산책 임무 맡은 뒤로 아이가 아침마다 신이 나서 뛰어나가요.	Ever since he took on the mission of walking the dog, our child charges out of the house every morning, thrilled.	558
+임무	소방관들이 밤샘 임무 교대를 하고 나서야 겨우 눈을 붙였어요.	Only after the firefighters handed over the all-night shift did they manage to get any sleep.	558
+임무	맡은 임무 하나 제대로 못 끝낸 것 같아 하루 종일 찜찜했어요.	It nagged at me all day that I had not properly finished the one job I was given.	558
+전체	대청소를 하느라 집 전체 창문을 다 열어 놓고 먼지를 털었어요.	For the big clean we opened every window in the house and beat the dust out.	559
+전체	부장님이 전체 회의를 소집해서 다음 분기 계획을 설명했어요.	The manager called everyone together for a meeting and went over next quarter's plan.	559
+전체	영화는 결말보다 전체 분위기가 오래 마음에 남는 편이에요.	With films it is the mood of the thing as a whole, rather than the ending, that stays with me.	559
+삼촌	설날에 삼촌 댁에 가서 만둣국을 두 그릇이나 먹었어요.	On Lunar New Year we went to my father's brother's place and I had two whole bowls of dumpling soup.	562
+삼촌	이사하는 날 삼촌 트럭을 빌려서 짐을 한 번에 옮겼어요.	On moving day we borrowed my uncle's truck and shifted everything in one go.	562
+삼촌	어릴 때 자전거를 가르쳐 준 삼촌 생각이 문득 났어요.	I suddenly thought of the uncle who taught me to ride a bike as a child.	562
+군	아들이 군 복무를 마치고 돌아온 날 온 식구가 갈비를 구웠어요.	The day our son came home from finishing his military service, the whole family grilled ribs.	565
+군	군 관계자가 훈련 일정을 기자들에게 짧게 설명했어요.	An official from the armed forces briefly explained the training schedule to reporters.	565
+군	군 생활 이야기를 꺼내면 아버지는 밤을 새워도 모자라세요.	Once Father starts on stories from his soldiering days, a whole night is not enough for him.	565
+저게	냉장고 저 위 칸에 있는 저게 무슨 반찬인지 기억이 안 나요.	I cannot remember what side dish the thing up on that top shelf of the fridge is.	566
+저게	창고에 쌓인 상자 중에 저쪽 맨 끝에 있는 저게 새로 들어온 물건이에요.	Among the boxes piled in the storeroom, the one way over at the far end is the newly arrived stock.	566
+저게	벽에 걸린 그림들 중에서 저기 구석에 있는 저게 제일 마음에 들어요.	Of the pictures hanging on the wall, the one off in the corner over there appeals to me most.	566
+능력	혼자 밥을 차려 먹는 능력 하나는 확실히 길러 줬어요.	If nothing else, I made sure he grew up with what it takes to feed himself.	568
+능력	이번 승진은 능력 평가 점수가 결정적이었다고 들었어요.	I heard that the competence assessment score was what decided this round of promotions.	568
+능력	혼자 다 떠맡는 건 제 능력 밖이라 솔직히 말씀드렸어요.	Taking it all on alone is beyond what I am capable of, and I said so honestly.	568
+장소	돌잔치 장소 예약을 자꾸 미루다가 원하는 날짜를 놓쳤어요.	We kept putting off booking the venue for the first birthday party and lost the date we wanted.	569
+장소	워크숍 장소 섭외를 맡아서 후보 세 곳을 직접 둘러봤어요.	I was put in charge of lining up somewhere for the workshop and looked around three candidates myself.	569
+장소	조용히 책 읽을 장소 하나쯤은 동네에 있었으면 좋겠어요.	I wish the neighborhood had at least one spot where you could read quietly.	569
+영원히	할머니가 끓여 주시던 된장찌개 맛은 영원히 못 잊을 것 같아요.	I do not think I will ever forget the taste of the soybean paste stew my grandmother used to make.	570
+영원히	이 일을 영원히 할 수는 없으니 자격증 공부를 시작했어요.	I cannot do this job for all time, so I started studying for a certificate.	570
+영원히	첫눈 오던 날의 그 골목은 영원히 기억에 남을 거예요.	That alley on the day of the first snow will stay in my memory for good.	570
+목	베개가 안 맞는지 아침마다 목 뒤가 뻐근해요.	The pillow must not suit me; the back of my neck is stiff every morning.	571
+목	하루 종일 모니터를 보느라 목 돌리는 것도 힘들어요.	Staring at a monitor all day leaves me barely able to turn my head.	571
+목	한복 저고리 깃이 목 아래를 딱 감싸서 사진이 단정하게 나왔어요.	The collar of the hanbok jacket sat snugly just below, so the photo came out looking neat.	571
+죽다	계곡물에 휩쓸렸다가 죽다 살아난 뒤로는 물가에 잘 안 가요.	Since the time I was swept into the valley stream and barely came out alive, I keep away from the water's edge.	572
+죽다	외국인 친구가 '죽다'와 '돌아가시다'의 차이를 물어서 한참 설명했어요.	A foreign friend asked how the plain word for passing away differs from the respectful one, and I explained at length.	572
+죽다	며칠 밤을 새운 선배가 마감을 끝내고 죽다 살아난 표정으로 웃었어요.	A senior colleague who had been up for nights finished the deadline and smiled like someone back from the dead.	572
+바	면접장에서 이름이 불리자 어찌할 바 몰라 손끝만 만지작거렸어요.	When my name was called at the interview, I had no idea how to act and just fidgeted with my fingertips.	573
+바	그 사건에 대해서는 저희도 아는 바 없습니다.	We have no knowledge of that incident either.	573
+바	강연을 듣고 느낀 바 그대로 후기를 솔직하게 써 봤어요.	I wrote the review honestly, exactly as the lecture had struck me.	573
+근처	집 근처 편의점에 우유를 사러 잠깐 다녀왔어요.	I popped out to the convenience store by our place to buy milk.	581
+근처	회사 근처 국밥집은 점심시간마다 줄이 길게 늘어서요.	The soup-and-rice place by the office has a long queue every lunch hour.	581
+근처	이사 온 동네는 근처 공원이 넓어서 아침마다 기분이 좋아요.	The park close to our new neighbourhood is big, so my mornings feel good.	581
+의미	온 가족이 모인 이번 추석은 유난히 의미 있는 명절이었어요.	With the whole family gathered, this Chuseok felt unusually worthwhile.	582
+의미	부장님 말씀의 의미 파악이 늦어 엉뚱한 자료를 준비했어요.	I was slow to grasp what the department head was getting at, so I prepared the wrong material.	582
+의미	선생님은 속담의 의미 대신 쓰임을 먼저 알려 주셨어요.	The teacher explained how the proverb is used before telling us what it says.	582
+나무	할아버지가 마당에 심으신 나무 밑에서 수박을 잘라 먹었어요.	We cut up a watermelon under the tree grandfather planted in the yard.	583
+나무	태풍에 쓰러진 나무 때문에 골목이 하루 종일 막혔어요.	The alley was blocked all day by a tree the typhoon had knocked over.	583
+나무	할머니 댁 대문 옆 나무 냄새를 맡으면 어릴 적이 떠올라요.	The smell of the tree by grandmother's front gate brings my childhood straight back.	583
+땅	장마가 그치자 땅 위로 지렁이가 잔뜩 기어 나왔어요.	When the rainy season let up, earthworms came crawling out all over the ground.	584
+땅	삼촌은 시골에 땅 몇 평을 사서 고추를 심으셨어요.	My uncle bought a small plot in the countryside and planted chillies.	584
+땅	계약서를 쓰고 나서야 이 땅 주인이 바뀐 게 실감 났어요.	Only after signing the contract did it sink in that this plot had changed hands.	584
+가능성	회사는 경력보다 가능성 하나만 보고 그 신인을 뽑았어요.	The company hired that newcomer on promise alone rather than experience.	585
+가능성	태풍이 올라올 가능성 때문에 제주도 여행을 결국 취소했어요.	We ended up cancelling the Jeju trip because a typhoon might come up.	585
+가능성	지금 점수로 역전은 가능성 없는 이야기라고 코치가 말했어요.	The coach said that at this score a comeback is simply out of the question.	585
+명령	강아지는 '앉아' 하는 명령 말고는 아무것도 못 알아들어요.	The puppy understands no command except 'sit'.	586
+명령	선장은 명령 없이 배를 움직이지 말라고 못을 박았어요.	The captain made it clear that nobody moves the boat without being told to.	586
+명령	상사의 명령 한마디에 주말 계획이 통째로 날아가 버렸어요.	One word from my boss and my whole weekend plan was gone.	586
+대통령	투표소가 학교 체육관이라 아침 일찍 대통령 선거 투표를 하러 갔어요.	The polling station was the school gym, so I went early to vote in the presidential election.	589
+대통령	할아버지는 저녁 뉴스에서 대통령 얼굴만 보면 한숨을 쉬세요.	Grandfather sighs whenever the head of state appears on the evening news.	589
+대통령	토론회에 나온 대통령 후보들의 말이 다 비슷하게 들렸어요.	All the candidates for the country's highest office sounded much the same in the debate.	589
+군대	형은 군대 가기 전날 머리를 아주 짧게 깎았어요.	My older brother cut his hair very short the day before he enlisted.	590
+군대	삼촌은 군대 시절 이야기를 명절마다 똑같이 되풀이하세요.	My uncle repeats the same stories from his service days every holiday.	590
+군대	군대 안에서는 계급이 나이보다 먼저라고 선배가 말해 줬어요.	A senior told me that in the service rank comes before age.	590
+잭	노트북 옆구리 잭 하나가 헐거워져 소리가 자꾸 끊겨요.	One of the sockets on the side of my laptop has gone loose, so the sound keeps cutting out.	592
+잭	노래방에서 마이크 잭 빠지는 바람에 노래가 중간에 끊겼어요.	At the karaoke room the microphone plug came out and the song stopped halfway.	592
+잭	기사님이 벽에 달린 인터넷 잭 위치를 바꿔 주고 가셨어요.	The technician moved the internet connector on the wall to a different spot before he left.	592
+사랑하다	십 년을 사랑하다 헤어진 두 사람이 동창회에서 다시 만났어요.	Two people who were together for ten years and then parted met again at the class reunion.	594
+사랑하다	오래 사랑하다 보면 말투까지 닮는다고 할머니가 웃으며 말씀하셨어요.	Grandmother said with a smile that if you care for someone long enough you even start talking alike.	594
+사랑하다	주례 선생님은 '사랑하다'라는 동사에 노력이 들어 있다고 하셨어요.	The officiant said that the verb for caring deeply about someone has effort built into it.	594
+느낌	처음 들어간 집인데도 느낌 좋아서 그 자리에서 계약했어요.	Even on a first viewing the place struck me well, so I signed right there.	595
+느낌	사무실을 옮기고 나서 낯선 느낌 때문에 한동안 집중이 안 됐어요.	After the office move everything felt unfamiliar and I couldn't concentrate for a while.	595
+느낌	그 가게는 간판부터 옛날 다방 느낌 그대로라 어른들이 좋아해요.	From the sign onward that shop has the air of an old tea room, so older people love it.	595
+팔	아이가 팔 벌려 안기는 바람에 들고 있던 짐을 놓쳤어요.	The child threw both arms open for a hug and I dropped what I was carrying.	596
+팔	이삿짐센터 아저씨는 팔 걷어붙이고 무거운 장롱부터 번쩍 옮기셨어요.	The mover rolled up his sleeves and lifted the heavy wardrobe first.	596
+팔	밤새 팔 베고 자서 아침 내내 손이 저릿저릿했어요.	I slept all night with my head on my arm, and my hand tingled the whole morning.	596
+그쪽	전화로 알려 준 골목, 그쪽 끝에 작은 만둣집이 있어요.	The alley I told you about on the phone - there's a little dumpling shop at the end of it.	598
+그쪽	회의 자료는 그쪽 담당자에게 이미 보내 두었다고 들었어요.	I heard the meeting materials have already been sent to the person in charge on their side.	598
+그쪽	출구를 잘못 나와서 그쪽 말고 반대편으로 다시 돌아갔어요.	I took the wrong exit, so I went back round to the opposite side instead.	598
+받다	전화를 받다 말고 갑자기 밖으로 뛰어나가서 다들 놀랐어요.	He broke off in the middle of a call and ran outside, which startled everyone.	600
+받다	혼자 손님을 받다 힘에 부쳐서 아르바이트를 한 명 더 뽑았어요.	Serving customers alone wore her out, so she took on one more part-timer.	600
+받다	칭찬만 받다 보면 작은 지적에도 쉽게 흔들리게 돼요.	If all you ever hear is praise, even a small criticism knocks you off balance.	600
+가방	아침마다 아이 가방 챙기느라 정신이 하나도 없어요.	Every morning I'm in a complete whirl getting my child's satchel ready.	601
+가방	지하철 2호선에서 가방 지퍼가 열린 줄도 모르고 서 있었어요.	On subway line 2 I stood there with no idea the zip had come open.	601
+가방	졸업 선물로 받은 가방 하나를 십 년째 메고 다녀요.	I've been carrying the same graduation present around for ten years now.	601
+정부	정부 지원금 신청 서류를 준비하느라 하루를 다 보냈어요.	I spent the entire day putting together the papers for a state subsidy.	602
+정부	아버지는 정부 정책 이야기만 나오면 목소리가 커지세요.	My father's voice rises the moment national policy comes up.	602
+정부	물가 대책은 정부 혼자 힘으로 풀 문제가 아니라고 봐요.	I don't think the state can solve the cost-of-living problem on its own.	602
+발	지하철 2호선 퇴근길은 발 디딜 틈도 없이 붐볐어요.	The evening rush on subway line 2 was so packed there was nowhere to stand.	603
+발	아이가 흙탕물을 밟아서 현관에서 발 씻기느라 한참 걸렸어요.	The child stepped in a muddy puddle, so washing him off at the door took ages.	603
+발	등산화가 작아서 하산하는 내내 발 때문에 고생했어요.	My boots were too small, so my feet gave me trouble the whole way down the mountain.	603
+그리	집에서 시장까지는 그리 멀지 않아서 걸어서 다녀와요.	The market isn't all that far from home, so I walk there and back.	606
+그리	이모는 왜 그리 서두르냐며 밥이라도 먹고 가라고 붙잡으셨어요.	My aunt asked what the rush was and held me back to at least eat something.	606
+그리	소문과 달리 그 식당 김치찌개는 그리 맵지 않았어요.	Despite the rumours, the kimchi stew at that place wasn't particularly hot.	606
+모르다	동생은 그 소식을 한동안 모르다 명절에야 알게 됐어요.	My younger sibling was in the dark about it for a while and only found out at the holiday.	608
+모르다	선생님은 칠판에 '알다'와 '모르다'를 나란히 적어 놓으셨어요.	The teacher wrote the verb for knowing and its opposite side by side on the board.	608
+모르다	한국 예절을 잘 모르다 보니 어른들 앞에서 자꾸 실수했어요.	Being unfamiliar with Korean etiquette, I kept slipping up in front of my elders.	608
+요원	해수욕장 안전 요원 두 명이 호루라기를 불며 뛰어왔어요.	Two safety staff at the beach came running and blowing their whistles.	609
+요원	이번 축제에는 진행 요원 열 명이 아침부터 나와 있었어요.	Ten event staff were out there from the morning for this festival.	609
+요원	드라마 속 정보 요원 역할이 실제와 너무 달라 웃음이 났어요.	The intelligence operative in the drama was so unlike the real thing that I laughed.	609
+라	동생은 피아노 앞에 앉아 도 레 미 파 솔 라 시 도를 눌렀어요.	My little brother sat at the piano and pressed do re mi fa sol la ti do.	611
+라	합창 연습에서 선생님이 라 음을 길게 잡아 주셨어요.	At choir practice the teacher held the sixth note of the scale out for us.	611
+라	긴장해서 라 하나를 놓치는 바람에 무대에서 얼굴이 빨개졌어요.	I was nervous and missed that one note, and my face went red on stage.	611
+뉴욕	부장님은 다음 주 뉴욕 출장 때문에 여권을 새로 만드셨어요.	The department head got a new passport for next week's business trip to New York.	612
+뉴욕	뉴욕 사는 이모가 추석마다 영상 통화로 인사를 하세요.	My aunt who lives in New York calls on video to say hello every Chuseok.	612
+뉴욕	뉴욕 지하철은 서울보다 훨씬 낡았다고 친구가 사진을 보내 줬어요.	A friend sent photos saying New York's subway is far older than Seoul's.	612
+치료	할머니는 무릎 치료 때문에 매주 한방병원에 다니세요.	Grandmother goes to the oriental medicine clinic every week to have her knee seen to.	615
+치료	그 선수는 발목 치료 중이라 이번 경기에는 나오지 못해요.	That player is having his ankle attended to and can't play this match.	615
+치료	꾸준한 치료 덕분에 통증이 줄어서 이제는 계단도 오를 만해요.	Thanks to sticking with the course of care the pain has eased, and I can manage stairs now.	615
+조	할머니는 밥을 지을 때 조 한 줌을 꼭 넣으세요.	Grandmother always throws a handful of millet in when she cooks rice.	616
+조	가을 들판에서 조 이삭이 노랗게 고개를 숙이고 있었어요.	Out in the autumn fields the millet ears hung yellow and heavy.	616
+조	오일장에서 산 조 덕분에 밥맛이 훨씬 구수해졌어요.	The millet we bought at the five-day market made the rice taste much nuttier.	616
+어이	뒤에서 어이, 하고 부르는 소리에 깜짝 놀라 돌아봤어요.	Someone behind me called out with a rough hey, and I turned round startled.	618
+어이	형은 '어이' 한마디만 던지고는 다시 텔레비전을 봤어요.	My older brother just tossed out a blunt hey and went back to the television.	618
+어이	'어이'라는 말투가 듣기 싫어서 친구에게 그러지 말라고 했어요.	I don't like being hailed that curtly, so I asked my friend to stop.	618
+하늘	빨래를 널려고 나갔다가 하늘 보고 그냥 들어왔어요.	I went out to hang the washing, took one look upward and came straight back in.	619
+하늘	한강 둔치에 누워 하늘 한번 올려다보니 마음이 트였어요.	Lying on the bank of the Han River and looking up at the sky lifted something in me.	619
+하늘	추석 무렵이면 하늘 높고 바람이 선선해서 산책하기 좋아요.	Around Chuseok the sky is high and the breeze is cool, perfect for a walk.	619
+누나	누나 방에서 자꾸 드라이기 소리가 나서 잠을 설쳤어요.	The hairdryer kept going in my sister's room and I hardly slept.	620
+누나	다음 달 누나 결혼식이라 온 친척이 서울로 모여요.	My sister's wedding is next month, so the whole family is gathering in Seoul.	620
+누나	혼자 서울에 올라와 힘들 때 누나 덕분에 버텼어요.	When I was struggling alone in Seoul, my sister was what got me through.	620
+실례하다	어른 앞에서 자꾸 실례하다 보면 사이가 멀어질 수도 있어요.	If you keep breaching good manners in front of your elders, the relationship can cool.	623
+실례하다	선생님은 칠판에 '실례하다'라고 크게 쓰고 높임말부터 설명하셨어요.	The teacher wrote the verb for committing a breach of etiquette up on the board and started with honorifics.	623
+실례하다	신입 교육 자료에는 '실례하다'의 쓰임이 예문과 함께 나와 있어요.	The new-hire training material shows how that verb for being impolite is used, with examples.	623
+데이트	첫 데이트 때 영화를 보고 한강까지 걸어갔어요.	On our first outing together we saw a film and walked all the way to the Han River.	624
+데이트	부모님은 결혼 전 데이트 장소가 늘 남산이었다고 하세요.	My parents say they always met up at Namsan before they married.	624
+데이트	소개팅 뒤 두 번째 데이트 신청을 받고 하루 종일 웃었어요.	After the blind date I was asked out a second time and smiled all day.	624
+잠	옆집 공사 소리 때문에 요즘 잠 제대로 못 자요.	With the building work next door I haven't been sleeping properly lately.	626
+잠	야간 근무를 서고 나면 낮에도 잠 못 이룰 때가 있어요.	After a night shift there are days I can't drop off even in daylight.	626
+잠	시험 전날에는 긴장해서 잠 안 오는 게 당연하대요.	They say it's only natural not to feel drowsy the night before an exam.	626
+최선	경기에서 졌지만 끝까지 최선 다했으니 후회는 없어요.	We lost the match, but we gave everything to the end, so there are no regrets.	627
+최선	감독님은 시간이 없으니 최선 아니면 차선이라도 찾아보자고 하셨어요.	The director said time was short, so if not the ideal option we should at least find the next one.	627
+최선	지금 형편에서는 이 방법이 최선 같다고 부모님께 말씀드렸어요.	I told my parents this seems the finest option available in our current situation.	627
+악마	무서운 영화에서 악마 역을 맡은 배우가 제 동창이에요.	The actor who played the fiend in that horror film is an old classmate of mine.	628
+악마	할머니는 어릴 적에 악마 이야기를 들려주며 우리를 겁주셨어요.	When we were little, grandmother frightened us with stories about evil spirits.	628
+악마	그 감독은 촬영장에서 악마 같은 완벽주의자로 소문이 났어요.	That director has a reputation on set as a fiendish perfectionist.	628
+여행	이번 연휴에는 가족끼리 제주도 여행 가기로 했어요.	We decided to take a family trip to Jeju over this holiday.	629
+여행	여행 다녀온 선배가 사무실에 곶감을 한 상자 돌렸어요.	A senior colleague back from a trip handed round a box of dried persimmons at the office.	629
+여행	혼자 떠난 기차 여행 덕분에 복잡했던 마음이 가라앉았어요.	Going off alone by train settled all the noise in my head.	629
+신호	횡단보도에서 신호 기다리는 동안 첫눈이 내리기 시작했어요.	While I waited at the crossing for the light to change, the first snow began to fall.	630
+신호	감독이 벤치에서 신호 보내자 선수들이 일제히 앞으로 나섰어요.	When the manager sent word from the bench, the players all pushed forward at once.	630
+신호	요즘 자꾸 졸린 게 쉬라는 신호 같아서 연차를 냈어요.	Being sleepy all the time felt like my body telling me to rest, so I took leave.	630
+섹스	드라마에 갑자기 섹스 장면이 나와서 얼른 채널을 돌렸어요.	A bedroom scene came up in the drama out of nowhere, so I quickly changed the channel.	631
+섹스	보건 선생님은 섹스 이야기를 피하지 않고 차분하게 설명하셨어요.	The health teacher didn't dodge the subject of intercourse and explained it calmly.	631
+섹스	설문지에 섹스 관련 문항이 있어서 답하기가 조금 망설여졌어요.	The questionnaire had items about intimate relations, and I hesitated a little to answer.	631
+반	냄비에 물이 반 정도 남아서 라면 하나만 끓였어요.	Only about half the water was left in the pot, so I made just one packet of ramyeon.	632
+반	케이크가 반 넘게 남아서 이웃집에 조금 나눠 줬어요.	More than half the cake was left, so I shared some with the neighbours.	632
+반	월급에서 반 가까이 월세로 나가니 저축이 어려워요.	Close to half my pay goes on rent, so saving is hard.	632
+마크	축구화 옆면의 마크 하나만 보고도 어느 브랜드인지 알겠더라고요.	One glance at the emblem on the side of the football boots told me the brand.	633
+마크	교복 셔츠에 학교 마크 없이 나갔다가 선도부에 걸렸어요.	I went out with no school badge on my uniform shirt and got caught by the discipline monitors.	633
+마크	응원석에서는 구단 마크 모양의 풍선을 하나씩 나눠 줬어요.	In the supporters' stand they handed out balloons shaped like the club crest.	633
+최근	최근 들어 잠자리에 드는 시간이 점점 늦어졌어요.	Of late I've been going to bed later and later.	635
+최근	최근 몇 달 사이에 회사 앞 식당값이 많이 올랐어요.	Over the past few months the prices at the restaurants by the office have risen a lot.	635
+최근	이모는 최근 소식을 물어볼 때마다 사진부터 보내 달라고 하세요.	Whenever my aunt asks for the freshest news she wants photos first.	635
+타	아버지가 차창을 내리고 '어서 타' 하고 손짓하셨어요.	My father rolled the window down and waved me in, telling me to hurry up and get in.	636
+타	엠티 가는 날 선배가 '얼른 타' 하고 재촉했어요.	On the day of the club trip a senior hurried us along, telling us to hop aboard.	636
+타	놀이기구 앞에서 친구가 '같이 타' 하고 졸랐지만 무서워서 못 탔어요.	In front of the ride my friend begged me to get on with her, but I was too scared.	636
+확인	외출하기 전에 가스 밸브 잠갔는지 확인 좀 해 주세요.	Before you go out, please check that the gas valve is shut.	637
+확인	회의 전에 참석자 명단 확인 부탁드린다고 메일을 보냈어요.	I emailed asking them to look the attendee list over before the meeting.	637
+확인	예매 확인 메일이 오지 않아서 공연 날까지 마음을 졸였어요.	No confirmation email came for the booking, so I was on edge until the day of the show.	637
+보기	반찬을 그릇에 옮겨 담으니 훨씬 보기 좋아졌어요.	Moving the side dishes into proper bowls made them much nicer to look at.	638
+보기	시험지 보기 네 개 중에 답이 두 개처럼 보였어요.	Among the four options on the exam paper, two of them looked like the answer.	638
+보기	동생이 어질러 놓은 방은 문만 열어도 보기 싫었어요.	The room my brother had messed up was unbearable to set eyes on the moment you opened the door.	638
+호텔	출장 때 묵은 호텔 조식이 생각보다 훨씬 든든했어요.	The hotel I stayed at on the business trip did a far more filling breakfast than I expected.	639
+호텔	친구 결혼식장이 호텔 연회장이라 아침부터 차가 밀렸어요.	My friend's wedding was in a hotel banquet hall, so traffic was jammed from the morning.	639
+호텔	부모님 환갑에 호텔 방을 하나 잡아 드렸더니 아주 좋아하셨어요.	I booked a room for my parents' sixtieth birthday and they were delighted.	639
+우주	아이가 우주 다큐멘터리를 보면서 별 이름을 하나씩 외웠어요.	My child watched a documentary about space and memorized the star names one by one.	640
+우주	남편은 우주 정거장 사진을 거실 벽에 액자로 걸어 뒀어요.	My husband framed a photo of the orbiting station and hung it on the living-room wall.	640
+우주	밤하늘을 한참 올려다보고 있으면 우주 속 먼지가 된 기분이에요.	When I look up at the night sky for a while, I feel like a speck of dust out in the cosmos.	640
+지구	아이들이 지구 온난화 숙제를 하려고 도서관에서 자료를 찾고 있어요.	The kids are digging through library material for their homework on global warming.	643
+지구	이모가 지구 반대편에서 추석 인사를 영상으로 찍어 보내 왔어요.	My aunt, on the other side of the planet, sent a video with her Chuseok greetings.	643
+지구	우주에서 찍은 사진을 보니 지구 하나가 유난히 파랗고 작았어요.	In the photo taken from orbit, our one blue planet looked strikingly small.	643
+샘	할머니 댁 뒤편에는 여름에도 물이 차가운 샘 하나가 있어요.	Behind my grandmother's house there is a spring whose water stays cold even in summer.	644
+샘	등산객들이 약수터 아래 작은 샘 옆에 배낭을 내려놓고 쉬었어요.	The hikers set their packs down beside the little fountain below the mineral-water spot and rested.	644
+샘	가뭄에도 마르지 않는 샘 같은 사람이 되고 싶다고 늘 생각해요.	I always think I'd like to be like a spring that never runs dry, even in a drought.	644
+선택	아들이 고등학교 선택 과목을 정하느라 밤늦게까지 혼자 고민했어요.	My son sat up late on his own deciding which elective subjects to take in high school.	646
+선택	팀장님은 배송 방식을 고객 선택 사항으로 남겨 두자고 하셨어요.	The team lead said we should leave the delivery method up to the customer as an option.	646
+선택	그때 내린 선택 하나가 지금의 저를 만들었다고 생각해요.	I think the single decision I made back then is what made me who I am.	646
+나이	아버지는 나이 드신 뒤로도 새벽마다 뒷산에 올라 약수를 떠 오세요.	Even now that he is on in years, my father climbs the hill behind us at dawn for spring water.	648
+나이	면접에서 나이 얘기를 먼저 꺼내는 건 실례라고 선배가 알려 줬어요.	A senior colleague told me it's rude to bring up how old someone is first in an interview.	648
+나이	동생과 나이 차이가 많이 나서 어릴 땐 대화가 잘 안 됐어요.	There's a big gap in years between my sibling and me, so as children we barely talked.	648
+열쇠	현관 열쇠 하나를 화분 밑에 숨겨 두고 몇 년째 다녀요.	I've kept a spare front-door key hidden under the flowerpot for years now.	649
+열쇠	경비 아저씨께 창고 열쇠 좀 빌려 달라고 조심스럽게 부탁드렸어요.	I carefully asked the security guard to lend me the key to the storage room.	649
+열쇠	실패를 인정하는 태도가 성장의 열쇠 같다고 요즘 자주 느껴요.	Lately I often feel that admitting failure is the key to growing as a person.	649
+그곳	제주도에 다녀온 친구가 그곳 감귤이 정말 달다고 자랑했어요.	My friend who went to Jeju bragged that the tangerines there are genuinely sweet.	650
+그곳	출장 간 선배가 그곳 사무실은 난방이 약하다고 미리 알려 줬어요.	The colleague on the business trip warned me in advance that the heating in that office is weak.	650
+그곳	어릴 때 살던 동네를 찾아갔는데 그곳 골목이 하나도 안 변했더라고요.	I went back to the neighbourhood where I grew up, and the alleys of that place hadn't changed at all.	650
+과거	이모는 과거 사진을 꺼내 보며 젊었을 때 얘기를 들려주셨어요.	My aunt pulled out old photographs and told us stories from when she was young.	653
+과거	면접관이 과거 경력보다 지금 할 수 있는 일을 자세히 물었어요.	The interviewer asked in detail about what I can do now rather than about my earlier career.	653
+과거	이제 와서 과거 잘못을 따져 봐야 마음만 더 무거워져요.	Picking over old mistakes at this point only makes my heart heavier.	653
+건물	우리 집 앞 건물 일층에 편의점이 새로 생겨서 아주 편해요.	A convenience store opened on the ground floor of the block in front of our house, which is very handy.	654
+건물	회의가 길어져서 건물 밖 벤치에서 김밥으로 점심을 때웠어요.	The meeting ran long, so I made do with gimbap on a bench outside the office block.	654
+건물	낡은 건물 계단을 오를 때마다 삐걱거리는 소리가 오히려 정겨워요.	Every time I climb the stairs of that old place, the creaking sounds oddly comforting.	654
+좋아하다	동네 빵집을 좋아하다 보니 사장님과 인사까지 나누는 사이가 됐어요.	From being so fond of the neighbourhood bakery, I ended up on greeting terms with the owner.	655
+좋아하다	언니는 아이돌을 좋아하다 요즘은 트로트에 푹 빠져 지내요.	My sister was into idol groups for a while and is now completely taken with trot music.	655
+좋아하다	아이가 ‘좋아하다’와 ‘사랑하다’가 어떻게 다르냐고 물어서 한참 고민했어요.	My child asked how being fond of someone differs from loving them, and I had to think for a long while.	655
+바다	여름휴가 때 동해 바다 근처 민박집에서 사흘을 묵고 왔어요.	On our summer holiday we stayed three nights at a guesthouse near the East Sea.	657
+바다	삼촌은 새벽마다 배를 몰고 바다 한가운데까지 나가 그물을 걷어요.	My uncle takes his boat out to the middle of the open water at dawn and hauls in the nets.	657
+바다	속상한 날이면 버스를 타고 바다 앞에 앉아 한참을 있다 와요.	On days when I'm upset I take the bus, sit facing the water, and stay a good while before coming home.	657
+그치만	어젯밤에 김치찌개를 끓였어요. 그치만 어머니가 해 주시던 맛은 안 났어요.	I made kimchi stew last night. Still, it didn't taste the way my mother's did.	658
+그치만	야근을 각오하고 있었어요. 그치만 팀장님이 오늘은 일찍 들어가라고 하셨어요.	I had braced myself for working late. However, the team lead told me to go home early today.	658
+그치만	친구 말이 틀리진 않았어요. 그치만 그렇게까지 말할 필요는 없었잖아요.	What my friend said wasn't wrong. Even so, there was no need to put it quite like that.	658
+가다	지하철역으로 가다 지갑을 두고 온 걸 뒤늦게 알아챘어요.	On my way to the subway station I realized, too late, that I'd left my wallet behind.	659
+가다	이 길로 쭉 가다 보면 오른쪽에 큰 은행나무가 보여요.	If you keep going straight along this road, you'll see a big ginkgo tree on the right.	659
+가다	퇴근길 도로가 가다 서다를 반복해서 집까지 한 시간이나 걸렸어요.	The evening traffic kept crawling and stopping, so it took a full hour to get home.	659
+가치	할머니께 물려받은 반지는 돈으로 매길 수 없는 가치 있는 물건이에요.	The ring I inherited from my grandmother is a thing whose worth cannot be counted in money.	662
+가치	회의에서 이 사업의 가치 평가를 다시 해 보자는 의견이 나왔어요.	At the meeting someone suggested we assess what this business is worth all over again.	662
+가치	봉사활동을 하면서 돈보다 중요한 가치 하나를 배운 것 같아요.	Through volunteering I think I learned something that matters more than money.	662
+기록	아이가 태어난 날부터 키를 잰 기록 노트를 아직 갖고 있어요.	I still have the notebook where I've logged my child's height since the day she was born.	663
+기록	병원에서 예전 진료 기록 사본을 미리 떼어 오라고 했어요.	The hospital told me to bring a copy of the earlier treatment notes in advance.	663
+기록	후배가 제 기록 하나를 깼는데 서운하기보다 오히려 대견했어요.	A junior broke one of my marks, and rather than feeling put out I was proud of him.	663
+너네	동생이 친구들한테 너네 먼저 가라고 소리치고 혼자 뛰어갔어요.	My little brother shouted at his friends to go on ahead and ran off alone.	665
+너네	형이 저한테 너네 학교 축제에는 푸드트럭이 오냐고 물었어요.	My older brother asked me whether food trucks come to the festival at our school.	665
+너네	친구들이 너네 집 김치찌개가 제일 맛있다고 입을 모았어요.	My friends all agreed that the kimchi stew at our house is the best.	665
+트럭	이사하는 날 아침에 트럭 한 대가 좁은 골목까지 들어왔어요.	On moving day a lorry came all the way into our narrow alley in the morning.	667
+트럭	시장 앞에서 트럭 짐칸에 배추를 싣는 걸 잠깐 도와드렸어요.	In front of the market I helped load cabbages into the back of the truck for a bit.	667
+트럭	좁은 길에서 트럭 뒤에 갇혀 약속 시간에 늦고 말았어요.	Stuck behind a truck on a narrow road, I ended up late for my appointment.	667
+점점	찌개를 너무 오래 끓였더니 국물이 점점 졸아서 짜졌어요.	I boiled the stew too long, so the broth cooked down bit by bit and turned salty.	668
+점점	신입 때는 어리바리했는데 요즘은 회의에서 말수가 점점 늘었어요.	I was clueless as a newcomer, but these days I speak up more and more in meetings.	668
+점점	이별한 지 반년이 지나니 그 사람 목소리가 점점 흐릿해져요.	Half a year after the breakup, the sound of his voice is fading little by little.	668
+화장실	주말마다 형제끼리 돌아가면서 화장실 청소를 맡기로 약속했어요.	We agreed that we siblings would take turns cleaning the bathroom every weekend.	669
+화장실	편의점 사장님께 화장실 좀 써도 되냐고 조심스럽게 여쭤봤어요.	I cautiously asked the convenience-store owner whether I could use the toilet.	669
+화장실	고속도로가 꽉 막히는데 화장실 생각이 간절해서 진땀이 났어요.	The motorway was at a standstill and I desperately needed a restroom, so I broke into a cold sweat.	669
+나머지	김치찌개를 한 냄비 끓여서 나머지 국물은 냉동실에 넣어 뒀어요.	I made a whole pot of kimchi stew and put what was left of the broth in the freezer.	671
+나머지	회비에서 현수막 값을 빼고 나머지 돈은 뒤풀이에 쓰기로 했어요.	After the banner was paid for out of the dues, we decided to spend the remainder on the after-party.	671
+나머지	앞부분만 겨우 외우고 나머지 가사는 끝내 기억이 안 났어요.	I barely managed the opening, and the rest of the lyrics never came back to me.	671
+경우	아이가 열이 심한 경우 해열제를 먹이고 바로 병원에 데려가요.	When a child has a high fever, give a fever reducer and take them straight to the clinic.	672
+경우	주문이 취소된 경우 환불까지 사흘쯤 걸린다고 고객에게 안내했어요.	I told the customer that where an order is cancelled, the refund takes about three days.	672
+경우	제 경우 스트레스를 받으면 노래방에 가서 두 시간쯤 소리를 질러요.	In my situation, when I'm stressed I go to a karaoke room and yell for a couple of hours.	672
+영혼	할머니는 추석 차례가 조상의 영혼 앞에 드리는 인사라고 하셨어요.	My grandmother said the Chuseok rite is a greeting offered before the spirits of our ancestors.	679
+영혼	팀장님 농담에 다들 영혼 없는 웃음만 짓고 서둘러 자리로 갔어요.	At the team lead's joke everyone managed only a hollow laugh and hurried back to their desks.	679
+영혼	그 노래를 처음 들었을 때 영혼 한구석이 흔들리는 기분이었어요.	The first time I heard that song, it felt as if some corner of my inner self was shaken.	679
+생명	길에서 주운 새끼 고양이를 밤새 돌보며 생명 하나를 겨우 살려 냈어요.	We looked after the kitten we'd picked up off the street all night and just barely saved the little life.	680
+생명	간호사 선생님은 생명 존중 교육을 해마다 빠짐없이 받는다고 알려 주셨어요.	The nurse told me she takes the course on respect for life every single year without fail.	680
+생명	수술을 받고 나서야 생명 앞에서 겸손해지는 법을 조금 배웠어요.	Only after the operation did I learn a little about being humble in the face of life.	680
+왕	아이가 그림책을 보며 왕 이야기를 다시 읽어 달라고 졸랐어요.	My child looked at the picture book and begged me to read the story about the monarch again.	681
+왕	학예회에서 아들이 왕 역할을 맡아 대사를 열 줄이나 외웠어요.	At the school show my son played the monarch and memorized ten whole lines.	681
+왕	사극을 보다 보니 왕 노릇도 참 외롭겠다는 생각이 들었어요.	Watching the historical drama, it struck me that ruling a country must be a lonely job.	681
+주변	이사 온 뒤로 집 주변 골목을 매일 한 바퀴씩 걸어요.	Since we moved in I walk a lap around the alleys near the house every day.	682
+주변	새 지점을 내기 전에 주변 상권을 두 달 동안 조사했어요.	Before opening the new branch we spent two months surveying the businesses in the area.	682
+주변	결혼 얘기가 나올 때마다 주변 어른들 시선이 솔직히 부담스러워요.	Whenever marriage comes up, honestly, the way the older people around me look at me weighs on me.	682
+그분	옆집 할머니께 김장을 배웠는데 그분 손맛은 도저히 못 따라가겠어요.	I learned kimchi-making from the grandmother next door, but I simply cannot match that lady's touch.	683
+그분	거래처 사장님이 오셨는데 그분 명함을 깜빡하고 안 받았어요.	The client's director came by, and I forgot to take that gentleman's business card.	683
+그분	장례식장에서 그분 이야기를 듣다가 결국 눈물이 나고 말았어요.	Listening to stories about him at the funeral hall, I ended up in tears.	683
+변호사	사촌 언니가 변호사 시험에 붙어서 온 가족이 고깃집에 모였어요.	My cousin passed the bar exam, so the whole family gathered at a barbecue restaurant.	684
+변호사	계약서를 보내기 전에 변호사 검토를 한 번 더 받기로 했어요.	We decided to have a legal professional look the contract over once more before sending it.	684
+변호사	상담을 마치고 나오는데 변호사 말 한마디에 마음이 한결 놓였어요.	As I left the consultation, one remark from the attorney put my mind considerably at ease.	684
+벽	아이가 크레파스로 거실 벽 여기저기에 낙서를 잔뜩 해 놨어요.	My child has scribbled all over the living-room wall with crayons.	686
+벽	사무실 벽 한쪽에 팀원들 사진을 붙여 두니 분위기가 밝아졌어요.	Putting the team's photos up on one side of the office wall brightened the mood.	686
+벽	혼자 힘으로는 도저히 넘기 힘든 벽 앞에 선 기분이 들었어요.	I felt as though I were standing before a barrier I could never get over on my own.	686
+특히	겨울엔 뜨끈한 국물이 당기는데 특히 김치찌개가 자주 생각나요.	In winter I crave hot broth, and kimchi stew in particular comes to mind often.	688
+특히	출근길 지하철은 늘 붐비지만 특히 월요일 아침이 가장 심해요.	The commuter subway is always packed, but Monday morning is the worst of all.	688
+특히	그 영화가 다 좋았지만 특히 마지막 장면에서 한참을 울었어요.	I liked all of that film, but I cried for a long time at the final scene especially.	688
+결혼식	다음 달 결혼식 준비로 주말마다 예식장을 보러 다니고 있어요.	Getting ready for next month's ceremony, we go around looking at venues every weekend.	689
+결혼식	동료 결혼식 축의금을 얼마나 해야 할지 선배에게 조용히 물어봤어요.	I quietly asked a senior colleague how much to give as a gift at a coworker's celebration.	689
+결혼식	언니 결혼식 날 아버지가 몰래 우시는 걸 보고 저도 울었어요.	On the day my sister married, I saw my father crying in secret and cried too.	689
+지옥	장마철에 빨래가 안 마르니 집 안이 그야말로 지옥 같아요.	During the rainy season the laundry won't dry and the house is sheer torment.	690
+지옥	신입 사원들은 첫 주 교육을 지옥 훈련이라고 부르더라고요.	The new hires call that first week of training boot camp from the underworld.	690
+지옥	면접 결과를 기다리던 일주일이 저에게는 지옥 그 자체였어요.	That week of waiting for the interview result was, for me, hell itself.	690
+쇼	아이랑 주말에 마술 쇼 공연을 보러 대학로까지 다녀왔어요.	At the weekend I took my child all the way to Daehangno to see a magic performance.	691
+쇼	회사 창립 기념 행사에서 작은 쇼 무대를 직접 준비하게 됐어요.	For the company's founding anniversary, I ended up putting together a small stage act myself.	691
+쇼	어젯밤 그 쇼 마지막 순서가 아직도 머릿속에서 맴돌아요.	The closing number of last night's programme is still going round in my head.	691
+보이다	창밖으로 눈발이 보이다 그치기를 아침 내내 반복했어요.	Outside the window the snow kept coming into view and stopping all morning.	692
+보이다	무대 뒤에서는 배우 얼굴이 보이다 말다 해서 끝까지 애가 탔어요.	From behind the stage the actor's face kept appearing and disappearing, and I was on edge the whole time.	692
+보이다	선생님이 칠판에 ‘보이다’를 크게 적고 뜻이 두 개라고 알려 주셨어요.	The teacher wrote the verb up large on the board and told us it carries two meanings.	692
+믿다	중고 거래에서 상대 말을 믿다 돈만 보내고 물건은 못 받았어요.	In a secondhand deal I took the other person at their word, sent the money, and never got the item.	693
+믿다	서점에서 ‘사람을 믿다’라는 제목의 책을 한참 들여다보고 왔어요.	At the bookshop I stood a long while looking at a book titled with the idea of putting faith in people.	693
+믿다	할아버지는 농사는 하늘을 믿다 보면 답이 나온다고 늘 말씀하세요.	My grandfather always says that with farming, if you keep faith in the sky, an answer comes.	693
+네게	졸업식 날 친구가 네게 주는 편지라며 봉투를 슬쩍 건넸어요.	On graduation day my friend slipped me an envelope, saying it was a letter meant for me.	694
+네게	그 노래는 네게 닿지 못한 마음을 담은 가사로 유명해요.	That song is famous for lyrics about feelings that never reached the person they were for.	694
+네게	아버지가 남긴 수첩 첫 장에 네게 미안하다고 적혀 있었어요.	On the first page of the notebook my father left behind was written that he was sorry, addressed to me.	694
+대학	삼촌은 대학 시절 이야기를 명절마다 똑같이 반복해서 들려주세요.	My uncle tells us the same stories from his university days at every holiday.	696
+대학	회사 동료가 알고 보니 같은 대학 후배라서 금방 친해졌어요.	A colleague at work turned out to be a junior from the same college, so we hit it off quickly.	696
+대학	딸이 원하던 대학 합격 소식을 듣고 온 식구가 함께 울었어요.	When we heard my daughter had got into the school she wanted, the whole family cried together.	696
+고맙다	이웃이 김장 김치를 나눠 주셔서 고맙다 못해 몸 둘 바를 몰랐어요.	The neighbour shared her winter kimchi with us, and I was so grateful I hardly knew what to do with myself.	699
+고맙다	몇 달을 도와줬는데 고맙다 소리 한마디 못 듣고 끝났어요.	I helped out for months and it ended without a single word of thanks.	699
+고맙다	오늘 일기 끝에 가족들에게 참 고맙다 하고 한 줄 적어 두었어요.	At the end of today's diary I wrote one line saying how grateful I am to my family.	699
+저거	마트에서 아이가 저거 사 달라고 계속 손가락으로 가리켰어요.	At the supermarket my child kept pointing and asking me to buy that one.	700
+저거	시장에서 아주머니께 저거 한 봉지에 얼마냐고 여쭤보고 골랐어요.	At the market I asked the lady how much a bag of that came to, and then chose.	700
+저거	친구가 창밖을 보며 저거 우리 고양이 아니냐고 갑자기 소리쳤어요.	My friend looked out the window and suddenly shouted, wasn't that thing our cat?	700
+캠	재봉틀이 자꾸 멈춰서 안을 열어 보니 캠 하나가 닳아 있었어요.	The sewing machine kept stopping, and when I opened it up one of the little rotating pieces was worn down.	701
+캠	공장 기계가 자꾸 서길래 기술자가 캠 부품을 통째로 갈았어요.	The factory machine kept halting, so the engineer replaced the whole rotating part.	701
+캠	동아리에서 만든 나무 장난감은 캠 덕분에 고개를 까딱까딱 움직여요.	The wooden toy we made in the club nods its head thanks to that little turning piece.	701
+작전	팀장이 화이트보드 앞에서 새 작전 계획을 삼십 분 넘게 설명했어요.	The team lead stood at the whiteboard explaining the new plan of attack for over half an hour.	704
+작전	아이들이 눈싸움 전에 편을 갈라 작전 회의를 소곤소곤 했어요.	Before the snowball fight the kids split into teams and whispered over their battle plan.	704
+작전	밤새 짠 작전 하나 제대로 못 써 보고 경기가 끝나 허탈했어요.	The match ended before we could use a single one of the moves we'd worked out overnight, which left me hollow.	704
+시스템	사내 결재 시스템 점검 때문에 오후 내내 서류를 못 올렸어요.	Maintenance on the company's approval software meant I couldn't submit a single document all afternoon.	705
+시스템	아파트 난방 시스템 공사로 온수가 한나절 끊긴다는 안내문이 붙었어요.	A notice went up saying the hot water would be off for half a day for work on the building's heating.	705
+시스템	사람을 갈아 넣는 시스템 안에서는 아무리 애써도 오래 버티기 어려워요.	Inside a setup that grinds people down, no amount of effort keeps you there for long.	705
+행운	수능 전날 후배 손에 엿을 쥐여 주며 행운 빌어 줬어요.	The night before the college entrance exam I pressed a taffy into my junior's hand and wished her well.	710
+행운	선배는 행운 따위는 믿지 않는다면서도 시험 당일엔 꼭 같은 볼펜을 챙겨요.	He says he puts no stock in fortune, yet on exam day he always packs the very same pen.	710
+행운	네 잎 클로버를 코팅해 행운 부적이라며 지갑에 넣어 다녀요.	She laminated a four-leaf clover and carries it in her wallet, calling it her charm.	710
+죄	아무 죄 없는 아이한테 괜히 짜증을 낸 것 같아 밤새 후회했어요.	I lay awake regretting that I'd snapped at a child who had done nothing at all.	712
+죄	무슨 죄 지었길래 연휴 내내 당직을 서느냐고 동기가 놀렸어요.	A colleague teased me, asking what I'd done to deserve being on duty the whole holiday.	712
+죄	할머니는 남은 밥을 버리는 것도 죄 짓는 일이라고 늘 말씀하셨어요.	Grandmother always said that throwing away leftover rice was a wrong in itself.	712
+그림	딸이 크레파스로 온 가족 얼굴을 담은 그림 두 장을 냉장고에 붙였어요.	My daughter stuck two crayon pictures of the whole family's faces on the fridge.	714
+그림	주말마다 문화센터에서 그림 배우는 재미로 한 주를 버텨요.	The fun of learning to paint at the community centre every weekend is what gets me through the week.	714
+그림	지하철역 벽에 걸린 그림 한 점 앞에서 한참을 그냥 서 있었어요.	I stood for a long while in front of a single canvas hung on the subway station wall.	714
+시작하다	새로운 일을 시작하다 보면 첫 달은 누구나 서툴기 마련이에요.	When you take up something new, everybody is clumsy for the first month.	715
+시작하다	새해마다 운동을 시작하다 말다 해서 헬스장 회원권만 두 번 날렸어요.	Every New Year I take up exercise and let it lapse again, and that is two gym memberships wasted.	715
+시작하다	자격증이며 중국어며 겁 없이 시작하다 보니 정작 끝낸 게 하나도 없더라고요.	A certificate, Chinese, whatever it was — I threw myself in fearlessly and ended up finishing none of it.	715
+곁	수술이 끝날 때까지 어머니 곁 지키느라 꼬박 이틀을 앉아 있었어요.	I sat for two full days keeping watch beside my mother until the surgery was over.	719
+곁	십 년을 함께 일했는데도 그 선배는 곁 한 번 내주지 않았어요.	Ten years of working together, and that senior colleague never once let me near.	719
+곁	이사 간다는 말에 아이가 강아지 곁 떠나기 싫다며 울었어요.	When we said we were moving, my child cried that she didn't want to leave the puppy's side.	719
+쟤	쟤 말고 저쪽에 앉은 친구가 우리 반 반장이에요.	Not that one, the friend sitting over there is our class president.	722
+쟤	쟤 때문에 웃다가 국물을 쏟아서 온 식탁이 난리가 났어요.	He made me laugh so hard I spilled the broth and the whole table was a mess.	722
+쟤	언니는 쟤 혼자 라면 끓이게 두면 꼭 물을 너무 많이 붓는대요.	My sister says that if you leave the kid to boil ramyeon alone, he always pours in far too much water.	722
+노력	삼 년 동안 쏟은 노력 끝에 드디어 자격증 시험에 붙었어요.	After three years of hard work I finally passed the certification exam.	723
+노력	재능만 믿고 노력 없이 버티는 사람은 결국 삼 년을 못 넘겨요.	Someone who coasts on talent and puts nothing in rarely lasts past three years.	723
+노력	아버지는 밭에 들인 노력 얘기를 추석 밥상에서 한참 하셨어요.	Over the Chuseok table my father talked at length about everything he'd put into the field.	723
+출혈	아이가 넘어져 턱이 찢어졌는데 출혈 부위를 수건으로 꾹 눌렀어요.	My child fell and split his chin, so I pressed a towel hard on the wound.	724
+출혈	수술 도중 출혈 때문에 수혈 준비를 서두르라는 지시가 떨어졌어요.	Blood loss during the operation brought an order to get a transfusion ready fast.	724
+출혈	할머니 수술이 길어지고 출혈 있었다는 말에 가족 모두 안절부절못했어요.	Hearing that grandmother's operation had run long and there had been bleeding, the whole family paced.	724
+폭탄	옛 군사 기지 공사장에서 녹슨 폭탄 하나가 발견돼 주민들이 대피했어요.	A rusted explosive turned up at a building site on an old army base and residents were evacuated.	725
+폭탄	삼촌이 결혼 소식을 추석 밥상에서 폭탄 터뜨리듯 꺼내 놓았어요.	My uncle dropped the news of his marriage on the Chuseok table like a grenade.	725
+폭탄	전쟁 영화에서 폭탄 떨어지는 장면이 나오자 아이가 귀를 막았어요.	When the war film showed shells coming down, my child covered his ears.	725
+괴물	동생이 옷장 안에 괴물 산다고 울어서 밤새 불을 켜 뒀어요.	My little brother cried that something lives in the wardrobe, so we left the light on all night.	726
+괴물	동아리 선배는 마감 전날 밤을 새우는 괴물 같은 체력을 자랑해요.	The club senior brags about inhuman stamina, staying up all night before a deadline.	726
+괴물	어릴 적 무서워하던 괴물 인형을 다락에서 찾아내 한참 웃었어요.	I found the toy beast that frightened me as a child up in the attic and laughed for ages.	726
+자꾸	수도꼭지에서 물이 자꾸 새서 관리실에 세 번이나 전화했어요.	The tap kept dripping, so I called the building office three separate times.	730
+자꾸	회의 내내 옆자리 선배가 자꾸 시계를 봐서 저까지 초조해졌어요.	All through the meeting the colleague beside me glanced at his watch again and again, and it made me anxious too.	730
+자꾸	헤어진 뒤에도 그 노래만 들으면 자꾸 지하철역 앞이 떠올라요.	Even after the breakup, that one song brings the front of the subway station back to me over and over.	730
+손님	추석에 손님 스무 명이 온다고 해서 전을 새벽부터 부쳤어요.	Twenty guests were coming for Chuseok, so I was frying jeon from dawn.	733
+손님	점심시간에 손님 줄이 가게 밖까지 늘어서 주방이 정신없었어요.	At lunchtime the queue reached out the door and the kitchen was chaos.	733
+손님	십 년 넘게 오신 손님 한 분이 이사 간다며 인사를 하셨어요.	A regular of more than ten years came to say goodbye because she's moving away.	733
+바닥	아이가 우유를 쏟아서 주방 바닥 닦느라 아침부터 허리가 아팠어요.	My child spilled milk, and wiping the kitchen down left my back aching from morning.	734
+바닥	공사가 끝난 교실은 바닥 난방이 들어와 겨울에도 훈훈해요.	Now the work is finished the classroom has underfloor heating, so it's warm even in winter.	734
+바닥	찜질방 바닥 따뜻한 자리를 맡으려고 이모들이 수건을 던져 놨어요.	The ladies had thrown towels down to claim the warm spots at the sauna.	734
+글쎄요	글쎄요, 그 식당은 주말 저녁엔 자리가 없을 것 같은데요.	Hmm, I doubt that restaurant has a table free on a weekend evening.	735
+글쎄요	언제 끝나느냐는 팀장님 질문에 글쎄요 소리만 하다가 혼났어요.	All I could give the team lead when he asked about the deadline was a 'well, I'm not sure', and I got an earful.	735
+글쎄요	결혼 언제 하느냐고 물으면 저는 웃으며 글쎄요, 하고 넘겨요.	When people ask when I'll marry, I just smile and say well, we'll see.	735
+엉덩이	시험 기간엔 도서관 의자에 엉덩이 붙이고 앉아 있는 게 절반이에요.	During exams, half the battle is keeping yourself planted in a library chair.	736
+엉덩이	아기가 넘어져 엉덩이 찧고 울길래 한참 안고 달랬어요.	The baby fell and landed hard on her bottom, so I held her a long while until she calmed.	736
+엉덩이	앉아서 일하는 사람은 엉덩이 근육이 약해진다고 의사가 경고했어요.	The doctor warned that people who work sitting down lose strength in the muscles they sit on.	736
+희망	취업 준비가 길어져도 희망 놓지 말라고 선배가 밥을 사 줬어요.	A senior bought me dinner and told me not to give up hope, however long the job hunt drags.	738
+희망	이사 갈 동네를 적은 희망 목록을 냉장고 문에 붙여 뒀어요.	We stuck a wish list of neighbourhoods we'd like to move to on the fridge door.	738
+희망	수술 결과를 기다리는 동안 가족들은 희망 하나만 붙들고 있었어요.	While we waited for the result of the operation, the family held on to nothing but hope.	738
+여성	우리 회사 개발팀에 여성 직원이 올해 처음 절반을 넘었어요.	This year, for the first time, more than half of our development team are women.	740
+여성	지하철 막차에는 여성 전용 칸이 따로 없어서 늘 신경이 쓰여요.	There's no women-only carriage on the last train, which always puts me on edge.	740
+여성	그 다큐는 시장에서 평생 장사한 여성 세 분의 이야기를 담았어요.	The documentary tells the stories of three market traders who spent their lives at their stalls.	740
+컴퓨터	아버지가 컴퓨터 전원이 안 켜진다며 저녁 내내 저를 불렀어요.	My father called me over all evening saying the machine wouldn't turn on.	741
+컴퓨터	회사 컴퓨터 한 대가 고장 나서 보고서를 다시 쓰게 됐어요.	One of the office machines died and I had to write the report all over again.	741
+컴퓨터	동네 컴퓨터 학원에 다니시는 어머니가 요즘 메일 보내는 재미에 빠지셨어요.	My mother, who takes classes at the local institute, is hooked on sending email these days.	741
+왼쪽	계단에서 헛디뎌 왼쪽 발목이 부어서 한동안 절뚝거렸어요.	I missed a step on the stairs and my left ankle swelled up, so I limped for a while.	742
+왼쪽	지하철 삼 번 출구로 나와서 왼쪽 골목으로 쭉 오시면 돼요.	Come out of subway exit three and head straight down the alley on the left.	742
+왼쪽	사진 속 왼쪽 끝에 서 있는 사람이 제 첫 팀장님이에요.	The person standing at the far left of the photo was my first team lead.	742
+현장	현장 소장님이 안전모를 안 쓴 사람은 들어오지 말라고 소리쳤어요.	The site manager shouted that nobody without a hard hat was coming in.	743
+현장	사고 현장 주변이 통제돼서 버스가 두 정거장을 그냥 지나쳤어요.	The area around the crash was closed off, so the bus sailed past two stops.	743
+현장	보고서만 보지 말고 현장 한번 나가 보라는 말이 맞았어요.	The advice to stop reading reports and go out to where the work happens turned out to be right.	743
+상상	합격 전화를 받고 나니 상상 이상으로 눈물부터 쏟아졌어요.	When the acceptance call came, the tears came harder than I had ever pictured.	744
+상상	아이가 이불을 뒤집어쓰고 상상 속 우주선을 만들며 놀았어요.	My child pulled the duvet over himself and played at building a spaceship in his head.	744
+상상	퇴사하고 제주에서 카페를 여는 건 아직 상상 단계일 뿐이에요.	Quitting and opening a cafe on Jeju is still only a daydream.	744
+마법	아이가 요술봉을 흔들며 마법 주문을 외운다고 온 집을 뛰어다녔어요.	My child ran through the whole house waving a wand and reciting spells.	747
+마법	공연장 조명이 꺼지는 순간 마법 같은 정적이 흘렀어요.	The instant the hall lights went down, an enchanted hush fell.	747
+마법	삼 주 만에 살이 빠진다는 광고는 마법 없이는 불가능한 이야기예요.	An advert promising weight loss in three weeks describes something impossible without sorcery.	747
+사업	아버지가 이십 년 하던 사업 정리하고 시골로 내려가셨어요.	My father wound up the firm he'd run for twenty years and moved to the countryside.	749
+사업	동업으로 사업 시작할 때는 돈 얘기를 먼저 해야 한다더라고요.	They say that when you go into a venture with a partner, you settle the money talk first.	749
+사업	형이 사업 계획서를 밤새 고치는 걸 보고 괜히 마음이 무거웠어요.	Watching my brother revise his proposal all night left me oddly heavy-hearted.	749
+선생	우리 팀장님은 선생 출신이라 회의 때마다 칠판부터 찾으세요.	Our team lead used to teach, so at every meeting the first thing he looks for is a blackboard.	750
+선생	학생 이름을 다 외우는 선생 노릇이 쉬운 줄 알았어요.	I used to think it was easy work to be the one who remembers every pupil's name.	750
+선생	아버지는 한문 선생 밑에서 삼 년을 배웠다고 늘 자랑하세요.	My father always boasts that he studied three years under a master of classical Chinese.	750
+방식	할머니는 옛날 방식 그대로 메주를 띄워 된장을 담그세요.	Grandmother ferments the soybean blocks and makes doenjang exactly the old way.	752
+방식	팀마다 일하는 방식 차이가 커서 합칠 때 한참 부딪쳤어요.	The two teams worked so differently that merging them meant weeks of friction.	752
+방식	사람을 다그치는 방식 말고 기다려 주는 쪽이 결국 빨랐어요.	Waiting people out turned out to be quicker in the end than pushing them.	752
+존재	할머니는 손주 사진을 보여 주며 이 아이가 내 존재 이유라고 하셨어요.	Showing off a photo of her grandchild, my grandmother said this child is the whole reason she is here.	755
+존재	새 팀장은 존재 자체로 회의 분위기를 바꿔 놓았어요.	The new team lead changed the mood of the meeting simply by being there.	755
+존재	외계 생명체의 존재 여부를 두고 술자리에서 두 시간을 떠들었어요.	We argued for two hours over drinks about whether alien life is out there at all.	755
+전하	사극에서 신하들이 전하 앞에 엎드리는 장면이 매회 나와요.	Every episode of the historical drama has the courtiers prostrating themselves before the king.	756
+전하	제가 종이 왕관을 쓰자 아이가 전하, 하고 부르며 넙죽 절을 했어요.	The moment I put the paper crown on, my child called me Your Highness and dropped into a deep bow.	756
+전하	왕이 쓰러지자 신하들은 전하 없는 조정을 어찌할지 몰라 허둥댔어요.	When the king collapsed, the court flapped about, unsure what to do without him on the throne.	756
+총알	사격장 근처에서 녹슨 총알 몇 개가 발견돼 신고가 들어왔어요.	A few rusted rounds were found near the shooting range and someone reported it.	758
+총알	막차를 놓칠까 봐 총알 같은 속도로 뛰었는데 문이 눈앞에서 닫혔어요.	I ran like a shot to catch the last train and the doors closed in my face.	758
+총알	훈련소에서 총알 다섯 발을 쏘고 나니 어깨가 얼얼했어요.	After firing five rounds at the training camp my shoulder was numb.	758
+겨우	막차를 겨우 잡아타고 집에 오니 새벽 한 시가 넘었어요.	I only just caught the last train, and it was past one in the morning when I got home.	759
+겨우	밤을 새워 겨우 맞춘 마감이었는데 파일이 열리지 않았어요.	I stayed up all night and scraped in under the deadline, and then the file wouldn't open.	759
+겨우	한 시간을 기다려 먹은 게 겨우 이 정도라니 좀 허무했어요.	An hour of queueing for no more than this left me a little deflated.	759
+식	식 시작 십 분 전인데 신부 측 하객이 아직 반도 안 왔어요.	Ten minutes to go and less than half the bride's guests have arrived.	760
+식	조카 돌잔치에 갔는데 식 끝나고 사진 찍느라 한 시간을 보냈어요.	At my nephew's first-birthday party we spent an hour on photographs once the proceedings were over.	760
+식	사회를 맡아 식 순서를 적은 종이를 밤새 몇 번이나 고쳤어요.	I was hosting, so I revised the running order on my sheet of paper over and over through the night.	760
+뜻	아이가 사자성어 뜻 물어볼 때마다 사전을 같이 찾아봐요.	Whenever my child asks what a four-character idiom stands for, we look it up together.	762
+뜻	계약서에 뜻 모를 표현이 많아서 변호사에게 한번 보여 줬어요.	The contract was full of phrasing I couldn't make sense of, so I showed it to a lawyer.	762
+뜻	할머니가 지어 주신 이름 뜻 알고 나니 괜히 어깨가 펴졌어요.	Once I learned what the name my grandmother chose stands for, I found myself standing taller.	762
+규칙	우리 집에는 저녁 아홉 시 넘으면 휴대폰을 걷는 규칙 하나가 있어요.	In our house there's one standing arrangement: phones get collected after nine at night.	763
+규칙	동호회 축구는 규칙 설명부터 삼십 분이 걸려서 다들 웃었어요.	The club football match took half an hour just to explain how it works, and everyone laughed.	763
+규칙	규칙 없이 굴러가던 팀이 사람 한 명 빠지자 바로 멈췄어요.	A team that had run without anything written down stopped dead the moment one person left.	763
+상대	상대 팀 골키퍼가 워낙 잘 막아서 한 골도 못 넣었어요.	The other side's keeper was so good that we didn't score once.	764
+상대	협상 자리에 나온 상대 쪽 담당자가 계속 웃기만 해서 답답했어요.	The person across the negotiating table just kept smiling, which was maddening.	764
+상대	화가 나도 상대 입장을 한 번쯤 생각해 보라고 어머니가 말씀하셨어요.	My mother said that even when you're angry you should think once about where the other person stands.	764
+책임	사고 원인을 두고 책임 소재를 가리는 회의가 세 시간이나 이어졌어요.	The meeting to pin down who was at fault for the accident ran three hours.	766
+책임	막내에게 화분 물 주는 책임 하나를 맡겼더니 아침마다 챙겨요.	We gave the youngest one job, watering the plants, and now he sees to it every morning.	766
+책임	책임 없는 자리에서 훈수만 두는 사람이 제일 얄미워요.	The people I find most galling are the ones who give advice from a seat where nothing is on them.	766
+비	아침부터 비 오는 날은 빨래를 널 데가 없어서 난감해요.	On days when it pours from morning there's nowhere to hang the washing, which is a nuisance.	767
+비	비 때문에 운동회가 미뤄져서 아이들이 교실에서 종일 떠들었어요.	The weather pushed sports day back, so the children chattered in the classroom all day.	767
+비	우산도 없이 비 맞으며 걷다 보니 오히려 속이 후련했어요.	Walking without an umbrella and getting soaked actually cleared my head.	767
+폐하	박물관에서 폐하 앞에 올리던 문서를 유리 너머로 한참 들여다봤어요.	At the museum I peered a long time through the glass at documents once submitted to the emperor.	769
+폐하	신하들이 폐하 만세를 외치는 장면에서 관객들이 숨을 죽였어요.	The audience held its breath at the scene where the courtiers cry long live the sovereign.	769
+폐하	고종 폐하 이야기가 나오자 할아버지가 목소리를 낮추고 한참을 말씀하셨어요.	When Emperor Gojong came up, my grandfather lowered his voice and talked about him for a long while.	769
+진심	어머니께 드린 편지 한 장에 진심 담느라 밤을 꼬박 새웠어요.	I stayed up the whole night trying to put what I actually felt into one letter for my mother.	771
+진심	농담처럼 툭 던진 말이었지만 사실은 진심 반 장난 반이었어요.	It came out like a joke, but half of it was meant in earnest.	771
+진심	퇴사한다는 선배 말이 진심 같아서 아무도 말리지 못했어요.	My senior sounded like he meant it about quitting, so nobody tried to stop him.	771
+대답	아들은 밥만 먹고 아무 대답 없이 방으로 들어갔어요.	My son just ate and went into his room without a word.	772
+대답	부장님 질문에 아무도 대답 못 하고 회의실이 조용해졌어요.	Nobody could respond to the manager's question and the meeting room went quiet.	772
+대답	고백하고 나서 그 대답 기다리는 삼 일이 정말 길었어요.	The three days I spent waiting to hear back after confessing felt endless.	772
+싸움	형제 싸움 말리다가 엄마가 결국 화를 내셨어요.	Mom ended up losing her temper while breaking up the scuffle between the brothers.	774
+싸움	노래방 앞에서 취한 손님들 싸움 때문에 경찰이 왔어요.	The police showed up over a brawl between drunk customers outside the karaoke place.	774
+싸움	사소한 싸움 한 번으로 십 년 우정이 끊겼어요.	One trivial falling-out ended a ten-year friendship.	774
+운명	지하철에서 우연히 또 만났을 때 정말 운명 같았어요.	Running into her again by chance on the subway really felt like it was meant to be.	775
+운명	할머니는 힘든 시절을 운명 탓으로 돌리지 않으셨어요.	Grandmother never blamed her hard years on fate.	775
+운명	사람은 누구나 운명 앞에서 겸손해진다고 선생님이 말씀하셨어요.	The teacher said that everyone grows humble in the face of what is destined for them.	775
+신발	현관에 신발 벗어 놓고 손부터 씻으라고 하셨어요.	She told me to leave my footwear at the door and wash my hands first.	777
+신발	백화점에서 편한 신발 한 켤레 사는 데 두 시간 걸렸어요.	It took two hours at the department store to pick out one comfortable pair.	777
+신발	등산 갈 때 신발 잘못 고르면 하루 종일 고생해요.	Choose the wrong pair for a hike and you suffer the whole day.	777
+오른쪽	지하철 2호선 타고 가다가 오른쪽 출구로 나오세요.	Take Line 2 and come out the exit on the right.	779
+오른쪽	거실 소파 오른쪽 끝에 리모컨이 떨어져 있더라고요.	The remote had slipped down by the far end of the living room couch, on the right.	779
+오른쪽	무거운 짐을 들었더니 오른쪽 어깨가 하루 종일 뻐근해요.	After carrying that heavy load my right shoulder has ached all day.	779
+저쪽	화장실은 저쪽 계단 옆에 있으니까 안내 따라가세요.	The restroom is by the stairs down that way, so follow the signs.	780
+저쪽	시장 저쪽 골목에 할머니가 파는 떡집이 하나 있어요.	There is a rice-cake shop run by an old lady in the alley over that way from the market.	780
+저쪽	괜히 저쪽 눈치가 보여서 큰 소리로 웃지 못했어요.	I kept sensing the other party watching, so I could not laugh out loud.	780
+하나님	할머니는 새벽 기도를 다녀오신 뒤 아침마다 하나님 말씀을 소리 내어 읽으세요.	Back from the dawn prayer service, Grandmother reads the Lord's word aloud every morning.	781
+하나님	교회 수련회에서 아이들이 하나님 사랑을 주제로 노래를 불렀어요.	At the church retreat the children sang songs on the theme of divine love.	781
+하나님	수술 전날 밤에 교회 식구들과 모여 하나님 앞에 무릎 꿇고 기도했어요.	The night before the surgery I gathered with people from my church and knelt in prayer before the Lord.	781
+동물	아이들이 동물 인형을 안고 잠드는 습관이 아직 있어요.	The kids still have the habit of falling asleep hugging stuffed toys.	782
+동물	주말에 동물 보호소에서 개들 산책시키는 봉사를 해요.	On weekends I volunteer at the shelter walking the dogs.	782
+동물	다큐멘터리를 보고 나서 동물 실험에 반대하게 됐어요.	After watching the documentary I came to oppose testing on living creatures.	782
+어둠	정전이 되자 방 안이 어둠 속으로 가라앉았어요.	When the power went out the room sank into pitch black.	783
+어둠	산에서 내려오는 길에 어둠 때문에 발밑이 안 보였어요.	Coming down the mountain I could not see my feet because of how dark it had got.	783
+어둠	실직한 뒤 몇 달은 긴 어둠 같은 시간이었어요.	The months after losing my job were like one long stretch of gloom.	783
+딴	동생은 내 말은 듣지도 않고 딴 방으로 들어가 버렸어요.	My brother went off into another room without even listening to me.	784
+딴	그 얘기는 나중에 하고 우리 딴 가게에 가서 밥부터 먹어요.	Let's leave that for later and eat at a different place first.	784
+딴	고향에 오랜만에 갔더니 완전히 딴 동네처럼 변해 있었어요.	Going back to my hometown after ages, it had changed into somewhere else entirely.	784
+루시퍼	친구가 추천한 웹툰에서 루시퍼 캐릭터가 제일 인기가 많아요.	In the webtoon my friend recommended, the Lucifer character is the most popular one.	787
+루시퍼	성경 이야기를 하다가 동생이 루시퍼 이름의 뜻을 물었어요.	While we were talking about Bible stories my younger brother asked what Lucifer's name means.	787
+루시퍼	게임 마지막 판에서 루시퍼 잡느라 밤을 꼬박 새웠어요.	I stayed up all night beating Lucifer on the final stage of the game.	787
+실제로	사진으로만 봤는데 실제로 만나니까 훨씬 키가 크시더라고요.	I had only seen photos, but meeting him in person he turned out to be much taller.	788
+실제로	계획은 좋아 보였지만 실제로 해 보니 시간이 두 배로 들었어요.	The plan looked good, but once we carried it out it took twice as long.	788
+실제로	소문만 무성했지 실제로 문을 닫은 가게는 몇 곳 없었어요.	There were plenty of rumours, but only a handful of shops truly closed.	788
+여왕	영국 여왕 이야기를 다룬 드라마를 주말에 몰아서 봤어요.	I binge-watched a drama about the English monarch over the weekend.	789
+여왕	딸이 종이 왕관을 쓰고 여왕 흉내를 내며 뛰어다녔어요.	My daughter ran around in a paper crown playing the part of royalty.	789
+여왕	인기 투표에서 그 가수가 다시 여왕 자리를 지켰다고 기사에 났어요.	The article said the singer held on to her crown in the popularity vote again.	789
+효과	감기약을 먹었는데 효과 없어서 결국 병원에 갔어요.	The cold medicine did nothing for me, so I ended up at the clinic.	790
+효과	광고를 바꾸고 나서 매출에 효과 있는지 한 달 동안 지켜봤어요.	After changing the advert we watched sales for a month to see whether it made any difference.	790
+효과	제 경험으로는 잔소리보다 칭찬 한마디가 효과 만점이었어요.	In my experience one word of praise works far better than nagging.	790
+감사하다	결혼식까지 먼 길 찾아와 주신 분들의 마음에 두고두고 감사하다.	I will be grateful for a long time to come for the kindness of everyone who travelled so far to the wedding.	791
+감사하다	부족한 후배를 끝까지 가르쳐 주신 선배님의 인내에 감사하다.	I am sincerely grateful for the patience of the senior colleague who taught this hopeless junior to the end.	791
+감사하다	추석 아침에 온 가족이 무사히 모였다는 사실에 새삼 감사하다.	On Chuseok morning I feel a fresh rush of gratitude at the simple fact that the whole family made it here safely.	791
+안전	공사장에 들어가기 전에 안전 교육을 두 시간 받았어요.	Before going onto the construction site I sat through two hours of safety training.	793
+안전	아이 때문에 콘센트마다 안전 덮개를 씌워 두었어요.	Because of the baby we put protective covers on every outlet.	793
+안전	택시 기사님은 속도보다 안전 먼저라고 늘 말씀하세요.	The cab driver always says that getting there safely comes before getting there fast.	793
+조사	사고 원인을 밝히려고 회사에서 내부 조사 절차를 시작했어요.	To determine the cause of the accident the company began an internal inquiry.	794
+조사	설문 조사 결과가 예상과 정반대로 나와서 다들 놀랐어요.	The survey results came out the opposite of what we expected and everyone was surprised.	794
+조사	경찰 조사 받으러 간다는 소식에 온 가족이 밤새 걱정했어요.	The news that he was going in for police questioning kept the whole family up worrying.	794
+쿠키	오븐에서 갓 구운 쿠키 냄새가 온 집에 퍼졌어요.	The smell of freshly baked biscuits filled the whole house.	795
+쿠키	편의점에서 쿠키 두 봉지 사서 친구들이랑 나눠 먹었어요.	I picked up two packs of cookies at the convenience store and shared them with my friends.	795
+쿠키	야근하는 동료 책상에 쿠키 몇 개를 몰래 올려 두었어요.	I quietly left a few cookies on the desk of a colleague working late.	795
+점	그 사람은 약속을 꼭 지키는 점 하나는 정말 배울 만해요.	The one thing about him worth learning from is that he always keeps his promises.	796
+점	보고서에서 고칠 점 세 가지를 팀장님이 짚어 주셨어요.	The team lead pointed out three things in the report that need fixing.	796
+점	동생 얼굴에 점 하나가 새로 생겨서 병원에 가 봤어요.	A new spot had appeared on my brother's face, so we had it looked at.	796
+숲	캠핑장 옆 숲 쪽에서 새소리가 계속 들려왔어요.	Birdsong kept drifting over from the wooded area beside the campsite.	798
+숲	군청에서 오래된 숲 일부를 공원으로 바꾸겠다고 발표했어요.	The county office announced it would turn part of the old woodland into a park.	798
+숲	머리가 복잡할 때는 숲 근처를 천천히 걷는 게 최고예요.	When my head is a mess, nothing beats a slow walk near the woods.	798
+장난	동생 장난 때문에 커피가 노트북 위로 쏟아졌어요.	My brother's horsing around sent coffee spilling onto the laptop.	801
+장난	장난 좋아하는 후배가 회식 자리에서 선을 넘어서 분위기가 싸해졌어요.	A junior who loves messing about crossed a line at the company dinner and the mood went cold.	801
+장난	올해는 팔월 더위가 정말 장난 아니어서 에어컨을 껐다 켰다 했어요.	The August heat this year was no joke, so the air conditioner went on and off all day.	801
+귀	아이가 열이 나면서 귀 안쪽이 아프다고 울어서 소아과에 갔어요.	My child had a fever and cried that the inside of his ear hurt, so we went to the pediatrician.	802
+귀	회의에서 신입 의견에도 귀 기울이는 팀장님이 참 좋았어요.	I really liked that the team lead listened even to what the new hire said in meetings.	802
+귀	지하철에서 이어폰을 너무 크게 껴서 귀 한쪽이 먹먹해졌어요.	I had my earphones up too loud on the subway and one side went muffled.	802
+자격	지원하려면 경력 삼 년이라는 자격 요건을 채워야 해요.	To apply you have to meet the three-year experience requirement.	804
+자격	먼저 약속을 어긴 사람이 화를 낼 자격 있나 싶었어요.	I wondered whether the one who broke the promise first had any standing to be angry.	804
+자격	그 선수는 도핑 때문에 자격 정지 이 년 처분을 받았어요.	That athlete was handed a two-year ban over doping.	804
+아파트	이사 온 아파트 앞에 큰 마트가 있어서 정말 편해요.	There is a big supermarket in front of the block we moved into, which is really convenient.	805
+아파트	어젯밤 아파트 주민들이 모여서 분리수거 문제를 오래 이야기했어요.	Last night the residents got together and talked for a long time about the recycling problem.	805
+아파트	월급을 모아도 서울에 아파트 한 채 사기가 쉽지 않아요.	Even saving up your whole salary it is not easy to buy a single unit in Seoul.	805
+손가락	김치 담그다가 손가락 하나를 칼에 살짝 베었어요.	I nicked one of my fingers on the knife while making kimchi.	806
+손가락	피아노 학원 선생님이 손가락 모양부터 다시 잡아 주셨어요.	The teacher at the piano academy started over by fixing the shape of my fingers.	806
+손가락	문자를 지웠다 썼다 하느라 손가락 끝이 다 아팠어요.	My fingertips ached from deleting and rewriting that text over and over.	806
+런던	런던 날씨가 흐려서 우산을 늘 가방에 넣고 다녔어요.	London was so overcast that I kept an umbrella in my bag the whole time.	809
+런던	런던 지사와 화상 회의를 하려면 아침 일찍 나와야 해요.	To hold a video call with the London office I have to come in early.	809
+런던	유학 간 딸이 런던 생활에 잘 적응했다니 마음이 놓여요.	Hearing that my daughter, off studying abroad, has settled into life in London puts my mind at ease.	809
+그대	노래 가사에 그대 없이 못 산다는 말이 계속 나와요.	The song keeps coming back to the line about not being able to live without you.	810
+그대	할아버지 편지에는 그대 생각으로 하루를 보냈다는 말이 있었어요.	My grandfather's letter said he had spent his days thinking of his beloved.	810
+그대	문학 시간에 읽은 시는 그대 향한 그리움을 담고 있어요.	The poem we read in literature class is full of longing for the one it addresses.	810
+무언가	부엌에서 무언가 타는 냄새가 나서 얼른 불을 껐어요.	There was a burning smell in the kitchen, so I quickly turned off the flame.	812
+무언가	회의가 끝나고도 팀장님은 무언가 더 말하고 싶어 하는 표정이었어요.	Even after the meeting ended the team lead looked as if she still had more to say.	812
+무언가	졸업식 날에는 기쁘면서도 무언가 허전한 기분이 들었어요.	Graduation day felt happy and at the same time oddly empty.	812
+어차피	어차피 비 오는데 오늘은 집에서 김치찌개나 끓여 먹어요.	It is raining regardless, so let's just make kimchi stew at home today.	813
+어차피	지금 출발해도 어차피 회의 시간에는 못 맞추니까 천천히 오세요.	Even leaving now you will not make the meeting on time, so come at your own pace.	813
+어차피	해야 할 일이면 어차피 미루지 말고 오늘 끝내는 게 낫죠.	If it has to be done sooner or later, better to finish it today than put it off.	813
+기사	포털에 뜬 기사 제목만 보고 판단하면 오해하기 쉬워요.	Judging from the headline on the portal alone is an easy way to misunderstand.	815
+기사	우리 가게가 지역 신문에 기사 한 번 실린 뒤로 손님이 늘었어요.	Ever since the local paper ran one piece about our shop, customers have increased.	815
+기사	아침에 그 기사 읽고 나서 하루 종일 마음이 무거웠어요.	After reading that piece in the morning my heart felt heavy all day.	815
+키	조카가 방학 동안 키 많이 커서 몰라볼 뻔했어요.	My nephew grew so much over the break I almost did not recognize him.	816
+키	교실 맨 뒤에는 키 큰 아이들이 나란히 앉아 있었어요.	The tall kids sat in a row at the very back of the classroom.	816
+키	형과 키 차이가 십 센티나 나서 늘 부러웠어요.	There was a ten-centimetre gap between my brother and me, and I always envied him.	816
+파리	음식물 쓰레기 때문에 부엌에 파리 두 마리가 돌아다녀요.	Two flies are buzzing around the kitchen because of the food waste.	818
+파리	시장 반찬 가게마다 파리 쫓는 기계를 하나씩 달아 놨어요.	Every side-dish stall in the market has put up a little machine to shoo the insects away.	818
+파리	여름에 파리 한 마리 때문에 잠을 설친 적이 있어요.	One summer a single insect buzzing about cost me a night's sleep.	818
+직업	처음 만난 자리에서 직업 먼저 묻는 건 좀 실례 같아요.	Asking what someone does for a living right off the bat feels a bit rude.	820
+직업	고등학교 때 직업 체험 프로그램에서 미용실 일을 해 봤어요.	In high school I tried working at a hair salon through a career-experience program.	820
+직업	아버지는 삼십 년 동안 직업 바꾸지 않고 한 회사에 다니셨어요.	My father stayed at one company for thirty years without ever changing what he did.	820
+시험	기말 시험 끝나자마자 친구들이랑 노래방으로 달려가서 두 시간 놀았어요.	The moment finals ended we ran to the karaoke place and sang for two hours.	823
+시험	운전면허 시험 보러 가는 날 아침에 손이 계속 떨렸어요.	On the morning of my driving test my hands would not stop shaking.	823
+시험	새로 나온 배터리는 시험 결과가 좋아서 곧 판매를 시작한대요.	The new battery came through trials well, so they say sales start soon.	823
+속도	장마철 고속도로에서는 속도 줄이라는 안내 방송이 계속 나와요.	On the expressway during the rainy season they keep broadcasting warnings to slow down.	824
+속도	집 인터넷 속도 때문에 영상 회의가 자꾸 끊겼어요.	Our home internet kept dropping the video call because of how slow it is.	824
+속도	일을 빨리 하는 것보다 자기 속도 지키는 게 중요하다고 봐요.	I think keeping your own pace matters more than working fast.	824
+종양	엄마 목에서 작은 종양 하나가 발견돼서 다음 주에 검사해요.	They found a small growth on my mother's neck, so she gets tested next week.	825
+종양	의사 선생님이 종양 크기가 줄었다고 말씀하셔서 다들 안도했어요.	The doctor said the growth had shrunk, and everyone was relieved.	825
+종양	종양 제거 수술을 앞두고 아버지는 오히려 농담을 하셨어요.	Facing the removal surgery, my father cracked jokes instead.	825
+영웅	동네 사람들이 불을 끈 청년에게 영웅 대접을 해 줬어요.	The neighbourhood gave the young man who put out the fire a champion's welcome.	827
+영웅	어릴 때 아버지는 저에게 영웅 같은 존재였어요.	When I was little my father was a larger-than-life figure to me.	827
+영웅	요즘은 완벽한 영웅 이야기보다 실패하는 주인공이 더 인기예요.	These days stories about flawless champions are less popular than protagonists who fail.	827
+흔적	도둑이 다녀갔는데 흔적 하나 남기지 않아서 더 무서웠어요.	A burglar had been through without leaving a single sign, which made it scarier.	829
+흔적	전세방 벽에서 예전 세입자가 살던 흔적 몇 개를 발견했어요.	On the wall of the rented room I found a few marks left by the previous tenant.	829
+흔적	마지막 눈이 녹고 나니 겨울 흔적 없이 봄이 찾아왔어요.	Once the last snow melted, spring arrived with nothing left of winter.	829
+원	편의점에서 삼천 원 주고 김밥이랑 커피를 샀어요.	I bought gimbap and a coffee at the convenience store for three thousand won.	833
+원	지하철 카드에 만 원 충전하고 회사로 출발했어요.	I topped up my transit card with ten thousand won and set off for work.	833
+원	요즘은 커피 한 잔에 오천 원 넘는 가게도 많아졌어요.	These days plenty of places charge over five thousand won for a single coffee.	833
+현실	합격 소식을 듣고도 한동안 현실 같지 않았어요.	Even after hearing I had passed, it did not feel real for a while.	835
+현실	계획은 좋지만 현실 감각이 좀 부족한 제안이었어요.	The plan was nice, but the proposal was a bit out of touch with how things actually are.	835
+현실	아이 학원비를 계산해 보고 나서 현실 앞에서 한숨이 나왔어요.	After adding up my child's tuition fees I sighed at the hard facts.	835
+원하다	아이가 강아지를 그렇게 원하다 막상 집에 데려오니 무서워하네요.	My child begged so hard for a puppy, and now that one is actually home, she's scared of it.	836
+원하다	손님들이 하도 원하다 보니 사장님이 결국 메뉴를 다시 늘리셨어요.	Customers kept asking for them, so in the end the owner put more dishes back on the menu.	836
+원하다	남들이 부러워하는 삶을 원하다 정작 제가 뭘 좋아하는지 잊었어요.	Chasing the kind of life other people envy, I forgot what it is that I actually like.	836
+방향	지도를 봐도 방향 감각이 없어서 늘 반대쪽으로 걸어요.	Even with a map I have no sense of which way is which, so I always walk off the wrong way.	839
+방향	이사님이 회의에서 프로젝트 방향 자체를 다시 잡자고 하셨어요.	In the meeting the director said we should rethink where the whole project is headed.	839
+방향	이 나이에 인생 방향 바꾸기가 쉽지 않다는 걸 요즘 느껴요.	Lately I'm realising how hard it is to turn your life onto a different course at my age.	839
+형제	저희는 삼 형제 중에 막내가 제일 키가 커요.	Of the three of us boys, the youngest is the tallest.	843
+형제	회사 대표와 부사장이 형제 관계라는 걸 어제야 알았어요.	Only yesterday did I learn that the company's president and vice-president are brothers.	843
+형제	명절에 모이면 형제 사이에도 서운한 마음이 쌓이더라고요.	When everyone gathers for the holidays, even brothers end up storing up little hurts.	843
+번호	새 휴대폰으로 바꾸면서 친구들 번호 절반을 날렸어요.	Switching to a new phone, I lost half of my friends' contact details.	844
+번호	은행에서는 번호 순서대로 불러 주니까 편하게 앉아 기다리세요.	At the bank they call people in order, so just sit down and wait comfortably.	844
+번호	모르는 번호 뜨면 왠지 받기가 싫어서 그냥 넘겨요.	When an unfamiliar caller shows up on the screen I somehow don't want to answer, so I just let it ring out.	844
+아가	할머니가 손주를 보시더니 아가, 이리 와 앉아 보라고 부르셨어요.	My grandmother caught sight of her grandchild and called out: sweetheart, come and sit over here.	845
+아가	유치원 선생님이 우는 아이에게 아가, 괜찮다고 다독여 주셨어요.	The kindergarten teacher comforted the crying child, saying: sweetheart, it's all right.	845
+아가	잠투정하는 조카를 안고 아가, 조금만 더 자자고 달랬어요.	I held my fretful little nephew and coaxed him: sweetheart, let's sleep a bit longer.	845
+아무리	아무리 청소를 해도 고양이 털은 다음 날 또 쌓여요.	No matter how much I clean, the cat hair has piled up again by the next day.	847
+아무리	부장님은 아무리 바빠도 점심은 꼭 챙겨 드시라고 하세요.	Our manager tells us to eat a proper lunch however busy we are.	847
+아무리	그 사람 말투는 아무리 들어도 정이 안 가더라고요.	However long I listen to the way he talks, I just can't warm to it.	847
+수업	첫 수업 끝나고 친구랑 학교 앞 분식집에 갔어요.	After the first lesson I went with a friend to the snack shop in front of school.	850
+수업	교수님이 다음 주 수업 대신 과제를 내주겠다고 공지하셨어요.	The professor announced that instead of next week's session we would be given an assignment.	850
+수업	영어 수업 때만 되면 괜히 배가 아픈 척하고 싶어져요.	Whenever it's time for English I get the urge to pretend my stomach hurts.	850
+범죄	동네 골목마다 가로등을 늘린 뒤로 범죄 신고가 눈에 띄게 줄었대요.	Since more streetlights went up in the alleys, reports of wrongdoing have fallen noticeably.	852
+범죄	형사들은 범죄 현장에 도착하자마자 주변 가게 폐쇄 회로부터 확인했어요.	As soon as the detectives reached the scene, they started with the CCTV from the shops nearby.	852
+범죄	드라마에서 범죄 장면이 너무 길게 나와서 중간에 꺼 버렸어요.	The violent scenes in that drama dragged on so long that I switched it off halfway.	852
+버스	퇴근길에 버스 놓쳐서 한참을 기다리다가 결국 택시를 탔어요.	I missed my ride home from work, waited ages, and ended up taking a taxi.	853
+버스	회사 앞 버스 정류장에서 우연히 대학 선배를 만났어요.	I bumped into a senior from university at the stop in front of the office.	853
+버스	출근 시간 버스 안은 숨 쉬기도 힘들 만큼 사람이 많아요.	At rush hour it is so crowded inside that you can barely breathe.	853
+보스	조직 보스 자리를 놓고 두 사람이 결국 등을 돌렸어요.	The two of them finally turned on each other over who would head the gang.	854
+보스	삼촌은 주말마다 보스 캐릭터가 멋있게 나오는 옛날 영화를 틀어 놓으세요.	Every weekend my uncle puts on old films where the crime lord looks impossibly cool.	854
+보스	저는 보스 한 명에게만 충성하는 이야기가 요즘은 좀 촌스럽게 느껴져요.	Stories about everyone staying loyal to a single kingpin feel a bit dated to me now.	854
+환영하다	직원들은 새 제도를 처음엔 환영하다 막상 시행되자 불만을 터뜨렸어요.	The staff greeted the new system warmly at first, then poured out complaints once it actually started.	855
+환영하다	손님을 무조건 환영하다 보니 정작 가족끼리 쉴 시간이 없었어요.	Taking in every guest with open arms left us no time to rest as a family.	855
+환영하다	동아리 사람들은 저를 환영하다 제가 한 번 실수하자 눈에 띄게 차가워졌어요.	The club members made me feel wanted until I slipped up once, and then they turned noticeably cold.	855
+부모	자식을 키워 보니 이제야 부모 마음이 조금 이해가 돼요.	Now that I'm raising a child myself, I finally understand a little of how my mother and father felt.	856
+부모	우리 반은 부모 동의서를 내야 현장 학습을 갈 수 있어요.	Our class can only go on the field trip if we hand in a consent form signed at home.	856
+부모	부모 노릇이 이렇게 어려울 줄은 저도 정말 몰랐어요.	I honestly had no idea that raising a child of your own would be this hard.	856
+교회	일요일 아침마다 할머니 손을 잡고 동네 교회 다녔어요.	Every Sunday morning I would hold my grandmother's hand and go to the service in our neighbourhood.	857
+교회	교회 앞 골목에 새로 생긴 빵집은 주말마다 줄이 길어요.	The new bakery in the alley by the chapel has a long queue every weekend.	857
+교회	저는 종교는 없지만 조용한 교회 안에 앉아 있는 건 좋아해요.	I'm not religious, but I do like sitting inside a quiet chapel.	857
+목적	주말에 목적 없이 동네 한 바퀴 걷는 게 제일 좋아요.	On weekends I like nothing better than wandering once around the neighbourhood with nowhere in particular to get to.	860
+목적	입국 심사관이 방문 목적 적는 칸을 다시 써 달라고 했어요.	The immigration officer asked me to rewrite the box where you state why you are visiting.	860
+목적	이번 모임은 목적 자체가 분명하지 않아서 다들 어리둥절했어요.	Nobody was clear what this gathering was even for, so everyone looked puzzled.	860
+바라다	아이가 잘되기를 바라다 보니 잔소리만 늘어난 것 같아요.	Hoping for my child to do well seems to have turned me into a nag.	861
+바라다	회사는 직원들이 알아서 해 주기를 바라다 아무도 안 나서자 결국 사람을 뽑았어요.	The company had counted on the staff to sort it out themselves; when nobody stepped up, it ended up hiring someone.	861
+바라다	합격 소식을 바라다 지쳐서 요즘은 발표 날짜도 안 세어 봐요.	I've worn myself out longing for news that I passed, so I don't even count down to the results any more.	861
+일주일	일주일 내내 비가 와서 빨래가 아직도 마르지 않았어요.	It rained all week long, so the laundry still hasn't dried.	864
+일주일	출장 때문에 일주일 동안 사무실을 비워서 메일이 잔뜩 쌓였어요.	A business trip kept me out of the office for seven days, so the emails piled up.	864
+일주일	고향에 다녀온 지 겨우 일주일 됐는데 벌써 또 가고 싶어요.	It's barely seven days since I got back from my hometown and I already want to go again.	864
+갈래	산책로가 저수지 앞에서 두 갈래 길로 나뉘어 있어요.	The walking path forks in two in front of the reservoir.	866
+갈래	의견이 두 갈래 정도로 갈려서 결론을 다음으로 미뤘어요.	Opinions split into roughly two camps, so we put the decision off until next time.	866
+갈래	생각이 자꾸 여러 갈래 뻗어서 오늘도 새벽까지 잠을 설쳤어요.	My thoughts kept branching off in all sorts of ways, and again I lay awake until dawn.	866
+구멍	양말 뒤꿈치에 구멍 나서 아침부터 다시 벗어 놓고 나왔어요.	The heel of my sock had worn through, so first thing this morning I took it off and left it behind.	867
+구멍	벽에 구멍 뚫기 전에 관리 사무소에 먼저 물어봐야 해요.	Before you drill into the wall you have to ask the building office first.	867
+구멍	친구가 떠난 뒤로 마음 한쪽에 구멍 하나가 생긴 것 같아요.	Since my friend left it feels as if something has been hollowed out of one corner of my heart.	867
+최악	냄비를 통째로 태운 오늘 저녁은 진짜 최악, 다들 라면만 먹었어요.	Burning the whole pot made tonight's dinner an absolute disaster; everyone just ate instant noodles.	868
+최악	하필 발표 날 노트북이 멈춰서 이 정도면 최악 아닌가 싶었어요.	My laptop froze on presentation day of all days, and I thought it could hardly get any worse.	868
+최악	여행 첫날 지갑을 잃어버렸지만 여권은 남아서 최악 면했어요.	I lost my wallet on the first day of the trip, but I still had my passport, so I was spared the very worst.	868
+설명	설명 없이 가구를 조립하려다 결국 다시 다 뜯었어요.	I tried to assemble the furniture without reading the instructions and ended up taking it all apart again.	869
+설명	부장님 설명 듣고 나서야 보고서 방향이 겨우 잡혔어요.	Only after the manager talked me through it did the report finally take shape.	869
+설명	아무리 들어도 이해가 안 돼서 설명 한 번만 더 부탁드렸어요.	However often I heard it I didn't get it, so I asked them to go through it once more.	869
+직장	직장 동료들과 점심마다 회사 근처 식당을 돌아가며 가요.	My colleagues and I take turns choosing a restaurant near the office for lunch.	870
+직장	아내는 아이를 어린이집에 맡기고 다시 직장 나가기로 했어요.	My wife decided to put our child in daycare and go back out to work.	870
+직장	직장 생활 십 년 만에 처음으로 한 달을 쉬어 봤어요.	Ten years into my working life, I took a whole month off for the first time.	870
+살다	살다 보면 이런 날도 있다고 아버지가 어깨를 두드려 주셨어요.	My father patted my shoulder and said that days like this come along in a lifetime.	871
+살다	부모님은 이 동네에서 사십 년을 살다 작년에 시골로 내려가셨어요.	My parents spent forty years in this neighbourhood and moved to the countryside last year.	871
+살다	외국에서 혼자 살다 보니 사소한 반찬 하나가 그렇게 아쉬워요.	Being on my own abroad, I find myself missing the simplest little side dish.	871
+전투	훈련소에서 전투 훈련을 받느라 두 달을 정신없이 보냈어요.	I spent two hectic months in basic training doing combat drills.	872
+전투	아들은 주말 내내 전투 장면만 나오는 게임을 붙잡고 있어요.	My son spends the whole weekend glued to a game that is nothing but fight scenes.	872
+전투	역사책에서 그 전투 이야기를 읽고 한참 마음이 무거웠어요.	Reading the account of that clash in a history book left me heavy-hearted for a long while.	872
+소녀	어머니는 소녀 시절 사진을 아직도 지갑에 넣고 다니세요.	My mother still carries a photo from her girlhood in her wallet.	873
+소녀	버스에서 교복 입은 소녀 둘이 웃으며 사진을 찍고 있었어요.	Two schoolgirls in uniform were laughing and taking photos on the bus.	873
+소녀	이 소설은 시골에 사는 소녀 한 명의 여름을 담담하게 그려요.	This novel quietly follows one summer in the life of a country girl.	873
+권리	세입자도 수리를 요구할 권리 있다고 부동산에서 알려 줬어요.	The estate agent told me a tenant is entitled to demand repairs as well.	874
+권리	노동자 권리 보호를 위해 노조가 어제 설명회를 열었어요.	The union held a briefing yesterday on protecting what workers are entitled to.	874
+권리	아이들에게도 스스로 선택할 권리 정도는 줘야 한다고 생각해요.	I think children should at least be granted the freedom to choose for themselves.	874
+조직	회사가 조직 개편을 하면서 제 자리도 다른 층으로 옮겨졌어요.	When the company restructured, my desk got moved to another floor as well.	875
+조직	형은 작은 봉사 단체의 조직 운영을 몇 년째 맡고 있어요.	My older brother has been running the inner workings of a small volunteer body for years.	875
+조직	아무리 좋은 제도도 조직 문화가 받쳐 주지 않으면 소용없어요.	However good a policy is, it is useless unless the culture of the place supports it.	875
+작업	오늘 안에 이 작업 끝내려면 저녁은 건너뛰어야 할 것 같아요.	If I'm to get this job done by the end of today, I think I'll have to skip dinner.	876
+작업	화장실 타일 작업 때문에 오늘 하루는 물을 못 써요.	Because of the tiling going on in the bathroom, we can't use any water today.	876
+작업	새벽에 혼자 하는 작업 시간이 저한테는 제일 편해요.	The hours I put in alone at dawn are the ones that suit me best.	876
+무릎	고양이가 제 무릎 위에 올라와 한참을 자고 갔어요.	The cat climbed onto my lap and slept there for a good while.	880
+무릎	계단을 오를 때마다 무릎 아파서 정형외과에 가 보려고요.	It hurts every time I climb the stairs, so I'm going to see an orthopaedist.	880
+무릎	할머니 무릎 베고 듣던 옛날이야기가 아직도 생각나요.	I still remember the old tales I heard with my head resting on my grandmother.	880
+영상	할머니랑 영상 통화를 하면서 손주 얼굴을 한참 보여 드렸어요.	On a video call with my grandmother I held the camera on her great-grandchild's face for ages.	881
+영상	편집자가 영상 길이를 오 분 안으로 줄여 달라고 했어요.	The editor asked me to cut the footage down to under five minutes.	881
+영상	결혼식 영상 다시 보다가 괜히 눈물이 핑 돌았어요.	Watching the wedding recording again, my eyes welled up for no real reason.	881
+부탁	부탁 하나만 드려도 될까요, 이번 주말에 강아지 좀 봐 주세요.	May I ask you one thing — could you look after my dog this weekend?	884
+부탁	동료가 부탁 하나를 남기고 급하게 조퇴해서 제가 마무리했어요.	A colleague left one thing for me to do and rushed off early, so I finished it.	884
+부탁	거절을 못 하는 성격이라 남의 부탁 때문에 늘 피곤해요.	I can't bring myself to say no, so what other people ask of me leaves me permanently tired.	884
+중국	주말에 가족끼리 중국 음식 시켜 먹으면서 영화를 봤어요.	At the weekend the family ordered in Chinese food and watched a film.	885
+중국	이번 달에 중국 출장 일정이 잡혀서 비자부터 알아보고 있어요.	A business trip to China got scheduled this month, so I'm looking into the visa first.	885
+중국	교환 학생 시절 중국 친구들과 지낸 일 년이 제일 그리워요.	What I miss most is the year I spent with my Chinese friends as an exchange student.	885
+모자	햇볕이 뜨거우니까 모자 꼭 쓰고 나가라고 아이한테 일렀어요.	I told my child to be sure to put something on her head before going out, since the sun is fierce.	886
+모자	식당 안에서는 모자 벗는 게 예의라고 배웠어요.	I was taught that it is good manners to bare your head inside a restaurant.	886
+모자	머리를 잘못 자른 날은 모자 없이는 밖에 못 나가겠더라고요.	After a bad haircut I couldn't bring myself to step outside with my head uncovered.	886
+실험	실험 결과가 예상과 달라서 처음부터 다시 해 보기로 했어요.	The results came out differently from what we expected, so we decided to start again from scratch.	887
+실험	아이 방학 숙제로 콩나물 기르는 실험 일지를 같이 썼어요.	For my child's holiday homework we kept a log together of growing bean sprouts.	887
+실험	새 메뉴는 실험 삼아 한 달만 팔아 보기로 했어요.	We decided to put the new dish on for just a month as a trial.	887
+프로그램	회사 컴퓨터에 새 프로그램 설치하려면 전산팀 허락이 필요해요.	To install new software on a company computer you need the IT team's permission.	888
+프로그램	아버지 노트북에 사진 정리 프로그램 하나 깔아 드렸어요.	I installed a photo-sorting application on my father's laptop for him.	888
+프로그램	쓰지도 않는 프로그램 때문에 노트북이 자꾸 느려져서 답답해요.	Software I never even use keeps slowing the laptop down, and it's maddening.	888
+의견	팀장님은 회의 때마다 막내 의견 먼저 듣고 시작하세요.	Our team leader begins every meeting by hearing out the most junior member's view.	890
+의견	가구 색깔은 한참 고민하다 결국 아내 의견 쪽으로 정리됐어요.	After a long back and forth over the colour of the furniture, we settled on what my wife thought.	890
+의견	제 의견 하나 말하는 데도 이렇게 용기가 필요할 줄 몰랐어요.	I never knew it would take this much nerve just to say what I think.	890
+등	아이가 잠들 때까지 등 토닥여 주다가 저도 같이 잠들었어요.	I patted my child until she fell asleep and dropped off alongside her.	891
+등	목욕탕에서 아버지 등 밀어 드린 게 벌써 십 년 전이에요.	It's already ten years since I scrubbed my father down at the bathhouse.	891
+등	무거운 가방을 메고 다녔더니 등 한복판이 종일 뻐근해요.	From carrying a heavy bag around, the middle of my spine has ached all day.	891
+동네	저녁 먹고 동네 한 바퀴 도는 게 요즘 유일한 운동이에요.	A loop around the block after dinner is the only exercise I get these days.	894
+동네	동네 슈퍼 아주머니가 제 이름을 아직도 기억하고 계세요.	The lady at the corner shop still remembers my name.	894
+동네	이사 온 지 얼마 안 됐는데 벌써 이 동네 정이 들었어요.	I haven't been here long, but I've already grown attached to the area.	894
+장	할머니는 해마다 정월에 장 담그는 날을 따로 잡으세요.	Every year my grandmother sets aside a day in the first month to make the soybean paste and soy sauce.	895
+장	식당 주인이 장 직접 담가서 쓴다고 자랑스럽게 말씀하셨어요.	The restaurant owner proudly told us he ferments his own soybean paste and uses that.	895
+장	요즘은 메주 띄우는 집이 없다 보니 장 사다 먹는 게 당연해졌어요.	Hardly any household ferments its own soybean blocks now, so buying the paste and the sauce ready-made has become the normal thing.	895
+반갑다	일 년 만에 걸려 온 친구 전화가 이렇게 반갑다.	A call from a friend after a whole year is such a welcome thing. (plain written style)	896
+반갑다	타향에서 고향 사투리를 들으니 반갑다 못해 눈물이 핑 돌았어요.	Hearing my home dialect far from home was more than a pleasure — my eyes filled up.	896
+반갑다	동창회 소식이 반갑다 싶으면서도 한편으로는 나가기가 망설여져요.	News of the class reunion is good to hear, and yet part of me hesitates to go.	896
+영향	아이들은 부모 말투에 영향 많이 받는다고 하더라고요.	They say children take on a great deal from the way their parents speak.	897
+영향	새 정책이 소상공인에게 어떤 영향 미칠지 다들 걱정하고 있어요.	Everyone is worried about what the new policy will do to small business owners.	897
+영향	중학교 때 담임 선생님 한마디가 제 진로에 큰 영향 줬어요.	One remark from my homeroom teacher in middle school shaped the path I took.	897
+희생자	사고 희생자 가족들이 아직도 답을 기다리고 있다고 해요.	The families of those lost in the accident are said to be still waiting for answers.	898
+희생자	시청 앞 광장에 희생자 추모 공간이 마련됐다고 들었어요.	I heard a place of remembrance for the dead has been set up in the square by city hall.	898
+희생자	뉴스에서 희생자 이름을 하나씩 부르는 걸 듣다가 말을 잃었어요.	Listening to the news read out the names of the dead one by one, I was lost for words.	898
+몰래	동생 생일 케이크를 몰래 만들다가 엄마한테 그대로 들켰어요.	I was making my little brother's birthday cake on the quiet when Mum walked in on me.	900
+몰래	퇴근 후에 몰래 이력서를 고치는 동료를 봤지만 모른 척했어요.	I saw a colleague reworking his CV on the sly after hours, but I pretended not to notice.	900
+몰래	짝사랑하던 선배를 몰래 지켜보던 그 시절이 지금도 부끄러워요.	I still cringe about the days I spent quietly watching the senior I had a crush on.	900
+이해하다	'외우다'와 '이해하다'는 다르다고 선생님이 칠판을 두드리며 말씀하셨어요.	Memorising and grasping something are two different things, the teacher said, tapping the blackboard.	901
+이해하다	올해 목표를 '아이 마음을 먼저 이해하다'로 정하고 냉장고에 붙였어요.	I made 'see it from my child's side first' my goal for the year and stuck it on the fridge.	901
+이해하다	'서로 다른 세대를 이해하다'라는 강연 제목이 마음에 오래 남았어요.	The lecture was called 'Making Sense of Another Generation', and the title stayed with me for ages.	901
+만들다	김밥을 자주 만들다 보면 옆구리가 터지는 일도 차츰 줄어들어요.	Roll gimbap often enough and they stop bursting open at the sides.	902
+만들다	회의록 맨 위에 '동호회 규칙을 만들다'라고 크게 적어 두었어요.	At the top of the minutes I wrote in big letters: draw up the rules for the club.	902
+만들다	동아리를 만들다 만 채로 졸업해 버린 게 두고두고 아쉬워요.	I graduated leaving the club I had started only half set up, and I still regret it.	902
+피해자	보이스피싱 피해자 모임에 나가 보니 저만 겪은 일이 아니었어요.	When I went to a meeting for people caught by phone scams, I found I was far from alone.	903
+피해자	경찰서에서 피해자 진술을 받는 데 두 시간이 넘게 걸렸어요.	Taking the statement from the injured party at the police station ran to over two hours.	903
+피해자	버스 추돌 사고 피해자 가운데 아는 얼굴이 있어서 가슴이 철렁했어요.	My heart lurched when I recognised a face among those hurt in the bus pile-up.	903
+클럽	홍대 클럽 앞에 줄이 너무 길어서 결국 근처 술집으로 갔어요.	The queue outside the place in Hongdae was so long we ended up at a bar nearby.	904
+클럽	아들이 동네 축구 클럽 훈련을 마치고 흙투성이로 돌아왔어요.	My son came back covered in dirt after training with the neighbourhood football side.	904
+클럽	시끄러운 클럽 음악보다 조용한 카페 음악이 요즘은 더 좋아요.	These days I prefer quiet cafe music to the thumping stuff they play where people go dancing.	904
+결코	부모님은 자식 앞에서 결코 서로 언성을 높이지 않으셨어요.	My parents never once raised their voices at each other in front of us.	905
+결코	십 년 넘게 이어온 가게라 결코 쉽게 문을 닫을 수 없어요.	We have kept this shop going for over ten years, so we cannot just shut it on a whim.	905
+결코	그날 들은 말은 결코 잊을 수 없는 상처로 오래 남았어요.	What I heard that day left a wound I have never been able to forget.	905
+뿐	그 사람은 말없이 웃을 뿐 아무것도 설명해 주지 않았어요.	He merely smiled and said nothing by way of explanation.	907
+뿐	이 식당은 반찬이 맛있을 뿐 아니라 사장님도 정말 친절하세요.	The side dishes at this place are good, and on top of that the owner is genuinely kind.	907
+뿐	그냥 거들었을 뿐, 제가 직접 한 일은 거의 없어요.	I just lent a hand; there is hardly anything I did myself.	907
+보안	회사 보안 교육을 안 들으면 사원증이 잠긴다고 해서 부랴부랴 들었어요.	They said my staff card would be locked if I skipped the company's safety-and-access training, so I rushed to take it.	908
+보안	새 아파트는 보안 카드가 없으면 현관문도 열리지 않아요.	In the new flat even the front door will not open without the entry card.	908
+보안	요즘은 보안 때문에 비밀번호를 석 달마다 바꾸라니 여간 번거롭지 않아요.	Having to change the password every three months for safety reasons is a real nuisance these days.	908
+도로	눈이 와서 도로 곳곳이 얼어붙는 바람에 출근길이 엉망이었어요.	Snow left patches of ice all along the way, and the commute was a mess.	909
+도로	집 앞 도로 공사가 새벽부터 시작돼서 온 식구가 잠을 설쳤어요.	Work on the street in front of our house started at dawn and the whole family slept badly.	909
+도로	밤에는 도로 옆 가로등이 어두워서 아이 혼자 걷게 하기가 불안해요.	The street lamps along there are dim at night, so I worry about letting my child walk alone.	909
+자네들	교수님은 졸업식 날 '자네들, 늘 건강하게'라고 말씀하셨어요.	On graduation day the professor said to us, 'Keep well, all of you.'	910
+자네들	사장님은 회식 때마다 자네들 덕분에 회사가 산다고 하셨어요.	At every company dinner the boss told the younger staff that the firm stays alive thanks to them.	910
+자네들	장인어른은 사위들에게 늘 자네들 편할 대로 하라고 하셨어요.	My father-in-law always told his sons-in-law to do whatever suited them.	910
+보트	한강 공원에서 오리 보트 타 보자고 아이가 아침부터 졸랐어요.	My child pestered me from breakfast to go out on one of the duck pedalos at the Han River park.	911
+보트	동호회 사람들과 보트 위에서 밤낚시를 하다가 비를 흠뻑 맞았어요.	We were night fishing out on the water with the club when the rain soaked us through.	911
+보트	파도가 높은 날 작은 보트 타는 건 생각만 해도 무서워요.	Just the thought of going out in a little craft when the swell is up frightens me.	911
+차라리	길이 이렇게 막히면 차라리 지하철 2호선으로 갈아타는 게 빨라요.	With traffic this bad you would do better to switch to subway line 2.	913
+차라리	외식할 돈이면 차라리 김치찌개를 끓여 먹자고 남편이 말했어요.	My husband said that for the price of eating out we might as well make kimchi stew at home.	913
+차라리	듣기 싫은 소리를 들을 바에는 차라리 혼자 일하는 게 편해요.	If the alternative is putting up with nagging, I would sooner work on my own.	913
+덜	국이 덜 짜게 소금을 조금만 넣어 달라고 미리 부탁했어요.	I asked in advance for only a little salt, so the soup would not come out so salty.	914
+덜	이번 주는 일이 덜 몰려서 정시에 퇴근할 수 있었어요.	There was less of a pile-up of work this week, so I was able to leave on time.	914
+덜	미리 이야기를 들어서 그런지 생각보다 덜 서운했어요.	Maybe because I had been told beforehand, it hurt less than I had expected.	914
+생활	서울에서 자취 생활 삼 년 만에 밥 짓는 게 익숙해졌어요.	Three years of living alone in Seoul and cooking rice has finally become second nature.	915
+생활	교대 근무를 시작하고 나서 생활 리듬이 완전히 흐트러졌어요.	Since I started shift work my whole daily rhythm has fallen apart.	915
+생활	시골 생활 이야기를 들을수록 마음이 자꾸 그쪽으로 기울어요.	The more I hear about how people get by in the countryside, the more I lean that way.	915
+강	아침마다 강 건너 아파트 단지까지 자전거로 다녀오곤 해요.	Most mornings I cycle across to the flats on the other bank and back.	917
+강	회사 앞 다리에서 보면 강 위로 해가 지는 게 보여요.	From the bridge by the office you can watch the sun go down over the water.	917
+강	여름밤에는 강 쪽에서 부는 바람이 시원해서 자꾸 나가게 돼요.	On summer nights the breeze off the water is so cool that I keep going outside.	917
+저렇게	아이가 저렇게 좋아하는 걸 보니 데려오길 정말 잘했어요.	Seeing how much the child is enjoying it, I am glad we brought her along.	918
+저렇게	옆 팀은 저렇게 빨리 일을 끝내는 비결이 뭔지 궁금해요.	I would love to know how the team next door gets through work at that speed.	918
+저렇게	사람 많은 데서 저렇게 큰 소리로 통화하는 건 좀 그래요.	Taking a call at that volume in a crowded place is a bit much.	918
+크리스	옆자리 크리스 씨는 김치찌개를 저보다 훨씬 맵게 드세요.	The colleague at the next desk takes his kimchi stew far spicier than I do.	919
+크리스	크리스 형이 추석에 우리 집에 와서 송편을 같이 빚었어요.	Our friend came over for Chuseok and made songpyeon with us.	919
+크리스	영어 회화 수업에서 크리스 선생님 발음이 제일 알아듣기 쉬웠어요.	In the English conversation class that teacher's pronunciation was the easiest to follow.	919
+섬	주말에 배를 타고 작은 섬 한 바퀴를 돌고 왔어요.	At the weekend we took a boat and went right round a little island.	920
+섬	태풍이 와서 섬 전체에 배가 사흘이나 끊겼대요.	The typhoon cut off every boat to the whole island for three days.	920
+섬	은퇴하면 남해 어느 섬 근처에서 낚시나 하며 살고 싶어요.	When I retire I want to live somewhere off the south coast and just fish.	920
+수정	할머니가 물려주신 수정 목걸이를 결혼식 날 목에 걸었어요.	On my wedding day I wore the necklace of clear stone my grandmother left me.	921
+수정	인사동 가게에서 수정 도장을 하나 새겨 부모님께 선물했어요.	At a shop in Insadong I had a seal cut from clear stone and gave it to my parents.	921
+수정	햇빛을 받으면 수정 조각이 무지개처럼 빛나서 한참 들여다봤어요.	In the sunlight the shard threw out rainbows, and I stared at it for ages.	921
+믿음	부모님의 조건 없는 믿음 덕분에 다시 공부를 시작할 수 있었어요.	My parents' unconditional trust in me is why I was able to start studying again.	922
+믿음	십 년을 같이 일하며 쌓은 믿음 하나로 계약서도 없이 가게를 맡겼어요.	On nothing but the trust built over ten years of working together, I handed him the shop without a contract.	922
+믿음	서로에 대한 믿음 없이 하는 동업은 오래 못 간다고 봐요.	A partnership with no confidence in each other will not last, in my view.	922
+미리	추석 기차표는 미리 예매하지 않으면 자리가 하나도 안 남아요.	If you do not book Chuseok train tickets ahead, there is not a seat left.	923
+미리	회의 자료를 미리 보내 주셔서 준비하기가 훨씬 수월했어요.	You sent the meeting papers ahead of time, which made preparing far easier.	923
+미리	말씀을 미리 해 주셨다면 그렇게까지 서운하지는 않았을 거예요.	Had you told me sooner, I would not have been quite so hurt.	923
+갖다	쓰지 않는 화분은 베란다에 갖다 놓으면 어떨까 싶어요.	I was thinking we could take the pots we do not use out to the veranda.	924
+갖다	창고에 쌓인 상자를 분리수거장에 갖다 버리는 일이 제 몫이에요.	Hauling the boxes piled up in the store room out to the recycling point is my job.	924
+갖다	남의 자료를 말도 없이 갖다 쓰는 건 예의가 아니라고 생각해요.	Helping yourself to someone else's material without a word is no way to behave.	924
+경험	편의점 야간 근무 경험 덕분에 밤에도 잘 버티는 편이에요.	Thanks to my time on night shifts at a convenience store, I hold up well at night.	925
+경험	면접에서는 경험 많은 사람보다 태도가 좋은 사람을 뽑는대요.	In interviews, they say, a good attitude beats a long track record.	925
+경험	혼자 배낭여행을 다녀온 경험 하나가 제 성격을 많이 바꿔 놓았어요.	One backpacking trip on my own changed my character a great deal.	925
+당연하다	하루 종일 서서 일했으니 다리가 아픈 것도 당연하다.	You were on your feet working all day, so of course your legs hurt.	926
+당연하다	부모가 자식 걱정을 하는 건 너무나 당연하다.	It only stands to reason that parents worry about their children.	926
+당연하다	첫 김장에 배추가 짜게 절여진 것쯤은 당연하다 싶었어요.	For a first go at kimjang, over-salted cabbage seemed fair enough to me.	926
+기계	공장 기계 소리가 하도 커서 귀마개를 끼고 일해요.	The din from the plant is so loud that I work with earplugs in.	927
+기계	동네 세탁소 기계 한 대가 고장 나서 사흘을 기다렸어요.	One of the units at the local laundry broke down and I waited three days.	927
+기계	요즘 식당은 주문도 기계 앞에서 해야 해서 어른들이 난감해하세요.	Restaurants now make you order at a screen, which leaves older people at a loss.	927
+주인	지하철에서 주운 지갑 주인 찾아 주느라 한참 걸렸어요.	It took me ages to track down whoever had lost the wallet I picked up on the subway.	928
+주인	주인 없는 고양이가 우리 빌라 계단에서 새끼를 낳았어요.	A cat that belongs to nobody had kittens on the stairs of our building.	928
+주인	가게 주인 대신 자리를 지키다 보니 하루가 금방 갔어요.	Minding the shop while the proprietor was away, I found the day went quickly.	928
+도	우리 학교 팀이 도 대표로 전국 대회에 나가게 됐어요.	Our school team will go to the national tournament as the provincial representative.	931
+도	도 경계를 넘자마자 고향에 다 왔다는 생각에 마음이 놓였어요.	The moment we crossed the provincial border I felt at ease, knowing home was close.	931
+도	도 단위로 지원금이 나와서 신청 서류를 처음부터 다시 냈어요.	The subsidy is handed out at provincial level, so I filed the paperwork all over again.	931
+프랑스	프랑스 여행에서 사 온 버터로 식빵을 구웠더니 향이 달랐어요.	I baked bread with butter brought back from the trip, and the smell was something else.	932
+프랑스	회사 동료가 프랑스 지사로 발령이 나서 다음 달에 떠나요.	A colleague has been posted to the branch over there and leaves next month.	932
+프랑스	프랑스 영화는 자막 없이 보면 하나도 못 알아듣겠어요.	I cannot follow a single line of those films without subtitles.	932
+공간	작은 집일수록 공간 활용을 잘해야 한다고 어머니가 늘 말씀하셨어요.	The smaller the home, my mother always said, the better you must use every inch.	933
+공간	사무실에는 조용히 통화할 공간 하나 없어서 늘 복도로 나가요.	There is not one quiet corner in the office to take a call, so I always step into the corridor.	933
+공간	작업실이라는 나만의 공간 덕분에 요즘 마음이 한결 편해요.	Having a studio of my own has made me much calmer lately.	933
+파트너	탁구 동호회에서 파트너 바꿔 가며 복식 경기를 실컷 했어요.	At the table tennis club we played doubles for hours, swapping who we played with.	935
+파트너	이번 프로젝트는 해외 파트너 없이 우리끼리 진행하기로 했어요.	We decided to run this project ourselves, without the overseas firm.	935
+파트너	댄스 수업에서 파트너 덕분에 박자를 겨우 따라갈 수 있었어요.	In the dance class I only just kept to the beat, and that was down to the person I was dancing with.	935
+코	발표 전날 코 막혀서 목소리가 하나도 안 나왔어요.	The day before the presentation I was so blocked up that my voice would not come out.	936
+코	남편이 하도 코 고는 바람에 새벽에 몇 번이나 깼어요.	My husband snored so loudly that I woke several times before dawn.	936
+코	울고 난 뒤에 코 풀 휴지가 없어서 더 서러웠어요.	After crying there was no tissue to blow into, which made it feel worse.	936
+미스터	사무실에서는 아직도 저를 미스터 김이라고 부르시는 분이 계세요.	There is still someone at the office who addresses me as Kim, with the old English title.	937
+미스터	드라마에서 사장이 직원을 미스터 최라고 부르는 장면이 나왔어요.	In the drama there was a scene where the boss called an employee Choi, using the English title.	937
+미스터	요즘 회사에서 '미스터'라는 호칭은 이제 좀 촌스럽게 들려요.	That English form of address sounds rather dated in an office these days.	937
+시	회의가 세 시 반에 시작이라 점심을 서둘러 먹었어요.	The meeting starts at half past three, so I ate lunch in a hurry.	938
+시	아이가 아침 일곱 시 전에 깨워 달라고 신신당부했어요.	My child begged me to wake her before seven in the morning.	938
+시	밤 열두 시 넘어 걸려 오는 전화는 늘 가슴이 덜컥해요.	A call that comes in after twelve at night always makes my heart drop.	938
+자막	한국 드라마를 자막 없이 보는 게 올해 제 목표예요.	Watching Korean dramas without anything written at the bottom is my goal this year.	939
+자막	영화관에서 자막 읽느라 화면을 제대로 못 볼 때가 많아요.	At the cinema I am often so busy reading along that I miss the picture.	939
+자막	할머니가 잘 안 들리신다고 해서 자막 켜고 같이 봤어요.	Grandmother said she could not hear well, so we turned the text on and watched together.	939
+꼬마	옆집 꼬마 둘이 초인종을 누르고 도망가는 바람에 한참 웃었어요.	The two little ones from next door rang the bell and ran off, and we laughed for ages.	941
+꼬마	놀이터에서 꼬마 손님들에게 풍선을 나눠 주는 일을 맡았어요.	At the playground I was put in charge of handing balloons to the small guests.	941
+꼬마	앨범에서 꼬마 시절 사진을 보다가 괜히 눈물이 났어요.	Looking through photos from when I was small, I found myself tearing up.	941
+연기	신인인데 연기 정말 잘한다고 관객들이 입을 모았어요.	The audience all agreed that for a newcomer she performs remarkably well.	942
+연기	딸이 연기 학원에 다니겠다고 해서 온 집안이 시끄러웠어요.	My daughter announced she would take drama classes, and the whole house was in uproar.	942
+연기	단역이라도 연기 경험을 쌓으려고 주말마다 오디션을 보러 다녀요.	Even for bit parts, he goes to auditions every weekend to build up stage experience.	942
+제안	회의 끝에 팀장님이 제안 하나를 꺼내셨는데 다들 조용해졌어요.	At the end of the meeting the team leader put one idea on the table and everyone went quiet.	943
+제안	이직 제안 때문에 며칠 동안 잠을 제대로 못 잤어요.	An offer to move to another company kept me awake for days.	943
+제안	주말마다 등산하자는 아버지 제안 덕분에 온 가족이 건강해졌어요.	Father's idea of hiking every weekend has made the whole family healthier.	943
+의식	할아버지가 수술 끝나고 의식 되찾으셨다는 소식에 다들 울었어요.	We all wept at the news that grandfather had come round after the operation.	944
+의식	응급실에서는 환자 의식 상태를 제일 먼저 확인한다고 해요.	In the emergency room, they say, the first thing checked is whether the patient is responsive.	944
+의식	안전 의식 없이 공사장에 들어가면 큰 사고로 이어지기 쉬워요.	Walking onto a building site without safety in mind easily leads to a serious accident.	944
+바이러스	독감 바이러스 때문에 어린이집이 일주일이나 문을 닫았어요.	The nursery closed for a whole week because of the flu bug going around.	945
+바이러스	회사 컴퓨터에 바이러스 검사를 돌리느라 오전 내내 일을 못 했어요.	I lost the whole morning running a scan on the office computer.	945
+바이러스	지하철에서 기침 소리만 들려도 바이러스 옮을까 봐 긴장돼요.	One cough on the subway and I tense up, afraid of catching something.	945
+전기	태풍에 전기 나가서 온 가족이 촛불 켜고 저녁을 먹었어요.	The typhoon knocked the power out and the whole family ate dinner by candlelight.	946
+전기	여름마다 전기 요금 고지서를 보고 한숨부터 나와요.	Every summer the bill for the meter makes me sigh before anything else.	946
+전기	공사 중이라 이틀 동안 전기 없이 가게 문을 열어야 했어요.	Because of the building work we had to open the shop for two days with no power.	946
+경기	어젯밤 축구 경기 보느라 새벽 두 시까지 못 잤어요.	I stayed up until two watching the football last night.	947
+경기	비 때문에 오늘 경기 취소됐다고 단체 문자가 왔어요.	A group text came round saying today's fixture is off because of the rain.	947
+경기	아들 학교 농구 경기 내내 목이 쉬도록 응원했어요.	I cheered myself hoarse right through my son's school basketball fixture.	947
+변화	집안 분위기에 변화 좀 주려고 거실 커튼을 밝은 색으로 바꿨어요.	To give the feel of the house a bit of a change, I swapped the living-room curtains for a brighter colour.	948
+변화	우리 회사는 변화 속도가 빨라서 신입들이 적응하기 힘들어해요.	Our company changes so fast that new hires have a hard time settling in.	948
+변화	저는 이 드라마가 후반부에 변화 없이 늘어져서 결국 보다 말았어요.	This drama dragged on without any change in its second half, so I gave up on it partway.	948
+주님	할머니는 새벽마다 조용히 주님 앞에 무릎을 꿇고 기도하세요.	Every dawn my grandmother quietly kneels before the Lord and prays.	949
+주님	성가대는 성탄절 밤에 주님 오심을 노래하는 곡을 준비했어요.	The choir prepared a piece for Christmas night that sings of the Lord's coming.	949
+주님	힘든 일이 겹쳤을 때 주님 은혜로 버텼다고 어머니가 늘 말씀하세요.	My mother always says that when troubles piled up, it was by the Lord's grace that she held on.	949
+인턴	이번 여름에 들어온 인턴 두 명이 회의록을 꼼꼼하게 정리해 줬어요.	The two interns who joined this summer wrote up the meeting minutes very carefully for us.	951
+인턴	조카가 방송국 인턴 면접을 보러 간다고 아침부터 정장을 다렸어요.	My nephew was off to an intern interview at a broadcasting company, so he was pressing his suit from early morning.	951
+인턴	월급도 못 받는 인턴 자리를 경력이라고 부르는 건 좀 아니라고 봐요.	Calling an unpaid intern post real work experience is not right, if you ask me.	951
+러시아	겨울에 러시아 여행을 다녀온 삼촌이 털모자를 하나 사다 주셨어요.	My uncle, back from a winter trip to Russia, brought me a fur hat.	953
+러시아	동네 학원에 러시아 문학을 가르치는 선생님이 새로 오셨대요.	I hear a teacher of Russian literature has just joined the neighbourhood academy.	953
+러시아	저는 러시아 발레 공연을 한 번 보고 완전히 빠져 버렸어요.	I watched a Russian ballet once and fell for it completely.	953
+안되다	요즘 장사가 안되다 보니 사장님 얼굴에 그늘이 가시질 않아요.	Business keeps going badly these days, so the owner never quite loses the shadow on his face.	954
+안되다	우리 집 김치냉장고는 온도 조절이 안되다 며칠 전에 아예 멈춰 버렸어요.	The temperature control on our kimchi fridge had been playing up, and a few days ago it stopped altogether.	954
+안되다	무슨 일이든 자꾸 안되다 보면 결국 자기 탓만 하고 있더라고요.	When things keep failing, whatever they are, you find yourself in the end blaming only yourself.	954
+카라	교복 카라 부분이 누레져서 어머니가 솔로 한참 문질러 빨았어요.	The collar of the school uniform had yellowed, so my mother scrubbed it for ages with a brush.	955
+카라	면접 전날 셔츠 카라 각을 살리려고 다림질을 두 번이나 했어요.	The night before the interview I ironed my shirt twice to get the collar standing crisply.	955
+카라	저는 카라 없는 티셔츠가 편해서 정장보다 훨씬 자주 입어요.	I find a T-shirt with no collar comfortable, so I wear one far more often than a suit.	955
+사과	아버지가 사과 몇 개를 깎아서 접시에 예쁘게 담아 오셨어요.	My father peeled a few apples and brought them in neatly arranged on a plate.	956
+사과	추석에 큰집에 갈 때 사과 한 상자를 사 들고 갔어요.	When we went to my uncle's house for Chuseok, we took a box of apples with us.	956
+사과	저는 배보다 사과 쪽이 아삭아삭해서 겨울 내내 그것만 먹어요.	I find apples crisper than pears, so that is all I eat right through the winter.	956
+용기	남은 반찬을 유리 용기 세 개에 나눠 담아 냉장고에 넣었어요.	I divided the leftover side dishes into three glass containers and put them in the fridge.	957
+용기	식당에서 포장해 주는 용기 값을 따로 받는 곳이 요즘 늘었어요.	More restaurants these days charge separately for the container they pack your food in.	957
+용기	저는 플라스틱 용기 대신 스테인리스 통을 쓰는 편이 마음이 편해요.	I feel easier in my mind using a stainless-steel tin instead of a plastic container.	957
+소문	동네에 이상한 소문 하나가 돌아서 아주머니들이 모여 수군거렸어요.	A strange rumour was going round the neighbourhood, and the women gathered and whispered about it.	958
+소문	부장님 승진 소문 때문에 사무실 분위기가 하루 종일 어수선했어요.	A rumour about the manager's promotion kept the office unsettled all day.	958
+소문	저는 확인도 안 된 소문 옮기는 사람이 제일 싫더라고요.	The people I dislike most are the ones who pass on rumours nobody has checked.	958
+목표	아들이 올해 목표 두 가지를 방문에 크게 써 붙였어요.	My son wrote this year's two goals in big letters and stuck them on his bedroom door.	959
+목표	이번 분기 목표 달성이 어려워 보여서 영업팀이 계획을 다시 짰어요.	Meeting this quarter's target looked unlikely, so the sales team redrew the plan.	959
+목표	저는 너무 높은 목표 잡는 것보다 매일 조금씩 하는 게 좋아요.	Rather than setting too lofty a goal, I prefer doing a little every day.	959
+답	문제집을 다 풀고 뒤쪽에서 답 맞춰 보다가 한숨이 나왔어요.	I finished the workbook and checked my answers against the back, and out came a sigh.	960
+답	선생님이 마지막 문제 답 좀 다시 설명해 주셨으면 좋겠어요.	I wish the teacher would explain the answer to the last question once more.	960
+답	고민을 한참 들어 주고도 답 하나 못 준 게 내내 마음에 걸렸어요.	I listened to her worries for ages and still could not give her a single answer, and it weighed on me afterwards.	960
+일부	지하철 공사 때문에 버스 노선 일부 구간이 한 달 동안 바뀌어요.	Because of the subway works, part of the bus route changes for a month.	961
+일부	형은 월급 일부 떼어 매달 할머니 병원비에 보태고 있어요.	My older brother sets aside part of his pay each month towards Grandma's hospital bills.	961
+일부	학생들 일부 의견만 듣고 규칙을 바꾼 건 성급했다고 생각해요.	Changing the rules after hearing only some of the students was too hasty, I think.	961
+뉴스	아버지는 저녁 아홉 시 뉴스 보시면서 늘 혀를 차세요.	My father watches the nine o'clock news every evening and clicks his tongue the whole way through.	963
+뉴스	출근길 지하철에서 태풍 소식이 뉴스 속보로 계속 떴어요.	On the subway to work, word of the typhoon kept flashing up as breaking news.	963
+뉴스	저는 요즘 뉴스 보기가 무서워서 아예 앱을 지워 버렸어요.	Lately I have been afraid to watch the news at all, so I just deleted the app.	963
+신부님	동네 성당에서 신부님 강론이 길어져서 미사가 삼십 분 늦게 끝났어요.	At the local church the priest's homily ran long, so mass finished half an hour late.	966
+신부님	할머니가 신부님 오신다고 아침부터 집 안을 반짝반짝 닦으셨어요.	Grandma polished the whole house from early morning because the priest was coming.	966
+신부님	오래 묵은 고민을 털어놓았더니 신부님 한마디에 마음이 한결 가벼워졌어요.	I poured out a long-standing worry, and one word from the priest lifted a weight off me.	966
+따로	아이들이 골라 먹기 편하게 반찬을 접시에 따로 담았어요.	I put the side dishes out on separate plates so the children could pick what they wanted.	967
+따로	고깃집에서 계산은 따로 하자고 해서 다들 각자 카드를 꺼냈어요.	At the barbecue place someone suggested we pay separately, so everyone pulled out their own card.	967
+따로	형제인데도 성격이 따로 노는 게 신기하다고 이모가 웃으셨어요.	My aunt laughed that it was funny how the brothers' temperaments run off in separate directions.	967
+최소한	김치찌개는 최소한 삼십 분은 끓여야 맛이 제대로 들어요.	Kimchi stew needs at least half an hour on the heat before the flavour really comes through.	970
+최소한	발표 자료는 최소한 하루 전에 팀장님께 보내 드려야 해요.	The slides have to reach the team leader at least a day beforehand.	970
+최소한	늦을 거면 최소한 연락은 한 통 해 주는 게 예의죠.	If you are going to be late, the decent thing is to send at least one message.	970
+임마	야 임마 약속 시간이 벌써 삼십 분이나 지났잖아.	Hey you, it is already half an hour past the time we agreed. (rough, between close friends)	972
+임마	임마 그렇게 밤새 무리하다가 몸 상하면 누가 책임지냐.	Hey, if you wreck your health pulling all-nighters like that, who is going to answer for it? (rough but affectionate, to a junior)	972
+임마	선배가 후배들한테 쓰는 임마 소리에 신입들이 처음엔 좀 놀랐어요.	The new hires were startled at first by the rough 'hey you' our senior uses with his juniors.	972
+공	동생이 찬 공 하나가 담을 넘어 옆집 마당으로 들어갔어요.	A ball my younger brother kicked went over the wall into the neighbour's yard.	975
+공	체육 시간에 공 두 개가 터져서 선생님이 창고에서 새로 꺼내 오셨어요.	Two balls burst during PE, so the teacher fetched new ones from the store room.	975
+공	저는 발이 느려서 공 쫓아다니는 운동은 영 자신이 없어요.	I am slow on my feet, so sports where you chase a ball around are hopeless for me.	975
+루시	조카가 키예프 루시 이야기를 숙제로 정리하느라 밤늦게까지 앉아 있었어요.	My nephew sat up late writing up the story of Kyivan Rus for his homework.	976
+루시	박물관 특별전에서 루시 시대의 은화를 처음으로 직접 봤어요.	At the museum's special exhibition I saw silver coins from the Rus period with my own eyes for the first time.	976
+루시	다큐멘터리를 보고 나서야 루시 없이는 러시아 역사를 설명하기 어렵겠다 싶었어요.	Only after the documentary did it strike me that you cannot explain Russian history without Rus.	976
+기도	어머니는 매일 밤 자기 전에 기도 시간을 꼭 가지세요.	My mother never fails to set aside time for prayer every night before bed.	977
+기도	수능 앞두고 학부모들이 교회에서 기도 모임을 매일 열었대요.	Ahead of the university entrance exam, parents held a prayer meeting at the church every day.	977
+기도	아무 말도 못 하고 그저 기도 한마디만 속으로 되뇌었어요.	I could not say a thing and only repeated a single prayer inside my head.	977
+북쪽	우리 집은 북쪽 창이 커서 여름에도 방이 서늘해요.	Our flat has a big north-facing window, so the room stays cool even in summer.	979
+북쪽	지하철역 북쪽 출구로 나오면 바로 앞에 편의점이 보여요.	Come out of the subway station by the north exit and you will see a convenience store right there.	979
+북쪽	가을 등산은 북쪽 능선으로 올라야 단풍도 곱고 사람도 적어요.	For autumn hiking you want to go up by the northern ridge — the leaves are prettier and there are fewer people.	979
+인사	설날 아침에 큰절로 인사 올리고 아이들이 세뱃돈을 받았어요.	On New Year's morning the children made a deep bow in greeting and got their holiday money.	980
+인사	첫 출근 날이라 팀원들에게 인사 한 번씩 돌리느라 진땀을 뺐어요.	It was my first day, and going round greeting every team member left me in a sweat.	980
+인사	엘리베이터에서 인사 없이 지나치는 이웃을 보면 괜히 서운해져요.	When a neighbour passes me in the lift without a greeting, it stings a little.	980
+강한	간밤에 강한 바람이 불어서 베란다 화분이 하나 쓰러졌어요.	A strong wind blew last night and knocked over one of the pots on the veranda.	981
+강한	면접에서 강한 인상을 남기려고 준비한 질문을 다 써먹었어요.	To leave a powerful impression at the interview, I used up every question I had prepared.	981
+강한	주민들이 재개발 계획에 강한 반대 의견을 끝까지 굽히지 않았어요.	The residents never backed down from their forceful objection to the redevelopment plan.	981
+벌	창문을 열어 뒀더니 벌 한 마리가 거실로 들어왔어요.	I left the window open and a bee flew into the living room.	982
+벌	공원 관리인이 벌 때문에 벤치 근처를 임시로 막아 놓았어요.	The park keeper has roped off the area near the benches for now because of the wasps.	982
+벌	어릴 때 벌 쏘인 자리가 퉁퉁 부어서 며칠 고생한 기억이 나요.	I remember a bee sting swelling up when I was small and giving me a rough few days.	982
+잡다	아이가 뜨거운 냄비 뚜껑을 잡다 깜짝 놀라 손을 뗐어요.	My child took hold of the hot pot lid, then snatched a hand away in fright.	984
+잡다	퇴근길에 택시를 잡다 보니 어느새 삼십 분이 지나 있었어요.	Trying to flag down a taxi on the way home from work, I found half an hour had slipped by.	984
+잡다	서점에서 '마음을 잡다'라는 제목의 에세이를 한 권 집어 들었어요.	At the bookshop I picked up an essay collection titled 'Getting a Grip on the Heart'.	984
+길이	치마 길이 좀 줄여 달라고 세탁소에 맡기고 왔어요.	I dropped the skirt at the dry cleaner's and asked them to take the length up a bit.	985
+길이	목수 아저씨가 선반 길이 다시 재고 톱질을 시작했어요.	The carpenter measured the shelf's length again and started sawing.	985
+길이	머리 길이 하나 바꿨을 뿐인데 사람들이 다 젊어 보인대요.	All I changed was the length of my hair, and everyone says I look younger.	985
+역할	이번 프로젝트는 팀원들 역할 분담이 아직 정확히 안 정해졌어요.	On this project, exactly who takes which role has still not been pinned down.	986
+역할	맏이라서 그런지 형이 집안에서 큰 역할 하나를 늘 떠맡아요.	Perhaps because he is the eldest, my brother always shoulders one big role in the family.	986
+역할	학예회에서 나무 역할 맡은 아이가 제일 열심히 서 있더라고요.	At the school show, the child given the role of a tree stood there more earnestly than anyone.	986
+진정	화장대에 놓인 이 크림은 진정 효과가 좋아서 자기 전에 꼭 발라요.	This cream on the dresser has a good calming effect, so I always put it on before bed.	987
+진정	수술실 앞에서 아이가 진정 상태에 들어갈 때까지 손을 꼭 잡고 있었어요.	Outside the operating theatre I held my child's hand tightly until she settled into a state of sedation.	987
+진정	무대에 오르기 직전까지 진정 안 되던 마음이 첫 소절을 부르자 가라앉았어요.	Right up to the moment I went on stage my nerves would not settle, and then they calmed as I sang the first line.	987
+인류	아이가 박물관에서 인류 진화 전시를 보고 온 뒤로 화석에 빠졌어요.	Ever since seeing the exhibition on human evolution at the museum, my child has been obsessed with fossils.	988
+인류	교수님이 첫 강의에서 인류 역사 전체를 한 시간으로 압축해 설명하셨어요.	In the first lecture the professor compressed the whole history of humankind into an hour.	988
+인류	기후 문제 앞에서는 인류 전체가 한배를 탔다는 말이 실감 나요.	Faced with the climate problem, the saying that all of humanity is in one boat really hits home.	988
+피해	지난 태풍에 옥상 물탱크가 새서 아랫집이 피해 신고를 했어요.	The roof water tank leaked in the last typhoon, and the flat below reported the damage.	990
+피해	보험사 직원이 와서 침수 피해 규모를 사진으로 꼼꼼히 남겼어요.	The insurance officer came and carefully photographed the extent of the flood damage.	990
+피해	공사 소음으로 제일 큰 피해 입는 쪽은 결국 바로 옆 주민들이에요.	The ones who take the worst harm from the construction noise are, in the end, the residents right next door.	990
+장치	오래된 보일러라 온도 조절 장치 하나가 자꾸 말을 안 들어요.	The boiler is old, so one temperature-control device keeps refusing to behave.	991
+장치	공장에서 낡은 장치 두 대를 새것으로 바꾸느라 하루 작업을 멈췄어요.	The factory stopped work for a day to replace two worn-out devices with new ones.	991
+장치	복잡한 장치 없이 손으로 내려 마시는 커피가 저는 제일 좋아요.	Coffee poured by hand, with no complicated equipment, is my favourite.	991
+공연	대학로 소극장에서 하는 공연 표를 두 장 예매해 뒀어요.	I booked two tickets for a performance at a small theatre in Daehangno.	993
+공연	무대 감독이 공연 시작 삼십 분 전에 조명을 다시 맞췄어요.	The stage manager reset the lighting half an hour before the performance began.	993
+공연	저는 공연 끝나고 나오는 길의 그 들뜬 기분이 제일 좋아요.	What I love most is that buzz on the way out once the performance is over.	993
+단어	아들이 시험 전날 단어 서른 개를 외우느라 새벽까지 앉아 있었어요.	The night before the exam my son sat up till dawn memorising thirty words.	994
+단어	선생님이 칠판에 어려운 단어 몇 개를 적고 뜻을 하나씩 설명하셨어요.	The teacher wrote a few difficult words on the board and explained each meaning in turn.	994
+단어	저는 뜻 모르는 단어 나올 때마다 사전을 찾는 게 오히려 재밌어요.	Whenever a word I do not know comes up, I actually enjoy looking it up in the dictionary.	994
+식당	비 오는 날이면 어머니가 시장 안 식당 칼국수를 꼭 찾으세요.	On rainy days my mother always wants the knife-cut noodles from the restaurant inside the market.	997
+식당	점심시간마다 회사 식당 줄이 길어서 십 분 일찍 내려가요.	The queue at the company dining hall is long every lunchtime, so I go down ten minutes early.	997
+식당	저는 손님이 붐비는 식당 대신 조용한 골목 백반집을 찾아다녀요.	Instead of a crowded restaurant I seek out quiet back-alley places that serve set meals.	997
+주소	이사하고 나서 주소 변경 신고를 아직도 못 했어요.	I still have not filed the change-of-address notice since moving.	998
+주소	택배 기사님이 전화해서 주소 한 번만 다시 불러 달라고 하셨어요.	The delivery driver rang and asked me to read out my address one more time.	998
+주소	청첩장에 주소 적는 칸이 좁아서 글씨가 자꾸 삐뚤어졌어요.	The box for writing the address on the wedding invitation was narrow, so my handwriting kept going crooked.	998

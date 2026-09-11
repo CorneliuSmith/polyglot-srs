@@ -353,3 +353,39 @@ grade") is the Hanja 下 surfacing as an extraction fragment, and §28 fails
 outright — a blank in `상 중 ___` is satisfied by 상 and 중 equally. It belongs
 in `vocab_exclusions.tsv`, not in a later authoring attempt.
 
+## Sentence authoring, wave 2 — ranks 501–1000 (11 Sep 2026)
+
+**960 sentences for 320 words**, every row verified clozable by the gate; the
+floor pass then dropped 157 fragments they superseded. Korean's **top-1000 gap
+is 528 → 28**, and the top-500 holds at 8.
+
+**The checkers raised their own bar this wave**, and two of the moves are worth
+copying into other courses:
+
+- **They cited 국립국어원 rather than judging spacing by eye.** 군 복무 (우리말샘
+  lists it spaced; 군복무 is not a word), 살인 사건 (온라인가나다: `'절도
+  사건/살인 사건'은 한 단어가 아니므로 띄어 쓰는 것이 원칙`), 새끼 고양이 (there
+  is no native one-word kitten). Wave 1's only gate-invisible defect was a
+  split compound, and it did not recur.
+- **They applied rule 61's two-signal test to a collocation and found zero.**
+  `죽다 만 얼굴` parses — V-다(가) 말다 is productive — but 죽다 is an
+  achievement, not an interruptible activity, and no attestation exists.
+  Replaced with `죽다 살아나다`, which the dictionary defines outright.
+
+**A structural fact about Korean authoring, established here.** A Korean verb
+headword has **no finite slot at all** — 한다체 gives 죽는다, not 죽다 — so the
+entire inventory of blankable positions is the citation form, the -다(가)
+reduction, and a serial idiom like 죽다 살아나다. Two rows of one verb sharing a
+construction is therefore structural, not laziness, and should not be refused
+as "same frame" the way a noun's three swapped frames would be.
+
+**Two skips, both correct and both exclusion candidates rather than authoring
+ones:** `가세` (564) is an extraction artefact of 가세하다 — the bare noun that
+actually occurs is the homograph 家勢 (가세가 기울다), so any blankable sentence
+teaches a sense the definition never names. Same shape as wave 1's `하`.
+
+**One gloss-order note for later:** `역시`'s three rows all use "just as
+expected" rather than the definition's leading "too, also". That sense IS
+named, so it is not off-gloss — but it is the dominant one in real Korean, and
+this is the card that argues for flipping the order (rule 6).
+
