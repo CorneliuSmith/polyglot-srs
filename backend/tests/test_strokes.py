@@ -261,3 +261,63 @@ class TestLettersProgress:
         resp = client.get(f"/api/write/progress?language_id={TEST_LANGUAGE_ID}&style=naskh",
                           headers=_auth_headers())
         assert resp.status_code == 200 and resp.json() == {"items": []}
+
+
+class TestProvisionalLibrary:
+    """The generated library (scripts/strokes/gen_provisional.py) must be
+    what the seeder and the frontend bundle expect: every form a real
+    form of its script, strokes inside the box, a hint per stroke."""
+
+    @pytest.mark.parametrize("script,code", [("arabic", "ar"), ("cyrillic", "ru")])
+    def test_every_form_is_valid_for_its_script(self, script, code):
+        import json
+        from pathlib import Path
+
+        from backend.repositories.strokes import clean_strokes
+        from backend.services.scripts import forms_for, styles_of
+
+        root = Path(__file__).resolve().parents[2]
+        data = json.loads((root / "data" / "strokes" / f"{script}.json").read_text(encoding="utf-8"))
+        bundled = json.loads((root / "frontend" / "src" / "features" / "write" / "strokes" / f"{script}.json")
+                             .read_text(encoding="utf-8"))
+        assert data == bundled, "the bundled copy must be regenerated with the data file"
+        assert data["script"] == script and data["glyphs"]
+        seen = set()
+        for g in data["glyphs"]:
+            assert g["form"] in forms_for(script, g["glyph"]), (g["glyph"], g["form"])
+            assert g["style"] in styles_of(script)
+            assert g["source"] == "provisional" and g["reviewed"] is True
+            key = (g["glyph"], g["form"], g["style"])
+            assert key not in seen, key
+            seen.add(key)
+            cleaned = clean_strokes(g["strokes"])
+            assert len(cleaned) == len(g["strokes"]) >= 1
+            assert len(g["hints"]) == len(g["strokes"])
+            for stroke in g["strokes"]:
+                assert all(0 <= x <= 1000 and 0 <= y <= 1000 for x, y in stroke)
+
+    def test_arabic_covers_the_alphabet_in_every_form(self):
+        import json
+        from pathlib import Path
+
+        from backend.services.scripts import alphabet_for
+
+        root = Path(__file__).resolve().parents[2]
+        data = json.loads((root / "data" / "strokes" / "arabic.json").read_text(encoding="utf-8"))
+        have = {(g["glyph"], g["form"]) for g in data["glyphs"] if g["style"] == "naskh"}
+        for letter in alphabet_for("ar"):
+            for form in letter["forms"]:
+                assert (letter["glyph"], form) in have, (letter["glyph"], form)
+
+    def test_russian_cursive_covers_both_cases(self):
+        import json
+        from pathlib import Path
+
+        from backend.services.scripts import alphabet_for
+
+        root = Path(__file__).resolve().parents[2]
+        data = json.loads((root / "data" / "strokes" / "cyrillic.json").read_text(encoding="utf-8"))
+        have = {(g["glyph"], g["form"]) for g in data["glyphs"] if g["style"] == "cursive"}
+        for letter in alphabet_for("ru"):
+            for form in ("lower", "upper"):
+                assert (letter["glyph"], form) in have, (letter["glyph"], form)

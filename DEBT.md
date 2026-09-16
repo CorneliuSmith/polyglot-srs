@@ -444,14 +444,26 @@ reader of the plan would expect to find built, and will not:
   second baseline, and the neatness measures assume one line. If writers
   wrap anyway, either shorten the baseline pool's ceiling to ~40
   characters or give the paper rows.
-- **The font-guided letters teach the shape, not the order.** Until a
-  speaker traces a form, Learn shows a typeface's idea of the letter, not
-  a hand's stroke order, and nothing is checked; the handwriting faces
-  (`handFont.ts`) are a comparison, and Hebrew and Greek have none, so
-  their fallback is the browser's generic cursive. This is deliberate —
-  a wrong stroke order taught from a font would be worse than none — but
-  it means the "teaching portion" for a script is thin until Workspace →
-  Workshop → strokes has been worked.
+- **The provisional strokes are schematic, and only for two scripts.**
+  Arabic naskh and Russian cursive have generated textbook stroke order
+  (`scripts/strokes/gen_provisional.py`); every other script is still
+  font-guided — Learn shows a typeface's idea of the letter, nothing is
+  checked, and Hebrew and Greek have no handwriting face at all, so
+  their fallback is the browser's generic cursive. The generated shapes
+  teach order and direction, not a hand: a speaker tracing over them in
+  the Workshop is the fix, one form at a time (saving replaces the row).
+  Adding a script is a page of primitives in the generator; regenerate,
+  check the contact sheet, and add a migration for the new rows (the
+  existing 20261023 must not be edited once pushed).
+- **Before migration 20261023, provisional forms record nothing.** The
+  bundled copy's ids are not rows, so `writing_progress` cannot take an
+  attempt against them; the strip never fills and letter lessons on the
+  path are finished with *Mark done* instead of by themselves. Push the
+  migration and the same forms have ids.
+- **A word step needs the course to have words made only of taught
+  letters.** Early lessons on a small course say "no words yet" and are
+  finished by hand. Authored per-lesson drill words (Workshop) would fix
+  it; until then the joins/forms drills are the real practice.
 - **The composers are placement, not calligraphy.** Letters sit in equal
   cells on one line; a cursive join is a straight run from the previous
   letter's last point to the next's first (`joins.entry/exit` are unset,

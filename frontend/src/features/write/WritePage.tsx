@@ -17,6 +17,8 @@ import type { ConfirmResult, Misread, WriteAssessment, WriteBaseline, WriteKind,
 import { getLanguages } from '../../api/profile'
 import { getAlphabet, getGlyphs, getStrokeManifest } from '../../api/strokes'
 import LettersMode from './LettersMode'
+import PathMode from './PathMode'
+import { withProvisional } from './strokes/provisional'
 import WordsMode, { LetterRow } from './WordsMode'
 import StrokePreview from './StrokePreview'
 import { compose } from './composer'
@@ -39,7 +41,7 @@ import { defaultStyle, ensureHandFont, handFontFor, hasCursiveToggle } from './h
 
 /** What the learner is writing against. `own` is text they typed
  * themselves; `free` is nothing at all. */
-type PromptKind = 'sentence' | 'word' | 'own' | 'free' | 'letters' | 'traced'
+type PromptKind = 'path' | 'sentence' | 'word' | 'own' | 'free' | 'letters' | 'traced'
 
 /** A baseline session in progress (§12.2): the eight prompts, where the
  * writer is, and each line's verdict so the end can sum them. */
@@ -129,7 +131,10 @@ export default function WritePage() {
     retry: false,
     staleTime: 5 * 60 * 1000,
   })
-  const glyphs = useMemo(() => library?.glyphs ?? [], [library])
+  const glyphs = useMemo(
+    () => withProvisional(alphabet?.script ?? library?.script ?? 'latin', activeLetterStyle ?? 'print', library?.glyphs ?? []),
+    [library, alphabet?.script, activeLetterStyle],
+  )
   // The hand profile decides whether "Set up my hand" is offered — it
   // needs the toggle on and the migration present.
   const { data: profile } = useQuery({
@@ -139,7 +144,7 @@ export default function WritePage() {
     retry: false,
   })
 
-  const [kind, setKind] = useState<PromptKind>('sentence')
+  const [kind, setKind] = useState<PromptKind>('path')
   const [index, setIndex] = useState(0)
   const [ownText, setOwnText] = useState('')
   const [style, setStyle] = useState<WriteStyle>('print')
@@ -161,7 +166,11 @@ export default function WritePage() {
     setStyle(defaultStyle(code))
   }, [code])
 
-  const font = useMemo(() => handFontFor(code), [code])
+  const teaching = kind === 'path' || kind === 'letters' || kind === 'traced'
+  const font = useMemo(
+    () => handFontFor(code, teaching ? activeLetterStyle : style),
+    [code, teaching, activeLetterStyle, style],
+  )
   useEffect(() => {
     ensureHandFont(font)
   }, [font])
@@ -347,6 +356,7 @@ export default function WritePage() {
   }
 
   const kinds: { key: PromptKind; label: string }[] = [
+    { key: 'path', label: t('write.kindPath') },
     { key: 'letters', label: t('write.kindLetters') },
     { key: 'traced', label: t('write.kindTrace') },
     { key: 'sentence', label: t('write.kindSentence') },
@@ -475,7 +485,7 @@ export default function WritePage() {
 
         )}
 
-        {(kind === 'letters' || kind === 'traced') && activeLetterStyle && activeLanguageId && (
+        {(kind === 'path' || kind === 'letters' || kind === 'traced') && activeLetterStyle && activeLanguageId && (
           <div className="space-y-2">
             {letterStyles.length > 1 && (
               <div className="flex rounded-full border border-gray-200 bg-white p-0.5 text-xs font-semibold w-fit">
@@ -492,7 +502,9 @@ export default function WritePage() {
                 ))}
               </div>
             )}
-            {kind === 'letters' ? (
+            {kind === 'path' ? (
+              <PathMode languageId={activeLanguageId} code={code} style={activeLetterStyle} glyphs={glyphs} fontFamily={font.family} />
+            ) : kind === 'letters' ? (
               <LettersMode languageId={activeLanguageId} code={code} style={activeLetterStyle} fontFamily={font.family} />
             ) : (
               <WordsMode languageId={activeLanguageId} code={code} style={activeLetterStyle} glyphs={glyphs} fontFamily={font.family} />
@@ -500,7 +512,7 @@ export default function WritePage() {
           </div>
         )}
 
-        {!baseline && kind !== 'letters' && kind !== 'traced' && (
+        {!baseline && kind !== 'letters' && kind !== 'traced' && kind !== 'path' && (
         <div className="rounded-2xl border border-gray-200 bg-white p-4">
           {promptKind && (
             promptsLoading ? (
@@ -557,7 +569,7 @@ export default function WritePage() {
         )}
 
         {/* The surface */}
-        {kind !== 'letters' && kind !== 'traced' && (
+        {kind !== 'letters' && kind !== 'traced' && kind !== 'path' && (
         <>
         <div className="space-y-2">
           <InkCanvas

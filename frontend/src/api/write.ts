@@ -99,12 +99,33 @@ export async function getWriteStatus(languageId: string): Promise<WriteStatus> {
 export async function getWritePrompts(
   languageId: string,
   kind: 'sentence' | 'word',
+  letters?: string[],
 ): Promise<WritePrompt[]> {
   const response = await apiClient.get<{ kind: string; items: WritePrompt[] }>(
     '/api/write/prompts',
-    { params: { language_id: languageId, kind, limit: 20 } },
+    { params: { language_id: languageId, kind, limit: 20, letters: letters ? letters.join('') : undefined } },
   )
   return response.data.items
+}
+
+/** The learning path: lessons finished, per course and style. */
+export async function getWritePath(languageId: string, style: string): Promise<string[]> {
+  const r = await apiClient.get<{ done: string[] }>('/api/write/path', {
+    params: { language_id: languageId, style },
+  })
+  return r.data.done
+}
+
+export async function markLesson(args: {
+  languageId: string
+  style: string
+  lessonId: string
+  done?: boolean
+}): Promise<string[]> {
+  const r = await apiClient.post<{ done: string[]; stored: boolean }>('/api/write/path', {
+    language_id: args.languageId, style: args.style, lesson_id: args.lessonId, done: args.done ?? true,
+  })
+  return r.data.done
 }
 
 export async function assessWriting(args: {

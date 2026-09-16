@@ -14,6 +14,7 @@ import type { Composed } from './composer'
 import type { Stroke } from './ink'
 import { matchComposed } from './matcher'
 import type { ComposedMatch, LetterReason } from './matcher'
+import { isProvisionalId } from './strokes/provisional'
 
 const CANVAS = 220
 const TRACE_TOLERANCE = 0.18
@@ -54,21 +55,38 @@ export default function WordsMode({
   style,
   glyphs,
   fontFamily = 'cursive',
+  texts,
+  letters,
+  initialSource = 'word',
+  onPass,
 }: {
   languageId: string
   code: string | undefined
   style: string
   glyphs: Glyph[]
   fontFamily?: string
+  /** A lesson's fixed drills, instead of prompts. */
+  texts?: string[]
+  /** Only prompts made of these letters (a lesson's word or sentence step). */
+  letters?: string[]
+  initialSource?: Source
+  /** A Write-step check with every letter matched. */
+  onPass?: () => void
 }) {
   const { t } = useTranslation()
   const queryClient = useQueryClient()
-  const [source, setSource] = useState<Source>('word')
-  const { data: prompts = [], isLoading } = useQuery({
-    queryKey: ['write-prompts', languageId, source],
-    queryFn: () => getWritePrompts(languageId, source),
+  const [source, setSource] = useState<Source>(initialSource)
+  const lesson = !!texts || !!letters
+  const { data: fetched = [], isLoading } = useQuery({
+    queryKey: ['write-prompts', languageId, source, letters?.join('') ?? ''],
+    queryFn: () => getWritePrompts(languageId, source, letters),
     staleTime: 5 * 60 * 1000,
+    enabled: !texts,
   })
+  const prompts: WritePrompt[] = useMemo(
+    () => (texts ? texts.map((x) => ({ prompt: '', answer: x, source: 'course' as const })) : fetched),
+    [texts, fetched],
+  )
   const wrap = useRef<HTMLDivElement>(null)
   const [width, setWidth] = useState(600)
   useEffect(() => {
@@ -152,8 +170,11 @@ export default function WordsMode({
         score: Math.min(prev?.score ?? 1, l.score),
       })
     })
-    const attempts = [...byGlyph.entries()].map(([glyphId, v]) => ({ glyphId, ...v }))
+    const attempts = [...byGlyph.entries()]
+      .filter(([glyphId]) => !isProvisionalId(glyphId))
+      .map(([glyphId, v]) => ({ glyphId, ...v }))
     if (attempts.length) record.mutate(attempts)
+    if (res.ok) onPass?.()
   }
 
   const next = () => {
@@ -172,7 +193,7 @@ export default function WordsMode({
   const reason = (r: LetterReason | undefined) =>
     r === 'missing' ? t('write.letterMissing') : r === 'shape' ? t('write.letterShape') : ''
 
-  const sourceTabs = (
+  const sourceTabs = lesson ? null : (
     <div className="flex rounded-full border border-gray-200 bg-white p-0.5 text-xs font-semibold w-fit" role="tablist">
       {(['word', 'sentence'] as Source[]).map((s) => (
         <button
@@ -190,12 +211,14 @@ export default function WordsMode({
     </div>
   )
 
-  if (isLoading) return <p className="text-sm text-gray-500">{t('common.loading')}</p>
+  if (isLoading && !texts) return <p className="text-sm text-gray-500">{t('common.loading')}</p>
   if (!current || !composition) {
     return (
       <div className="space-y-2">
         {sourceTabs}
-        <p data-testid="trace-empty" className="text-sm text-gray-500">{t('write.noTraceable')}</p>
+        <p data-testid="trace-empty" className="text-sm text-gray-500">
+          {letters ? t('write.noWordsYet') : t('write.noTraceable')}
+        </p>
       </div>
     )
   }

@@ -1,6 +1,9 @@
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useQuery } from '@tanstack/react-query'
-import { getHandProfile } from '../../api/write'
+import { getHandProfile, getWritePath } from '../../api/write'
+import { getAlphabet, getGlyphs, getLettersProgress } from '../../api/strokes'
+import { buildPath, lessonDone } from '../write/curriculum'
 
 /**
  * Handwriting on the Progress page: the reader's accuracy on this hand
@@ -15,9 +18,46 @@ export default function HandwritingCard({ languageId }: { languageId: string }) 
     queryFn: () => getHandProfile(languageId),
     retry: false,
   })
+  // The learning path, in the script's first hand: lessons done of all.
+  const { data: alphabet } = useQuery({
+    queryKey: ['write-alphabet', languageId],
+    queryFn: () => getAlphabet(languageId),
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  })
+  const style = alphabet?.styles[0] ?? 'print'
+  const { data: library } = useQuery({
+    queryKey: ['write-glyphs', languageId, style],
+    queryFn: () => getGlyphs(languageId, style),
+    enabled: !!alphabet,
+    retry: false,
+    staleTime: 5 * 60 * 1000,
+  })
+  const { data: progress = [] } = useQuery({
+    queryKey: ['write-progress', languageId, style],
+    queryFn: () => getLettersProgress(languageId, style),
+    enabled: !!alphabet,
+    retry: false,
+  })
+  const { data: marked = [] } = useQuery({
+    queryKey: ['write-path', languageId, style],
+    queryFn: () => getWritePath(languageId, style),
+    enabled: !!alphabet,
+    retry: false,
+  })
+  const path = useMemo(() => {
+    if (!alphabet) return null
+    const lessons = buildPath(alphabet, style)
+    const known = new Set(progress.filter((p) => p.known).map((p) => p.glyph_id))
+    const authored = new Map((library?.glyphs ?? []).map((g) => [`${g.glyph}|${g.form}`, known.has(g.id)]))
+    const markedSet = new Set(marked)
+    return { done: lessons.filter((l) => lessonDone(l, authored, markedSet)).length, total: lessons.length }
+  }, [alphabet, style, progress, library, marked])
+
   if (!profile?.available) return null
   const r = profile.readout
-  if (r.history.length === 0 && r.total === 0) return null
+  const started = !!path && path.done > 0
+  if (r.history.length === 0 && r.total === 0 && !started) return null
   const last = r.history.slice(-12)
   return (
     <div
@@ -27,6 +67,14 @@ export default function HandwritingCard({ languageId }: { languageId: string }) 
       <h2 className="text-xs uppercase tracking-wide text-gray-500">
         {t('dashboard.handTitle')}
       </h2>
+      {path && path.total > 0 && (
+        <div data-testid="handwriting-path">
+          <p className="text-sm text-gray-800">{t('write.pathProgress', { n: path.done, total: path.total })}</p>
+          <div className="mt-1 h-1.5 w-full rounded-full bg-gray-100">
+            <div className="h-1.5 rounded-full bg-lang" style={{ width: `${(path.done / path.total) * 100}%` }} />
+          </div>
+        </div>
+      )}
       {r.total > 0 && (
         <p className="text-sm text-gray-800">
           {t('write.accuracy', { right: r.right, total: r.total })}

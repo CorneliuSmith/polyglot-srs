@@ -16,7 +16,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from backend.main import create_app
-from backend.repositories.write import habit_counts, readout
+from backend.repositories.write import habit_counts, readout, uses_only
 from backend.services.ink_method import compact, method_line, summarize_method
 from backend.services.write_assess import (
     _system_prompt,
@@ -450,6 +450,38 @@ class TestWriteEndpoints:
                 headers=_auth_headers())
         assert resp.status_code == 200
         assert resp.json() == {"kind": "sentence", "items": rows}
+
+    def test_prompts_on_the_path_keep_only_what_the_taught_letters_can_write(self, client):
+        # The bare client is a Russian course; the hand client Arabic. Both
+        # pools carry one word made of the taught letters and one not.
+        own = [{"prompt": "mum", "answer": "мама", "source": "own"},
+               {"prompt": "house", "answer": "дом", "source": "own"}]
+        course = [{"prompt": "mum", "answer": "мама", "source": "course"},
+                  {"prompt": "there", "answer": "там", "source": "course"}]
+        with patch("backend.routers.write.word_prompts", new=AsyncMock(return_value=own)), \
+             patch("backend.routers.write.course_word_prompts", new=AsyncMock(return_value=course)):
+            resp = client.get(
+                f"/api/write/prompts?language_id={TEST_LANGUAGE_ID}&kind=word&letters=мат",
+                headers=_auth_headers())
+        assert resp.status_code == 200, resp.text
+        answers = [i["answer"] for i in resp.json()["items"]]
+        # Own cards first, the course pool deduplicated, "дом" needs д.
+        assert answers == ["мама", "там"]
+        # Arabic is judged by letter, whatever form the letter takes.
+        assert uses_only("ar", "بيت", {"ب", "ي", "ت"})
+        assert not uses_only("ar", "بيت", {"ب", "ت"})
+        assert not uses_only("ar", "", {"ب"})
+
+    def test_the_path_marks_and_lists_finished_lessons(self, client):
+        resp = client.get(f"/api/write/path?language_id={TEST_LANGUAGE_ID}&style=cursive",
+                          headers=_auth_headers())
+        assert resp.status_code == 200 and resp.json() == {"done": []}
+        resp = client.post("/api/write/path", headers=_auth_headers(),
+                           json={"language_id": TEST_LANGUAGE_ID, "style": "cursive",
+                                 "lesson_id": "letters-1"})
+        assert resp.status_code == 200, resp.text
+        # Without the table nothing is stored and it says so.
+        assert resp.json()["stored"] is client.hand
 
     def test_an_assessment_reads_the_ink_logs_usage_and_returns_the_meter(self, client):
         resp = _post(client, expected="  Я иду домой ", style="cursive")

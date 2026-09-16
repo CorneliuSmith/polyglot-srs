@@ -16,7 +16,7 @@ import asyncpg
 
 from backend.services.auto_translate import table_present
 from backend.services.ink_method import compact, summarize_method
-from backend.services.write_coverage import pick_coverage
+from backend.services.write_coverage import pick_coverage, units_shown
 from backend.services.write_diff import misread_letters, same_text
 
 logger = logging.getLogger("write")
@@ -103,6 +103,70 @@ async def word_prompts(
         {"prompt": r["prompt"] or "", "answer": r["answer"], "source": "own"}
         for r in rows if r["answer"]
     ]
+
+
+def uses_only(code: str, text: str, letters: set[str]) -> bool:
+    """Whether every letter a hand forms writing *text* is in *letters* —
+    the learning path's filter: words made only of what has been taught.
+    Units carry a positional form for Arabic (ب:final); the letter is
+    what is taught, so the form is dropped."""
+    units = {u.split(":")[0] for u in units_shown(code, text)}
+    return bool(units) and units <= letters
+
+
+async def course_word_prompts(
+    conn: asyncpg.Connection, language_id: str, locale: str | None, limit: int = 60,
+) -> list[dict]:
+    """Beginner words of the course with a gloss — the pool a learner on
+    the path writes from before they have cards of their own."""
+    loc = locale or "en"
+    rows = await conn.fetch(
+        """
+        SELECT v.word AS answer,
+               COALESCE(t.definition, t_en.definition) AS prompt
+          FROM vocabulary v
+          LEFT JOIN translations t
+                 ON t.vocabulary_id = v.id AND t.locale = $2
+          LEFT JOIN translations t_en
+                 ON t_en.vocabulary_id = v.id AND t_en.locale = 'en'
+         WHERE v.language_id = $1 AND v.level IN ('A1', 'A2')
+           AND COALESCE(t.definition, t_en.definition) IS NOT NULL
+         ORDER BY v.difficulty_rank NULLS LAST, v.id
+         LIMIT $3
+        """,
+        language_id, loc, max(1, min(limit, 400)),
+    )
+    return [{"prompt": r["prompt"] or "", "answer": r["answer"], "source": "course"}
+            for r in rows if r["answer"]]
+
+
+async def path_done(conn: asyncpg.Connection, user_id: str, language_id: str,
+                    style: str) -> list[str]:
+    """Lessons the learner has finished on this course's path."""
+    if not await table_present(conn, "writing_path"):
+        return []
+    rows = await conn.fetch(
+        "SELECT lesson_id FROM writing_path WHERE user_id = $1 AND language_id = $2 AND style = $3 "
+        "ORDER BY done_at",
+        user_id, language_id, style)
+    return [r["lesson_id"] for r in rows]
+
+
+async def mark_lesson(conn: asyncpg.Connection, user_id: str, language_id: str,
+                      style: str, lesson_id: str, done: bool) -> bool:
+    """Mark a lesson finished (or not). False when the table is absent."""
+    if not await table_present(conn, "writing_path"):
+        return False
+    if done:
+        await conn.execute(
+            "INSERT INTO writing_path (user_id, language_id, style, lesson_id) VALUES ($1, $2, $3, $4) "
+            "ON CONFLICT (user_id, language_id, style, lesson_id) DO NOTHING",
+            user_id, language_id, style, lesson_id)
+    else:
+        await conn.execute(
+            "DELETE FROM writing_path WHERE user_id = $1 AND language_id = $2 AND style = $3 AND lesson_id = $4",
+            user_id, language_id, style, lesson_id)
+    return True
 
 
 async def record_attempt(
