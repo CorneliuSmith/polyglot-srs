@@ -802,6 +802,38 @@ paper grows on the left, which means shifting the ink right by the
 growth. Strokes stay in paper coordinates throughout, so neatness, the
 export and the samples are none the wiser.
 
+**The learning path** (`features/write/curriculum.ts`, `PathMode.tsx`,
+`writing_path` from migration 20261022). Write opens on the script's
+course: lessons built from the alphabet, so every course has one the
+day its alphabet exists. A few letters at a time (Arabic by shape
+family, Cyrillic by familiarity, six in alphabet order elsewhere); then
+what they do in a word — Arabic's positional forms drilled on the letter
+repeated (ببب) and on pairs with a learned joiner, cursive joins drilled
+on each new letter between learned vowels, a cased script's capitals;
+then words made only of the taught letters, which the server filters
+from the learner's cards and the course's beginner words
+(`uses_only` over the coverage units, `GET /api/write/prompts?letters=`);
+sentences once the alphabet is done. Progress is derived, not stored,
+wherever it can be: a letter lesson is done when every authored form in
+it is known (`writing_progress`); drills, words and sentences, and
+letter lessons nobody has authored, are done after three clean writes or
+a mark in `writing_path`. Nothing is locked.
+
+**The provisional stroke library** (`scripts/strokes/gen_provisional.py`,
+`data/strokes/{arabic,cyrillic}.json`, the bundled copy in
+`features/write/strokes/`, migration 20261023). A typeface shows a
+letter's shape and nothing about how a hand makes it, so until a speaker
+traces a script the app carries the textbook order and direction of
+every Arabic naskh form and every Russian cursive letter as schematic
+strokes built from lines, arcs and Béziers in the glyph box, with entry
+and exit for the joins and a hint per stroke. They are marked
+`source = 'provisional'` (reviewed, so learners get them), the Learn
+step says so, the Workshop badges them, and a speaker's save over one
+replaces it. The bundled copy fills any form the server lacks, with ids
+the server will not accept, so nothing records against it — once the
+migration lands the same forms have rows and progress works. Pillow
+contact sheets from the generator are how a change is checked by eye.
+
 **Teaching before the strokes exist.** Letters and Trace are always on
 Write, not only once a speaker has traced the script. Every form of every
 letter is a step (the alphabet decks' list; Latin a–z), and a form

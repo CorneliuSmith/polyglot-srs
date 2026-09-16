@@ -39,11 +39,14 @@ from backend.repositories.write import (
     adapt_enabled,
     baseline_prompts,
     baseline_state,
+    course_word_prompts,
     habit_counts,
     hand_profile,
     keep_sample,
     known_forms,
+    mark_lesson,
     note_habits,
+    path_done,
     record_attempt,
     record_baseline,
     record_verdict,
@@ -51,6 +54,7 @@ from backend.repositories.write import (
     reset_hand,
     sentence_prompts,
     set_adapt,
+    uses_only,
     word_prompts,
 )
 from backend.routers.tutor import _get_allowance, _reject_if_unavailable
@@ -130,17 +134,59 @@ async def prompts(
     language_id: str,
     kind: str = "sentence",
     limit: int = 10,
+    letters: str | None = None,
     user: dict = Depends(get_current_user),
 ):
     """Things to write: sentences to translate (own cards first, then the
-    course's beginner lines) or the learner's own words."""
+    course's beginner lines) or the learner's own words. With *letters*
+    (the letters taught so far, run together), only what is made of them —
+    the learning path's word and sentence steps — and words come from the
+    course's beginner pool as well as the learner's cards."""
     if kind not in ("sentence", "word"):
         raise HTTPException(status_code=422, detail="kind must be sentence or word")
     async with rls_connection(user["id"]) as conn:
         locale, _ = await _support_language(conn, user["id"])
-        fetch = sentence_prompts if kind == "sentence" else word_prompts
-        items = await fetch(conn, user["id"], language_id, locale, limit)
+        if letters is None:
+            fetch = sentence_prompts if kind == "sentence" else word_prompts
+            items = await fetch(conn, user["id"], language_id, locale, limit)
+        else:
+            _, code, _ = await _language(conn, language_id)
+            taught = {c for c in letters if not c.isspace() and c != ","}
+            if kind == "sentence":
+                pool = await sentence_prompts(conn, user["id"], language_id, locale, 200)
+            else:
+                pool = await word_prompts(conn, user["id"], language_id, locale, 60)
+                seen = {p["answer"] for p in pool}
+                pool += [p for p in await course_word_prompts(conn, language_id, locale, 400)
+                         if p["answer"] not in seen]
+            items = [p for p in pool if uses_only(code or "", p["answer"], taught)][:max(1, min(limit, 40))]
     return {"kind": kind, "items": items}
+
+
+class LessonMark(BaseModel):
+    language_id: str
+    style: str
+    lesson_id: str
+    done: bool = True
+
+
+@router.get("/path")
+async def path(language_id: str, style: str, user: dict = Depends(get_current_user)):
+    """Lessons finished on this course's learning path."""
+    async with rls_connection(user["id"]) as conn:
+        await _language(conn, language_id)
+        return {"done": await path_done(conn, user["id"], language_id, style)}
+
+
+@router.post("/path")
+async def path_mark(body: LessonMark, user: dict = Depends(get_current_user)):
+    """Mark a lesson finished — word and sentence steps, and letter steps
+    whose forms nobody has authored yet (letter steps with strokes finish
+    themselves from the letters known)."""
+    async with rls_connection(user["id"]) as conn:
+        await _language(conn, body.language_id)
+        ok = await mark_lesson(conn, user["id"], body.language_id, body.style, body.lesson_id, body.done)
+        return {"done": await path_done(conn, user["id"], body.language_id, body.style), "stored": ok}
 
 
 @router.post("/assess")

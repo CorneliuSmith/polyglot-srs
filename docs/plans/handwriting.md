@@ -754,3 +754,88 @@ proves the adaptation to the writer and what tells the owner whether the
 reader is good enough per script to keep building on; C second because
 the coverage sets are content, and content takes the longest to arrive.
 
+---
+
+## 13. The learning path, and teaching before the strokes exist (15 Sep 2026, owner ask)
+
+The owner's note on the first cut of the teaching modes: "these are
+reflections of missing features. There should be much more for medial
+final in a language like Arabic to learn and progress, and for Russian
+the cursive never teaches the medials either and the cursive is not
+cursive. This should take users through a learning process where
+necessary — letter, words, sentence."
+
+Three things were wrong, and three things landed the same day.
+
+### 13.1 A grid is an index, not a course
+
+**Built 15 Sep 2026.** Write opens on a **Path**: the script's writing
+course as an ordered list of lessons, built from the alphabet
+(`features/write/curriculum.ts`), so it exists for every course the day
+the alphabet does and the strokes fill it in as they are authored. The
+shape is the one handwriting courses have always had:
+
+1. a few letters at a time — by shape family for Arabic (ا ب ت ث · ج ح خ ·
+   د ذ ر ز · …), by familiarity for Cyrillic (а о м т к с · е н р в у х ·
+   …), six at a time in alphabet order elsewhere;
+2. then what those letters do in a word — Arabic's **positional forms**
+   drilled on the letter repeated (ببب shows initial, medial and final in
+   one string) and on pairs with a learned joiner (بد); cursive's
+   **joins** drilled on each new letter between learned vowels (ма, ото);
+   a cased script's **capitals**;
+3. then **words** that use only what has been taught — the server filters
+   the learner's cards and the course's A1/A2 words by letter
+   (`GET /api/write/prompts?letters=…`);
+4. **sentences** once the alphabet is done.
+
+Letter lessons finish themselves when every authored form in them is
+known (three clean writes each); drills, words and sentences finish after
+three clean writes, or when marked (`writing_path`, migration 20261022).
+Nothing is locked — an adult who already writes skips ahead. The
+Progress card shows lessons done of all.
+
+### 13.2 A typeface cannot teach stroke order — so a provisional library
+
+The font-guided fallback (§ "teaching before the strokes exist" in
+LEARN) showed the *shape* of a letter and nothing about how a hand makes
+it. **Built 15 Sep 2026:** a **provisional stroke library** for Arabic
+naskh (128 forms — every letter in every positional form, plus the
+hamza carriers and Persian's four) and Russian cursive (66 forms, lower
+and upper), generated from geometric primitives by
+`scripts/strokes/gen_provisional.py` into `data/strokes/{script}.json`
+(the seeder's format), a bundled copy the frontend falls back to, and
+migration **20261023** that inserts the same rows with
+`source = 'provisional'`, `reviewed = true`, `ON CONFLICT DO NOTHING`.
+
+What it is: the textbook order and direction of each letter's strokes,
+in a plain schematic shape, with entry/exit for the cursive joins and a
+hint per stroke. What it is not: a speaker's hand. The Learn step says
+so under every provisional form, the Workshop badges them *provisional*,
+and a speaker tracing over one and saving replaces it (the upsert resets
+the row to their draft, which a reviewer then marks). Until the owner
+pushes 20261023, the bundled copy teaches but records nothing (its ids
+are not rows), so letter lessons are finished by the *Mark done* button
+rather than by themselves.
+
+### 13.3 The cursive was not cursive
+
+Caveat is an upright hand. Russian cursive is a joined hand (propisi),
+and **Marck Script** is the one Google face that writes it that way.
+`handFontFor(code, style)` picks it for `ru` + cursive; print keeps
+Caveat. The provisional Cyrillic library is sheared 16° for the same
+reason.
+
+### 13.4 What remains
+
+- The other scripts — Hebrew, Greek, Hindi, Thai, Korean, Persian's
+  Arabic base aside — have the path and the font-guided fallback, no
+  provisional strokes. The generator is the place to add them (a page
+  of primitives per script).
+- The provisional shapes are schematic; a speaker's tracing is the
+  goal and the Workshop is the tool. The generator's contact sheets
+  (`scripts/strokes/`, Pillow) are how to check a change.
+- Word steps depend on the course having beginner words made only of
+  the taught letters; small courses will show "no words yet" for early
+  lessons. A per-lesson drill list authored in the Workshop would fix
+  that; the exemplar sentences (§5) are the same kind of content.
+

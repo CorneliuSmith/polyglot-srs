@@ -10,6 +10,7 @@ import StrokePreview from './StrokePreview'
 import { fromGlyphBox } from './glyphBox'
 import type { Stroke } from './ink'
 import { matchStrokes } from './matcher'
+import { isProvisionalId, withProvisional } from './strokes/provisional'
 import type { MatchResult, Reason } from './matcher'
 
 const CANVAS = 260
@@ -51,11 +52,14 @@ export default function LettersMode({
   code,
   style,
   fontFamily = 'cursive',
+  only,
 }: {
   languageId: string
   code: string | undefined
   style: string
   fontFamily?: string
+  /** A lesson's form keys (`glyph|form`): the strip shows only these. */
+  only?: string[]
 }) {
   const { t } = useTranslation()
   const queryClient = useQueryClient()
@@ -80,15 +84,18 @@ export default function LettersMode({
   // speaker has traced carries its strokes; the rest are font-guided.
   const forms = useMemo(() => {
     if (!alphabet) return [] as Form[]
-    const byKey = new Map((library?.glyphs ?? []).map((g) => [`${g.glyph}|${g.form}`, g]))
+    const merged = withProvisional(alphabet.script, style, library?.glyphs ?? [])
+    const byKey = new Map(merged.map((g) => [`${g.glyph}|${g.form}`, g]))
     const out: Form[] = []
     for (const l of alphabet.letters) {
       for (const f of l.forms) {
-        out.push({ key: `${l.glyph}|${f}`, glyph: l.glyph, form: f, authored: byKey.get(`${l.glyph}|${f}`) ?? null })
+        const key = `${l.glyph}|${f}`
+        if (only && !only.includes(key)) continue
+        out.push({ key, glyph: l.glyph, form: f, authored: byKey.get(key) ?? null })
       }
     }
     return out
-  }, [alphabet, library])
+  }, [alphabet, library, only, style])
   const known = useMemo(() => new Set(progress.filter((p) => p.known).map((p) => p.glyph_id)), [progress])
 
   const [index, setIndex] = useState(0)
@@ -107,6 +114,10 @@ export default function LettersMode({
     setVerdict(null)
     setReveal(false)
   }, [index, step])
+  useEffect(() => {
+    setIndex(0)
+    setStep('learn')
+  }, [only])
 
   // Trace: each stroke is judged as it lands against the template prefix,
   // loosely; matched ones snap solid on the guide.
@@ -127,7 +138,8 @@ export default function LettersMode({
     if (!authored) return
     const res = matchStrokes(strokes, authored.strokes, { tolerance: WRITE_TOLERANCE })
     setVerdict(res)
-    record.mutate({ passed: res.ok, score: res.score })
+    // A bundled form has no row to record against until the migration lands.
+    if (!isProvisionalId(authored.id)) record.mutate({ passed: res.ok, score: res.score })
   }
 
   const next = () => {
@@ -221,6 +233,9 @@ export default function LettersMode({
                 </li>
               ))}
               <li className="pt-1 text-xs text-gray-500">{t('write.learnHint')}</li>
+              {authored.source === 'provisional' && (
+                <li data-testid="letters-provisional" className="pt-1 text-xs text-amber-700">{t('write.provisional')}</li>
+              )}
             </ol>
           </div>
         )}

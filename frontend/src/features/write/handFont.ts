@@ -19,9 +19,12 @@ export interface HandFont {
 const ARABIC_SCRIPT = new Set(['ar', 'fa'])
 const NO_FACE = new Set(['he', 'el'])
 
-export function handFontFor(code: string | undefined): HandFont {
+export function handFontFor(code: string | undefined, style?: string): HandFont {
   if (!code) return { family: 'cursive' }
   if (ARABIC_SCRIPT.has(code)) return { family: "'Aref Ruqaa'", google: 'Aref+Ruqaa:wght@400' }
+  // Russian cursive is a joined hand (propisi); Marck Script is the one
+  // Google face that writes it that way. Caveat is an upright hand.
+  if (code === 'ru' && style === 'cursive') return { family: "'Marck Script'", google: 'Marck+Script' }
   if (code === 'hi') return { family: 'Kalam', google: 'Kalam:wght@400' }
   if (code === 'ko') return { family: "'Nanum Pen Script'", google: 'Nanum+Pen+Script' }
   if (code === 'th') return { family: 'Sriracha', google: 'Sriracha' }

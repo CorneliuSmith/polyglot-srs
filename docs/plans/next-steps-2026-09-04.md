@@ -130,3 +130,19 @@ items are built on request, in a session.
   content — a script's forms traced and reviewed, exemplar sentences —
   and the per-script composition exceptions tuned against them (DEBT).
 
+- [ ] **17. The handwriting learning path** (15 Sep 2026,
+  `docs/plans/handwriting.md` §13). Write opens on a **Path**: lessons
+  per script — letters by family, then their forms (Arabic
+  initial/medial/final, cursive joins, capitals) drilled on short
+  strings, then words made only of taught letters, then sentences;
+  letter lessons finish themselves from what is known, the rest after
+  three clean writes or a mark (migration **20261022** `writing_path`).
+  A **provisional stroke library** — schematic textbook order for every
+  Arabic naskh form and every Russian cursive letter, generated, marked
+  provisional — teaches order and direction until a speaker traces the
+  script (migration **20261023**; the bundled copy works before it,
+  without recording). Russian cursive now renders in a joined face.
+  **Owner:** push 20261022 and 20261023; then, in Workspace → Workshop →
+  strokes, trace over any provisional form that looks wrong — saving
+  replaces it.
+

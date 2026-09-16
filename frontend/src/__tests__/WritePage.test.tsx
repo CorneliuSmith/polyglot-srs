@@ -45,6 +45,8 @@ vi.mock('../api/write', () => ({
   getHandProfile: vi.fn(),
   getWriteBaseline: vi.fn(),
   finishWriteBaseline: vi.fn(),
+  getWritePath: vi.fn().mockResolvedValue([]),
+  markLesson: vi.fn(),
 }))
 // No stroke library in these tests: the Letters kind stays hidden.
 vi.mock('../api/strokes', () => ({
@@ -53,6 +55,7 @@ vi.mock('../api/strokes', () => ({
   }),
   getGlyphs: vi.fn().mockResolvedValue({ script: 'cyrillic', glyphs: [], exemplars: [] }),
   getAlphabet: vi.fn().mockResolvedValue({ code: 'ru', script: 'cyrillic', styles: ['cursive', 'print'], letters: [] }),
+  getLettersProgress: vi.fn().mockResolvedValue([]),
   recordLetterAttempts: vi.fn(),
 }))
 // jsdom has no canvas; the export is the seam.
@@ -79,13 +82,17 @@ const ALLOWANCE = {
 
 function renderPage() {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } })
-  return render(
+  const out = render(
     <QueryClientProvider client={qc}>
       <MemoryRouter>
         <WritePage />
       </MemoryRouter>
     </QueryClientProvider>,
   )
+  // The page opens on the learning path; these tests are about Free write.
+  const sentence = screen.queryByTestId('kind-sentence')
+  if (sentence) fireEvent.click(sentence)
+  return out
 }
 
 /** Draw a few letters' worth of strokes on the canvas. */
