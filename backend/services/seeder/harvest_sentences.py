@@ -40,6 +40,7 @@ import asyncpg
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.quality_rules import register_line
 
 logger = logging.getLogger("harvest_sentences")
 
@@ -156,7 +157,7 @@ async def check_candidates(
     resp = await client.messages.create(
         model=model,
         max_tokens=2048,
-        system=CHECKER_PROMPT.format(language=language_name),
+        system=CHECKER_PROMPT.format(language=language_name) + register_line(language_name),
         messages=[{"role": "user", "content": "\n".join(lines)}],
         output_config={"format": {"type": "json_schema", "schema": CHECKER_SCHEMA}},
     )

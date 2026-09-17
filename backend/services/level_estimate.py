@@ -16,6 +16,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+from backend.services.quality_rules import register_line
 
 CEFR = ("A1", "A2", "B1", "B2", "C1", "C2")
 
@@ -76,6 +77,7 @@ async def estimate_levels(
             f"would typically FIRST meet it: A1 = the most basic everyday words, "
             f"C2 = rare, literary, or highly specialised. Judge by how common the "
             f"word is and how advanced its meaning is."
+            + register_line(language_code)
         ),
         messages=[{"role": "user", "content": f"Words:\n{listing}"}],
         output_config={"format": {"type": "json_schema", "schema": _SCHEMA}},

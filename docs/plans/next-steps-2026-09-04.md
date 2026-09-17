@@ -148,10 +148,11 @@ items are built on request, in a session.
 
 - [ ] **18. Arabic: pin MSA everywhere, then a local MSA model** (16 Sep
   2026, `docs/plans/arabic-msa-local-llm.md`). The audit found "Modern
-  Standard Arabic" reaches 8 of 35 model calls; Speak, the harvest
-  checker and the sentence/drill reviewers say only "Arabic". Step 0 is a
-  `register_line` in every prompt plus a call-site test (1 day) and a
-  re-check of the Arabic corpus. Then the eval harness, the
+  Standard Arabic" reached 8 of 35 model calls; Speak, the harvest
+  checker and the sentence/drill reviewers said only "Arabic". **Step 0
+  done 17 Sep 2026:** `register_line` on every prompt, the support-locale
+  case, and a call-site test. **Owner:** re-run the Arabic sentence and
+  drill checkers with the pinned prompt (`docs/quality/refeed.md`). Then the eval harness, the
   OpenAI-compatible provider seam (ROADMAP (b)), an Arabic-native 7–8B
   model (Falcon-H1-Arabic or Jais-2) shadowing as a register judge and on
   Speak, and an `<msa>`-tagged LoRA on the app's own corpus — switched per

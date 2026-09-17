@@ -20,6 +20,7 @@ from anthropic import AsyncAnthropic, BadRequestError
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+from backend.services.quality_rules import register_line
 
 logger = logging.getLogger(__name__)
 
@@ -108,6 +109,8 @@ async def assess_writing(
         f"cannot demonstrate above B2 however clean it is — say so in "
         f"the notes rather than inferring. A full paragraph that "
         f"genuinely sustains complex structure may reach C1 or C2."
+
+        + register_line(language_name)
     )
 
     async def _ask(structured: bool):

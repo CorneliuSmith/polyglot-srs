@@ -444,6 +444,12 @@ reader of the plan would expect to find built, and will not:
   second baseline, and the neatness measures assume one line. If writers
   wrap anyway, either shorten the baseline pool's ceiling to ~40
   characters or give the paper rows.
+- **The Arabic corpus was gated by an unpinned checker until 17 Sep 2026.**
+  Every sentence and drill accepted before then passed a reviewer that
+  did not know MSA was the standard (`docs/quality/ar.md`, "The register
+  pin"). Three dialect rows are known; the rest is unmeasured until the
+  owner re-runs the sentence and drill checkers with the pinned prompt.
+  The `ar_register` marker grep is a tripwire (18 words), not a detector.
 - **The provisional strokes are schematic, and only for two scripts.**
   Arabic naskh and Russian cursive have generated textbook stroke order
   (`scripts/strokes/gen_provisional.py`); every other script is still

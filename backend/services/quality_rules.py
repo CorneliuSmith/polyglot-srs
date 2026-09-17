@@ -30,8 +30,6 @@ statements, when a generator needs them.
 """
 from __future__ import annotations
 
-from backend.services.tutor import _load_skill
-
 DIVERSITY_RULES = (
     " Across the set, maximize variety: use a DIFFERENT main verb in each "
     "sentence (unless the point itself drills one specific verb), different "
@@ -75,6 +73,43 @@ def auditor_level_rule(level: str | None) -> str:
             "that, not to a beginner." if bar else "")
 
 
+# The variety a course is taught in, when the language has more than one
+# and a model would otherwise pick. Keyed by code, resolved from a display
+# name too, because half the call sites only carry `languages.name`.
+# Arabic is the case that hurt: "friendly Arabic conversation partner" is
+# an invitation to Egyptian or Levantine, and "natural, grammatical Arabic"
+# lets بكرة through a checker (docs/plans/arabic-msa-local-llm.md, §1).
+REGISTER: dict[str, str] = {
+    "ar": (
+        "Use Modern Standard Arabic (الفصحى) throughout — the register of news "
+        "and textbooks. No Egyptian, Levantine, Gulf, Iraqi or Maghrebi forms in "
+        "anything you write, grade or accept. If the learner writes a dialect "
+        "form, treat it as a register difference: answer in MSA and name the "
+        "MSA form. Dialect belongs only inside an explicitly labelled note."
+    ),
+}
+_REGISTER_NAMES: dict[str, str] = {
+    "arabic": "ar", "modern standard arabic": "ar", "msa": "ar",
+    "arabic (msa)": "ar", "العربية": "ar",
+}
+
+
+def register_line(language: str | None) -> str:
+    """The course's variety as a prompt suffix (leading space), or nothing.
+
+    *language* may be a code ("ar") or a display name ("Arabic"), so a call
+    site that only has one or the other can still pin the register. Every
+    model call must carry this or the fuller `language_brief`; a test in
+    test_quality_rules walks the call sites and says so.
+    """
+    if not language:
+        return ""
+    key = language.strip().lower()
+    code = key if key in REGISTER else _REGISTER_NAMES.get(key)
+    line = REGISTER.get(code or "")
+    return f" {line}" if line else ""
+
+
 def language_brief(language_code: str | None) -> str:
     """The per-language tutor brief as a prompt suffix, or nothing.
 
@@ -84,5 +119,8 @@ def language_brief(language_code: str | None) -> str:
     """
     if not language_code:
         return ""
+    # Imported here: tutor.py imports register_line from this module.
+    from backend.services.tutor import _load_skill
+
     brief = _load_skill(language_code)
     return f"\n\nLanguage brief:\n{brief}" if brief else ""

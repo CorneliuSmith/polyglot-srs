@@ -37,6 +37,7 @@ from backend.services.quality_rules import (
     auditor_level_rule,
     language_brief,
     maker_complexity_rule,
+    register_line,
 )
 
 _DRILL_SCHEMA = {
@@ -620,6 +621,7 @@ async def audit_examples(
             f"{fill_rule}; for a weak one, a clearer replacement; if the current "
             f"translation is already good, you may leave translation empty. "
             f"Return exactly one verdict per sentence, keyed by its [index]."
+            + language_brief(language_code)
         ),
         messages=[{"role": "user", "content": listing}],
         output_config={"format": {"type": "json_schema", "schema": _AUDIT_SCHEMA}},
@@ -753,6 +755,7 @@ async def audit_drills(
             f"repeats with reason 'same-frame repeat' — a set that drills one "
             f"frame six times teaches less than six varied sentences. Return "
             f"exactly one verdict per drill, keyed by its [index]."
+            + language_brief(language_code)
         ),
         messages=[{"role": "user", "content": listing}],
         output_config={"format": {"type": "json_schema", "schema": _DRILL_AUDIT_SCHEMA}},
@@ -925,6 +928,7 @@ async def make_chart(
             f"form(s). Keep cell labels short ({language} pronouns / case "
             f"names as a textbook would print them). "
             + _PARADIGM_MUSTS.get(language, "")
+            + register_line(language)
         ),
         messages=[{
             "role": "user",
@@ -1109,6 +1113,7 @@ async def audit_overlap(
                 f"merely related, contrastive (ser vs estar), sequenced "
                 f"(present before past), or prerequisites are NOT overlap. "
                 f"When unsure, do not report the pair."
+                + register_line(language_code)
             ),
             messages=[{"role": "user", "content": listing}],
             output_config={
