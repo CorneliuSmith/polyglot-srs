@@ -1220,3 +1220,23 @@ so every other course's prompts are byte-identical. A test walks every
 the brief; two are exempt on purpose (media recommendations, where
 dialect films are the right answer, and the English-only skill digest).
 
+
+**Two providers behind one schema** (`quality/register_pass.py`, 17 Sep
+2026). The Arabic register judge has to read tens of thousands of rows, so
+it will eventually run on a local Arabic-native model rather than on
+Claude (`docs/plans/arabic-msa-local-llm.md`). Rather than wait for the
+provider seam that plan describes, the pass takes a `--base-url`: absent,
+it calls Anthropic with `resolve_model("sentence_checker", "ar")`; present,
+it POSTs to any OpenAI-compatible endpoint, which is the one API vLLM,
+Ollama and llama.cpp all speak. The thing that makes the two
+interchangeable is not the transport but the **schema**: Anthropic enforces
+it with `output_config.format.json_schema` and vLLM with guided decoding
+(`response_format.json_schema`), so both return the same verdict object and
+the caller cannot tell them apart. That is the pattern to copy when a
+second provider arrives for real — pin the output shape first, and the
+endpoint becomes a flag.
+
+A detail worth keeping: the pass turns a failed batch into `unsure` for
+each of its rows rather than dropping it. In a verdict count a missing row
+and a clean row are indistinguishable, so a silent drop reads as "this
+content is fine" — which is quality rule 14 from the other direction.

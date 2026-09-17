@@ -1167,3 +1167,40 @@ listing goes out (its case: "SRS" doesn't mean anything to the audience,
 trademark). Not urgent, but worth deciding before the native app work in the
 section above, since the bundle identifier is annoying to change after a
 store submission.
+
+---
+
+## The Arabic register tripwire measures almost nothing (17 Sep 2026)
+
+`ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
+and it flags **zero rows** in the current 13,025-row `ar_sentences.tsv`.
+The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
+measured on the 14,671-row bank before the prune and with a wider list than
+the one in the code. Widening the code list to every tell in programme
+§1.1 raises it to 22 rows, of which 17 have only a documented *non-tell*
+(عم, دول, الحين) as their evidence.
+
+This is not a bug to fix by widening the tripwire — precision is already
+under 5% and the recall has never been measured. It is left as-is, on
+purpose, because it is cheap and it is not the instrument: the judge in
+`quality/register_pass.py` is. What is worth knowing is that **a green
+`ar_register` row in the audit is close to meaningless**, and nobody
+should read it as evidence the corpus is MSA. The audit rule stays so that
+an obvious regression (someone pasting Egyptian into the bank) still trips
+something.
+
+## The gold set's labels are not filled (17 Sep 2026)
+
+`data/eval/ar_register_gold.tsv` ships with `label`, `variety`, `evidence`
+and `note` blank by design — they are the reviewers' columns, and a
+pre-filled label is an anchor. Until two Arabic speakers fill them, the
+`--gold` gate in `register_pass.py` cannot report the §3.2 agreement figure
+against human labels, and it says so rather than inventing one.
+
+What exists in the meantime is `data/eval/ar_register_documented.tsv`: 56
+of the 614 items whose answer the programme document itself already
+asserts (the confirmed defects, the verified non-tells, the b-prefix rows,
+the MSA homograph entries). That is real ground truth and the judge is
+graded on it. It is not a substitute for the review — it contains no
+judgement call, which is exactly why it is safe and exactly why it is
+narrow.
