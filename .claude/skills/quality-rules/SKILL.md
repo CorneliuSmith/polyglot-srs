@@ -496,6 +496,21 @@ rate, say so — that result matters more than the phase closing quietly.
     rank?"). A calibration set earns its cost the moment it tells you which
     of the two you have.
 
+70. **An unmarked form is not always a missing mark.** Yoruba writes MID tone
+    with no diacritic, so 262 of 1,514 "untoned" headwords were correct as
+    they stood and a blanket repair would have corrupted them. Before
+    treating absence as a defect, ask what the writing system does with the
+    unmarked case — and check whether the dictionary lists the bare form as
+    a word in its own right.
+71. **A second signal has to come from a different field.** The tone repair
+    used the dictionary's canonical SPELLING and its IPA, which are authored
+    separately, so agreement is corroboration rather than the same fact read
+    twice. Two fields derived from one another are one signal in two hats.
+72. **Measure the measurer before believing a shortfall.** The IPA check
+    first confirmed 549 of 938, and the missing 389 were the extractor not
+    knowing IPA vowels — every word containing ɔ or ɛ failed to match
+    itself. A surprisingly low pass rate is a bug in the instrument until
+    proven otherwise (rule 29, pointed inward).
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
