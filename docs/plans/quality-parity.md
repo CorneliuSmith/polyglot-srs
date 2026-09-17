@@ -1465,11 +1465,11 @@ does not remove them from production (Phase 6 note above).
 
 ### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
 
-**First three courses classified, 17 Sep 2026.** `tr`, `en` and `ru` top-1000
+**Nine courses classified, 17 Sep 2026 — 9,541 words.** `tr`, `en` and `ru` top-1000
 bands — 3,159 words — are in `data/topics/{tr,en,ru}.json`, maker plus a
 checker over the 51% the maker was least sure of, 85 corrections taken, all
 22 visible buckets used in each course, zero slugs the CHECK would reject.
-The owner runs three `--topics-file` commands; nothing is applied yet.
+`tr`, `en`, `ru` (tier 1) plus `jam`, `la`, `mi`, `ha`, `xh`, `yo` (tier 2, the small courses that fit inside their top 1,000). Zero slugs the CHECK would reject in any file. 2,026 sit below 0.6 confidence and are the review queue. The owner runs one `--topics-file` command per course, and **`--max` defaults to 200** so it must be raised or the run silently does a fifth of a course.
 Report: `docs/quality/topic-lens-2026-09-17.md`. The remaining ~206,500 rows
 are unchanged by this and the order below still holds.
 
