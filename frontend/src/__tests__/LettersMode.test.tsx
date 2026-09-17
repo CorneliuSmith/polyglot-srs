@@ -15,6 +15,13 @@ if (typeof window !== 'undefined' && !('PointerEvent' in window)) {
   ;(window as unknown as { PointerEvent: typeof PointerEventShim }).PointerEvent = PointerEventShim
 }
 
+// The bundled font-derived library covers every Cyrillic form, so without
+// this mock no form is ever "unauthored" and the fallback paths never show.
+vi.mock('../features/write/strokes/provisional', () => ({
+  withProvisional: (_script: string, _style: string, glyphs: unknown[]) => glyphs,
+  isProvisionalId: (id: string) => id.startsWith('prov:'),
+}))
+
 vi.mock('../api/strokes', () => ({
   getAlphabet: vi.fn(),
   getGlyphs: vi.fn(),

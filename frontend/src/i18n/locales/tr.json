@@ -1852,7 +1852,11 @@
     "lesson_joins": "{{letters}} bağlantıları",
     "lesson_words": "{{letters}} ile kelimeler",
     "lesson_sentences": "Cümleler",
-    "provisional": "Geçici çizgi sırası — standart sıra ve yön, uygulama tarafından şematik olarak çizildi; henüz bir konuşmacı tarafından çizilmedi."
+    "provisional": "Geçici çizgi sırası — standart sıra ve yön, uygulama tarafından şematik olarak çizildi; henüz bir konuşmacı tarafından çizilmedi.",
+    "formsOf": "{{letter}} harfinin bütün biçimleri",
+    "formsHint": "Aynı harf tek başına, kelimenin başında, ortasında ve sonunda, komşularına bağlı. Önce hepsini birlikte görün, sonra üzerinde olduğunuzu öğrenin.",
+    "casesHint": "Aynı harf her iki halde. Önce ikisini birlikte görün, sonra üzerinde olduğunuzu öğrenin.",
+    "joinedAs": "bağlı"
   },
   "more": {
     "donateTea": "Bir çay ısmarla 🍵",

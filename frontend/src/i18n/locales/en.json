@@ -1852,7 +1852,11 @@
     "lesson_joins": "Joining {{letters}}",
     "lesson_words": "Words with {{letters}}",
     "lesson_sentences": "Sentences",
-    "provisional": "Provisional stroke order — the standard order and direction, drawn schematically by the app, not yet traced by a speaker."
+    "provisional": "Provisional stroke order — the standard order and direction, drawn schematically by the app, not yet traced by a speaker.",
+    "formsOf": "Every form of {{letter}}",
+    "formsHint": "The same letter alone, at the start, in the middle and at the end of a word, joined to its neighbours. See them together, then learn the one you are on.",
+    "casesHint": "The same letter in both cases. See them together, then learn the one you are on.",
+    "joinedAs": "joined"
   },
   "more": {
     "donateTea": "Donate a tea 🍵",

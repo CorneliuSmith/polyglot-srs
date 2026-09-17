@@ -464,31 +464,60 @@ reader of the plan would expect to find built, and will not:
   pin"). Three dialect rows are known; the rest is unmeasured until the
   owner re-runs the sentence and drill checkers with the pinned prompt.
   The `ar_register` marker grep is a tripwire (18 words), not a detector.
-- **The provisional strokes are schematic, and only for two scripts.**
-  Arabic naskh and Russian cursive have generated textbook stroke order
-  (`scripts/strokes/gen_provisional.py`); every other script is still
-  font-guided — Learn shows a typeface's idea of the letter, nothing is
-  checked, and Hebrew and Greek have no handwriting face at all, so
-  their fallback is the browser's generic cursive. The generated shapes
-  teach order and direction, not a hand: a speaker tracing over them in
-  the Workshop is the fix, one form at a time (saving replaces the row).
-  Adding a script is a page of primitives in the generator; regenerate,
-  check the contact sheet, and add a migration for the new rows (the
-  existing 20261023 must not be edited once pushed).
-- **Before migration 20261023, provisional forms record nothing.** The
-  bundled copy's ids are not rows, so `writing_progress` cannot take an
-  attempt against them; the strip never fills and letter lessons on the
-  path are finished with *Mark done* instead of by themselves. Push the
-  migration and the same forms have ids.
+- **The provisional strokes are a font's centreline with a guessed
+  order.** Every script now has a generated library
+  (`scripts/strokes/gen_from_fonts.py`; the shapes are Noto Naskh, Marck
+  Script, Dancing Script and Noto Sans's), so the *shape* is what a
+  learner sees in print, but the stroke order and direction are rules —
+  rightmost end first for RTL scripts, leftmost for cursive, topmost
+  for print, bodies before dots — and a rule is wrong somewhere on
+  every sheet (a Devanagari headline drawn after the body, a loop
+  started at the bottom). Only a speaker's tracing in the Workshop
+  fixes a form; saving replaces the row. Regenerate with
+  `python3 scripts/strokes/gen_from_fonts.py --fonts <dir>` (system
+  Python: it needs Pillow built with raqm, which the venv lacks; the
+  font files are fetched from Google's and Noto's GitHub releases into
+  the dir, none is checked in), then look at the contact sheets before
+  trusting a change. Rows go out through a **new** migration each time
+  — 20261025's upsert is guarded on `source = 'provisional'`, so a
+  speaker's form is never overwritten, but 20261023 and 20261025 must
+  not be edited once pushed.
+- **Hebrew has a print library and no cursive one.** Israeli handwriting
+  is a cursive alphabet unrelated to the print shapes, Google serves no
+  face for it, and the generator only knows the fonts in its table. An
+  OFL Hebrew cursive font dropped into `FONTS` would generate it; none
+  has been chosen. Greek likewise gets Noto Sans, which is what Greeks
+  print but not how they write.
+- **Two coordinate frames meet in a word.** Provisional forms are in
+  the script's em box with an `advance`; a Workshop-authored form is
+  normalised by `toGlyphBox` to its own ink box with `joins = {}`. The
+  composer uses em placement only when *every* letter in the word has
+  an advance, so a word mixing one authored letter with provisional
+  ones drops back to equal cells — letters the right shape, the joins
+  straight lines again. The fix is the Workshop writing an advance and
+  entry/exit for what it saves (§5 of the plan), or the reviewer
+  tracing over the provisional em-box form so the frame carries.
+- **Hangul words are still cells.** `composeEm` skips `hangul`: a
+  syllable block is a layout of jamo, not letters in a row, and the
+  cell composer's block layout is right for it. The provisional Hangul
+  library is the jamo only.
+- **Before migration 20261025, provisional forms of six scripts record
+  nothing** — and Arabic's and Russian's record against 20261023's
+  older shapes until it lands. The bundled copy's ids are not rows, so
+  `writing_progress` cannot take an attempt against them; the strip
+  never fills and letter lessons on the path are finished with *Mark
+  done* instead of by themselves. Push the migration and the same forms
+  have ids.
 - **A word step needs the course to have words made only of taught
   letters.** Early lessons on a small course say "no words yet" and are
   finished by hand. Authored per-lesson drill words (Workshop) would fix
   it; until then the joins/forms drills are the real practice.
-- **The composers are placement, not calligraphy.** Letters sit in equal
-  cells on one line; a cursive join is a straight run from the previous
-  letter's last point to the next's first (`joins.entry/exit` are unset,
-  see below), so the plan's exceptions — letters after о joining from
-  the top, the hook on л м я only word-initially — are not applied;
+- **The composers are placement, not calligraphy.** With the em-box
+  library a word is placed by advance and joined entry-on-exit, so
+  Arabic connects and cursive flows; but a join is still a straight run
+  between the two points, so the plan's exceptions — letters after о
+  joining from the top, the hook on л м я only word-initially — are not
+  applied;
   Arabic gets no لا ligature and no harakat; Devanagari gets no
   half-forms and no shared headline (each authored letter carries its
   own); Thai marks are dropped (`cells` keeps a base letter's combining
@@ -509,10 +538,12 @@ reader of the plan would expect to find built, and will not:
   0.13 from memory, in `WordsMode.tsx`; 0.14 for the Free write row.
   Same story as the letter matcher: chosen on synthetic strokes, to be
   read off the first real session.
-- **Entry and exit points are stored but not yet set.** `script_glyphs.
-  joins` exists for the Cyrillic composer (Phase 4) and the panel writes
-  `{}`; the composer will default to first-point-in / last-point-out
-  until the panel gets a way to place them.
+- **Entry and exit points are set only on generated forms.** The
+  provisional library carries `joins.{advance,entry,exit}` (leftmost
+  body point out and rightmost in for Arabic, the reverse for cursive);
+  the Workshop panel still writes `{}`, and the composer defaults to
+  first-point-in / last-point-out for those until the panel gets a way
+  to place them.
 - **The baseline's lines are a greedy pick, not an authored set.** Until
   a script has speaker-reviewed exemplar sentences (§5), the eight lines
   come from the course's A1/A2 sentences by set cover; on a small course
@@ -525,9 +556,14 @@ reader of the plan would expect to find built, and will not:
   kept as the writer's samples; the switch and its Reset delete them.
   The earlier "the ink is never stored" is true of the attempt log only.
 - **No handwriting face for Hebrew or Greek.** `handFont.ts` maps each
-  script to a Google Fonts handwriting family (Caveat for Latin and
-  Cyrillic, Aref Ruqaa for Arabic and Persian, Kalam, Nanum Pen Script,
-  Sriracha). Google serves nothing handwritten for Hebrew or Greek, so
+  script and style to a Google Fonts family that matches the provisional
+  library's source face where there is one (Noto Naskh Arabic for naskh,
+  Marck Script for Russian cursive, Dancing Script for Latin cursive,
+  the browser's sans-serif for print — the same shapes the strokes were
+  traced from, so Learn's big letter and its strokes agree), and
+  otherwise to a handwriting family (Aref Ruqaa for Arabic's other
+  style and Persian, Kalam, Nanum Pen Script, Sriracha, Caveat). Google
+  serves nothing handwritten for Hebrew or Greek, so
   their compare view falls back to the browser's generic `cursive`, which
   on most systems is a Latin face and shows the text in the default UI
   font. An OFL Hebrew cursive font can be self-hosted (the plan names

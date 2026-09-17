@@ -264,11 +264,14 @@ class TestLettersProgress:
 
 
 class TestProvisionalLibrary:
-    """The generated library (scripts/strokes/gen_provisional.py) must be
+    """The generated library (scripts/strokes/gen_from_fonts.py) must be
     what the seeder and the frontend bundle expect: every form a real
-    form of its script, strokes inside the box, a hint per stroke."""
+    form of its script, strokes inside the em box, a hint per stroke."""
 
-    @pytest.mark.parametrize("script,code", [("arabic", "ar"), ("cyrillic", "ru")])
+    @pytest.mark.parametrize("script,code", [
+        ("arabic", "ar"), ("cyrillic", "ru"), ("greek", "el"), ("hebrew", "he"),
+        ("devanagari", "hi"), ("thai", "th"), ("hangul", "ko"), ("latin", "en"),
+    ])
     def test_every_form_is_valid_for_its_script(self, script, code):
         import json
         from pathlib import Path
