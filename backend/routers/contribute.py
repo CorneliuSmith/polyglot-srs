@@ -160,6 +160,10 @@ from backend.repositories.recordings import (
     submit_recording,
 )
 from backend.repositories.speech import aggregate_speech_usage
+from backend.repositories.translation_requests import (
+    fulfil_requests,
+    open_request_counts,
+)
 from backend.repositories.trials import (
     count_pending_trial_requests,
     get_trial_request,
@@ -466,6 +470,13 @@ async def update_language_auto_translate(
             ok = await set_language_auto_translate(
                 conn, body.language_id, body.enabled
             )
+            # Switching the drain ON is precisely what the askers asked
+            # for, so their rows close with it. Switching OFF leaves them
+            # open: the want did not go away.
+            fulfilled = (
+                await fulfil_requests(conn, body.language_id)
+                if ok and body.enabled else 0
+            )
     except asyncpg.exceptions.UndefinedColumnError:
         raise HTTPException(
             status_code=503,
@@ -476,7 +487,8 @@ async def update_language_auto_translate(
         )
     if not ok:
         raise HTTPException(status_code=404, detail="Unknown language")
-    return {"auto_translate_enabled": body.enabled}
+    return {"auto_translate_enabled": body.enabled,
+            "requests_fulfilled": fulfilled}
 
 
 @router.get("/language-readiness")
@@ -487,7 +499,14 @@ async def language_readiness(user: dict = Depends(get_current_user)):
     unreviewed-content position of every language at once."""
     await _require_admin(user["id"])
     async with privileged_connection() as conn:
-        return {"languages": await language_release_readiness(conn)}
+        rows = await language_release_readiness(conn)
+        # Asked-for locales ride along rather than joining the roll-up's
+        # grouped scans: a separate probed query cannot put the release
+        # panel back inside the statement timeout that shaped that one.
+        asks = await open_request_counts(conn)
+    for r in rows:
+        r["translation_requests"] = asks.get(str(r["id"]), [])
+    return {"languages": rows}
 
 
 class TutorModelUpdate(BaseModel):

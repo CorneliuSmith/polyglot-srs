@@ -1201,7 +1201,15 @@
       "desc": "İpuçları, tanımlar ve örnek cümle çevirileri İngilizce yerine bu dilde görünür. Küre simgesinden site dilini değiştirmek bunu Otomatik'e döndürür.",
       "englishOption": "İngilizce (tanımlar)",
       "saveError": "Kaydedilemedi — tekrar deneyin.",
-      "autoOption": "Otomatik — arayüz dilini izler"
+      "autoOption": "Otomatik — arayüz dilini izler",
+      "fillState": "Bu kurstaki {{language}} çevirisinin çoğu önceden değil, siz geldikçe yapılıyor.",
+      "fillMeanwhile": "Çalıştığınız her şey siz ona geldiğinizde çevriliyor — bu, kursun geri kalanının da çevrilmesini istemek.",
+      "fillAsk": "Bu kurs için {{language}} iste",
+      "fillAsked": "Bu kurs için {{language}} istediniz.",
+      "fillOn": "Bu kurs şu anda {{language}} diline çevriliyor.",
+      "fillNoteLabel": "Eklemek istediğiniz bir şey",
+      "fillNotePlaceholder": "Eklemek istediğiniz bir şey (isteğe bağlı)",
+      "fillError": "Gönderilemedi. Tekrar deneyin."
     },
     "theme": {
       "title": "Tema",

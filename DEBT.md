@@ -444,6 +444,20 @@ reader of the plan would expect to find built, and will not:
   second baseline, and the neatness measures assume one line. If writers
   wrap anyway, either shorten the baseline pool's ceiling to ~40
   characters or give the paper rows.
+- **A translation request is a want, not a queue item.** `translation_requests`
+  has no staff-bell entry and no Workshop queue: the signal is a badge on
+  the language row in Workspace → Languages, which an admin sees only when
+  they go looking. That is deliberate while the number of courses is small
+  — a bell that fires for something only the owner can act on, by spending
+  money, is a nag. If asks start arriving faster than the owner visits that
+  panel, `count_open_requests` is already written for the bell to call.
+- **Nothing tells the learner when their ask is answered.** Switching the
+  drain on marks their row `fulfilled` and the settings page says so on the
+  next visit, but no notification goes out. Wiring it to the existing
+  learner notification path is a small follow-up; it was left out rather
+  than shipped half-done, because a "your language is ready" message that
+  arrives before the backlog has actually filled would be worse than
+  silence.
 - **The Arabic corpus was gated by an unpinned checker until 17 Sep 2026.**
   Every sentence and drill accepted before then passed a reviewer that
   did not know MSA was the standard (`docs/quality/ar.md`, "The register

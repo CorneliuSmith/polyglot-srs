@@ -230,6 +230,19 @@ export default function LanguageVisibilityPanel() {
                     {r.open_reports} open
                   </span>
                 )}
+                {r && (r.translation_requests?.length ?? 0) > 0 && (
+                  <span
+                    data-testid={`asked-${lang.code}`}
+                    className="text-[10px] rounded px-1.5 py-0.5 bg-amber-50 text-amber-800 whitespace-nowrap"
+                    title={`Learners asked for this course to be filled into: ${r.translation_requests!
+                      .map((a) => `${a.locale_name} (${a.learners})`)
+                      .join(', ')}. Switching Auto-translate on answers them.`}
+                  >
+                    {r.translation_requests!.reduce((n, a) => n + a.learners, 0)} asked
+                    {' · '}
+                    {r.translation_requests!.map((a) => a.locale_name).join(', ')}
+                  </span>
+                )}
                 <label
                   className="flex items-center gap-2 whitespace-nowrap text-xs text-gray-500"
                   title="Opt this course into the FULL backlog fill. Off still serves learners: what they wait on translates on demand, and recent real use buys a usage-scaled starter corpus. Rejects go to the review queue either way; no learner allowance is drawn."

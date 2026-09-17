@@ -1255,3 +1255,26 @@ The pattern generalises: when a pass self-reports confidence, the checker's
 budget belongs where the confidence is low and where the *output shape*
 says someone gave up. A flat random sample would have spent most of its
 reads on the 49% neither signal flagged.
+
+**Asking for a support language** (`translation_requests`, migration
+20261024; `repositories/translation_requests.py`,
+`features/settings/SupportFillRequest.tsx`). The admin's auto-translate
+toggle buys the BACKLOG DRAIN, not the right to be served — the demand
+lane always translates what a learner is waiting on, and the baseline
+lane buys a usage-scaled starter corpus for a switched-off course in real
+use (`services/auto_translate.py`). What a switched-off course withholds
+is the rest of itself, and the owner cannot afford every course at once.
+So a learner reading help in a language whose course is not draining can
+register the want from Settings, under the support-language picker, and
+the ask becomes evidence for which course to turn on next: the admin's
+language row shows "4 asked · Turkish, Portuguese", and switching the
+drain on closes those rows (switching it off leaves them open, because
+the want did not go away). One row per (learner, course, locale) — asking
+twice is asking once, so an impatient learner cannot outvote a patient
+one. The locale is resolved server-side from the profile, never taken
+from the client. The copy is the load-bearing part: it says what is
+already being translated rather than implying the course is untranslated,
+because "your language is not supported" would be frightening and false.
+Everything probes the table, so before the migration lands the control is
+simply absent — the settings page is on a hot path.
+

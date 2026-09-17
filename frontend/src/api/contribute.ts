@@ -181,6 +181,9 @@ export interface LanguageReadiness {
   pending_examples: number
   /** Unreviewed CONTENT — what gates a first release. */
   awaiting_review: number
+  /** Learners who asked for their support language to be filled on this
+   * course, grouped by locale. Absent before migration 20261024. */
+  translation_requests?: { locale: string; locale_name: string; learners: number }[]
   /** Human-raised traffic (notes, change requests, feedback). */
   open_reports: number
 }

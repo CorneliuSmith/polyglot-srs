@@ -161,3 +161,15 @@ items are built on request, in a session.
   Speak, and an `<msa>`-tagged LoRA on the app's own corpus — switched per
   task only when the eval says so. **Owner decisions** in the doc's §7.
 
+- [ ] **19. Learners can ask for their support language on a course**
+  (17 Sep 2026, migration **20261024** `translation_requests`). The
+  auto-translate toggle buys the backlog drain, not the right to be
+  served — but a course left off stays mostly English, and the owner
+  cannot afford every course at once. Settings → support language now
+  offers "Ask for {language} on this course" when the course is not
+  draining, saying plainly that what they study is translated as they
+  reach it either way. One row per learner per (course, locale). The
+  admin's language row shows "4 asked · Turkish, Portuguese"; switching
+  Auto-translate on closes those asks. **Owner:** push 20261024, then
+  let the badges tell you which course to turn on next.
+
