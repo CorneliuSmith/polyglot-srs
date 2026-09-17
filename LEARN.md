@@ -1204,3 +1204,19 @@ See `docs/database.md` for exactly how portable this all is if you ever
 wanted to leave Supabase — short version: the schema and RLS are portable
 today (plain SQL, no Supabase-only schemas, verified in CI against a
 throwaway Postgres); the one real lock-in is sign-in (GoTrue).
+
+**The register pin** (`quality_rules.register_line`, 17 Sep 2026). A
+language with more than one variety needs the prompt to say which; a
+model told "friendly Arabic" answers in Egyptian, because that is what
+friendly spoken Arabic is. `language_brief` (the tutor's SKILL.md) carried
+"Modern Standard Arabic" to the tutor and the makers and nothing else, so
+`register_line(code_or_name)` — one sentence per pinned language, keyed
+by code and resolved from the display name too, because half the call
+sites only carry `languages.name` — is appended to every system prompt
+in `backend/services`, including the locale translators when Arabic is
+the *support* language. Languages with nothing to pin get an empty string,
+so every other course's prompts are byte-identical. A test walks every
+`messages.create` and fails a call site that carries neither the pin nor
+the brief; two are exempt on purpose (media recommendations, where
+dialect films are the right answer, and the English-only skill digest).
+

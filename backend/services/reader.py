@@ -20,6 +20,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.repositories.level import CEFR_ORDER, shift_level
+from backend.services.quality_rules import register_line
 
 logger = logging.getLogger("reader")
 
@@ -334,8 +335,8 @@ def _system_prompt(
     )
     return f"""You write reading material for one specific learner inside \
 PolyglotSRS, a spaced-repetition language app. Target language: \
-{language_code}. The learner's level: {level}. This text is pitched at: \
-{target_level}.
+{language_code}.{register_line(language_code)} The learner's level: {level}. \
+This text is pitched at: {target_level}.
 
 {length_rule} on the requested topic — natural, warm, factually \
 grounded prose, never a vocabulary exercise dressed as a \
@@ -479,6 +480,7 @@ async def _check_reading(
                 "language ('The Maya build this temple' for a past event "
                 "fails grammar_ok). Substance is graded like an editor: "
                 "sentences that inform pass, filler does not."
+                + register_line(language_code)
             ),
             messages=[{
                 "role": "user",
@@ -630,6 +632,7 @@ async def explain_sentence(
             "chunk — its role\n"
             "(one line per meaningful chunk, in sentence order)\n"
             "Optionally ONE closing note sentence. No markdown, no bullets."
+            + register_line(language_code)
         ),
         messages=[{
             "role": "user",

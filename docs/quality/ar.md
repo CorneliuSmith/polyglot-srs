@@ -142,6 +142,23 @@ Arabic-specific:
   "black grape" are formally MSA but are not why those strings are frequent.
 - Register consistency: neutral standard English on one side, MSA at the point's level on the other.
 
+## The register pin (17 Sep 2026)
+
+"Modern Standard Arabic" used to reach the model only through
+`tutor_skills/ar/SKILL.md`, which 8 of the 35 model calls loaded; Speak's
+partner ("friendly Arabic conversation partner … spoken-style chat"), the
+harvest checker ("natural, grammatical Arabic" — the gate the three defects
+below passed), the sentence and drill reviewers and the locale translators
+said only "Arabic". `quality_rules.register_line("ar" | "Arabic")` now
+appends the MSA rule to every system prompt, and
+`test_every_model_call_carries_the_register_pin` walks every
+`messages.create` in `backend/services` so a new call site cannot ship
+unpinned (`docs/plans/arabic-msa-local-llm.md`, §1). **Still owed:** a
+re-run of the sentence and drill checkers over the Arabic corpus with the
+pinned prompt (an owner-run AI pass, `docs/quality/refeed.md`), so what the
+unpinned gate let through is caught rather than only the three rows found
+by hand.
+
 ## Current measured state
 40 grammar points (A1–C2), 274 drills, 274/274 transliterated, 96/274 with a `cell` label.
 Corpus: `data/ar_sentences.tsv` 14671 rows, `ar_frequency.tsv` 8778, `ar_morphology.json` 6869.

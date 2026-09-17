@@ -24,6 +24,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+from backend.services.quality_rules import register_line
 from backend.services.topic_taxonomy import ALL_TOPICS
 
 _SCHEMA = {
@@ -111,6 +112,7 @@ async def estimate_topics(
             "(orange -> food_drink, not a color). Use abstract_general only "
             "when no theme fits; use function_words for grammar glue.\n\n"
             + _GUIDE
+            + register_line(language_code)
         ),
         messages=[{
             "role": "user",

@@ -24,6 +24,7 @@ from collections import Counter
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
+from backend.services.quality_rules import register_line
 
 logger = logging.getLogger("speak")
 
@@ -320,6 +321,7 @@ def _system_prompt(
             "- Judge only what they wrote. Never flag spelling of a word they "
             "typed on a keyboard they may not have."
         )
+        + register_line(language_name)
     )
 
 
@@ -513,6 +515,7 @@ async def summarize_speak_session(
         f"Write labels and notes in {explain_in}; quote the learner's own "
         "words untranslated. Be brief and unsentimental. Do not praise, do "
         "not score, do not pad the list — two real groups beat six thin ones."
+        + register_line(language_name)
     )
 
     client = AsyncAnthropic(api_key=settings.anthropic_api_key)
@@ -646,6 +649,7 @@ async def speak_opening(
             "level. No greeting-plus-question pile-up, no explanation of "
             "what you are doing.\n\n"
             f"Write its translation in {support}."
+            + register_line(language_name)
         ),
         messages=[{"role": "user", "content": "Start the conversation."}],
         tools=[_OPENING_TOOL],

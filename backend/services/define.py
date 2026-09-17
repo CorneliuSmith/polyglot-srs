@@ -26,6 +26,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+from backend.services.quality_rules import register_line
 
 _MAKER_SCHEMA = {
     "type": "object",
@@ -142,6 +143,7 @@ async def make_definitions(
             f"(use the example to disambiguate when given); match the part of "
             f"speech; do not repeat the word inside its own definition."
             + _fallback_rule(locale_language)
+            + register_line(language) + register_line(locale_language)
         ),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _MAKER_SCHEMA}},
@@ -178,6 +180,7 @@ async def check_definitions(
             f"if close but you can correct it (put the correction in final); "
             f"'reject' if wrong-sense, unclear, or you are unsure (final empty). "
             f"Be conservative — reject rather than guess."
+            + register_line(language) + register_line(locale_language)
         ),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},

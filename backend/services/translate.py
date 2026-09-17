@@ -23,6 +23,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
+from backend.services.quality_rules import register_line
 from backend.services.translate_checks import gate
 
 _MAKER_SCHEMA = {
@@ -181,7 +182,7 @@ async def make_glosses(target_language: str, items: list[dict],
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,
-        system=maker_system(target_language, source_language),
+        system=maker_system(target_language, source_language) + register_line(target_language),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _MAKER_SCHEMA}},
     )
@@ -214,7 +215,7 @@ async def check_glosses(target_language: str, items: list[dict],
         # pass their own `system` — inherits the floor.
         model=model or resolve_model("translate_checker"),
         max_tokens=4096,
-        system=system or checker_system(target_language, source_language),
+        system=(system or checker_system(target_language, source_language)) + register_line(target_language),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},
     )
@@ -320,6 +321,7 @@ async def make_sentence_translations(
             f"than translating literally; only keep an English term if that is "
             f"genuinely how {target_language} speakers say it. Output "
             f"{target_language} only."
+            + register_line(target_language)
         ),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _SENTENCE_MAKER_SCHEMA}},
@@ -363,7 +365,7 @@ async def generate_sentence_translations(
         return []
     verdicts = await check_glosses(
         target_language, checkable, checker_model,
-        system=sentence_checker_system(target_language))
+        system=sentence_checker_system(target_language) + register_line(target_language))
     results = []
     for it in checkable:
         v = verdicts.get(it["i"], {"verdict": "reject", "final": "", "note": "no verdict"})
@@ -426,7 +428,7 @@ async def make_text_translations(
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,
-        system=_TEXT_SYSTEMS[kind].format(target=target_language),
+        system=_TEXT_SYSTEMS[kind].format(target=target_language) + register_line(target_language),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _SENTENCE_MAKER_SCHEMA}},
     )
@@ -509,6 +511,7 @@ async def review_definitions(target_language: str, items: list[dict],
             "you can reword it clearly (keep the meaning, put any partner/aspect "
             "note in plain words, e.g. 'to speak (imperfective; pairs with X)') and "
             "put it in `final`; 'reject' if you're unsure. Keep it concise."
+            + register_line(target_language)
         ),
         messages=[{"role": "user", "content": lines}],
         output_config={"format": {"type": "json_schema", "schema": _CHECKER_SCHEMA}},
@@ -609,7 +612,7 @@ async def generate_trivia(
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,
-        system=_TRIVIA_SYSTEM.format(target=target_language),
+        system=_TRIVIA_SYSTEM.format(target=target_language) + register_line(target_language),
         messages=[{
             "role": "user",
             "content": f"Write {count} questions.{avoid_block}",
@@ -667,6 +670,8 @@ async def review_source_translations(
         f'{it["i"]}. {source_language}: {it["sentence"]}\n   English: {it["translation"]}'
         for it in items
     )
+    # register: n/a — this judges the ENGLISH side only; the course sentence
+    # is quoted, never written or accepted.
     resp = await _client().messages.create(
         model=model or resolve_model("translate"),
         max_tokens=4096,

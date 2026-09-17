@@ -37,6 +37,7 @@ from backend.services.models import (  # noqa: F401  (LOW_RESOURCE_LANGUAGES re-
     LOW_RESOURCE_LANGUAGES,
     resolve_model,
 )
+from backend.services.quality_rules import register_line
 
 logger = logging.getLogger(__name__)
 
@@ -1200,6 +1201,8 @@ async def summarize_session(
         "when the learner literally stated them — that someone studies a "
         "language never implies it is their native language. Keep the summary "
         "focused on proficiency, struggles, and what to do next."
+
+        + register_line(language_code)
     )
     context = {
         "language": language_code,

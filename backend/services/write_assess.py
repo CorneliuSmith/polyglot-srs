@@ -29,6 +29,7 @@ from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.ink_method import method_line
+from backend.services.quality_rules import register_line
 
 logger = logging.getLogger("write")
 
@@ -172,6 +173,7 @@ def _system_prompt(language_name: str, support_language: str | None,
         f"hand are shown before the canvas, use them: the same person wrote "
         f"the canvas, and a letter shaped as in the references is that "
         f"letter.{known_line}"
+        + register_line(language_name)
     )
 
 
