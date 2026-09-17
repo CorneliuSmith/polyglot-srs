@@ -403,6 +403,25 @@ rather than a merge. 248 sentence rows and 49 gloss overrides were rekeyed in
 the same change so nothing orphaned. The mapping is committed at
 `data/orthography/yo_tone_repair.tsv`.
 
+### A rename in the file is an ADD plus an ORPHAN in the database
+
+The repair renamed 874 headwords in `yo_frequency.tsv`. The database does not
+see a rename — it sees 874 rows that are no longer in any committed source
+and 872 rows that are new. `reconcile` reports the first group and **never
+deletes it** (by design: CHECKS §12), so seeding Yoruba straight after the
+repair would have added the toned rows while the bare ones kept being drawn,
+and a learner would have met `ati` and `àti` as two separate cards.
+
+All 874 bare forms are therefore in `vocab_exclusions.tsv` with the reason
+that the toned row now carries the rank. **None of them has a learner card**,
+so retiring loses no progress, and the exclusion is reversible. The gloss
+overrides had already been rekeyed to the toned forms in the same change, so
+no override is orphaned (rule 51).
+
+**Order matters:** `reconcile --apply` (which retires the bare rows) must run
+BEFORE or with `seeder.run -l yo` (which adds the toned rows). Seeding first
+leaves both live until the next reconcile.
+
 ### What remains
 
 - **292 words with several marked candidates** (`ti` → `tì`/`tí`, `wọn` →
