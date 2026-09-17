@@ -301,6 +301,45 @@ adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
 
+## The leak was in the SUPPORT locale, not the course (17 Sep 2026)
+
+The complaint that started this programme — "it is not MSA, the translation
+was Egyptian" — came from a beta reviewer who is **not studying Arabic**. He
+is an Arabic speaker learning English, and the Arabic he was reading is the
+*support* locale: 9,056 of the 11,589 Arabic-locale definitions belong to the
+English course, and his screenshots are the English course's grammar
+explanations, its vocabulary glosses, and the tutor chatting to him.
+
+Two of those three surfaces were already clean. `translate.py` and
+`define.py` pin `register_line(target_language)` where the target is the
+locale being written INTO, so the stored Arabic is MSA — the explanation he
+photographed reads تُستخدم much مع الأسماء غير المعدودة, which is textbook
+MSA.
+
+**The tutor was not pinned, and still was not after PR #473.** Its prompt
+said `SUPPORT LANGUAGE: Arabic. Greet, explain, and converse in this
+language` with no register rule attached, and the pin it did carry was
+`register_line(language_code)` for the language being TAUGHT — English, which
+has no variety to pin, so nothing reached the prompt at all. To a model,
+"converse in Arabic" with a friendly brief is an invitation to dialect. The
+reviewer's third screenshot is that: one reply mixing Egyptian (لسه، عشان،
+خلّينا، كمّل), Iraqi and Saudi forms, which he annotated by hand.
+
+Speak had the same hole in three places — the error notes, the
+end-of-session breakdown and the opening's translation are all written in the
+support language.
+
+**Why the guard stayed green.** `test_every_model_call_carries_the_register_pin`
+asks whether a pin token appears in the enclosing function. It cannot see
+WHICH language the pin covers, so a call pinned to the target language reads
+as pinned. Quality rule 65, again: a guard that reads a declaration measures
+the declaration. `TestTheSupportLocaleIsPinnedToo` now renders the real
+prompt for an Arabic speaker learning English and reads what comes out.
+
+**This is also why the register programme's 614-item gold set found the
+corpus 98% MSA and was not wrong.** It measured the Arabic *course*, which
+was largely clean. The corpus and the complaint were two different corpora.
+
 ## The register programme: gold set, judge and fix path (17 Sep 2026)
 
 Step 0 of `docs/plans/arabic-msa-local-llm.md` pinned the prompts (above).
