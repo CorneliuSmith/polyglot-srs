@@ -200,3 +200,68 @@ what remains in this course.
 **Band 1001–2000, same day: 305 more.**
 - `mlangoni` was "locative of mlango" → "at the door, in the doorway; up to the door — locative of mlango, door (class 3/4)"
 - `machozi` was "plural of chozi" → "tears — plural of chozi, a single tear (class 5/6)"
+
+## Example-sentence fitness, wave 1 (17 Sep 2026)
+
+Phase 8. **The top-1000 band goes from 691/1000 (69%) to 956/1000 (96%)** —
+479 sentences for 265 headwords, every one verified blankable before it
+reached the file.
+
+### Maker, gate, checker
+
+| | |
+|---|---:|
+| gaps in the top-1000 band | 309 |
+| entries the maker refused to fill (see below) | 29 |
+| sentences written for the remaining 280 | 560 |
+| passed the mechanical gate | 560 |
+| **survived the checker** | **479** |
+| of those, the checker's repair | 14 |
+
+**The checker removed 14% of what the gate passed**, and what it caught is
+the kind of thing no mechanical rule sees:
+
+- **Modifier order.** `walimu watatu wapya` — Swahili puts the quality
+  adjective before the numeral, so `walimu wapya watatu`.
+- **The `kw-` retention.** `wanaenda` is what people say; the standard
+  written form a beginner course should model keeps the monosyllabic stem's
+  `kw-`, so `wanakwenda`.
+- **Derivation.** Answering a call is `itika`; the applicative `itikia`
+  wants a thing responded to, so `itikia naam` is off.
+- **A translation that says something the Swahili does not.** `kabla ya
+  kuanza mtihani` makes the addressees the subject of the infinitive ("before
+  *you* start the exam"), while the English said the exam starts; that needs
+  `kabla ya mtihani kuanza`.
+- **`sikia` is "hear", not "listen".** The sentence was translated
+  "listen to", which is `sikiliza` — a different verb, and swapping it would
+  remove the headword.
+
+### 29 entries the maker refused to fill, and why none is excluded here
+
+Two clean classes, neither acted on:
+
+**15 bound passive stems** — `pewa`, `itwa`, `ambiwa`, `fungwa`, `tumwa`,
+`uawa`, `chukuliwa`, `samehewa`, `batizwa`, `okolewa`, `fanywa`, `paswa`,
+`jaa`, `weza`, `mfanya`. A Swahili passive has no imperative, so the stem
+never stands as its own orthographic word and no sentence can ever contain
+it. These are permanent gaps in the coverage figure rather than outstanding
+work.
+
+**14 given names and books of the Bible** — this corpus is partly
+scripture-derived. The owner's decision of 25 Aug 2026 retired 645 rows of
+exactly this class, **with a carve-out: place names and equivalent-naming
+rows are kept.** Sorting these 14 against that carve-out is a judgement, not
+a rule, and a mechanical attempt mis-sorted several: `israeli` ("Israel") is
+a place name and stays; `abrahamu` and `paulo` name their English equivalent
+and stay; `ibilisi` ("Satan, Iblis") is not a given name at all. So **no
+exclusion row is written** — the list is here for the owner to rule on.
+
+| keep under the carve-out | `abrahamu`, `paulo`, `israeli`, `solomoni` |
+|---|---|
+| **for the owner to rule on** | `yakobo`, `petro`, `yohane`, `isaya`, `timotheo`, `yuda`, `tito`, `adamu`, `ibilisi`, `mpate` |
+
+### Status
+
+Every row is `reviewed: false`; Swahili is gated on a named native reviewer.
+`enforce_sentence_floor` then dropped 15 pre-existing fragments that CHECKS
+§23 only exposed once these words had a real sentence to compare against.

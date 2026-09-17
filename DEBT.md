@@ -1167,3 +1167,61 @@ listing goes out (its case: "SRS" doesn't mean anything to the audience,
 trademark). Not urgent, but worth deciding before the native app work in the
 section above, since the bundle identifier is annoying to change after a
 store submission.
+
+---
+
+## The Arabic register tripwire measures almost nothing (17 Sep 2026)
+
+`ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
+and it flags **one row** in the current 13,025-row `ar_sentences.tsv` — and
+that hit is in the `word` column, not the sentence: the headword `مش`, under
+a sentence that is ordinary MSA. Nothing in any sentence trips it.
+The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
+measured on the 14,671-row bank before the prune and with a wider list than
+the one in the code. Widening the code list to every tell in programme
+§1.1 raises it to 22 rows, of which 17 have only a documented *non-tell*
+(عم, دول, الحين) as their evidence.
+
+This is not a bug to fix by widening the tripwire — precision is already
+under 5% and the recall has never been measured. It is left as-is, on
+purpose, because it is cheap and it is not the instrument: the judge in
+`quality/register_pass.py` is. What is worth knowing is that **a green
+`ar_register` row in the audit is close to meaningless**, and nobody
+should read it as evidence the corpus is MSA. The audit rule stays so that
+an obvious regression (someone pasting Egyptian into the bank) still trips
+something.
+
+## The gold set's labels are not filled (17 Sep 2026)
+
+`data/eval/ar_register_gold.tsv` ships with `label`, `variety`, `evidence`
+and `note` blank by design — they are the reviewers' columns, and a
+pre-filled label is an anchor. Until two Arabic speakers fill them, the
+`--gold` gate in `register_pass.py` cannot report the §3.2 agreement figure
+against human labels, and it says so rather than inventing one.
+
+What exists in the meantime is `data/eval/ar_register_documented.tsv`: 56
+of the 614 items whose answer the programme document itself already
+asserts (the confirmed defects, the verified non-tells, the b-prefix rows,
+the MSA homograph entries). That is real ground truth and the judge is
+graded on it. It is not a substitute for the review — it contains no
+judgement call, which is exactly why it is safe and exactly why it is
+narrow.
+
+## The support locale is a register surface and was pinned late (17 Sep 2026)
+
+A learner's *support* locale — the language the app explains IN — is a
+register surface in its own right, and for most of this codebase's life
+nothing said so. Every call site pinned `register_line()` on the language
+being TAUGHT. For an Arabic speaker learning English that is English, which
+has no variety to pin, so the tutor's prompt carried no register rule at all
+while being told to "converse in Arabic".
+
+Fixed for `tutor.py` and `speak.py` (three sites). Already correct in
+`translate.py` and `define.py`, which pin the locale they write into.
+
+**What to watch:** `register_line` is keyed by language, and `REGISTER` has
+exactly one entry. Any other language with a standard variety — Persian
+(formal vs colloquial), Hindi, Greek, Tagalog — has the same hole in both
+directions, as a course and as a support locale, and none has been measured.
+Rule 1 says a defect found in one language is a class; this one has been
+fixed for Arabic only.

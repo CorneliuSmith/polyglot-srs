@@ -133,3 +133,68 @@ def test_every_model_call_carries_the_register_pin():
                 line = text.count("\n", 0, m.start()) + 1
                 unpinned.append(f"{rel}:{line}")
     assert not unpinned, "model calls without a register pin: " + ", ".join(unpinned)
+
+
+class TestTheSupportLocaleIsPinnedToo:
+    """The register a learner READS is not always the one they are learning.
+
+    An Arabic speaker learning English gets English as the target language —
+    which has no variety to pin — and Arabic as the *support* language, the
+    one the tutor actually speaks to them in. Every call site pinned
+    `register_line(language_name)`, the target, and none pinned the support
+    locale on a conversational surface, so that learner's prompt carried no
+    MSA rule at all. A beta reviewer photographed the result: a tutor reply
+    mixing Egyptian, Iraqi and Saudi forms.
+
+    `test_every_model_call_carries_the_register_pin` stayed green through it,
+    because it asks whether a pin token appears in the enclosing function and
+    cannot see WHICH language the pin covers — quality rule 65, a guard that
+    reads a declaration measures the declaration.
+
+    These render the real prompts and read what a learner's configuration
+    actually produces.
+    """
+
+    def test_the_tutor_speaks_msa_to_an_arabic_speaker_learning_english(self):
+        from backend.services.tutor import build_system_blocks
+
+        blocks = build_system_blocks(
+            "en", user_profile=None, language_profile=None,
+            session_summary=None, weak_areas=None, study_stats=None,
+            placement=None, support_language="Arabic",
+        )
+        text = "\n".join(b.get("text", "") for b in blocks
+                         if isinstance(b, dict))
+        assert "SUPPORT LANGUAGE: Arabic" in text
+        assert "Modern Standard Arabic" in text, (
+            "the tutor was told to converse in Arabic with no register — "
+            "which is an invitation to dialect")
+
+    def test_an_english_support_language_adds_nothing(self):
+        """Languages with nothing to pin must leave the prompt untouched, so
+        every other course's prompts stay byte-identical."""
+        from backend.services.tutor import build_system_blocks
+
+        def render(support):
+            return "\n".join(
+                b.get("text", "") for b in build_system_blocks(
+                    "es", user_profile=None, language_profile=None,
+                    session_summary=None, weak_areas=None, study_stats=None,
+                    placement=None, support_language=support)
+                if isinstance(b, dict))
+
+        assert "Modern Standard Arabic" not in render("French")
+        assert render("French").replace("French", "X") == \
+            render("German").replace("German", "X")
+
+    def test_speak_pins_the_language_it_writes_the_notes_in(self):
+        """Speak's three calls write prose in the support language: the
+        error notes, the end-of-session breakdown, and the opening's
+        translation. Each is a surface a learner reads."""
+        import inspect
+
+        from backend.services import speak
+
+        source = inspect.getsource(speak)
+        for marker in ("register_line(explain_in)", "register_line(support)"):
+            assert marker in source, f"{marker} missing from speak.py"

@@ -469,7 +469,55 @@ rate, say so — that result matters more than the phase closing quietly.
     rotation. 481 points ship a real table; **344 declare no paradigm at
     all.** Before trusting a coverage number, check what fraction of the
     population the guard can even see.
+66. **A checker that does not carry the standard cannot enforce it.** The
+    Arabic makers were pinned to MSA and the harvest checker asked for
+    "natural, grammatical Arabic" — which *accepts* بكرة. The gate the three
+    known register defects passed could not have rejected them. A maker
+    pinned behind an unpinned checker is only half pinned; pin both, and
+    check the call sites with a test rather than by reading (CHECKS §39).
+67. **A gold set of positives measures recall and nothing else.** Where the
+    expensive error is the false alarm, the set must be built around the
+    hard negatives: the 25 Arabic بـ+noun rows that look like a dialect
+    b-imperfect, the 17 whose only marker is an ordinary MSA word, the MSA
+    homographs (`كمان` violin) sitting beside the dialect words they collide
+    with. Calibrating on the easy positives measures nothing that matters.
+68. **Fixing one layer can break another; the second fix is not optional.**
+    The MSA rewrite of `ستقلي خطاب بكرة` is correct Arabic and leaves a row
+    the card cannot blank, because the headword IS the dialect word. Run a
+    content fix through the gate of the layer it might damage — here the
+    same `find_cloze` gate `apply_authored_sentences.py` uses — and route
+    what it refuses to the queue that can actually repair it.
+69. **Calibrate before you trust, and expect the first result to be a PROMPT
+    defect rather than a model failure.** The register judge scored 94.6% on
+    the documented answers and every miss was one class: asked "is this
+    MSA?" of a frequency entry, it judged the *gloss's sense* and called
+    مش "to suck the marrow" MSA — correctly, for the question it was asked.
+    The store needed a different question ("did an MSA word earn this
+    rank?"). A calibration set earns its cost the moment it tells you which
+    of the two you have.
 
+70. **An unmarked form is not always a missing mark.** Yoruba writes MID tone
+    with no diacritic, so 262 of 1,514 "untoned" headwords were correct as
+    they stood and a blanket repair would have corrupted them. Before
+    treating absence as a defect, ask what the writing system does with the
+    unmarked case — and check whether the dictionary lists the bare form as
+    a word in its own right.
+71. **A second signal has to come from a different field.** The tone repair
+    used the dictionary's canonical SPELLING and its IPA, which are authored
+    separately, so agreement is corroboration rather than the same fact read
+    twice. Two fields derived from one another are one signal in two hats.
+72. **Measure the measurer before believing a shortfall.** The IPA check
+    first confirmed 549 of 938, and the missing 389 were the extractor not
+    knowing IPA vowels — every word containing ɔ or ɛ failed to match
+    itself. A surprisingly low pass rate is a bug in the instrument until
+    proven otherwise (rule 29, pointed inward).
+73. **Renaming a headword in a file is an ADD plus an ORPHAN in production.**
+    The database has no rename: `reconcile` sees the old spelling as "in no
+    committed source" and never deletes it, so the 874 Yoruba tone repairs
+    would have shipped every word twice — `ati` and `àti` as separate cards.
+    Any pass that changes a headword's spelling must write the old form into
+    `vocab_exclusions.tsv` in the SAME change, and the retire must run before
+    or with the seed. CHECKS §12, from the third direction.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 

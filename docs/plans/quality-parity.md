@@ -547,7 +547,7 @@ for twice.
 | --- | --- | --- |
 | **1** | **Guards and instruments** (the 6 Sep queue, items 1–8 of `docs/decisions/2026-09-06-review-pass.md`) | Cheap, code-only, and each one stops a later pass producing waste. `apply_authored_sentences.py` must require SURFACE presence before ANY authoring runs — the 31 Aug Russian pass accepted lemma presence and wrote rows the card cannot display. Then the `unclozable_rows` audit rule, the retire step for exclusions, the English `context` label with its six locales. |
 | **2** | **Phase 2d — definitions to override depth** | CHECKS §28: the definition is the cheapest fix for 60% of under-determined cards, and Phase 7 derives topics from it, so everything downstream is cheaper once it is right. Top-200 band per course, worst-first by the same harm ranking. **REOPENED 10 Sep 2026 (CHECKS §36):** the top-200 is done, and the defect the owner named ("coche as the definition for coches") resumes at exactly rank 201 — 4,397 live rows in the 201–2000 band give a grammatical relation and no English meaning. The band boundary is the edge of the pass, not scattered debt. Band 201–1000 **DONE 10 Sep** — 1,826 definitions rewritten across 19 courses, 23 refused by the checker (most for hiding a person the form genuinely has: Italian `stava` glossed "he was" while the card's own sentence translates it "you were", the polite *Lei*), 8 declined as extraction debris (DEBT). Band **1001–2000 DONE the same day** — 2,849 more, 23 refused. `relation_only_gloss` **4,982 → 312**, so the top-2,000 band is 94% clear. **The 312 that remain are the honest residue and split three ways:** 274 my export regex missed (it was narrower than the audit rule — no `vocative`, `locative`, `definite`, `alternative form`, `abbreviation`), 19 abbreviations awaiting **decision B**, and 16 unmarked/alternative-form twins awaiting **decision D** option 3. The 2001–10000 tail (23,373) is out of the card band and deliberately last. `relation_only_gloss` now measures it. |
-| **3** | **Phase 8 — example-sentence fitness** | The authoring queue, worst-first: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro` → the rest. `pt es de nl fr la ru en ha jam` are already under 15% bad cards and need nothing here. |
+| **3** | **Phase 8 — example-sentence fitness** | **`xh` and `sw` wave 1 done 17 Sep 2026.** `xh` top-1000 452 → 936 (45% → 94%), 842 sentences for 484 headwords, checker removed 21% of what the gate passed (`docs/quality/xh.md`). `sw` 691 → 956 (69% → 96%), 479 sentences for 265 headwords, checker removed 14% (`docs/quality/sw.md`). **`yo` is no longer held for tones (17 Sep 2026):** 874 headwords repaired against the dictionary's canonical form AND its IPA, two independent signals; tone-marked headwords 8% → 61%, and the top-1000 blankable band rose 23% → 30% from the repair alone, because the headwords reunited with sentences already written in the toned form (`docs/quality/yo.md`). Authoring is unblocked; 701 of the top-1000 still need a sentence. `ko` 97%. Both waves surfaced headwords that can NEVER be filled — bound stems and scripture-derived proper names — listed for the owner, with no exclusion row written, because the name rule has a carve-out that is a judgement rather than a test. The authoring queue, worst-first: `yo ko xh th sw` → `tr he tl fa ca id el` → `mi ar it hi ro` → the rest. `pt es de nl fr la ru en ha jam` are already under 15% bad cards and need nothing here. |
 | **4** | **Phase 2e — grader collisions** (judgment repairs) and **Phase 2c** gloss completion | Both are bounded lists with the mechanical half already shipped. |
 | **5** | **Phase 3 — grammar and hint debt**, closing with the markdown pass over explanations | Same files, one PR and one reseed per course. |
 | **6** | **Phase 4 — Gym parity** | Owner asked lessons to point at the Gym (#397); the manifests are the remaining half. |
@@ -1174,12 +1174,24 @@ dictionary-form convention for a language with no derivable infinitive
   add as they become real: the DB-side passes (`review_translations`
   offline mode, `review_hints`, gym top-up, example diversity) and a
   measured cost per course.
-- **Exclusions have no production write path.** `vocab_exclusions.tsv` is
-  applied by the FILE loader (`source_data.apply_vocab_exclusions`); no
-  seeder deletes a vocabulary row (learner cards would orphan), so the 723
-  excluded rows — and the 37 the `em` card added — remain in production
-  until a retire step exists. CHECKS §12's class, one more time. See the
-  6 Sep handover for the design.
+- ~~**Exclusions have no production write path.**~~ **Built and applied.**
+  Migrations `20261016000000_vocabulary_retired` and
+  `20261017000000_grammar_point_retired` added `retired_at`, and
+  `reconcile` surveys it in both directions (retire and un-retire), so an
+  exclusion stops a word being drawn without orphaning a learner's card.
+  **Measured in production 17 Sep 2026** against the 2,134 committed
+  exclusions across 26 courses:
+
+  | | |
+  |---|---:|
+  | already retired in production | 1,786 |
+  | live and **not yet** retired — the owner's pending `reconcile --apply` | **265** |
+  | never seeded at all (nothing to retire) | 83 |
+
+  The 265 are concentrated in `hi` (108), `pt` (40), `fr` (21), `ca`/`it`/`tr`
+  (18 each). 6 grammar points are retired. This entry stays rather than being
+  deleted because the *mechanism* is the answer to CHECKS §12 and the next
+  reader should know it exists.
 
 ### Phase 8 — Example-sentence fitness, all 27 courses (owner, 30 Aug 2026)
 
@@ -1452,6 +1464,14 @@ headwords WordNet glossed as chemical symbols, printing terms or clitics
 does not remove them from production (Phase 6 note above).
 
 ### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
+
+**First three courses classified, 17 Sep 2026.** `tr`, `en` and `ru` top-1000
+bands — 3,159 words — are in `data/topics/{tr,en,ru}.json`, maker plus a
+checker over the 51% the maker was least sure of, 85 corrections taken, all
+22 visible buckets used in each course, zero slugs the CHECK would reject.
+The owner runs three `--topics-file` commands; nothing is applied yet.
+Report: `docs/quality/topic-lens-2026-09-17.md`. The remaining ~206,500 rows
+are unchanged by this and the order below still holds.
 
 **Deferred on purpose.** The feature shipped complete — migration 20261009,
 the 24-slug frozen taxonomy, `vocab_needing_topic` / `set_vocab_ai_topic`,

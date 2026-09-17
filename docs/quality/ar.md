@@ -300,3 +300,142 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+## The leak was in the SUPPORT locale, not the course (17 Sep 2026)
+
+The complaint that started this programme — "it is not MSA, the translation
+was Egyptian" — came from a beta reviewer who is **not studying Arabic**. He
+is an Arabic speaker learning English, and the Arabic he was reading is the
+*support* locale: 9,056 of the 11,589 Arabic-locale definitions belong to the
+English course, and his screenshots are the English course's grammar
+explanations, its vocabulary glosses, and the tutor chatting to him.
+
+Two of those three surfaces were already clean. `translate.py` and
+`define.py` pin `register_line(target_language)` where the target is the
+locale being written INTO, so the stored Arabic is MSA — the explanation he
+photographed reads تُستخدم much مع الأسماء غير المعدودة, which is textbook
+MSA.
+
+**The tutor was not pinned, and still was not after PR #473.** Its prompt
+said `SUPPORT LANGUAGE: Arabic. Greet, explain, and converse in this
+language` with no register rule attached, and the pin it did carry was
+`register_line(language_code)` for the language being TAUGHT — English, which
+has no variety to pin, so nothing reached the prompt at all. To a model,
+"converse in Arabic" with a friendly brief is an invitation to dialect. The
+reviewer's third screenshot is that: one reply mixing Egyptian (لسه، عشان،
+خلّينا، كمّل), Iraqi and Saudi forms, which he annotated by hand.
+
+Speak had the same hole in three places — the error notes, the
+end-of-session breakdown and the opening's translation are all written in the
+support language.
+
+**Why the guard stayed green.** `test_every_model_call_carries_the_register_pin`
+asks whether a pin token appears in the enclosing function. It cannot see
+WHICH language the pin covers, so a call pinned to the target language reads
+as pinned. Quality rule 65, again: a guard that reads a declaration measures
+the declaration. `TestTheSupportLocaleIsPinnedToo` now renders the real
+prompt for an Arabic speaker learning English and reads what comes out.
+
+**This is also why the register programme's 614-item gold set found the
+corpus 98% MSA and was not wrong.** It measured the Arabic *course*, which
+was largely clean. The corpus and the complaint were two different corpora.
+
+## Every card surface read (17 Sep 2026)
+
+Readers reported dialect on cards "in the sentences, words, or explanations".
+All five Arabic-bearing stored surfaces were read: **1,241 rows, 1.0% not
+MSA**, projected at ~194 across the 13,652 stored rows (95% CI 75–513). Full
+report: `docs/quality/ar-surfaces-2026-09-17.md`.
+
+The three worst are **vocabulary definitions written in colloquial Arabic** —
+`شاف` for رأى, `مراية` for مِرآة, `مليان` for مَلِيء. Two grammar function
+notes give a learner instruction with the colloquial imperative `قول` instead
+of `قُلْ`. The 211 Arabic grammar explanations came back **completely clean**.
+
+Six of the thirteen findings are **classical, not dialect** — the direction
+nobody was watching. Qurʾān 18:24 and a hadith are in the live example bank as
+everyday sentences, all of them in the 362 rows that are live but absent from
+the committed file, so they never passed a file-level pass.
+
+## The register programme: gold set, judge and fix path (17 Sep 2026)
+
+Step 0 of `docs/plans/arabic-msa-local-llm.md` pinned the prompts (above).
+This is steps 1–3 and 6 of `docs/quality/ar-register-programme.md` §5 — the
+instruments for the content that already exists. Nothing here has changed a
+single learner-facing row yet, and that is by design: §3.2 says the judge
+does not touch production before it is calibrated, and calibration needs
+reviewers.
+
+### What was built
+
+| | |
+|---|---|
+| `data/eval/ar_register_gold.tsv` | 614 items — 200 sentences, 100 vocabulary entries, all 274 drills, all 40 explanations. `label`, `variety`, `evidence`, `note` ship **blank**: they are the reviewers' columns. |
+| `data/eval/ar_register_documented.tsv` | 56 of those items whose answer the programme document itself asserts. Real ground truth, no judgement call. |
+| `backend/services/quality/register_pass.py` | The judge. One question per row, the §3.1 schema, Anthropic or any OpenAI-compatible endpoint. Never writes to the database. |
+| `scripts/apply_register_fixes.py` | Accepted decisions into the committed files, through the blank-ability gate. |
+| `scripts/build_ar_register_gold.py` | Rebuilds both eval files byte-for-byte; `--check` fails if the corpus has moved under the labels. |
+
+### Three measurements worth keeping
+
+**The tripwire flags one row in 13,025, and not in the sentence.**
+`ARABIC_DIALECT_MARKERS` (29 whole words) finds nothing in the `sentence`
+column of `ar_sentences.tsv` and one hit in the `word` column — the headword
+`مش`, whose sentence (مشّط شعرك قبل أن تخرج) is ordinary MSA. The 424
+word hits the programme's §2 records were measured on the 14,671-row bank
+before the prune. Widened to every tell in §1.1 it finds 22 rows — and 17 of
+those have only a documented *non-tell* (عم, دول, الحين) as their evidence.
+A green `ar_register` row is not evidence the corpus is MSA.
+
+**The live table is bigger than the committed bank.** `example_sentences`
+holds **14,797** Arabic rows against the file's 13,025, and there are
+**11,589** Arabic-locale definitions. Those 1,772 extra sentences are §2's
+"biggest unknown" with a number on it: they were accepted by the unpinned
+harvest checker and they are in no file.
+
+**A register fix can delete the headword it serves.** The confirmed defect
+`ستقلي خطاب بكرة` is filed under the headword `بكرة`. Rewriting `بكرة` →
+`غدًا` is correct MSA and leaves a row the card cannot blank, so the card
+falls back to definition-only (CHECKS §29). Worse, the row never exemplified
+the headword's own gloss — `بكرة` is glossed "early morning", and the
+sentence uses the Egyptian "tomorrow", so it was a wrong-sense example
+before it was a register defect (quality rule 6). The apply script refuses
+the rewrite and routes it to the authored-replacement queue, which is the
+owner's settled exception: retire dialect-only meanings, but author a
+replacement rather than leave a headword with no sentence.
+
+### Calibration (full page: `ar-register-2026-09-17.md`)
+
+The judge was run over all 614 items and graded on the 56 whose answer the
+programme document asserts: **56/56, all three §3.2 gates pass.** The first
+run scored 53/56 and every miss was one class — asked "is this MSA?" of a
+frequency entry it graded the *gloss's sense* and called مش "to suck the
+marrow" MSA, which is true of the verb and false of the entry. The fix is a
+rule about whether the gloss's sense could plausibly have earned the rank;
+the seven MSA homographs in the same stratum did not flip, which is the
+evidence it generalised rather than memorised three answers.
+
+Found in the 614: **9 dialect** (the two documented sentences, each serving
+two headwords, plus مش/وين/مو/يلا and تو), **5 classical** (all in grammar
+point 37 and one Qurʾānic drill), **20 orthography-only** logged for the
+spelling pass. The 274 drills carry no dialect.
+
+**Two findings are decisions, not defects.** Grammar point 37 exists to
+teach the energic نون التوكيد, which §1.4 of the programme lists among the
+forms MSA no longer uses productively — a specification conflict both
+readers spotted and neither would resolve. And a C2 drill is Qurʾān 1:5
+verbatim as its fronting example.
+
+### What is NOT done, plainly
+
+- **No reviewer has labelled anything.** The §3.2 gate proper is against
+  human labels; `--gold` reports "GOLD SET NOT LABELLED" rather than
+  inventing a figure, and the 56 documented answers are 9% of the set. Two
+  Arabic speakers from different regions is the owner's settled minimum.
+- **No full pass has run** over the four file stores or the two live tables,
+  because §3.2 forbids it before the gate passes.
+- **No local endpoint.** `--base-url` is built and tested against a fake
+  server; no GPU service exists, so Jais-2-8B and Falcon-H1-Arabic-7B remain
+  unmeasured on this corpus and the choice between them is still open.
+- **The Arabic-locale support side** (11,589 definitions written by unpinned
+  translators) is readable by `--store db-locale` and has not been read.

@@ -237,3 +237,75 @@ what remains in this course.
 **Band 1001–2000, same day: 18 more.**
 - `izigqibo` was "plural of isigqibo" → "decisions - the choices people settle on after weighing things up (plural of isigqibo, class 7/8)"
 - `izigidi` was "plural of ísígidi" → "millions - the number, as in millions of rand or millions of people (plural of isigidi, a million; class 7/8)"
+
+## Example-sentence fitness, wave 1 (17 Sep 2026)
+
+Phase 8. **The top-1000 band goes from 452/1000 (45%) to 936/1000 (94%)** —
+842 sentences for 484 headwords, every one verified blankable by the card
+before it was written to the file.
+
+### How they were made, and what the checker took out
+
+A maker wrote two sentences per gap for all 548 words the card could not
+blank. Then an adversarial checker read every one with two questions: is the
+noun-class concord right, and is the headword a free word at all.
+
+| | |
+|---|---:|
+| sentences written | 1,096 |
+| passed the mechanical gate (blankable, 7–14 words, has a translation) | 1,073 |
+| **survived the checker** | **847** |
+| of those, the checker's own repair rather than the original | 59 |
+| accepted by `apply_authored_sentences` | **842** |
+
+**The checker removed 21% of what passed the machine**, which is the number
+worth keeping: the surface gate proves a card can use a row, and nothing
+mechanical can tell whether the isiXhosa is right.
+
+What it caught, by class:
+
+- **Calques.** `gqabhuka luvuyo` for "burst with joy" — isiXhosa fills that
+  slot with `-gcwala` or `-phuphuma`, never `-gqabhuka`. `bengezela`
+  commanded of a person is English "shine"; the stem is used of an object
+  glinting.
+- **Argument structure, caught against the course's own corpus.** `-buya`
+  takes its locative as the SOURCE — the bank's own `Utata ubuya
+  emsebenzini` is "comes back FROM work" — so the maker's `buya ekhaya`
+  reads as "come back from home". Both of that word's sentences were
+  dropped, which is why rank 149 still shows as a gap.
+- **Unsettled noun class.** `ibubu` was written with class 9 agreement
+  throughout (`yeediliya`, `imi`, `ibonisa`); on a class 5 reading every one
+  of those is wrong. The checker refused to guess and sent it to a reviewer.
+- **A gloss that contradicts its own word.** `iqhiya` is glossed
+  "handkerchief" and is a headscarf. The sentence was good; the entry is
+  wrong. Logged for the definition pass, not fixed here.
+
+### Seven headwords that can never be filled
+
+The checker judges these to be bound stems that never stand as an
+orthographic word, so no sentence can ever contain them and they are
+permanent gaps in the coverage figure rather than work outstanding:
+
+| | why |
+|---|---|
+| `kha`, `tsha`, `wa` | monosyllabic verb stems; the singular imperative takes the `yi-` augment (`yikha`, `yitsha`, `yiwa`) |
+| `othuka` | vowel-commencing stem; the imperative takes `y-` (`yothuka`) |
+| `ninzi` | bound adjective stem, always under a concord |
+| `sibhozo` | bound numeral stem; alone it is the class 7 noun `isibhozo` |
+| `bo` | combining stem of `bona`, only ever fused (`nabo`, `kubo`, `yabo`) |
+
+**This is one checker's judgement and it is not confirmed.** A corpus check
+was run and came back **inconclusive**: none of the seven appears as a whole
+word in the 932 pre-existing sentences, but neither do control words the
+checker passed as free (`buya`, `zoba`, `khumbula`), because the corpus is
+too small to discriminate. The argument rests on the grammatical rule, not on
+the corpus, so **no exclusion row has been written** — that is a durable
+production change and it wants a native reviewer first.
+
+### Status of the content
+
+Every row is `reviewed: false`. isiXhosa is one of the courses gated on a
+named native reviewer, and this pass improves the drafts, not the trust
+label. `enforce_sentence_floor` then dropped 3 pre-existing fragments
+(`Ndiyaqonda ngoku.`, `Uyabaleka.`, `Ndiyavuya ukukwazi.`) that CHECKS §23
+only exposed once these words had a real sentence to be compared against.

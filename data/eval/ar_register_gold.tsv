@@ -1,0 +1,615 @@
+id	store	field	text	translation	label	variety	evidence	note	stratum
+ar-sent-7acb472d7767	sentences	sentence	لم يكن لديّ وقت للأكل.	I had no time to eat.					proclitic
+ar-sent-37febb62dc80	sentences	sentence	نعم ، يحدث هذا بين الحين و الآخر.	Yes, that happens from time to time.					hard_negative
+ar-sent-1941b5716fc7	sentences	sentence	نعم ، يحدث هذا بين الحين و الآخر.	Yes, that happens from time to time.					hard_negative
+ar-sent-838467b72b41	sentences	sentence	ليس هناك ما يمكن أن يُعيدها إلى الحياة.	Nothing can bring her back to life.					ha_future
+ar-sent-8843e56541a6	sentences	sentence	لدي نصف ما لديه من كتب فقط.	I have only half as many books as he.					proclitic
+ar-sent-ebc569243955	sentences	sentence	إنه قلق بسبب مرض والده.	He is concerned about his father's illness.					proclitic
+ar-sent-893325f82248	sentences	sentence	صباح الخير, سيدي! كل سنه وانتا طيب.	Good morning, sir! A merry Christmas to you!					known_defect
+ar-sent-5b918cfa46cc	sentences	sentence	صباح الخير, سيدي! كل سنه وانتا طيب.	Good morning, sir! A merry Christmas to you!					known_defect
+ar-sent-b9aa39b1d018	sentences	sentence	لا أعلم ما تخطط له، لكني سأمنعك بالقيام به.	I don't know what you're planning to do, but I won't let you do it.					b_imperfect
+ar-sent-1fdb098b9a0c	sentences	sentence	ليس لدي رغبة في الخروج الليلة فحسب.	I just don't feel like going out tonight.					proclitic
+ar-sent-2a3f68b7ed25	sentences	sentence	هناك سبيلين فقط للخروج من هذا المنزل.	There are only two ways out of this house.					ha_future
+ar-sent-5f53de8d479c	sentences	sentence	في الواقع, إنه منطقي بالكامل.	Actually, it makes perfect sense.					b_imperfect
+ar-sent-153e753f6cc9	sentences	sentence	لا أحد من زملائي يعيشون بالقرب من هنا.	None of my classmates live near here.					b_imperfect
+ar-sent-ea74aae66ec0	sentences	sentence	ليست لدي أدنى فكرة عن مكان إقامتها.	I have no idea where she lives.					proclitic
+ar-sent-39439125653e	sentences	sentence	يتمتع والدي بخبرة كبيرة في الحياة ، وأنا دائمًا أتبع نصيحته.	My dad has got so much experience in life, and I always follow his advice.					proclitic
+ar-sent-0b35300b504e	sentences	sentence	أسمح لك بالذهاب إلى هناك إذا أردت.	You may go there.					ha_future
+ar-sent-cff3192f5612	sentences	sentence	إذا قمت بتغيير الخطة، فيجب عليك أن تعلم أعضاء الفريق بالتغييرات.	If you alter the plan, you must inform the team members of the changes.					b_imperfect
+ar-sent-d552bec66df7	sentences	sentence	مع انني كنت جالساً تحت الشمس، ولكن كنت أشعر بالبرد.	Even though I was sitting in the sun, I still felt chilly.					b_imperfect
+ar-sent-6ae79de4ad6e	sentences	sentence	أخبرت والديّ بنواياي.	I made known my intentions to my parents.					proclitic
+ar-sent-30f3c018c832	sentences	sentence	مشت بسرعة كي تلحق بالآخرين.	She walked fast to catch up with the others.					b_imperfect
+ar-sent-358927e13190	sentences	sentence	بالتأكيد لم أتوقع أن أراك هنا في بوسطن.	I certainly didn't expect to see you here in Boston.					b_imperfect
+ar-sent-0944fd4a92c4	sentences	sentence	أُمي تريد أن تذهب هناك, ولكن أبي يريد أن يشاهد التليفزيون.	Mom wants to go there, but Dad wants to watch TV at home.					ha_future
+ar-sent-0c9eca34e8a1	sentences	sentence	نشأ جون في بيئة سعيدة.	John grew up happy.					b_imperfect
+ar-sent-de9906a11ec3	sentences	sentence	السباحة ليلاً خطرة.	Swimming at night is dangerous.					proclitic
+ar-sent-9d5603c9d724	sentences	sentence	والدي اعتاد أن يكون رجلاً قوياً.	My father used to be a strong man.					proclitic
+ar-sent-f4cb57886873	sentences	sentence	هذا العطر يجعلني أشعر بالمرض.	This perfume sickens me.					b_imperfect
+ar-sent-63f81943487d	sentences	sentence	ولد إيلان بابيه في إسرائيل.	Ilan Pappe was born in Israel.					b_imperfect
+ar-sent-f5b3a35c3d62	sentences	sentence	هنالك مخرج طوارئ في الخلف.	There's an emergency exit in the rear.					ha_future
+ar-sent-76780f2170fd	sentences	sentence	شفيت جروح مصاص الدماء في الحين.	The vampire's wounds healed instantly.					hard_negative
+ar-sent-2cce547cccbf	sentences	sentence	نصحني الطبيب بالإقلاع عن التدخين.	The doctor advised me to give up smoking.					b_imperfect
+ar-sent-aa16699c80d9	sentences	sentence	إنها تعزف على الكمان بمهارة.	She plays the violin very well.					proclitic
+ar-sent-a83fdf3f014a	sentences	sentence	يجب عليهم حل النزاعات بين الدول.	They have to solve conflicts among nations.					proclitic
+ar-sent-da8bfda4136f	sentences	sentence	لدي شكوك.	I have doubts.					proclitic
+ar-sent-95fcfaa22939	sentences	sentence	ستقلي خطاب بكرة، أليس كذلك؟	You're giving a speech tomorrow aren't you?					known_defect
+ar-sent-4114fed2c018	sentences	sentence	لديّ صديق يعيش في إنكلترا.	I have a friend who lives in England.					proclitic
+ar-sent-a8ba85e1c13b	sentences	sentence	نحن جميعا مهاجرين, قد لا نكون الأشخاص الأوائل, ولكن حتما من خلال أقاربنا أو أجدادنا.	We're all immigrants, if not in first person, then definitely in the form of some relative or ancestor.					ha_future
+ar-sent-134c4a637198	sentences	sentence	ليس لدي الوقت لشراء ربطة عنق جديدة قبل الوليمة.	I don't have time to buy a new tie before the banquet.					proclitic
+ar-sent-af83fc4e23c6	sentences	sentence	ليس لدي الوقت لشراء ربطة عنق جديدة قبل الوليمة.	I don't have time to buy a new tie before the banquet.					proclitic
+ar-sent-fc8c24ea0285	sentences	sentence	هناك مخطط لتوسيع الشركة.	There is a scheme to expand the company.					ha_future
+ar-sent-48e4c6833ecc	sentences	sentence	يشكل الفصل الثالث نهاية البداية في الكتاب. توقف هناك واقرأ تعليقات الناقد.	Chapter three is the end of the beginning of the book. Stop there and read the critic's comments.					ha_future
+ar-sent-e1f2596648a1	sentences	sentence	الجزائر عضو فعال في منظمة الدول المصدرة للنفط.	Algeria is an influential member of OPEC.					proclitic
+ar-sent-db7ab63f69d6	sentences	sentence	أكثر من 90 بالمئة من زيارات صفحة وِب من محركات البحث.	More than 90 percent of visits to a web page are from search engines.					b_imperfect
+ar-sent-ee14ecb2b750	sentences	sentence	ليس لدي أشقاء.	I have no siblings.					proclitic
+ar-sent-88ac8f659d24	sentences	sentence	كان هناك ازدحام كبير للسيارات وسط مدينة كيوتو.	There was an enormous traffic jam in downtown Kyoto.					ha_future
+ar-sent-11b1f5753696	sentences	sentence	بتلاتٌ تتطاير في الهواء.	Petals are flying in the wind.					b_imperfect
+ar-sent-3b830e6a857e	sentences	sentence	لا أفهم سبب ولعه بكرة القدم.	I can't understand his obsession with soccer.					whole_word
+ar-sent-7cd47131cf76	sentences	sentence	لا أفهم سبب ولعه بكرة القدم.	I can't understand his obsession with soccer.					whole_word
+ar-sent-e72dc98c8341	sentences	sentence	هناك دوما بعض المهام المتعلقة بامور المنزل التي ينبغي القيام بها.	There are always some chores to be done about the house.					ha_future
+ar-sent-4a90f19b62d8	sentences	sentence	كَانَ يَهُوداً في دُوَلٍ عَرَبيَّةٍ قَبلَ تَقسِيمِ فَلَسطِينِ.	There were Jews in Arab countries before the partition of Palestine.					hard_negative
+ar-sent-f557d3a7222d	sentences	sentence	كَانَ يَهُوداً في دُوَلٍ عَرَبيَّةٍ قَبلَ تَقسِيمِ فَلَسطِينِ.	There were Jews in Arab countries before the partition of Palestine.					hard_negative
+ar-sent-f4a184db9767	sentences	sentence	ارتكب فاضل أفعالا بلا مبرر باسم الحب.	Fadil committed senseless acts in the name of love.					b_imperfect
+ar-sent-9dcc063b5372	sentences	sentence	كان سامي يشتغل كعامل صيانة بين الحين و الآخر.	Sami worked occasionally as a handyman.					hard_negative
+ar-sent-2e603a4da13d	sentences	sentence	تعرّف سامي على مسلمين من دول إسلاميّة مختلفة.	Sami met Muslims from various Muslim countries.					hard_negative
+ar-sent-93e2bc5e140f	sentences	sentence	عديد من دول العالم تسمح للأشخاص المصابون بامراض مزمنة أن يختاروا الموت الرحيم.	Many countries allow people with chronic diseases to choose to die a merciful death.					hard_negative
+ar-sent-0e5d51e048f2	sentences	sentence	عديد من دول العالم تسمح للأشخاص المصابون بامراض مزمنة أن يختاروا الموت الرحيم.	Many countries allow people with chronic diseases to choose to die a merciful death.					hard_negative
+ar-sent-d7656fd04356	sentences	sentence	اعترف زيري بالتّهمة.	Ziri pled guilty.					b_imperfect
+ar-sent-026934bf1e31	sentences	sentence	هناك أعداد صغيرة من المسلمين في ملطا و هم تقريبا كلهم مهاجرون جاؤوا حديثا إلى البلد.	Malta has small numbers of Muslims who are almost all recent migrants.					ha_future
+ar-sent-79d0e711efa6	sentences	sentence	مدير المشروع الجديد هو ابن عم زوجتي، وهذا ما أزعج الموظفين.	The new project manager is my wife's cousin, and that's what upset the staff.					hard_negative
+ar-sent-95103b8ab77e	sentences	sentence	لا تقل لجدتي إنني رسبت، فأنا أريد أن أخبرها بنفسي.	Don't tell my grandmother that I failed — I want to tell her myself.					b_imperfect
+ar-sent-8f1c7d57da1e	sentences	sentence	يشك المدير في أن أحد العمال يسرق قطع الغيار من المستودع ليلاً.	The manager suspects that one of the workers has been stealing spare parts from the warehouse at night.					proclitic
+ar-sent-885c9ac063e3	sentences	sentence	عمّ سألتك جدتي حين جلستما وحدكما في المطبخ بعد العشاء؟	What did my grandmother ask you about when the two of you were alone in the kitchen after dinner?					hard_negative
+ar-sent-ca90b94f4ce8	sentences	sentence	عمّ ستتحدث في اجتماع الفريق غداً بعد أن تأخر المشروع؟	What are you going to speak about at tomorrow's team meeting, now that the project has fallen behind?					hard_negative
+ar-sent-96d23e8c4384	sentences	sentence	عمّ تعتذر الآن وقد جرحت أمك أمام الضيوف كلهم؟	What are you apologizing for now, after hurting your mother in front of all the guests?					hard_negative
+ar-sent-1b172aa2c65d	sentences	sentence	ساومتُ بائعَ الأحذية في السوق حتى خفّض السعر عشرة دنانير.	I haggled with the shoe seller in the market until he knocked ten dinars off the price.					b_imperfect
+ar-sent-647d8a400a00	sentences	sentence	جارتي مجنونة بكرة القدم، تحفظ أسماء اللاعبين وأرقام قمصانهم.	My neighbour is football-mad; she knows the players' names and their shirt numbers by heart.					whole_word
+ar-sent-9f90a1ac0b1d	sentences	sentence	لم تكن لديّ الشجاعة لأخبر أمي أنّي رسبتُ في الامتحان.	I didn't have the courage to tell my mother I had failed the exam.					proclitic
+ar-sent-6267d490b5db	sentences	sentence	أعتبر قراءة الروايات ليلاً هروباً لطيفاً من ضغوط العمل اليومية.	I see reading novels at night as a pleasant escape from the daily pressures of work.					proclitic
+ar-sent-0d02f20b9297	sentences	sentence	يعمل جاري خادمًا في فندق قديم، ويعود إلى بيته بعد منتصف الليل.	My neighbour works as a servant in an old hotel and gets home after midnight.					b_imperfect
+ar-sent-1a2c3410ebf5	sentences	sentence	ربما كنتُ قاسيًا في كلامي أمس، وأنا نادم منذ ذلك الحين.	Perhaps I was harsh in what I said yesterday, and I've regretted it ever since.					hard_negative
+ar-sent-4954ec99c286	sentences	sentence	يقول الجيران إن روح المرأة العجوز تتجول ليلا في الطاحونة المهجورة.	The neighbours say the old woman's ghost wanders at night around the abandoned mill.					proclitic
+ar-sent-ac2f47ae91e4	sentences	sentence	أوقف الطبيب البيطري سيارته عند الحظيرة ليعالج حيوانا انكسرت ساقه.	The vet pulled up by the byre to treat an animal that had broken its leg.					ha_future
+ar-sent-5943d33efe98	sentences	sentence	لم أشعر بالراحة في بيتنا الجديد حتى علقت أمي صور القرية على الجدران.	Our new house didn't feel like home to me until my mother hung the village photographs on the walls.					b_imperfect
+ar-sent-2ab3a3ed18e1	sentences	sentence	يبيع عم سعيد الشاي أمام محطة القطار منذ ثلاثين سنة.	Uncle Said has been selling tea in front of the train station for thirty years.					hard_negative
+ar-sent-612ba67099e0	sentences	sentence	سافر خالي إلى أمريكا قبل عشرين عاماً ولم يزر القرية منذ ذلك الحين.	My uncle went off to America twenty years ago and hasn't visited the village since.					hard_negative
+ar-sent-398d7661a4a7	sentences	sentence	يجر عم حسن عربة الفول إلى ناصية الشارع قبل شروق الشمس.	Uncle Hasan drags his fuul cart out to the street corner before sunrise.					hard_negative
+ar-sent-1a75bd9cb37b	sentences	sentence	ظلّ العمال يبنون سور المدرسة أسبوعاً كاملاً، ثم هدمه المطر ليلاً.	The workmen spent a whole week building the school wall, and then the rain brought it down overnight.					proclitic
+ar-sent-be63715ea2e7	sentences	sentence	ربط الحارس البوابة بسلسلة حديدية ثقيلة قبل أن يغادر السوق ليلاً.	The watchman fastened the gate with a heavy iron chain before leaving the market for the night.					proclitic
+ar-sent-c90b5239184a	sentences	sentence	لم أطلب منه شيئًا في حياتي، لكنني اليوم أحتاج إلى مساعدته.	I have never asked him for anything in my life, but today I need his help.					ha_future
+ar-sent-0a2a08b28cc2	sentences	sentence	لا يهتم أبي بكرة القدم، لكنه يجلس معنا في كل مباراة.	My father has no interest in football, yet he sits with us for every match.					whole_word
+ar-sent-840c57cf81d8	sentences	sentence	تركت وظيفتها في المصرف لتفتح مشغلا صغيرا للخياطة في حيها.	She left her job at the bank to open a small tailoring workshop in her neighbourhood.					ha_future
+ar-sent-06090d0cd514	sentences	sentence	بعد يوم كامل من التنظيف، لم تبقَ لديّ طاقة لطهي العشاء.	After a full day of cleaning I had no energy left to cook dinner.					proclitic
+ar-sent-bced3c280c33	sentences	sentence	صرخت الجارة في وجه الأوغاد الذين كسروا زجاج سيارتها ليلاً.	The neighbour shouted in the faces of the scoundrels who smashed her car window during the night.					proclitic
+ar-sent-4f5a7433b63a	sentences	sentence	استدعى مدير المدرسة والدي بسبب غيابي المتكرر في الأسبوع الماضي.	The school principal summoned my father because I kept missing class last week.					proclitic
+ar-sent-59a52282b4a0	sentences	sentence	أراك غدا عند بائع الفلافل بعد صلاة الجمعة إن شاء الله.	I'll see you tomorrow at the falafel stand after Friday prayers, God willing.					b_imperfect
+ar-sent-974170e31681	sentences	sentence	وجدتُ متعة غريبة في ترتيب المطبخ ليلاً بينما ينام البيت كله.	I found a strange pleasure in tidying the kitchen at night while the whole house slept.					proclitic
+ar-sent-90686f31946a	sentences	sentence	الرجل الذي باعنا التمر في السوق نسي أن يعطينا الباقي.	The man who sold us the dates in the market forgot to give us our change.					b_imperfect
+ar-sent-ea2d38ad5a3c	sentences	sentence	لم أقابل في حياتي شخصًا أكرم من جارنا أبي محمود.	I have never in my life met a more generous person than our neighbour Abu Mahmoud.					ha_future
+ar-sent-f095e5640b08	sentences	sentence	ما زلت أذكر خبر نجاحه كأنّه وصلني لتوّه، رغم مرور عشر سنوات.	I still remember the news of his success as if it had reached me a moment ago, though ten years have passed.					proclitic
+ar-sent-b0e0d78e142e	sentences	sentence	أشعر بالأمان حين يمشي أخي الكبير بجانبي في الشارع ليلا.	I feel safe when my older brother walks beside me in the street at night.					proclitic
+ar-sent-5f009d788b77	sentences	sentence	شعرتُ بالخوف حين حاضرتُ لأول مرة أمام مئة طالب في المدرج.	I was frightened the first time I lectured in front of a hundred students in the lecture hall.					b_imperfect
+ar-sent-3a9e1d4042a0	sentences	sentence	دار بيننا نقاش عميق عن الهجرة استمر حتى أذان الفجر.	We got into a deep discussion about emigration that went on until the dawn call to prayer.					b_imperfect
+ar-sent-3d5c4a399353	sentences	sentence	علّق جدي رأس أيل فوق الباب، وما زلت أخاف النظر إليه ليلًا.	My grandfather hung a stag's head above the door, and I'm still scared to look at it at night.					proclitic
+ar-sent-b995b72fd89a	sentences	sentence	للأسف نسيت المفتاح داخل الشقة، فاضطررنا إلى كسر القفل ليلاً.	Unfortunately I left the key inside the flat, so we had to break the lock at night.					proclitic
+ar-sent-f1d148aa6a11	sentences	sentence	الفائزون بالمسابقة هم طلاب المدرسة الحكومية، لا أبناء المدارس الخاصة.	The ones who won the competition were the state-school pupils, not the private-school kids.					b_imperfect
+ar-sent-d87a9110df85	sentences	sentence	سرت وحدي في شوارع القاهرة ليلا، أفكر في رسالة أمي.	I walked alone through the streets of Cairo at night, turning my mother's letter over in my mind.					proclitic
+ar-sent-6aaddb43c082	sentences	sentence	لم تعد لدي أية رغبة في مناقشة الموضوع مع أخي.	I no longer have any wish to discuss the matter with my brother.					proclitic
+ar-sent-b97873e1671b	sentences	sentence	كلما سمعت آلة الكمان تذكرت حفلات المدرسة وأنا صغير.	Whenever I hear a violin I remember the school concerts from when I was little.					proclitic
+ar-sent-e0437bc09dd4	sentences	sentence	جمال الصحراء لا يظهر في الصور، بل في صمتها ليلًا.	The beauty of the desert doesn't come through in photographs; it's in its silence at night.					proclitic
+ar-sent-c57c76cf9999	sentences	sentence	سمع سكان الحي صوت الرصاص ليلا، فأغلقوا النوافذ وأطفأوا الأنوار.	The people of the neighbourhood heard gunfire at night, so they shut the windows and turned off the lights.					proclitic
+ar-sent-d523f7b0451f	sentences	sentence	نصحني الطبيب بالمشي نصف ساعة يومياً بعد الغداء لتحسين الدورة الدموية.	The doctor advised me to walk for half an hour a day after lunch to improve my circulation.					b_imperfect
+ar-sent-845d43d0c9b3	sentences	sentence	لا يمكنك أن تفعل شيئين في الوقت نفسه.	You can't do two things at once.					random
+ar-sent-da3fa67a3c88	sentences	sentence	هل تريد المزيد من المال؟	Do you want more money?					random
+ar-sent-51fd748bb792	sentences	sentence	ليس لديك الحق في التوقف في هذا الشارع.	You have no right to stop at this street.					random
+ar-sent-e754e2b69205	sentences	sentence	انها ليست الفتاة المناسبة لك.	She's not the right girl for you.					random
+ar-sent-440892cc3130	sentences	sentence	يؤدي هذا الطريق إلى المحطة.	This road leads you to the station.					random
+ar-sent-8f26014f1ee0	sentences	sentence	هنالك الكثير من الأطفال في الحديقة.	There are a lot of children in the park.					random
+ar-sent-325f14ceeee2	sentences	sentence	صعد ياني على متن الحافلة.	Ziri boarded a bus.					random
+ar-sent-fc161102d137	sentences	sentence	لم يتمكّن أحد من إلقاء القبض على ذلك الكلب.	No one could catch the dog.					random
+ar-sent-ced8adaa52d2	sentences	sentence	تلقى ياني طلقة في الصدر.	Yanni was shot in the chest.					random
+ar-sent-66c52ef2c6ae	sentences	sentence	أتخطّى الإعلانات على الفيديوهات كلما أمكن.	I skip ads on videos whenever I can.					random
+ar-sent-3743726a4055	sentences	sentence	ظننت أنه سيكون أداءك أسهل.	I supposed you could do better.					random
+ar-sent-1b45d4a80628	sentences	sentence	ذهبت الأم إلى المدينة لجلب بعض الخبز.	Mother went to town to get some bread.					random
+ar-sent-4a7bac68e38e	sentences	sentence	تلك الدمية هدية من عمتي.	This doll is a gift from my aunt.					random
+ar-sent-602fc90aaa95	sentences	sentence	هل تريدني أن اتحدث إليهم؟	Do you want me to talk to them?					random
+ar-sent-4883c92fd0d6	sentences	sentence	أشعر بآلام في معدتي بعد الأكل.	My stomach hurts after meals.					random
+ar-sent-be2e0c74b94c	sentences	sentence	هل يوجد مصعد؟	Is there an elevator?					random
+ar-sent-589b3e395268	sentences	sentence	بما أنك هنا، لعلنا نبدأ.	Since you're here, we might as well begin.					random
+ar-sent-4719f060e232	sentences	sentence	علي أن ألازم السرير طول اليوم.	I have to stay in bed all day.					random
+ar-sent-45cc63493b52	sentences	sentence	تحول الحلم الأمريكي بالنسبة للكثيرين الى كابوس.	For many, the American dream has become a nightmare.					random
+ar-sent-ef809070a861	sentences	sentence	كان هناك حوالي عشرين دولاراً.	It was about twenty dollars.					random
+ar-sent-6e1ffb72e5ca	sentences	sentence	الحب بطبيعته أعمى.	Love is by nature blind.					random
+ar-sent-38eed0a3f195	sentences	sentence	عليك أن تأكل أليافاً أكثر.	You need to eat more fiber.					random
+ar-sent-572d0c555ada	sentences	sentence	سأذهب بغض النظر عن مجيئه.	Whether he comes or not, I'll go.					random
+ar-sent-87840c369a1f	sentences	sentence	بدا على نانسي التعب.	Nancy looks tired.					random
+ar-sent-773e92f58325	sentences	sentence	كانت بطاقة زيارة ليلى تحمل كتابات دينيّة.	Layla had religious inscriptions in her business card.					random
+ar-sent-311665152a2f	sentences	sentence	لديها أفكار مضحكة حول كيفية إدارة شركة.	She has some funny ideas about how to run a company.					random
+ar-sent-19ec6e0cd554	sentences	sentence	شكلها فاتن في ذلك الفستان.	She looks pretty in that dress.					random
+ar-sent-a63b04b2c27e	sentences	sentence	كلهم سكارى.	They all drank.					random
+ar-sent-c60a4b578e09	sentences	sentence	هو ليس غيورا.	He's not jealous.					random
+ar-sent-610733104f84	sentences	sentence	أصلحت الدراجة البارحة.	I fixed the bike yesterday.					random
+ar-sent-be5708443b0a	sentences	sentence	من فضلك أقفل الباب بهدوء.	Please close the door quietly.					random
+ar-sent-ea497cb11bca	sentences	sentence	اعتاد سامي على حياته المزدوجة إلى حدّ كبير.	Sami has grown too comfortable with his double life.					random
+ar-sent-059636f6460a	sentences	sentence	يديها ناعمتان جدا.	Her hands are so soft.					random
+ar-sent-5ff42034195f	sentences	sentence	ظرف و طابع بريد من فضلك.	An envelope and a stamp, please.					random
+ar-sent-2cc6a50da813	sentences	sentence	لا ريب أن للدين مكانة هامة في حياة الناس.	There is no doubt that religion has an important place in people's lives.					random
+ar-sent-def97fee607b	sentences	sentence	يأكل ياني كل شيء بالبطاطا المقلية.	Yanni eats everything with fries.					random
+ar-sent-28c9375ccf02	sentences	sentence	أصبت عصفورين بحجر واحد.	I killed two birds with one stone.					random
+ar-sent-6eb1b167fcea	sentences	sentence	يتحول الجليد إلى ماء عندما يذوب.	Ice turns back into water when it melts.					random
+ar-sent-7eb8206a3bd4	sentences	sentence	لقد عادت التنافسات القديمة للواجهة.	Old rivalries have resurfaced.					random
+ar-sent-04534c3d6b65	sentences	sentence	جورج ثرثار جداً.	George is quite talkative.					random
+ar-sent-8faff15d87d0	sentences	sentence	من ترك الجرة مفتوحة؟	Who left the jar open?					random
+ar-sent-5735739d6218	sentences	sentence	يرجى ملء نموذج طلب الوظيفة المرفق.	Please fill out the attached job application form.					random
+ar-sent-7438350a3f93	sentences	sentence	يعمل زيد محاسبًا في الشركة	Zaid works as an accountant for the company.					random
+ar-sent-398f4ad17e8d	sentences	sentence	ماذا كنتِ ستفعلينَ لو كُنتِ أصغر بعشر سنين؟	What would you do if you were ten years younger?					random
+ar-sent-f916e85e8077	sentences	sentence	صبّت لي كأساً من الشاي.	She poured me a cup of tea.					random
+ar-sent-21299b19fc3e	sentences	sentence	هل ستصبح الجزائر دولة ثرية؟	Will Algeria become a wealthy country?					random
+ar-sent-fdad9ad98bda	sentences	sentence	نحن رؤساء أقسام.	We are class presidents.					random
+ar-sent-4d932708bd77	sentences	sentence	أحب تفكيك الاشياء لمعرفة كيفية عملها.	I like to take things apart to see what makes them tick.					random
+ar-sent-aa8949006426	sentences	sentence	سامي يحبّ الأكل المصري.	Sami likes Egyptian food.					random
+ar-sent-5fdc77e64310	sentences	sentence	تحوّل جسم سامي بواسطة عمليّات جراحيّة لتعديل جنسه.	Sami had his body transformed with gender reassignment surgery.					random
+ar-sent-988c8e747358	sentences	sentence	تدين لي 600 دينار.	You owe me six hundred dinars.					random
+ar-sent-0673b8baed95	sentences	sentence	كوكب المريخ يشبه كوكبنا في نواحي عدّة.	Mars resembles our planet in some ways.					random
+ar-sent-73940ec74671	sentences	sentence	دائماً ما يصل الأبطال متأخّرين.	Heroes always arrive late.					random
+ar-sent-327f773feb54	sentences	sentence	بيكاسو رسام مشهور.	Picasso is a famous artist.					random
+ar-sent-ce9293382c60	sentences	sentence	رد ديما: "لا، لتساعدني على شراء هذه البذلة من أرماني. أنا متسخ، ألا تذكر؟"	"No," Dima replied. "To help me buy this Armani. I'm dirty, remember?"					random
+ar-sent-8e6d220c37b1	sentences	sentence	لكل إنسان حق التمتع بكافة الحقوق والحريات الواردة في هذا الإعلان، دون أي تمييز، كالتمييز بسبب العنصر أو اللون أو الجنس أو اللغة أو الدين أو الرأي السياسي أو أي رأي آخر، أو الأصل الوطني أو الاجتماعي أو الثروة أو الميلاد أو أي وضع آخر، دون أية تفرقة بين الرجال والنساء.	Everyone is entitled to all the rights and freedoms set forth in this Declaration, without distinction of any kind, such as race, colour, sex, language, religion, political or other opinion, national or social origin, property, birth or other status.					random
+ar-sent-99dfbc8a0f3e	sentences	sentence	حاولت تكرارا و مرارا و لم أنجح.	I tried again and again, but I couldn't succeed.					random
+ar-sent-baf4b8a8ade2	sentences	sentence	الصبي قال ان سيارة الاجرة اختفت في الضباب.	The boy said that the taxi vanished into the fog.					random
+ar-sent-dccbfde8a33f	sentences	sentence	سُجِنَ رجل بتهمة العنصرية ، حيث تحدث بشكل معنف ضد المرأة مع سائح فرنسي.	A man has been jailed for a racist, misogynist tirade against a French tourist.					random
+ar-sent-93e5057a713d	sentences	sentence	كانا يتصافحان بصميمية وكأنهما لم يريا بعضهما لسنوات.	The two people were shaking hands heartily as if they had not seen each other for years.					random
+ar-sent-2b27e1860f96	sentences	sentence	فاضل يتقاضى راتبا يقدّر بمآت آلاف الدّولارات.	Fadil earns a six-figure salary.					random
+ar-sent-341cec09d8c8	sentences	sentence	كان سامي مسيّرا لمحلّ الأدوات الحديديّة المحلّي.	Sami ran the local hardware store.					random
+ar-sent-10336e5222f3	sentences	sentence	لم يكن تجدّد اهتمام فاضل بليلى بمحض الصدفة.	Fadil's renewed interest in Layla was no accident.					random
+ar-sent-5e9e5bc62bc9	sentences	sentence	زيري يمضغ.	Ziri is chewing.					random
+ar-sent-a259f9c82e7b	sentences	sentence	الجزائر و المغرب دولتان تتنافسان على الصعيد الجيوسياسي.	Algeria and Morocco are geopolitical rivals.					random
+ar-sent-614fbc386de5	sentences	sentence	تواجه الجزائر العديد من المشاكل السّياسيّة.	Algeria has many political issues.					random
+ar-sent-441d918f4cfa	sentences	sentence	اتجه زيري نحو النهر.	Ziri walked towards the river.					random
+ar-sent-e3e837626915	sentences	sentence	بشكل عام، المنتجات النسائية مكلفة أكثر من الرجالية بنسبة ٧٪.	Overall, women’s products cost 7% more than similar products for men.					random
+ar-sent-a055d8930235	sentences	sentence	لم يعد زيري يريد مجالسة أشخاص خانوه.	Ziri no longer wanted to hang out with people who had betrayed him.					random
+ar-sent-3167bd7b6fe1	sentences	sentence	أنا المسؤول عن هذا الخطأ في التقرير، ولن أخفيه عن المدير.	The mistake in the report is mine, and I'm not going to hide it from the manager.					random
+ar-sent-17cf8b8f30ae	sentences	sentence	وزعت المديرة الجوائز على أولئك التلاميذ الذين حفظوا القصيدة كاملة.	The headmistress handed out the prizes to those pupils who had learned the whole poem by heart.					random
+ar-sent-95683557933d	sentences	sentence	يسوق الراعي قطيعه إلى النهر كل صباح قبل أن تشتدّ الحرارة.	The shepherd drives his flock down to the river every morning before the heat gets fierce.					random
+ar-sent-09a930c368a7	sentences	sentence	أما زلتَ غاضباً مني بعد كل هذه السنين يا أخي؟	Are you still angry with me after all these years, brother?					random
+ar-sent-f13442935be9	sentences	sentence	ما زلت أسكن في عمارة قديمة لا يعمل مصعدها منذ سنوات.	I still live in an old block of flats whose lift hasn't worked for years.					random
+ar-sent-a242d8d2caa2	sentences	sentence	ظلت أمي تنتظر على الشرفة حتى عاد أبي من نوبته الليلية.	My mother kept waiting out on the balcony until my father got home from his night shift.					random
+ar-sent-42cea3dc464f	sentences	sentence	أفرغت حقيبة المدرسة على السرير بحثاً عن دفتر الرياضيات المفقود.	I emptied the school bag onto the bed looking for the lost maths notebook.					random
+ar-sent-07ec0c70dc6c	sentences	sentence	عُيّن أخي مديراً لفرع البنك في مدينتنا بعد سنوات من الاجتهاد.	My brother was appointed manager of the bank branch in our city after years of hard work.					random
+ar-sent-63cf36bf7fa0	sentences	sentence	أُلغيت رحلتنا الجوية بسبب عاصفة ثلجية أغلقت المطار حتى الصباح.	Our flight was cancelled because of a snowstorm that closed the airport until morning.					random
+ar-sent-db935318013d	sentences	sentence	لم يأتِ نجاح المطعم من الإعلانات، بل من وصفة جدة صاحبه.	The restaurant's success didn't come from advertising, but from the owner's grandmother's recipe.					random
+ar-sent-38f0c02f6ad1	sentences	sentence	يتقاسم العمال وجبة واحدة في ظل الشاحنة قبل أن تشتد الشمس.	The workers share a single meal in the shade of the truck before the sun gets fierce.					random
+ar-sent-52592a57f237	sentences	sentence	نظرت جدتي من النافذة طويلاً وهي تنتظر عودة أبي من السوق.	My grandmother watched from the window for a long time, waiting for my father to get back from the market.					random
+ar-sent-731897b6f5af	sentences	sentence	قدّمت الآنسةُ ريم استقالتها بعد شهرين فقط من تعيينها في القسم.	Miss Reem handed in her resignation only two months after she was appointed to the department.					random
+ar-sent-5065bb50a3c3	sentences	sentence	كتبتُ اسمي على علبة الطعام حتى لا يأخذها أحد من الثلاجة.	I wrote my name on the food container so nobody would take it from the fridge.					random
+ar-sent-0fa138307ac2	sentences	sentence	يدرّس مارك اللغة الإنجليزية في معهد وسط المدينة منذ ثلاث سنوات.	Mark has been teaching English at an institute downtown for three years.					random
+ar-sent-b0c81c7dcf6b	sentences	sentence	قف مكاني في الطابور دقيقتين حتى أشتري الخبز من الفرن.	Hold my place in the queue for two minutes while I get bread from the bakery.					random
+ar-sent-ccc90ddf942c	sentences	sentence	نام الطفل على وسادة عالية، فاشتكى من ألم في عنقه صباحاً.	The boy slept on a high pillow and complained of a pain in his neck in the morning.					random
+ar-sent-aab51c69cb89	sentences	sentence	شدّ المحاضر ربطة عنقه قبل أن يدخل قاعة المؤتمر المزدحمة.	The lecturer tightened his necktie before walking into the packed conference hall.					random
+ar-sent-cb20d05e8fae	sentences	sentence	يتقاضى العمال في السوق أجرهم اليومي مساءً قبل إغلاق المحال.	The labourers in the market collect their daily wage in the evening, before the shops close.					random
+ar-sent-707dd79d4a9e	sentences	sentence	ملأت رائحة الجيف الطريق الترابي، فأغلقنا نوافذ السيارة بسرعة.	The stench of the carcasses filled the dirt road, so we quickly shut the car windows.					random
+ar-sent-19f46f1a4421	sentences	sentence	غيرت الشركة سياسة الإجازات، فصار على الموظف أن يطلبها قبل شهر.	The company changed its leave policy, so an employee now has to request time off a month ahead.					random
+ar-sent-d71c1ae4fbd2	sentences	sentence	المدينة تغيرت كثيرًا، ولم تعد كما تركتها قبل عشر سنوات.	The city has changed a great deal; it is no longer as I left it ten years ago.					random
+ar-sent-2f9a0948630c	sentences	sentence	أشعر أنّي خارج الحكاية كلّما تحدّث أصدقائي عن سنوات الجامعة.	I feel like I'm outside the story whenever my friends talk about their university years.					random
+ar-sent-0781f35fa1b5	sentences	sentence	تخبز أمي الخبز كل جمعة، فتملأ رائحته البيت والدرج معاً.	My mother bakes bread every Friday, and the smell fills the flat and the stairwell alike.					random
+ar-sent-e40a26d387f5	sentences	sentence	آمل أن يتوقف المطر قبل الغروب حتى ننشر الغسيل على السطح.	I hope the rain stops before sunset so we can hang the washing out on the roof.					random
+ar-sent-8bf4b3b82f2e	sentences	sentence	من يقدر على حمل هذه الصناديق وحده يستحق أجرا مضاعفا.	Anyone who can carry these crates on his own deserves double pay.					random
+ar-sent-bba3d95fa1e4	sentences	sentence	بدا الامتحان سهلا في أوله، ثم جاء السؤال الأخير وأربك الجميع.	The exam seemed easy at the start, and then the last question came and threw everyone.					random
+ar-sent-ce3cc195c83b	sentences	sentence	يعمل خالي مهندسًا على سفينة شحن تنقل الحبوب بين جدة وجيبوتي.	My uncle works as an engineer on a cargo ship that carries grain between Jeddah and Djibouti.					random
+ar-sent-ad1d26ac3af4	sentences	sentence	كل تفصيل في تلك الليلة ما زال محفورا في ذاكرتي.	Every detail of that night is still carved into my memory.					random
+ar-sent-583a2fc0ef1e	sentences	sentence	ما زال أهل الحي يتحدثون عن فعلة الجار الذي أطفأ الحريق بمفرده.	People in the neighbourhood still talk about what the neighbour did when he put out the fire single-handed.					random
+ar-sent-60be13fce78a	sentences	sentence	شعرت أنني أتحدث إلى حائط كلما شرحت له سبب تأخري.	I felt like I was talking to a wall every time I explained to him why I was late.					random
+ar-vocab-705	vocab	gloss	عم	from what?; about what?					dialect_headword
+ar-vocab-2917	vocab	gloss	مو	meu, baldmoney (Meum athamanticum)					dialect_headword
+ar-vocab-3596	vocab	gloss	وين	black grape					dialect_headword
+ar-vocab-3794	vocab	gloss	مش	to suck the marrow from (a bone)					dialect_headword
+ar-vocab-4072	vocab	gloss	خلاص	liberation, deliverance, riddance					dialect_headword
+ar-vocab-4187	vocab	gloss	كمان	violin					dialect_headword
+ar-vocab-4600	vocab	gloss	دول	to internationalize					dialect_headword
+ar-vocab-5219	vocab	gloss	بكرة	early morning					dialect_headword
+ar-vocab-5530	vocab	gloss	زين	to adorn, to decorate, to embellish, to ornament, to garnish					dialect_headword
+ar-vocab-6432	vocab	gloss	أوي	verbal noun of أَوَى (ʔawā) (form I)					dialect_headword
+ar-vocab-7038	vocab	gloss	يلا	come on, c’mon; let's go, hurry up					dialect_headword
+ar-vocab-12	vocab	gloss	ذلك	that (demonstrative pronoun)					rarest_sense
+ar-vocab-52	vocab	gloss	لك	varnish, lacquer					rarest_sense
+ar-vocab-53	vocab	gloss	راوند	rhubarb					rarest_sense
+ar-vocab-72	vocab	gloss	أو	indicates an inclusive disjunction					rarest_sense
+ar-vocab-142	vocab	gloss	ألا	negate a verb if the following verb is in subjunctive					rarest_sense
+ar-vocab-178	vocab	gloss	ثم	then, afterward, subsequently					rarest_sense
+ar-vocab-209	vocab	gloss	شكرا	thanks					rarest_sense
+ar-vocab-229	vocab	gloss	أمي	maternal					rarest_sense
+ar-vocab-267	vocab	gloss	دائم	lasting, enduring					rarest_sense
+ar-vocab-283	vocab	gloss	حصول	happening					rarest_sense
+ar-vocab-284	vocab	gloss	تمام	completeness, wholeness, entirety					rarest_sense
+ar-vocab-303	vocab	gloss	هؤلاء	plural of هٰذَا (hāḏā, “this”): these					rarest_sense
+ar-vocab-305	vocab	gloss	قادم	coming, approaching					rarest_sense
+ar-vocab-316	vocab	gloss	أني	to tarry, to be tardy					rarest_sense
+ar-vocab-323	vocab	gloss	الذين	animate masculine plural of اَلَّذِي (allaḏī, “who, that, which”)					rarest_sense
+ar-vocab-359	vocab	gloss	مزيد	passive participle of زَادَ (zāda)					rarest_sense
+ar-vocab-362	vocab	gloss	شيئا	accusative singular indefinite of شَيْء (šayʔ)					rarest_sense
+ar-vocab-371	vocab	gloss	تو	instantaneousness, immediacy					rarest_sense
+ar-vocab-406	vocab	gloss	سنوات	plural of سَنَة (sana)					rarest_sense
+ar-vocab-464	vocab	gloss	إليه	to him, to it					rarest_sense
+ar-vocab-489	vocab	gloss	كلام	talking, speaking					rarest_sense
+ar-vocab-493	vocab	gloss	ذات	spontaneousness					rarest_sense
+ar-vocab-514	vocab	gloss	بقاء	remaining, lasting, enduring					rarest_sense
+ar-vocab-572	vocab	gloss	دقائق	plural of دَقِيقَة (daqīqa)					rarest_sense
+ar-vocab-585	vocab	gloss	رجال	plural of رَجُل (rajul)					rarest_sense
+ar-vocab-593	vocab	gloss	تفكير	thinking, pondering					rarest_sense
+ar-vocab-632	vocab	gloss	أيام	plural of يَوْم (yawm)					rarest_sense
+ar-vocab-636	vocab	gloss	الماضي	inflection of مَاضٍ (māḍin)					rarest_sense
+ar-vocab-665	vocab	gloss	سرقة	plural of سَارِق (sāriq)					rarest_sense
+ar-vocab-680	vocab	gloss	أشياء	plural of شَيْء (šayʔ)					rarest_sense
+ar-vocab-726	vocab	gloss	حادث	to converse with					rarest_sense
+ar-vocab-739	vocab	gloss	مسدس	hexagon; sixshooter					rarest_sense
+ar-vocab-755	vocab	gloss	مانع	forbidding, prohibitive					rarest_sense
+ar-vocab-760	vocab	gloss	ساعات	plural of سَاعَة (sāʕa)					rarest_sense
+ar-vocab-775	vocab	gloss	كفاية	sufficiency; competence					rarest_sense
+ar-vocab-807	vocab	gloss	ذاك	that (demonstrative pronoun)					rarest_sense
+ar-vocab-825	vocab	gloss	معروف	known; recognized					rarest_sense
+ar-vocab-830	vocab	gloss	ورق	foliage, leaves					rarest_sense
+ar-vocab-835	vocab	gloss	غرض	to be vexed, to be distressed					rarest_sense
+ar-vocab-21	vocab	gloss	هنا	here, in this place					random
+ar-vocab-157	vocab	gloss	توقف	to stop, to come to a stop; to come to an end					random
+ar-vocab-203	vocab	gloss	يد	an appendage of a body (as of an animal)					random
+ar-vocab-377	vocab	gloss	صعب	to be hard, difficult					random
+ar-vocab-381	vocab	gloss	كرة	ball; sphere, globe					random
+ar-vocab-704	vocab	gloss	تزوج	to get married to someone, to take a spouse.					random
+ar-vocab-1112	vocab	gloss	بدء	beginning, start					random
+ar-vocab-1186	vocab	gloss	دواء	remedy, medicine, medication, drug					random
+ar-vocab-1497	vocab	gloss	أمور	plural of أَمْر (ʔamr)					random
+ar-vocab-1634	vocab	gloss	نهار	daytime, day					random
+ar-vocab-1668	vocab	gloss	بصمة	print, fingerprint, mark, footprint, imprint					random
+ar-vocab-1756	vocab	gloss	تجاري	related to trade, mercantile, commercial					random
+ar-vocab-1935	vocab	gloss	خلية	cell (all senses)					random
+ar-vocab-2068	vocab	gloss	ألماني	German					random
+ar-vocab-2107	vocab	gloss	تحذير	verbal noun of حَذَّرَ (ḥaḏḏara) (form II)					random
+ar-vocab-2278	vocab	gloss	ممتعة	feminine singular of مُمْتِع (mumtiʕ)					random
+ar-vocab-2619	vocab	gloss	ترد	verbal noun of تَرَدَّى (taraddā) (form V)					random
+ar-vocab-3230	vocab	gloss	ملجأ	shelter, refuge, asylum					random
+ar-vocab-3291	vocab	gloss	قاطع	to separate oneself from					random
+ar-vocab-3416	vocab	gloss	ذخيرة	supply, reserve					random
+ar-vocab-3675	vocab	gloss	قطب	to gather, to collect, to bind together, to contract, to concentrate at one point					random
+ar-vocab-3926	vocab	gloss	ضر	to harm, to damage					random
+ar-vocab-4003	vocab	gloss	مخافة	fear					random
+ar-vocab-4428	vocab	gloss	زمام	reins; power, control, leads, initiative, reins					random
+ar-vocab-4464	vocab	gloss	أجبن	more cowardly					random
+ar-vocab-4695	vocab	gloss	طبل	drumming, drumbeat					random
+ar-vocab-5354	vocab	gloss	مستحيلة	feminine singular of مُسْتَحِيل (mustaḥīl)					random
+ar-vocab-5387	vocab	gloss	عقول	plural of عَقْل (ʕaql)					random
+ar-vocab-5991	vocab	gloss	نكس	to turn upside down					random
+ar-vocab-6079	vocab	gloss	أثير	air, ether					random
+ar-vocab-6170	vocab	gloss	صنبور	spout, tap, faucet					random
+ar-vocab-6260	vocab	gloss	مرسى	anchorage, harbour, marina, dock, jetty					random
+ar-vocab-6326	vocab	gloss	تنزه	to be pure, to be aloof					random
+ar-vocab-6644	vocab	gloss	أرباح	plural of رِبْح (ribḥ)					random
+ar-vocab-6706	vocab	gloss	مستعجلة	feminine singular of مُسْتَعْجِل (mustaʕjil)					random
+ar-vocab-6766	vocab	gloss	الأرجنتين	Argentina (a country in South America)					random
+ar-vocab-6902	vocab	gloss	لحق	to catch up; to follow, to come after					random
+ar-vocab-6972	vocab	gloss	ابتهج	to be cheerful over, to be delighted at, to exult at					random
+ar-vocab-7107	vocab	gloss	مجروحة	female equivalent of مَجْرُوح (majrūḥ)					random
+ar-vocab-7219	vocab	gloss	أرجواني	redbud-related; purple					random
+ar-vocab-7574	vocab	gloss	غلط	to err; to make a mistake					random
+ar-vocab-7636	vocab	gloss	اختلف	to differ (عَنْ (ʕan) from)					random
+ar-vocab-7747	vocab	gloss	يساري	leftist					random
+ar-vocab-7886	vocab	gloss	أسوار	plural of سُور (sūr)					random
+ar-vocab-7897	vocab	gloss	غري	to adhere, to stick, to be attached, to cling					random
+ar-vocab-7972	vocab	gloss	أربعمائة	four hundred					random
+ar-vocab-8094	vocab	gloss	تسخير	subjugation, conquering					random
+ar-vocab-8271	vocab	gloss	مشرب	place for drinking					random
+ar-vocab-8398	vocab	gloss	توحد	to be one, to be single					random
+ar-vocab-8876	vocab	gloss	اختبأ	to hide					random
+ar-drill-0-0	grammar	drill	{{answer}} طالب.	I am a student.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-1	grammar	drill	{{answer}} معلمة.	She is a teacher.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-2	grammar	drill	{{answer}} من مصر.	He is from Egypt.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-3	grammar	drill	{{answer}} طلاب.	We are students.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-4	grammar	drill	هل {{answer}} جوعان؟	Are you hungry?					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-5	grammar	drill	{{answer}} أصدقاء.	They are friends.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-6	grammar	drill	{{answer}} طبيبة.	You (f.) are a doctor.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-7	grammar	drill	{{answer}} أصدقائي.	You (all) are my friends.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-8	grammar	drill	{{answer}} من لبنان.	I am from Lebanon.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-9	grammar	drill	{{answer}} طالب جديد.	You (m.) are a new student.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-10	grammar	drill	{{answer}} صديقتي.	You (f.) are my friend.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-11	grammar	drill	{{answer}} مهندس.	He is an engineer.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-12	grammar	drill	{{answer}} في البيت.	She is at home.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-13	grammar	drill	{{answer}} من المدينة.	We are from the city.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-14	grammar	drill	هل {{answer}} طلاب؟	Are you (pl.) students?					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-0-15	grammar	drill	{{answer}} في المدرسة.	They are at school.					point:Personal pronouns (أنا، أنتَ، هو…)
+ar-drill-1-0	grammar	drill	الطالب {{answer}}.	The student is hardworking.					point:Nominal sentences — no 'to be'
+ar-drill-1-1	grammar	drill	البيت {{answer}}.	The house is big.					point:Nominal sentences — no 'to be'
+ar-drill-1-2	grammar	drill	القهوة {{answer}}.	The coffee is hot.					point:Nominal sentences — no 'to be'
+ar-drill-1-3	grammar	drill	أنا {{answer}}.	I am happy.					point:Nominal sentences — no 'to be'
+ar-drill-1-4	grammar	drill	الكتاب {{answer}}.	The book is new.					point:Nominal sentences — no 'to be'
+ar-drill-1-5	grammar	drill	الطقس {{answer}} اليوم.	The weather is beautiful today.					point:Nominal sentences — no 'to be'
+ar-drill-2-0	grammar	drill	{{answer}} كبير.	The house is big.					point:The definite article ال — sun and moon letters
+ar-drill-2-1	grammar	drill	{{answer}} ساخنة.	The coffee is hot.					point:The definite article ال — sun and moon letters
+ar-drill-2-2	grammar	drill	{{answer}} جديد.	The book is new.					point:The definite article ال — sun and moon letters
+ar-drill-2-3	grammar	drill	{{answer}} جميلة.	The city is beautiful.					point:The definite article ال — sun and moon letters
+ar-drill-2-4	grammar	drill	{{answer}} طويل.	The street is long.					point:The definite article ال — sun and moon letters
+ar-drill-2-5	grammar	drill	{{answer}} مفتوح.	The door is open.					point:The definite article ال — sun and moon letters
+ar-drill-2-6	grammar	drill	{{answer}} حارة اليوم.	The sun is hot today.					point:The definite article ال — sun and moon letters
+ar-drill-3-0	grammar	drill	هي {{answer}}.	She is a teacher.					point:Gender and ة (tāʾ marbūṭa)
+ar-drill-3-1	grammar	drill	هو {{answer}}.	He is a teacher.					point:Gender and ة (tāʾ marbūṭa)
+ar-drill-3-2	grammar	drill	مريم {{answer}}.	Maryam is a student.					point:Gender and ة (tāʾ marbūṭa)
+ar-drill-3-3	grammar	drill	أحمد {{answer}}.	Ahmed is a student.					point:Gender and ة (tāʾ marbūṭa)
+ar-drill-3-4	grammar	drill	أمي {{answer}}.	My mother is a doctor.					point:Gender and ة (tāʾ marbūṭa)
+ar-drill-3-5	grammar	drill	أختي {{answer}}.	My sister is an engineer.					point:Gender and ة (tāʾ marbūṭa)
+ar-drill-4-0	grammar	drill	{{answer}} كتاب.	This is a book.					point:Demonstratives (هذا / هذه)
+ar-drill-4-1	grammar	drill	{{answer}} سيارة.	This is a car.					point:Demonstratives (هذا / هذه)
+ar-drill-4-2	grammar	drill	{{answer}} بيت كبير.	This is a big house.					point:Demonstratives (هذا / هذه)
+ar-drill-4-3	grammar	drill	{{answer}} مدينة جميلة.	This is a beautiful city.					point:Demonstratives (هذا / هذه)
+ar-drill-4-4	grammar	drill	{{answer}} شاي.	This is tea.					point:Demonstratives (هذا / هذه)
+ar-drill-4-5	grammar	drill	{{answer}} شجرة.	This is a tree.					point:Demonstratives (هذا / هذه)
+ar-drill-4-6	grammar	drill	{{answer}} الرجل هناك أخي.	That man over there is my brother.					point:Demonstratives (هذا / هذه)
+ar-drill-4-7	grammar	drill	{{answer}} السيارة سيارة جديدة.	That car is a new car.					point:Demonstratives (هذا / هذه)
+ar-drill-5-0	grammar	drill	البيت {{answer}} قريب.	The big house is nearby.					point:Adjective agreement
+ar-drill-5-1	grammar	drill	عندي سيارة {{answer}}.	I have a new car.					point:Adjective agreement
+ar-drill-5-2	grammar	drill	المدينة {{answer}} بعيدة.	The beautiful city is far away.					point:Adjective agreement
+ar-drill-5-3	grammar	drill	أقرأ كتاباً {{answer}}.	I am reading a new book.					point:Adjective agreement
+ar-drill-5-4	grammar	drill	القهوة {{answer}} لذيذة.	The hot coffee is delicious.					point:Adjective agreement
+ar-drill-5-5	grammar	drill	هو رجل {{answer}}.	He is a tall man.					point:Adjective agreement
+ar-drill-6-0	grammar	drill	هذا {{answer}}.	This is a book.					point:Roots and patterns (ك ت ب)
+ar-drill-6-1	grammar	drill	هو {{answer}}.	He is a writer.					point:Roots and patterns (ك ت ب)
+ar-drill-6-2	grammar	drill	{{answer}} قريب من البيت.	The office is near the house.					point:Roots and patterns (ك ت ب)
+ar-drill-6-3	grammar	drill	{{answer}} مفتوحة اليوم.	The library is open today.					point:Roots and patterns (ك ت ب)
+ar-drill-6-4	grammar	drill	هي {{answer}}.	She is a writer.					point:Roots and patterns (ك ت ب)
+ar-drill-6-5	grammar	drill	هذا {{answer}} جميل.	This is a beautiful office.					point:Roots and patterns (ك ت ب)
+ar-drill-7-0	grammar	drill	هذا كتاب {{answer}}.	This is the student's book.					point:Iḍāfa — possession by pairing
+ar-drill-7-1	grammar	drill	باب {{answer}} مفتوح.	The door of the house is open.					point:Iḍāfa — possession by pairing
+ar-drill-7-2	grammar	drill	سيارة {{answer}} جديدة.	The teacher's car is new.					point:Iḍāfa — possession by pairing
+ar-drill-7-3	grammar	drill	اسم {{answer}} أحمد.	The boy's name is Ahmed.					point:Iḍāfa — possession by pairing
+ar-drill-7-4	grammar	drill	مفتاح {{answer}} هنا.	The car key is here.					point:Iḍāfa — possession by pairing
+ar-drill-7-5	grammar	drill	بيت {{answer}} كبير.	The family's house is big.					point:Iḍāfa — possession by pairing
+ar-drill-8-0	grammar	drill	هذا {{answer}}.	This is my book.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-1	grammar	drill	أين {{answer}}؟	Where is your car?					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-2	grammar	drill	{{answer}} كبير جداً.	His house is very big.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-3	grammar	drill	هذه {{answer}}.	This is my school.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-4	grammar	drill	{{answer}} في مصر.	My family is in Egypt.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-5	grammar	drill	اسم {{answer}} فاطمة.	My mother's name is Fatima.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-6	grammar	drill	{{answer}} جديدة.	Her car is new.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-7	grammar	drill	{{answer}} كبير.	Our house is big.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-8	grammar	drill	هل هذا {{answer}}؟	Is this your (m.) pen?					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-9	grammar	drill	{{answer}} جميلة.	His car is beautiful.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-10	grammar	drill	{{answer}} قريب من هنا.	Her house is near here.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-8-11	grammar	drill	{{answer}} أمام البيت.	Our car is in front of the house.					point:Attached pronouns (كتابي، كتابك…)
+ar-drill-9-0	grammar	drill	أنا {{answer}} العربية.	I study Arabic.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-1	grammar	drill	هو {{answer}} في بنك.	He works in a bank.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-2	grammar	drill	هي {{answer}} القهوة.	She drinks coffee.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-3	grammar	drill	نحن {{answer}} الكتب.	We read books.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-4	grammar	drill	{{answer}} إلى المدرسة كل يوم.	I go to school every day.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-5	grammar	drill	هم {{answer}} العربية.	They speak Arabic.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-6	grammar	drill	أنتَ {{answer}} الشاي؟	Do you (m.) drink tea?					point:Present tense (أدرس، يعمل…)
+ar-drill-9-7	grammar	drill	أنتَ {{answer}} بسرعة.	You (m.) speak fast.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-8	grammar	drill	هو {{answer}} القهوة في الصباح.	He drinks coffee in the morning.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-9	grammar	drill	هي {{answer}} في مستشفى.	She works in a hospital.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-10	grammar	drill	نحن {{answer}} العربية.	We are learning Arabic.					point:Present tense (أدرس، يعمل…)
+ar-drill-9-11	grammar	drill	هم {{answer}} في السوق.	They work at the market.					point:Present tense (أدرس، يعمل…)
+ar-drill-10-0	grammar	drill	أنا {{answer}} جوعان.	I am not hungry.					point:Negation (لا / ليس)
+ar-drill-10-1	grammar	drill	{{answer}} أشرب القهوة.	I don't drink coffee.					point:Negation (لا / ليس)
+ar-drill-10-2	grammar	drill	هو {{answer}} هنا.	He is not here.					point:Negation (لا / ليس)
+ar-drill-10-3	grammar	drill	هي {{answer}} أختي.	She is not my sister.					point:Negation (لا / ليس)
+ar-drill-10-4	grammar	drill	نحن {{answer}} نعمل اليوم.	We are not working today.					point:Negation (لا / ليس)
+ar-drill-10-5	grammar	drill	{{answer}} أفهم.	I don't understand.					point:Negation (لا / ليس)
+ar-drill-10-6	grammar	drill	البيت {{answer}} كبيراً.	The house is not big.					point:Negation (لا / ليس)
+ar-drill-10-7	grammar	drill	القهوة {{answer}} ساخنة.	The coffee is not hot.					point:Negation (لا / ليس)
+ar-drill-10-8	grammar	drill	{{answer}} متعباً اليوم.	I am not tired today.					point:Negation (لا / ليس)
+ar-drill-11-0	grammar	drill	{{answer}} اسمك؟	What is your name?					point:Questions (هل، ما، من، أين)
+ar-drill-11-1	grammar	drill	{{answer}} أنت الآن؟	Where are you now?					point:Questions (هل، ما، من، أين)
+ar-drill-11-2	grammar	drill	{{answer}} هذا؟	Who is this?					point:Questions (هل، ما، من، أين)
+ar-drill-11-3	grammar	drill	{{answer}} تدرس العربية؟	Do you study Arabic?					point:Questions (هل، ما، من، أين)
+ar-drill-11-4	grammar	drill	{{answer}} يبدأ الدرس؟	When does the lesson start?					point:Questions (هل، ما، من، أين)
+ar-drill-11-5	grammar	drill	{{answer}} حالك؟	How are you?					point:Questions (هل، ما، من، أين)
+ar-drill-11-6	grammar	drill	{{answer}} تدرس العربية؟	Why do you study Arabic?					point:Questions (هل، ما، من، أين)
+ar-drill-11-7	grammar	drill	{{answer}} تفعل الآن؟	What are you doing now?					point:Questions (هل، ما، من، أين)
+ar-drill-12-0	grammar	drill	هو {{answer}} العربية في الجامعة.	He studied Arabic at university.					point:Past tense (الماضي)
+ar-drill-12-1	grammar	drill	الطالب {{answer}} كثيرًا أمس.	The student studied a lot yesterday.					point:Past tense (الماضي)
+ar-drill-12-2	grammar	drill	هي {{answer}} الطب في القاهرة.	She studied medicine in Cairo.					point:Past tense (الماضي)
+ar-drill-12-3	grammar	drill	البنت {{answer}} للامتحان.	The girl studied for the exam.					point:Past tense (الماضي)
+ar-drill-12-4	grammar	drill	نحن {{answer}} معًا في المكتبة.	We studied together in the library.					point:Past tense (الماضي)
+ar-drill-12-5	grammar	drill	أمس {{answer}} الدرس كله.	Yesterday we studied the whole lesson.					point:Past tense (الماضي)
+ar-drill-12-6	grammar	drill	أنتم {{answer}} التاريخ العام الماضي.	You (pl.) studied history last year.					point:Past tense (الماضي)
+ar-drill-12-7	grammar	drill	هل {{answer}} هذا الكتاب؟	Did you (pl.) study this book?					point:Past tense (الماضي)
+ar-drill-12-8	grammar	drill	هم {{answer}} الفيزياء في ألمانيا.	They studied physics in Germany.					point:Past tense (الماضي)
+ar-drill-12-9	grammar	drill	الطلاب {{answer}} طوال الليل.	The students studied all night.					point:Past tense (الماضي)
+ar-drill-13-0	grammar	drill	غدًا {{answer}} إلى المدرسة.	Tomorrow I will go to school.					point:The future (سـ / سوف)
+ar-drill-13-1	grammar	drill	هو {{answer}} رسالة إلى صديقه.	He will write a letter to his friend.					point:The future (سـ / سوف)
+ar-drill-13-2	grammar	drill	نحن {{answer}} القهوة بعد قليل.	We will drink coffee shortly.					point:The future (سـ / سوف)
+ar-drill-13-3	grammar	drill	سوف {{answer}} الحقيقة يومًا ما.	You will know the truth one day.					point:The future (سـ / سوف)
+ar-drill-13-4	grammar	drill	هي {{answer}} في الشركة العام القادم.	She will work at the company next year.					point:The future (سـ / سوف)
+ar-drill-13-5	grammar	drill	متى {{answer}} الطائرة؟	When will the plane arrive?					point:The future (سـ / سوف)
+ar-drill-14-0	grammar	drill	{{answer}} في المدرسة.	The teachers are at the school.					point:Sound plurals (ون/ين، ات)
+ar-drill-14-1	grammar	drill	هؤلاء {{answer}} مجتهدون.	These are hard-working engineers.					point:Sound plurals (ون/ين، ات)
+ar-drill-14-2	grammar	drill	رأيت {{answer}} في المؤتمر.	I saw the teachers at the conference.					point:Sound plurals (ون/ين، ات)
+ar-drill-14-3	grammar	drill	{{answer}} يعملن في المستشفى.	The nurses (f.) work at the hospital.					point:Sound plurals (ون/ين، ات)
+ar-drill-14-4	grammar	drill	عندنا ثلاث {{answer}} جديدة.	We have three new cars.					point:Sound plurals (ون/ين، ات)
+ar-drill-14-5	grammar	drill	{{answer}} على الطاولة.	The magazines are on the table.					point:Sound plurals (ون/ين، ات)
+ar-drill-15-0	grammar	drill	قرأت ثلاثة {{answer}} هذا الشهر.	I read three books this month.					point:Broken plurals (جمع التكسير)
+ar-drill-15-1	grammar	drill	يلعب ال{{answer}} في الحديقة.	The boys are playing in the garden.					point:Broken plurals (جمع التكسير)
+ar-drill-15-2	grammar	drill	هذه ال{{answer}} قديمة جدًا.	These houses are very old.					point:Broken plurals (جمع التكسير)
+ar-drill-15-3	grammar	drill	على المكتب ثلاثة {{answer}}.	There are three pens on the desk.					point:Broken plurals (جمع التكسير)
+ar-drill-15-4	grammar	drill	زرنا عدة {{answer}} في مصر.	We visited several cities in Egypt.					point:Broken plurals (جمع التكسير)
+ar-drill-15-5	grammar	drill	في الغابة {{answer}} كثيرة.	There are many men in the forest.					point:Broken plurals (جمع التكسير)
+ar-drill-16-0	grammar	drill	عندي {{answer}} جديدان.	I have two new books.					point:The dual (المثنّى)
+ar-drill-16-1	grammar	drill	جاء {{answer}} إلى الصف.	Two students came to the class.					point:The dual (المثنّى)
+ar-drill-16-2	grammar	drill	رأيت {{answer}} أمام البيت.	I saw two men in front of the house.					point:The dual (المثنّى)
+ar-drill-16-3	grammar	drill	للطاولة {{answer}} فقط.	The table has only two legs.					point:The dual (المثنّى)
+ar-drill-16-4	grammar	drill	اشتريت {{answer}} حمراوين.	I bought two red cars.					point:The dual (المثنّى)
+ar-drill-16-5	grammar	drill	في يدي {{answer}} اثنتان.	I have two watches on my hand.					point:The dual (المثنّى)
+ar-drill-17-0	grammar	drill	الكتاب {{answer}} الطاولة.	The book is on the table.					point:Prepositions (حروف الجر)
+ar-drill-17-1	grammar	drill	أنا {{answer}} البيت الآن.	I am in the house now.					point:Prepositions (حروف الجر)
+ar-drill-17-2	grammar	drill	جئت {{answer}} المدينة.	I came from the city.					point:Prepositions (حروف الجر)
+ar-drill-17-3	grammar	drill	نذهب {{answer}} المطار.	We are going to the airport.					point:Prepositions (حروف الجر)
+ar-drill-17-4	grammar	drill	تحدثنا {{answer}} المشروع.	We talked about the project.					point:Prepositions (حروف الجر)
+ar-drill-17-5	grammar	drill	ذهبت {{answer}} صديقي.	I went with my friend.					point:Prepositions (حروف الجر)
+ar-drill-18-0	grammar	drill	الفيل {{answer}} من القطة.	The elephant is bigger than the cat.					point:Comparative & superlative (أفعل التفضيل)
+ar-drill-18-1	grammar	drill	هذا الطريق {{answer}} من ذاك.	This road is shorter than that one.					point:Comparative & superlative (أفعل التفضيل)
+ar-drill-18-2	grammar	drill	اللغة العربية {{answer}} من الإنجليزية عندي.	Arabic is harder than English for me.					point:Comparative & superlative (أفعل التفضيل)
+ar-drill-18-3	grammar	drill	القاهرة {{answer}} مدينة في مصر.	Cairo is the biggest city in Egypt.					point:Comparative & superlative (أفعل التفضيل)
+ar-drill-18-4	grammar	drill	هو {{answer}} طالب في الصف.	He is the smartest student in the class.					point:Comparative & superlative (أفعل التفضيل)
+ar-drill-18-5	grammar	drill	الصحة {{answer}} من المال.	Health is more important than money.					point:Comparative & superlative (أفعل التفضيل)
+ar-drill-19-0	grammar	drill	{{answer}} الطقس جميلًا أمس.	The weather was nice yesterday.					point:kāna — 'was / were' (كان)
+ar-drill-19-1	grammar	drill	{{answer}} الدرس طويلًا.	The lesson was long.					point:kāna — 'was / were' (كان)
+ar-drill-19-2	grammar	drill	{{answer}} البنت مريضة.	The girl was ill.					point:kāna — 'was / were' (كان)
+ar-drill-19-3	grammar	drill	{{answer}} المدينة هادئة في الصباح.	The city was quiet in the morning.					point:kāna — 'was / were' (كان)
+ar-drill-19-4	grammar	drill	{{answer}} الطلاب متعبين بعد الامتحان.	The students were tired after the exam.					point:kāna — 'was / were' (كان)
+ar-drill-19-5	grammar	drill	{{answer}} اللاعبون سعداء بالفوز.	The players were happy with the win.					point:kāna — 'was / were' (كان)
+ar-drill-20-0	grammar	drill	الكتاب مفيد، {{answer}} كله.	The book is useful; I read all of it.					point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-drill-20-1	grammar	drill	أعجبني الفيلم فـ{{answer}} مرتين.	I liked the film, so I watched it twice.					point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-drill-20-2	grammar	drill	القصة جميلة، {{answer}} من جدتي.	The story is nice; I heard it from my grandmother.					point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-drill-20-3	grammar	drill	السيارة قديمة لكنني {{answer}}.	The car is old but I love it.					point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-drill-20-4	grammar	drill	أصدقائي هنا، {{answer}} إلى البيت.	My friends are here; I invited them home.					point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-drill-20-5	grammar	drill	الضيوف وصلوا فـ{{answer}} بحرارة.	The guests arrived, so I welcomed them warmly.					point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-drill-21-0	grammar	drill	عندي {{answer}} كتب على الرف.	I have three books on the shelf.					point:Numbers 3–10 (العدد والمعدود)
+ar-drill-21-1	grammar	drill	في الصف {{answer}} بنات فقط.	There are only three girls in the class.					point:Numbers 3–10 (العدد والمعدود)
+ar-drill-21-2	grammar	drill	اشتريت {{answer}} أقلام حمراء.	I bought four red pens.					point:Numbers 3–10 (العدد والمعدود)
+ar-drill-21-3	grammar	drill	زارنا {{answer}} ضيوف مساءً.	Five guests visited us in the evening.					point:Numbers 3–10 (العدد والمعدود)
+ar-drill-21-4	grammar	drill	في اليد {{answer}} أصابع.	There are five fingers on the hand.					point:Numbers 3–10 (العدد والمعدود)
+ar-drill-21-5	grammar	drill	قرأت {{answer}} مجلات هذا الأسبوع.	I read six magazines this week.					point:Numbers 3–10 (العدد والمعدود)
+ar-drill-22-0	grammar	drill	أريد أن {{answer}} العربية جيدًا.	I want to learn Arabic well.					point:The subjunctive (المنصوب)
+ar-drill-22-1	grammar	drill	يجب أن {{answer}} الطلاب بجد.	The students must study hard.					point:The subjunctive (المنصوب)
+ar-drill-22-2	grammar	drill	{{answer}} أنساك أبدًا.	I will never forget you.					point:The subjunctive (المنصوب)
+ar-drill-22-3	grammar	drill	درست حتى {{answer}} في الامتحان.	I studied so that I would pass the exam.					point:The subjunctive (المنصوب)
+ar-drill-22-4	grammar	drill	سافرنا لكي {{answer}} العالم.	We traveled in order to see the world.					point:The subjunctive (المنصوب)
+ar-drill-22-5	grammar	drill	عليكِ أن {{answer}} من هنا مبكرًا.	You (f.) must leave here early.					point:The subjunctive (المنصوب)
+ar-drill-23-0	grammar	drill	{{answer}} أفهم الدرس أمس.	I did not understand the lesson yesterday.					point:Jussive & past negation (لم)
+ar-drill-23-1	grammar	drill	لم {{answer}} إلى الحفلة.	They did not go to the party.					point:Jussive & past negation (لم)
+ar-drill-23-2	grammar	drill	لماذا لم {{answer}} رسالتي؟	Why didn't you read my message?					point:Jussive & past negation (لم)
+ar-drill-23-3	grammar	drill	لم {{answer}} المطر منذ أسابيع.	It hasn't rained for weeks.					point:Jussive & past negation (لم)
+ar-drill-23-4	grammar	drill	لِـ{{answer}} كل واحد بدوره.	Let each one speak in turn.					point:Jussive & past negation (لم)
+ar-drill-23-5	grammar	drill	نحن لم {{answer}} الخبر بعد.	We haven't heard the news yet.					point:Jussive & past negation (لم)
+ar-drill-24-0	grammar	drill	{{answer}} الطقس جميل اليوم.	Indeed the weather is nice today.					point:inna and her sisters (إنّ وأخواتها)
+ar-drill-24-1	grammar	drill	أعتقد {{answer}} اللغة العربية مهمة.	I think that Arabic is important.					point:inna and her sisters (إنّ وأخواتها)
+ar-drill-24-2	grammar	drill	هو ذكي {{answer}} كسول قليلًا.	He is smart but a little lazy.					point:inna and her sisters (إنّ وأخواتها)
+ar-drill-24-3	grammar	drill	تأخرت {{answer}} السيارة تعطلت.	I was late because the car broke down.					point:inna and her sisters (إنّ وأخواتها)
+ar-drill-24-4	grammar	drill	ينظر إليّ {{answer}} يعرفني.	He looks at me as if he knows me.					point:inna and her sisters (إنّ وأخواتها)
+ar-drill-24-5	grammar	drill	{{answer}} النتيجة تكون جيدة.	Perhaps the result will be good.					point:inna and her sisters (إنّ وأخواتها)
+ar-drill-25-0	grammar	drill	{{answer}} الباب من فضلك.	Open the door, please.					point:The imperative (الأمر)
+ar-drill-25-1	grammar	drill	{{answer}} هنا يا أخي.	Sit here, my brother.					point:The imperative (الأمر)
+ar-drill-25-2	grammar	drill	{{answer}} الكتاب يا سارة.	Read the book, Sarah.					point:The imperative (الأمر)
+ar-drill-25-3	grammar	drill	{{answer}} معنا يا هند.	Come with us, Hind.					point:The imperative (الأمر)
+ar-drill-25-4	grammar	drill	{{answer}} أماكنكم يا أطفال.	Take your places, children.					point:The imperative (الأمر)
+ar-drill-25-5	grammar	drill	{{answer}} إلى المعلم جيدًا.	Listen to the teacher carefully.					point:The imperative (الأمر)
+ar-drill-26-0	grammar	drill	{{answer}} مفيدة للعقل.	Reading is useful for the mind.					point:The verbal noun (المصدر)
+ar-drill-26-1	grammar	drill	{{answer}} في الخارج مكلفة.	Studying abroad is expensive.					point:The verbal noun (المصدر)
+ar-drill-26-2	grammar	drill	أحب {{answer}} إلى بلاد جديدة.	I love traveling to new countries.					point:The verbal noun (المصدر)
+ar-drill-26-3	grammar	drill	{{answer}} فن جميل.	Cooking is a beautiful art.					point:The verbal noun (المصدر)
+ar-drill-26-4	grammar	drill	{{answer}} المبكر مفيد للصحة.	Waking up early is good for health.					point:The verbal noun (المصدر)
+ar-drill-26-5	grammar	drill	ساعدني {{answer}} على الهدوء.	Meditation helped me stay calm.					point:The verbal noun (المصدر)
+ar-drill-27-0	grammar	drill	هو {{answer}} مشهور في الصحيفة.	He is a famous writer at the newspaper.					point:Participles (كاتب، مكتوب)
+ar-drill-27-1	grammar	drill	الرسالة {{answer}} باللغة العربية.	The letter is written in Arabic.					point:Participles (كاتب، مكتوب)
+ar-drill-27-2	grammar	drill	الباب {{answer}} منذ الصباح.	The door has been open since morning.					point:Participles (كاتب، مكتوب)
+ar-drill-27-3	grammar	drill	هي {{answer}} ماهرة في المستشفى.	She is a skilled worker at the hospital.					point:Participles (كاتب، مكتوب)
+ar-drill-27-4	grammar	drill	الطعام {{answer}} على النار.	The food is cooked on the fire.					point:Participles (كاتب، مكتوب)
+ar-drill-27-5	grammar	drill	الطفل {{answer}} في سريره.	The child is asleep in his bed.					point:Participles (كاتب، مكتوب)
+ar-drill-28-0	grammar	drill	الرجل {{answer}} يعمل هنا طبيب.	The man who works here is a doctor.					point:Relative clauses (الذي، التي، الذين)
+ar-drill-28-1	grammar	drill	المدينة {{answer}} زرتها جميلة.	The city that I visited is beautiful.					point:Relative clauses (الذي، التي، الذين)
+ar-drill-28-2	grammar	drill	الطلاب {{answer}} نجحوا سعداء.	The students who passed are happy.					point:Relative clauses (الذي، التي، الذين)
+ar-drill-28-3	grammar	drill	هذا هو الكتاب {{answer}} أخبرتك عنه.	This is the book I told you about.					point:Relative clauses (الذي، التي، الذين)
+ar-drill-28-4	grammar	drill	الفتاة {{answer}} تغني موهوبة.	The girl who is singing is talented.					point:Relative clauses (الذي، التي، الذين)
+ar-drill-28-5	grammar	drill	الأشخاص {{answer}} ساعدوني أصدقائي.	The people who helped me are my friends.					point:Relative clauses (الذي، التي، الذين)
+ar-drill-29-0	grammar	drill	{{answer}} إن الحفلة أُجّلت.	It was said that the party was postponed.					point:The passive voice (المبني للمجهول)
+ar-drill-29-1	grammar	drill	البيت القديم {{answer}} أمس.	The old house was sold yesterday.					point:The passive voice (المبني للمجهول)
+ar-drill-29-2	grammar	drill	{{answer}} الطفل في الشتاء.	The child was born in winter.					point:The passive voice (المبني للمجهول)
+ar-drill-29-3	grammar	drill	{{answer}} الفائز في نهاية الحفل.	The winner was announced at the end of the ceremony.					point:The passive voice (المبني للمجهول)
+ar-drill-29-4	grammar	drill	هذا الكتاب {{answer}} في مصر.	This book was printed in Egypt.					point:The passive voice (المبني للمجهول)
+ar-drill-29-5	grammar	drill	اللغة العربية {{answer}} في دول كثيرة.	Arabic is used in many countries.					point:The passive voice (المبني للمجهول)
+ar-drill-30-0	grammar	drill	الأستاذ {{answer}} العربية للأجانب.	The professor teaches Arabic to foreigners.					point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-drill-30-1	grammar	drill	الأم {{answer}} الطفل كل صباح.	The mother dresses the child every morning.					point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-drill-30-2	grammar	drill	{{answer}} صديقي كل أسبوع بالرسائل.	I correspond with my friend every week by letters.					point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-drill-30-3	grammar	drill	الجمهور {{answer}} المباراة بحماس.	The audience watches the match with enthusiasm.					point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-drill-30-4	grammar	drill	المخرج {{answer}} فيلمًا جديدًا هذا العام.	The director produced a new film this year.					point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-drill-30-5	grammar	drill	الشركة {{answer}} البضاعة إلى الخارج.	The company sent the goods abroad.					point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-drill-31-0	grammar	drill	الأطفال {{answer}} العربية بسرعة.	The children learn Arabic quickly.					point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-drill-31-1	grammar	drill	الزجاج {{answer}} عندما وقع.	The glass broke when it fell.					point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-drill-31-2	grammar	drill	{{answer}} المدير بالموظفين صباحًا.	The manager met with the staff in the morning.					point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-drill-31-3	grammar	drill	نحن {{answer}} الحاسوب كل يوم في العمل.	We use the computer every day at work.					point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-drill-31-4	grammar	drill	هي {{answer}} إلى الموسيقى قبل النوم.	She listens to music before sleeping.					point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-drill-31-5	grammar	drill	الجو {{answer}} بعد المطر.	The weather became moderate after the rain.					point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-drill-32-0	grammar	drill	{{answer}} درست بجد نجحت في الامتحان.	If you study hard, you'll pass the exam.					point:The conditional (الشرط: إذا، إن، لو)
+ar-drill-32-1	grammar	drill	{{answer}} تسافر إلى مصر تر الأهرام.	If you travel to Egypt, you'll see the pyramids.					point:The conditional (الشرط: إذا، إن، لو)
+ar-drill-32-2	grammar	drill	{{answer}} كنت مكانك لقبلت العرض.	If I were in your place, I would have accepted the offer.					point:The conditional (الشرط: إذا، إن، لو)
+ar-drill-32-3	grammar	drill	إذا جاء المطر {{answer}} في البيت.	If it rains, we'll stay home.					point:The conditional (الشرط: إذا، إن، لو)
+ar-drill-32-4	grammar	drill	لو عرفت الحقيقة {{answer}} لك.	Had I known the truth, I would have told you.					point:The conditional (الشرط: إذا، إن، لو)
+ar-drill-32-5	grammar	drill	{{answer}} تعمل بجد تحقق حلمك.	If you work hard, you'll achieve your dream.					point:The conditional (الشرط: إذا، إن، لو)
+ar-drill-33-0	grammar	drill	دخل المعلم الصف {{answer}}.	The teacher entered the class smiling.					point:The circumstantial ḥāl (الحال)
+ar-drill-33-1	grammar	drill	خرج الأطفال من المدرسة {{answer}}.	The children left the school hurrying.					point:The circumstantial ḥāl (الحال)
+ar-drill-33-2	grammar	drill	شربت الشاي {{answer}}.	I drank the tea hot.					point:The circumstantial ḥāl (الحال)
+ar-drill-33-3	grammar	drill	عادت البنت إلى البيت {{answer}}.	The girl returned home tired.					point:The circumstantial ḥāl (الحال)
+ar-drill-33-4	grammar	drill	وقف الجندي أمام الباب {{answer}}.	The soldier stood before the door silent.					point:The circumstantial ḥāl (الحال)
+ar-drill-33-5	grammar	drill	نظرت إليه {{answer}}.	I looked at him astonished.					point:The circumstantial ḥāl (الحال)
+ar-drill-34-0	grammar	drill	امتلأ الإناء {{answer}}.	The vessel filled with water.					point:The specification tamyīz (التمييز)
+ar-drill-34-1	grammar	drill	ازداد الرجل {{answer}} بمرور السنين.	The man grew in wisdom over the years.					point:The specification tamyīz (التمييز)
+ar-drill-34-2	grammar	drill	هو أكثر مني {{answer}} وخبرة.	He is greater than me in knowledge and experience.					point:The specification tamyīz (التمييز)
+ar-drill-34-3	grammar	drill	طاب الطالب {{answer}}.	The student became content (lit. good in soul).					point:The specification tamyīz (التمييز)
+ar-drill-34-4	grammar	drill	اشتريت رطلًا {{answer}}.	I bought a pound of grapes.					point:The specification tamyīz (التمييز)
+ar-drill-34-5	grammar	drill	ازدادت المدينة {{answer}} هذا العقد.	The city grew in population this decade.					point:The specification tamyīz (التمييز)
+ar-drill-35-0	grammar	drill	القطار {{answer}} في الموعد دائمًا.	The train arrives on time always.					point:Weak verbs (الأفعال المعتلّة)
+ar-drill-35-1	grammar	drill	{{answer}} الحقيقة من فضلك.	Say the truth, please.					point:Weak verbs (الأفعال المعتلّة)
+ar-drill-35-2	grammar	drill	هو {{answer}} إلى الله كل ليلة.	He prays to God every night.					point:Weak verbs (الأفعال المعتلّة)
+ar-drill-35-3	grammar	drill	لم {{answer}} الطفل إلى المدرسة اليوم.	The child didn't walk to school today.					point:Weak verbs (الأفعال المعتلّة)
+ar-drill-35-4	grammar	drill	متى {{answer}} إلى البيت أمس؟	When did you return home yesterday?					point:Weak verbs (الأفعال المعتلّة)
+ar-drill-35-5	grammar	drill	نحن {{answer}} القهوة كل صباح.	We drink coffee every morning.					point:Weak verbs (الأفعال المعتلّة)
+ar-drill-36-0	grammar	drill	حضر الجميع الاجتماع {{answer}} مديرَهم.	Everyone attended the meeting except their manager.					point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-drill-36-1	grammar	drill	قرأت الكتاب كله {{answer}} الفصل الأخير.	I read the whole book except the last chapter.					point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-drill-36-2	grammar	drill	لا أشرب {{answer}} الماء.	I drink nothing but water.					point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-drill-36-3	grammar	drill	نجح الطلاب {{answer}} واحد.	The students passed except one.					point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-drill-36-4	grammar	drill	لم يبق في الصف {{answer}} طالبين.	Only two students remained in the class.					point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-drill-36-5	grammar	drill	جاء الضيوف {{answer}} صديقي المريض.	The guests came except my sick friend.					point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-drill-37-0	grammar	drill	{{answer}} أيها الطلاب، انتبهوا جيدًا.	O students, pay close attention.					point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-drill-37-1	grammar	drill	يا {{answer}} الناس، اسمعوا كلامي.	O people, hear my words.					point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-drill-37-2	grammar	drill	والله {{answer}} على تحقيق هدفي.	By God, I shall certainly work to achieve my goal.					point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-drill-37-3	grammar	drill	{{answer}} الحقيقة مهما كان الثمن.	I will certainly tell the truth whatever the cost.					point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-drill-37-4	grammar	drill	يا {{answer}} السيدة، تفضلي بالجلوس.	O madam, please have a seat.					point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-drill-37-5	grammar	drill	لَـ{{answer}} الواجب قبل النوم.	I shall certainly finish the homework before sleeping.					point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-drill-38-0	grammar	drill	{{answer}} نعبد وإياك نستعين.	You alone we worship, and You we ask for help.					point:Fronting & restriction (التقديم، إنّما)
+ar-drill-38-1	grammar	drill	{{answer}} العلم نور.	Knowledge is but a light.					point:Fronting & restriction (التقديم، إنّما)
+ar-drill-38-2	grammar	drill	ما نجح {{answer}} المجتهد.	None succeeded but the diligent one.					point:Fronting & restriction (التقديم، إنّما)
+ar-drill-38-3	grammar	drill	{{answer}} الطاولة كتاب قديم.	On the table is an old book. (fronted phrase)					point:Fronting & restriction (التقديم، إنّما)
+ar-drill-38-4	grammar	drill	{{answer}} الحق يعلو ولا يعلى عليه.	Truth alone prevails and is not overcome.					point:Fronting & restriction (التقديم، إنّما)
+ar-drill-38-5	grammar	drill	{{answer}} وحده أشكو حزني.	To You alone I complain of my sorrow. (fronted)					point:Fronting & restriction (التقديم، إنّما)
+ar-drill-39-0	grammar	drill	{{answer}} الطلاب فمجتهدون، وأما المعلمون فمخلصون.	As for the students, they are diligent; as for the teachers, devoted.					point:Literary discourse (أمّا…فـ، قد، لقد)
+ar-drill-39-1	grammar	drill	أما العمل {{answer}}أنجزناه في الوقت.	As for the work, we finished it on time.					point:Literary discourse (أمّا…فـ، قد، لقد)
+ar-drill-39-2	grammar	drill	{{answer}} وصل الضيوف قبل قليل.	The guests have indeed arrived a little while ago.					point:Literary discourse (أمّا…فـ، قد، لقد)
+ar-drill-39-3	grammar	drill	{{answer}} اجتهدت طوال العام فنجحت.	I did work hard all year, so I passed.					point:Literary discourse (أمّا…فـ، قد، لقد)
+ar-drill-39-4	grammar	drill	{{answer}} يخطئ الإنسان أحيانًا.	A person may sometimes err.					point:Literary discourse (أمّا…فـ، قد، لقد)
+ar-drill-39-5	grammar	drill	{{answer}} تغيرت المدينة كثيرًا منذ ذلك الحين.	The city has indeed changed a lot since then.					point:Literary discourse (أمّا…فـ، قد، لقد)
+ar-expl-0	grammar	explanation	Arabic has one subject pronoun per person, and in the singular both the second and the third person split by gender.  | Person | Pronoun | | --- | --- | | I | أنا | | you, masculine | أنتَ | | you, feminine | أنتِ | | he | هو | | she | هي | | we | نحن | | you, plural | أنتم | | they | هم |  The two singular 'you' forms are the same three letters — only the final vowel differs, anta to a man and anti to a woman — so unvowelled both are written أنت, and the sentence has to say which is meant.						point:Personal pronouns (أنا، أنتَ، هو…)
+ar-expl-1	grammar	explanation	Arabic drops 'to be' in the present: البيت كبير (the house [is] big), أنا سعيد (I [am] happy). Subject + predicate, nothing in between — a complete, correct sentence.						point:Nominal sentences — no 'to be'
+ar-expl-2	grammar	explanation	**ال** attaches to the noun: بيت (a house) → البيت (the house).  Before 'sun letters' (ت، د، س، ش، ص، ن…) the ل assimilates in speech: الشارع sounds ash-shāriʿ, not al-shāriʿ. Before 'moon letters' (ب، ك، م، ق…) the ل is pronounced: القمر = al-qamar.  Writing never changes — only the sound.						point:The definite article ال — sun and moon letters
+ar-expl-3	grammar	explanation	Nouns are masculine or feminine; the letter ة at the end usually marks feminine: معلم (male teacher) → معلمة (female teacher), طالب → طالبة.  Most profession and role words come in this pair.						point:Gender and ة (tāʾ marbūṭa)
+ar-expl-4	grammar	explanation	| Pointing | Masculine | Feminine | | --- | --- | --- | | this, near | هذا | هذه | | that, far | ذلك | تلك |  هذه is also the form used with the ة words. With an indefinite noun a demonstrative makes a whole sentence: هذا كتاب (this is a book); with a definite noun it points inside a phrase: هذا الكتاب (this book…), ذلك الكتاب (that book), تلك المدينة (that city).						point:Demonstratives (هذا / هذه)
+ar-expl-5	grammar	explanation	The adjective FOLLOWS the noun and matches it, feature by feature:  - gender: سيارة جديدة (a new car), the ة on both words - definiteness: بيت كبير (a big house), البيت الكبير (the big house) — ال on both or on neither - case: أقرأ كتاباً جديداً (I am reading a new book), the accusative ending on both  Two words, matching uniforms.						point:Adjective agreement
+ar-expl-6	grammar	explanation	Most Arabic words grow from a three-consonant root poured into patterns.  From ك-ت-ب (writing): كتاب (book), كاتب (writer — the 'doer' pattern), مكتب (office/desk — the 'place' pattern), مكتبة (library).  Learn to spot the root and unknown words start explaining themselves.						point:Roots and patterns (ك ت ب)
+ar-expl-7	grammar	explanation	Two nouns side by side make 'the X of Y': كتاب الطالب (the student's book), باب البيت (the door of the house). The FIRST noun never takes ال — definiteness comes from the second.  No word for 'of' at all.						point:Iḍāfa — possession by pairing
+ar-expl-8	grammar	explanation	Possessives attach to the noun, one suffix per owner:  | Owner | Suffix | Example | | --- | --- | --- | | my | ي | كتابي | | your, masculine | ك | كتابك | | his | ه | كتابه | | her | ها | كتابها | | our | نا | كتابنا |  Feminine ة opens into ت before the suffix: سيارة → سيارتي (my car).  The pattern is iḍāfa again — with a pronoun as the owner.						point:Attached pronouns (كتابي، كتابك…)
+ar-expl-9	grammar	explanation	The present conjugates with prefixes: أ (I) — أدرس (I study), ت (you/she) — تدرس, ي (he) — يدرس, ن (we) — ندرس.  'They' adds an ending too: يدرسون. Prefix first, root inside.						point:Present tense (أدرس، يعمل…)
+ar-expl-10	grammar	explanation	Two negators cover the present, one for each sentence type: لا goes before a present-tense verb (لا أفهم — I don't understand), and ليس negates a nominal sentence (هو ليس هنا — he is not here). ليس is itself a verb and conjugates:  | Person | Form | | --- | --- | | I | لستُ | | he | ليس | | she | ليست |  ليس also puts its predicate in the accusative: البيت ليس كبيراً (the house is not big). The other tenses have their own negators — لم for the past, لن for the future.						point:Negation (لا / ليس)
+ar-expl-11	grammar	explanation	ما (what, before a noun: ما اسمك؟), ماذا (what, before a verb: ماذا تفعل؟), من (who), أين (where), متى (when), كيف (how), لماذا (why) — and هل, which turns any statement into a yes/no question: هل تدرس العربية؟ (Do you study Arabic?). Question word first, sentence unchanged after it.						point:Questions (هل، ما، من، أين)
+ar-expl-12	grammar	explanation	The past tense (al-māḍī) starts from the bare 3rd-person masculine form — دَرَسَ darasa 'he studied' — and adds a subject suffix: -at (she, دَرَسَتْ), -nā (we, دَرَسْنا), -tum (you pl., دَرَسْتُم), -ū (they, دَرَسوا).  The 'I' and singular 'you' forms add only a final short vowel (دَرَسْتُ darastu, دَرَسْتَ darasta), so they look identical unvowelled. Unlike the present, the past has no subject prefix.						point:Past tense (الماضي)
+ar-expl-13	grammar	explanation	The future prefixes the present-tense verb with سـ (sa-, attached) for the near future or سوف (sawfa, separate) for a more distant or emphatic future: سَيَكْتُب sa-yaktub 'he will write', سوف أذهب sawfa adhhab 'I will go'. Negate the future with لن + subjunctive, not with these particles.						point:The future (سـ / سوف)
+ar-expl-14	grammar	explanation	The sound masculine plural leaves the singular whole and adds `ـون` (-ūn) in the subject case, `ـين` (-īn) everywhere else: مُعَلِّم → مُعَلِّمون, رأيتُ المُعَلِّمين. It is mostly for male humans.  The sound feminine plural replaces ة with `ـات` (-āt): مُعَلِّمة → مُعَلِّمات. It also covers many non-human nouns — سيّارات cars, مجلّات magazines — and unlike the masculine it is written the same in every case.  A noun that takes neither ending has a broken plural instead.						point:Sound plurals (ون/ين، ات)
+ar-expl-15	grammar	explanation	Most Arabic nouns pluralize by reshaping the word around the root rather than adding a suffix — the 'broken' plural.  The patterns are fixed and recur:  | singular | plural | romanisation | | --- | --- | --- | | كِتاب | كُتُب | kitāb → kutub | | وَلَد | أَوْلاد | walad → awlād | | بَيْت | بُيوت | bayt → buyūt | | قَلَم | أَقْلام | qalam → aqlām | | رَجُل | رِجال | rajul → rijāl | | مَدينة | مُدُن | madīna → mudun |  You still memorize the plural with each noun, but the shapes come back: وَلَد and قَلَم take the same one.						point:Broken plurals (جمع التكسير)
+ar-expl-16	grammar	explanation	Arabic has a distinct form for exactly two: `ـان` (-ān) in the subject case, `ـين` (-ayn) everywhere else.  | singular | subject case | other cases | | --- | --- | --- | | كِتاب | كِتابان | كِتابَيْن | | طالِب | طالِبان | طالِبَيْن | | سيّارة | سيّارَتان | سيّارَتَيْن |  A feminine ة opens to ت before the ending: سيّارة → سيّارَتان.  Verbs and adjectives agree in the dual too: كِتابان جديدان.						point:The dual (المثنّى)
+ar-expl-17	grammar	explanation	Prepositions (ḥurūf al-jarr) put the following noun in the genitive (-i / -in).  | preposition | romanisation | meaning | | --- | --- | --- | | في | fī | in | | على | ʿalā | on | | مِن | min | from | | إلى | ilā | to | | عن | ʿan | about | | مع | maʿa | with | | بـ | bi- | with, by | | لـ | li- | for, to |  The last two are written onto the word that follows: بالقلم 'with the pen', للمدرسة 'to the school'.  Many verbs pair with a fixed preposition: تحدّث عن 'talk about', ذهب إلى 'go to'.						point:Prepositions (حروف الجر)
+ar-expl-18	grammar	explanation	The comparative uses the pattern **أَفْعَل** (afʿal) from the adjective's root, invariable for gender, followed by مِن 'than': كبير → أَكْبَر مِن 'bigger than'.  Two root shapes contract — a doubled root writes its twin letters together, a final weak letter becomes ى: مُهِمّ → أَهَمّ 'more important', ذَكِيّ → أَذْكى 'cleverer'.  The same form becomes a superlative when it's made definite or heads an iḍāfa: الأَكْبَر / أَكْبَر مدينة 'the biggest / the biggest city'.						point:Comparative & superlative (أفعل التفضيل)
+ar-expl-19	grammar	explanation	A verbless sentence is put in the past with **كان** kāna. It keeps the subject nominative but makes the predicate — its khabar — accusative: الطقسُ جميلٌ → كان الطقسُ جميلاً 'the weather was nice'.  | subject | form | | --- | --- | | هو | كان | | هي | كانت | | هم | كانوا |  كان always agrees with its subject in gender, but in number only when the subject is a pronoun or stands ahead of it: هم كانوا متعبين, الطلابُ كانوا متعبين — with the verb first it stays singular, كان الطلابُ متعبين.						point:kāna — 'was / were' (كان)
+ar-expl-20	grammar	explanation	The object of a verb can attach to it as a suffix instead of standing as a separate word. With رأى raʾā 'he saw':  | object | suffix | verb | | --- | --- | --- | | me | ـني | رآني raʾānī | | you (m.) | ـك | رآك raʾāka | | him | ـه | رآه raʾāhu | | her | ـها | رآها raʾāhā | | them | ـهم | رآهم raʾāhum |  The same suffixes mark possession on a noun and follow a preposition, with one change: 'me' is ـي there (كتابي 'my book', لي 'for me') but ـني on a verb.						point:Object pronouns on verbs (رأيتُه، رأيتُها…)
+ar-expl-21	grammar	explanation	From 3 to 10 the counted noun is a plural in the genitive, and the number carries the OPPOSITE gender to it — polarity:  | gender of the singular | number | example | | --- | --- | --- | | masculine | ثلاثة | ثلاثة كُتُب thalāthat kutub | | feminine | ثلاث | ثلاث بنات thalāth banāt |  So the ة sits on the number when the thing counted is masculine, and comes off when it is feminine.  Read the gender off the singular, not off the plural: بِنت is feminine, so ثلاث بنات; إصبع is feminine too, so خمس أصابع.						point:Numbers 3–10 (العدد والمعدود)
+ar-expl-22	grammar	explanation	The subjunctive follows أَنْ 'that', لَنْ 'will not', and حَتّى, كَيْ or لِـ 'so that, in order to'. The verb's final ُ becomes َ: يَكْتُبُ → أن يَكْتُبَ.  Five forms end in ن instead, and that ن drops:  | person | indicative | subjunctive | | --- | --- | --- | | هما | يَكْتُبانِ | يَكْتُبا | | أنتما | تَكْتُبانِ | تَكْتُبا | | هم | يَكْتُبونَ | يَكْتُبوا | | أنتم | تَكْتُبونَ | تَكْتُبوا | | أنتِ | تَكْتُبينَ | تَكْتُبي |  The feminine plural يَكْتُبْنَ is not one of them: its ن is the subject pronoun and never drops.  لَنْ is the standard future negation.						point:The subjunctive (المنصوب)
+ar-expl-23	grammar	explanation	**لَمْ** + the jussive negates the past: لَمْ يَذْهَبْ 'he did not go' — a present-tense form with past meaning.  In the jussive the final ُ becomes sukūn ْ, and the same five forms that lose their ن in the subjunctive lose it here too: لم يَذهَبوا, لم تَذهَبي.  لِـ + the jussive gives a third-person command: لِيَذْهَبْ 'let him go'.						point:Jussive & past negation (لم)
+ar-expl-24	grammar	explanation	إِنَّ and her 'sisters' begin a nominal sentence and put its subject in the accusative: البيتُ كبيرٌ → إنَّ البيتَ كبيرٌ.  | particle | meaning | | --- | --- | | إِنَّ | indeed | | أَنَّ | that | | لَكِنَّ | but | | لِأَنَّ | because | | كَأَنَّ | as if | | لَعَلَّ | perhaps | | لَيْتَ | if only |  The predicate stays nominative.						point:inna and her sisters (إنّ وأخواتها)
+ar-expl-25	grammar	explanation	The command is built from the jussive: drop the present prefix, and where that leaves a cluster, put a helping alif in front — يَكْتُبُ → اُكْتُبْ 'write!'. The alif is vowelled u when the stem vowel is u, i otherwise: اُكْتُبْ, but اِجْلِسْ and اِفْتَحْ.  | addressee | imperative | | --- | --- | | a man | اُكْتُبْ | | a woman | اُكْتُبي | | a group of men | اُكْتُبوا | | a group of women | اُكْتُبْنَ |  A few everyday verbs are irregular and take no helping alif: تَعالَ / تَعالي 'come'.  Negative commands use لا + jussive: لا تَكْتُبْ 'don't write'.						point:The imperative (الأمر)
+ar-expl-26	grammar	explanation	The maṣdar names the action itself — English 'reading', 'the study of', 'to travel'.  A Form I maṣdar is learned with the verb: قَرَأ → قِراءة (reading), دَرَسَ → دِراسة (study), طَبَخَ → طَبْخ (cooking).  The derived forms are predictable:  | form | maṣdar pattern | example | | --- | --- | --- | | II | تَفْعيل | دَرَّسَ → تَدْريس | | III | مُفاعَلة | سافَرَ → مُسافَرة | | V | تَفَعُّل | تَأَمَّلَ → تَأَمُّل | | X | اِسْتِفْعال | اِسْتَيْقَظَ → اِسْتيقاظ |  Beside مُسافَرة, سَفَر is the everyday word for the travelling itself.  The maṣdar behaves as an ordinary noun (takes ال, iḍāfa, cases) and often replaces an 'أن + verb' clause.						point:The verbal noun (المصدر)
+ar-expl-27	grammar	explanation	The active participle (ism al-fāʿil) names the doer — كَتَبَ → كاتِب 'writer/writing', on the pattern **فاعِل** for form-I verbs.  The passive participle (ism al-mafʿūl) names the thing acted upon — كُتِبَ → مَكْتوب 'written', on the pattern **مَفْعول**.  Both work as nouns or adjectives and agree in gender and number, the feminine in ـة: كاتِبة، مَكْتوبة.  In a hollow root the middle و or ي surfaces as hamza: نامَ → نائِم 'sleeping', باعَ → بائِع 'seller'.						point:Participles (كاتب، مكتوب)
+ar-expl-28	grammar	explanation	A definite noun takes a relative pronoun agreeing with it in gender and number — الرجلُ الَّذي جاء 'the man who came'.  | Gender and number | Pronoun | | --- | --- | | m. sg. | الَّذي | | f. sg. | الَّتي | | m. pl. | الَّذينَ | | f. pl. | اللَّاتي | | m. dual | اللَّذانِ | | f. dual | اللَّتانِ |  Only the duals change for case: اللَّذَيْنِ، اللَّتَيْنِ.  The clause carries a resumptive pronoun whenever the noun is not the subject of that clause: الكتابُ الَّذي قرأتُهُ 'the book that I read', with the ـهُ that English drops. Where the noun is the subject, none appears — الَّذي جاء. After an indefinite noun no relative pronoun is used at all: رجلٌ جاء 'a man who came'.						point:Relative clauses (الذي، التي، الذين)
+ar-expl-29	grammar	explanation	The passive changes the verb's vowels, not its letters: past كَتَبَ → كُتِبَ kutiba 'was written'; present يَكْتُب → يُكْتَب yuktab 'is written'.  The doer is dropped and the object becomes the subject (nominative).  In hollow verbs the change is visible: قال qāla 'said' → قيل qīla 'was said', باع → بيع bīʿa 'was sold'.						point:The passive voice (المبني للمجهول)
+ar-expl-30	grammar	explanation	Beyond the base (form I), roots take augmented patterns with new meaning.  - Form II فَعَّل doubles the middle root letter and makes the verb causative or intensive: دَرَسَ 'study' → دَرَّسَ 'teach'. - Form III فاعَل adds an alif after the first root letter and aims the action at someone: كَتَبَ 'write' → كاتَبَ 'correspond with'. - Form IV أَفْعَل prefixes أ and is causative: خَرَجَ 'go out' → أَخْرَجَ 'take out, produce'.  All three take a u vowel on the present prefix: يُدَرِّس، يُكاتِب، يُخْرِج.						point:Derived verb forms II–IV (فعّل، فاعَل، أفعَل)
+ar-expl-31	grammar	explanation	Each of the higher forms rebuilds the root with a prefix or an infix.  - Form V تَفَعَّل is the reflexive of II: عَلَّم 'teach' → تَعَلَّم 'learn (for oneself)'. - Form VI تَفاعَل is the reciprocal of III: كاتَبَ 'correspond with' → تَكاتَبَ 'write to each other'. - Form VII اِنْفَعَل is passive or resultative: كَسَر 'break' → اِنْكَسَر 'break (intr.)'. - Form VIII اِفْتَعَل infixes ت and is often reflexive or mutual: جَمَع 'gather' → اِجْتَمَع 'gather, meet'. - Form X اِسْتَفْعَل means seek or consider: خَدَم 'serve' → اِسْتَخْدَم 'use', غَفَر 'forgive' → اِسْتَغْفَر 'ask forgiveness'.  Form IX اِفْعَلَّ is rare and confined to colours and defects: اِحْمَرَّ 'turn red'.						point:Derived verb forms V–X (تفعّل، انفعل، افتعل، استفعل)
+ar-expl-32	grammar	explanation	- إذا + past states a likely future condition, and the answer clause is past in form too though its sense is future: إذا دَرَسْتَ نَجَحْتَ 'if you study, you'll pass'. - إِنْ + jussive is the formal equivalent: إن تَدْرُسْ تَنْجَحْ. - لَوْ + past is counterfactual — it didn't happen — and its answer clause opens with لـ: لَوْ دَرَسْتَ لَنَجَحْتَ 'had you studied, you'd have passed'.  That لـ drops when the answer clause is negative: لَوْ دَرَسْتَ ما رَسَبْتَ 'had you studied, you would not have failed'.						point:The conditional (الشرط: إذا، إن، لو)
+ar-expl-33	grammar	explanation	The ḥāl is an accusative word describing the subject's or object's state while the main action happens — English '…ing' or 'while…': جاء الولدُ راكِضًا 'the boy came running', شَرِبْتُ القهوةَ ساخِنةً 'I drank the coffee hot'.  It is indefinite and agrees with its owner in gender and number, so the accusative surfaces as a different ending on each shape:  | Owner | Ending | Example | | --- | --- | --- | | m. sg. | ـًا | راكِضًا | | f. sg. | ـةً | ساخِنةً | | m. pl. | ـينَ | مُسْرِعينَ | | f. pl. | ـاتٍ | مُسْرِعاتٍ |						point:The circumstantial ḥāl (الحال)
+ar-expl-34	grammar	explanation	The tamyīz is an accusative noun that specifies what a vague amount or comparison refers to — English 'in…', 'of…', '…-wise'. It is singular, indefinite and accusative, and it follows three things:  - a verb of filling or increase: اِمْتَلأَ الكوبُ ماءً 'the cup filled with water', اِزْدادَ الطالبُ عِلمًا 'the student grew in knowledge' - a comparative: أنتَ أكثرُ مِنّي مالًا 'you are richer than me in money' - a measure or a number: اِشْتَرَيْتُ رِطْلًا عِنَبًا 'I bought a pound of grapes', عِشْرونَ كِتابًا 'twenty books'						point:The specification tamyīz (التمييز)
+ar-expl-35	grammar	explanation	Roots containing و or ي behave irregularly.  - Assimilated (مثال, initial و): the و drops in the present — وَصَلَ 'arrive' → يَصِل. - Hollow (أجوف, middle و/ي): قالَ → يَقول. The long vowel shortens in the jussive and the command — قُلْ — and before a consonant ending in the past: عادَ → عُدْتُ 'I returned'. - Defective (ناقص, final و/ي): دَعا → يَدْعو, مَشى → يَمْشي, and the weak letter drops in the jussive: لم يَدْعُ، لم يَمْشِ.						point:Weak verbs (الأفعال المعتلّة)
+ar-expl-36	grammar	explanation	إلّا excludes one item from a whole: جاء الطلابُ إلّا واحِدًا 'the students came except one' — after a full affirmative sentence the excepted noun is accusative. In a negative sentence it takes the case its own role demands: ما نَجَحَ إلّا طالِبٌ 'no one passed but a student', where طالِبٌ is the subject of the verb.  غَيْر and سِوى do the same job as nouns: what follows them is genitive, and they themselves take the case the excepted noun would have had after إلّا — جاء الطلابُ غَيْرَ واحِدٍ. سِوى never shows its ending.						point:The exception (الاستثناء: إلّا، غير، سوى)
+ar-expl-37	grammar	explanation	Address someone with يا:  - يا + a single noun: يا طالِبُ 'O student' — the noun takes a nominative-like ending and no tanwīn. - يا أيُّها + a masculine noun with الـ: يا أيُّها الناسُ 'O people'. - يا أيَّتُها + a feminine noun with الـ: يا أيَّتُها السيّدةُ 'O madam'.  For strong emphasis the energetic نون attaches to the verb after the لـ of an oath: لأَكْتُبَنَّ 'I shall certainly write', واللهِ لأَنجَحَنَّ 'by God, I will surely succeed'.						point:Vocative & emphasis (النداء والتوكيد بالنون)
+ar-expl-38	grammar	explanation	Arabic's default verb-first order can be reordered for emphasis by fronting (taqdīm): putting the object or a prepositional phrase first highlights it — إيّاكَ نَعْبُدُ 'You alone we worship', في البيتِ رجلٌ 'in the house is a man'. A fronted object pronoun appears in its إيّا- form, because a suffixed pronoun cannot stand at the head of the sentence.  Restriction ('only') is expressed with إِنَّما or with ما … إلّا: إِنَّما المؤمنونَ إخوةٌ 'the believers are but brothers', ما نَجَحَ إلّا المُجتَهِدُ 'none succeeded but the diligent'.						point:Fronting & restriction (التقديم، إنّما)
+ar-expl-39	grammar	explanation	Elevated Arabic organizes discourse with fixed devices.  - أمّا … فـ picks out a topic and comments on it: أمّا الطُّلابُ فَمُجْتَهِدونَ 'as for the students, they are diligent'. The فـ is obligatory. - قَدْ + past asserts that the action definitely happened: قد وَصَلَ 'he has indeed arrived'. لَقَدْ intensifies it. - قَدْ + present means 'may' or 'sometimes': قد يُخْطِئُ الإنسانُ 'a person sometimes errs'.						point:Literary discourse (أمّا…فـ، قد، لقد)
