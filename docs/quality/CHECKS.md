@@ -2184,7 +2184,8 @@ and none did.
    maker pinned behind an unpinned checker is only half pinned.
 3. **The tripwire measures almost nothing.** `ARABIC_DIALECT_MARKERS` is 29
    whole words at a precision the programme measured under 5%, and it flags
-   **zero rows** in the current 13,025-row bank. Widened to every tell in
+   **one row** in the current 13,025-row bank, and that hit is a headword
+   (`مش`) rather than any sentence. Widened to every tell in
    programme §1.1 it flags 22, and 17 of those have only a documented
    *non-tell* as evidence. A green `ar_register` row is not evidence of
    anything (DEBT.md).

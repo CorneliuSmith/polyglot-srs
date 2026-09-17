@@ -361,8 +361,10 @@ reviewers.
 
 ### Three measurements worth keeping
 
-**The tripwire flags zero rows.** `ARABIC_DIALECT_MARKERS` (29 whole words)
-finds nothing at all in the current 13,025-row `ar_sentences.tsv`. The 424
+**The tripwire flags one row in 13,025, and not in the sentence.**
+`ARABIC_DIALECT_MARKERS` (29 whole words) finds nothing in the `sentence`
+column of `ar_sentences.tsv` and one hit in the `word` column — the headword
+`مش`, whose sentence (مشّط شعرك قبل أن تخرج) is ordinary MSA. The 424
 word hits the programme's §2 records were measured on the 14,671-row bank
 before the prune. Widened to every tell in §1.1 it finds 22 rows — and 17 of
 those have only a documented *non-tell* (عم, دول, الحين) as their evidence.

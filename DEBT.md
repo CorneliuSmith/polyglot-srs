@@ -1173,7 +1173,9 @@ store submission.
 ## The Arabic register tripwire measures almost nothing (17 Sep 2026)
 
 `ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
-and it flags **zero rows** in the current 13,025-row `ar_sentences.tsv`.
+and it flags **one row** in the current 13,025-row `ar_sentences.tsv` — and
+that hit is in the `word` column, not the sentence: the headword `مش`, under
+a sentence that is ordinary MSA. Nothing in any sentence trips it.
 The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
 measured on the 14,671-row bank before the prune and with a wider list than
 the one in the code. Widening the code list to every tell in programme
