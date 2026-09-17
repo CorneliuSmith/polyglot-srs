@@ -346,12 +346,34 @@ the rewrite and routes it to the authored-replacement queue, which is the
 owner's settled exception: retire dialect-only meanings, but author a
 replacement rather than leave a headword with no sentence.
 
+### Calibration (full page: `ar-register-2026-09-17.md`)
+
+The judge was run over all 614 items and graded on the 56 whose answer the
+programme document asserts: **56/56, all three §3.2 gates pass.** The first
+run scored 53/56 and every miss was one class — asked "is this MSA?" of a
+frequency entry it graded the *gloss's sense* and called مش "to suck the
+marrow" MSA, which is true of the verb and false of the entry. The fix is a
+rule about whether the gloss's sense could plausibly have earned the rank;
+the seven MSA homographs in the same stratum did not flip, which is the
+evidence it generalised rather than memorised three answers.
+
+Found in the 614: **9 dialect** (the two documented sentences, each serving
+two headwords, plus مش/وين/مو/يلا and تو), **5 classical** (all in grammar
+point 37 and one Qurʾānic drill), **20 orthography-only** logged for the
+spelling pass. The 274 drills carry no dialect.
+
+**Two findings are decisions, not defects.** Grammar point 37 exists to
+teach the energic نون التوكيد, which §1.4 of the programme lists among the
+forms MSA no longer uses productively — a specification conflict both
+readers spotted and neither would resolve. And a C2 drill is Qurʾān 1:5
+verbatim as its fronting example.
+
 ### What is NOT done, plainly
 
-- **No reviewer has labelled anything.** The §3.2 agreement gate is against
-  human labels, and `--gold` reports "GOLD SET NOT LABELLED" rather than
-  inventing a figure. Two Arabic speakers from different regions is the
-  owner's settled minimum.
+- **No reviewer has labelled anything.** The §3.2 gate proper is against
+  human labels; `--gold` reports "GOLD SET NOT LABELLED" rather than
+  inventing a figure, and the 56 documented answers are 9% of the set. Two
+  Arabic speakers from different regions is the owner's settled minimum.
 - **No full pass has run** over the four file stores or the two live tables,
   because §3.2 forbids it before the gate passes.
 - **No local endpoint.** `--base-url` is built and tested against a fake

@@ -530,6 +530,65 @@ def write_fixes(rows: list[dict], stamp: str) -> tuple[Path, Path | None]:
     return FIXES, backup
 
 
+def _sql_literal(text: str) -> str:
+    return "'" + (text or "").replace("'", "''") + "'"
+
+
+def write_db_sql(results: list[dict], store: str, stamp: str) -> Path | None:
+    """Proposed queue rows as SQL for the OWNER to apply — never executed here.
+
+    `card_change_requests.author_id` is NOT NULL and references
+    `auth.users(id)`, so a machine-generated row cannot be inserted without a
+    real account to hang it on. The SQL therefore opens with a `\\set` the
+    owner fills in; running it unedited fails loudly rather than inventing an
+    author. `field` and `target_type` are both CHECK-constrained, so the
+    values written here are from those lists.
+    """
+    rows = [r for r in results
+            if r.get("verdict") in ("dialect", "classical", "unsure")]
+    if not rows:
+        return None
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    path = OUT_DIR / f"ar-register-{store}-{stamp}.sql"
+    lines = [
+        f"-- Arabic register queue, {store}, {stamp}. PREPARED, NOT APPLIED.",
+        "-- Every production write is the owner's (CLAUDE.md, programme §7).",
+        "-- card_change_requests.author_id is NOT NULL -> auth.users(id):",
+        "-- set it to the reviewing account before running, or this fails.",
+        "\\set author_id '00000000-0000-0000-0000-000000000000'",
+        "BEGIN;",
+    ]
+    if store == "db-sentences":
+        for r in rows:
+            target = r["id"].split(":", 1)[1]
+            issue = (f"Register: {r.get('verdict')}"
+                     + (f" ({r.get('variety')})" if r.get("variety") else "")
+                     + ". Evidence: " + (", ".join(r.get("evidence") or []) or "-")
+                     + ". " + (r.get("note") or ""))[:2000]
+            lines.append(
+                "INSERT INTO card_change_requests "
+                "(author_id, language_id, target_type, target_id, field, "
+                "issue, suggestion, quote) VALUES (:'author_id', "
+                f"(SELECT id FROM languages WHERE code = 'ar'), "
+                f"'example_sentence', '{target}'::uuid, 'sentence', "
+                f"{_sql_literal(issue)}, {_sql_literal(r.get('msa') or '')}, "
+                f"{_sql_literal(r.get('text') or '')});")
+    else:
+        for r in rows:
+            target = r["id"].split(":", 1)[1]
+            reason = (f"Register: {r.get('verdict')}. "
+                      + (r.get("note") or ""))[:2000]
+            lines.append(
+                "INSERT INTO translation_reviews "
+                "(vocabulary_id, locale, proposed, reason) VALUES "
+                f"('{target}'::uuid, 'ar', "
+                f"{_sql_literal(r.get('msa') or '')}, {_sql_literal(reason)}) "
+                "ON CONFLICT DO NOTHING;")
+    lines.append("COMMIT;")
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path
+
+
 def summarise(results: list[dict]) -> dict:
     counts: dict[str, int] = {}
     kinds: dict[str, int] = {}
@@ -753,6 +812,13 @@ async def main(argv: Sequence[str] | None = None) -> int:
                                         "items": len(items), "summary": summary})
     print(json.dumps(summary, ensure_ascii=False, indent=1))
     rows = fix_rows(results, args.store)
+    if args.store.startswith("db-"):
+        sql = write_db_sql(results, args.store, stamp)
+        if sql:
+            print(f"\n{sum(1 for r in results if r.get('verdict') in ('dialect', 'classical', 'unsure'))}"
+                  f" queue rows prepared as SQL -> {sql.relative_to(REPO)}")
+            print("   NOT applied. Set :author_id and run it yourself "
+                  "(programme §7); the agent never writes to production.")
     if args.apply:
         fixes, backup = write_fixes(rows, stamp)
         print(f"\n{len(rows)} proposed fixes -> {fixes.relative_to(REPO)} "
