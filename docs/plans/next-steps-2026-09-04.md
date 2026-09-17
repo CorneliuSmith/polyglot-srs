@@ -152,7 +152,10 @@ items are built on request, in a session.
   checker and the sentence/drill reviewers said only "Arabic". **Step 0
   done 17 Sep 2026:** `register_line` on every prompt, the support-locale
   case, and a call-site test. **Owner:** re-run the Arabic sentence and
-  drill checkers with the pinned prompt (`docs/quality/refeed.md`). Then the eval harness, the
+  drill checkers with the pinned prompt (`docs/quality/refeed.md`). The
+  **register programme** for the existing content — gold set, local judge
+  over every row, per-store fix paths, reviewer checklist and write-up —
+  is `docs/quality/ar-register-programme.md` (17 Sep). Then the eval harness, the
   OpenAI-compatible provider seam (ROADMAP (b)), an Arabic-native 7–8B
   model (Falcon-H1-Arabic or Jais-2) shadowing as a register judge and on
   Speak, and an `<msa>`-tagged LoRA on the app's own corpus — switched per
