@@ -1465,6 +1465,14 @@ does not remove them from production (Phase 6 note above).
 
 ### Phase 7 — Topic Lens classification (owner decision, 30 Aug 2026: LAST)
 
+**First three courses classified, 17 Sep 2026.** `tr`, `en` and `ru` top-1000
+bands — 3,159 words — are in `data/topics/{tr,en,ru}.json`, maker plus a
+checker over the 51% the maker was least sure of, 85 corrections taken, all
+22 visible buckets used in each course, zero slugs the CHECK would reject.
+The owner runs three `--topics-file` commands; nothing is applied yet.
+Report: `docs/quality/topic-lens-2026-09-17.md`. The remaining ~206,500 rows
+are unchanged by this and the order below still holds.
+
 **Deferred on purpose.** The feature shipped complete — migration 20261009,
 the 24-slug frozen taxonomy, `vocab_needing_topic` / `set_vocab_ai_topic`,
 the review queue with bulk confirm-and-reject by (language, topic), and

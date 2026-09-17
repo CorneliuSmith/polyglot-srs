@@ -1240,3 +1240,18 @@ A detail worth keeping: the pass turns a failed batch into `unsure` for
 each of its rows rather than dropping it. In a verdict count a missing row
 and a clean row are indistinguishable, so a silent drop reads as "this
 content is fine" — which is quality rule 14 from the other direction.
+
+**Maker–checker where the checker only sees the doubtful half**
+(Topic Lens, 17 Sep 2026). Classifying 3,159 words into 24 buckets is the
+kind of job where checking everything costs as much as doing it twice. The
+cheaper shape: the maker returns a confidence with every call, and the
+checker is given only what the maker rated below 0.7 **plus every
+assignment in the known dustbin bucket** — here `abstract_general`, which
+the maker was explicitly told is not a bin for words it found hard. That is
+51% of the set, it caught 85 real corrections, and the 5% disagreement rate
+is itself the evidence the maker's confidence meant something.
+
+The pattern generalises: when a pass self-reports confidence, the checker's
+budget belongs where the confidence is low and where the *output shape*
+says someone gave up. A flat random sample would have spent most of its
+reads on the 49% neither signal flagged.
