@@ -21,14 +21,23 @@ const NO_FACE = new Set(['he', 'el'])
 
 export function handFontFor(code: string | undefined, style?: string): HandFont {
   if (!code) return { family: 'cursive' }
+  // The teaching faces match the strokes' source (scripts/strokes/
+  // gen_from_fonts.py): what the learner traces and what they see beside
+  // it are the same letterforms.
+  if (ARABIC_SCRIPT.has(code) && style === 'naskh') {
+    return { family: "'Noto Naskh Arabic'", google: 'Noto+Naskh+Arabic:wght@400' }
+  }
   if (ARABIC_SCRIPT.has(code)) return { family: "'Aref Ruqaa'", google: 'Aref+Ruqaa:wght@400' }
   // Russian cursive is a joined hand (propisi); Marck Script is the one
   // Google face that writes it that way. Caveat is an upright hand.
   if (code === 'ru' && style === 'cursive') return { family: "'Marck Script'", google: 'Marck+Script' }
+  if (code === 'ru' && style === 'print') return { family: 'sans-serif' }
   if (code === 'hi') return { family: 'Kalam', google: 'Kalam:wght@400' }
   if (code === 'ko') return { family: "'Nanum Pen Script'", google: 'Nanum+Pen+Script' }
   if (code === 'th') return { family: 'Sriracha', google: 'Sriracha' }
   if (NO_FACE.has(code)) return { family: 'cursive' }
+  if (style === 'cursive') return { family: "'Dancing Script'", google: 'Dancing+Script:wght@500' }
+  if (style === 'print') return { family: 'sans-serif' }
   // Caveat covers Latin and Cyrillic, which is every remaining course.
   return { family: 'Caveat', google: 'Caveat:wght@500' }
 }

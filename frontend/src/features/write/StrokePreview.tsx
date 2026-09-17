@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { fitComposed } from './composer'
 import type { Composed } from './composer'
-import { fromGlyphBox } from './glyphBox'
+import { fromGlyphBox, fromGlyphBoxFit } from './glyphBox'
 
 /**
  * A stored glyph, drawn stroke by stroke: the Learn animation of the
@@ -17,9 +17,13 @@ export default function StrokePreview({
   height,
   playing = true,
   onDone,
+  fit = 'ink',
 }: {
   strokes: number[][][]
   size?: number
+  /** 'ink' fills the preview with the letter; 'box' keeps the script's em
+   * scale so an alif stands taller than a ب beside it. */
+  fit?: 'ink' | 'box'
   /** A composed word or line instead of one glyph: drawn into width × height. */
   composed?: Composed
   width?: number
@@ -41,7 +45,7 @@ export default function StrokePreview({
     const ctx = canvas.getContext?.('2d')
     if (!ctx) return
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-    const paths = composed ? fitComposed(composed, cw, ch).strokes : fromGlyphBox(strokes, size)
+    const paths = composed ? fitComposed(composed, cw, ch).strokes : fit === 'box' ? fromGlyphBox(strokes, size) : fromGlyphBoxFit(strokes, size)
     const total = paths.reduce((n, s) => n + s.length, 0)
     let shown = playing ? 0 : total
     let raf = 0
@@ -98,7 +102,7 @@ export default function StrokePreview({
     return () => {
       if (raf) cancelAnimationFrame(raf)
     }
-  }, [strokes, size, composed, cw, ch, playing, tick, onDone])
+  }, [strokes, size, composed, cw, ch, playing, tick, onDone, fit])
 
   return (
     <canvas

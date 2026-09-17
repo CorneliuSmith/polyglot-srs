@@ -1852,7 +1852,11 @@
     "lesson_joins": "Enlazar {{letters}}",
     "lesson_words": "Palabras con {{letters}}",
     "lesson_sentences": "Frases",
-    "provisional": "Orden de trazos provisional: el orden y la dirección estándar, dibujados de forma esquemática por la app; todavía no lo ha trazado un hablante."
+    "provisional": "Orden de trazos provisional: el orden y la dirección estándar, dibujados de forma esquemática por la app; todavía no lo ha trazado un hablante.",
+    "formsOf": "Todas las formas de {{letter}}",
+    "formsHint": "La misma letra sola, al inicio, en medio y al final de una palabra, unida a sus vecinas. Míralas juntas y luego aprende la que te toca.",
+    "casesHint": "La misma letra en ambas cajas. Míralas juntas y luego aprende la que te toca.",
+    "joinedAs": "unida"
   },
   "more": {
     "donateTea": "Invítame a un té 🍵",

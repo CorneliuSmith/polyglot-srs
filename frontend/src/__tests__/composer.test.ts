@@ -118,3 +118,49 @@ describe('matchComposed', () => {
     expect(r.ok).toBe(false)
   })
 })
+
+describe('compose at the script scale (font-derived glyphs)', () => {
+  // Glyphs in the em box with joins, as gen_from_fonts.py writes them:
+  // x from the left ink edge, `advance` the ink width, a shared baseline.
+  const em = (glyph: string, form: string, strokes: number[][][], joins: Glyph['joins'] & { advance: number }): Glyph =>
+    ({ ...g(glyph, form, strokes), joins })
+  const ba = em('ب', 'initial', [[[120, 600], [60, 560], [0, 602]]], { advance: 120, joins_next: true, exit: [0, 602] })
+  const alifFinal = em('ا', 'final', [[[90, 600], [60, 600]], [[60, 150], [60, 610]]], { advance: 90, joins_next: false, entry: [90, 600] })
+  const alif = em('ا', 'isolated', [[[14, 150], [14, 610]]], { advance: 28, joins_next: false })
+
+  it('an initial ب and a final ا meet: the entry sits on the exit', () => {
+    const c = compose('با', 'ar', 'naskh', [ba, alifFinal, alif])
+    expect(c.missing).toEqual([])
+    const [b, a] = c.letters
+    // Right to left: ب is to the right of ا, and ا's entry (its rightmost
+    // point) lands exactly on ب's exit (its leftmost point).
+    expect(b.x).toBeGreaterThan(a.x)
+    const bExit = b.x + 0
+    const aEntry = a.x + 90
+    expect(Math.abs(aEntry - bExit)).toBeLessThan(0.5)
+    // Shared em frame: nothing is re-fitted vertically.
+    expect(c.strokes[0][0][1]).toBe(600)
+    expect(c.height).toBe(1000)
+  })
+
+  it('a non-joining letter leaves a gap, and a space a wider one', () => {
+    const c = compose('ا ا', 'ar', 'naskh', [ba, alifFinal, alif])
+    const [first, second] = c.letters
+    expect(first.x - (second.x + second.w)).toBeGreaterThan(200)
+    const d = compose('اا', 'ar', 'naskh', [ba, alifFinal, alif])
+    expect(d.letters[0].x - (d.letters[1].x + d.letters[1].w)).toBeCloseTo(50, 0)
+  })
+
+  it('cursive Latin: each letter starts where the last one ended', () => {
+    const l = em('l', 'lower', [[[0, 620], [40, 300], [80, 640]]], { advance: 80, joins_next: true, entry: [0, 620], exit: [80, 640] })
+    const o = em('o', 'lower', [[[0, 640], [30, 500], [70, 640], [90, 620]]], { advance: 90, joins_next: true, entry: [0, 640], exit: [90, 620] })
+    const c = compose('lo', 'es', 'cursive', [l, o])
+    expect(c.letters[1].x).toBe(c.letters[0].x + 80)
+    expect(c.width).toBe(170)
+  })
+
+  it('falls back to cells when any glyph lacks a scale', () => {
+    const c = compose('lo', 'es', 'print', [g('l', 'lower', L), g('o', 'lower', O)])
+    expect(c.letters[0].w).toBeGreaterThan(500) // the old fixed cell
+  })
+})

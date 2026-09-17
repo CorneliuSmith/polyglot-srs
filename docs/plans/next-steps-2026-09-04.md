@@ -142,9 +142,13 @@ items are built on request, in a session.
   provisional — teaches order and direction until a speaker traces the
   script (migration **20261023**; the bundled copy works before it,
   without recording). Russian cursive now renders in a joined face.
-  **Owner:** push 20261022 and 20261023; then, in Workspace → Workshop →
-  strokes, trace over any provisional form that looks wrong — saving
-  replaces it.
+  **17 Sep:** the library was rebuilt from standard fonts for all eight
+  scripts (Noto Naskh, Marck Script, Dancing Script, Noto Sans), words
+  compose connected, and Learn shows every form of a letter in context
+  first (migration **20261025**, guarded so no traced form is touched).
+  **Owner:** push 20261022, 20261023 and 20261025; then, in Workspace →
+  Workshop → strokes, trace over any provisional form whose order looks
+  wrong — saving replaces it.
 
 - [ ] **18. Arabic: pin MSA everywhere, then a local MSA model** (16 Sep
   2026, `docs/plans/arabic-msa-local-llm.md`). The audit found "Modern

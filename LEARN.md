@@ -819,20 +819,60 @@ it is known (`writing_progress`); drills, words and sentences, and
 letter lessons nobody has authored, are done after three clean writes or
 a mark in `writing_path`. Nothing is locked.
 
-**The provisional stroke library** (`scripts/strokes/gen_provisional.py`,
-`data/strokes/{arabic,cyrillic}.json`, the bundled copy in
-`features/write/strokes/`, migration 20261023). A typeface shows a
-letter's shape and nothing about how a hand makes it, so until a speaker
-traces a script the app carries the textbook order and direction of
-every Arabic naskh form and every Russian cursive letter as schematic
-strokes built from lines, arcs and Béziers in the glyph box, with entry
-and exit for the joins and a hint per stroke. They are marked
-`source = 'provisional'` (reviewed, so learners get them), the Learn
-step says so, the Workshop badges them, and a speaker's save over one
-replaces it. The bundled copy fills any form the server lacks, with ids
-the server will not accept, so nothing records against it — once the
-migration lands the same forms have rows and progress works. Pillow
-contact sheets from the generator are how a change is checked by eye.
+**The provisional stroke library** (`scripts/strokes/gen_from_fonts.py`,
+`data/strokes/{script}.json` for all eight scripts, the bundled copy in
+`features/write/strokes/`, migrations 20261023 then 20261025). A
+typeface shows a letter's shape and nothing about how a hand makes it,
+so until a speaker traces a script the app carries a *provisional* form
+of every letter: the **centreline of a standard font's glyph**, with a
+textbook stroke order and direction guessed by rule. The first cut drew
+letters from lines and arcs, and the owner's verdict was that it looked
+like nothing anyone writes — the Russian т came out as a print т, the
+cursive was not joined, and Arabic letters stood apart. So the generator
+now renders each form with Pillow (raqm shaping, so Arabic's initial,
+medial and final are the real positional glyphs, requested with
+zero-width joiners), thins the ink to a one-pixel skeleton (Zhang–Suen),
+prunes the spurs thinning leaves, walks each connected component into
+strokes taking the straightest continuation at every junction, rejoins
+the fragments a junction splits, and simplifies the result. Dots and
+small marks are found on the ink *before* thinning, because a filled
+disc thins to a point (size alone cannot tell the dot of ب from the body
+of medial ب — the dot is bigger); each becomes one short tick, drawn
+after the bodies. The faces are the ones learners meet — Noto Naskh
+Arabic, Marck Script (Russian propisi), Dancing Script (Latin cursive),
+Noto Sans and its Hebrew, Devanagari, Thai and Korean siblings for print
+— all OFL, fetched by the generator, not checked in. Order and direction
+are heuristics per script: right-to-left scripts start each stroke at
+its rightmost end and write bodies right to left; cursive starts at the
+leftmost; print starts at the top; bodies before marks. That is the part
+a speaker's tracing is still needed for, and the Learn step says so.
+
+Coordinates are the script's **em box**, not each glyph's ink box: 1000
+units span ascent plus descent, the baseline sits at the same height in
+every form, x runs from the glyph's left ink edge, and each form carries
+`joins: {advance, entry, exit, joins_next}` — its ink width, where a
+join comes in and goes out. That is what lets a word be *composed*
+rather than assembled: `composeEm` in `composer.ts` places each letter
+so its entry lands on the previous letter's exit (a gap of 0.05 box
+where two do not join, 0.3 for a space), walking leftwards for Arabic,
+so باب comes out as one connected word and a Cyrillic cursive word as a
+single flowing line. The old equal-cells placement remains the fallback
+whenever any letter in the word lacks an advance (a Workshop-authored
+form) and for Hangul, whose syllable blocks are a different layout.
+Drawing a single letter still fits its ink to the canvas
+(`fromGlyphBoxFit`; `StrokePreview fit="ink"`), so a dot-sized ة and a
+tall ل are both legible on their own, and the composed frame uses the
+em box so they keep their relative size in a word.
+
+**Every form in context** (`LetterForms.tsx`). The Learn step of a
+letter with more than one form — Arabic's isolated / initial / medial /
+final, a cased script's lower and upper — opens with a row showing all
+of them at once: each form's strokes small, under the letter set in the
+teaching face *in a word position* (`بـ`, `ـبـ`, `ـب` with tatweel for
+Arabic; between о's for a cursive letter), the current one marked, any
+of them a tap away. The learner sees what the letter does in every
+position before drilling the one they are on, which is the order a
+textbook teaches it in.
 
 **Teaching before the strokes exist.** Letters and Trace are always on
 Write, not only once a speaker has traced the script. Every form of every

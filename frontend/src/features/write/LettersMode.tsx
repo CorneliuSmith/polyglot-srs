@@ -7,7 +7,8 @@ import type { Glyph } from '../../api/strokes'
 import LanguageWrapper from '../../components/LanguageWrapper'
 import InkCanvas from './InkCanvas'
 import StrokePreview from './StrokePreview'
-import { fromGlyphBox } from './glyphBox'
+import { fromGlyphBoxFit } from './glyphBox'
+import LetterForms from './LetterForms'
 import type { Stroke } from './ink'
 import { matchStrokes } from './matcher'
 import { isProvisionalId, withProvisional } from './strokes/provisional'
@@ -107,7 +108,8 @@ export default function LettersMode({
   const authored = current?.authored ?? null
   const script = alphabet?.script ?? 'latin'
   const shown = current ? shapedForm(script, current.glyph, current.form) : ''
-  const template = useMemo(() => (authored ? fromGlyphBox(authored.strokes, CANVAS) : []), [authored])
+  // Ink-fitted: a font-derived glyph is a fraction of its em box.
+  const template = useMemo(() => (authored ? fromGlyphBoxFit(authored.strokes, CANVAS) : []), [authored])
 
   useEffect(() => {
     setStrokes([])
@@ -222,6 +224,21 @@ export default function LettersMode({
           </div>
         </div>
 
+        {step === 'learn' && current && (
+          <LetterForms
+            script={script}
+            style={style}
+            code={code}
+            glyph={current.glyph}
+            forms={forms.filter((f) => f.glyph === current.glyph).map((f) => ({ form: f.form, authored: f.authored }))}
+            current={current.form}
+            fontFamily={fontFamily}
+            onPick={(form) => {
+              const i = forms.findIndex((f) => f.glyph === current.glyph && f.form === form)
+              if (i >= 0) setIndex(i)
+            }}
+          />
+        )}
         {step === 'learn' && authored && (
           <div className="flex flex-wrap items-start gap-4" data-testid="letters-learn">
             <StrokePreview strokes={authored.strokes} size={200} />

@@ -197,6 +197,12 @@ export function compose(
   const owners: number[][] = []
   const missing: string[] = []
   const joined = style === 'cursive' && (script === 'cyrillic' || script === 'latin')
+  // Font-derived glyphs carry `joins.advance`: they already share the
+  // script's em box, so they are placed at true scale, each letter's entry
+  // on the previous letter's exit — a joined word actually joins.
+  if (script !== 'hangul' && placed.every((p) => (byKey.get(p.key)?.joins as { advance?: number } | undefined)?.advance)) {
+    return composeEm(text, script, placed, byKey, missing)
+  }
   let prevJoins = false
   placed.forEach((p, li) => {
     const g = byKey.get(p.key) ?? null
@@ -221,6 +227,69 @@ export function compose(
     prevJoins = joined && fitted.length > 0 && g.joins?.joins_next !== false && adjacent
   })
   return { text, width, height: H, strokes, owners, letters, missing }
+}
+
+/** Placement at the script's own scale. Each glyph's strokes are in the em
+ * box with x from its left ink edge; `advance` is its ink width. Letters
+ * that join are placed so the entry point sits on the previous exit; the
+ * rest sit a small gap apart; a space is wider. Right-to-left scripts run
+ * the cursor leftwards and the result is shifted to start at 0. */
+function composeEm(
+  text: string,
+  script: string,
+  placed: Placed[],
+  byKey: Map<string, Glyph>,
+  missing: string[],
+): Composed {
+  const rtl = RTL.has(script)
+  const gap = BOX * 0.05
+  const spaceW = BOX * 0.3
+  const letters: ComposedLetter[] = []
+  const strokes: Pt[][] = []
+  const owners: number[][] = []
+  // Spaces are not in `placed`; recover them from the cells to widen gaps.
+  const cs = cells(text)
+  let cursor = 0
+  let prevExit: Pt | null = null
+  let prevJoins = false
+  let pi = 0
+  cs.forEach((c) => {
+    if (c === ' ') {
+      cursor += rtl ? -spaceW : spaceW
+      prevExit = null
+      prevJoins = false
+      return
+    }
+    const p = placed[pi++]
+    const g = byKey.get(p.key)!
+    const joins = (g.joins ?? {}) as { advance?: number; entry?: number[]; exit?: number[]; joins_next?: boolean }
+    const adv = joins.advance ?? BOX * 0.5
+    let ox: number
+    if (prevExit && prevJoins && joins.entry) {
+      ox = prevExit[0] - joins.entry[0]
+    } else if (rtl) {
+      ox = cursor - adv
+    } else {
+      ox = cursor
+    }
+    const li = letters.length
+    letters.push({ char: p.char, form: p.form, glyph: g, x: ox, y: 0, w: adv, h: BOX })
+    for (const s of g.strokes) {
+      strokes.push(s.map(([x, y]) => [x + ox, y]))
+      owners.push(s.map(() => li))
+    }
+    prevExit = joins.exit ? [joins.exit[0] + ox, joins.exit[1]] : null
+    prevJoins = joins.joins_next === true && !!joins.exit
+    cursor = rtl ? ox - gap : ox + adv + gap
+  })
+  // Normalise so the leftmost ink starts at 0.
+  const minX = Math.min(...letters.map((l) => l.x), 0)
+  const maxX = Math.max(...letters.map((l) => l.x + l.w), 0)
+  if (minX < 0) {
+    for (const s of strokes) for (const p of s) p[0] -= minX
+    for (const l of letters) l.x -= minX
+  }
+  return { text, width: maxX - minX, height: BOX, strokes, owners, letters, missing }
 }
 
 /** Composed strokes scaled to draw into a canvas of the given width and

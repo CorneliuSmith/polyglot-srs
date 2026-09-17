@@ -817,23 +817,47 @@ pushes 20261023, the bundled copy teaches but records nothing (its ids
 are not rows), so letter lessons are finished by the *Mark done* button
 rather than by themselves.
 
+**Rebuilt 17 Sep 2026 from fonts.** The owner's review of the
+primitive-drawn library: the Russian т was a print т, the cursive did
+not join, Arabic letters did not connect, and the forms should be shown
+together in context before the drill. The library is now derived from
+standard typefaces — `scripts/strokes/gen_from_fonts.py` renders each
+form (Noto Naskh Arabic; Marck Script and Noto Sans for Russian; Dancing
+Script and Noto Sans for Latin; Noto Sans Hebrew, Devanagari, Thai, KR
+and Greek for the rest), thins it to a skeleton, walks it into strokes,
+finds the dots on the ink before thinning, and orders the strokes by
+rule — for **all eight scripts** (124 Arabic forms, 132 Cyrillic, 104
+Latin, 48 Greek, 43 Devanagari, 44 Thai, 40 Hangul jamo, 27 Hebrew).
+Coordinates moved from the ink box to the script's em box with an
+`advance` and entry/exit per form, so `composeEm` places a word by
+advance and lands each entry on the previous exit: باب is one connected
+word, a cursive word one line. Migration **20261025** upserts the rows
+over 20261023's, guarded on `source = 'provisional'` so no speaker's
+tracing is touched. `LetterForms` shows every form of the current letter
+in a word position (tatweel for Arabic, between о's for cursive) above
+the animation, each a tap away. What a font cannot give is still the
+order and direction — those are heuristics, and the Workshop tracing is
+still the fix, one form at a time.
+
 ### 13.3 The cursive was not cursive
 
 Caveat is an upright hand. Russian cursive is a joined hand (propisi),
 and **Marck Script** is the one Google face that writes it that way.
-`handFontFor(code, style)` picks it for `ru` + cursive; print keeps
-Caveat. The provisional Cyrillic library is sheared 16° for the same
-reason.
+`handFontFor(code, style)` picks it for `ru` + cursive, Noto Naskh
+Arabic for naskh, Dancing Script for Latin cursive and the sans-serif
+for print — the faces the provisional strokes were traced from, so the
+letter Learn shows and the strokes drawn over it agree.
 
 ### 13.4 What remains
 
-- The other scripts — Hebrew, Greek, Hindi, Thai, Korean, Persian's
-  Arabic base aside — have the path and the font-guided fallback, no
-  provisional strokes. The generator is the place to add them (a page
-  of primitives per script).
-- The provisional shapes are schematic; a speaker's tracing is the
-  goal and the Workshop is the tool. The generator's contact sheets
-  (`scripts/strokes/`, Pillow) are how to check a change.
+- Hebrew's library is the print alphabet; Israeli cursive is a
+  different set of shapes and no OFL face for it has been chosen. Add
+  one to the generator's `FONTS` table and a `cursive` style follows.
+- The provisional order and direction are rules, not a hand; a
+  speaker's tracing is the goal and the Workshop is the tool. The
+  generator's contact sheets are how to check a change by eye.
+- Workshop-authored forms carry no advance or entry/exit yet, so a word
+  mixing them with provisional letters falls back to cells.
 - Word steps depend on the course having beginner words made only of
   the taught letters; small courses will show "no words yet" for early
   lessons. A per-lesson drill list authored in the Workshop would fix
