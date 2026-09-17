@@ -189,9 +189,6 @@ vizuri	Nimefanya vizuri hapa.	I've done well here.	488	1SG.PERF.do · CL8.well �
 moja	Nenda moja kwa moja.	Go straight ahead.	498	go.IMP · one · by · one
 nenda	Nenda moja kwa moja.	Go straight ahead.	498	go.IMP · one · by · one
 wapi	Je, ulidhani nilikuwa wapi?	Where did you think I was?	500	Q · 2SG.PST.think · 1SG.PST.be · where
-andika	Wanaandika.	They're writing.	502	CL2.PRES.write
-andika	Mnaandika.	You're writing.	502	2PL.PRES.write
-andika	Unaandika.	You're writing.	502	2SG.PRES.write
 ukweli	Ninaogopa hiyo ndio ukweli.	I fear that is the truth.	506	1SG.PRES.fear · CL9.that · CL11.COP.EMPH · CL11.truth
 huyo	Huyo ni rafiki yako mpya?	Is that your new friend?	524	CL1.that · COP · CL9.friend · CL9.2SG.POSS · CL9.new
 yako	Huyo ni rafiki yako mpya?	Is that your new friend?	524	CL1.that · COP · CL9.friend · CL9.2SG.POSS · CL9.new
@@ -258,7 +255,6 @@ tofauti	Hali ya mume wangu ni tofauti.	My husband's situation is different.	711	
 mbaya	Uso wa kitu ni mbaya.	The surface of the object is fairly rough.	718	CL11.face · CL11.of · CL7.thing · COP · CL11.bad
 uso	Uso wa kitu ni mbaya.	The surface of the object is fairly rough.	718	CL11.face · CL11.of · CL7.thing · COP · CL11.bad
 vizuri	Alisema alikuwa amepona vizuri.	She said she had fully recovered.	720	CL1.PAST.say · CL1.PAST.be · CL1.PERF.recover · CL8.well
-pona	Alisema alikuwa amepona vizuri.	She said she had fully recovered.	720	CL1.PAST.say · CL1.PAST.be · CL1.PERF.recover · CL8.well
 hao	O heri dunia mpya yenye watu kama hao ndani yake!	O brave new world that has such people in't!	726	oh · CL9.happiness · CL9.world · CL9.new · CL9.having · CL2.person · like · CL2.those · CL9.inside · CL9.3SG.POSS
 dunia	O heri dunia mpya yenye watu kama hao ndani yake!	O brave new world that has such people in't!	726	oh · CL9.happiness · CL9.world · CL9.new · CL9.having · CL2.person · like · CL2.those · CL9.inside · CL9.3SG.POSS
 kama	O heri dunia mpya yenye watu kama hao ndani yake!	O brave new world that has such people in't!	726	oh · CL9.happiness · CL9.world · CL9.new · CL9.having · CL2.person · like · CL2.those · CL9.inside · CL9.3SG.POSS
@@ -271,7 +267,6 @@ kosa	Ulifanya kosa hilo kwa kusudi, sivyo?	You made that mistake on purpose, did
 sivyo	Ulifanya kosa hilo kwa kusudi, sivyo?	You made that mistake on purpose, didn't you?	728	2SG.PAST.do · CL5.mistake · CL5.that · with · CL5.purpose · NEG.COP.CL8.like.that
 kusudi	Ulifanya kosa hilo kwa kusudi, sivyo?	You made that mistake on purpose, didn't you?	728	2SG.PAST.do · CL5.mistake · CL5.that · with · CL5.purpose · NEG.COP.CL8.like.that
 hilo	Ulifanya kosa hilo kwa kusudi, sivyo?	You made that mistake on purpose, didn't you?	728	2SG.PAST.do · CL5.mistake · CL5.that · with · CL5.purpose · NEG.COP.CL8.like.that
-weka	Uliweka wakati.	You made good time.	729	2SG.PAST.put · CL11.time
 lini	Unadhani ataacha lini?	When do you think he'll stop?	736	2SG.PRES.think · CL1.FUT.stop · when
 hata	Yeye hana moyo hata kidogo.	He has no heart at all.	741	3SG · NEG.CL1.have · CL3.heart · even · CL7.little
 hana	Yeye hana moyo hata kidogo.	He has no heart at all.	741	3SG · NEG.CL1.have · CL3.heart · even · CL7.little
@@ -302,7 +297,6 @@ mzima	Umekuwa macho usiku mzima, ama sivyo?	You've been up all night, haven't yo
 macho	Umekuwa macho usiku mzima, ama sivyo?	You've been up all night, haven't you?	807	2SG.PERF.be · CL6.eye · CL11.night · CL11.whole · or · NEG.COP.CL8.like.that
 ama	Umekuwa macho usiku mzima, ama sivyo?	You've been up all night, haven't you?	807	2SG.PERF.be · CL6.eye · CL11.night · CL11.whole · or · NEG.COP.CL8.like.that
 mezani	Aliweka kitabu mezani.	He put the book on the table.	813	CL1.PAST.put · CL7.book · CL9.table.LOC
-weka	Aliweka kitabu mezani.	He put the book on the table.	813	CL1.PAST.put · CL7.book · CL9.table.LOC
 kuishi	"""Ni bora kufa kwa miguu yako kuliko kuishi kwa magoti yako."" ""Basi kwa nini bado uko hai?"""	"""It's better to die on your feet than to live on your knees."" ""Then why are you still alive?"""	816	COP · better · INF.die · by · CL4.foot · CL4.2SG.POSS · than · INF.live · by · CL6.knee · CL6.2SG.POSS · then · for · what · still · 2SG.be.at · alive
 hai	"""Ni bora kufa kwa miguu yako kuliko kuishi kwa magoti yako."" ""Basi kwa nini bado uko hai?"""	"""It's better to die on your feet than to live on your knees."" ""Then why are you still alive?"""	816	COP · better · INF.die · by · CL4.foot · CL4.2SG.POSS · than · INF.live · by · CL6.knee · CL6.2SG.POSS · then · for · what · still · 2SG.be.at · alive
 magoti	"""Ni bora kufa kwa miguu yako kuliko kuishi kwa magoti yako."" ""Basi kwa nini bado uko hai?"""	"""It's better to die on your feet than to live on your knees."" ""Then why are you still alive?"""	816	COP · better · INF.die · by · CL4.foot · CL4.2SG.POSS · than · INF.live · by · CL6.knee · CL6.2SG.POSS · then · for · what · still · 2SG.be.at · alive
@@ -322,7 +316,6 @@ mzuri	Yeye ni mwanafunzi mzuri.	She is a good student.	832	CL1 · COP · CL1.stu
 mzuri	Yeye ni mwanamke mzuri.	She's a good woman.	832	CL1 · COP · CL1.woman · CL1.good
 mzuri	Wewe ni mzuri.	You're pretty.	832	2SG · COP · CL1.good
 minyororo	Niliweka kando minyororo yangu.	I cast aside my chains.	834	1SG.PST.put · aside · CL4.chain · CL4.POSS.1SG
-weka	Niliweka kando minyororo yangu.	I cast aside my chains.	834	1SG.PST.put · aside · CL4.chain · CL4.POSS.1SG
 karibu	Je! Kuna mto popote karibu na hapa?	Is there a river anywhere near here?	839	Q · CL17.have · CL3.river · anywhere · near · with · CL16.here
 mto	Je! Kuna mto popote karibu na hapa?	Is there a river anywhere near here?	839	Q · CL17.have · CL3.river · anywhere · near · with · CL16.here
 popote	Je! Kuna mto popote karibu na hapa?	Is there a river anywhere near here?	839	Q · CL17.have · CL3.river · anywhere · near · with · CL16.here
@@ -330,7 +323,6 @@ usiku	Nimekuwa macho tangu asubuhi 8:30 usiku.	I've been up since 2:30 this morn
 tangu	Nimekuwa macho tangu asubuhi 8:30 usiku.	I've been up since 2:30 this morning.	842	1SG.PERF.be · CL6.eye · since · CL9.morning · 8:30 · CL11.night
 macho	Nimekuwa macho tangu asubuhi 8:30 usiku.	I've been up since 2:30 this morning.	842	1SG.PERF.be · CL6.eye · since · CL9.morning · 8:30 · CL11.night
 asubuhi	Nimekuwa macho tangu asubuhi 8:30 usiku.	I've been up since 2:30 this morning.	842	1SG.PERF.be · CL6.eye · since · CL9.morning · 8:30 · CL11.night
-kasirika	Alisema kuwa alikuwa amekasirika.	He said that he's furious.	853	CL1.PST.say · COMP · CL1.PST.be · CL1.PERF.be_angry
 mengi	Nina mambo mengi ya kufanya leo.	I have a good many things to do today.	869	1SG.have · CL6.matter · CL6.many · CL6.of · INF.do · today
 nina	Nina mambo mengi ya kufanya leo.	I have a good many things to do today.	869	1SG.have · CL6.matter · CL6.many · CL6.of · INF.do · today
 leo	Nina mambo mengi ya kufanya leo.	I have a good many things to do today.	869	1SG.have · CL6.matter · CL6.many · CL6.of · INF.do · today
@@ -1248,7 +1240,6 @@ mazito	Majani mazito yako kwenye barabara hiyo.	Leaves lay thick in the lane.	32
 majani	Majani mazito yako kwenye barabara hiyo.	Leaves lay thick in the lane.	3229	CL6.leaf · CL6.heavy · CL6.COP.LOC · on · CL9.road · CL9.that
 mwerevu	Dada yangu ni mwerevu sana!	My sister is a genius!	3232	CL9.sister · CL9.1SG.POSS · COP · CL1.clever · very
 dada	Dada yangu ni mwerevu sana!	My sister is a genius!	3232	CL9.sister · CL9.1SG.POSS · COP · CL1.clever · very
-toka	Ninatoka Amerika.	I come from America.	3235	1SG.PRES.come_from · America
 ziara	Alifanya ziara ya Amerika, huku akisimama katika miji sita.	She made a tour of America, stopping in six cities.	3235	CL1.PST.do · CL9.tour · CL9.of · America · while · CL1.PROG.stop · in · CL4.city · six
 miji	Alifanya ziara ya Amerika, huku akisimama katika miji sita.	She made a tour of America, stopping in six cities.	3235	CL1.PST.do · CL9.tour · CL9.of · America · while · CL1.PROG.stop · in · CL4.city · six
 huku	Alifanya ziara ya Amerika, huku akisimama katika miji sita.	She made a tour of America, stopping in six cities.	3235	CL1.PST.do · CL9.tour · CL9.of · America · while · CL1.PROG.stop · in · CL4.city · six
@@ -1315,7 +1306,6 @@ fikiria	Je, unafikiria chumba chako ni kidogo sana?	Do you think your room is to
 chako	Je, unafikiria chumba chako ni kidogo sana?	Do you think your room is too small?	3316	Q · 2SG.PRES.think · CL7.room · CL7.2SG.POSS · COP · CL7.small · very
 chumba	Je, unafikiria chumba chako ni kidogo sana?	Do you think your room is too small?	3316	Q · 2SG.PRES.think · CL7.room · CL7.2SG.POSS · COP · CL7.small · very
 piga	Je, unafikiria nilikuwa na piga kelele sana?	Did you think I was making too much noise?	3316	Q · 2SG.PRES.think · 1SG.PST.be · with · hit · CL5.noise · very
-kwisha	Yeye amekwisha kunywa pombe.	He's been drinking beer.	3334	3SG · CL1.PERF.already · INF.drink · CL9.beer
 pombe	Yeye amekwisha kunywa pombe.	He's been drinking beer.	3334	3SG · CL1.PERF.already · INF.drink · CL9.beer
 pombe	Unakaa kuwa umekunywa pombe.	You look like you're drunk.	3334	2SG.PRES.seem · that · 2SG.PERF.drink · CL9.beer
 omba	Ni bora Kama utaomba msamaha mapema.	If you're going to apologise, sooner is better.	3337	COP · better · if · 2SG.FUT.ask · CL3.forgiveness · early
@@ -1454,15 +1444,12 @@ ania	Magdalena na Ania ni marafiki wazuri	Magdalena and Ania are good friends.	1
 wazuri	Magdalena na Ania ni marafiki wazuri	Magdalena and Ania are good friends.	19999	CL1.Magdalena · and · CL1.Ania · COP · CL2.friend · CL2.good
 kurudia	Utaweza kurudia ulichosema?	Could you say that again?	19999	2SG.FUT.be.able · INF.repeat · 2SG.PST.CL7.REL.say
 yupo	Mamako yupo nyumbani?	Is your mum at home?	19999	CL1.mother.2SG.POSS · CL1.be.at · CL9.house.LOC
-toka	Ninatoka Australia.	I come from Australia.	19999	1SG.PRES.come.from · Australia
-toka	Ninatoka Brazil.	I come from Brazil.	19999	1SG.PRES.come.from · Brazil
 muziki	Melanie anapenda muziki.	Melanie likes music.	19999	CL1.Melanie · CL1.PRES.like · CL3.music
 nywa	Millie ananywa maji.	Millie is drinking water.	19999	CL1.Millie · CL1.PRES.drink · CL6.water
 ninataka	Ninataka kunywa chai.	I want to drink tea.	19999	1SG.PRES.want · INF.drink · CL9.tea
 mtawala	Mtawala alikuwa na wana wasita.	A monarch had six sons.	19999	CL1.ruler · CL1.PST.be · with · CL2.child · CL2.six
 muziki	Sisikilizi muziki.	I'm not listening to music.	19999	1SG.NEG.listen · CL3.music
 kupenda	Ninakupenda, Millie!	I love you, Millie!	19999	1SG.PRES.2SG.OBJ.love · CL1.Millie.VOC
-pita	Atapita mtihani kwa hakika.	She'll pass the exam for sure.	19999	CL1.FUT.pass · CL3.exam · for · CL9.certainty
 njaa	Millie ana njaa.	Millie is hungry.	19999	PERS · CL1.have · CL9.hunger
 nyinyi	Nyinyi ni waalimu.	You are teachers.	19999	2PL · COP · CL2.teacher
 kulia	Maktaba ni upande wa kulia.	The library is to the right.	19999	CL9.library · COP · CL11.side · CL11.of · CL17.right
@@ -1470,7 +1457,6 @@ upande	Maktaba ni upande wa kulia.	The library is to the right.	19999	CL9.librar
 kushoto	Maktaba ni upande wa kushoto.	The library is to the left.	19999	CL9.library · COP · CL11.side · CL11.of · CL17.left
 upande	Maktaba ni upande wa kushoto.	The library is to the left.	19999	CL9.library · COP · CL11.side · CL11.of · CL17.left
 vunja	Ulivunja meza uliyekuwa ukikaa.	You broke the table you were sitting on.	19999	2SG.PST.break · CL9.table · 2SG.PST.REL.be · 2SG.PROG.sit
-fundisha	Anafundisha Kiarabu.	He is teaching Arabic.	19999	CL1.PRES.teach · CL7.Arabic
 hapendi	Hamisi hapendi sukari.	Hamisi doesn't want sugar.	19999	PERS · CL1.NEG.like · CL9.sugar
 tatu	Hii ni wiki yangu ya tatu.	This is my third week.	19999	CL9.this · COP · CL9.week · CL9.1SG.POSS · CL9.of · three
 miji	Kuna miji mingi mikubwa katika Brazil.	There are a lot of big cities in Brazil.	19999	CL17.there.are · CL4.city · CL4.many · CL4.big · in · Brazil
@@ -2483,7 +2469,6 @@ ngome	Binti mfalme akatoka katika ngome ya shaba na kuwa Malkia; hilo lilimfurah
 nenda	Nenda ukamchukue.	Go pick him up.	19999	go.IMP · 2SG.CONSEC.CL1.OBJ.take.SBJV
 nyara	Kwa nini mtu yeyote ataniteka nyara?	Why would anybody kidnap me?	19999	for · what · CL1.person · CL1.any · CL1.FUT.1SG.OBJ.capture · CL10.plunder
 tai	Nimepata tai nzuri ya kumpa.	I found a nice tie for her.	19999	1SG.PERF.get · CL9.necktie · CL9.good · CL9.of · INF.CL1.OBJ.give
-geuka	Wote waligeuka kuwaangalia.	They all turned to look at them.	19999	CL2.all · CL2.PST.turn · INF.CL2.OBJ.look_at
 gundua	Walinzi waligundua shimo kwenye chumba cha gereza cha Dan.	The guards discovered a tunnel in Dan's cell.	19999	CL2.guard · CL2.PST.discover · CL5.hole · in · CL7.room · CL7.of · CL5.prison · CL7.of · PERS
 shimo	Walinzi waligundua shimo kwenye chumba cha gereza cha Dan.	The guards discovered a tunnel in Dan's cell.	19999	CL2.guard · CL2.PST.discover · CL5.hole · in · CL7.room · CL7.of · CL5.prison · CL7.of · PERS
 gereza	Walinzi waligundua shimo kwenye chumba cha gereza cha Dan.	The guards discovered a tunnel in Dan's cell.	19999	CL2.guard · CL2.PST.discover · CL5.hole · in · CL7.room · CL7.of · CL5.prison · CL7.of · PERS
@@ -2796,3 +2781,482 @@ agano	Tom anasoma Agano Jipya.	Tom reads the New Testament.	19999	PERS · CL1.PR
 jipya	Tom anasoma Agano Jipya.	Tom reads the New Testament.	19999	PERS · CL1.PRES.read · CL5.covenant · CL5.new
 kusali	Tom anaweza kusali wakati wowote.	Tom can pray at any time.	19999	PERS · CL1.PRES.be.able · INF.pray · CL11.time · CL11.any
 wowote	Tom anaweza kusali wakati wowote.	Tom can pray at any time.	19999	PERS · CL1.PRES.be.able · INF.pray · CL11.time · CL11.any
+watakatifu	Kanisa letu lina picha za watakatifu wengi ukutani.	Our church has pictures of many saints on the wall.	707	
+watakatifu	Wanafunzi walijifunza historia ya watakatifu wa zamani darasani leo.	The students learned the history of the saints of old in class today.	707	
+mwokozi	Yule kijana aliyemtoa mtoto majini ni mwokozi wa kweli.	That young man who pulled the child out of the water is a real saviour.	708	
+mwokozi	Daktari huyo alikuwa mwokozi wangu baada ya ajali ile mbaya.	That doctor was my saviour after that bad accident.	708	
+gizani	Tulikaa gizani kwa saa mbili baada ya umeme kukatika.	We sat in the dark for two hours after the power went out.	713	
+gizani	Paka wetu hupenda kuwinda gizani, hasa usiku wa manane.	Our cat loves to hunt in the dark, especially in the middle of the night.	713	
+madhabahu	Fundi alipaka rangi madhabahu ya kanisa kabla ya sherehe ya Jumapili.	The craftsman painted the church altar before Sunday's celebration.	714	
+madhabahu	Maua mapya yamewekwa juu ya madhabahu leo asubuhi.	Fresh flowers were placed on the altar this morning.	714	
+mwovu	Katika hadithi ile, mwovu alitubu mwishoni na kuomba msamaha.	In that story the evil man repented at the end and asked for forgiveness.	715	
+mwovu	Mwovu huyo aliwatisha wanakijiji kwa miaka mingi kabla ya kukamatwa.	That evil man terrorised the villagers for years before he was caught.	715	
+pona	Dada yangu, pona haraka, tunakusubiri uwanjani wiki ijayo.	Sister, get well quickly, we are waiting for you at the field next week.	719	
+pona	Pona kwanza, halafu tutazungumzia hilo suala la kazi yako.	Get well first, then we will discuss that matter about your work.	719	
+watawala	Watawala wa zamani walijenga ngome kubwa pwani ya Kilwa.	The rulers of old built a great fort on the Kilwa coast.	721	
+watawala	Wananchi waliwalalamikia watawala kuhusu bei za vyakula sokoni.	The citizens complained to the rulers about food prices at the market.	721	
+weka	Weka sukari kidogo kwenye chai yangu, sipendi vinywaji vitamu sana.	Put a little sugar in my tea, I don't like very sweet drinks.	728	
+weka	Baada ya kupika, weka sufuria mezani na uwaite watoto.	After cooking, put the pot on the table and call the children.	728	
+kukubaliwa	Alifurahi sana baada ya kukubaliwa katika chuo kikuu cha Nairobi.	She was very happy after being accepted at the University of Nairobi.	731	
+kukubaliwa	Pendekezo lake lilistahili kukubaliwa, lakini wajumbe walilikataa kwa haraka.	His proposal deserved to be accepted, but the delegates rejected it out of hand.	731	
+mbatizaji	Kasisi ndiye mbatizaji wa watoto wote katika kanisa letu dogo.	The priest is the one who baptises all the children in our little church.	733	
+mbatizaji	Mbatizaji alisimama kwenye maji baridi akiwangoja waumini wafike ufukweni.	The baptiser stood in the cold water waiting for the congregation to reach the shore.	733	
+vyake	Vitabu vyake vyote vimelowa kwa sababu aliacha dirisha wazi usiku.	All his books got soaked because he left the window open overnight.	734	
+vyake	Mtoto alipoteza viatu vyake shuleni, hivyo mama yake alimnunulia vingine.	The child lost his shoes at school, so his mother bought him another pair.	734	
+mlimani	Tulipanda mlimani mapema asubuhi ili tuone jua likichomoza.	We climbed up the mountain early in the morning so that we could see the sun rise.	736	
+mlimani	Kuna kijiji kidogo mlimani ambako wakulima hulima viazi kila mwaka.	There is a small village up the mountain where the farmers grow potatoes every year.	736	
+waovu	Katika hadithi za bibi, wanyama waovu daima hushindwa mwishoni.	In grandmother's stories the wicked animals always lose in the end.	738	
+waovu	Watu waovu walichoma duka la jirani wetu usiku, lakini wanakijiji walimsaidia kulijenga upya.	Wicked people burned our neighbour's shop at night, but the villagers helped him rebuild it.	738	
+huohuo	Tulikutana tena mwaka huohuo katika mkutano wa walimu jijini Arusha.	We met again that same year at a teachers' conference in the city of Arusha.	746	
+huohuo	Ugonjwa huohuo ulimrudia babu baada ya miezi mitatu tu.	That same illness came back to grandfather after only three months.	746	
+tambua	Tambua kwamba kila mtoto hujifunza kwa kasi yake mwenyewe.	Recognise that every child learns at his or her own pace.	750	
+tambua	Kwanza tambua sauti ya ndege huyu, kisha andika jina lake daftarini.	First identify this bird's call, then write its name in your notebook.	750	
+vema	Umefanya kazi vema sana, sasa unaweza kupumzika kidogo.	You have done the work very well, now you can rest a little.	752	
+rudi	Rudi nyumbani mapema leo kwa sababu tunatarajia wageni jioni.	Come back home early today because we are expecting guests in the evening.	298	
+rudi	Ukimaliza kazi yako, rudi ofisini ili tuandike ripoti pamoja.	When you finish your work, come back to the office so we can write the report together.	298	
+mafundisho	Mafundisho ya mwalimu huyu yamenisaidia sana katika masomo ya hesabu.	This teacher's teachings have helped me a great deal in maths.	300	
+mafundisho	Kozi hii ina mafundisho mazuri kuhusu jinsi ya kuanzisha biashara ndogo.	This course has good instruction on how to start a small business.	300	
+kutokana	Mechi iliahirishwa kutokana na mvua kubwa iliyonyesha tangu asubuhi.	The match was postponed because of the heavy rain that had fallen since morning.	306	
+kutokana	Kutokana na ugonjwa wake, hakuweza kuhudhuria harusi ya rafiki yake.	Because of his illness, he could not attend his friend's wedding.	306	
+mwenu	Tulipofika chumbani mwenu, tuliona kila kitu kimepangwa vizuri sana.	When we arrived inside your room, we saw that everything was arranged very neatly.	307	
+sema	Tafadhali sema kwa sauti kubwa, wanafunzi walio nyuma hawakusikii.	Please speak louder, the students at the back can't hear you.	33	
+sema	Ukiulizwa kwenye mkutano, sema ukweli bila kuogopa mtu yeyote.	If you're asked at the meeting, tell the truth without fearing anyone.	33	
+yenu	Nyumba yenu ni kubwa kuliko yetu, lakini bustani yetu ni nzuri zaidi.	Your house is bigger than ours, but our garden is nicer.	48	
+yenu	Mabegi yenu yamefika, tafadhali yachukueni kabla ya basi kuondoka.	Your bags have arrived, please pick them up before the bus leaves.	48	
+malaika	Bibi alituambia hadithi kuhusu malaika anayewalinda wasafiri usiku.	Grandmother told us a story about an angel who protects travellers at night.	100	
+nanyi	Tutasafiri kesho asubuhi, nanyi mtatufuata jioni kwa basi.	We'll travel tomorrow morning, and you'll follow us in the evening by bus.	109	
+jua	Jua limechomoza, twende shambani kabla joto halijawa kali sana.	The sun has risen; let's go to the field before the heat gets too strong.	118	
+jua	Tulikaa chini ya mwembe kwa sababu jua lilikuwa kali mchana.	We sat under the mango tree because the sun was fierce in the afternoon.	118	
+fanya	Fanya kazi yako ya nyumbani kwanza, kisha utacheza nje na wenzako.	Do your homework first, then you'll play outside with your friends.	127	
+fanya	Tafadhali fanya haraka, treni ya saa nne haitatungoja hata dakika moja.	Please hurry up, the ten o'clock train won't wait for us even a minute.	127	
+wenu	Mwalimu wenu amesema mtafanya mtihani wa hesabu Jumatatu ijayo.	Your teacher has said you'll sit the maths exam next Monday.	134	
+wenu	Mji wenu una barabara nzuri kuliko miji mingine ya mkoa huu.	Your town has better roads than the other towns in this region.	134	
+maandiko	Tuliyahifadhi maandiko ya kale katika maktaba ili yasiharibike.	We stored the old documents in the library so they wouldn't be damaged.	159	
+pepo	Katika hadithi za bibi, pepo huishi kwenye mibuyu mikubwa.	In grandmother's stories, spirits live in the big baobab trees.	162	
+pepo	Watu wa kijiji waliamini kwamba mgonjwa yule alikuwa na pepo.	The villagers believed that sick man was possessed by a spirit.	162	
+toka	Tulisafiri toka Mwanza mpaka Dodoma kwa basi la abiria siku nzima.	We travelled from Mwanza to Dodoma by passenger bus all day long.	165	
+toka	Toka jana mvua haijaacha kunyesha, barabara zote zimejaa matope.	Since yesterday the rain hasn't stopped falling; all the roads are full of mud.	165	
+simama	Simama hapa kwenye foleni mpaka mhudumu atakapokuita kwa jina.	Stand here in the queue until the attendant calls you by name.	169	
+simama	Simama wima, tupige picha ya darasa kabla mvua haijanyesha.	Stand up straight, let's take the class photo before it rains.	169	
+uzima	Babu amefikisha miaka tisini akiwa na uzima wa mwili na akili.	Grandfather has reached ninety still sound in body and mind.	173	
+neema	Mwaka huu mvua imenyesha vizuri, tumepata neema ya mavuno mengi.	This year the rain has fallen well; we've been blessed with a big harvest.	183	
+mtumishi	Mama yake ni mtumishi wa umma, anafanya kazi katika ofisi ya wilaya.	His mother is a civil servant; she works at the district office.	187	
+mtumishi	Hoteli ile ilimwajiri mtumishi mpya wa kusafisha vyumba vya wageni.	That hotel hired a new attendant to clean the guests' rooms.	187	
+mwenyeji	Mwenyeji wetu alitupikia wali wa nazi na samaki wa kukaanga.	Our host cooked us coconut rice and fried fish.	753	
+mwenyeji	Yeye ni mwenyeji wa Zanzibar, anajua kila njia ya mji mkongwe.	He is a resident of Zanzibar, he knows every street of the old town.	753	
+asia	Bibi yangu alisafiri hadi Asia mwaka jana kwa mara ya kwanza.	My grandmother travelled to Asia last year for the first time.	757	
+mapendo	Mapendo ya mama kwa watoto wake hayana mipaka hata kidogo.	A mother's love for her children has no limits whatsoever.	759	
+mapendo	Nyimbo nyingi za Bongo Fleva huzungumzia mapendo na maisha ya vijana.	Many Bongo Flava songs talk about love and the lives of young people.	759	
+mumewe	Mwalimu wetu alimpigia mumewe simu kabla ya kuondoka sokoni.	Our teacher called her husband before leaving the market.	760	
+mumewe	Dada yangu ana furaha kwa sababu mumewe amerudi kutoka safarini.	My sister is happy because her husband has come back from his trip.	760	
+fahari	Wazazi wake walimwangalia kwa fahari alipopokea cheti chake cha kuhitimu.	His parents watched him with pride as he received his graduation certificate.	762	
+fahari	Timu yetu ni fahari ya mji huu tangu iliposhinda kombe la taifa.	Our team is the pride of this town ever since it won the national cup.	762	
+watumishi	Watumishi wa hoteli hiyo wanafanya kazi kwa bidii kila siku.	The staff of that hotel work hard every day.	310	
+watumishi	Mkurugenzi aliwashukuru watumishi wote waliofika mapema leo asubuhi.	The director thanked all the workers who arrived early this morning.	310	
+endelea	Endelea kusoma kitabu chako mpaka utakapomaliza sura hii.	Keep reading your book until you finish this chapter.	316	
+endelea	Usikate tamaa, endelea kujaribu hadi utakapopata kazi unayoitaka.	Don't give up; keep trying until you get the job you want.	316	
+hekalu	Hekalu hilo kubwa lilijengwa kwa mawe miaka mia mbili iliyopita.	That large temple was built of stone two hundred years ago.	323	
+awe	Mama anataka mtoto wake awe daktari atakapomaliza masomo yake.	Mum wants her child to be a doctor when he finishes his studies.	327	
+awe	Wanafunzi wamemchagua Halima awe kiongozi wa darasa mwaka huu.	The students have chosen Halima to be class leader this year.	327	
+sabato	Jirani yangu hafanyi kazi siku ya sabato, hupumzika nyumbani na familia yake.	My neighbour doesn't work on the Sabbath; he rests at home with his family.	334	
+sabato	Shule yao hufunga mapema Ijumaa ili wanafunzi waweze kushika sabato.	Their school closes early on Friday so that the students can keep the Sabbath.	334	
+kufuatana	Tuliamua kufuatana sote hadi sokoni ili tusipotee njiani usiku.	We decided to go together to the market so that we wouldn't get lost on the way at night.	343	
+kufuatana	Watoto wanapenda kufuatana na babu yao wanapokwenda shambani kila jioni.	The children like to walk along with their grandfather when they go to the farm every evening.	343	
+nayo	Nimeletewa miche mingi ya miti; sijui nitafanya nayo nini.	I've been given a lot of tree seedlings; I don't know what I'll do with them.	344	
+nayo	Nilipenda mikoba ile, nikatoka nayo dukani baada ya kulipa.	I liked those bags, and I walked out of the shop with them after paying.	344	
+halafu	Tulikula chakula cha mchana, halafu tukaenda kuogelea baharini hadi jioni.	We ate lunch, then we went swimming in the sea until evening.	345	
+halafu	Maliza kazi yako ya nyumbani kwanza, halafu utaangalia televisheni.	Finish your homework first, then you can watch television.	345	
+panda	Panda basi la saa tatu ili ufike Arusha kabla ya giza.	Take the nine o'clock bus so that you reach Arusha before dark.	346	
+panda	Panda ngazi taratibu, mbao zake ni kuukuu na zinatetemeka.	Climb the ladder carefully; its planks are old and they shake.	346	
+waumini	Waumini wa msikiti huo walichangia fedha za kujenga darasa jipya.	The congregation of that mosque contributed money to build a new classroom.	349	
+waumini	Baada ya ibada, waumini walisalimiana nje ya kanisa kwa furaha.	After the service, the worshippers greeted one another outside the church happily.	349	
+mikate	Mama alinunua mikate miwili ya ngano kwa ajili ya chai ya asubuhi.	Mum bought two wheat loaves for the morning tea.	350	
+mikate	Mikate ya dukani imepanda bei tangu mwezi uliopita.	Bread from the shop has gone up in price since last month.	350	
+tazama	Tazama picha hizi za harusi ya dada yangu mwaka jana.	Look at these photos from my sister's wedding last year.	357	
+tazama	Tazama upande wa kushoto kabla ya kuvuka barabara hii yenye magari mengi.	Look to the left before crossing this road full of cars.	357	
+mwema	Jirani wetu ni mtu mwema, hutusaidia kila tunapopata shida.	Our neighbour is a good person; he helps us whenever we are in trouble.	359	
+mwema	Mwalimu mwema hawezi kumdharau mwanafunzi yeyote anayejitahidi kusoma darasani.	A good teacher cannot look down on any student who works hard at his studies.	359	
+wema	Wema wake kwa wageni umefanya watu wengi wampende hapa kijijini.	His kindness to guests has made many people here in the village love him.	364	
+wema	Msaidie mgonjwa huyo kwa wema, si kwa maneno makali.	Help that sick man with kindness, not with harsh words.	364	
+zile	Zile nguo ulizofua jana bado hazijakauka kwa sababu ya mvua.	Those clothes you washed yesterday still haven't dried because of the rain.	368	
+zile	Nimezirudisha zile sahani nilizoazima kwa jirani wiki iliyopita.	I have returned those plates I borrowed from the neighbour last week.	368	
+kadhalika	Wazazi wanapaswa kuwa wavumilivu; kadhalika walimu wanatakiwa kuwasikiliza watoto.	Parents ought to be patient; likewise teachers are expected to listen to children.	369	
+kadhalika	Tulileta mahindi, maharage, mchele na kadhalika kwa ajili ya sherehe.	We brought maize, beans, rice and so on for the celebration.	369	
+kuungana	Vijana wa kijiji waliamua kuungana ili kujenga kisima cha maji.	The village youth decided to join together to build a water well.	380	
+kuungana	Kuungana kwa vikundi hivyo viwili kumeleta nguvu kubwa sokoni.	The joining of those two groups has brought great strength in the market.	380	
+amini	Amini rafiki yako; hajawahi kukusaliti tangu utotoni.	My sister has a faithful friend who has never betrayed her since childhood.	396	
+amini	Amini maneno yangu; nitarudisha pesa zako mwishoni mwa mwezi.	Believe what I say; I'll return your money at the end of the month.	396	
+mioyo	Mioyo yetu ilijaa furaha tuliposikia kwamba wote wamesalimika.	Our hearts filled with joy when we heard that everyone was safe.	398	
+makanisa	Makanisa mengi katika mji huu yamejengwa kwa mawe makubwa meupe.	Many churches in this town are built of big white stones.	502	
+makanisa	Siku ya Jumapili makanisa yote hujaa watu tangu asubuhi na mapema.	On Sunday all the churches fill up with people from early in the morning.	502	
+ogopa	Ogopa mbwa wa jirani, huuma wageni wote wanaoingia uwanjani.	Watch out for the neighbour's dog, it bites every stranger who walks into the yard.	505	
+ogopa	Ogopa maji ya mto huo, yanaweza kukusomba wakati wa mvua kubwa.	Be afraid of that river's water, it can sweep you away in the heavy rains.	505	
+jangwani	Ngamia huyu anaweza kutembea jangwani kwa siku nyingi bila kunywa maji.	This camel can walk in the desert for many days without drinking water.	506	
+jangwani	Joto la mchana jangwani huwa kali sana, lakini usiku kuna baridi.	The midday heat in the desert is fierce, but at night it is cold.	506	
+kipofu	Kipofu huyu anavuka barabara kwa msaada wa fimbo yake nyeupe ndefu.	This blind man crosses the road with the help of his long white cane.	512	
+kipofu	Tunamsomea babu magazeti kila jioni kwa sababu yeye ni kipofu kabisa.	We read grandfather the newspapers every evening because he is completely blind.	512	
+waadilifu	Waadilifu wachache waliobaki ofisini walikataa kupokea fedha za rushwa.	The few upright people left in the office refused to accept bribe money.	515	
+waadilifu	Tunahitaji majaji waadilifu wanaoamua kesi bila kuangalia cheo cha mtu.	We need upright judges who decide cases without regard to a person's rank.	515	
+imara	Nyumba yetu ina msingi imara, haikuyumba hata wakati wa tetemeko kubwa.	Our house has a strong foundation; it did not even shake during the big earthquake.	516	
+imara	Meza hii ni imara, unaweza kusimama juu yake bila hofu yoyote.	This table is sturdy; you can stand on it without any fear.	516	
+kuhubiri	Mchungaji ataanza kuhubiri baada ya kwaya kumaliza wimbo wake wa mwisho.	The pastor will start preaching after the choir finishes its last song.	519	
+kuhubiri	Mjomba wangu anapenda kuhubiri kuhusu afya kila tunapokula pamoja nyumbani.	My uncle loves to lecture about health every time we eat together at home.	519	
+matakwa	Matakwa ya wafanyakazi yaliandikwa kwenye barua waliyopeleka kwa meneja jana.	The workers' demands were written in the letter they sent to the manager yesterday.	522	
+misri	Dada yangu anasoma udaktari nchini Misri, mjini Kairo, tangu mwaka jana.	My sister has been studying medicine in Egypt, in Cairo, since last year.	592	
+misri	Watalii wengi hutembelea piramidi za Misri wakati wa likizo ndefu.	Many tourists visit the pyramids of Egypt during the long holidays.	592	
+ghadhabu	Alizungumza kwa ghadhabu kali, kisha akatoka nje bila kuaga mtu.	He spoke in a fierce rage, then walked out without saying goodbye to anyone.	593	
+kuonyesha	Mwalimu alitumia ramani kubwa kuonyesha njia ya kwenda baharini.	The teacher used a big map to show the way to the coast.	594	
+kuonyesha	Watoto walipenda kuonyesha michoro yao kwa wageni waliofika shuleni jana.	The children loved showing their drawings to the visitors who came to school yesterday.	594	
+mikononi	Mama alibeba mtoto mikononi mwake wakati wote wa safari ndefu.	Mum carried the child in her arms for the whole of the long journey.	595	
+mikononi	Nilihisi baridi mikononi kwa sababu nilisahau glavu zangu nyumbani.	I felt the cold in my hands because I had left my gloves at home.	595	
+tembea	Tafadhali tembea polepole barabarani, magari mengi yanapita hapa asubuhi.	Please walk slowly on the road; a lot of cars pass here in the morning.	596	
+fundisha	Mama, fundisha watoto hao wimbo mpya kabla ya sherehe ya shule.	Mum, teach those children a new song before the school celebration.	597	
+fundisha	Tafadhali fundisha dada yangu kupika pilau kama unavyopika wewe.	Please teach my sister to cook pilau the way you cook it.	597	
+uzinzi	Ndoa yao ilivunjika kwa sababu ya uzinzi na ugomvi wa muda mrefu.	Their marriage broke up because of infidelity and long-running quarrelling.	598	
+uzinzi	Riwaya hiyo inaeleza jinsi uzinzi ulivyoharibu familia moja ya mjini.	That novel describes how infidelity destroyed one city family.	598	
+amina	Baada ya dua fupi, watu wote walisema amina kwa sauti moja.	After a short prayer, everyone said amen with one voice.	599	
+amina	Bibi alimaliza sala yake, na mjukuu wake akaitikia amina taratibu.	Grandma finished her prayer, and her grandchild quietly answered amen.	599	
+mavuno	Mwaka huu mavuno ya mahindi ni mengi kuliko ya mwaka jana.	This year's maize harvest is bigger than last year's.	614	
+mavuno	Wakulima walifurahi sana kwa sababu mvua nzuri iliboresha mavuno yao.	The farmers were very glad because the good rains improved their harvest.	614	
+anguka	Ukishindwa kusimama, anguka upande wa kushoto ili usiumize bega lako.	If you can't stay on your feet, fall to the left so you don't hurt your shoulder.	616	
+anguka	Usiogope, anguka kwenye godoro nene, halitakuumiza hata kidogo.	Don't be afraid, fall onto the thick mattress, it won't hurt you at all.	616	
+mtume	Kitabu hiki kinaeleza safari za mtume huyo katika nchi za mbali.	This book describes that prophet's journeys in far-off countries.	618	
+mwenendo	Mwalimu alisifu mwenendo mzuri wa wanafunzi wakati wa ziara.	The teacher praised the students' good behaviour during the trip.	620	
+mwenendo	Wazazi walimwonya kijana wao kuhusu mwenendo wake wa kucheza kamari.	The parents warned their son about his habit of gambling.	620	
+upesi	Njoo upesi, chakula kimeanza kupoa na wageni wanasubiri mezani.	Come quickly, the food has started to go cold and the guests are waiting at the table.	622	
+upesi	Alimaliza kazi yake upesi kwa sababu alitaka kwenda sokoni mapema.	She finished her work quickly because she wanted to go to the market early.	622	
+kibinadamu	Shirika letu linapeleka misaada ya kibinadamu kwa wakimbizi wa mpakani.	Our organisation is sending humanitarian aid to the refugees at the border.	628	
+tenda	Siku zote tenda wema kwa majirani wako, nao watakusaidia siku ya shida.	Always do good to your neighbours, and they will help you on a difficult day.	634	
+mkewe	Bwana Juma alikwenda hospitali pamoja na mkewe kumwona mtoto wao.	Mr Juma went to the hospital together with his wife to see their child.	638	
+mkewe	Kila asubuhi mkewe hupika maandazi na kuyauza kwenye kituo cha mabasi.	Every morning his wife makes doughnuts and sells them at the bus stand.	638	
+ambako	Nilirudi kijijini ambako nilizaliwa, nikakuta nyumba yetu imebomoka.	I went back to the village where I was born, and found our house had collapsed.	641	
+ambako	Tulipanga kukutana sokoni, ambako kuna kivuli cha mti mkubwa.	We arranged to meet at the market, where there is the shade of a big tree.	641	
+wakuu	Walimu wakuu wa shule zote watakutana na mkurugenzi kesho.	The head teachers of all the schools will meet the director tomorrow.	216	
+wakuu	Wageni wakuu walipokelewa uwanjani na wanafunzi waliovaa sare nyeupe.	The guests of honour were received at the grounds by students wearing white uniforms.	216	
+manabii	Watu wengi hujiita manabii wa uchumi, lakini utabiri wao hukosea mara nyingi.	Many people call themselves prophets of the economy, but their predictions are often wrong.	235	
+manabii	Kitabu hiki kinaeleza historia ya manabii mbalimbali wa dini za dunia.	This book explains the history of various prophets of the world's religions.	235	
+makuhani	Makuhani wawili walisimama mlangoni wakiwakaribisha wageni waliofika kwa ibada.	Two priests stood at the door welcoming the visitors who had come for the service.	239	
+kaa	Kaa moja lilidondoka jikoni likaunguza kipande cha mkeka.	One ember fell in the kitchen and scorched a piece of the mat.	256	
+kaa	Ukiona kaa moja bado linawaka jikoni, zima moto kabla ya kulala.	If you see one ember still burning in the kitchen, put the fire out before going to bed.	256	
+mema	Nakutakia mema katika safari yako ya kwenda Mombasa kesho asubuhi.	I wish you well on your trip to Mombasa tomorrow morning.	258	
+mema	Mambo mema mengi yametokea mwaka huu katika kijiji chetu kidogo.	Many good things have happened this year in our small village.	258	
+walimu	Walimu wetu wote walihudhuria mkutano wa wazazi shuleni jana jioni.	All our teachers attended the parents' meeting at school yesterday evening.	261	
+amri	Mkurugenzi alitoa amri kwamba ofisi zifungwe saa kumi kila siku.	The director gave an order that the offices be closed at four every day.	263	
+amri	Amri hii mpya ya mkuu wa kituo haikueleweka vizuri kwa wafanyakazi.	This new order from the head of the station was not well understood by the workers.	263	
+mitume	Mwalimu wa dini alituuliza tutaje majina ya mitume kumi na wawili.	The religion teacher asked us to name the twelve apostles.	267	
+mitume	Katika historia ya dini, mitume hao walisafiri mbali wakifundisha watu wengi.	In the history of religion, those messengers travelled far, teaching many people.	267	
+mwanga	Mwanga wa jua uliingia chumbani baada ya mama kufungua mapazia asubuhi.	The sunlight came into the room after mother opened the curtains in the morning.	271	
+mwanga	Chumba hiki kina mwanga wa kutosha, kwa hiyo hatuhitaji kuwasha taa.	This room has enough light, so we don't need to switch the lamp on.	271	
+zenu	Nyumba zenu ziko karibu na barabara kuu, si ndiyo?	Your houses are near the main road, aren't they?	273	
+ingia	Ingia ndani haraka, mvua kubwa inaanza kunyesha hivi sasa.	Come inside quickly, heavy rain is starting to fall right now.	276	
+ingia	Ukifika ofisini, ingia bila kubisha kwa sababu mlango huwa wazi.	When you get to the office, go in without knocking because the door is usually open.	276	
+wajibu	Alitimiza wajibu wake wote kabla ya kuondoka kwenda likizo ndefu.	He fulfilled all his duties before leaving for a long holiday.	278	
+naam	Aliniuliza kama nimeoa, nikajibu naam, nina mke na watoto wawili.	He asked me whether I was married, and I answered yes, I have a wife and two children.	282	
+nabii	Mimi si nabii, kwa hiyo siwezi kujua kitakachotokea kesho.	I'm not a prophet, so I can't know what will happen tomorrow.	289	
+nabii	Watu walimwita nabii kwa sababu ya utabiri wake wa hali ya hewa.	People called him a prophet because of his weather forecasts.	289	
+akisema	Akisema atakuja saa tatu, basi atafika saa tatu kamili.	If he says he'll come at nine, then he'll arrive at nine on the dot.	290	
+akisema	Mtoto huyu hulia kila mara babake akisema anaondoka kwenda kazini.	This child cries every time his father says he is leaving for work.	290	
+mali	Alirithi mali nyingi kutoka kwa babu yake aliyefariki mwaka jana.	He inherited a lot of property from his grandfather who died last year.	294	
+mali	Mali ya familia hiyo iligawanywa kwa watoto wote baada ya mkutano.	That family's property was divided among all the children after a meeting.	294	
+kutana	Tafadhali kutana nami kituoni saa kumi na moja jioni.	Please meet me at the bus stop at five in the evening.	676	
+kutana	Ukifika Dodoma, kutana na shangazi yako kabla ya kwenda hotelini.	When you get to Dodoma, meet your aunt before going to the hotel.	676	
+wananchi	Licha ya mvua kubwa, wananchi wengi walijitokeza kupiga kura.	Despite the heavy rain, many citizens turned out to vote.	681	
+wananchi	Mkuu wa wilaya aliwaomba wananchi kutunza mazingira ya mji wao.	The district commissioner asked the citizens to look after their town's environment.	681	
+mashahidi	Jana mashahidi wawili walieleza mahakamani kila kitu walichokiona.	Yesterday two witnesses told the court everything they had seen.	682	
+mashahidi	Polisi wanawatafuta mashahidi wa ajali iliyotokea karibu na daraja.	The police are looking for witnesses of the accident that happened near the bridge.	682	
+ukoo	Kila Desemba, ukoo wetu hukutana kijijini kwa sherehe ya familia.	Every December our clan gathers in the village for a family celebration.	685	
+ukoo	Mzee huyo anajua historia ya ukoo wake tangu vizazi vitano vilivyopita.	That elder knows his clan's history going back five generations.	685	
+amka	Mwanangu, amka sasa; basi la shule linaondoka baada ya dakika kumi.	My child, get up now; the school bus leaves in ten minutes.	688	
+amka	Kesho amka mapema ili tuende sokoni kununua samaki wabichi.	Tomorrow get up early so we can go to the market and buy fresh fish.	688	
+sikiliza	Tafadhali sikiliza kwa makini maelezo ya daktari kabla ya kumeza dawa.	Please listen carefully to the doctor's instructions before taking the medicine.	694	
+sikiliza	Usiniingilie ninapoongea; sikiliza kwanza kisha utoe maoni yako.	Don't interrupt me while I'm speaking; listen first, then give your opinion.	694	
+shauri	Nilifuata shauri lake, nikahamia karibu na kituo cha basi.	I followed his advice and moved to a place near the bus stop.	696	
+kitambo	Nimemsubiri kitambo kirefu hapa kituoni, lakini hajafika bado.	I've waited quite a long while here at the stop, but he still hasn't arrived.	700	
+kitambo	Tulipumzika kitambo kidogo chini ya mti kabla ya kuendelea na safari.	We rested a short while under the tree before carrying on with the journey.	700	
+chachu	Mama huweka chachu kwenye unga ili mikate iumuke vizuri.	Mum puts yeast into the flour so that the loaves rise well.	701	
+chachu	Mkate haukuumuka jana kwa sababu chachu ilikuwa imeisha muda wake.	The bread didn't rise yesterday because the yeast had passed its date.	701	
+lolote	Ukiwa na swali lolote, niulize kabla ya mtihani kuanza.	If you have any question at all, ask me before the exam starts.	703	
+lolote	Sijasikia neno lolote kutoka kwake tangu alipoondoka mwezi uliopita.	I haven't heard a single word from him since he left last month.	703	
+ungana	Tafadhali ungana nasi kesho saa mbili usiku kwa taarifa ya habari.	Please join us tomorrow at eight in the evening for the news bulletin.	704	
+ungana	Kama unapenda kuimba, ungana na kikundi chetu cha vijana kijijini.	If you like singing, join our youth group in the village.	704	
+vaa	Juma, vaa koti lako zito kwa sababu kuna baridi kali leo asubuhi.	Juma, wear your heavy coat, because it is very cold this morning.	578	
+vaa	Kabla ya kwenda shambani, vaa viatu hivi vya mpira ili miiba isikuchome.	Before going to the farm, put on these rubber shoes so the thorns don't prick you.	578	
+sadaka	Bibi yangu hutoa sadaka yake kanisani kila Jumapili asubuhi.	My grandmother gives her offering at church every Sunday morning.	579	
+ushuru	Wafanyabiashara wanalalamika kwamba ushuru wa bidhaa umepanda tena mwaka huu.	Traders are complaining that the duty on goods has gone up again this year.	580	
+ushuru	Dereva alilipa ushuru wa barabara kabla ya kuvuka daraja kubwa.	The driver paid the road toll before crossing the big bridge.	580	
+upanga	Katika jumba la makumbusho tuliona upanga mrefu wa shujaa wa zamani.	In the museum we saw the long sword of a warrior of old.	582	
+upanga	Mwigizaji alishindwa kuunyanyua upanga huo mzito jukwaani jana usiku.	The actor could not lift that heavy sword on stage last night.	582	
+furahi	Sasa furahi, umefaulu mtihani wako wa mwisho kwa alama za juu.	Now be happy — you passed your final exam with high marks.	591	
+furahi	Usilie tena, furahi kwa sababu ndugu yako amerudi nyumbani salama.	Don't cry any more, be glad, because your brother has come home safely.	591	
+fika	Tafadhali fika kituoni saa kumi na mbili, basi haliwezi kusubiri.	Please arrive at the station at six o'clock; the bus can't wait.	191	
+fika	Fika nyumbani kabla giza halijaingia, njia ile ni hatari usiku.	Get home before dark falls; that path is dangerous at night.	191	
+ona	Ona kwa macho yako mwenyewe jinsi soko lilivyojaa watu leo asubuhi.	See for yourself how packed the market was with people this morning.	194	
+anza	Anza na zoezi la kwanza, kisha niulize ukikwama mahali popote.	Start with the first exercise, then ask me if you get stuck anywhere.	195	
+anza	Anza kupika mapema leo, wageni watafika kabla ya saa moja jioni.	Start cooking early today; the guests will arrive before seven in the evening.	195	
+kwisha	Mafuta ya gari yameanza kwisha, tusimame kwenye kituo cha mafuta kijacho.	The car's fuel has started to run out; let's stop at the next petrol station.	199	
+ishi	Ishi karibu na kazi yako ili usipoteze saa mbili barabarani.	Live close to your work so you don't waste two hours on the road.	203	
+akaenda	Alifika nyumbani jioni, akaoga haraka, akaenda dukani kununua mkate.	He got home in the evening, took a quick shower, and went to the shop to buy bread.	214	
+akaenda	Mama alichukua kikapu chake, akaenda shambani kuvuna mahindi mapema asubuhi.	Mum picked up her basket and went to the field to harvest maize early in the morning.	214	
+matakatifu	Maeneo matakatifu ya mlima huu yanalindwa na wazee wa kijiji.	The sacred sites on this mountain are protected by the village elders.	215	
+matakatifu	Watalii hawaruhusiwi kuingia kwenye mapango matakatifu bila kibali cha wenyeji.	Tourists are not allowed to enter the sacred caves without the locals' permission.	215	
+arusi	Dada yangu atafunga ndoa Jumamosi, na arusi itakuwa nyumbani kwetu.	My sister is getting married on Saturday, and the wedding will be at our home.	642	
+arusi	Wageni walicheza hadi usiku wa manane katika arusi ya jirani yetu.	The guests danced until midnight at our neighbour's wedding.	642	
+wenzake	Juma alikwenda shambani na wenzake wawili mapema asubuhi ya leo.	Juma went to the farm with two of his companions early this morning.	645	
+wenzake	Mwanafunzi huyo huwasaidia wenzake kufanya mazoezi ya hesabu kila jioni.	That student helps his classmates with maths exercises every evening.	645	
+najisi	Bibi anakataa kutumia vyombo najisi ambavyo mbwa amevilamba.	Grandma refuses to use unclean dishes that the dog has licked.	646	
+jema	Alinifanyia jambo jema sana siku ile nilipokuwa mgonjwa hospitalini.	He did me a very kind turn the day I was ill in hospital.	648	
+desturi	Ni desturi yetu kuwakaribisha wageni kwa chai na maandazi ya moto.	It is our custom to welcome guests with tea and hot mandazi.	650	
+desturi	Katika kijiji chetu, desturi ya kuwaheshimu wazee bado ina nguvu.	In our village, the custom of respecting elders is still strong.	650	
+karibia	Usiogope, karibia moto upate joto kidogo kabla ya kulala.	Don't be afraid, come closer to the fire and get a little warmth before sleeping.	653	
+karibia	Mtoto, karibia hapa nikupime urefu wako kwa kipimo hiki.	Child, come closer so I can measure your height with this tape.	653	
+baharini	Wavuvi wa kijiji wameenda baharini kuvua samaki tangu alfajiri.	The village fishermen have gone out to sea to fish since dawn.	655	
+baharini	Watoto wanapenda kuogelea baharini kila jioni wakati maji yametulia.	The children love swimming in the sea every evening when the water is calm.	655	
+vipofu	Shule hii inawafundisha vipofu kusoma na kuandika kwa maandishi ya Breli.	This school teaches blind people to read and write in Braille.	660	
+vipofu	Kituo kile kinawapa vipofu fimbo nyeupe na mafunzo ya kutembea mjini.	That centre gives blind people white canes and training in getting around town.	660	
+kutangaza	Serikali imeahidi kutangaza matokeo ya uchaguzi kesho asubuhi.	The government has promised to announce the election results tomorrow morning.	661	
+kutangaza	Redio ya shule ilianza kutangaza habari kwa Kiswahili mwaka jana.	The school radio started broadcasting news in Swahili last year.	661	
+kuwaambia	Nilisahau kuwaambia wazazi wangu kwamba mtihani umeahirishwa hadi Jumatatu.	I forgot to tell my parents that the exam has been postponed to Monday.	666	
+kuwaambia	Alichelewa kuwaambia wateja kuwa duka litafungwa mapema leo jioni.	She was late in telling the customers that the shop would close early this evening.	666	
+stahili	Kila mfanyakazi apewe stahili yake mwishoni mwa mwezi bila ucheleweshaji.	Every worker should be given what he is due at the end of the month without delay.	673	
+stahili	Tuzo hii ni stahili yake kwa miaka mingi ya kufundisha vijana.	This award is his due for many years of teaching young people.	673	
+hema	Tulipiga hema karibu na mto kabla giza halijaingia.	We pitched the tent near the river before darkness fell.	875	
+hema	Wageni walilala ndani ya hema wakati wa safari yao ya Serengeti.	The visitors slept inside the tent during their trip to the Serengeti.	875	
+lao	Jina lao la ukoo ni gumu kutamka kwa wageni.	Their family name is hard for strangers to pronounce.	767	
+lao	Duka lao lilifungwa mapema kwa sababu ya mvua kubwa.	Their shop was closed early because of the heavy rain.	767	
+waziwazi	Alisema waziwazi kwamba hataki kushiriki katika mradi huo.	He said openly that he does not want to take part in that project.	769	
+waziwazi	Makosa yake yanaonekana waziwazi kwenye ripoti aliyoiandika jana.	His mistakes are clearly visible in the report he wrote yesterday.	769	
+ofisa	Ofisa wa forodha alikagua mizigo yetu kwa makini katika uwanja wa ndege.	The customs officer inspected our luggage carefully at the airport.	770	
+ofisa	Tulikutana na ofisa mmoja wa benki aliyetusaidia kufungua akaunti.	We met a bank officer who helped us open an account.	770	
+kupita	Basi letu lilichelewa kupita daraja kwa sababu ya msongamano mkubwa.	Our bus was late crossing the bridge because of the heavy traffic.	771	
+kupita	Ni marufuku kupita hapa bila kuvaa kofia ngumu ya usalama.	It is forbidden to pass through here without wearing a hard safety helmet.	771	
+kataa	Usiogope kusema ukweli; kataa kazi yoyote inayohatarisha afya yako.	Don't be afraid to tell the truth; refuse any job that endangers your health.	772	
+kataa	Kataa kwa heshima ukialikwa kwenye sherehe ambayo huwezi kuhudhuria.	Refuse politely if you are invited to a party you cannot attend.	772	
+kikundi	Kikundi chetu cha wakulima kilinunua trekta moja kwa pamoja.	Our farmers' group bought one tractor together.	773	
+kikundi	Kila kikundi kidogo kilipewa dakika tano za kuwasilisha mawazo yake.	Each small group was given five minutes to present its ideas.	773	
+kuzimu	Bibi yangu alitusimulia hadithi ndefu kuhusu shujaa aliyesafiri kwenda kuzimu.	My grandmother told us a long story about a hero who travelled to the underworld.	774	
+kuzimu	Watu wengi huamini kwamba kuzimu ni mahali pa giza totoro.	Many people believe that the underworld is a place of pitch darkness.	774	
+tafuta	Tafuta funguo zako kwenye mfuko wa koti kabla hatujaondoka.	Look for your keys in the coat pocket before we leave.	775	
+tafuta	Tafuta fundi mwingine; huyu anachelewa kazini kila siku.	Find another mechanic; this one is late for work every day.	775	
+vyao	Vitabu vyao vilipotea wakati wa safari ya kwenda shuleni.	Their books got lost during the trip to school.	776	
+vyao	Watoto wanapenda kuosha viatu vyao kila jioni baada ya shule kuisha.	The children like to wash their shoes every evening after school ends.	776	
+zidi	Zidi kujitahidi masomoni; matokeo mazuri hayaji kwa siku moja.	Keep working harder at your studies; good results don't come in a single day.	778	
+mitatu	Nilipanda miti mitatu mbele ya nyumba yetu mwaka jana.	I planted three trees in front of our house last year.	783	
+mitatu	Tumeishi hapa kwa miezi mitatu tu, bado hatujazoea.	We have only lived here for three months; we still haven't got used to it.	783	
+shukrani	Shukrani kwa msaada wenu; safari yetu ilikuwa rahisi sana.	Thank you for your help; our journey was very easy.	784	
+shukrani	Alituandikia barua fupi ya shukrani baada ya harusi kwisha.	She wrote us a short thank-you letter after the wedding was over.	784	
+arobaini	Babu yangu alifanya kazi shambani kwa miaka arobaini bila kuchoka.	My grandfather worked on the farm for forty years without tiring.	786	
+arobaini	Tulialika wageni arobaini, lakini waliofika walikuwa ishirini na watano.	We invited forty guests, but the ones who came were twenty-five.	786	
+uliza	Uliza kama unaweza kuazima kitabu hicho kwa mwalimu wako.	Ask your teacher whether you can borrow that book.	788	
+ileile	Tulirudia njia ileile tuliyoitumia jana asubuhi kwenda sokoni.	We took the same road we used yesterday morning to go to the market.	796	
+ileile	Anavaa kanzu ileile kila Ijumaa; pengine hana nyingine nyumbani.	He wears the same kanzu every Friday; maybe he has no other one at home.	796	
+mifano	Mwalimu alitoa mifano miwili ya wazi kabla ya kuanza zoezi.	The teacher gave two clear examples before starting the exercise.	802	
+mifano	Mifano aliyotupa haikutosha kueleza tofauti kati ya maneno hayo.	The examples he gave us were not enough to explain the difference between those words.	802	
+wajane	Wajane wa kijiji chetu wameanzisha kikundi cha kuweka akiba.	The widows of our village have started a savings group.	809	
+wajane	Serikali imeahidi kuwasaidia wajane wenye watoto wadogo kupata nyumba.	The government has promised to help widows with small children get housing.	809	
+pita	Pita dukani ununue mkate kabla ya kurudi nyumbani jioni ya leo.	Stop by the shop and buy bread before coming home this evening.	526	
+kikombe	Kikombe changu cha chai kimevunjika, nitanunua kingine sokoni kesho asubuhi.	My teacup has broken; I will buy another one at the market tomorrow morning.	536	
+kikombe	Nipe kikombe kimoja cha maji baridi, nimechoka na joto hili.	Give me one cup of cold water; I am worn out by this heat.	536	
+nguvuni	Polisi walimtia nguvuni mwizi aliyeiba simu kwenye stendi ya mabasi.	The police arrested the thief who stole a phone at the bus stand.	539	
+nguvuni	Dereva aliyesababisha ajali ile alitiwa nguvuni jana jioni karibu na soko.	The driver who caused that accident was arrested yesterday evening near the market.	539	
+jaribu	Jaribu tena kesho, labda mtandao utakuwa na kasi zaidi asubuhi.	Try again tomorrow; maybe the internet will be faster in the morning.	547	
+taabu	Tulipata taabu nyingi njiani kwa sababu gari lilikwama kwenye matope.	We had a lot of trouble on the way because the car got stuck in the mud.	549	
+taabu	Maisha ya mjini yalikuwa taabu tupu, hivyo tulirudi kijijini kwetu.	Life in town was sheer hardship, so we went back to our village.	549	
+myahudi	Daktari wetu mpya ni Myahudi aliyezaliwa hapa nchini Tanzania.	Our new doctor is a Jew who was born here in Tanzania.	553	
+myahudi	Mwalimu wetu wa historia alieleza kuwa Albert Einstein alikuwa Myahudi maarufu.	Our history teacher explained that Albert Einstein was a famous Jew.	553	
+hubiri	Hubiri kwa sauti ya juu, watu wa nyuma hawasikii vizuri leo.	Preach loudly; the people at the back cannot hear well today.	554	
+hubiri	Hubiri kwa lugha rahisi ili hata watoto wadogo waelewe ujumbe wako.	Preach in simple language so that even the small children understand your message.	554	
+amua	Amua leo kama utasafiri au la, tiketi zinaisha haraka sana.	Decide today whether you will travel or not; the tickets are selling out fast.	557	
+amua	Amua bei ya mwisho, kisha mwambie mteja anayesubiri nje ya duka.	Decide the final price, then tell the customer waiting outside the shop.	557	
+nendeni	Nendeni nyumbani sasa, giza limeingia na mvua inakaribia kunyesha.	Go home now; darkness has fallen and it is about to rain.	562	
+nendeni	Watoto, nendeni mkanawe mikono kabla ya kula chakula cha jioni.	Children, go and wash your hands before eating the evening meal.	562	
+kufika	Treni ilichelewa sana, kwa hiyo tulishindwa kufika harusini kwa wakati.	The train was very late, so we failed to arrive at the wedding on time.	565	
+kufika	Tunatarajia kufika kijijini kabla ya jua kuzama jioni ya leo.	We expect to arrive at the village before the sun sets this evening.	565	
+ongea	Ongea polepole kidogo, sikuelewa jina la mtaa ulilotaja punde.	Speak a little more slowly; I did not catch the name of the street you just mentioned.	568	
+ongea	Ongea na mwalimu wako kuhusu mtihani uliokosa wiki iliyopita.	Talk to your teacher about the exam you missed last week.	568	
+wafuasi	Wafuasi wa timu yetu walijaa uwanjani wakiimba nyimbo za ushindi.	Our team's supporters filled the stadium, singing victory songs.	570	
+wafuasi	Kiongozi huyo ana wafuasi wengi miongoni mwa vijana wa mji huu.	That leader has many followers among the young people of this town.	570	
+sali	Sali kabla ya kulala, kama alivyokufundisha mama yako utotoni.	Pray before you sleep, the way your mother taught you in childhood.	572	
+baraka	Mvua ya mwaka huu ilikuwa baraka kubwa kwa wakulima wa bonde hili.	This year's rain was a great blessing for the farmers of this valley.	576	
+baraka	Tulimwomba babu baraka zake kabla ya safari yetu ndefu ya kwenda mjini.	We asked grandfather for his blessing before our long journey to town.	576	
+hadharani	Meneja aliomba radhi hadharani mbele ya wafanyakazi wote wa kiwanda.	The manager apologised publicly in front of all the factory workers.	577	
+hadharani	Sipendi kuzungumza hadharani kwa sababu miguu yangu hutetemeka jukwaani.	I do not like speaking in public because my legs shake on stage.	577	
+wawe	Nataka watoto wangu wawe watu waaminifu na wachapakazi.	I want my children to be honest, hard-working people.	412	
+wawe	Walimu wamewaomba wanafunzi wawe kimya wakati wa mtihani.	The teachers have asked the pupils to be quiet during the exam.	412	
+mbingu	Leo jioni mbingu zimejaa mawingu meusi, mvua itanyesha hivi karibuni.	This evening the sky is full of dark clouds; it will rain soon.	431	
+mbingu	Usiku ule mbingu zilikuwa wazi, tuliona nyota nyingi sana.	That night the sky was clear and we saw a great many stars.	431	
+sikukuu	Kila mwaka tunasafiri kwenda kwa bibi wakati wa sikukuu za Desemba.	Every year we travel to our grandmother's for the December holidays.	438	
+sikukuu	Duka letu litafungwa kesho kwa sababu ni sikukuu ya taifa.	Our shop will be closed tomorrow because it is a national holiday.	438	
+mwadilifu	Hakimu yule ni mwadilifu, hukumu zake huwa za haki kila wakati.	That judge is a just man; his rulings are always fair.	440	
+mwadilifu	Tunahitaji kiongozi mwadilifu ambaye hatapokea rushwa kutoka kwa wafanyabiashara.	We need an upright leader who will not accept bribes from businesspeople.	440	
+humo	Chumba kile kina giza sana, usiingie humo bila tochi.	That room is very dark; don't go in there without a torch.	444	
+humo	Alichukua sanduku la zamani na kuweka nguo zake zote humo.	He took the old box and put all his clothes in there.	444	
+shuka	Tafadhali shuka kwenye kituo kijacho, kisha tembea dakika tano hadi sokoni.	Please get off at the next stop, then walk five minutes to the market.	452	
+shuka	Haya, shuka kutoka juu ya mti huo kabla hujaanguka na kuumia.	Come on, get down from that tree before you fall and hurt yourself.	452	
+sunagogi	Jengo lile refu karibu na soko ni sunagogi la jamii ya Kiyahudi.	That tall building near the market is the Jewish community's synagogue.	458	
+sunagogi	Lile sunagogi la mtaa wetu lilijengwa miaka mia moja iliyopita.	The synagogue in our neighbourhood was built a hundred years ago.	458	
+utawala	Mwaka huu utawala wa mkoa umeahidi kujenga barabara mpya ya lami.	This year the regional administration has promised to build a new tarmac road.	460	
+utawala	Wananchi wengi wanalalamika kuhusu utawala mbovu wa shirika hilo la umeme.	Many citizens are complaining about that electricity company's poor management.	460	
+tokea	Hajawahi kuendesha gari tena tokea siku ile ya ajali mbaya.	He has never driven a car again since the day of that bad accident.	461	
+tokea	Tuliendesha gari tokea Arusha hadi Dodoma bila kusimama njiani.	We drove from Arusha to Dodoma without stopping on the way.	461	
+mwanangu	Leo mwanangu amefaulu mtihani wake wa darasa la saba.	Today my child passed his class-seven exam.	462	
+mwanangu	Usiogope, mwanangu, nitakusubiri hapa hadi utakapomaliza mazoezi ya mpira.	Don't be afraid, my child, I'll wait for you here until you finish football practice.	462	
+amuru	Wewe ndiwe bosi hapa, amuru wafanyakazi waanze kazi mara moja.	You're the boss here - order the workers to start work at once.	463	
+amuru	Usiniombe, amuru tu, nitafanya lolote unalotaka bila kubishana.	Don't plead with me - just give the order; I'll do whatever you want without arguing.	463	
+iwe	Nataka mizigo yote iwe tayari kabla lori halijafika asubuhi.	I want all the luggage ready before the lorry arrives in the morning.	464	
+iwe	Tunamwagilia miche kila siku ili miti yetu iwe mirefu haraka.	We water the seedlings every day so that our trees grow tall quickly.	464	
+dhabihu	Katika sherehe ya Idi, familia yake hutoa dhabihu ya kondoo kila mwaka.	At the Eid celebration his family offers a sheep as a sacrifice every year.	467	
+hofu	Nilikuwa na hofu kubwa nilipoingia ndani ya bahari kwa mara ya kwanza.	I was very frightened when I went into the sea for the first time.	469	
+hofu	Alikesha usiku kucha kwa sababu ya hofu ya kupoteza kazi yake.	He stayed awake all night for fear of losing his job.	469	
+mkoa	Baada ya kumaliza shule, alihamia mkoa mwingine kutafuta kazi.	After finishing school, she moved to another region to look for work.	474	
+kipaji	Msichana yule ana kipaji cha kuimba, atashiriki mashindano ya kwaya.	That girl has a talent for singing; she will take part in the choir competition.	479	
+kipaji	Kocha aligundua kipaji chake cha soka alipokuwa akicheza mtaani.	The coach discovered his football talent when he was playing in the streets.	479	
+vazi	Lile vazi jeupe la bibi harusi lilishonwa na fundi wa kijiji chetu.	That white dress of the bride's was sewn by a tailor from our village.	481	
+vazi	Alinunua vazi jipya sokoni ili avae siku ya kuhitimu chuoni.	She bought a new outfit at the market to wear on her graduation day.	481	
+njiani	Tulikutana na mwalimu wetu njiani tukielekea sokoni asubuhi ya leo.	We met our teacher on the way as we were heading to the market this morning.	484	
+njiani	Gari lilizimika njiani, tukalazimika kusukuma hadi kituo cha mafuta.	The car broke down on the road and we had to push it to the petrol station.	484	
+mheshimiwa	Jana mheshimiwa alifika kijijini kwetu kuzindua kituo kipya cha afya.	Yesterday the Honourable Member came to our village to open the new health centre.	488	
+mheshimiwa	Wananchi walimwuliza mheshimiwa lini barabara ya kijiji itatengenezwa.	The citizens asked the Honourable Member when the village road would be repaired.	488	
+lala	Tafadhali lala mapema leo usiku ili uamke saa kumi kwenda safari.	Please go to bed early tonight so you wake at four in the morning for the journey.	489	
+lala	Sasa lala chali kitandani, daktari anataka kusikiliza mapigo ya moyo wako.	Now lie on your back on the bed; the doctor wants to listen to your heartbeat.	489	
+busara	Bibi yangu hutumia busara nyingi anapotatua migogoro ya familia yetu.	My grandmother uses a lot of good sense when she settles our family's disputes.	825	
+busara	Alijibu swali lile kwa busara, hivyo wazee wote walimsifu jioni ile.	He answered that question tactfully, so all the elders praised him that evening.	825	
+inuka	Inuka polepole kutoka kitandani, usije ukapata kizunguzungu kama jana.	Get up slowly out of bed, so you don't get dizzy like yesterday.	827	
+inuka	"Kocha alipiga filimbi akasema, ""Inuka, tuendelee na mazoezi haraka!"""	"The coach blew his whistle and said, ""Get up, let's carry on with training quickly!"""	827	
+pwani	Tulitembea pwani jioni tukiangalia wavuvi wakirudi na samaki wao.	We walked along the shore in the evening, watching the fishermen come back with their fish.	832	
+pwani	Hoteli nyingi za kifahari zimejengwa pwani ya Bahari ya Hindi.	Many luxury hotels have been built on the Indian Ocean coast.	832	
+wingu	Wingu jeusi limetanda juu ya kijiji, mvua itanyesha hivi karibuni.	A black cloud has spread over the village; it will rain soon.	837	
+wingu	Jua lilijificha nyuma ya wingu kubwa tulipokuwa tukivuna mahindi.	The sun hid behind a big cloud while we were harvesting maize.	837	
+mizabibu	Mizabibu ya shamba letu imezaa vizuri msimu huu wa mvua.	The grapevines on our farm have borne well this rainy season.	840	
+mizabibu	Babu alipanda mizabibu mitatu nyuma ya nyumba miaka mitano iliyopita.	Grandfather planted three grapevines behind the house five years ago.	840	
+mtini	Watoto hupenda kucheza chini ya mtini ule mkubwa uliopo uwanjani.	Children like to play under that big fig tree in the field.	842	
+mtini	Mtini wetu umezaa matunda matamu sana mwaka huu wa mvua nyingi.	Our fig tree has borne very sweet fruit this year of heavy rain.	842	
+mfungwa	Askari alimpeleka mfungwa mpya kwenye chumba cha mahojiano asubuhi ya leo.	The officer took the new prisoner to the interview room this morning.	846	
+tazamia	Tazamia msongamano mkubwa barabarani leo jioni, ondoka nyumbani mapema.	Expect heavy traffic on the road this evening; leave home early.	848	
+tazamia	Usiwe na wasiwasi; tazamia habari njema kutoka kwa daktari kesho.	Don't worry; expect good news from the doctor tomorrow.	848	
+baki	Nilinunua mkate kwa shilingi mia tano, muuzaji akanipa baki.	I bought bread for five hundred shillings, and the seller gave me the change.	849	
+kutahiriwa	Daktari alieleza kuwa kutahiriwa hupunguza hatari ya maambukizi kwa wanaume.	The doctor explained that being circumcised reduces the risk of infection in men.	851	
+kasirika	Kasirika kama unataka, lakini sitabadilisha uamuzi wangu kuhusu safari hii.	Get angry if you want, but I won't change my decision about this trip.	852	
+kasirika	"Kaka yangu alinicheka akisema, ""Kasirika tu, hutanishinda katika mchezo huu."""	"My brother laughed at me, saying, ""Go ahead and get angry, you won't beat me at this game."""	852	
+mwanawe	Mzee Juma anajivunia mwanawe aliyefaulu mtihani wa kidato cha nne.	Old Juma is proud of his son, who passed the Form Four examination.	853	
+majini	Wazee wa mtaa wetu husimulia hadithi za majini wanaoishi baharini.	The elders of our neighbourhood tell stories about the jinn who live in the sea.	855	
+majini	Watoto waliogopa kupita msituni usiku wakidhani kuna majini huko.	The children were afraid to walk through the forest at night, thinking there were jinn there.	855	
+wanafiki	Wanafiki hao walitusifu mbele yetu kisha wakatusengenya tulipoondoka.	Those hypocrites praised us to our faces and then gossiped about us once we left.	857	
+wanafiki	Siasa zetu zimejaa wanafiki wanaoahidi maendeleo kila wakati wa uchaguzi.	Our politics is full of hypocrites who promise development at every election.	857	
+kufuata	Dereva alikataa kufuata sheria za barabarani, akapigwa faini kubwa.	The driver refused to follow the traffic rules and was fined heavily.	861	
+kufuata	Mbwa wetu alianza kufuata harufu ya nyama hadi jikoni.	Our dog started following the smell of meat all the way to the kitchen.	861	
+mchungaji	Mchungaji alipeleka ng'ombe malishoni mapema kabla ya jua kuchomoza.	The herdsman took the cattle out to pasture early, before the sun rose.	863	
+mchungaji	Mbuzi wa mchungaji yule walipotea msituni jana usiku wakati wa mvua.	That herdsman's goats got lost in the forest last night during the rain.	863	
+vyakula	Vyakula vilivyobaki karamuni tulivigawana na majirani wetu jioni ile.	The food left over from the party we shared with our neighbours that evening.	869	
+vyakula	Mama hupika vyakula vitamu vya Kiswahili kila Jumapili mchana.	Mum cooks delicious Swahili dishes every Sunday afternoon.	869	
+ufufuo	Wakristo huadhimisha ufufuo wa Yesu kila mwaka wakati wa Pasaka.	Christians commemorate the resurrection of Jesus every year at Easter.	870	
+ufufuo	Mjadala kuhusu ufufuo wa wafu ulichukua saa nzima darasani.	The debate about the resurrection of the dead took a whole hour in class.	870	
+tamani	Tamani kufanikiwa kazini, lakini usisahau kuwasaidia wenzako njiani.	Want to succeed at work, but don't forget to help your colleagues along the way.	888	
+tamani	"Mwalimu alitushauri hivi: ""Tamani elimu kuliko mali na anasa."""	"The teacher advised us this: ""Desire education more than wealth and luxury."""	888	
+kata	Kata mkate huu vipande vidogo ili watoto wote wapate.	Cut this bread into small pieces so that all the children get some.	889	
+kata	Tafadhali kata kucha zako kabla ya kwenda shuleni kesho asubuhi.	Please cut your nails before going to school tomorrow morning.	889	
+matawi	Matawi ya mwembe yalivunjika usiku ule kwa sababu ya upepo.	The mango tree's branches broke that night because of the wind.	890	
+matawi	Tulikata matawi makavu na kuyatumia kupikia chakula cha jioni.	We cut the dry branches and used them to cook the evening meal.	890	
+jadiliana	Kama hukubaliani na uamuzi huo, jadiliana na meneja wako kesho.	If you don't agree with that decision, discuss it with your manager tomorrow.	892	
+pitia	Pitia sokoni ununue nyanya na vitunguu kabla ya kurudi nyumbani.	Stop by the market and buy tomatoes and onions before coming home.	894	
+nazo	Funguo zilipotea, tukatafuta kila mahali lakini hatukurudi nazo.	The keys got lost; we searched everywhere but we didn't come back with them.	898	
+nazo	Nguo hizi ni chafu; nitakwenda nazo kwa dobi kesho asubuhi.	These clothes are dirty; I'll take them to the laundry tomorrow morning.	898	
+marashi	Nilimnunulia mama chupa ndogo ya marashi kwa siku yake ya kuzaliwa.	I bought my mother a small bottle of perfume for her birthday.	899	
+jemadari	Jemadari mstaafu alitoa hotuba fupi kuhusu nidhamu jeshini.	The retired officer gave a short speech about discipline in the army.	901	
+jemadari	Askari walisimama wima mara tu jemadari wao alipoingia ukumbini.	The soldiers stood to attention the moment their commander entered the hall.	901	
+tumia	Tumia kalamu ya bluu kujaza fomu hii ya usajili.	Use a blue pen to fill in this registration form.	903	
+tumia	Usipoteze maji; tumia ndoo moja tu kuosha gari lako.	Don't waste water; use just one bucket to wash your car.	903	
+nanga	Mvuvi alitupa nanga karibu na mwamba ili mtumbwi usisogee.	The fisherman dropped anchor near the rock so the canoe wouldn't drift.	905	
+nanga	Meli kubwa ilitia nanga bandarini baada ya safari ndefu ya siku tano.	The big ship dropped anchor at the port after a five-day voyage.	905	
+tawala	Katika mchezo huu, tawala kisiwa chako kwa busara na uvumilivu.	In this game, rule your island with wisdom and patience.	909	
+tawala	"Wanakijiji walimsihi chifu mpya, ""Tawala kwa haki bila upendeleo."""	"The villagers begged the new chief, ""Rule justly, without favouritism."""	909	
+ubaya	Sikumtendea ubaya wowote, lakini bado ananichukia bila sababu.	I didn't do him any wrong, yet he still hates me for no reason.	910	
+ubaya	Ubaya wa mradi huu ni gharama yake kubwa mno.	The bad thing about this project is its very high cost.	910	
+majivuno	Majivuno yake yalimfanya apoteze marafiki wake wote shuleni.	His bragging made him lose all his friends at school.	817	
+majivuno	Usionyeshe majivuno mbele ya wageni; ongea kwa unyenyekevu na upole.	Don't show off in front of the guests; speak humbly and gently.	817	
+vinne	Nilinunua vitabu vinne vya hisabati katika duka la mjini jana.	I bought four maths books at the shop in town yesterday.	818	
+vinne	Katika chumba hicho kuna viti vinne tu, hatuwezi kukaa sote.	In that room there are only four chairs; we can't all sit down.	818	
+hakimu	Hakimu alisikiliza mashahidi wote kabla ya kutoa hukumu yake mahakamani.	The judge listened to all the witnesses before delivering his ruling in court.	821	
+hakimu	Wakili wangu alisema hakimu mpya atafika kesho asubuhi kusikiliza kesi.	My lawyer said the new magistrate will arrive tomorrow morning to hear the case.	821	
+watoza	Watoza ushuru walifika sokoni mapema kukusanya pesa kutoka kwa wafanyabiashara.	The tax collectors arrived at the market early to collect money from the traders.	823	
+watoza	Wale watoza wa kodi wamefungua ofisi mpya karibu na stendi ya mabasi.	Those tax collectors have opened a new office near the bus stand.	823	
+mwanakondoo	Jana mwanakondoo mdogo alipotea shambani, mchungaji alimtafuta hadi jioni.	Yesterday the little lamb got lost in the fields; the shepherd looked for it until evening.	495	
+mwanakondoo	Mkulima alimnunua mwanakondoo sokoni na kumbeba kwa pikipiki hadi nyumbani.	The farmer bought the lamb at the market and carried it home by motorbike.	495	
+dhani	Hebu dhani kwamba umeshinda bahati nasibu leo, utafanya nini na pesa hizo?	Suppose you won the lottery today - what would you do with that money?	499	
+andika	Kwanza andika jina lako kwenye daftari kabla ya kuanza mtihani.	First write your name on the exercise book before starting the exam.	501	
+andika	Tafadhali andika barua kwa mwenyekiti umweleze tatizo la maji kijijini.	Please write a letter to the chairman explaining to him the village's water problem.	501	
+mfanyakazi	Mfanyakazi wa duka letu hufika mapema kila asubuhi na kufagia sakafu.	The worker at our shop arrives early every morning and sweeps the floor.	982	
+mfanyakazi	Kila mfanyakazi mpya lazima asome kanuni za kampuni kabla ya kuanza.	Every new worker must read the company's rules before starting.	982	
+wenyeji	Wenyeji wa kijiji hiki huwapokea wageni kwa ukarimu mkubwa.	The locals of this village welcome visitors with great hospitality.	983	
+wenyeji	Tulipofika mjini, wenyeji walituonyesha njia fupi ya kwenda sokoni.	When we arrived in town, the locals showed us a shortcut to the market.	983	
+mnataka	Mnataka chai au kahawa kabla ya kuanza mkutano wa leo?	Do you want tea or coffee before today's meeting starts?	985	
+mnataka	Ninyi mnataka kuhamia mjini, lakini wazazi wenu wanapinga wazo hilo.	You want to move to the city, but your parents are against that idea.	985	
+ndiwe	Ndiwe uliyeniambia kwamba duka hufungwa mapema kila Jumapili.	You're the one who told me the shop closes early every Sunday.	990	
+ndiwe	Usinilaumu mimi; ndiwe mwenye funguo za nyumba hii.	Don't blame me; you're the one with the keys to this house.	990	
+teseka	Teseka sasa kwa ajili ya masomo yako, ili maisha yawe rahisi baadaye.	Suffer now with your studies, so that life is easier later on.	993	
+mizeituni	Mizeituni ya babu yangu huzaa matunda mengi kila mwaka.	My grandfather's olive trees bear a lot of fruit every year.	995	
+mizeituni	Tulipanda mizeituni mitatu nyuma ya nyumba mwaka uliopita.	We planted three olive trees behind the house last year.	995	
+kufufuka	Baada ya mvua, bustani yetu ilianza kufufuka na kuwa kijani tena.	After the rain, our garden began to revive and turn green again.	997	
+kufufuka	Wanakijiji walishangaa kuona biashara ya sokoni ikianza kufufuka baada ya moto.	The villagers were amazed to see the market business starting to recover after the fire.	997	
+kuuawa	Wanyama wa porini wako katika hatari ya kuuawa na wawindaji haramu.	Wild animals are in danger of being killed by poachers.	998	
+kuuawa	Habari za kuuawa kwa ng'ombe wawili zilienea haraka kijijini kote.	News of two cows being killed spread quickly throughout the village.	998	
+wenzangu	Wenzangu wa kazi walinisaidia kubeba masanduku yote hadi ghorofani.	My workmates helped me carry all the boxes upstairs.	877	
+wenzangu	Nilikaa chini na wenzangu tukanywa chai baada ya mkutano mrefu.	I sat down with my friends and we drank tea after the long meeting.	877	
+joka	Joka kubwa lilijificha kwenye majani makavu karibu na kisima chetu.	A big snake hid in the dry leaves near our well.	879	
+joka	Watoto walipiga kelele walipoona joka likipita barabarani mbele yao.	The children screamed when they saw a snake crossing the road in front of them.	879	
+mkoani	Baba yangu amesafiri mkoani Mbeya kuhudhuria harusi ya rafiki yake.	My father has travelled to Mbeya Region to attend his friend's wedding.	880	
+mkoani	Bei za mahindi ni nafuu mkoani kuliko hapa mjini.	Maize prices are cheaper up-country than here in town.	880	
+yordani	Tulipanda ndege kwenda Yordani kutembelea magofu ya mji wa Petra.	We took a plane to Jordan to visit the ruins of the city of Petra.	881	
+mahakamani	Shahidi alifika mahakamani mapema akiwa amevaa koti jeusi.	The witness arrived at court early, wearing a black coat.	883	
+mahakamani	Kesi ya ardhi ilisikilizwa mahakamani kwa muda wa miezi sita.	The land case was heard in court for six months.	883	
+ndicho	Kitabu hiki ndicho nilichotafuta kwa wiki mbili bila mafanikio.	This is the book I looked for for two weeks without success.	884	
+ndicho	Chakula cha mama yangu ndicho kinachonifanya nirudi nyumbani kila likizo.	My mother's cooking is what makes me come home every holiday.	884	
+viboko	Viboko wanne walikuwa wakioga kwenye mto karibu na kambi yetu.	Four hippos were bathing in the river near our camp.	886	
+viboko	Kiongozi wa watalii alituonyesha viboko wawili wakila majani ufukweni.	The tour guide showed us two hippos eating grass on the shore.	886	
+patakatifu	Wenyeji wanaamini kwamba msitu ule ni mahali patakatifu pa mababu.	The locals believe that forest is a sacred place of the ancestors.	810	
+patakatifu	Watalii wanatakiwa kuvua viatu wanapofika mahali patakatifu pale.	Tourists are required to take off their shoes when they reach that sacred place.	810	
+tarumbeta	Kijana yule anajifunza kupiga tarumbeta katika bendi ya shule.	That young man is learning to play the trumpet in the school band.	811	
+msalabani	Kaburi lile lina jina la marehemu lililochorwa msalabani kwa rangi nyeupe.	That grave has the dead person's name painted on the cross in white.	813	
+msalabani	Watu waliweka shada la maua msalabani kando ya barabara kuu.	People laid a wreath of flowers on the cross beside the main road.	813	
+dhahiri	Ni dhahiri kwamba hakusoma; majibu yake yote yalikuwa mafupi.	It's obvious that he didn't study; all his answers were short.	814	
+dhahiri	Ushahidi ulikuwa dhahiri, kwa hivyo hakimu alitoa uamuzi haraka.	The evidence was clear, so the judge gave his decision quickly.	814	
+miungu	Wagiriki wa kale waliamini miungu mingi iliyoishi juu ya mlima.	The ancient Greeks believed in many gods who lived on top of a mountain.	816	
+miungu	Katika hadithi zile, miungu iligombana kuhusu nani atakayetawala bahari.	In those stories, the gods quarrelled about who would rule the sea.	816	
+tupa	Fundi alitumia tupa kulainisha ukingo wa mlango mpya.	The craftsman used a rasp to smooth the edge of the new door.	912	
+tupa	Nilinunua tupa mpya sokoni ili kunoa visu vyote vya jikoni.	I bought a new rasp at the market so I could sharpen all the kitchen knives.	912	
+waume	Wanawake hao walifika na waume wao kwenye sherehe ya jioni.	Those women arrived with their husbands at the evening celebration.	916	
+ubani	Harufu ya ubani ilienea chumbani kote wakati wa sherehe ya arusi.	The scent of incense spread all through the room during the wedding celebration.	919	
+nafaka	Wakulima walihifadhi nafaka ghalani kabla ya mvua kubwa kuanza.	The farmers stored the grain in the granary before the heavy rains began.	920	
+nafaka	Bei ya nafaka imepanda sana sokoni tangu mwaka jana.	The price of grain has risen sharply at the market since last year.	920	
+lenu	Jina lenu limeandikwa vibaya kwenye orodha ya wageni.	Your name is written incorrectly on the guest list.	923	
+lenu	Gari lenu jekundu limeegeshwa mbele ya lango la shule.	Your red car is parked in front of the school gate.	923	
+miiba	Nyayo zangu zilijaa miiba baada ya kutembea porini bila viatu.	My soles were full of thorns after walking in the bush without shoes.	926	
+miiba	Mtoto alilia kwa sababu miiba ya mchongoma ilimchoma kidole.	The child cried because the thorns of the thorn hedge pricked his finger.	926	
+kuzaa	Mbuzi wetu alianza kuzaa mapacha mwaka huu wa mvua nyingi.	Our goat started giving birth to twins this year of heavy rain.	927	
+kuzaa	Mpera uliopandwa nyuma ya nyumba umeanza kuzaa matunda matamu.	The guava tree planted behind the house has started to bear sweet fruit.	927	
+kimbia	Ukiona mvua inaanza, kimbia nyumbani kabla nguo zako hazijalowa.	If you see the rain starting, run home before your clothes get soaked.	929	
+kimbia	Tafadhali kimbia dukani ununue mkate kabla wateja wengine hawajafika.	Please run to the shop and buy bread before the other customers get there.	929	
+navyo	Alinunua viatu vipya na akarudi navyo nyumbani jioni ile.	He bought new shoes and went back home with them that evening.	930	
+navyo	Vitabu hivi ni vyako, ondoka navyo kabla maktaba haijafungwa.	These books are yours, leave with them before the library closes.	930	
+mmojawapo	Rafiki yangu ni mmojawapo wa wachezaji waliochaguliwa kwenda mashindano.	My friend is one of the players chosen to go to the competition.	932	
+anasa	Hatuwezi kuishi maisha ya anasa kwa mshahara mdogo kama huu.	We cannot live a life of luxury on a small salary like this one.	936	
+anasa	Alitumia pesa zote za akiba kwenye anasa za mjini.	He spent all the savings on the pleasures of the town.	936	
+zungumza	Usiogope, zungumza na mkuu wa shule kuhusu tatizo lako.	Don't be afraid, talk to the head teacher about your problem.	939	
+zungumza	Badala ya kunung'unika, zungumza na jirani yako kuhusu kelele za usiku.	Instead of grumbling, talk with your neighbour about the night-time noise.	939	
+apa	Kama hukuiba, apa mbele ya wazee wa kijiji sasa.	If you did not steal, swear before the village elders now.	945	
+apa	Usiniambie uongo; apa kwa jina la mama yako kwamba unasema kweli.	Don't tell me lies; swear by your mother's name that you are telling the truth.	945	
+bakuli	Mama alimimina uji kwenye bakuli kubwa la mtoto mdogo.	Mother poured the porridge into the small child's big bowl.	946	
+bakuli	Paka alikunywa maziwa yote yaliyokuwa kwenye bakuli jikoni.	The cat drank all the milk that was in the bowl in the kitchen.	946	
+lawama	Usinitupie lawama zote; sote tulikubaliana na mpango huo tangu mwanzo.	Don't throw all the blame on me; we all agreed to that plan from the start.	947	
+maono	Tunahitaji kiongozi mwenye maono ya mbali kwa maendeleo ya kijiji chetu.	We need a leader with far-sighted vision for the development of our village.	956	
+maono	Mkurugenzi alieleza maono yake kuhusu kampuni katika mkutano wa wafanyakazi.	The director explained his vision for the company at the staff meeting.	956	
+wazawa	Serikali imetoa nafasi za kazi kwa wazawa wa mkoa huu.	The government has given jobs to the natives of this region.	958	
+wazawa	Wageni wengi wamefika, lakini wazawa wenyewe hawakualikwa kwenye mkutano huo.	Many visitors have arrived, but the natives themselves were not invited to that meeting.	958	
+nafsi	Mzee alisema kuwa nafsi yake haijatulia tangu mkewe alipofariki.	The old man said his soul has not been at peace since his wife died.	960	
+nafsi	Ninachotaka ni amani ya nafsi, si utajiri wala umaarufu.	What I want is peace of soul, not wealth or fame.	960	
+uhodari	Mwalimu alimsifu mwanafunzi kwa uhodari wake katika hesabu na sayansi.	The teacher praised the student for his skill in maths and science.	964	
+uhodari	Timu yetu ilishinda kwa sababu ya uhodari wa mchezaji mmoja tu.	Our team won because of the skill of just one player.	964	
+ibada	Watu wengi walihudhuria ibada ya asubuhi kanisani licha ya mvua kubwa.	Many people attended the morning service at church despite the heavy rain.	965	
+ibada	Baada ya ibada, tulikaa nje tukizungumza na majirani kuhusu harusi.	After the service we sat outside chatting with the neighbours about the wedding.	965	
+geuka	Simama pale pale, geuka upande wa kulia, halafu tembea hatua kumi.	Stand right there, turn to the right, then walk ten steps.	976	
+geuka	Usinipe mgongo; geuka unitazame ninapokueleza jambo hili muhimu.	Don't turn your back on me; turn around and look at me while I explain this important matter.	976	
+viriba	Watoto waliogelea ziwani wakitumia viriba vikubwa vya matairi ya zamani.	The children swam in the lake using big tubes made from old tyres.	981	
