@@ -391,8 +391,14 @@ class TestGoldSetFile:
         moves under the gold set, the labels point at rows that changed and
         this says so."""
         import subprocess
+        import sys
+
+        # sys.executable, never a hardcoded .venv path: that exists on this
+        # machine and not on a CI runner, which is how this test failed CI
+        # while passing locally (quality rule 16 — the failing environment
+        # was the right one).
         result = subprocess.run(
-            [".venv/bin/python", "-m", "scripts.build_ar_register_gold", "--check"],
+            [sys.executable, "-m", "scripts.build_ar_register_gold", "--check"],
             cwd=REPO, capture_output=True, text=True)
         assert result.returncode == 0, result.stdout + result.stderr
 
