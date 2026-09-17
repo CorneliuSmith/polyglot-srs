@@ -335,3 +335,81 @@ grammatical relation to another word in this language and no English meaning
 **Band 1001–2000, same day: 2 more.**
 - `mẹkunu` was "alternative form of mẹ̀kúnnù" → "a poor person, one of the common people; the poor as a group (an untoned spelling of mẹ̀kúnnù)"
 - `bantẹ` was "alternative form of ìbàǹtẹ́" → "an apron or waist cloth, tied round the front over the clothes - what a blacksmith, a butcher or a cook wears (a clipped, untoned spelling of ìbàǹtẹ́)"
+
+## The tone repair (17 Sep 2026)
+
+Quality rule 7: orthography and the word list come before sentences, because
+everything downstream of a toneless headword is wrong at birth. Yoruba was
+held out of Phase 8 authoring for exactly this. **874 headwords repaired**,
+and the block is lifted.
+
+### What was actually wrong, which is not what "missing tones" suggests
+
+The frequency file had **8% of headwords carrying a tone mark**. That figure
+invites the wrong repair, because **Yoruba writes mid tone with no mark at
+all** — a bare vowel is a legitimate spelling, not an omission. Sorting the
+1,514 unmarked headwords against the dictionary's own canonical forms:
+
+| | |
+|---|---:|
+| the bare form **is** a real word (mid tone) — not a defect | 262 |
+| …of which also have marked homographs — a **merge**, rule 4 | 168 |
+| bare form is not a word; **exactly one** marked form exists | 938 |
+| several marked candidates — a decision per word | 292 |
+| dictionary has nothing | 212 |
+
+So the repairable set is 938, not 1,514, and a pass that added marks to
+everything unmarked would have corrupted 262 correct rows.
+
+### Two signals, per rule 61
+
+The dictionary's canonical spelling is one signal. The **IPA transcription is
+a second and independent one** — 94% of entries carry it and it encodes tone
+in a different field from the spelling, so agreement is real corroboration
+rather than the same fact twice. Requiring the tone sequence of the spelling
+to match the tone sequence of the IPA:
+
+- **878 of 938 confirmed** (`àti` / `/à.tī/` = LM; `ọjọ́` / `/ɔ̄.d͡ʒɔ́/` = MH)
+- 60 held back, almost all entries with no IPA at all.
+
+A first run of this check confirmed only 549 and the 389-row shortfall was
+**my own bug**: the tone extractor knew orthographic vowels and not the IPA
+ones, so every word containing `ɔ` or `ɛ` failed to match itself. Measuring
+the measurer is rule 29 in its own right.
+
+### Four the declared inventory refused
+
+`gbangba`, `ipolongo`, `polongo`, `olongo` map to forms with a **macron on
+the syllabic n** (`gban̄gba`). That is a Wiktionary convention; this course's
+declared inventory is basic Latin plus dot-below, grave and acute
+(`test_orthography`). The repairs were **reverted rather than the inventory
+widened** — a declared policy is not something to loosen so that new data
+fits it.
+
+### Result
+
+| | before | after |
+|---|---:|---:|
+| headwords carrying a tone mark | 125 (8%) | 999 (61%) |
+| top-1000 band marked | 11% | 57% |
+| **top-1000 with a sentence the card can blank** | **233 (23%)** | **300 (30%)** |
+
+The coverage gain is a side effect worth naming: repairing the headword
+**reunited it with sentences that were already written in the toned form**.
+67 words became answerable without a single sentence being authored.
+
+Zero of the 874 collided with an existing row, so every one is a rename
+rather than a merge. 248 sentence rows and 49 gloss overrides were rekeyed in
+the same change so nothing orphaned. The mapping is committed at
+`data/orthography/yo_tone_repair.tsv`.
+
+### What remains
+
+- **292 words with several marked candidates** (`ti` → `tì`/`tí`, `wọn` →
+  `wọ̀n`/`wọ́n`). Rule 4: decide which owns the rank and add rows for the
+  rest. These are the highest-frequency words in the course and the decision
+  is a real one.
+- **168 merges** where the bare form is a word *and* marked homographs exist.
+- **212 with nothing in the dictionary**, and 60 with no IPA.
+- **Phase 8 authoring is now unblocked** — 701 of the top-1000 still have no
+  blankable sentence.
