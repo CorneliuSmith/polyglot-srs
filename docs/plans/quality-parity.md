@@ -1174,12 +1174,24 @@ dictionary-form convention for a language with no derivable infinitive
   add as they become real: the DB-side passes (`review_translations`
   offline mode, `review_hints`, gym top-up, example diversity) and a
   measured cost per course.
-- **Exclusions have no production write path.** `vocab_exclusions.tsv` is
-  applied by the FILE loader (`source_data.apply_vocab_exclusions`); no
-  seeder deletes a vocabulary row (learner cards would orphan), so the 723
-  excluded rows — and the 37 the `em` card added — remain in production
-  until a retire step exists. CHECKS §12's class, one more time. See the
-  6 Sep handover for the design.
+- ~~**Exclusions have no production write path.**~~ **Built and applied.**
+  Migrations `20261016000000_vocabulary_retired` and
+  `20261017000000_grammar_point_retired` added `retired_at`, and
+  `reconcile` surveys it in both directions (retire and un-retire), so an
+  exclusion stops a word being drawn without orphaning a learner's card.
+  **Measured in production 17 Sep 2026** against the 2,134 committed
+  exclusions across 26 courses:
+
+  | | |
+  |---|---:|
+  | already retired in production | 1,786 |
+  | live and **not yet** retired — the owner's pending `reconcile --apply` | **265** |
+  | never seeded at all (nothing to retire) | 83 |
+
+  The 265 are concentrated in `hi` (108), `pt` (40), `fr` (21), `ca`/`it`/`tr`
+  (18 each). 6 grammar points are retired. This entry stays rather than being
+  deleted because the *mechanism* is the answer to CHECKS §12 and the next
+  reader should know it exists.
 
 ### Phase 8 — Example-sentence fitness, all 27 courses (owner, 30 Aug 2026)
 
