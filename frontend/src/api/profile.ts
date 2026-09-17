@@ -67,3 +67,37 @@ export async function getMyExperiments(): Promise<ChoosableExperiment[]> {
   const response = await apiClient.get('/api/auth/experiments')
   return response.data.experiments
 }
+
+/** Whether this learner can ask for their support language to be filled on
+ * a course, and whether they already have (migration 20261024). */
+export interface TranslationRequestState {
+  /** False when the server cannot store an ask yet — hide the control. */
+  available: boolean
+  locale: string | null
+  locale_name: string | null
+  auto_translate_enabled: boolean | null
+  can_ask: boolean
+  request: { status: string; requested_at: string; decided_at: string | null } | null
+  result?: 'created' | 'already' | 'already_on'
+}
+
+export async function getTranslationRequest(
+  languageId: string,
+): Promise<TranslationRequestState> {
+  const r = await apiClient.get<TranslationRequestState>(
+    '/api/languages/translation-request',
+    { params: { language_id: languageId } },
+  )
+  return r.data
+}
+
+export async function requestTranslation(
+  languageId: string,
+  note?: string,
+): Promise<TranslationRequestState> {
+  const r = await apiClient.post<TranslationRequestState>(
+    '/api/languages/translation-request',
+    { language_id: languageId, note: note || null },
+  )
+  return r.data
+}

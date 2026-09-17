@@ -4,7 +4,9 @@ import pytest
 
 from backend.services.rate_limit import (
     ai_review_limiter,
+    reco_refresh_limiter,
     stt_limiter,
+    translation_request_limiter,
     tts_limiter,
     tutor_chat_limiter,
 )
@@ -67,11 +69,19 @@ def _reset_rate_limiters():
     test to the next until the later ones got 429s. Alone, or without
     REDIS_URL, they passed, which is exactly what "environmental" looks
     like from the outside.
+
+    translation_request_limiter joined it the same way, one PR later: two
+    of its own tests failed in the full suite and passed alone, which is
+    the same shape. reco_refresh_limiter was added at the same time —
+    unbitten so far, because nothing yet makes six of those calls in one
+    run, which is a property of today's tests rather than a guarantee.
     """
     tutor_chat_limiter.reset()
     ai_review_limiter.reset()
     tts_limiter.reset()
     stt_limiter.reset()
+    reco_refresh_limiter.reset()
+    translation_request_limiter.reset()
     yield
 
 

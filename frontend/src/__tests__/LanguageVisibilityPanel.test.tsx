@@ -374,4 +374,25 @@ describe('LanguageVisibilityPanel', () => {
       expect(screen.queryByTestId('language-settings-es')).toBeNull()
     })
   })
+
+  it('shows who asked for this course to be filled, and into which languages', async () => {
+    mockReadiness.mockResolvedValue([
+      {
+        ...readinessRow('lang-es', 0),
+        translation_requests: [
+          { locale: 'tr', locale_name: 'Turkish', learners: 3 },
+          { locale: 'pt', locale_name: 'Portuguese', learners: 1 },
+        ],
+      },
+      // No asks: no badge, not a zero.
+      readinessRow('lang-he', 0),
+    ])
+    renderPanel()
+    const badge = await screen.findByTestId('asked-es')
+    expect(badge.textContent).toContain('4 asked')
+    expect(badge.textContent).toContain('Turkish')
+    expect(badge.textContent).toContain('Portuguese')
+    expect(screen.queryByTestId('asked-he')).toBeNull()
+  })
+
 })

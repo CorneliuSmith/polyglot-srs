@@ -165,3 +165,10 @@ ai_review_limiter = RateLimiter("ai_review", max_calls=10, per_seconds=60)
 # call. A learner who wants five fresh batches in one afternoon should still
 # be able to (mood/plans change), just not five hundred.
 reco_refresh_limiter = RateLimiter("reco_refresh", max_calls=5, per_seconds=86400)
+
+# "Fill my support language on this course" (routers/languages.py). One
+# learner can only ever hold one row per (course, locale), so this caps the
+# cost of the writes, not the loudness of the signal.
+translation_request_limiter = RateLimiter(
+    "translation_request", max_calls=10, per_seconds=3600
+)

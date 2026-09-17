@@ -1201,7 +1201,15 @@
       "desc": "Las pistas, definiciones y traducciones de las frases de ejemplo aparecen en este idioma en lugar de en inglés. Cambiar el idioma del sitio con el globo restablece esto a Automático.",
       "englishOption": "Inglés (definiciones)",
       "saveError": "No se pudo guardar — inténtalo de nuevo.",
-      "autoOption": "Automático — sigue el idioma de la interfaz"
+      "autoOption": "Automático — sigue el idioma de la interfaz",
+      "fillState": "La mayor parte de {{language}} en este curso se traduce a medida que llegas, no de antemano.",
+      "fillMeanwhile": "Lo que estudias se traduce cuando llegas a ello: esto pide que se traduzca también el resto del curso.",
+      "fillAsk": "Pedir {{language}} en este curso",
+      "fillAsked": "Has pedido {{language}} para este curso.",
+      "fillOn": "Ya se está traduciendo este curso a {{language}}.",
+      "fillNoteLabel": "Algo que añadir",
+      "fillNotePlaceholder": "Algo que añadir (opcional)",
+      "fillError": "No se pudo enviar. Inténtalo de nuevo."
     },
     "theme": {
       "title": "Tema",

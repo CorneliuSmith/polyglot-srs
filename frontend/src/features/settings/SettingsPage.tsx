@@ -23,6 +23,7 @@ import { getDashboardStats } from '../../api/dashboard'
 import { getTutorStatus } from '../../api/tutor'
 import UsageMeter from '../../components/UsageMeter'
 import { usePrefsStore } from '../../stores/prefsStore'
+import SupportFillRequest from './SupportFillRequest'
 import type { Theme } from '../../stores/prefsStore'
 import AppearanceTrial from './AppearanceTrial'
 import { hasTranslit } from '../keyboards/translit'
@@ -1272,6 +1273,7 @@ export default function SettingsPage() {
             {supportMutation.isError && (
               <p className="text-xs text-red-500">{t('settings.support.saveError')}</p>
             )}
+            {activeLanguageId && <SupportFillRequest languageId={activeLanguageId} />}
           </section>
 
           <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 space-y-3">

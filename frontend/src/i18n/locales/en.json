@@ -1201,7 +1201,15 @@
       "desc": "Hints, definitions, and example-sentence translations appear in this language instead of English. Changing the site language with the globe resets this to Automatic.",
       "englishOption": "English (definitions)",
       "saveError": "Couldn’t save — try again.",
-      "autoOption": "Automatic — follows the interface language"
+      "autoOption": "Automatic — follows the interface language",
+      "fillState": "Most of {{language}} on this course is still filled in as you reach it, not up front.",
+      "fillMeanwhile": "Whatever you study is translated when you get to it — this asks for the rest of the course to be filled in too.",
+      "fillAsk": "Ask for {{language}} on this course",
+      "fillAsked": "You asked for {{language}} on this course.",
+      "fillOn": "{{language}} is being filled in on this course now.",
+      "fillNoteLabel": "Anything to add",
+      "fillNotePlaceholder": "Anything to add (optional)",
+      "fillError": "That didn't send. Try again."
     },
     "theme": {
       "title": "Theme",
