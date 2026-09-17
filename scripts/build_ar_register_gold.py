@@ -13,7 +13,7 @@ Three things this script had to decide, each recorded because the obvious
 choice was wrong:
 
 **"The tripwire flagged" cannot mean the shipped tripwire.** The shipped
-`ARABIC_DIALECT_MARKERS` (29 whole words) flags **zero** rows in the current
+`ARABIC_DIALECT_MARKERS` (29 whole words) flags **one** row in the current
 13,025-row bank, and the widened §1.1 list flags 22 — not the 100 the gold
 set needs, and not the 424 word hits §2 of the programme records, which were
 measured on the 14,671-row bank before the prune. So the flagged half is

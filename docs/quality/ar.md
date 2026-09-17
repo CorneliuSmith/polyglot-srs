@@ -340,6 +340,23 @@ prompt for an Arabic speaker learning English and reads what comes out.
 corpus 98% MSA and was not wrong.** It measured the Arabic *course*, which
 was largely clean. The corpus and the complaint were two different corpora.
 
+## Every card surface read (17 Sep 2026)
+
+Readers reported dialect on cards "in the sentences, words, or explanations".
+All five Arabic-bearing stored surfaces were read: **1,241 rows, 1.0% not
+MSA**, projected at ~194 across the 13,652 stored rows (95% CI 75–513). Full
+report: `docs/quality/ar-surfaces-2026-09-17.md`.
+
+The three worst are **vocabulary definitions written in colloquial Arabic** —
+`شاف` for رأى, `مراية` for مِرآة, `مليان` for مَلِيء. Two grammar function
+notes give a learner instruction with the colloquial imperative `قول` instead
+of `قُلْ`. The 211 Arabic grammar explanations came back **completely clean**.
+
+Six of the thirteen findings are **classical, not dialect** — the direction
+nobody was watching. Qurʾān 18:24 and a hadith are in the live example bank as
+everyday sentences, all of them in the 362 rows that are live but absent from
+the committed file, so they never passed a file-level pass.
+
 ## The register programme: gold set, judge and fix path (17 Sep 2026)
 
 Step 0 of `docs/plans/arabic-msa-local-llm.md` pinned the prompts (above).
@@ -361,8 +378,10 @@ reviewers.
 
 ### Three measurements worth keeping
 
-**The tripwire flags zero rows.** `ARABIC_DIALECT_MARKERS` (29 whole words)
-finds nothing at all in the current 13,025-row `ar_sentences.tsv`. The 424
+**The tripwire flags one row in 13,025, and not in the sentence.**
+`ARABIC_DIALECT_MARKERS` (29 whole words) finds nothing in the `sentence`
+column of `ar_sentences.tsv` and one hit in the `word` column — the headword
+`مش`, whose sentence (مشّط شعرك قبل أن تخرج) is ordinary MSA. The 424
 word hits the programme's §2 records were measured on the 14,671-row bank
 before the prune. Widened to every tell in §1.1 it finds 22 rows — and 17 of
 those have only a documented *non-tell* (عم, دول, الحين) as their evidence.
