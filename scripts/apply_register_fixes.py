@@ -337,6 +337,17 @@ def main() -> int:
         if row["store"] != "vocab":
             rejects.append(f"{row['id']}: only a vocabulary entry can be retired; "
                            "a dialect-only SENTENCE is deleted by the prune, not here")
+    # A queue row from a LIVE store has no committed file to land in. Without
+    # this it matches none of the three handlers above and is dropped in
+    # silence, which reads in the report as "applied" — the same shape as a
+    # dropped judge verdict reading as "this row is MSA" (quality rule 14).
+    for row in actionable:
+        if row["store"].startswith("db-"):
+            rejects.append(
+                f"{row['id']}: {row['store']} is a live table, not a file. Its "
+                "fixes go through the SQL the pass prepared "
+                "(out/ar-register-<store>-<stamp>.sql), which the OWNER runs.")
+            report["db_row_not_applicable"] += 1
 
     print("\napplied:" if not args.dry_run else "\nwould apply:")
     for key, count in sorted(report.items()):

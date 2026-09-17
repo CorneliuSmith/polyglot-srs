@@ -504,3 +504,25 @@ class TestApplyRegisterFixes:
 
         mod = self._script()
         assert mod.apply_retirements([], Counter(), dry_run=True) == set()
+
+    def test_a_live_table_row_is_refused_loudly_not_dropped(self, tmp_path, capsys):
+        """A `db-sentences` row has no committed file to land in. Matching
+        none of the handlers and being skipped in silence would read in the
+        report as "applied" — the same shape as a dropped verdict reading as
+        "this row is MSA" (quality rule 14)."""
+        import sys as _sys
+
+        mod = self._script()
+        queue = self._queue(tmp_path, [
+            self._row(id="es:abc", store="db-sentences", field="sentence",
+                      verdict="dialect", after="x", decision="accept"),
+        ])
+        argv = _sys.argv
+        _sys.argv = ["apply", "--fixes", str(queue), "--dry-run"]
+        try:
+            assert mod.main() == 0
+        finally:
+            _sys.argv = argv
+        out = capsys.readouterr().out
+        assert "db_row_not_applicable" in out
+        assert "live table, not a file" in out
