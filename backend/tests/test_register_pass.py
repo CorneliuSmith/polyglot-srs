@@ -526,3 +526,21 @@ class TestApplyRegisterFixes:
         out = capsys.readouterr().out
         assert "db_row_not_applicable" in out
         assert "live table, not a file" in out
+
+
+class TestStorePassSaysHowWellCalibratedItIs:
+    """A store pass prints the calibration state before its verdicts can be
+    mistaken for a result. The docstring promised this and the code did not
+    do it — which is the doc-drift DEBT.md exists to catch, one level down."""
+
+    async def test_an_unlabelled_gold_set_is_said_out_loud(self, capsys):
+        async def judge(items):
+            return [_verdict(i["i"]) for i in items]
+
+        with patch.object(rp, "judge_for", lambda b, m: judge), \
+             patch.object(rp, "judge_name", lambda b, m: "fake"):
+            assert await rp.main(["--store", "vocab", "--limit", "5"]) == 0
+        out = capsys.readouterr().out
+        assert rp.CALIBRATION in out
+        assert "NOT LABELLED" in out
+        assert "never as a result" in out

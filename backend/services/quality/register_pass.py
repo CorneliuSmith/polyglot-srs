@@ -66,6 +66,11 @@ DATA = REPO / "data"
 OUT_DIR = REPO / "out"
 BACKUP_DIR = DATA / "backups"
 GOLD = DATA / "eval" / "ar_register_gold.tsv"
+DOCUMENTED = DATA / "eval" / "ar_register_documented.tsv"
+# The calibration this judge last passed, and on what. Printed on every store
+# pass so a full run cannot be read as trusted without someone seeing how
+# narrow the evidence for it still is (§3.2).
+CALIBRATION = "docs/quality/ar-register-2026-09-17.md"
 FIXES = DATA / "ar_register_fixes.tsv"
 
 logger = logging.getLogger("register_pass")
@@ -830,6 +835,17 @@ async def main(argv: Sequence[str] | None = None) -> int:
         print(f"\nDRY RUN — {len(rows)} fixes would be written to "
               f"{FIXES.relative_to(REPO)}. Pass --apply to write them.")
     print(f"verdicts -> {path.relative_to(REPO)}")
+    print(f"\nCalibration: {CALIBRATION}")
+    labelled = sum(1 for r in _read_tsv(GOLD) if (r.get("label") or "").strip()) \
+        if GOLD.exists() else 0
+    documented = (len(_read_tsv(DOCUMENTED)) - 0) if DOCUMENTED.exists() else 0
+    if labelled:
+        print(f"   gold set: {labelled} items carry a reviewer label.")
+    else:
+        print(f"   gold set: NOT LABELLED by a reviewer. The §3.2 gate has "
+              f"only been measured on the {documented} documented answers, "
+              "which is 9% of the set —")
+        print("   treat these verdicts as a queue to review, never as a result.")
     print("\nNothing here reaches production. Reviewers work the TSV "
           "(programme §6), then scripts/apply_register_fixes.py, then the "
           "owner's refeed (docs/quality/refeed.md).")
