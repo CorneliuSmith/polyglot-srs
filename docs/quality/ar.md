@@ -159,6 +159,10 @@ pinned prompt (an owner-run AI pass, `docs/quality/refeed.md`), so what the
 unpinned gate let through is caught rather than only the three rows found
 by hand.
 
+**The programme that fixes the existing content** — reviewer rules, the
+local judge, the per-store fix paths, the checklist and the write-up
+format — is `docs/quality/ar-register-programme.md`.
+
 ## Current measured state
 40 grammar points (A1–C2), 274 drills, 274/274 transliterated, 96/274 with a `cell` label.
 Corpus: `data/ar_sentences.tsv` 14671 rows, `ar_frequency.tsv` 8778, `ar_morphology.json` 6869.
