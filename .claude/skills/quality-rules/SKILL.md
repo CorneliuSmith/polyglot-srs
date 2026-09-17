@@ -511,6 +511,13 @@ rate, say so — that result matters more than the phase closing quietly.
     knowing IPA vowels — every word containing ɔ or ɛ failed to match
     itself. A surprisingly low pass rate is a bug in the instrument until
     proven otherwise (rule 29, pointed inward).
+73. **Renaming a headword in a file is an ADD plus an ORPHAN in production.**
+    The database has no rename: `reconcile` sees the old spelling as "in no
+    committed source" and never deletes it, so the 874 Yoruba tone repairs
+    would have shipped every word twice — `ati` and `àti` as separate cards.
+    Any pass that changes a headword's spelling must write the old form into
+    `vocab_exclusions.tsv` in the SAME change, and the retire must run before
+    or with the seed. CHECKS §12, from the third direction.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
