@@ -317,7 +317,7 @@ def _system_prompt(
             "session.\n"
             "- Only real mistakes. Informal, clipped, or regional-but-correct "
             "speech is not an error. An empty list is a good answer.\n"
-            f"- Write the notes in {explain_in}.\n"
+            f"- Write the notes in {explain_in}.{register_line(explain_in)}\n"
             "- Judge only what they wrote. Never flag spelling of a word they "
             "typed on a keyboard they may not have."
         )
@@ -512,7 +512,8 @@ async def summarize_speak_session(
         "label — three slips of the same underlying rule are ONE group, with "
         "all three quoted as examples. Order by how much each one gets in "
         "the way of being understood.\n"
-        f"Write labels and notes in {explain_in}; quote the learner's own "
+        f"Write labels and notes in {explain_in}.{register_line(explain_in)} "
+        "Quote the learner's own "
         "words untranslated. Be brief and unsentimental. Do not praise, do "
         "not score, do not pad the list — two real groups beat six thin ones."
         + register_line(language_name)
@@ -648,7 +649,7 @@ async def speak_opening(
             "short sentence ending in a question they can answer at their "
             "level. No greeting-plus-question pile-up, no explanation of "
             "what you are doing.\n\n"
-            f"Write its translation in {support}."
+            f"Write its translation in {support}.{register_line(support)}"
             + register_line(language_name)
         ),
         messages=[{"role": "user", "content": "Start the conversation."}],

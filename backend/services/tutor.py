@@ -554,6 +554,15 @@ def build_system_blocks(
                 "and converse in this language from your very first message — "
                 "practice content stays in the target language. Switch to "
                 "another support language only if the learner asks."
+                # The support language needs its own register pin. The block
+                # above is the whole of what the tutor is told about the
+                # language it SPEAKS, and "converse in Arabic" reads to a
+                # model as conversational Arabic, which is dialect. The pin
+                # on `language_code` above covers the language being TAUGHT,
+                # and for an Arabic speaker learning English that is English
+                # — which has no register to pin, so nothing reached the
+                # prompt at all.
+                + register_line(support_language)
                 if support_language and support_language != "English" else ""
             )
             + (

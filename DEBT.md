@@ -1204,3 +1204,22 @@ the MSA homograph entries). That is real ground truth and the judge is
 graded on it. It is not a substitute for the review — it contains no
 judgement call, which is exactly why it is safe and exactly why it is
 narrow.
+
+## The support locale is a register surface and was pinned late (17 Sep 2026)
+
+A learner's *support* locale — the language the app explains IN — is a
+register surface in its own right, and for most of this codebase's life
+nothing said so. Every call site pinned `register_line()` on the language
+being TAUGHT. For an Arabic speaker learning English that is English, which
+has no variety to pin, so the tutor's prompt carried no register rule at all
+while being told to "converse in Arabic".
+
+Fixed for `tutor.py` and `speak.py` (three sites). Already correct in
+`translate.py` and `define.py`, which pin the locale they write into.
+
+**What to watch:** `register_line` is keyed by language, and `REGISTER` has
+exactly one entry. Any other language with a standard variety — Persian
+(formal vs colloquial), Hindi, Greek, Tagalog — has the same hole in both
+directions, as a course and as a support locale, and none has been measured.
+Rule 1 says a defect found in one language is a class; this one has been
+fixed for Arabic only.
