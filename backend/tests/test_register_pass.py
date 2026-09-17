@@ -550,3 +550,42 @@ class TestStorePassSaysHowWellCalibratedItIs:
         assert rp.CALIBRATION in out
         assert "NOT LABELLED" in out
         assert "never as a result" in out
+
+
+class TestTopicFilesAreApplicable:
+    """`data/topics/*.json` is fed to `generate_content -k topics
+    --topics-file`, which rejects any slug outside the frozen taxonomy
+    rather than storing it. A file with a bad slug is silently a smaller
+    file, so the rejection has to be zero before the owner runs anything."""
+
+    def test_every_slug_is_in_the_frozen_taxonomy(self):
+        import json
+
+        from backend.services.topic_taxonomy import valid_topic
+
+        found = 0
+        for path in sorted((REPO / "data" / "topics").glob("*.json")):
+            if path.name.startswith("_"):
+                continue
+            code = path.stem
+            supplied = json.loads(path.read_text(encoding="utf-8"))
+            by_word = supplied.get(code, supplied)
+            assert by_word, f"{path.name} is empty"
+            bad = {w: s for w, s in by_word.items() if valid_topic(s) is None}
+            assert not bad, f"{path.name} has slugs the CHECK rejects: {bad}"
+            found += 1
+        assert found, "no topic files found"
+
+    def test_the_file_is_keyed_the_way_the_seeder_reads_it(self):
+        """`supplied.get(lang["code"], supplied)` — so a file keyed by its
+        own code works and a flat map works, but a file keyed by a DIFFERENT
+        code silently applies nothing."""
+        import json
+
+        for path in sorted((REPO / "data" / "topics").glob("*.json")):
+            if path.name.startswith("_"):
+                continue
+            supplied = json.loads(path.read_text(encoding="utf-8"))
+            assert path.stem in supplied, (
+                f"{path.name} is not keyed by {path.stem!r}; the seeder would "
+                "read the whole object as a word map and apply nothing")
