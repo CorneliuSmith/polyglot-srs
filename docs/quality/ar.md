@@ -300,3 +300,84 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+## The register programme: gold set, judge and fix path (17 Sep 2026)
+
+Step 0 of `docs/plans/arabic-msa-local-llm.md` pinned the prompts (above).
+This is steps 1–3 and 6 of `docs/quality/ar-register-programme.md` §5 — the
+instruments for the content that already exists. Nothing here has changed a
+single learner-facing row yet, and that is by design: §3.2 says the judge
+does not touch production before it is calibrated, and calibration needs
+reviewers.
+
+### What was built
+
+| | |
+|---|---|
+| `data/eval/ar_register_gold.tsv` | 614 items — 200 sentences, 100 vocabulary entries, all 274 drills, all 40 explanations. `label`, `variety`, `evidence`, `note` ship **blank**: they are the reviewers' columns. |
+| `data/eval/ar_register_documented.tsv` | 56 of those items whose answer the programme document itself asserts. Real ground truth, no judgement call. |
+| `backend/services/quality/register_pass.py` | The judge. One question per row, the §3.1 schema, Anthropic or any OpenAI-compatible endpoint. Never writes to the database. |
+| `scripts/apply_register_fixes.py` | Accepted decisions into the committed files, through the blank-ability gate. |
+| `scripts/build_ar_register_gold.py` | Rebuilds both eval files byte-for-byte; `--check` fails if the corpus has moved under the labels. |
+
+### Three measurements worth keeping
+
+**The tripwire flags zero rows.** `ARABIC_DIALECT_MARKERS` (29 whole words)
+finds nothing at all in the current 13,025-row `ar_sentences.tsv`. The 424
+word hits the programme's §2 records were measured on the 14,671-row bank
+before the prune. Widened to every tell in §1.1 it finds 22 rows — and 17 of
+those have only a documented *non-tell* (عم, دول, الحين) as their evidence.
+A green `ar_register` row is not evidence the corpus is MSA.
+
+**The live table is bigger than the committed bank.** `example_sentences`
+holds **14,797** Arabic rows against the file's 13,025, and there are
+**11,589** Arabic-locale definitions. Those 1,772 extra sentences are §2's
+"biggest unknown" with a number on it: they were accepted by the unpinned
+harvest checker and they are in no file.
+
+**A register fix can delete the headword it serves.** The confirmed defect
+`ستقلي خطاب بكرة` is filed under the headword `بكرة`. Rewriting `بكرة` →
+`غدًا` is correct MSA and leaves a row the card cannot blank, so the card
+falls back to definition-only (CHECKS §29). Worse, the row never exemplified
+the headword's own gloss — `بكرة` is glossed "early morning", and the
+sentence uses the Egyptian "tomorrow", so it was a wrong-sense example
+before it was a register defect (quality rule 6). The apply script refuses
+the rewrite and routes it to the authored-replacement queue, which is the
+owner's settled exception: retire dialect-only meanings, but author a
+replacement rather than leave a headword with no sentence.
+
+### Calibration (full page: `ar-register-2026-09-17.md`)
+
+The judge was run over all 614 items and graded on the 56 whose answer the
+programme document asserts: **56/56, all three §3.2 gates pass.** The first
+run scored 53/56 and every miss was one class — asked "is this MSA?" of a
+frequency entry it graded the *gloss's sense* and called مش "to suck the
+marrow" MSA, which is true of the verb and false of the entry. The fix is a
+rule about whether the gloss's sense could plausibly have earned the rank;
+the seven MSA homographs in the same stratum did not flip, which is the
+evidence it generalised rather than memorised three answers.
+
+Found in the 614: **9 dialect** (the two documented sentences, each serving
+two headwords, plus مش/وين/مو/يلا and تو), **5 classical** (all in grammar
+point 37 and one Qurʾānic drill), **20 orthography-only** logged for the
+spelling pass. The 274 drills carry no dialect.
+
+**Two findings are decisions, not defects.** Grammar point 37 exists to
+teach the energic نون التوكيد, which §1.4 of the programme lists among the
+forms MSA no longer uses productively — a specification conflict both
+readers spotted and neither would resolve. And a C2 drill is Qurʾān 1:5
+verbatim as its fronting example.
+
+### What is NOT done, plainly
+
+- **No reviewer has labelled anything.** The §3.2 gate proper is against
+  human labels; `--gold` reports "GOLD SET NOT LABELLED" rather than
+  inventing a figure, and the 56 documented answers are 9% of the set. Two
+  Arabic speakers from different regions is the owner's settled minimum.
+- **No full pass has run** over the four file stores or the two live tables,
+  because §3.2 forbids it before the gate passes.
+- **No local endpoint.** `--base-url` is built and tested against a fake
+  server; no GPU service exists, so Jais-2-8B and Falcon-H1-Arabic-7B remain
+  unmeasured on this corpus and the choice between them is still open.
+- **The Arabic-locale support side** (11,589 definitions written by unpinned
+  translators) is readable by `--store db-locale` and has not been read.

@@ -2152,3 +2152,70 @@ lives in `backend/services/quality_rules.py`, never as an inline string.
 
 The translation lane's target is the learner's *support locale*, not the
 course, so the course brief does not apply there.
+
+## §39 Register: a course with one standard variety and content in another (17 Sep 2026)
+
+**The class.** A course whose language has a standard variety and several
+spoken ones can teach the wrong one without any existing check noticing.
+Arabic is the case that surfaced it — a beta reviewer wrote that "the
+translation was Egyptian" — but the class is not Arabic-only: Persian
+(formal vs colloquial), Hindi (Modern Standard Hindi vs Hindustani
+register), Greek and Tagalog all have the same shape, and the pin built for
+Arabic (`quality_rules.REGISTER`) has one entry because nobody has measured
+the others yet. Measuring them is rule 1's job and is not done.
+
+**Why nothing caught it.** Three instruments looked like they covered this
+and none did.
+
+1. **The prompts never asked.** "Modern Standard Arabic" reached the model
+   through one sentence in `tutor_skills/ar/SKILL.md`, loaded by 8 of 35
+   model calls. The other 27 said "Arabic" or named no variety. The worst
+   was Speak's "friendly Arabic conversation partner … spoken-style chat",
+   which to any model is an invitation to Egyptian, because that is what
+   friendly spoken Arabic is. Fixed in PR #473; a test now walks every
+   `messages.create` and fails a call site carrying neither the pin nor the
+   fuller brief.
+2. **The checkers never asked either.** The harvest checker asked for
+   "natural, grammatical Arabic" and the sentence and drill reviewers for
+   "a strict reviewer of Arabic example sentences". Natural Arabic *accepts*
+   بكرة. The gate the three known defects passed could not have rejected
+   them: it did not know what the standard was. This is the general rule —
+   **a checker that does not carry the standard cannot enforce it**, and a
+   maker pinned behind an unpinned checker is only half pinned.
+3. **The tripwire measures almost nothing.** `ARABIC_DIALECT_MARKERS` is 29
+   whole words at a precision the programme measured under 5%, and it flags
+   **zero rows** in the current 13,025-row bank. Widened to every tell in
+   programme §1.1 it flags 22, and 17 of those have only a documented
+   *non-tell* as evidence. A green `ar_register` row is not evidence of
+   anything (DEBT.md).
+
+**The instrument that does work** is a judge that reads the row:
+`backend/services/quality/register_pass.py`, one question per row, the
+§3.1 schema, Anthropic or any OpenAI-compatible endpoint behind the same
+schema. It is calibrated before it is trusted (§3.2 of the programme) and
+it never writes to the database.
+
+**Three things the design had to get right, each of which was wrong first.**
+
+- **A gold set of positives measures recall and nothing else.** The
+  expensive failure mode here is the false alarm, not the miss — the
+  programme says so in as many words — so the set is built to contain the
+  hard negatives: the 25 b-prefix rows (`بالنسبة`, `بنفسك`) that look like
+  a dialect b-imperfect and are the preposition, the 17 rows whose only
+  marker is an MSA word, and the MSA homograph entries (`كمان` violin,
+  `دول` to internationalize) sitting beside the dialect ones they collide
+  with.
+- **Spelling is not register, and a keen judge will file it as register.**
+  Word-final ى/ي, ة/ه, hamza seats and tashkeel are coached by the grader
+  already (`docs/quality/ar.md` §3–4). A verdict of `dialect` on one of
+  them sends the spelling pass's work into the register queue and tells a
+  reviewer to "fix" something the standard permits. It is one of the three
+  §3.2 gates for that reason.
+- **Fixing the register of a sentence can delete the headword it serves.**
+  The confirmed defect `ستقلي خطاب بكرة` is filed under the headword `بكرة`,
+  and the fix — `بكرة` → `غدًا` — removes it, so the card can no longer
+  blank anything and falls back to definition-only (§29). The rewrite is
+  correct Arabic and a dead row. `apply_register_fixes.py` refuses it at the
+  same blank-ability gate `apply_authored_sentences.py` uses, and routes it
+  to the authored-replacement queue instead. **A register fix and a
+  card-integrity fix are different fixes and the second is not optional.**

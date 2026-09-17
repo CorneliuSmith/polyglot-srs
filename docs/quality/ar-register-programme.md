@@ -7,6 +7,13 @@ new content is asked for MSA; **this document is about the content that
 already exists**, and about the local model that will read all of it,
 because the instruments we have cannot.
 
+**Status (17 Sep 2026).** Steps 1–3 and 6 are built and the judge is
+calibrated: `docs/quality/ar-register-2026-09-17.md`. Step 4 onward waits on
+reviewers filling `data/eval/ar_register_gold.tsv`. Two items in §8 below now
+have an answer the document did not anticipate — see §4 of the results page:
+the §1.4 ban on energic forms contradicts grammar point 37, and a C2 drill is
+Qurʾān 1:5 verbatim.
+
 The standard is one sentence: **the course teaches Modern Standard Arabic
 (الفصحى); Egyptian, Levantine, Gulf, Iraqi and Maghrebi forms, and
 Classical forms MSA no longer uses productively, are out of scope in
