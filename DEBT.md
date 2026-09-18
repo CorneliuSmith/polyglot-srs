@@ -1337,3 +1337,78 @@ letter name, so the rule would not fire even if the band were lifted.
 Two separate pieces of work, then: widening the band, and a rule that can see
 this class at all. Neither is done. See
 `docs/quality/en-sense-ar-gloss-2026-09-18.md`.
+
+## Human ownership of a card is one boolean that only some write paths set (18 Sep 2026)
+
+`vocabulary.curated` and `grammar_points.curated` are what stand between a
+reviewer's Workshop edit and the next content push. `reconcile --apply`
+reports a curated definition that differs from the file under `kept` and
+never writes it (before 18 Sep it wrote the file's wording back over every
+such fix — silently, with a rollback line nobody would look for);
+`seed_grammar` finds a curated point under its current title and every
+former title `content_change_log` holds for it, so a retitled point is not
+re-inserted from the file beside itself. Both protections are only as good
+as the flag.
+
+**What sets it:** `approve_suggestion` (both kinds), `save_explanation`,
+`_edit_vocab_card` on a DEFINITION change, `_edit_grammar_card` on a TITLE
+change. **What does not:** a reading-only edit (`hint`), which owns nothing
+the seeder or reconcile would touch; any future Workshop write path that
+someone adds without copying the `UPDATE ... SET curated = true` line — the
+next reconcile will revert its work and say `gloss`, not `kept`. The test
+that would catch a new path is not mechanical; read `contributor.py` for
+`curated` before adding one.
+
+**The former-title index reads the audit log, not the row.** A retitle done
+by ad-hoc SQL, or on a database behind migration 20260823, leaves no
+`field = 'title'` row, and the seeder duplicates the point exactly as
+before. `curated_points_by_title` degrades to current titles only when the
+table is absent. If the file's title and the live title disagree with no
+log row between them, the fix is to retitle the file to match production.
+
+## The rename detector pairs by rank alone (18 Sep 2026)
+
+`reconcile.detect_renames` calls a `gone` word and a `new` word at the same
+frequency rank one headword respelled, and `--apply` skips the course until
+the old spelling is in `vocab_exclusions.tsv` (rule 73). The rank is the one
+field a respelling keeps; it is also the one field a **re-ranked list**
+changes for every word, so a course whose frequency file was rebuilt from a
+new corpus can show pairs that are two unrelated words. Deliberately kept:
+the action the false pair asks for is still the right one — the departed
+word IS an orphan in production whatever took its rank, and excluding it is
+how it stops being drawn. A rank shared by two words on either side is not
+paired at all, so a badly re-ranked file under-reports rather than
+mis-directs. `cards` on each pair says how many learners hold the old
+spelling, which is the number that decides urgency. Not built: a detector
+for a rename that also moves rank (the 874 Yoruba repairs kept theirs).
+
+## The part-of-speech gate is Arabic, verbs, and a dropped row (18 Sep 2026)
+
+`translate_checks.pos_mismatch` withholds an Arabic gloss whose head is
+nominal on a verb row (`nominal_gloss_on_a_verb`, 76% precision / 86% recall
+on 120 judged rows). Three choices to know about:
+
+- **Only `ar`, only `verb`** (`_POS_CHECKED_LOCALES`). Persian shares the
+  script and none of the measurement; a heuristic measured on one language
+  and applied to nine is the class of guard this program has paid for once
+  (rule 1). Adding a locale means its own 200-row gold set first.
+- **Withhold by leaving the item out of `maker_check_batch`'s results**, not
+  by a `reject` verdict. Every caller files a reject in
+  `translation_reviews`, `ON CONFLICT DO NOTHING`, and `_pending_words`
+  skips a row that has one — so a reject is permanent until a human clears
+  it, and 24 in 100 would be false. A missing item is the shape callers
+  already handle for a maker that returned nothing: not stored, not queued,
+  retried by the attempt ledger. The cost is the retry itself — a second
+  maker+checker call for every withheld row, false alarms included — and
+  the hamzat-wasl form VIII verbs (`اِلْتَهَمَ` bares to `التهم`) are a
+  known false-alarm class that will be withheld every time until a
+  morphological analyser replaces the pattern. Watch `withheld ar gloss` in
+  the logs; if a row is withheld on every attempt, the ledger's backoff is
+  what stops it costing money for ever.
+- **The sentence and label lanes are untouched.** `gate` gained `pos` and
+  `word`, but `generate_sentence_translations` / `generate_text_translations`
+  carry neither and are not judged; the plan's line numbers for the "call
+  sites" pointed at those lanes, and the vocabulary lane
+  (`maker_check_batch`) had never called `gate` at all. It still does not
+  call the FULL gate: `is_identity` would refuse a cognate gloss (`radio` →
+  `radio`), a behaviour change nobody has measured.

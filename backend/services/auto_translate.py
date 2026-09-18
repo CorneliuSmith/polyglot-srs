@@ -208,7 +208,8 @@ async def _fill_cards(conn, pair: dict, st: dict,
                   "definition": r["definition"], "example": r["example"]}
                  for i, r in enumerate(rows)]
         results = await maker_check_batch(
-            pair["locale_name"], items, source_language=pair["language_name"])
+            pair["locale_name"], items, source_language=pair["language_name"],
+            locale=locale)
         by_i = {b["i"]: b for b in results}
         merged = [{**by_i[i], "id": rows[i]["id"]}
                   for i in range(len(rows)) if i in by_i]
@@ -1516,7 +1517,8 @@ async def process_demand(conn: asyncpg.Connection, budget: int,
                              for i, r in enumerate(rows)]
                     results = await _guard(maker_check_batch(
                         b["locale_name"], items,
-                        source_language=b["language_name"]), kind, b)
+                        source_language=b["language_name"],
+                        locale=b["locale"]), kind, b)
                     by_i = {x["i"]: x for x in results}
                     merged = [{**by_i[i], "id": rows[i]["id"]}
                               for i in range(len(rows)) if i in by_i]
@@ -1708,6 +1710,7 @@ async def run_translation_cycle(conn: asyncpg.Connection) -> dict:
             results = await _guard(maker_check_batch(
                 pair["locale_name"], items,
                 source_language=pair["language_name"],
+                locale=pair["locale"],
             ), "word", pair)
         except _BatchError as exc:
             # One pair's provider error must not end the cycle for every

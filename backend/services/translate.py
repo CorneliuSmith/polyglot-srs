@@ -18,13 +18,16 @@ stubs so the pipeline is testable with no API key.
 from __future__ import annotations
 
 import json
+import logging
 
 from anthropic import AsyncAnthropic
 
 from backend.config import get_settings
 from backend.services.models import resolve_model
 from backend.services.quality_rules import register_line
-from backend.services.translate_checks import gate
+from backend.services.translate_checks import gate, pos_mismatch
+
+logger = logging.getLogger("translate")
 
 _MAKER_SCHEMA = {
     "type": "object",
@@ -237,7 +240,8 @@ async def check_glosses(target_language: str, items: list[dict],
 async def maker_check_batch(target_language: str, items: list[dict],
                             maker_model: str | None = None,
                             checker_model: str | None = None, *,
-                            source_language: str = "English") -> list[dict]:
+                            source_language: str = "English",
+                            locale: str = "") -> list[dict]:
     """Run maker then checker over a batch. Returns per-item results:
     {i, word, gloss, proposed, verdict, note}.
 
@@ -247,6 +251,16 @@ async def maker_check_batch(target_language: str, items: list[dict],
     Dropping it left every row in that queue with nothing to approve: the
     reviewer saw a word, a reason, and a Reject button, which is not a
     review, it is a bin.
+
+    *locale* is the target's locale code, for the mechanical part-of-speech
+    gate (`translate_checks.pos_mismatch`; Arabic verb rows today). A
+    rendering it catches is WITHHELD — left out of the results — not
+    rejected: every caller files a reject in `translation_reviews`, a queue
+    a human has to clear and one `_pending_words` then skips for ever, and
+    the predicate is right 76 times in 100. An item missing from the results
+    is the shape the callers already handle for a maker that returned
+    nothing — not applied, not queued, and the attempt ledger paces a
+    second try with the part of speech named in the prompt as before.
     """
     made = await make_glosses(target_language, items, maker_model,
                               source_language=source_language)
@@ -261,6 +275,13 @@ async def maker_check_batch(target_language: str, items: list[dict],
     for it in checkable:
         v = verdicts.get(it["i"], {"verdict": "reject", "final": "", "note": "no verdict"})
         store = it["gloss"] if v["verdict"] == "ok" else v["final"]
+        if v["verdict"] in ("ok", "fixed") and store:
+            reason = pos_mismatch(it["word"], it.get("pos"), it.get("definition"),
+                                  store, locale=locale)
+            if reason:
+                logger.info("withheld %s gloss for %r (%s): %s",
+                            locale, it["word"], it.get("pos"), reason)
+                continue
         results.append({
             "i": it["i"], "word": it["word"],
             "gloss": store if v["verdict"] in ("ok", "fixed") else "",

@@ -274,6 +274,19 @@ digest in `.claude/skills/quality-rules/` is deliberately NOT read at
 runtime: it governs the sessions that clean data; rules move from it into
 `quality_rules.py` one at a time, as short mechanical statements.
 
+Behind the checker sits a third, mechanical layer: `services/translate_checks.py`.
+The checker grades MEANING; the gates catch the classes a semantic grader
+has been caught missing — a hint that quotes its own answer, an echo of the
+source, a lost cloze blank, a Spanish question without its `¿`, and, since
+18 Sep 2026, a gloss in the wrong part of speech. The last one is narrow on
+purpose: it judges Arabic verb rows only, because that is the one class
+with a measured predicate (`nominal_gloss_on_a_verb`, 76% precision on 120
+judged rows), and it **withholds** rather than rejects — the item is left
+out of `maker_check_batch`'s results, so the caller neither stores it nor
+files it in `translation_reviews` (a queue a human must clear), and the
+attempt ledger retries it. Widening it to another locale means a gold set
+for that locale first (`_POS_CHECKED_LOCALES`), not a longer list.
+
 The tutor's per-language knowledge is a skill bundle,
 `tutor_skills/<code>/`: `SKILL.md` rides in every prompt (kept under 2,500
 chars by test), `REFERENCE.md` and `ERRORS.md` load on demand through the
@@ -1026,7 +1039,13 @@ still in production** until a tool that deletes is run on purpose:
   headword. A bulk DELETE, so the owner runs it (CHECKS §18).
 - `reconcile -l <code>` — corrections (glosses, parts of speech, sentence
   layers) with the same rollback-first shape. Never deletes a vocabulary
-  row.
+  row. Since 18 Sep 2026 it also never overwrites one a human edited: a
+  `vocabulary.curated` row whose definition differs from the file is
+  reported as `kept`, not corrected (before that, every Workshop fix was
+  reverted on the next `--apply`). And it refuses a course with a headword
+  **rename** — a `gone` word and a `new` word at the same frequency rank —
+  until the old spelling is in `vocab_exclusions.tsv`, because the seeder
+  would add the new spelling and nothing would remove the old (rule 73).
 - `data/vocab_exclusions.tsv` — durable deletions at the FILE layer
   (`source_data.apply_vocab_exclusions`), because a TSV-only deletion is
   undone by the next regeneration. It has no production counterpart yet
