@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { drawArrowhead } from './arrow'
 import type { PointerEvent as ReactPointerEvent } from 'react'
 import { inkBox } from './ink'
 import type { Stroke } from './ink'
@@ -169,6 +170,7 @@ export default function InkCanvas({
         ctx.moveTo(gs[0].x, gs[0].y)
         for (const p of gs) ctx.lineTo(p.x, p.y)
         ctx.stroke()
+        drawArrowhead(ctx, gs, 9, done ? 'rgba(22,163,74,0.7)' : 'rgba(120,120,120,0.55)')
         // A numbered start point per stroke.
         ctx.fillStyle = done ? 'rgba(22,163,74,0.9)' : 'rgba(120,120,120,0.6)'
         ctx.beginPath()

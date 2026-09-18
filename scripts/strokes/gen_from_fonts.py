@@ -447,6 +447,53 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False,
     return strokes
 
 
+def headline_last(out: list[list], kinds: list[str]) -> tuple[list[list], list[str]]:
+    """Devanagari: the shirorekha is written after the body — and after the
+    whole word, so it is deferred like a mark. The walk starts at the top
+    and often fuses the headline with the stem it meets; a body stroke
+    whose leading or trailing run lies along the top edge and spans most
+    of the letter is cut there, the headline pieces run left to right,
+    and they go after the bodies, before the dots."""
+    pts = [p for s in out for p in s]
+    top = min(p[1] for p in pts)
+    gh = max(1, max(p[1] for p in pts) - top)
+    gw = max(1, max(p[0] for p in pts) - min(p[0] for p in pts))
+    band = top + 0.10 * gh
+
+    def on_top(p):
+        return p[1] <= band
+
+    def is_line(seg):
+        return len(seg) >= 2 and (max(p[0] for p in seg) - min(p[0] for p in seg)) >= 0.45 * gw
+
+    bodies, heads, marks = [], [], []
+    for s, kind in zip(out, kinds):
+        if kind != "body":
+            marks.append(s)
+            continue
+        if all(on_top(p) for p in s) and is_line(s):
+            heads.append(s)
+            continue
+        k = 0
+        while k < len(s) and on_top(s[k]):
+            k += 1
+        if is_line(s[:k]) and len(s) - k >= 1:
+            heads.append(s[:k + 1] if k < len(s) else s[:k])
+            s = s[k:] if k < len(s) else []
+        if len(s) >= 2:
+            j = len(s)
+            while j > 0 and on_top(s[j - 1]):
+                j -= 1
+            if is_line(s[j:]) and j >= 1:
+                heads.append(s[j - 1:])
+                s = s[:j]
+        if len(s) >= 2:
+            bodies.append(s)
+    heads = [h if h[0][0] <= h[-1][0] else h[::-1] for h in heads]
+    heads.sort(key=lambda h: h[0][0])
+    return bodies + heads + marks, ["body"] * len(bodies) + ["headline"] * len(heads) + ["mark"] * len(marks)
+
+
 def path_len(path) -> float:
     return sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(path, path[1:]))
 
@@ -687,6 +734,10 @@ def extract(font, script, style, glyph, form):
                 body_count += 1
     if not out:
         return None
+    kinds = ["body"] * body_count + ["mark"] * (len(out) - body_count)
+    if script == "devanagari":
+        out, kinds = headline_last(out, kinds)
+        body_count = kinds.count("body")
     allpts = [p for s in out for p in s]
     advance = max(p[0] for p in allpts)
     # `marks` is how many trailing strokes are dots and marks: a composed
@@ -707,13 +758,14 @@ def extract(font, script, style, glyph, form):
         joins["entry"] = min(body, key=lambda p: (p[0], p[1]))
         joins["exit"] = max(bodypts, key=lambda p: (p[0], p[1]))
     hints = []
-    n = len(out)
-    for i in range(n):
+    for i, kind in enumerate(kinds):
         if i == 0:
             hints.append({"arabic": "from the right, along the body",
                           "hebrew": "from the right"}.get(script,
                          "from the left, in one flow" if (script, style) in CURSIVE else "from the top"))
-        elif i >= body_count:
+        elif kind == "headline":
+            hints.append("the headline last, left to right — across the whole word")
+        elif kind == "mark":
             hints.append("the dots and marks last")
         else:
             hints.append("next stroke")

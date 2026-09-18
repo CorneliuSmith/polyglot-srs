@@ -34,6 +34,16 @@
         var skin = prefs.state && prefs.state.uiSkin
         if (skin && skin !== 'classic')
           document.documentElement.setAttribute('data-ui', skin)
+        // And the language's colours: they come from the languages list,
+        // another round trip, so the last palette this browser applied
+        // (languageColors.ts caches it) paints the first frame.
+        var lang = JSON.parse(localStorage.getItem('polyglot-lang-theme') || 'null')
+        if (lang && lang.vars) {
+          Object.keys(lang.vars).forEach(function (k) {
+            if (k.indexOf('--lang-') === 0)
+              document.documentElement.style.setProperty(k, String(lang.vars[k]))
+          })
+        }
       } catch (e) {}
     </script>
     <div id="root"></div>

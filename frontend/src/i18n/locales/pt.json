@@ -1852,7 +1852,7 @@
     "lesson_joins": "Ligar {{letters}}",
     "lesson_words": "Palavras com {{letters}}",
     "lesson_sentences": "Frases",
-    "provisional": "Ordem de traços provisória — a ordem e a direção padrão, desenhadas de forma esquemática pelo app; um falante ainda não a traçou.",
+    "provisional": "Ordem de traços provisória: a forma de uma fonte padrão com ordem e direção definidas por regra, ainda não traçada por um falante nativo. As setas mostram o sentido de cada traço.",
     "formsOf": "Todas as formas de {{letter}}",
     "formsHint": "A mesma letra sozinha, no início, no meio e no fim de uma palavra, ligada às vizinhas. Veja-as juntas e depois aprenda a que está estudando.",
     "casesHint": "A mesma letra nas duas caixas. Veja-as juntas e depois aprenda a que está estudando.",
