@@ -2656,6 +2656,11 @@ class NewChangeRequest(BaseModel):
     # Review Mode: the span the reviewer selected, plus where it sat.
     quote: str | None = Field(default=None, max_length=2000)
     quote_context: dict | None = None
+    # The locale overlay the reviewer was reading (migration 20261030).
+    # cards.py serves locale-specific hints and translations, and the board
+    # could not tell a complaint about the French hint from one about the
+    # sentence. Client-supplied: which overlay rendered is a client fact.
+    locale: str | None = Field(default=None, max_length=16)
 
 
 class VoteBody(BaseModel):
@@ -2699,6 +2704,7 @@ async def create_change_request(
             (body.suggestion or "").strip() or None,
             quote=body.quote,
             quote_context=body.quote_context,
+            locale=body.locale,
         )
     return {"id": req_id}
 

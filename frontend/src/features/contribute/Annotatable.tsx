@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Flag } from 'lucide-react'
 import {
   canSuggestForLanguage,
   createChangeRequest,
   getMyRoles,
 } from '../../api/contribute'
+import { effectiveSupportLocale } from '../../api/profile'
+import type { UserProfile } from '../../api/types'
 import { useReviewModeStore } from '../../stores/reviewModeStore'
 import {
   FLAG_REASONS,
@@ -210,13 +212,18 @@ function FlagPopover({
   onDone: () => void
   onCancel: () => void
 }) {
+  const queryClient = useQueryClient()
   const [note, setNote] = useState('')
   const [fix, setFix] = useState('')
   const [expanded, setExpanded] = useState(false)
 
   const send = useMutation({
-    mutationFn: (reason: FlagReasonId | null) =>
-      createChangeRequest({
+    mutationFn: (reason: FlagReasonId | null) => {
+      // The overlay the reviewer is reading in, from the profile the app
+      // already holds under ['profile'] — read, not fetched, for the same
+      // reason SuggestChange reads it: this wraps every flaggable block.
+      const profile = queryClient.getQueryData<UserProfile>(['profile'])
+      return createChangeRequest({
         language_id: languageId,
         target_type: targetType,
         target_id: targetId,
@@ -234,7 +241,9 @@ function FlagPopover({
             ? { start: span.start, end: span.end, source_text: span.sourceText }
             : {}),
         },
-      }),
+        locale: profile ? effectiveSupportLocale(profile) : null,
+      })
+    },
     onSuccess: onDone,
   })
 

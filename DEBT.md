@@ -1491,3 +1491,42 @@ on 120 judged rows). Three choices to know about:
   (`maker_check_batch`) had never called `gate` at all. It still does not
   call the FULL gate: `is_identity` would refuse a cognate gloss (`radio` →
   `radio`), a behaviour change nobody has measured.
+
+## The telemetry columns are wired before the data that fills them (18 Sep 2026)
+
+Migration 20261030 (owner-applied) added `tutor_usage.outcome` /
+`latency_ms`, `card_feedback.field` / `drill_id` / `locale` /
+`support_locale` and `card_change_requests.locale`
+(`docs/plans/quality-guardrails-telemetry.md` §5, phase C). Every writer
+degrades on `UndefinedColumnError` — savepoint plus a two-shape INSERT, the
+`app_feedback.variants` pattern — so nothing here waits on the migration.
+Four things a reader of those columns should know before drawing a chart:
+
+- **`card_feedback.drill_id` is NULL on every row for now.** The review
+  session's grammar cards come from `get_due_cards`, whose drill aggregate
+  (`repositories/cards.py`, the `array_agg(ds.sentence …)` block near line
+  330) carries sentences, answers, hints and translations but not `ds.id`,
+  so `_grammar_card` has no id to serve; `DueCard.drill_id` is populated
+  only on the cram/Gym path, where `CardFeedback` is not rendered. The
+  client already passes `card.drill_id` when present. One more
+  `array_agg(ds.id …)` in that query and a `drill_id` key in
+  `_grammar_card`'s return turns the column on. Left undone because
+  `cards.py` was outside the unit that shipped the rest.
+- **`tutor_usage.outcome` is only ever `'ok'`, from three sites** — tutor
+  `/chat`, the Speak opener, the Reader write. Every error path raises
+  before `log_tutor_usage` runs, so no `'error'` row is written anywhere
+  yet; `schema_reject` / `checker_reject` / `fallback` are for the judge
+  loop and the local-model plan to write. The other eleven callers pass
+  neither value and keep the eight-column INSERT, so they never pay a
+  failed statement on a database that has not migrated.
+- **`latency_ms` is timed in the router around the service call**, not
+  around each `messages.create`. The turn is the cost unit (a tool loop is
+  several calls), the learner waits for all of it, and putting the number
+  into the usage dict would have changed a return value `test_tutor.py`
+  asserts by strict equality. For the Reader it includes the contract
+  grader and any rewrite — the wait the poll actually covers.
+- **`support_locale` and `locale` spell English out as `'en'`**, against the
+  None-means-English convention of `effective_support_locale`. In a
+  telemetry column NULL has to mean "not recorded", or a pre-migration row
+  and an English-support learner's row would be the same row in every
+  per-locale breakdown.

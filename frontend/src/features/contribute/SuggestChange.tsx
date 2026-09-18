@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
   canSuggestForLanguage,
   createChangeRequest,
   getMyRoles,
 } from '../../api/contribute'
+import { effectiveSupportLocale } from '../../api/profile'
+import type { UserProfile } from '../../api/types'
 import { useViewAsKey } from '../../stores/viewAsStore'
 
 const FIELDS = [
@@ -42,6 +44,7 @@ export default function SuggestChange({
     queryFn: getMyRoles,
     staleTime: 5 * 60 * 1000,
   })
+  const queryClient = useQueryClient()
   const [open, setOpen] = useState(false)
   const [done, setDone] = useState(false)
   const [field, setField] = useState(defaultField)
@@ -49,8 +52,14 @@ export default function SuggestChange({
   const [suggestion, setSuggestion] = useState('')
 
   const mutation = useMutation({
-    mutationFn: () =>
-      createChangeRequest({
+    mutationFn: () => {
+      // The overlay the reviewer is reading in, from the profile every page
+      // already fetched under ['profile']. Read from the cache at send time,
+      // never fetched here: this form sits on every card, and a request per
+      // card is a cost the locale label is not worth. No profile cached is
+      // "unknown", and unknown is not English.
+      const profile = queryClient.getQueryData<UserProfile>(['profile'])
+      return createChangeRequest({
         language_id: languageId!,
         target_type: targetType,
         target_id: targetId,
@@ -58,7 +67,9 @@ export default function SuggestChange({
         field,
         issue: issue.trim(),
         suggestion: suggestion.trim() || null,
-      }),
+        locale: profile ? effectiveSupportLocale(profile) : null,
+      })
+    },
     onSuccess: () => {
       setDone(true)
       setOpen(false)

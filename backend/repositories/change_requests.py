@@ -10,6 +10,19 @@ import json
 
 import asyncpg
 
+from backend.repositories.pool import savepoint
+
+# One statement, two shapes — the app_feedback.variants writer's pattern:
+# the ten columns every deployment has are spelled once, so the migrated and
+# the not-yet-migrated write cannot drift.
+_INSERT_REQUEST = """
+    INSERT INTO card_change_requests
+        (author_id, language_id, target_type, target_id, target_label,
+         field, issue, suggestion, quote, quote_context{extra_cols})
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb{extra_vals})
+    RETURNING id
+"""
+
 
 async def create_request(
     conn: asyncpg.Connection,
@@ -23,24 +36,37 @@ async def create_request(
     suggestion: str | None,
     quote: str | None = None,
     quote_context: dict | None = None,
+    locale: str | None = None,
 ) -> str:
     """*quote* is the exact span a reviewer selected (Review Mode), and
     *quote_context* the surface-specific detail — offsets, surrounding text,
     which tutor message. Both are snapshots: a tutor reply is never stored,
-    and a card's quote has to outlive the edit it is asking for."""
-    return str(await conn.fetchval(
-        """
-        INSERT INTO card_change_requests
-            (author_id, language_id, target_type, target_id, target_label,
-             field, issue, suggestion, quote, quote_context)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::jsonb)
-        RETURNING id
-        """,
+    and a card's quote has to outlive the edit it is asking for.
+
+    *locale* is the overlay the reviewer was reading (migration 20261030):
+    cards.py serves locale-specific hints and translations, and until this
+    column a complaint about the French hint and one about the sentence
+    were the same row. Migrations are owner-applied and the code deploys
+    first, so the locale is written inside a savepoint and it is the
+    locale — never the request — that is dropped when the column is not
+    there yet."""
+    base = (
         author_id, language_id, target_type, target_id, target_label,
         field, issue, suggestion or None,
         (quote or "").strip() or None,
         json.dumps(quote_context or {}),
-    ))
+    )
+    narrow = _INSERT_REQUEST.format(extra_cols="", extra_vals="")
+    if locale is None:
+        return str(await conn.fetchval(narrow, *base))
+    try:
+        async with savepoint(conn):
+            return str(await conn.fetchval(
+                _INSERT_REQUEST.format(extra_cols=", locale", extra_vals=", $11"),
+                *base, locale,
+            ))
+    except asyncpg.exceptions.UndefinedColumnError:
+        return str(await conn.fetchval(narrow, *base))
 
 
 def _as_dict(value) -> dict:
