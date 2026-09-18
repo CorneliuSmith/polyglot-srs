@@ -879,6 +879,11 @@ letter Learn shows and the strokes drawn over it agree.
 
 ### 13.4 What remains
 
+- **The letterforms themselves are a traced typeface, not a writing
+  model** — counters that do not quite close, eaten terminals, fused
+  junctions, no proportion model between letters. The programme to fix
+  that across all eight scripts is `docs/plans/letterform-quality.md`
+  (18 Sep 2026, owner ask).
 - Hebrew's library is the print alphabet; Israeli cursive is a
   different set of shapes and no OFL face for it has been chosen. Add
   one to the generator's `FONTS` table and a `cursive` style follows.

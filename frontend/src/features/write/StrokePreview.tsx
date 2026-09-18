@@ -63,7 +63,7 @@ export default function StrokePreview({
         ctx.moveTo(s[0].x, s[0].y)
         for (const p of s) ctx.lineTo(p.x, p.y)
         ctx.stroke()
-        drawArrowhead(ctx, s, 8, 'rgba(120,120,120,0.35)')
+        drawArrowhead(ctx, s, 8, 'rgba(120,120,120,0.35)', Math.min(cw, ch) * 0.12)
       }
       // The strokes so far, solid, with a numbered start point each and
       // an arrowhead where a finished stroke ends.
@@ -77,7 +77,7 @@ export default function StrokePreview({
         ctx.moveTo(s[0].x, s[0].y)
         for (let k = 1; k < n; k++) ctx.lineTo(s[k].x, s[k].y)
         ctx.stroke()
-        if (n === s.length) drawArrowhead(ctx, s, 9, '#111')
+        if (n === s.length) drawArrowhead(ctx, s, 9, '#111', Math.min(cw, ch) * 0.12)
         ctx.fillStyle = 'var(--color-lang, #4f46e5)'
         ctx.beginPath()
         ctx.arc(s[0].x, s[0].y, 7, 0, Math.PI * 2)

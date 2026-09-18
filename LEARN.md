@@ -951,6 +951,15 @@ colour. `applyLanguageTheme` now caches the variables it set
 `index.html` paints them before React mounts — the same trick the theme
 and the UI skin already used. Signing out clears the cache.
 
+**Dots are judged on where they sit.** A mark stroke — the dots of ب,
+the i-dot, the breve of й — has no direction and no shape worth
+matching, so `matcher.ts` judges it by the distance between its centre
+and the template's, with a generous radius, and never as "not quite the
+shape". It gets no arrowhead either. In a *word* the marks come after
+every letter's body, so an open-ended trace stops before them: a
+letter's mark points no longer count toward whether it was covered,
+which is why the ب of با now registers when the bodies are traced.
+
 **Teaching before the strokes exist.** Letters and Trace are always on
 Write, not only once a speaker has traced the script. Every form of every
 letter is a step (the alphabet decks' list; Latin a–z), and a form

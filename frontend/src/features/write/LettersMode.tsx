@@ -5,6 +5,7 @@ import { Check, ChevronLeft, ChevronRight } from 'lucide-react'
 import { getAlphabet, getGlyphs, getLettersProgress, recordLetterAttempt } from '../../api/strokes'
 import type { Glyph } from '../../api/strokes'
 import LanguageWrapper from '../../components/LanguageWrapper'
+import SpeakButton from '../../components/SpeakButton'
 import InkCanvas from './InkCanvas'
 import StrokePreview from './StrokePreview'
 import { fromGlyphBoxFit } from './glyphBox'
@@ -15,8 +16,11 @@ import { isProvisionalId, withProvisional } from './strokes/provisional'
 import type { MatchResult, Reason } from './matcher'
 
 const CANVAS = 260
-const TRACE_TOLERANCE = 0.16
-const WRITE_TOLERANCE = 0.1
+// How far a learner's stroke may sit from the template, as a fraction of
+// the glyph box. Raised 18 Sep: a legible hand-drawn ب was being failed,
+// and these were set on synthetic strokes, never on a real hand.
+const TRACE_TOLERANCE = 0.22
+const WRITE_TOLERANCE = 0.16
 
 type Step = 'learn' | 'trace' | 'write'
 
@@ -108,6 +112,10 @@ export default function LettersMode({
   const authored = current?.authored ?? null
   const script = alphabet?.script ?? 'latin'
   const shown = current ? shapedForm(script, current.glyph, current.form) : ''
+  const letterInfo = useMemo(() => {
+    const l = alphabet?.letters.find((x) => x.glyph === current?.glyph)
+    return l && (l.romanization || l.sound) ? l : null
+  }, [alphabet, current])
   // Ink-fitted: a font-derived glyph is a fraction of its em box.
   const template = useMemo(() => (authored ? fromGlyphBoxFit(authored.strokes, CANVAS) : []), [authored])
 
@@ -200,12 +208,22 @@ export default function LettersMode({
       <div className="rounded-2xl border border-gray-200 bg-white p-4 space-y-3">
         <div className="flex items-center justify-between gap-2">
           <div>
-            <LanguageWrapper languageCode={code ?? 'en'} inline>
-              <span className="text-3xl font-semibold text-gray-900 me-2">{shown}</span>
-            </LanguageWrapper>
-            <span className="text-sm text-gray-500">
-              {t(`write.form_${current.form}`, { defaultValue: current.form })} · {index + 1}/{forms.length}
-            </span>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+              <LanguageWrapper languageCode={code ?? 'en'} inline>
+                <span className="text-3xl font-semibold text-gray-900">{shown}</span>
+              </LanguageWrapper>
+              {/* What it is called and how it sounds: a learner meeting a
+                  letter for the first time needs both, not just its shape. */}
+              {letterInfo && (
+                <span data-testid="letter-sound" className="text-sm font-semibold text-gray-700">
+                  {[letterInfo.romanization, letterInfo.sound].filter(Boolean).join(' · ')}
+                </span>
+              )}
+              <SpeakButton text={current.glyph} languageCode={code ?? 'en'} className="text-gray-500" />
+              <span className="text-sm text-gray-500">
+                {t(`write.form_${current.form}`, { defaultValue: current.form })} · {index + 1}/{forms.length}
+              </span>
+            </div>
           </div>
           <div className="flex rounded-full border border-gray-200 bg-white p-0.5 text-xs font-semibold" role="tablist">
             {(['learn', 'trace', 'write'] as Step[]).map((s) => (

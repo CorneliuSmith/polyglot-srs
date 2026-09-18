@@ -47,6 +47,8 @@ export interface Composed {
   strokes: Pt[][]
   /** Letter index per point, parallel to `strokes`. */
   owners: number[][]
+  /** Whether each stroke is a dot or mark (written after every body). */
+  marks: boolean[]
   letters: ComposedLetter[]
   /** Letters with no reviewed form — the text cannot be traced. */
   missing: string[]
@@ -195,6 +197,7 @@ export function compose(
   const letters: ComposedLetter[] = []
   const strokes: Pt[][] = []
   const owners: number[][] = []
+  const markFlags: boolean[] = []
   const missing: string[] = []
   const joined = style === 'cursive' && (script === 'cyrillic' || script === 'latin')
   // Font-derived glyphs carry `joins.advance`: they already share the
@@ -228,8 +231,8 @@ export function compose(
     const adjacent = li + 1 < placed.length && Math.abs(placed[li + 1].x - (p.x + p.w)) < 1
     prevJoins = joined && bodies.length > 0 && g.joins?.joins_next !== false && adjacent
   })
-  deferred.flush(strokes, owners)
-  return { text, width, height: H, strokes, owners, letters, missing }
+  deferred.flush(strokes, owners, markFlags)
+  return { text, width, height: H, strokes, owners, marks: markFlags, letters, missing }
 }
 
 /**
@@ -252,10 +255,12 @@ class Deferred {
     return strokes.slice(0, cut)
   }
 
-  flush(strokes: Pt[][], owners: number[][]): void {
+  flush(strokes: Pt[][], owners: number[][], marks: boolean[]): void {
+    while (marks.length < strokes.length) marks.push(false)
     for (const m of this.marks) {
       strokes.push(m.stroke)
       owners.push(m.stroke.map(() => m.li))
+      marks.push(true)
     }
   }
 }
@@ -279,6 +284,7 @@ function composeEm(
   const letters: ComposedLetter[] = []
   const strokes: Pt[][] = []
   const owners: number[][] = []
+  const markFlags: boolean[] = []
   const deferred = new Deferred()
   // Spaces are not in `placed`; recover them from the cells to widen gaps.
   const cs = cells(text)
@@ -325,7 +331,7 @@ function composeEm(
     prevJoins = joins.joins_next === true && !!joins.exit
     cursor = rtl ? ox - gap : ox + adv + gap
   })
-  deferred.flush(strokes, owners)
+  deferred.flush(strokes, owners, markFlags)
   // Normalise so the leftmost ink starts at 0.
   const minX = Math.min(...letters.map((l) => l.x), 0)
   const maxX = Math.max(...letters.map((l) => l.x + l.w), 0)
@@ -333,7 +339,7 @@ function composeEm(
     for (const s of strokes) for (const p of s) p[0] -= minX
     for (const l of letters) l.x -= minX
   }
-  return { text, width: maxX - minX, height: BOX, strokes, owners, letters, missing }
+  return { text, width: maxX - minX, height: BOX, strokes, owners, marks: markFlags, letters, missing }
 }
 
 /** Composed strokes scaled to draw into a canvas of the given width and

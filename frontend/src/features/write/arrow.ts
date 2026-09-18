@@ -7,8 +7,21 @@ import type { Stroke } from './ink'
  * join looks the same as one written down (owner: "maybe use arrows").
  * Too short a stroke (a dot, a tick) gets none.
  */
-export function drawArrowhead(ctx: CanvasRenderingContext2D, s: Stroke, size: number, color: string): void {
+export function drawArrowhead(
+  ctx: CanvasRenderingContext2D,
+  s: Stroke,
+  size: number,
+  color: string,
+  minSpan = 0,
+): void {
   if (s.length < 2) return
+  // A dot or a tick gets none: it has no direction to show, and an arrow
+  // on the dots of ب only adds noise (owner, 18 Sep).
+  if (minSpan > 0) {
+    let span = 0
+    for (let i = 1; i < s.length; i++) span += Math.hypot(s[i].x - s[i - 1].x, s[i].y - s[i - 1].y)
+    if (span < minSpan) return
+  }
   const end = s[s.length - 1]
   // Direction from a point a little way back, so a wobbly last segment
   // does not swing the head around.
