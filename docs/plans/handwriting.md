@@ -859,7 +859,14 @@ mechanism, already wired). Same day, from the owner's first Trace of
 با: joined Arabic letters now compose as one stroke (the hand does not
 lift), every stroke carries an arrowhead, and Devanagari's headline is
 written after the body and deferred across the word (migration
-**20261028**).
+**20261028**). Then the owner's chart (Ibnulyemen Arabic, 2019) and
+"an isolated alif goes down": the Arabic direction rules became
+per-form — joined forms start at the join and retrace what hangs at
+the first fork; unjoined forms start at the top of a tall stroke, else
+the rightmost tip; uprights are their own top-down stroke after the
+bowl; hamza and madda are marks — and the walk itself was fixed for
+staircase tips, junction clusters and parallel leftovers that had been
+drawing letters backwards (migration **20261029**).
 
 ### 13.3 The cursive was not cursive
 

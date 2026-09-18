@@ -857,8 +857,30 @@ the generator finds the head as the smallest enclosed hole in the ink,
 takes the ring of skeleton around it, starts where the ring meets the
 body, circles it clockwise and carries on into the body; ก ญ ธ, whose
 heads are not rings, fall back to the print rule. Order and direction
-elsewhere are heuristics per script: right-to-left scripts start each
-stroke at its rightmost end and write bodies right to left; cursive
+elsewhere are heuristics per script. Arabic's, checked against the
+Ibnulyemen chart the owner supplied: a joined form (medial, final)
+starts at the join — the rightmost end at the baseline — and whatever
+hangs at that first fork (the hook of ـد, the tooth of ـبـ) is retraced
+up and back before the pen goes on toward the exit, so a joined alif
+runs *up* from ب; an unjoined form starts where the pen comes down —
+the top of a stroke more tall than wide (an isolated alif goes down,
+the upright of ط ك too), otherwise its rightmost end (the tip of ب, the
+head of ج); an upright hanging off a bowl is its own stroke, top down,
+after the bowl; a piece wholly above or below the main body (hamza,
+madda) is a mark and comes last; a loop closes before the pen moves on
+(ص: join, loop, then the bowl). The skeleton walk that feeds all this
+had to learn four things on the way: Zhang–Suen's skeleton is not one
+pixel wide — it leaves two-pixel steps on diagonals and two parallel
+tracks where a stroke was thick — so a `minimal()` pass first deletes
+every pixel whose neighbours stay connected without it; a stroke tip
+on a diagonal is a two-pixel step, not a fork; junctions are small
+clusters a walk can pass *beside*, so ways on are looked for two pixels
+out; and a way whose far part only shadows what is already drawn is a
+leftover, swallowed rather than followed (following one drew ـد
+backwards, base first and up the hook). Arabic skips `chain()`, the
+re-joiner the cursive scripts use, because its walk settles its own
+continuity and chaining glued the stem of ط back onto its bowl. Hebrew
+keeps the rightmost-end rule; cursive
 starts at the leftmost (russianlessons.net: м from the bottom, and т
 top-down once past its entry hook — both hold in Marck Script's
 tracing); print starts at the top; bodies before marks; and Devanagari's
