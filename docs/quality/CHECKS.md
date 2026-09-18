@@ -2248,7 +2248,10 @@ per course; and `data/eval/calibrated.json`, which names the (question,
 course) pairs whose gold set has cleared the three §3.2 gates — the
 switches decide whether money is spent, the file decides on what. A pair
 not in it is listed in the cycle's stats as `not calibrated` and never
-sent. `judge_rows_per_cycle` is split evenly across the surviving pairs.
+sent. The file ships in the API image by name (`Dockerfile` `COPY`, the
+`.dockerignore` negation, both pinned by `test_runtime_data_ships.py`):
+absent, it reads as empty, which is the judge silently off with the switch
+on. `judge_rows_per_cycle` is split evenly across the surviving pairs.
 Nothing about any of this is a `config.py` constant: the owner sets the
 cap in the admin panel because it can be a lot of money.
 
@@ -2260,7 +2263,13 @@ its calibration used — text, translation, headword, and no rank, because
 its rules treat a ranked item as a frequency-list entry. Sense and
 card_shape read `vocabulary` with its `en` definition; gloss reads every
 non-`en` translation beside the `en` definition; scripture reads example
-sentences.
+sentences. Retired words are out of every scope (`vocabulary.retired_at`,
+20261016) and retired points' drills out of register's (20261017), each
+behind a `column_present` probe so a database without the column widens
+the scope by those rows instead of emptying it; unreviewed and flagged
+rows stay in (DEBT.md, the judge entry). A verdict's confidence is stored
+as the four-place Decimal the flagged count compared, not the float's
+binary expansion, so `confidence >= 0.7` in SQL and the ledger agree.
 
 **Status: all 27 for coverage; scoped to `register`/`ar` for judging, and
 that provisionally.** The coverage rows are written for every course from

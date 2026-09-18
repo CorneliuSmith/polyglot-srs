@@ -379,6 +379,13 @@ gate made a fact the loop can read: the switches decide whether money is
 spent, the file decides on what, and a pair not in it is listed in the
 stats as `not calibrated` and never sent to a model. Absent or malformed,
 it reads as empty — the same direction `get_quality_settings` degrades in.
+That direction is also why the file ships in the API image by name:
+`.dockerignore` excludes `data/*`, and a gate that reads as *off* when its
+file is absent is exactly what an exclusion silently removes — the first
+build after the step landed would have shown the switch on and a judge
+that never read. The negation and the Dockerfile `COPY` are pinned by
+`test_runtime_data_ships.py`, beside the Gym manifests and the frequency
+lists that taught the same lesson.
 `judge_rows_per_cycle` is then split evenly across the surviving pairs,
 each pair runs under its own savepoint (`_step`'s shape: one broken pair
 costs one pair), and the cap is re-checked before every batch of
@@ -409,7 +416,24 @@ judge raised is NOT stored: `run_items` turns it into `unsure` rows so a
 CLI count cannot read a crash as clean, but stored, those rows would
 count as judged — the coverage numerator, and the back of the queue — on
 the strength of a timeout. The step keeps them out, counts the batch as
-a failure, and the rows come back the next night.
+a failure, and the rows come back the next night. Retired words are out
+of every scope and retired points' drills out of register's, each
+`retired_at IS NULL` behind a `column_present` probe (`cards._retired_clause`'s
+pattern, migrations 20261016 and 20261017): the scopes run under a
+savepoint, so a predicate on an absent column would not poison the
+transaction — it would empty the scope, and a judge that reads nothing for
+a course is worse than one that reads a few retired rows.
+
+**Bind a `Decimal`, never a float, to a `numeric` column.** asyncpg encodes
+a float bound to `numeric` as `Decimal(float)`, the full binary expansion:
+a model's `0.7` reached Postgres as `0.69999999999999995559…`, and
+`WHERE confidence >= 0.7` on the table found none of the rows the
+`flagged.<question>` ledger row had counted in Python at exactly the
+threshold. `verdicts.stored_confidence` rounds to four places and builds
+the Decimal from the short string, and `judge_step.is_flagged` compares
+that same value, so the Python count and any SQL reader at the threshold
+name the same rows. The rule generalises to every `numeric` write: the
+value the code compared is the value the table must hold.
 
 The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
 on the configured chat model, its `*_checker` verifies one tier up

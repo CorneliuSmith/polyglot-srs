@@ -221,3 +221,10 @@ exists to stop — so the evidence fields are not optional decoration.
 the owner's decision was to run it at report level while the reviewers
 label. A malformed file reads as empty, with a warning in the server log,
 so a bad edit switches the judge off rather than on.
+
+For the same reason the file ships in the API image by name: `.dockerignore`
+excludes `data/*`, and an absent file reads as *off*, so without the
+negation and the `Dockerfile` `COPY` the deploy would have shown the switch
+on and a judge that never read. `backend/tests/test_runtime_data_ships.py`
+fails if either drifts. Only the json ships — the gold TSVs and calibration
+jsonls beside it are the evidence, read by hand, not by the API.

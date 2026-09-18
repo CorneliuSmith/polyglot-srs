@@ -29,9 +29,12 @@ walks 27.
 """
 from __future__ import annotations
 
+from decimal import Decimal
+
 import asyncpg
 
 from backend.repositories.pool import savepoint
+from backend.services.auto_translate import column_present
 
 _MISSING = (asyncpg.exceptions.UndefinedTableError, asyncpg.exceptions.UndefinedColumnError)
 
@@ -45,6 +48,11 @@ ENTITY_KEY = "entity"
 # entity columns the verdict is written back to, `frequency_rank` for the
 # ordering, and the item columns `_item` reads. Column names are the
 # schema's (20260312 initial, 20260613000002 example_sentences).
+#
+# `str.format` templates, not SQL: `{v_retired}` and `{gp_retired}` are the
+# `retired_at IS NULL` predicates `_scope` fills in after probing for the
+# column (see there), and the drill marker is written `{{{{answer}}}}` so
+# the format halves it to the literal `{{answer}}` the rows hold.
 #
 # Register reads sentences the way `register_pass --store db-sentences`
 # did — text, translation and headword, NO rank: REGISTER_RULES says "an
@@ -61,13 +69,15 @@ _SCOPE: dict[str, str] = {
           FROM example_sentences es
           JOIN vocabulary v ON v.id = es.vocabulary_id
          WHERE es.language_id = $1::uuid
+           {v_retired}
         UNION ALL
         SELECT 'drill', d.id, 'sentence', NULL::text, NULL::int,
-               'drill', replace(d.sentence, '{{answer}}', COALESCE(d.answer, '')),
+               'drill', replace(d.sentence, '{{{{answer}}}}', COALESCE(d.answer, '')),
                d.translation, d.answer
           FROM drill_sentences d
           JOIN grammar_points gp ON gp.id = d.grammar_point_id
          WHERE gp.language_id = $1::uuid
+           {gp_retired}
     """,
     "sense": """
         SELECT 'vocabulary' AS entity_type, v.id AS entity_id,
@@ -77,6 +87,7 @@ _SCOPE: dict[str, str] = {
           JOIN translations t ON t.vocabulary_id = v.id AND t.locale = 'en'
          WHERE v.language_id = $1::uuid
            AND COALESCE(t.definition, '') <> ''
+           {v_retired}
     """,
     "gloss": """
         SELECT 'translation' AS entity_type, t.id AS entity_id,
@@ -87,6 +98,7 @@ _SCOPE: dict[str, str] = {
           JOIN translations en ON en.vocabulary_id = v.id AND en.locale = 'en'
          WHERE v.language_id = $1::uuid
            AND t.locale <> 'en'
+           {v_retired}
     """,
     "scripture": """
         SELECT 'example_sentence' AS entity_type, es.id AS entity_id,
@@ -95,6 +107,7 @@ _SCOPE: dict[str, str] = {
           FROM example_sentences es
           JOIN vocabulary v ON v.id = es.vocabulary_id
          WHERE es.language_id = $1::uuid
+           {v_retired}
     """,
     "card_shape": """
         SELECT 'vocabulary' AS entity_type, v.id AS entity_id,
@@ -103,6 +116,7 @@ _SCOPE: dict[str, str] = {
           FROM vocabulary v
           LEFT JOIN translations t ON t.vocabulary_id = v.id AND t.locale = 'en'
          WHERE v.language_id = $1::uuid
+           {v_retired}
     """,
 }
 
@@ -132,11 +146,36 @@ def _item(question_name: str, row, code: str) -> dict:
     raise ValueError(f"no row source for question {question_name!r}")
 
 
-def _scope(question) -> str:
+async def _retired_clause(conn: asyncpg.Connection, table: str, alias: str) -> str:
+    """`AND <alias>.retired_at IS NULL`, or nothing on a database that has
+    not had the column's migration — `cards._retired_clause`'s probe, for a
+    different reason: there a thrown error aborts the request's transaction;
+    here the scope runs under a savepoint and would merely fail, which for a
+    scope means the judge reads NOTHING for the course and coverage says 0
+    of 0, when the alternative is a few retired rows in scope."""
+    if await column_present(conn, table, "retired_at"):
+        return f"AND {alias}.retired_at IS NULL"
+    return ""
+
+
+async def _scope(conn: asyncpg.Connection, question) -> str:
+    """The question's scope SQL, retired rows out where the column exists.
+
+    A retired word (`vocabulary.retired_at`, migration 20261016, applied 7
+    Sep 2026) is off every card and out of every count, so judging its
+    definition, its card or its sentences is spend on nothing a learner
+    sees. `grammar_points.retired_at` (20261017) is still owed, so the drill
+    branch probes separately and includes retired points' drills until it
+    lands. Probed per call, not cached: the loop is nightly and a catalog
+    read is nothing next to the model call it precedes."""
     try:
-        return _SCOPE[question.name]
+        template = _SCOPE[question.name]
     except KeyError:
         raise ValueError(f"no row source for question {question.name!r}") from None
+    clauses = {"v_retired": await _retired_clause(conn, "vocabulary", "v")}
+    if "{gp_retired}" in template:
+        clauses["gp_retired"] = await _retired_clause(conn, "grammar_points", "gp")
+    return template.format(**clauses)
 
 
 async def candidates(conn: asyncpg.Connection, question, language_id, code: str,
@@ -147,30 +186,30 @@ async def candidates(conn: asyncpg.Connection, question, language_id, code: str,
     it and `record_verdicts` reads it back. Empty when the table is absent."""
     if limit <= 0:
         return []
-    sql = f"""
-        WITH scope AS ({_scope(question)})
-        SELECT s.*
-          FROM scope s
-          LEFT JOIN LATERAL (
-               -- NULL here is NOT EXISTS a content_verdicts row for
-               -- (entity_type, entity_id, field, question, locale); the
-               -- max is what orders the rows that do have one.
-               SELECT max(cv.judged_at) AS at
-                 FROM content_verdicts cv
-                WHERE cv.entity_type = s.entity_type
-                  AND cv.entity_id   = s.entity_id
-                  AND cv.field       = s.field
-                  AND cv.question    = $2
-                  AND cv.locale IS NOT DISTINCT FROM s.locale
-          ) judged ON true
-         ORDER BY (judged.at IS NULL) DESC,     -- never judged first
-                  s.frequency_rank NULLS LAST,  -- top band first
-                  judged.at,                    -- then the oldest verdict
-                  s.entity_id
-         LIMIT $3
-    """
     try:
         async with savepoint(conn):
+            sql = f"""
+                WITH scope AS ({await _scope(conn, question)})
+                SELECT s.*
+                  FROM scope s
+                  LEFT JOIN LATERAL (
+                       -- NULL here is NOT EXISTS a content_verdicts row for
+                       -- (entity_type, entity_id, field, question, locale); the
+                       -- max is what orders the rows that do have one.
+                       SELECT max(cv.judged_at) AS at
+                         FROM content_verdicts cv
+                        WHERE cv.entity_type = s.entity_type
+                          AND cv.entity_id   = s.entity_id
+                          AND cv.field       = s.field
+                          AND cv.question    = $2
+                          AND cv.locale IS NOT DISTINCT FROM s.locale
+                  ) judged ON true
+                 ORDER BY (judged.at IS NULL) DESC,     -- never judged first
+                          s.frequency_rank NULLS LAST,  -- top band first
+                          judged.at,                    -- then the oldest verdict
+                          s.entity_id
+                 LIMIT $3
+            """
             rows = await conn.fetch(sql, str(language_id), question.name, int(limit))
     except _MISSING:
         return []
@@ -190,7 +229,7 @@ async def scope_size(conn: asyncpg.Connection, question, language_id) -> int:
     try:
         async with savepoint(conn):
             total = await conn.fetchval(
-                f"SELECT count(*) FROM ({_scope(question)}) s", str(language_id),
+                f"SELECT count(*) FROM ({await _scope(conn, question)}) s", str(language_id),
             )
     except _MISSING:
         return 0
@@ -217,16 +256,26 @@ async def judged_count(conn: asyncpg.Connection, question, language_id) -> int:
     return int(total or 0)
 
 
-def _confidence(value) -> float:
-    """The CHECK is 0..1 and a model's number is not guaranteed to be; a
-    verdict outside it must be stored clamped, not lost with its batch."""
+def stored_confidence(value) -> Decimal:
+    """A verdict's confidence as the table holds it — and as
+    `judge_step.is_flagged` compares it, so the flagged.<question> ledger
+    and `WHERE confidence >= 0.7` on the table agree at the threshold.
+
+    Clamped to the CHECK's 0..1, because a model's number is not guaranteed
+    to be in it and a verdict outside it must be stored clamped, not lost
+    with its batch. A Decimal from the SHORT string, never the float: asyncpg
+    binds a float to `numeric` as Decimal(float), the full binary expansion,
+    and 0.7 reached a real Postgres as 0.6999999999999999555910790149937…,
+    which `>= 0.7` excludes — the checker's drill-down found none of the
+    rows the ledger had counted at exactly the threshold. Four places is
+    more than any question's rules ask a model to report."""
     try:
         number = float(value)
     except (TypeError, ValueError):
-        return 0.0
+        number = 0.0
     if number != number:  # NaN
-        return 0.0
-    return max(0.0, min(1.0, number))
+        number = 0.0
+    return Decimal(str(round(max(0.0, min(1.0, number)), 4)))
 
 
 def _evidence(value) -> list[str]:
@@ -274,7 +323,7 @@ async def record_verdicts(conn: asyncpg.Connection, run_id, language_id, questio
                     question.name, str(verdict.get("verdict") or "unsure"),
                     verdict.get(question.category_field),
                     _evidence(verdict.get("evidence")),
-                    _confidence(verdict.get("confidence")),
+                    stored_confidence(verdict.get("confidence")),
                     verdict.get(question.expected_field), verdict.get("note"), judge,
                 )
                 if row_id is not None:

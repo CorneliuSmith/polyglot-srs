@@ -15,6 +15,7 @@ from __future__ import annotations
 import asyncio
 import json
 from contextlib import asynccontextmanager, contextmanager
+from decimal import Decimal
 from types import SimpleNamespace
 from unittest.mock import AsyncMock, patch
 
@@ -371,7 +372,7 @@ class TestRows:
         assert first["category"] == "lexeme"
         assert first["expected"] == "rewrite"
         assert first["evidence"] == ["ev"]
-        assert first["confidence"] == 0.95
+        assert first["confidence"] == Decimal("0.95")  # the short decimal, not Decimal(0.95)
         assert first["note"] == "note 0"
         assert first["judge"] == "fake-checker"
         assert rows[1]["verdict"] == "msa" and rows[1]["category"] is None
@@ -388,6 +389,14 @@ class TestRows:
         assert stats["judged"] == 6
         flagged = [r for r in _runs(conn) if r["metric"] == "flagged.register"]
         assert flagged[0]["value"] == 2 and flagged[0]["population"] == 6
+        # The ledger and a SQL reader at the threshold name the same rows:
+        # the 0.7 verdict is stored as Decimal("0.7"), not the float's
+        # expansion, and is_flagged compares the stored value.
+        stored = {r["entity_id"]: r for r in _verdict_rows(conn)}
+        assert stored[_uuid(2)]["confidence"] == Decimal("0.7")
+        by_sql = [r for r in stored.values()
+                  if r["verdict"] == "dialect" and r["confidence"] >= Decimal("0.7")]
+        assert len(by_sql) == flagged[0]["value"]
 
     async def test_absent_tables_are_counted_as_dropped_not_raised(self):
         conn = _conn()
@@ -465,6 +474,7 @@ def _record(**cols):
 class TestCandidates:
     async def test_never_judged_first_then_top_band_then_oldest(self):
         conn = mock_conn()
+        conn.fetchval.return_value = True  # both retired_at columns present
         conn.fetch.return_value = [
             _record(entity_type="example_sentence", entity_id=_uuid(1), field="sentence",
                     locale=None, frequency_rank=5, item_field="sentence",
@@ -506,6 +516,41 @@ class TestCandidates:
              "field": "drill", "text": "d", "translation": "", "headword": ""},
         ]
         assert not any("rank" in item for item in items)
+        # Retired words and retired points' drills are out of scope, each
+        # behind its own column probe (migrations 20261016 and 20261017).
+        assert "AND v.retired_at IS NULL" in sql
+        assert "AND gp.retired_at IS NULL" in sql
+        probes = [c.args[1:] for c in conn.fetchval.await_args_list
+                  if "information_schema.columns" in c.args[0]]
+        assert probes == [("vocabulary", "retired_at"), ("grammar_points", "retired_at")]
+
+    async def test_retired_rows_leave_the_scope_only_where_the_column_exists(self):
+        """Production on 18 Sep 2026: vocabulary.retired_at applied
+        (20261016), grammar_points.retired_at still owed (20261017). A
+        predicate on the absent column would fail the whole scope under its
+        savepoint — the judge would read NOTHING for the course — so each
+        is probed, not assumed, the way cards._retired_clause does it."""
+        conn = mock_conn()
+        conn.fetch.return_value = []
+        conn.fetchval.side_effect = lambda sql, *args: args == ("vocabulary", "retired_at")
+        await verdicts_repo.candidates(conn, cj.REGISTER, LANG_AR, "ar", 10)
+        sql = conn.fetch.await_args.args[0]
+        assert "AND v.retired_at IS NULL" in sql
+        assert "gp.retired_at" not in sql
+        # Neither column — the pre-20261016 shape: nothing filtered, the
+        # SQL otherwise intact, and every question's scope filters on the
+        # vocabulary column while only register's touches grammar_points.
+        conn.fetchval.side_effect = None
+        conn.fetchval.return_value = False
+        conn.fetchval.reset_mock()
+        for question in cj.QUESTIONS.values():
+            await verdicts_repo.candidates(conn, question, LANG_AR, "ar", 10)
+            sql = conn.fetch.await_args.args[0]
+            assert "retired_at" not in sql, question.name
+            assert "$1::uuid" in sql and "LIMIT $3" in sql, question.name
+        probes = [c.args[1:] for c in conn.fetchval.await_args_list]
+        assert probes.count(("vocabulary", "retired_at")) == len(cj.QUESTIONS)
+        assert probes.count(("grammar_points", "retired_at")) == 1
 
     async def test_each_question_reads_its_own_scope_and_writes_back_to_it(self):
         conn = mock_conn()
@@ -575,11 +620,13 @@ class TestCandidates:
 class TestCounts:
     async def test_scope_size_counts_the_question_scope(self):
         conn = mock_conn()
-        conn.fetchval.return_value = 1234
+        conn.fetchval.side_effect = (
+            lambda sql, *args: True if "information_schema.columns" in sql else 1234)
         assert await verdicts_repo.scope_size(conn, cj.GLOSS, LANG_AR) == 1234
         sql, *args = conn.fetchval.await_args.args
         assert sql.startswith("SELECT count(*) FROM (")
         assert "t.locale <> 'en'" in sql
+        assert "AND v.retired_at IS NULL" in sql  # retired words are not in the denominator
         assert args == [LANG_AR]
 
     async def test_judged_count_is_distinct_entities_for_the_question(self):
@@ -602,23 +649,46 @@ class TestRecordVerdicts:
     async def test_clamps_confidence_and_lists_evidence(self):
         conn = mock_conn()
         conn.fetchval.return_value = "id"
-        items = _items(4)
+        items = _items(5)
         verdicts = [
             {"id": items[0]["id"], "verdict": "dialect", "confidence": 1.7, "evidence": "one"},
             {"id": items[1]["id"], "verdict": "msa", "confidence": -0.2, "evidence": None},
             {"id": items[2]["id"], "verdict": "msa", "confidence": "abc", "evidence": [1, None]},
             {"id": items[3]["id"], "verdict": None, "confidence": None},
+            {"id": items[4]["id"], "verdict": "dialect", "confidence": 0.7, "evidence": []},
         ]
         n = await verdicts_repo.record_verdicts(conn, "run-9", LANG_AR, cj.REGISTER,
                                                 items, verdicts, "fake")
-        assert n == 4
+        assert n == 5
         rows = _verdict_rows(conn)
-        assert [r["confidence"] for r in rows] == [1.0, 0.0, 0.0, 0.0]
-        assert [r["evidence"] for r in rows] == [["one"], [], ["1"], []]
+        assert [r["confidence"] for r in rows] == [
+            Decimal("1.0"), Decimal("0.0"), Decimal("0.0"), Decimal("0.0"), Decimal("0.7")]
+        assert all(isinstance(r["confidence"], Decimal) for r in rows)
+        assert [r["evidence"] for r in rows] == [["one"], [], ["1"], [], []]
         assert rows[3]["verdict"] == "unsure"
         assert all(r["run_id"] == "run-9" for r in rows)
+        assert "$11::numeric" in conn.fetchval.await_args.args[0]
         assert "ON CONFLICT DO NOTHING" in conn.fetchval.await_args.args[0]
         assert "RETURNING id" in conn.fetchval.await_args.args[0]
+
+    def test_confidence_is_bound_as_the_short_decimal_the_threshold_reads(self):
+        # asyncpg binds a float to numeric as Decimal(float), the binary
+        # expansion: 0.7 reached a real Postgres 16 as
+        # 0.6999999999999999555910790149937383830547332763671875, and
+        # `WHERE confidence >= 0.7` found none of the rows the
+        # flagged.register ledger row had counted at exactly the threshold.
+        assert Decimal(0.7) < Decimal("0.7")  # the defect, stated
+        stored = verdicts_repo.stored_confidence(0.7)
+        assert stored == Decimal("0.7") and str(stored) == "0.7"
+        assert stored >= js.FLAG_CONFIDENCE
+        # Four places — what a question's rules ask a model to report, no
+        # more — so the stored value and the flagged count move together.
+        assert verdicts_repo.stored_confidence(0.69996) == Decimal("0.7")
+        assert verdicts_repo.stored_confidence(0.69994) == Decimal("0.6999")
+        assert verdicts_repo.stored_confidence("0.85") == Decimal("0.85")
+        assert verdicts_repo.stored_confidence(float("nan")) == Decimal("0.0")
+        assert verdicts_repo.stored_confidence(float("inf")) == Decimal("1.0")
+        assert verdicts_repo.stored_confidence(None) == Decimal("0.0")
 
     async def test_a_conflict_is_not_counted_and_an_unmatched_item_is_skipped(self):
         conn = mock_conn()
@@ -677,6 +747,8 @@ class TestCoverage:
         conn.fetchrow.return_value = {"id": "row"}
 
         async def counts(sql, *args):
+            if "information_schema.columns" in sql:  # the retired_at probes
+                return True
             return 3 if "FROM content_verdicts" in sql else 40
 
         conn.fetchval.side_effect = counts
@@ -697,6 +769,8 @@ class TestCoverage:
         conn.fetchrow.return_value = {"id": "row"}
 
         async def counts(sql, *args):
+            if "information_schema.columns" in sql:  # the retired_at probes
+                return True
             if "FROM content_verdicts" in sql:
                 raise _missing()
             return 40

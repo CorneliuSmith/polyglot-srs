@@ -1454,15 +1454,25 @@ Each of these is deliberate; each says what turns it on.
   against `auth.users` and that is the same service account, decision #2.
   Until then the verdicts are read from the table (the Content health
   panel's drill-down, plan §6) and disposed there.
-- **Retired vocabulary is in scope.** `verdicts.candidates` and
-  `scope_size` do not filter `vocabulary.retired_at IS NULL`: that column
-  is migration 20261016, not yet applied in production when this shipped
-  (migrations are owner-applied, CLAUDE.md), and a predicate on an absent
-  column fails the whole scope query under its savepoint — the judge would read
-  NOTHING for the course rather than a few retired rows too. Once 20261016
-  is applied everywhere, add `AND v.retired_at IS NULL` to the five scopes
-  (and the same for `grammar_points.retired_at`, 20261017, on the drill
-  branch of register) and the coverage denominators shrink accordingly.
+- **Retired grammar points' drills are in scope until migration 20261017
+  lands; retired words are out; unreviewed and flagged rows are in on
+  purpose.** The five scopes in `verdicts._SCOPE` filter
+  `vocabulary.retired_at IS NULL` (migration 20261016, applied by the owner
+  7 Sep 2026) and register's drill branch filters `grammar_points.retired_at
+  IS NULL` (20261017, still owed on 18 Sep), each behind a `column_present`
+  probe the way `cards._retired_clause` does it — probed, not assumed,
+  because a predicate on an absent column fails the whole scope under its
+  savepoint, and the judge would read NOTHING for the course (coverage 0 of
+  0) rather than a few retired rows too. So until 20261017 is applied the
+  judge can spend on a retired point's drills and register's coverage
+  denominator counts them; applying the migration is the whole fix, no code
+  change. Still in scope, and a product call rather than a defect: example
+  sentences and drills with `reviewed = false` or `flagged = true`
+  (migrations 20260814, 20260817, 20260821, 20260826). Learners do not see
+  them, but they are exactly the rows a reviewer is about to look at, and a
+  verdict on one is what J5 would hand that reviewer. If the owner wants
+  the judge to read only what learners see, it is one predicate per scope
+  and the coverage denominators shrink with it.
 - **A pair that spends and then fails to write loses its spend from the
   ledger.** Tokens a pair used are added to the cycle's running total
   before its rows are written, so the cap holds within the cycle; but if

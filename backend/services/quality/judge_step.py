@@ -36,6 +36,7 @@ spend lives in `quality_runs` and shows in the Content health panel's
 from __future__ import annotations
 
 import logging
+from decimal import Decimal
 
 from backend.repositories import quality as quality_repo
 from backend.repositories import verdicts as verdicts_repo
@@ -46,8 +47,10 @@ logger = logging.getLogger(__name__)
 
 # A finding the panel counts: the question's positive class at the
 # confidence every question's rules tell the model means "no reviewer
-# needed" (`content_judge.summarise` counts the same thing).
-FLAG_CONFIDENCE = 0.7
+# needed" (`content_judge.summarise` counts the same thing). A Decimal,
+# because it is compared against the value the table stores (see
+# `is_flagged`), and that is a Decimal for `stored_confidence`'s reason.
+FLAG_CONFIDENCE = Decimal("0.7")
 # Batches in flight per run_items call. The loop is one process sharing
 # the API's rate limit with every learner's tutor turn; two is enough to
 # hide the round trip and not enough to crowd them.
@@ -77,10 +80,10 @@ def _tokens(usage: dict) -> int:
 
 
 def is_flagged(question, verdict: dict) -> bool:
-    try:
-        confidence = float(verdict.get("confidence") or 0)
-    except (TypeError, ValueError):
-        confidence = 0.0
+    """Compared on the confidence `record_verdicts` STORES, not the model's
+    raw float, so this count and a SQL reader at the threshold (the panel's
+    drill-down, J5 later) name the same rows."""
+    confidence = verdicts_repo.stored_confidence(verdict.get("confidence"))
     return verdict.get("verdict") in question.positive and confidence >= FLAG_CONFIDENCE
 
 

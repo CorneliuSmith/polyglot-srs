@@ -235,8 +235,8 @@ async def _judge_coverage_step(
     """How much of each judge question's scope has ever had a verdict.
 
     Written for every course and every question whether or not the judge
-    is on — it costs two counts — because the owner's condition for
-    running a paid judge was that its coverage is tracked from day one,
+    is on — it costs two counts and a catalog probe — because the owner's
+    condition for running a paid judge was that its coverage is tracked from day one,
     and a course the judge has never read must show 0 of N, not nothing.
     `calibrated` in the meta says whether the pair could be judged at all
     (`data/eval/calibrated.json`), so the panel can tell "not yet read"

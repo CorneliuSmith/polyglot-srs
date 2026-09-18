@@ -25,6 +25,15 @@ data/*
 #                      them those readings are silently empty and nothing
 #                      errors — indistinguishable from never having built it.
 !data/*_readings.tsv
+#   data/eval/calibrated.json — the nightly judge's gate: which (question,
+#                      course) pairs may be sent to a model. Absent, it
+#                      reads as EMPTY by design (a bad file must switch the
+#                      judge off, never on), so with the admin switch ON the
+#                      judge listed every pair "not calibrated", sent
+#                      nothing, and every coverage row said calibrated:
+#                      false. Only the json; the gold TSVs beside it are the
+#                      calibration's evidence, read by hand, not by the API.
+!data/eval/calibrated.json
 docs
 scripts
 # The migration FILES ship; nothing else under supabase/ does. They are not
