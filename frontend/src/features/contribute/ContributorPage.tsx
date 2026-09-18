@@ -56,6 +56,8 @@ import TranslationReviewsPanel from './TranslationReviewsPanel'
 import RecordingsPanel, { RecordingsReviewQueue } from './RecordingsPanel'
 import OverlapsPanel from './OverlapsPanel'
 import PlanLimitsPanel from './PlanLimitsPanel'
+import ContentHealthPanel from './ContentHealthPanel'
+import QualitySettingsPanel from './QualitySettingsPanel'
 import RoleGuide from './RoleGuide'
 import DeploymentPanel from '../settings/DeploymentPanel'
 import { CARD_COLUMNS, PAGE_WIDE } from '../../lib/layout'
@@ -1114,6 +1116,10 @@ export default function ContributorPage() {
                     {/* Review QUEUES stay on the Review tab — this section
                         is where new content gets generated and audited. */}
                     <GenerationPanel />
+                    {/* Generation asks whether a row exists; this asks
+                        whether it is right — the nightly loop's numbers,
+                        worst course first. */}
+                    <ContentHealthPanel />
                   </>
                 )}
                 {adminSection === 'people' && (
@@ -1138,6 +1144,10 @@ export default function ContributorPage() {
                     {/* Per-tier allotments and the monetization switch: what
                         the costs are set against. */}
                     <PlanLimitsPanel />
+                    {/* The judge's switch and daily cap: a spend control
+                        first, so it lives with the other things that
+                        cost money, not with the panel that reads it. */}
+                    <QualitySettingsPanel />
                     <SuggestionMetricsPanel />
                   </div>
                 )}

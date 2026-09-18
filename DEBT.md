@@ -1343,15 +1343,19 @@ this class at all. Neither is done. See
 `services/quality_loop.py` writes `quality_runs` once a day. These gaps
 are deliberate, each with what closes it.
 
-- **No reader yet.** Nothing in the app reads `quality_runs`,
-  `quality_settings` or `language_quality_targets`. The repository
-  functions are ready for the Content Health panel and its admin
-  endpoints (`latest_metrics`, `trend`, `get_quality_settings`,
-  `update_quality_settings`, `get_language_targets`,
-  `set_language_target` in `repositories/quality.py`; plan phase B).
-  Until they land, `quality_heartbeat()` is the loop's only report and it
-  is not on `/api/health` — so "did it run" is answered by the server
-  log line `quality cycle: N courses, N rows ...`.
+- **The reader is the Content health panel; `quality_heartbeat()` still
+  is not read anywhere.** `ContentHealthPanel` (Admin → Content),
+  `QualitySettingsPanel` (Admin → Costs) and the Deployment panel's
+  Content section read the admin content-health and quality-settings
+  endpoints (plan phase B). The heartbeat is on neither `/api/health`
+  nor the panel, so "did the loop run" is still the server log line
+  `quality cycle: N courses, N rows ...` — or a course that stops being
+  grey. One thing to read correctly from the panel: its "needs migration
+  20261029" copy is driven by the endpoint's `available` flags, i.e. a
+  missing *table*; a build whose API predates the routes gives the panel
+  a 404 and the plain "Couldn't load" line instead. Not the same fault —
+  the first is the owner's `supabase db push`, the second is a deploy
+  that has not caught up.
 - **The judge step is a comment.** `quality_loop()` carries the extension
   point with the gating order spelled out: settings, then today's spend
   from `judge_tokens_spent_today`, then the per-course opt-in, then rows
@@ -1530,3 +1534,50 @@ Four things a reader of those columns should know before drawing a chart:
   telemetry column NULL has to mean "not recorded", or a pre-migration row
   and an English-support learner's row would be the same row in every
   per-locale breakdown.
+
+## The Content health panel reads the contract and nothing beside it (18 Sep 2026)
+
+Plan §6 describes more than phase B's API contract carries, and the
+panels (`frontend/src/features/contribute/ContentHealthPanel.tsx`,
+`QualitySettingsPanel.tsx`, the Content section of
+`features/settings/DeploymentPanel.tsx`) were built to the contract so
+the two halves could be built in parallel. Left off, each with what turns
+it on:
+
+- **No links from a course's drill-down into the review queues.** §6
+  wanted "links into `ChangeRequestsPanel` / `TranslationReviewsPanel` /
+  `FeedbackPanel` pre-filtered". The Workspace already takes
+  `?tab=review&queue=<key>`, but its queues are scoped by the admin's
+  *active* language, and the course row carries a `language_id`, not a
+  way to switch that language — switching the admin's own study language
+  as a side effect of a link is the move `LanguageVisibilityPanel` asks
+  about before making. Turn on: a `?language=<id>` parameter on the
+  Workspace that sets the scope for the visit, then one `Link` per queue
+  key from the drill-down.
+- **Queues have no 7-day trend and "last judged > 7 days" is not grey.**
+  §6's amber-on-growth and grey-on-staleness are not in the contract's
+  status rules (grey = no rows at all; red/amber from bad cards, judge
+  flags, the audit delta and coverage), so the panel shows the queue
+  total with each queue in the cell's title, and a relative time. Turn
+  on: the endpoint adds the delta and the rule to `status`; the client
+  then colours what the server decided and never applies a rule of its
+  own — a server-side status exists so there is one definition of red.
+- **The verdict list is the server's first 200, newest first, unpaged.**
+  Enough for a course under a nightly cap of a few hundred rows; a
+  backlog past that is invisible from the panel until the first 200 are
+  disposed. Turn on: an `offset` or `before` parameter on
+  `/content-health/{code}` and a "more" button under the list.
+- **Course names on the Costs table come from the languages catalog**
+  (`getLanguages`, the query every page caches), because
+  `/quality-settings` is keyed by code alone; a code the catalog does not
+  return shows as its code. Harmless while the targets map is built from
+  `languages`; worth knowing if a course is ever dropped from the
+  catalog response.
+- **The staff bell's Quality section (§6) is not built.** It would read
+  the same summary filtered to courses whose status changed since the
+  previous run, which needs the previous run's status stored or
+  recomputed — neither is in the contract.
+- **`TranslationStatusPanel` keeps its own private `ago`.** `lib/ago.ts`
+  is the same function, shared by the three new "last ran" lines; the
+  old copy was left in place to keep that panel out of this change. Fold
+  it in the next time that file is touched.

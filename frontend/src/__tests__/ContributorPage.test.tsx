@@ -115,6 +115,42 @@ vi.mock('../api/contribute', () => ({
       speech_free_tier: { tts_chars: 500_000, stt_hours: 5 },
     }),
   ),
+  // Content health (Admin → Content), the judge's spend controls (Costs)
+  // and the Deployment panel's Content section: a deploy ahead of the
+  // owner's migration 20261029 answers "not available", never an error.
+  getContentHealth: vi.fn(() =>
+    Promise.resolve({
+      generated_at: new Date().toISOString(),
+      available: {
+        quality_runs: false, content_verdicts: false, quality_settings: false,
+        language_quality_targets: false,
+      },
+      settings: {
+        judge_enabled: false, judge_rows_per_cycle: 0, judge_daily_token_cap: 0,
+        judge_model: null,
+      },
+      spent_today: 0,
+      courses: [],
+    }),
+  ),
+  getContentHealthCourse: vi.fn(),
+  disposeVerdict: vi.fn(),
+  getContentDeploy: vi.fn(() =>
+    Promise.resolve({ build_sha: null, available: false, courses: [] }),
+  ),
+  getQualitySettings: vi.fn(() =>
+    Promise.resolve({
+      available: false,
+      settings: {
+        judge_enabled: false, judge_rows_per_cycle: 0, judge_daily_token_cap: 0,
+        judge_model: null,
+      },
+      spent_today: 0,
+      targets: {},
+    }),
+  ),
+  updateQualitySettings: vi.fn(),
+  updateQualityTarget: vi.fn(),
 }))
 vi.mock('../api/feedback', async (orig) => ({
   ...(await orig<typeof import('../api/feedback')>()),
