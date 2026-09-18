@@ -589,3 +589,72 @@ class TestTopicFilesAreApplicable:
             assert path.stem in supplied, (
                 f"{path.name} is not keyed by {path.stem!r}; the seeder would "
                 "read the whole object as a word map and apply nothing")
+
+
+class TestNominalGlossOnAVerbRow:
+    """`audit_locale_rows.nominal_gloss_on_a_verb` — measured 18 Sep 2026 at
+    76% precision and 86% recall over 120 rows judged one by one
+    (`docs/quality/en-sense-ar-gloss-2026-09-18.md`).
+
+    Every exclusion below is a false-alarm class the measurement found, not a
+    guess. Each test names the row that taught it.
+    """
+
+    def _rule(self):
+        from backend.services.quality.audit_locale_rows import (
+            nominal_gloss_on_a_verb,
+        )
+        return nominal_gloss_on_a_verb
+
+    def test_it_catches_a_noun_glossing_a_verb(self):
+        """`whistle` is glossed صَفَّارَة — the object you blow, not the act
+        of blowing it. The verb is صفَر."""
+        assert self._rule()("whistle", "verb", "make whistling sounds",
+                            "صَفَّارَة")
+
+    def test_only_the_head_word_counts(self):
+        """`glance` is glossed يُلقي نظرة, a verb phrase. The ta marbuta sits
+        on نظرة, the object the verb governs. Scanning the whole string
+        instead of the head was 22 of 120 false alarms."""
+        assert self._rule()("glance", "verb", "throw a glance at",
+                            "يُلقي نظرة") is None
+
+    def test_a_written_hamza_marks_a_verb_not_the_article(self):
+        """Baring the marks turns أَلْقَى into القى, which reads as the
+        definite article and is a form IV verb. `hurl` cost a false alarm
+        until the written hamza was excluded."""
+        assert self._rule()("hurl", "verb", "throw forcefully",
+                            "أَلْقَى") is None
+
+    def test_hamzat_wasl_is_a_known_residual_false_alarm(self):
+        """Pinning what the rule does NOT do. `اِلْتَهَمَ` ("devoured") is a
+        form VIII verb whose hamzat wasl is written as a bare alif, so it
+        bares to التهم and is indistinguishable by pattern from `ال` + noun.
+        It is still reported, and it is counted in the 24% of false alarms
+        the measurement charges against this rule. Telling the two apart
+        needs a morphological analyser, which is on the server and not here.
+
+        This test exists so the limit is a recorded fact rather than a
+        surprise to whoever reads the next report."""
+        assert self._rule()("devour", "verb", "eat greedily",
+                            "اِلْتَهَمَ") == "definite article on a verb row"
+
+    def test_an_ing_headword_is_correctly_glossed_by_a_masdar(self):
+        """`learning` → التعلم is right: an English gerund and an Arabic
+        masdar are the same part of speech."""
+        assert self._rule()("learning", "verb",
+                            "the cognitive process of acquiring skill",
+                            "التعلم") is None
+
+    def test_a_noun_definition_means_the_pos_tag_is_wrong(self):
+        """`duck` is tagged verb and defined "a broad-billed waterfowl". The
+        gloss بَطَّة matches the definition exactly; what is wrong is the
+        part-of-speech column, which is a different defect."""
+        assert self._rule()("duck", "verb", "a broad-billed swimming bird",
+                            "بَطَّة") is None
+
+    def test_a_non_verb_row_is_never_flagged(self):
+        assert self._rule()("bread", "noun", "a baked food", "خُبْز") is None
+
+    def test_an_empty_gloss_is_not_a_finding(self):
+        assert self._rule()("run", "verb", "move fast", "") is None
