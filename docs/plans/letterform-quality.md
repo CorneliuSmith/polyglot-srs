@@ -168,6 +168,10 @@ or Zaner-Bloser); Russian — прописи lessons, first grade; Arabic — a
 writing lesson; Devanagari, Thai, Hebrew, Hangul — the same, primary
 school.
 
+**The brief itself is written**: `docs/quality/letterforms/gemini-brief.md`
+— the prompt, one run per script, with each script's letter list, the
+expected row count, and the questions that script has left open.
+
 What comes back is checked like everything else: the arrowed contact
 sheet against the source, letter by letter, before a migration is
 written. The generator takes the table as data — the walk already accepts
