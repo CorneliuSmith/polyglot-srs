@@ -316,6 +316,42 @@ The append-only AI tables are pruned daily by `services/retention.py`
 every window a reader uses), a lifespan task like the reminder and digest
 loops, switched by `retention_sweep_enabled`.
 
+### Content-quality telemetry: the nightly loop, and a switch that fails closed
+
+Nothing in the repo stored a quality number with a date on it: the audit
+gated CI on a ratchet file, `reconcile --report` printed drift and exited,
+`db_snapshot` overwrote one JSON file. So "is Korean's sentence coverage
+better than before the authoring pass" had no answer, and the owner's
+condition for ever running a paid judge was that coverage is *tracked*
+first. `services/quality_loop.py` is that tracking: a daily lifespan task
+(`quality_loop_enabled`, the retention loop's shape) that runs the checks
+the repo already had — `audit_content.audit_language` in a worker thread,
+because it parses the frequency and sentence files and would stall every
+request if it ran on the event loop; `reconcile.survey` for drift between
+the committed files and production; `db_snapshot.snapshot_language` with
+`samples=0`, counts only; and the review inbox's queue depths — and writes
+one `quality_runs` row per (language, metric) through
+`repositories/quality.py`, stamped with the build sha so "since the last
+deploy" is a query. Each step runs under its own savepoint and its own
+try/except, so a broken course costs one step's rows and not the cycle;
+`QUALITY_HEARTBEAT` / `quality_heartbeat()` is the proof of life, because
+"never ran", "ran and the table is missing" and "ran and every course
+failed" all look like "no new rows" from outside.
+
+The judge itself is not in the loop yet; its switch is. `quality_settings`
+(migration 20261029) is a singleton the admin panel edits — enabled, rows
+per cycle, a daily token cap, an optional model — and
+`get_quality_settings` **fails closed**: absent table, absent row, or any
+database error reads as `{judge_enabled: False, rows: 0, cap: 0}`. It
+catches wider than the other readers in that file on purpose. This is the
+owner's cost control ("it can be a lot of money"), so the one direction
+the degrade must never take is "unreadable, therefore on".
+`quality_loop_enabled` gates only the free, mechanical steps; nothing
+about the judge is a config.py constant. `language_quality_targets` is
+the per-course half — judge opt-in and the red thresholds — and a course
+with no row reads as not judged, red at 15 percent bad cards and 5 percent
+judge flags.
+
 The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
 on the configured chat model, its `*_checker` verifies one tier up
 (`tutor_model_low_resource`), and `resolve_model` refuses per-language
@@ -1270,6 +1306,8 @@ Background loops run in-process from `backend/main.py`'s app lifespan (all
 never-raise, all cancelled cleanly on shutdown): `reminder_loop` (15 min,
 review reminders), `digest_loop` (1 hour, weekly digest + admin ops digest),
 `auto_translate_loop` (15 min, fills missing support-locale text),
+`retention_loop` (daily, prunes the AI usage tables), `quality_loop`
+(daily, writes the content-quality telemetry — see the Backend section),
 `_check_schema` (once at boot — logs loudly if the code is ahead of the
 applied migrations, which is your early warning that a `supabase db push` is
 overdue).

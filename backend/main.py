@@ -145,6 +145,14 @@ def create_app() -> FastAPI:
         if getattr(settings, "retention_sweep_enabled", False):
             from backend.services.retention import retention_loop
             retention_task = asyncio.create_task(retention_loop())
+        # Nightly content-quality telemetry (services/quality_loop.py). Same
+        # getattr-default-False trick, so test FakeSettings never run the
+        # audit at startup. Mechanical steps only: the judge is gated by the
+        # quality_settings table the admin panel edits, not by this flag.
+        quality_task = None
+        if getattr(settings, "quality_loop_enabled", False):
+            from backend.services.quality_loop import quality_loop
+            quality_task = asyncio.create_task(quality_loop())
         yield
         nlp_task.cancel()
         schema_task.cancel()
@@ -156,6 +164,8 @@ def create_app() -> FastAPI:
             translate_task.cancel()
         if retention_task is not None:
             retention_task.cancel()
+        if quality_task is not None:
+            quality_task.cancel()
         await close_pool()
 
     _app = FastAPI(title="PolyglotSRS", lifespan=lifespan)
