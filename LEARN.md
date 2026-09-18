@@ -886,7 +886,15 @@ rows: `withProvisional` keeps a server row's id (progress records
 against it) but takes the bundled strokes, joins and hints when the
 row's source is `provisional`, so shipping a regenerated library shows
 it at once instead of after the owner's next migration push. A
-speaker's row is never overridden.
+speaker's row is never overridden. The Workshop's Strokes panel sees the
+same merged set, so every script's forms are there to trace over, and
+when it opens a font-derived form it remembers the *frame* the form was
+drawn in (`fitFrame` / `fromCanvas` in `glyphBox.ts`): the speaker's ink
+goes back into the script's em box through that same frame, baseline
+kept, and `joins.ts` derives the advance, entry, exit and marks from
+the new strokes the way the generator does. A retraced letter therefore
+keeps composing into words; one traced from nothing, with no template,
+still lands in its own ink box and drops the word back to cells.
 Drawing a single letter still fits its ink to the canvas
 (`fromGlyphBoxFit`; `StrokePreview fit="ink"`), so a dot-sized ة and a
 tall ل are both legible on their own, and the composed frame uses the

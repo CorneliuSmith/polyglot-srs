@@ -14,9 +14,12 @@ import {
 import type { Exemplar, Glyph } from '../../api/strokes'
 import InkCanvas from '../write/InkCanvas'
 import StrokePreview from '../write/StrokePreview'
-import { fromGlyphBox, toGlyphBox } from '../write/glyphBox'
+import { fitFrame, fromCanvas, fromGlyphBox, toCanvas, toGlyphBox } from '../write/glyphBox'
+import type { Frame } from '../write/glyphBox'
 import { handFontFor } from '../write/handFont'
 import type { Stroke } from '../write/ink'
+import { frameGlyph } from '../write/joins'
+import { isProvisionalId, withProvisional } from '../write/strokes/provisional'
 
 /** Arabic positional forms are shaped by the font when a joiner sits on
  * the joining side — no presentation-form tables (the Letters page's
@@ -67,18 +70,25 @@ export default function StrokesPanel({
   })
   const invalidate = () => queryClient.invalidateQueries({ queryKey: ['strokes', languageId] })
 
+  const script = alphabet?.script ?? 'latin'
+  // The same forms the learner sees: the server's rows, the bundled
+  // font-derived library over any provisional row and in every gap.
   const byKey = useMemo(() => {
     const m = new Map<string, Glyph>()
-    for (const g of library?.glyphs ?? []) m.set(`${g.glyph}|${g.form}`, g)
+    for (const g of withProvisional(script, activeStyle, library?.glyphs ?? [])) m.set(`${g.glyph}|${g.form}`, g)
     return m
-  }, [library])
+  }, [library, script, activeStyle])
 
   const [selected, setSelected] = useState<{ glyph: string; form: string } | null>(null)
   const [strokes, setStrokes] = useState<Stroke[]>([])
   const [hints, setHints] = useState<string[]>([])
+  // Set when the form opened in the script's em box (a font-derived
+  // form): the ink goes back through this same frame, so the traced
+  // letter keeps the baseline, advance and joins a word is composed with.
+  const [frame, setFrame] = useState<Frame | null>(null)
   const [message, setMessage] = useState<string | null>(null)
   const existing = selected ? byKey.get(`${selected.glyph}|${selected.form}`) : undefined
-  const script = alphabet?.script ?? 'latin'
+  const bundled = !!existing && isProvisionalId(existing.id)
   const font = handFontFor(languageCode)
   const guideFont = script === 'arabic' ? "'Noto Naskh Arabic', serif" : `${font.family}, serif`
 
@@ -88,16 +98,22 @@ export default function StrokesPanel({
     const g = byKey.get(`${glyph}|${form}`)
     // An existing form opens with its strokes, so an author can adjust
     // rather than start over; the canvas is 240 px tall, so scale to it.
-    setStrokes(g ? fromGlyphBox(g.strokes, 240) : [])
+    const f = g?.joins?.advance ? fitFrame(g.strokes, 240, 0.12) : null
+    setFrame(f)
+    setStrokes(g ? (f ? toCanvas(g.strokes, f) : fromGlyphBox(g.strokes, 240)) : [])
     setHints(g?.hints ?? [])
   }
 
   const save = useMutation({
-    mutationFn: () =>
-      saveGlyph({
+    mutationFn: () => {
+      const framed = frame ? frameGlyph(script, activeStyle, selected!.form, fromCanvas(strokes, frame)) : null
+      return saveGlyph({
         languageId, glyph: selected!.glyph, form: selected!.form, style: activeStyle,
-        strokes: toGlyphBox(strokes), hints: hints.slice(0, strokes.length),
-      }),
+        strokes: framed ? framed.strokes : toGlyphBox(strokes),
+        joins: framed ? framed.joins : undefined,
+        hints: hints.slice(0, strokes.length),
+      })
+    },
     onSuccess: () => {
       setMessage('Saved as a draft — a reviewer signs it off.')
       invalidate()
@@ -139,8 +155,9 @@ export default function StrokesPanel({
 
   if (!alphabet) return null
   const letters = alphabet.letters
-  const authored = library?.glyphs.length ?? 0
-  const reviewed = library?.glyphs.filter((g) => g.reviewed).length ?? 0
+  const own = (library?.glyphs ?? []).filter((g) => !isProvisionalId(g.id))
+  const authored = own.length
+  const reviewed = own.filter((g) => g.reviewed).length
   const expected = letters.reduce((n, l) => n + l.forms.length, 0)
 
   return (
@@ -165,6 +182,7 @@ export default function StrokesPanel({
                     setStyle(s)
                     setSelected(null)
                     setStrokes([])
+                    setFrame(null)
                   }}
                   className={`rounded-full px-3 py-1 ${activeStyle === s ? 'bg-lang text-lang-on' : 'text-gray-600'}`}
                 >
@@ -202,14 +220,15 @@ export default function StrokesPanel({
                           aria-pressed={isSel}
                           className={`rounded-lg border px-2 py-1 text-xs ${
                             isSel ? 'border-lang bg-lang-soft/40 text-gray-900'
+                            : g && isProvisionalId(g.id) ? 'border-purple-200 bg-purple-50 text-purple-800'
                             : g?.reviewed ? 'border-green-200 bg-green-50 text-green-800'
                             : g ? 'border-amber-200 bg-amber-50 text-amber-800'
                             : 'border-gray-200 bg-white text-gray-500'
                           }`}
-                          title={g?.reviewed ? 'reviewed' : g ? 'draft' : 'not yet authored'}
+                          title={g && isProvisionalId(g.id) ? 'provisional (generated)' : g?.reviewed ? 'reviewed' : g ? 'draft' : 'not yet authored'}
                         >
                           {form}
-                          {g && <span className="ms-1">{g.reviewed ? '✓' : '·'}</span>}
+                          {g && <span className="ms-1">{isProvisionalId(g.id) ? '≈' : g.reviewed ? '✓' : '·'}</span>}
                         </button>
                       </td>
                     )
@@ -228,20 +247,21 @@ export default function StrokesPanel({
               <h3 className="font-semibold text-gray-800">
                 <span className="text-2xl me-2">{cased(shaped(script, selected.glyph, selected.form), selected.form)}</span>
                 {selected.form} · {activeStyle}
-                {existing && (
+                {existing && !bundled && (
                   <span className={`ms-2 rounded-full px-2 py-0.5 text-[11px] ${existing.reviewed ? 'bg-green-50 text-green-800' : 'bg-amber-50 text-amber-800'}`}>
                     {existing.reviewed ? 'reviewed' : 'draft'}
                   </span>
                 )}
                 {existing?.source === 'provisional' && (
-                  <span className="ms-2 rounded-full bg-purple-50 px-2 py-0.5 text-[11px] text-purple-800" title="Schematic stroke order generated by the app, not a speaker's hand. Trace over it and save to replace it.">
+                  <span className="ms-2 rounded-full bg-purple-50 px-2 py-0.5 text-[11px] text-purple-800" title="A standard typeface's shape with a stroke order guessed by rule, not a speaker's hand. Trace over it and save to replace it.">
                     provisional
                   </span>
                 )}
               </h3>
               <p className="text-xs text-gray-500">
-                Trace over the faint letter, one stroke at a time, in the order a native writer draws
-                them. Lift the pen between strokes; a joined run is one stroke.
+                {frame
+                  ? 'These are the generated strokes. Clear them and write the letter in the same place and size, one stroke at a time, in the order a native writer draws them; dots and marks last. The letter keeps its place on the line, so words still join.'
+                  : 'Trace over the faint letter, one stroke at a time, in the order a native writer draws them. Lift the pen between strokes; a joined run is one stroke.'}
               </p>
             </div>
             {strokes.length > 0 && <StrokePreview strokes={toGlyphBox(strokes)} size={120} />}
@@ -250,7 +270,7 @@ export default function StrokesPanel({
             strokes={strokes}
             onChange={setStrokes}
             rtl={script === 'arabic' || script === 'hebrew'}
-            guide={{
+            guide={frame ? undefined : {
               text: cased(shaped(script, selected.glyph, selected.form), selected.form),
               fontFamily: guideFont,
               scale: 0.72,
@@ -297,7 +317,7 @@ export default function StrokesPanel({
               data-testid="strokes-save"
               className="rounded-xl bg-lang px-4 py-2 text-sm font-bold text-lang-on disabled:opacity-50"
             >
-              {save.isPending ? 'Saving…' : existing ? 'Save changes' : 'Save'}
+              {save.isPending ? 'Saving…' : bundled ? 'Save over it' : existing ? 'Save changes' : 'Save'}
             </button>
             <button
               type="button"
@@ -310,7 +330,7 @@ export default function StrokesPanel({
             >
               Clear
             </button>
-            {existing && canReview && (
+            {existing && !bundled && canReview && (
               <button
                 type="button"
                 onClick={() => review.mutate({ id: existing.id, reviewed: !existing.reviewed })}
@@ -322,7 +342,7 @@ export default function StrokesPanel({
                 {existing.reviewed ? 'Un-review' : 'Mark reviewed'}
               </button>
             )}
-            {existing && (
+            {existing && !bundled && (
               <button
                 type="button"
                 onClick={() => {
