@@ -262,9 +262,10 @@ class Deferred {
 
 /** Placement at the script's own scale. Each glyph's strokes are in the em
  * box with x from its left ink edge; `advance` is its ink width. Letters
- * that join are placed so the entry point sits on the previous exit; the
- * rest sit a small gap apart; a space is wider. Right-to-left scripts run
- * the cursor leftwards and the result is shifted to start at 0. */
+ * that join are placed so the entry point sits on the previous exit and
+ * their bodies run on as one stroke; the rest sit a small gap apart; a
+ * space is wider. Right-to-left scripts run the cursor leftwards and the
+ * result is shifted to start at 0. */
 function composeEm(
   text: string,
   script: string,
@@ -307,10 +308,19 @@ function composeEm(
     const li = letters.length
     letters.push({ char: p.char, form: p.form, glyph: g, x: ox, y: 0, w: adv, h: BOX })
     const shifted: Pt[][] = g.strokes.map((s) => s.map(([x, y]) => [x + ox, y]))
-    for (const s of deferred.split(g, shifted, li)) {
-      strokes.push(s)
-      owners.push(s.map(() => li))
-    }
+    const joinedIn = !!(prevExit && prevJoins && joins.entry) && strokes.length > 0
+    deferred.split(g, shifted, li).forEach((s, si) => {
+      if (si === 0 && joinedIn) {
+        // The hand does not lift between joined letters: this letter's
+        // body continues the previous one's — با is one stroke, then
+        // the dot. Each point still knows its letter for the verdict.
+        strokes[strokes.length - 1].push(...s)
+        owners[owners.length - 1].push(...s.map(() => li))
+      } else {
+        strokes.push(s)
+        owners.push(s.map(() => li))
+      }
+    })
     prevExit = joins.exit ? [joins.exit[0] + ox, joins.exit[1]] : null
     prevJoins = joins.joins_next === true && !!joins.exit
     cursor = rtl ? ox - gap : ox + adv + gap

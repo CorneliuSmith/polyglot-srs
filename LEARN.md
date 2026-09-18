@@ -861,8 +861,17 @@ elsewhere are heuristics per script: right-to-left scripts start each
 stroke at its rightmost end and write bodies right to left; cursive
 starts at the leftmost (russianlessons.net: м from the bottom, and т
 top-down once past its entry hook — both hold in Marck Script's
-tracing); print starts at the top; bodies before marks. That is the part
-a speaker's tracing is still needed for, and the Learn step says so.
+tracing); print starts at the top; bodies before marks; and Devanagari's
+headline (shirorekha) comes **after** the body — the walk starts at the
+top and would fuse it with the stem, so a body stroke's run along the
+top edge is cut off, the pieces run left to right, and they are counted
+with the marks so a word's headline is drawn after every letter (the
+sources agree it is drawn over the whole word last). That is the part a
+speaker's tracing is still needed for, and the Learn step says so.
+Every stroke also carries an **arrowhead** at its end (`arrow.ts`, in
+the Learn animation and on the Trace guide): a numbered dot says where
+a stroke starts, and without the arrow a static frame cannot show that
+an alif joined after ب is written *upward* from the join.
 
 Coordinates are the script's **em box**, not each glyph's ink box: 1000
 units span ascent plus descent, the baseline sits at the same height in
@@ -878,7 +887,9 @@ single flowing line. Dots and marks come last: each form's
 composers hold those back and append them after every letter's body,
 in letter order — the bodies of a word in one flow, then back for the
 dots of ب, the cross of a t, the breve of й, which is how a hand does
-it. The old equal-cells placement remains the fallback
+it. Joined letters run on as **one stroke** — a hand does not lift between
+ب and ا, so با is one body stroke then the dot, and the Trace step asks
+for exactly that. The old equal-cells placement remains the fallback
 whenever any letter in the word lacks an advance (a Workshop-authored
 form) and for Hangul, whose syllable blocks are a different layout.
 The bundle is also the authority over the database's *provisional*
@@ -909,6 +920,14 @@ Arabic; between о's for a cursive letter), the current one marked, any
 of them a tap away. The learner sees what the letter does in every
 position before drilling the one they are on, which is the order a
 textbook teaches it in.
+
+**The first frame's colours.** The language palette (`--lang-*`) comes
+from the languages list, a round trip after first paint, so every open
+of the app showed the default indigo and then turned the language's
+colour. `applyLanguageTheme` now caches the variables it set
+(`polyglot-lang-theme` in localStorage) and the inline script in
+`index.html` paints them before React mounts — the same trick the theme
+and the UI skin already used. Signing out clears the cache.
 
 **Teaching before the strokes exist.** Letters and Trace are always on
 Write, not only once a speaker has traced the script. Every form of every

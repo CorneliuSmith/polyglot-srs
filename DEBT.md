@@ -483,11 +483,20 @@ reader of the plan would expect to find built, and will not:
   font files are fetched from Google's and Noto's GitHub releases into
   the dir, none is checked in), then look at the contact sheets before
   trusting a change. Rows go out through a **new** migration each time
-  (`--migration <name>`; 20261023, 20261025, 20261026, 20261027 so far) — the
+  (`--migration <name>`; 20261023, 20261025, 20261026, 20261027, 20261028 so far) — the
   upsert is guarded on `source = 'provisional'`, so a speaker's form is
   never overwritten, but a migration must not be edited once pushed.
   On the client the bundle overrides provisional rows anyway, so the
   migration is for progress ids and the seeder, not for what is shown.
+- **Run the backend suite from the repository root.** Started from
+  `frontend/` (or anywhere else), pytest finds no root config and 32
+  extra tests fail — `test_sentence_readings` (16), `test_gloss_layer`
+  (6), `test_grammar_hints` (3) and single ones elsewhere — with the
+  paths printed as `../backend/tests/…`. That is the tell: a run whose
+  paths start with `backend/tests/` is the real one. Twice in one day
+  this read as a regression. The remote harness resets the working
+  directory between commands, so `(cd /home/user/polyglot-srs && …)`
+  in a subshell is the safe form.
 - **The owner's handwriting references could not be read from here.**
   On 18 Sep 2026 the owner gave four sources for stroke order —
   foundalis.com (Greek handwriting, per-letter numbered strokes),
@@ -505,6 +514,12 @@ reader of the plan would expect to find built, and will not:
   `START_OVERRIDES` table per (script, glyph, form) — the walk already
   takes a forced start and first step (`second`), so it is data, not
   code.
+- **A Devanagari word's headline is deferred, not merged.** Each
+  letter's headline is drawn after all the bodies, in letter order, so
+  a word gets its headline last as the sources say — but as one segment
+  per letter, not the single line a hand draws. Merging adjacent
+  deferred headline segments in `Deferred.flush` is the next step; the
+  gaps between letters' segments are where it would show.
 - **Hebrew has a print library and no cursive one.** Israeli handwriting
   is a cursive alphabet unrelated to the print shapes, Google serves no
   face for it, and the generator only knows the fonts in its table. An

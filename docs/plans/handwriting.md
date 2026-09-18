@@ -855,7 +855,11 @@ owner's references (see DEBT): Thai moved to **Noto Sans Thai Looped**
 and starts every looped letter at its head, clockwise, then the body
 (migration **20261027**); the Greek and Arabic references are behind
 the proxy and wait on the owner (a per-letter start table is the
-mechanism, already wired).
+mechanism, already wired). Same day, from the owner's first Trace of
+با: joined Arabic letters now compose as one stroke (the hand does not
+lift), every stroke carries an arrowhead, and Devanagari's headline is
+written after the body and deferred across the word (migration
+**20261028**).
 
 ### 13.3 The cursive was not cursive
 

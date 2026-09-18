@@ -159,14 +159,29 @@ describe('compose at the script scale (font-derived glyphs)', () => {
     expect(c.width).toBe(170)
   })
 
+  it('joined Arabic letters run on as one stroke, each point owned by its letter', () => {
+    const c = compose('با', 'ar', 'naskh', [ba, alifFinal, alif])
+    // ب's body and ا's connector are one stroke; ا's upright is its own.
+    expect(c.strokes).toHaveLength(2)
+    expect(c.owners[0]).toEqual([0, 0, 0, 1, 1])
+    expect(c.owners[1]).toEqual([1, 1])
+    // ا's entry point follows ب's exit point in the same stroke.
+    const s = c.strokes[0]
+    expect(Math.abs(s[3][0] - s[2][0])).toBeLessThan(0.5)
+    // A letter that does not join starts a new stroke.
+    expect(compose('اا', 'ar', 'naskh', [ba, alifFinal, alif]).strokes).toHaveLength(2)
+  })
+
   it('dots and marks of every letter come after every body, in letter order', () => {
     // ب with its dot (joins.marks = 1), then ا: the word is body, body, dot.
     const baDot = em('ب', 'initial', [[[120, 600], [60, 560], [0, 602]], [[55, 700], [65, 700]]],
       { advance: 120, joins_next: true, exit: [0, 602], marks: 1 })
     const c = compose('با', 'ar', 'naskh', [baDot, alifFinal, alif])
-    expect(c.strokes).toHaveLength(4)
-    expect(c.owners.map((o) => o[0])).toEqual([0, 1, 1, 0])
-    expect(c.strokes[3][0][1]).toBe(700)
+    // ب's body and ا's two strokes: the first runs into ب's, so three
+    // strokes of body, then the dot.
+    expect(c.strokes).toHaveLength(3)
+    expect(c.owners.map((o) => o[0])).toEqual([0, 1, 0])
+    expect(c.strokes[2][0][1]).toBe(700)
   })
 
   it('cells do the same: the i-dot and the t-cross are written after the word', () => {

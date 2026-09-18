@@ -146,20 +146,41 @@ export function stageRamp(code: string | undefined | null): StageColor[] {
   return bgs.map((bg) => ({ bg, text: onColor(bg) }))
 }
 
-/** Writes the active language's palette into the `--lang-*` CSS variables
- * that the Tailwind `lang` color tokens read. */
-export function applyLanguageTheme(code: string | undefined | null): void {
+/** Where the last applied palette is cached for the inline script in
+ * index.html, which paints it before React mounts. The palette comes
+ * from the languages list, one round trip after first paint — without
+ * the cache every open of the app shows the default indigo for a moment
+ * and then turns the language's colour. */
+export const LANG_THEME_CACHE_KEY = 'polyglot-lang-theme'
+
+/** The `--lang-*` CSS variables for a language, as name → value. */
+export function languageThemeVars(code: string | undefined | null): Record<string, string> {
   const t = languageTheme(code)
-  const root = document.documentElement.style
-  root.setProperty('--lang-primary', t.primary)
-  root.setProperty('--lang-primary-dark', t.dark)
-  root.setProperty('--lang-accent', t.accent)
-  root.setProperty('--lang-soft', t.soft)
-  root.setProperty('--lang-on-primary', t.on)
-  // CSS `content:` needs a quoted string — the quotes are part of the value.
-  root.setProperty('--lang-glyph', JSON.stringify(groundGlyph(code)))
+  const vars: Record<string, string> = {
+    '--lang-primary': t.primary,
+    '--lang-primary-dark': t.dark,
+    '--lang-accent': t.accent,
+    '--lang-soft': t.soft,
+    '--lang-on-primary': t.on,
+    // CSS `content:` needs a quoted string — the quotes are part of the value.
+    '--lang-glyph': JSON.stringify(groundGlyph(code)),
+  }
   stageRamp(code).forEach((s, i) => {
-    root.setProperty(`--lang-stage-${i + 1}`, s.bg)
-    root.setProperty(`--lang-stage-${i + 1}-on`, s.text)
+    vars[`--lang-stage-${i + 1}`] = s.bg
+    vars[`--lang-stage-${i + 1}-on`] = s.text
   })
+  return vars
+}
+
+/** Writes the active language's palette into the `--lang-*` CSS variables
+ * that the Tailwind `lang` color tokens read, and caches it for the next
+ * first frame. */
+export function applyLanguageTheme(code: string | undefined | null): void {
+  const vars = languageThemeVars(code)
+  const root = document.documentElement.style
+  for (const [name, value] of Object.entries(vars)) root.setProperty(name, value)
+  try {
+    if (code) localStorage.setItem(LANG_THEME_CACHE_KEY, JSON.stringify({ code, vars }))
+    else localStorage.removeItem(LANG_THEME_CACHE_KEY)
+  } catch { /* private mode, quota: the next frame just flashes as before */ }
 }

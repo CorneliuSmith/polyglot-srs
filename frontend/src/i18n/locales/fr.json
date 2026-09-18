@@ -1852,7 +1852,7 @@
     "lesson_joins": "Lier {{letters}}",
     "lesson_words": "Mots avec {{letters}}",
     "lesson_sentences": "Phrases",
-    "provisional": "Ordre des traits provisoire : l’ordre et le sens standard, tracés schématiquement par l’application, pas encore par un locuteur.",
+    "provisional": "Ordre des traits provisoire : la forme d'une police standard, ordre et sens fixés par règle, pas encore tracée par un locuteur natif. Les flèches indiquent le sens de chaque trait.",
     "formsOf": "Toutes les formes de {{letter}}",
     "formsHint": "La même lettre isolée, au début, au milieu et à la fin d’un mot, liée à ses voisines. Regardez-les ensemble, puis apprenez celle où vous êtes.",
     "casesHint": "La même lettre dans les deux casses. Regardez-les ensemble, puis apprenez celle où vous êtes.",
