@@ -57,3 +57,119 @@ What the judge said about all 614, before and after the prompt fix, beside an
 independent reference panel's opinion. Evidence for the figures in
 `docs/quality/ar-register-2026-09-17.md`; the reference labels are not human
 review and the results page says so.
+
+---
+
+## The content judge's other four questions — sets to be built (18 Sep 2026)
+
+`backend/services/quality/content_judge.py` asks five questions of a row; the
+register question above is the first and the only one with a gold set. The
+other four cannot pass their gates until reviewers label one each. This
+section is the specification of those files, so a reviewer can build one
+without reading the code.
+
+Grade a set with
+
+    python -m backend.services.quality.content_judge --question sense --gold
+
+which prints the three gates (agreement on the finding-versus-clean split at
+95%, recall on the labelled findings at 100%, the near-miss class never filed
+as the finding) and exits 2 below them. It spends the API key unless
+`--base-url` names a local endpoint, and says so first.
+
+**Every set is a UTF-8 TSV with these columns, in this order:** `id`,
+`store`, `field`, `label`, `category`, `evidence`, `note`, `stratum`, and then
+the question's own item columns listed below. `id`, `store`, `field`,
+`stratum` and the item columns are machine-written when a builder exists and
+hand-written otherwise; the `id` is how a label finds its row again, so it
+must be stable (a database row's `es:<uuid>` / `tr:<uuid>`, or
+`<code>-vocab-<rank>` for a frequency-list entry — the judge reads the rank
+from that id when the set has no `rank` column, which is how the register
+set works). Reviewers fill `label`, `category`, `evidence` and `note`, and
+leave the rest alone. `unsure` and `broken` are legal in every set: `unsure`
+routes the row to a second opinion, `broken` means the row is defective for
+some other reason and should not be compared.
+
+Every set needs both halves. A set of findings measures recall and nothing
+else; the rows that LOOK like findings and are not — each question's
+near-miss label below — are what measure precision, and a false alarm has
+cost this programme more than a miss every time.
+
+### `sense_gold.tsv` — does the English definition give the sense a learner meets?
+
+Item columns: `word`, `rank`, `pos`, `definition` (the English definition as
+the card shows it). Stratify by frequency band the way
+`docs/quality/en-sense-ar-gloss-2026-09-18.md` §2 did — 60 rows in each of
+1–500, 501–1,000, 1,001–2,000, 2,001–4,000, 4,001–6,000, 6,001–10,000 — and
+seed it from `en_sense_ar_gloss_2026-09-18.jsonl`, whose 358 rows already
+carry a machine opinion (`sense_verdict`) a reviewer can confirm or
+overturn.
+
+| `label` | meaning |
+|---|---|
+| `primary` | the sense most learners meet first and most often |
+| `secondary` | a real, common sense that is not the one this rank was earned by — **the near-miss label**; acceptable on a card, never a finding |
+| `rare` | a genuine but rare, technical, dated, regional or slang sense that cannot have earned this rank (`runner` the smuggler) |
+| `wrong` | not a usable sense: a different word, the wrong part of speech, or a grammatical relation with no meaning ("first-person singular of X") |
+
+`category` for `rare`/`wrong`: `technical`, `dated`, `slang`, `regional`,
+`relation_only`, `wrong_pos`, `not_a_sense`. Put the short everyday
+definition you would expect in `note`.
+
+### `gloss_gold.tsv` — does the locale gloss render THAT sense, in the same part of speech?
+
+Item columns: `word`, `pos`, `definition` (English), `gloss`, `locale` (the
+gloss's language code). Judge the gloss against the DEFINITION: when the
+English is itself a rare sense and the gloss carries it faithfully, the gloss
+is `faithful` and the row belongs in the sense set. Seed from the same jsonl
+(`ar_gloss`, `arabic`), and add a second locale before treating any rate as
+Arabic's — the maker charter writes every support locale.
+
+| `label` | meaning |
+|---|---|
+| `faithful` | a word or short phrase a native speaker would use for the definition's sense, same part of speech |
+| `synonym` | faithful, and not the word you would have chosen — **the near-miss label**; compared as `faithful` |
+| `diverges` | not the definition's sense, or the wrong word class |
+| `absent` | empty, or not in the locale's language at all |
+
+`category` for `diverges`: `sense_mismatch`, `wrong_pos`, `transliteration`,
+`register`, `instance_not_class`. Put the gloss you would expect in `note`.
+
+### `scripture_gold.tsv` — is this everyday example sentence scripture?
+
+Item columns: `sentence`, `translation`, `language` (the course code). Seed
+from the rows `docs/quality/ar-surfaces-2026-09-17.md` §3 found (Qurʾān 18:24,
+the hadith), then add hard negatives: sentences ABOUT religion that are not
+scripture, everyday formulae (إن شاء الله, "bless you"), proverbs and poetry,
+MSA press register — and rows from at least one non-Arabic course, because
+the class is not Arabic's.
+
+| `label` | meaning |
+|---|---|
+| `scripture` | verbatim or near-verbatim scripture or fixed liturgy |
+| `literary` | a proverb, a line of poetry, a famous speech, an anthem — **the near-miss label**; a quotation, not scripture |
+| `plain` | an ordinary sentence |
+
+`category` for `scripture`: `quran`, `hadith`, `bible`, `tanakh`, `hindu`,
+`buddhist`, `liturgy`, `other`. Name the source in `note`.
+
+### `card_shape_gold.tsv` — should this card carry an example sentence at all?
+
+Item columns: `word`, `pos`, `definition`, `language` (the course code). Seed
+from CHECKS §37's alphabet rows, DEBT.md's twelve held abbreviations and bare
+stems, and Tatoeba's personal names; then add the 758-row class that looks
+like a finding and is not — one-character WORDS such as Italian `e`, Russian
+`а`, Portuguese `a`, Hebrew `ב`, Arabic `ب`, Māori `i`.
+
+| `label` | meaning |
+|---|---|
+| `needs_sentence` | an ordinary word; the card should carry a sentence |
+| `one_letter_word` | a real word one character long — **the near-miss label**; compared as `needs_sentence` |
+| `no_sentence` | the entry stays, but a sentence can only match it inside other words; the card shows its definition prompt alone |
+| `retire` | the entry should not be a card at all |
+
+`category` for `no_sentence`: `letter`, `bound_stem`, `abbreviation`; for
+`retire`: `proper_name`, `artefact`. A row whose `pos` is `letter` is
+`no_sentence`/`letter` by rule (CHECKS §37) — include a few so the judge is
+seen to honour it, and include single-character words with another `pos` so
+it is seen not to over-apply it.

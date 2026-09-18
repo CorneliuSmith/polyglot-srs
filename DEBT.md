@@ -1337,3 +1337,39 @@ letter name, so the rule would not fire even if the band were lifted.
 Two separate pieces of work, then: widening the band, and a rule that can see
 this class at all. Neither is done. See
 `docs/quality/en-sense-ar-gloss-2026-09-18.md`.
+
+## Four judge questions have no gold set, so their gates cannot pass (18 Sep 2026)
+
+`backend/services/quality/content_judge.py` asks five questions of a row —
+`register`, `sense`, `gloss`, `scripture`, `card_shape` — and grades each
+against a reviewer-labelled gold set with the register programme's three
+gates (§3.2) before its verdicts may do anything but report. Only `register`
+has a set (`data/eval/ar_register_gold.tsv`, itself still unlabelled — see
+the entry above). The other four have a specification in
+`data/eval/README.md` and no file; `--gold` for any of them exits with the
+path it expected and the README to build it from.
+
+This is deliberate. The sets need people: the sense and gloss sets need a
+reviewer per locale, the scripture set needs rows from more than one course,
+and the card-shape set needs the one-character WORDS as hard negatives so
+the judge is measured on the failure it is likeliest to produce. Writing
+them from the machine opinions already in `data/eval/*.jsonl` would anchor
+the reviewers to the judge they are meant to grade (the same reason the
+register set ships with `label` blank).
+
+**What is true until they exist:** the judge loop may run these questions in
+`report` mode only; nothing they say can route to a queue (plan §4.3 J5) or
+count against a course's `max_judge_flag_pct`. The register question is the
+only one whose precision has been measured at all, and that on 56 documented
+answers, not human labels.
+
+**What turns each on:** a filled set to the README's columns, run through
+`content_judge --question <name> --gold`, all three gates green, and the
+run's `out/judge-<name>-<stamp>.jsonl` recorded in a
+`docs/quality/<name>-<date>.md` the way `ar-register-2026-09-17.md` records
+the register calibration.
+
+**Doc drift to fix with it:** `LEARN.md` § "Two providers behind one schema"
+still points at `quality/register_pass.py`; the providers, the schema
+builder and the gates now live in `content_judge.py`, and `register_pass` is
+the register question's stores and fix queue over them.
