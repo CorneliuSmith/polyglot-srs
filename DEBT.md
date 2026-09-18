@@ -514,6 +514,16 @@ reader of the plan would expect to find built, and will not:
   `START_OVERRIDES` table per (script, glyph, form) — the walk already
   takes a forced start and first step (`second`), so it is data, not
   code.
+- **A bar crossing a stem is not split into two strokes.** f t A E ж х ф:
+  the hand writes the stem, then the bar. The walk follows the straightest
+  branch at the junction instead, so f's crossbar comes out as part of its
+  hook. The *direction* is right (bars run left to right since 18 Sep);
+  the split is not. Thinning leaves the junction as a 2×2 cluster, so the
+  walk never sees all four ways at one pixel — `crossing()` in the
+  generator is written and correct but never fires there. Fix by
+  collapsing junction clusters to a point before the walk
+  (`docs/plans/letterform-quality.md`, Tier 0) or by stating the split
+  per letter (Tier 1).
 - **The generated letterforms are a traced typeface, and it shows.**
   Counters do not quite close (a ring's two ends are pixels apart, which
   is a gap at box scale), terminals are eaten by spur pruning, junctions
