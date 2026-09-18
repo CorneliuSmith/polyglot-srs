@@ -1337,3 +1337,48 @@ letter name, so the rule would not fire even if the band were lifted.
 Two separate pieces of work, then: widening the band, and a rule that can see
 this class at all. Neither is done. See
 `docs/quality/en-sense-ar-gloss-2026-09-18.md`.
+
+## The quality loop: what it does not do yet, and one shape to watch (18 Sep 2026)
+
+`services/quality_loop.py` writes `quality_runs` once a day. These gaps
+are deliberate, each with what closes it.
+
+- **No reader yet.** Nothing in the app reads `quality_runs`,
+  `quality_settings` or `language_quality_targets`. The repository
+  functions are ready for the Content Health panel and its admin
+  endpoints (`latest_metrics`, `trend`, `get_quality_settings`,
+  `update_quality_settings`, `get_language_targets`,
+  `set_language_target` in `repositories/quality.py`; plan phase B).
+  Until they land, `quality_heartbeat()` is the loop's only report and it
+  is not on `/api/health` — so "did it run" is answered by the server
+  log line `quality cycle: N courses, N rows ...`.
+- **The judge step is a comment.** `quality_loop()` carries the extension
+  point with the gating order spelled out: settings, then today's spend
+  from `judge_tokens_spent_today`, then the per-course opt-in, then rows
+  per cycle. Unit F fills it. `get_quality_settings` already fails
+  closed, so wiring the judge behind it cannot switch spending on by
+  accident; the two panel writers return None on an absent table so the
+  router can 503 rather than pretend a save happened.
+- **`reconcile.survey` parses the frequency file on the event loop.** The
+  audit runs in a thread; the survey cannot, because it takes the
+  connection and calls `expected_rows` (up to 200k rows for English)
+  inside the same coroutine. Once a day, for a second or two per large
+  course, requests wait. Fixing it means splitting `survey` so its file
+  read can be `to_thread`-ed — a change to `seeder/reconcile.py`, not to
+  the loop — and the loop's `_reconcile_step` is where the thread call
+  would go. Reading the same file a second time for the coverage band IS
+  threaded; the duplicate parse is the price of not touching `survey`.
+- **A cycle runs 120 s after every boot, then every 24 h.** There is no
+  fixed hour: a day with four deploys writes four sets of rows. Harmless
+  for the readers (`latest_metrics` is DISTINCT ON the newest; `trend`
+  simply shows more points), and it means the audit's file parsing lands
+  in the minutes after each deploy. If that ever shows up as slow first
+  requests, the fix is a fixed-hour schedule, not a shorter delay.
+- **The whole cycle is one privileged transaction**, the same shape as
+  the other lifespan loops. Rows commit when the cycle ends, and while the
+  audit runs in its thread the transaction sits idle. That is fine on a
+  direct connection; on a pooler with an idle-in-transaction timeout a
+  slow cycle could be cut off, which would surface as one warning per
+  cycle in the heartbeat's `last_error` and no rows at all. Per-course
+  connections would be the fix, and `run_quality_cycle(conn)` would need
+  to become a loop over `privileged_connection()`.
