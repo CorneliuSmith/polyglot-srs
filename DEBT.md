@@ -514,6 +514,13 @@ reader of the plan would expect to find built, and will not:
   `START_OVERRIDES` table per (script, glyph, form) — the walk already
   takes a forced start and first step (`second`), so it is data, not
   code.
+- **The generated letterforms are a traced typeface, and it shows.**
+  Counters do not quite close (a ring's two ends are pixels apart, which
+  is a gap at box scale), terminals are eaten by spur pruning, junctions
+  are fused, and nothing checks proportion between letters. The owner
+  asked for all eight scripts to "follow best standards for writing"
+  on 18 Sep 2026; `docs/plans/letterform-quality.md` is the plan, in
+  tiers, cheapest first, with the sources each tier needs.
 - **Quality control on the generated strokes is the contact sheet with
   arrows, and it is read before a migration is written.** The owner
   found an isolated alif drawn upward after two rounds had shipped
@@ -590,10 +597,12 @@ reader of the plan would expect to find built, and will not:
   most 14 letters — a two-line sentence's ink cannot be box-fitted to a
   one-line template. Multi-line composition (and a Trace that scrolls)
   is the fix.
-- **The word matcher's tolerances are hand-set too.** 0.18 tracing and
-  0.13 from memory, in `WordsMode.tsx`; 0.14 for the Free write row.
-  Same story as the letter matcher: chosen on synthetic strokes, to be
-  read off the first real session.
+- **The matcher's tolerances are hand-set.** 0.22 tracing and 0.16 from
+  memory for letters (`LettersMode.tsx`), 0.24 and 0.18 for words
+  (`WordsMode.tsx`), 0.14 for the Free write row. Raised on 18 Sep after
+  the owner's legible ب was failed; still chosen by eye, not read off a
+  session's worth of real ink. The number to watch is the false-fail
+  rate on `writing_progress` attempts.
 - **Entry and exit points are derived, not placed.** The generator and
   the Workshop (`frameGlyph`) both take the leftmost body point as an
   Arabic exit and the rightmost as its entry, the reverse for a joined
