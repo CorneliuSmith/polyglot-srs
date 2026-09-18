@@ -35,6 +35,11 @@ revisiting.
   Useful as "why does this feature have this shape" once it exists, or as
   "here's a fully-thought-through spec" for something that doesn't yet
   (`offline.md`'s companion, `docs/plans/*`, are the un-built ones).
+- **`docs/local-models.md`** — a survey of running open-weights models
+  locally on Apple Silicon (runtimes, LLMs vs SLMs, Hugging Face, LoRA
+  fine-tuning, evaluation, MLflow, agents-vs-workflows), and a task-by-task
+  verdict on which of this app's AI calls could ever move off a frontier API.
+  Nothing in it is built; it is a map, and `DEBT.md` records that.
 - **This file (`LEARN.md`)** — the technology layer underneath all of the
   above: why FastAPI and not Django, why raw SQL and not an ORM, why FSRS,
   why Capacitor, and so on.
