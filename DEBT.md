@@ -483,7 +483,7 @@ reader of the plan would expect to find built, and will not:
   font files are fetched from Google's and Noto's GitHub releases into
   the dir, none is checked in), then look at the contact sheets before
   trusting a change. Rows go out through a **new** migration each time
-  (`--migration <name>`; 20261023, 20261025, 20261026, 20261027, 20261028 so far) — the
+  (`--migration <name>`; 20261023 and 20261025–20261029 so far) — the
   upsert is guarded on `source = 'provisional'`, so a speaker's form is
   never overwritten, but a migration must not be edited once pushed.
   On the client the bundle overrides provisional rows anyway, so the
@@ -514,6 +514,20 @@ reader of the plan would expect to find built, and will not:
   `START_OVERRIDES` table per (script, glyph, form) — the walk already
   takes a forced start and first step (`second`), so it is data, not
   code.
+- **Quality control on the generated strokes is the contact sheet with
+  arrows, and it is read before a migration is written.** The owner
+  found an isolated alif drawn upward after two rounds had shipped
+  (18 Sep 2026); the rule was "start at the rightmost end", which on a
+  vertical stroke is a coin toss, and nothing in the check showed
+  direction. `sheet.py` in the generator's scratch flow now draws an
+  arrowhead per stroke, and the Arabic sheets are compared letter by
+  letter against the owner's chart (`docs/plans/handwriting.md` §13.2
+  lists the rules) before `--migration` is run. What is still not
+  checked by a source: ص ض come out as two strokes (loop, then bowl)
+  where the chart draws one; ـل and ـك draw the bowl or base from the
+  join and then the upright top-down as a second stroke; Persian
+  forms; and every non-Arabic script, whose sheets are only checked
+  for sanity.
 - **A Devanagari word's headline is deferred, not merged.** Each
   letter's headline is drawn after all the bodies, in letter order, so
   a word gets its headline last as the sources say — but as one segment
