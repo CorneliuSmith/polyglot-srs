@@ -874,8 +874,9 @@ letter Learn shows and the strokes drawn over it agree.
 - The provisional order and direction are rules, not a hand; a
   speaker's tracing is the goal and the Workshop is the tool. The
   generator's contact sheets are how to check a change by eye.
-- Workshop-authored forms carry no advance or entry/exit yet, so a word
-  mixing them with provisional letters falls back to cells.
+- A Workshop retrace of a font-derived form keeps its em frame and
+  joins (18 Sep); a form traced from nothing still has no frame, so a
+  word with one in it falls back to cells.
 - Word steps depend on the course having beginner words made only of
   the taught letters; small courses will show "no words yet" for early
   lessons. A per-lesson drill list authored in the Workshop would fix

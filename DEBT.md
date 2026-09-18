@@ -511,15 +511,16 @@ reader of the plan would expect to find built, and will not:
   OFL Hebrew cursive font dropped into `FONTS` would generate it; none
   has been chosen. Greek likewise gets Noto Sans, which is what Greeks
   print but not how they write.
-- **Two coordinate frames meet in a word.** Provisional forms are in
-  the script's em box with an `advance`; a Workshop-authored form is
-  normalised by `toGlyphBox` to its own ink box with `joins = {}`. The
-  composer uses em placement only when *every* letter in the word has
-  an advance, so a word mixing one authored letter with provisional
-  ones drops back to equal cells — letters the right shape, the joins
-  straight lines again. The fix is the Workshop writing an advance and
-  entry/exit for what it saves (§5 of the plan), or the reviewer
-  tracing over the provisional em-box form so the frame carries.
+- **Forms authored before 18 Sep 2026 have no frame.** A Workshop
+  save now keeps the em box when it opens a font-derived form (the ink
+  goes back through the frame it was drawn in; `frameGlyph` derives
+  advance, entry/exit and marks), so a retraced letter still composes
+  into words. A form traced from scratch with no template — or saved
+  before this — is normalised to its own ink box with `joins = {}`, and
+  a word containing one falls back to equal cells with straight joins.
+  Retracing it over the provisional form (the panel opens the bundled
+  one) is the fix; there is no migration for old rows because their
+  baseline is unknown.
 - **Hangul words are still cells.** `composeEm` skips `hangul`: a
   syllable block is a layout of jamo, not letters in a row, and the
   cell composer's block layout is right for it. The provisional Hangul
@@ -564,12 +565,13 @@ reader of the plan would expect to find built, and will not:
   0.13 from memory, in `WordsMode.tsx`; 0.14 for the Free write row.
   Same story as the letter matcher: chosen on synthetic strokes, to be
   read off the first real session.
-- **Entry and exit points are set only on generated forms.** The
-  provisional library carries `joins.{advance,entry,exit}` (leftmost
-  body point out and rightmost in for Arabic, the reverse for cursive);
-  the Workshop panel still writes `{}`, and the composer defaults to
-  first-point-in / last-point-out for those until the panel gets a way
-  to place them.
+- **Entry and exit points are derived, not placed.** The generator and
+  the Workshop (`frameGlyph`) both take the leftmost body point as an
+  Arabic exit and the rightmost as its entry, the reverse for a joined
+  cursive hand — a rule, not the speaker's choice. A letter whose join
+  leaves from somewhere else (the top of an о, the tail of a final ة)
+  needs the panel to let the speaker place the two points; the data
+  shape already allows it.
 - **The baseline's lines are a greedy pick, not an authored set.** Until
   a script has speaker-reviewed exemplar sentences (§5), the eight lines
   come from the course's A1/A2 sentences by set cover; on a small course

@@ -16,6 +16,13 @@ if (typeof window !== 'undefined' && !('PointerEvent' in window)) {
   ;(window as unknown as { PointerEvent: typeof PointerEventShim }).PointerEvent = PointerEventShim
 }
 
+// The bundled library would fill every form; these tests are about the
+// server's rows, so the bundle is a pass-through here.
+vi.mock('../features/write/strokes/provisional', () => ({
+  withProvisional: (_s: string, _st: string, g: unknown[]) => g,
+  isProvisionalId: (id: string) => id.startsWith('prov:'),
+}))
+
 vi.mock('../api/strokes', () => ({
   getAlphabet: vi.fn(),
   listStrokes: vi.fn(),
@@ -115,6 +122,65 @@ describe('StrokesPanel', () => {
     expect(screen.getByDisplayValue('bowl')).toBeInTheDocument()
     fireEvent.click(screen.getByTestId('strokes-review'))
     await waitFor(() => expect(mockReview).toHaveBeenCalledWith('g1', 'lang-ar', true))
+  })
+
+  it('a font-derived form is retraced in its own em frame and keeps joins', async () => {
+    mockList.mockResolvedValue({
+      script: 'arabic',
+      glyphs: [{
+        id: 'g9', script: 'arabic', glyph: 'ب', form: 'initial', style: 'naskh',
+        strokes: [[[120, 600], [60, 560], [0, 602]], [[55, 700], [65, 700]]],
+        joins: { advance: 120, joins_next: true, exit: [0, 602], marks: 1 }, hints: ['body', 'dot'],
+        source: 'provisional', reviewed: true,
+      }],
+      exemplars: [],
+    })
+    renderPanel(true)
+    fireEvent.click(await screen.findByTestId('form-ب-initial'))
+    await waitFor(() => expect(screen.getByTestId('stroke-list').children).toHaveLength(2))
+    // Draw a fresh body across the canvas and a short dot, then save.
+    fireEvent.click(screen.getAllByText('Clear')[0])
+    const canvas = screen.getAllByTestId('ink-canvas')[0]
+    fireEvent.pointerDown(canvas, { pointerId: 1, clientX: 200, clientY: 120 })
+    fireEvent.pointerMove(canvas, { pointerId: 1, clientX: 100, clientY: 100 })
+    fireEvent.pointerMove(canvas, { pointerId: 1, clientX: 30, clientY: 125 })
+    fireEvent.pointerUp(canvas, { pointerId: 1, clientX: 30, clientY: 125 })
+    fireEvent.pointerDown(canvas, { pointerId: 1, clientX: 110, clientY: 160 })
+    fireEvent.pointerMove(canvas, { pointerId: 1, clientX: 114, clientY: 160 })
+    fireEvent.pointerUp(canvas, { pointerId: 1, clientX: 114, clientY: 160 })
+    fireEvent.click(screen.getByTestId('strokes-save'))
+    await waitFor(() => expect(mockSave).toHaveBeenCalled())
+    const args = mockSave.mock.calls[0][0]
+    // Not re-fitted to the 1000 box: the ink stays around the template's
+    // baseline (y ≈ 560–700), x from 0, with joins the composer can use.
+    const ys = args.strokes.flat().map((p: number[]) => p[1])
+    expect(Math.min(...ys)).toBeGreaterThan(450)
+    expect(Math.max(...ys)).toBeLessThan(800)
+    expect(Math.min(...args.strokes[0].map((p: number[]) => p[0]))).toBe(0)
+    expect(args.joins.advance).toBeGreaterThan(0)
+    expect(args.joins.marks).toBe(1)
+    expect(args.joins.joins_next).toBe(true)
+    expect(args.joins.exit).toEqual(expect.any(Array))
+  })
+
+  it('a bundled provisional form can be saved over but not reviewed or deleted', async () => {
+    mockList.mockResolvedValue({
+      script: 'arabic',
+      glyphs: [{
+        id: 'prov:arabic|ب|final|naskh', script: 'arabic', glyph: 'ب', form: 'final', style: 'naskh',
+        strokes: [[[200, 600], [0, 602]]], joins: { advance: 200, joins_next: false, entry: [200, 600], marks: 0 },
+        hints: ['body'], source: 'provisional', reviewed: true,
+      }],
+      exemplars: [],
+    })
+    renderPanel(true)
+    expect(await screen.findByTestId('form-ب-final')).toHaveTextContent('≈')
+    fireEvent.click(screen.getByTestId('form-ب-final'))
+    await waitFor(() => expect(screen.getByTestId('stroke-list')).toBeInTheDocument())
+    expect(screen.queryByTestId('strokes-review')).not.toBeInTheDocument()
+    expect(screen.queryByText('Delete')).not.toBeInTheDocument()
+    expect(screen.getByTestId('strokes-save')).toHaveTextContent('Save over it')
+    expect(screen.getByText(/0 of 6 forms reviewed \(0 authored\)/)).toBeInTheDocument()
   })
 
   it('hides the review button from a plain contributor', async () => {
