@@ -483,11 +483,28 @@ reader of the plan would expect to find built, and will not:
   font files are fetched from Google's and Noto's GitHub releases into
   the dir, none is checked in), then look at the contact sheets before
   trusting a change. Rows go out through a **new** migration each time
-  (`--migration <name>`; 20261023, 20261025, 20261026 so far) — the
+  (`--migration <name>`; 20261023, 20261025, 20261026, 20261027 so far) — the
   upsert is guarded on `source = 'provisional'`, so a speaker's form is
   never overwritten, but a migration must not be edited once pushed.
   On the client the bundle overrides provisional rows anyway, so the
   migration is for progress ids and the seeder, not for what is shown.
+- **The owner's handwriting references could not be read from here.**
+  On 18 Sep 2026 the owner gave four sources for stroke order —
+  foundalis.com (Greek handwriting, per-letter numbered strokes),
+  russianlessons.net (Russian cursive), verbacard.com (Thai), and the
+  *Write it in Arabic* workbook PDF on eoimalaga.com. All four domains
+  are blocked by this environment's egress proxy; only search snippets
+  came through. What was applied from them: Thai head-first, clockwise
+  (Verbacard), and a check that м starts from the bottom and т from the
+  top (russianlessons.net) — both already true. What was NOT: Foundalis'
+  per-letter Greek strokes (several Greek lowercase letters are written
+  differently from the typeface, e.g. handwritten θ, ζ, ξ, and the page
+  numbers every stroke) and the workbook's Arabic order. Either allow
+  those domains in the environment's network policy or paste the
+  per-letter text into the chat, and the generator gets a
+  `START_OVERRIDES` table per (script, glyph, form) — the walk already
+  takes a forced start and first step (`second`), so it is data, not
+  code.
 - **Hebrew has a print library and no cursive one.** Israeli handwriting
   is a cursive alphabet unrelated to the print shapes, Google serves no
   face for it, and the generator only knows the fonts in its table. An

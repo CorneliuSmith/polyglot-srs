@@ -146,7 +146,7 @@ items are built on request, in a session.
   scripts (Noto Naskh, Marck Script, Dancing Script, Noto Sans), words
   compose connected, and Learn shows every form of a letter in context
   first (migration **20261025**, guarded so no traced form is touched).
-  **Owner:** push 20261022, 20261023, 20261025 and 20261026; then, in Workspace →
+  **Owner:** push 20261022, 20261023, 20261025, 20261026 and 20261027; then, in Workspace →
   Workshop → strokes, trace over any provisional form whose order looks
   wrong — saving replaces it.
 

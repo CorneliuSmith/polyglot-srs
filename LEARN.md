@@ -847,11 +847,21 @@ disc thins to a point (size alone cannot tell the dot of ب from the body
 of medial ب — the dot is bigger); each becomes one short tick, drawn
 after the bodies. The faces are the ones learners meet — Noto Naskh
 Arabic, Marck Script (Russian propisi), Dancing Script (Latin cursive),
-Noto Sans and its Hebrew, Devanagari, Thai and Korean siblings for print
-— all OFL, fetched by the generator, not checked in. Order and direction
-are heuristics per script: right-to-left scripts start each stroke at
-its rightmost end and write bodies right to left; cursive starts at the
-leftmost; print starts at the top; bodies before marks. That is the part
+Noto Sans and its Hebrew, Devanagari and Korean siblings for print, and
+**Noto Sans Thai Looped** for Thai — all OFL, fetched by the generator,
+not checked in. Thai is the looped face on purpose: plain Noto Sans Thai
+is a *loopless* design whose heads are notches, and Thai handwriting is
+taught from the head — "most consonants begin with a clockwise circular
+motion" (Verbacard's guide, one of the owner's references). So for Thai
+the generator finds the head as the smallest enclosed hole in the ink,
+takes the ring of skeleton around it, starts where the ring meets the
+body, circles it clockwise and carries on into the body; ก ญ ธ, whose
+heads are not rings, fall back to the print rule. Order and direction
+elsewhere are heuristics per script: right-to-left scripts start each
+stroke at its rightmost end and write bodies right to left; cursive
+starts at the leftmost (russianlessons.net: м from the bottom, and т
+top-down once past its entry hook — both hold in Marck Script's
+tracing); print starts at the top; bodies before marks. That is the part
 a speaker's tracing is still needed for, and the Learn step says so.
 
 Coordinates are the script's **em box**, not each glyph's ink box: 1000
