@@ -95,7 +95,8 @@ async def translate_locale(db_url, locale, *, limit, batch_size, concurrency,
                      for idx, r in enumerate(batch)]
             async with sem:
                 res = await maker_check_batch(lang["name"], items,
-                                              maker_model, checker_model)
+                                              maker_model, checker_model,
+                                              locale=locale)
             by_i = {b["i"]: b for b in res}
             return [{**by_i[idx], "id": batch[idx]["id"], "proposed": by_i[idx]["gloss"]}
                     for idx in range(len(batch)) if idx in by_i]

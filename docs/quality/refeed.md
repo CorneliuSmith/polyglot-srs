@@ -50,6 +50,17 @@ supabase db push
    transaction. `--detail` lists every gloss change. Never deletes a
    vocabulary row.
 
+   Two columns added 18 Sep 2026 change what `--apply` will do. `kept` is
+   a definition a reviewer edited in the Workshop (`vocabulary.curated`)
+   that differs from the file: it is LEFT ALONE, because the file is not
+   the truth for it — before this, the apply reverted every such fix. If
+   the file is right and the edit wrong, fix the row in the Workshop, not
+   the file. `rename` is a word that left the file and a new word at the
+   same frequency rank — one headword respelled. `--apply` SKIPS that
+   course and prints the pairs until the old spelling is in
+   `data/vocab_exclusions.tsv` (rule 73: the seeder adds the new spelling,
+   nothing removes the old one, and the course teaches the word twice).
+
    Since migration 20261016 it also **retires** words listed in
    `data/vocab_exclusions.tsv` — 858 of them: alphabet letters glossed as
    vocabulary, Arabic punctuation, English words WordNet matched to a
