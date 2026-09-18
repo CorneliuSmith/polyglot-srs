@@ -1373,7 +1373,7 @@ the brief; two are exempt on purpose (media recommendations, where
 dialect films are the right answer, and the English-only skill digest).
 
 
-**Two providers behind one schema** (`quality/register_pass.py`, 17 Sep
+**Two providers behind one schema** (`quality/content_judge.py`, home of the provider layer since 18 Sep; first built in `register_pass.py` on 17 Sep
 2026). The Arabic register judge has to read tens of thousands of rows, so
 it will eventually run on a local Arabic-native model rather than on
 Claude (`docs/plans/arabic-msa-local-llm.md`). Rather than wait for the
