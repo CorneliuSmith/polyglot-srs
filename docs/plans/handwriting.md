@@ -850,7 +850,12 @@ marks after all bodies (migration **20261026**, same guard). Third,
 the teeth of س ش and the toothed medial forms were three strokes
 because the skeleton walk saw a fork at every staircase pixel: forks
 are now grouped by adjacency, and for Arabic a short free-ended branch
-is a tooth run up and back within the stroke.
+is a tooth run up and back within the stroke. Later that day, with the
+owner's references (see DEBT): Thai moved to **Noto Sans Thai Looped**
+and starts every looped letter at its head, clockwise, then the body
+(migration **20261027**); the Greek and Arabic references are behind
+the proxy and wait on the owner (a per-letter start table is the
+mechanism, already wired).
 
 ### 13.3 The cursive was not cursive
 

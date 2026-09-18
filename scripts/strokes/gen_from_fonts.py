@@ -105,7 +105,7 @@ FONTS = {
     "greek":      {"print": "NotoSans.ttf"},
     "hebrew":     {"print": "NotoSansHebrew.ttf"},
     "devanagari": {"print": "NotoSansDevanagari.ttf"},
-    "thai":       {"print": "NotoSansThai.ttf"},
+    "thai":       {"print": "NotoSansThaiLooped.ttf"},   # looped: the heads Thai handwriting is taught with
     "hangul":     {"print": "NotoSansKR.ttf"},
     "latin":      {"print": "NotoSans.ttf", "cursive": "DancingScript.ttf"},
 }
@@ -270,7 +270,77 @@ def branches(pts: list) -> list[list]:
     return [grp for grp in groups if grp]
 
 
-def trace_component(g, comp: set, start: tuple, teeth: bool = False) -> list[list[tuple]]:
+def head_ring(ink: list[list[int]], sk: list[list[int]], comp: set) -> tuple[list, tuple] | None:
+    """A Thai letter's head: the smallest enclosed hole in the ink, and the
+    ring of skeleton pixels around it. Returns (ring pixels, hole centre)
+    or None. Found on the ink, not the skeleton graph: at this size a head
+    is a ring a few pixels across, and a cycle search through its fork
+    keeps finding the two-pixel short cut instead."""
+    h, w = len(ink), len(ink[0])
+    outside = set()
+    stack = [(x, y) for x in range(w) for y in (0, h - 1)] + [(x, y) for y in range(h) for x in (0, w - 1)]
+    stack = [p for p in stack if not ink[p[1]][p[0]]]
+    while stack:
+        x, y = stack.pop()
+        if (x, y) in outside:
+            continue
+        outside.add((x, y))
+        for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+            if 0 <= nx < w and 0 <= ny < h and not ink[ny][nx] and (nx, ny) not in outside:
+                stack.append((nx, ny))
+    holes = []
+    seen = set()
+    for y in range(h):
+        for x in range(w):
+            if ink[y][x] or (x, y) in outside or (x, y) in seen:
+                continue
+            hole = set()
+            stack = [(x, y)]
+            while stack:
+                p = stack.pop()
+                if p in hole:
+                    continue
+                hole.add(p)
+                for q in ((p[0] + 1, p[1]), (p[0] - 1, p[1]), (p[0], p[1] + 1), (p[0], p[1] - 1)):
+                    if 0 <= q[0] < w and 0 <= q[1] < h and not ink[q[1]][q[0]] and q not in outside and q not in hole:
+                        stack.append(q)
+            seen |= hole
+            if 2 <= len(hole) <= (EM // 8) ** 2:
+                holes.append(hole)
+    if not holes:
+        return None
+    hole = min(holes, key=len)
+    cx = sum(p[0] for p in hole) / len(hole)
+    cy = sum(p[1] for p in hole) / len(hole)
+    dist = {p: min(max(abs(p[0] - q[0]), abs(p[1] - q[1])) for q in hole) for p in comp}
+    dmin = min(dist.values())
+    if dmin > EM // 10:
+        return None
+    ring = {p for p in comp if dist[p] <= dmin + 3}
+    # The ring proper is the part of that band which encircles the hole:
+    # keep the connected piece nearest the hole.
+    pieces = []
+    left = set(ring)
+    while left:
+        start = left.pop()
+        piece = {start}
+        stack = [start]
+        while stack:
+            p = stack.pop()
+            for q in neighbours(sk, *p):
+                if q in left:
+                    left.discard(q)
+                    piece.add(q)
+                    stack.append(q)
+        pieces.append(piece)
+    ring = max(pieces, key=len)
+    if len(ring) < 6:
+        return None
+    return sorted(ring), (cx, cy)
+
+
+def trace_component(g, comp: set, start: tuple, teeth: bool = False,
+                    second: tuple | None = None, loop: set | None = None) -> list[list[tuple]]:
     """Walk the component into strokes: from *start*, always take the
     straightest unvisited continuation at a fork; a new stroke begins at
     the next unvisited endpoint (or the topmost unvisited pixel).
@@ -278,7 +348,11 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False) -> list[lis
     With *teeth* (Arabic), a short branch off a fork that ends free — the
     teeth of س ش, the notches of ب ت in the middle of a word — is run up
     and back down as part of the same stroke, the way the hand does it,
-    instead of being left for a stroke of its own."""
+    instead of being left for a stroke of its own.
+
+    With *second* the first step is forced (which way round a head goes);
+    with *loop*, a walk that dead-ends next to its own start hops back to
+    the start and carries on — a head circled fully, then the body."""
     visited = set()
     strokes = []
 
@@ -316,12 +390,20 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False) -> list[lis
     def walk(p):
         path = [p]
         visited.add(p)
+        first = p
         prev = None
         while True:
             ways = forks(p, prev)
+            if not ways and loop and p != first and abs(p[0] - first[0]) <= 1 and abs(p[1] - first[1]) <= 1:
+                # Back round to where the head began: close it and go on.
+                path.append(first)
+                prev, p = p, first
+                ways = forks(p, prev)
             if not ways:
                 break
-            if len(ways) > 1 and teeth:
+            if prev is None and second in ways:
+                q = second
+            elif len(ways) > 1 and teeth:
                 ends = {r: dead_end(r, p) for r in ways}
                 through = [r for r in ways if ends[r] is None]
                 # Continue on a branch that goes somewhere; if every branch
@@ -443,16 +525,17 @@ def rdp(pts, eps):
 # ----------------------------------------------------------------------
 # Ordering rules
 # ----------------------------------------------------------------------
-def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, bool]], bbox) -> tuple[list[list], int]:
+def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, bool, tuple | None]], bbox) -> tuple[list[list], int]:
     """Bodies before marks; bodies in writing order; each stroke oriented
-    the way a hand starts it. Returns the strokes and how many lead ones
-    are bodies (the rest are dots and marks)."""
+    the way a hand starts it — except a stroke pinned to start at a Thai
+    head. Returns the strokes and how many lead ones are bodies (the rest
+    are dots and marks)."""
     x0, y0, x1, y1 = bbox
     area = max(1, (x1 - x0) * (y1 - y0))
     bodies, marks = [], []
-    skeleton_px = sum(len(c) for c, _, is_dot in comps_strokes if not is_dot)
-    biggest = max([len(c) for c, _, is_dot in comps_strokes if not is_dot] or [0])
-    for comp, strokes, is_dot in comps_strokes:
+    skeleton_px = sum(len(c) for c, _, is_dot, _p in comps_strokes if not is_dot)
+    biggest = max([len(c) for c, _, is_dot, _p in comps_strokes if not is_dot] or [0])
+    for comp, strokes, is_dot, pinned in comps_strokes:
         xs = [p[0] for p in comp]; ys = [p[1] for p in comp]
         cw, ch = max(xs) - min(xs) + 1, max(ys) - min(ys) + 1
         # A mark is a dot, or a component much smaller than the largest
@@ -460,15 +543,15 @@ def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, 
         # bars of Ξ) a "mark", leaving a letter with no body at all.
         small = is_dot or len(comp) < 0.04 * skeleton_px or (
             len(comp) < 0.25 * biggest and (cw * ch) < 0.06 * area)
-        (marks if small else bodies).append((comp, strokes, min(xs), max(xs), min(ys)))
+        (marks if small else bodies).append((comp, strokes, min(xs), max(xs), min(ys), pinned))
     rtl = script in RTL
     key = (lambda c: -c[3]) if rtl else (lambda c: c[2])
     bodies.sort(key=key)
     marks.sort(key=key)
     out = []
-    for _comp, strokes, *_ in bodies:
+    for _comp, strokes, *_rest, pinned in bodies:
         for s in strokes:
-            out.append(orient(script, style, s))
+            out.append(s if pinned is not None and s[0] == pinned else orient(script, style, s))
     n_body = len(out)
     for _comp, strokes, *_ in marks:
         for s in strokes:
@@ -538,7 +621,24 @@ def extract(font, script, style, glyph, form):
             continue
         ends = [p for p in comp if len([q for q in neighbours(sk, *p) if q in comp]) == 1]
         # Start rule per script (see orient); the walk just needs a start.
-        if ends:
+        second = None
+        head = head_ring(sub, sk, comp) if script == "thai" else None
+        loop = None
+        if head:
+            # Thai: begin at the head, where it meets the body, circle it
+            # clockwise (Verbacard: "most consonants begin with a clockwise
+            # circular motion"), then carry on into the body.
+            ring, (cx, cy) = head
+            loop = ring
+            ringset = set(ring)
+            attached = [p for p in ring if any(q in comp and q not in ringset for q in neighbours(sk, *p))]
+            start = attached[0] if attached else min(ring, key=lambda p: (p[1], p[0]))
+            around = [q for q in neighbours(sk, *start) if q in ringset]
+            if around:
+                # Clockwise on screen (y down) is a positive cross product
+                # about the hole's centre.
+                second = max(around, key=lambda q: (start[0] - cx) * (q[1] - start[1]) - (start[1] - cy) * (q[0] - start[0]))
+        elif ends:
             if script in RTL:
                 start = max(ends, key=lambda p: (p[0], -p[1]))
             elif (script, style) in CURSIVE:
@@ -547,16 +647,17 @@ def extract(font, script, style, glyph, form):
                 start = min(ends, key=lambda p: (p[1], p[0]))
         else:
             start = min(comp, key=lambda p: (p[1], p[0]))
-        strokes = trace_component(sk, comp, start, teeth=script == "arabic")
+        strokes = trace_component(sk, comp, start, teeth=script == "arabic",
+                                  second=second, loop=set(loop) if loop else None)
         strokes = chain(strokes)
         longest = max(strokes, key=path_len)
         strokes = [t for t in strokes if path_len(t) >= EM / 8] or [longest]
-        cs.append((comp, strokes, False))
+        cs.append((comp, strokes, False, start if loop else None))
     for rc in dots:
         cx = sum(p[0] for p in rc) / len(rc)
         cy = sum(p[1] for p in rc) / len(rc)
         r = max(3, EM // 40)
-        cs.append((rc, [[(cx - r, cy), (cx + r, cy)]], True))
+        cs.append((rc, [[(cx - r, cy), (cx + r, cy)]], True, None))
     ordered, n_body = order_strokes(script, style, cs, (0, 0, x1 - x0 + 2 * m, y1 - y0 + 2 * m))
     # Pixel -> em box. y: 0 at the top of the em (ascender), 1000 at the
     # bottom (descender) — the same frame for every glyph of the script.
