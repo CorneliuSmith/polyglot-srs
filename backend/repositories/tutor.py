@@ -8,10 +8,13 @@ the learner is actually struggling with rather than generic content.
 from __future__ import annotations
 
 import json
+import logging
 
 import asyncpg
 
 from backend.repositories.pool import savepoint
+
+logger = logging.getLogger(__name__)
 
 PLAN_TIERS = ("free", "single", "all", "plus")
 
@@ -96,6 +99,24 @@ async def count_tutor_messages(
     return int(n or 0)
 
 
+# How a model call went, as migration 20261030 lets a caller record it.
+# Mirrors the column's CHECK so a misspelt outcome is dropped here with a
+# log line rather than surfacing as a CheckViolationError inside a learner's
+# transaction after the model has already been paid for.
+USAGE_OUTCOMES = ("ok", "schema_reject", "checker_reject", "error", "fallback")
+
+# One statement, two shapes — the app_feedback.variants writer's pattern.
+# `{extra_cols}` / `{extra_vals}` are the only difference, so the eight
+# columns every deployment has can never drift between the migrated and the
+# not-yet-migrated write.
+_INSERT_USAGE = """
+    INSERT INTO tutor_usage
+        (user_id, language_id, model, kind,
+         input_tokens, output_tokens, cache_write_tokens, cache_read_tokens{extra_cols})
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8{extra_vals})
+"""
+
+
 async def log_tutor_usage(
     conn: asyncpg.Connection,
     user_id: str,
@@ -103,25 +124,59 @@ async def log_tutor_usage(
     model: str | None,
     usage: dict | None = None,
     kind: str = "chat",
+    *,
+    outcome: str | None = None,
+    latency_ms: int | None = None,
 ) -> None:
     """Record one answered tutor message (the allowance + cost-tracking unit).
 
     *usage* carries the turn's Anthropic token counts (WP9b); token columns
     stay NULL when capture wasn't possible. kind='summary' rows track
     summarizer cost and never count against allowances.
+
+    *outcome* and *latency_ms* are the two columns migration 20261030 added
+    (docs/plans/quality-guardrails-telemetry.md §5): tutor_usage recorded
+    tokens and nothing about how the call went, so "how slow is the tutor"
+    and "how often is a batch rejected" had no data behind them.
+    *latency_ms* is the wall-clock the learner waited for the generation
+    step — the whole turn, tool loop and grader included, measured where
+    the usage dict is handed over — not one HTTP round trip.
+
+    Both are optional because migrations are owner-applied and the code
+    deploys first. When a caller passes either, the INSERT names the new
+    columns inside a savepoint and falls back to the eight-column shape on
+    UndefinedColumnError, the two-shape write app_feedback.variants uses.
+    When neither is passed the original statement runs untouched, so the
+    callers that record nothing new never pay a failed statement against a
+    database that has not migrated.
     """
     usage = usage or {}
-    await conn.execute(
-        """
-        INSERT INTO tutor_usage
-            (user_id, language_id, model, kind,
-             input_tokens, output_tokens, cache_write_tokens, cache_read_tokens)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
-        """,
+    if outcome is not None and outcome not in USAGE_OUTCOMES:
+        logger.warning("Dropping unknown tutor_usage outcome %r", outcome)
+        outcome = None
+    if latency_ms is not None:
+        # The column's CHECK is >= 0; a clock that ran backwards (it happens
+        # across a suspend) must not turn one log line into a 500.
+        latency_ms = max(0, int(latency_ms))
+    base = (
         user_id, language_id, model, kind,
         usage.get("input_tokens"), usage.get("output_tokens"),
         usage.get("cache_write_tokens"), usage.get("cache_read_tokens"),
     )
+    narrow = _INSERT_USAGE.format(extra_cols="", extra_vals="")
+    if outcome is None and latency_ms is None:
+        await conn.execute(narrow, *base)
+        return
+    try:
+        async with savepoint(conn):
+            await conn.execute(
+                _INSERT_USAGE.format(
+                    extra_cols=", outcome, latency_ms", extra_vals=", $9, $10"
+                ),
+                *base, outcome, latency_ms,
+            )
+    except asyncpg.exceptions.UndefinedColumnError:
+        await conn.execute(narrow, *base)
 
 
 async def aggregate_tutor_usage(conn: asyncpg.Connection, since) -> list[dict]:

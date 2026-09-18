@@ -22,6 +22,7 @@ from __future__ import annotations
 import asyncio
 import contextlib
 import logging
+import time
 from uuid import UUID
 
 import anthropic
@@ -248,6 +249,12 @@ async def chat(
     study_stats = assessment["study_stats"]
     model = resolve_tutor_model(body.language_code, override_model)
 
+    # Wall-clock of the whole turn, measured here rather than around each
+    # messages.create inside tutor_chat: the turn is the cost unit (a tool
+    # loop is several calls) and the learner waits for all of it. Prompt
+    # assembly is microseconds; what the timer adds over the raw network
+    # time is the tool loop, which is what "how slow is the tutor" asks.
+    started = time.perf_counter()
     try:
         reply, remembered, usage = await tutor_chat(
             body.language_code,
@@ -296,11 +303,13 @@ async def chat(
             detail="Tutor is temporarily unavailable",
         ) from exc
 
+    latency_ms = int((time.perf_counter() - started) * 1000)
     settings = get_settings()
     async with rls_connection(user["id"]) as conn:
         await log_tutor_usage(
             conn, user["id"], body.language_id,
             model or settings.tutor_model, usage=usage,
+            outcome="ok", latency_ms=latency_ms,
         )
         if remembered:
             new_user, new_lang = merge_remembered(

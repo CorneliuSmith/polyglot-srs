@@ -102,11 +102,33 @@ export async function submitReview(
   return response.data
 }
 
+/** Which layer of the card a report is about — migration 20261030's CHECK
+ * on card_feedback.field. 'answer' is in the column and not in the chips: a
+ * learner who thinks the answer is wrong says so in words. */
+export type CardFeedbackField =
+  | 'sentence'
+  | 'hint'
+  | 'translation'
+  | 'definition'
+  | 'explanation'
+  | 'other'
+
+export interface CardFeedbackOptions {
+  field?: CardFeedbackField | null
+  /** The drill_sentences.id the card rendered, when the payload carries
+   * one. A grammar point rotates drills, so the point alone never found
+   * the sentence a report was about. */
+  drill_id?: string | null
+  /** The locale overlay the session was showing — what cards.py served. */
+  locale?: string | null
+}
+
 export async function submitCardFeedback(
   cardId: string,
   message: string,
+  opts: CardFeedbackOptions = {},
 ): Promise<void> {
-  await apiClient.post(`/api/review/card/${cardId}/feedback`, { message })
+  await apiClient.post(`/api/review/card/${cardId}/feedback`, { message, ...opts })
 }
 
 /** Retire a card the learner already knows: it stops appearing in reviews

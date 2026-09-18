@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import base64
 import logging
+import time
 
 import anthropic
 from fastapi import (
@@ -413,16 +414,19 @@ async def start(
             )
             support_language = await _support_language(conn, user["id"])
         model = resolve_tutor_model(code, override_model)
+        started = time.perf_counter()
         result, usage = await speak_opening(
             language_name, learner["level"], None, model=model,
             support_language=support_language,
         )
+        latency_ms = int((time.perf_counter() - started) * 1000)
         opening = result["opening"]
         opening_translation = result["opening_translation"]
         async with rls_connection(user["id"]) as conn:
             await log_tutor_usage(
                 conn, user["id"], body.language_id, model,
                 usage=usage, kind="speak",
+                outcome="ok", latency_ms=latency_ms,
             )
             # learner_text is '' — nobody spoke. list_turns keeps it, and
             # _model_messages below drops the empty half so the model sees

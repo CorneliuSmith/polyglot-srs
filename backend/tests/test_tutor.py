@@ -610,6 +610,23 @@ class TestTutorChatEndpoint:
         # WP9b: the turn's token counts reached the usage log
         assert mock_log.await_args.kwargs["usage"] == _SOME_USAGE
 
+    def test_records_how_the_turn_went_and_how_long_it_took(self, client):
+        """Migration 20261030: tutor_usage says how the call went and how
+        long the learner waited — the whole turn, timed in the router
+        around tutor_chat, not one messages.create inside it."""
+        p1, p2, p3 = _patch_chat_repos()
+        with p1, p2, p3, \
+             patch("backend.routers.tutor.log_tutor_usage",
+                   new=AsyncMock()) as mock_log, \
+             patch("backend.routers.tutor.tutor_chat",
+                   new=AsyncMock(return_value=("hi", [], _SOME_USAGE))):
+            resp = client.post("/api/tutor/chat", json=_chat_body(), headers=_auth_headers())
+        assert resp.status_code == 200
+        kwargs = mock_log.await_args.kwargs
+        assert kwargs["outcome"] == "ok"
+        assert isinstance(kwargs["latency_ms"], int)
+        assert kwargs["latency_ms"] >= 0
+
     def test_free_tier_blocked_at_monthly_limit(self, client):
         paid = FakeSettings()
         paid.tutor_free_access = False

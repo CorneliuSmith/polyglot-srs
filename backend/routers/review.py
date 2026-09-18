@@ -137,8 +137,24 @@ class LearnRequest(BaseModel):
     topic: str | None = None
 
 
+# The layer a learner's report is about. Mirrors the CHECK migration
+# 20261030 put on card_feedback.field: a value the column would refuse is a
+# 422 here, not a CheckViolationError inside the learner's transaction.
+FEEDBACK_FIELDS = (
+    "sentence", "hint", "translation", "answer", "explanation", "definition",
+    "other",
+)
+
+
 class CardFeedbackRequest(BaseModel):
     message: str = Field(min_length=1, max_length=1000)
+    # Which of the card's layers the report is about, the drill actually
+    # rendered (grammar cards rotate drills, so the point alone never found
+    # the sentence), and the locale overlay the session was showing. All
+    # optional: the chips are a courtesy, and an older client sends none.
+    field: str | None = None
+    drill_id: str | None = None
+    locale: str | None = Field(default=None, max_length=16)
 
 
 class ConfirmLearnRequest(BaseModel):
@@ -863,9 +879,38 @@ async def submit_card_feedback(
     body: CardFeedbackRequest,
     user: dict = Depends(get_current_user),
 ):
-    """Let a learner flag a problem with a card they're reviewing."""
+    """Let a learner flag a problem with a card they're reviewing.
+
+    Since migration 20261030 the row also says WHICH layer, which drill and
+    which locale. The beta reviewer's "the Arabic is Egyptian" could never
+    have been a row here because nothing recorded the language they were
+    reading in (plan §2.4). The support locale is resolved server-side, the
+    way the session's cards were served, so a report about the explaining
+    language can be told apart from one about the course.
+    """
+    if body.field is not None and body.field not in FEEDBACK_FIELDS:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail=f"field must be one of {list(FEEDBACK_FIELDS)}",
+        )
+    if body.drill_id is not None:
+        try:
+            UUID(body.drill_id)
+        except ValueError as exc:
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="drill_id must be a UUID",
+            ) from exc
     async with rls_connection(user["id"]) as conn:
-        ok = await add_card_feedback(conn, user["id"], card_id, body.message.strip())
+        support = await _support_locale(conn, user["id"])
+        ok = await add_card_feedback(
+            conn, user["id"], card_id, body.message.strip(),
+            field=body.field, drill_id=body.drill_id, locale=body.locale,
+            # None means English everywhere the helper is read; in this
+            # column NULL has to mean "not recorded", or a pre-migration row
+            # and an English-support learner's row would be the same row.
+            support_locale=support or "en",
+        )
     if not ok:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Card not found")
     return {"submitted": True}

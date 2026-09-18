@@ -976,6 +976,10 @@ export interface NewChangeRequest {
   suggestion?: string | null
   quote?: string | null
   quote_context?: Record<string, unknown>
+  /** The locale overlay the reviewer was reading (migration 20261030), so
+   * the board can tell a complaint about the French hint from one about
+   * the sentence. */
+  locale?: string | null
 }
 
 export async function createChangeRequest(body: NewChangeRequest): Promise<{ id: string }> {
