@@ -888,7 +888,12 @@ continuity and chaining glued the stem of ط back onto its bowl. Hebrew
 keeps the rightmost-end rule; cursive
 starts at the leftmost (russianlessons.net: м from the bottom, and т
 top-down once past its entry hook — both hold in Marck Script's
-tracing); print starts at the top; bodies before marks; and Devanagari's
+tracing); print starts at the top — except that a **bar is always written in the
+reading direction** (left to right for everything but Arabic and Hebrew)
+and a **stem always downward**, judged on the whole path's box rather
+than its two ends, because the legs of an A end level too and are not a
+bar. That rule was missing until 18 Sep, and a pixel of thinning noise
+decided which way an f's crossbar ran. Bodies before marks; and Devanagari's
 headline (shirorekha) comes **after** the body — the walk starts at the
 top and would fuse it with the stem, so a body stroke's run along the
 top edge is cut off, the pieces run left to right, and they are counted

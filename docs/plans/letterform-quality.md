@@ -33,11 +33,19 @@ teacher would put on a board.
    leaves at a thick terminal; it cannot tell a whisker from the last
    millimetre of a real stroke, so tails end short (the hook of ر, the
    foot of a cursive у).
-4. **Junctions are fused.** Where two parts of a letter touch, the
+4. **Crossings are not split.** Where a bar crosses a stem — f t A E
+   ж х ф — the hand writes the stem in one movement and the bar in
+   another. The walk follows whichever branch is straightest at the
+   junction instead, so an f's crossbar comes out as part of its hook.
+   Thinning leaves the junction as a 2×2 cluster, so the walk never sees
+   the four ways at one pixel and cannot pair the opposite arms:
+   resolving it needs the cluster collapsed to a point (Tier 0) or the
+   split stated (Tier 1). **This is the f the owner found on 18 Sep.**
+5. **Junctions are fused.** Where two parts of a letter touch, the
    skeleton has one pixel where the hand has two passes. The tooth logic
    and the upright logic exist to undo this case by case; every script
    has its own version of the problem and only Arabic's is handled.
-5. **No proportion model.** Each form is normalised into the script's em
+6. **No proportion model.** Each form is normalised into the script's em
    box, but nothing checks that x-height, ascender, descender and (for
    Arabic) tooth height are consistent *between* letters. A letter can be
    individually plausible and wrong beside its neighbour.
@@ -84,7 +92,7 @@ contact sheet, and the proportion report has no unexplained outliers.
 *Effort:* a day; the risk is welding shut something that should stay open,
 which the turning-angle test and the sheets catch.
 
-### Tier 1 — A per-letter rules table (1 PR, needs the owner's charts)
+### Tier 1 — A per-letter rules table (1 PR, needs a source per script)
 
 Everything the generator knows is a *global* rule per script. Some letters
 simply do not follow one, and no amount of rule-tuning will fix them —
@@ -116,6 +124,55 @@ for the per-script source notes.
 `eoimalaga.com` are blocked by this environment's egress proxy (DEBT).
 Either allow them in the environment's network policy or paste the pages
 into the chat as files.
+
+#### 1a. Where the rules come from — including a model that watches video
+
+The owner asked (18 Sep) whether a model with video access could watch
+handwriting lessons and produce the rules. **Yes, and it is the right
+shape of job**: a video shows exactly what a typeface cannot — how many
+strokes, in what order, from where, and which parts are one movement. It
+is no use for geometry (closure, terminals, proportion); that is Tier 0
+code and needs no source.
+
+Three conditions, or it comes back as prose nobody can use:
+
+1. **One row per (script, letter, form), in a fixed schema**, not an
+   essay. The file the generator will read:
+
+   ```json
+   {"script": "latin", "style": "print", "glyph": "f", "form": "lower",
+    "strokes": [
+      {"from": "top-right", "to": "bottom", "path": "hook, then straight down",
+       "note": "the hook and the stem are one movement"},
+      {"from": "left", "to": "right", "path": "straight across",
+       "note": "the crossbar, written after the stem"}
+    ],
+    "source": "https://… at 3:14", "confidence": "high"}
+   ```
+
+   `from` and `to` come from a closed list — `top`, `top-left`,
+   `top-right`, `left`, `right`, `bottom`, `bottom-left`,
+   `bottom-right`, `centre`. `path` is free text and becomes the hint the
+   learner reads. `note` is where a merge or a split is stated, and is
+   the field that fixes the f.
+2. **A source per row**: the video and timestamp, or the page. A rule
+   with no source is a guess, and this library has already shipped three
+   rounds of guesses.
+3. **Teaching sources, not calligraphy.** A school handwriting lesson, a
+   literacy channel, a primer. Calligraphy videos show a nib doing things
+   a learner must not copy.
+
+Best sources per script: Latin — a school model demonstration (D'Nealian
+or Zaner-Bloser); Russian — прописи lessons, first grade; Arabic — a
+*naskh* teaching channel, never *thuluth*; Greek — a Greek primary-school
+writing lesson; Devanagari, Thai, Hebrew, Hangul — the same, primary
+school.
+
+What comes back is checked like everything else: the arrowed contact
+sheet against the source, letter by letter, before a migration is
+written. The generator takes the table as data — the walk already accepts
+a forced start and first step — so filling it needs no code per letter,
+and a letter with no row keeps today's behaviour.
 
 ### Tier 2 — Better source faces (1 PR per script, needs a font choice)
 

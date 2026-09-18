@@ -407,6 +407,43 @@ def run_from(g, comp: set, e: tuple, avoid: set, cap: int) -> list:
     return path
 
 
+def unit(frm, to):
+    dx, dy = to[0] - frm[0], to[1] - frm[1]
+    n = math.hypot(dx, dy) or 1.0
+    return dx / n, dy / n
+
+
+def crossing(ways: list, p: tuple, incoming: tuple):
+    """Where a bar crosses a stem (f t A E ж х ф), the two arms of the bar
+    are one stroke and the stem is another. Two of the ways out lie nearly
+    opposite each other — that pair is the crossing stroke — so a walk
+    arriving on neither of them carries on through the junction on the
+    remaining way, leaving the pair to be drawn as its own stroke.
+    Returns the way to take, or None when this is not a crossing."""
+    if len(ways) < 3:
+        return None
+    n = math.hypot(*incoming) or 1.0
+    inc = (incoming[0] / n, incoming[1] / n)
+    dirs = [unit(p, r) for r in ways]
+    pair = None
+    best = -0.75
+    for i in range(len(ways)):
+        for j in range(i + 1, len(ways)):
+            d = dirs[i][0] * dirs[j][0] + dirs[i][1] * dirs[j][1]
+            if d < best:
+                best, pair = d, (i, j)
+    if pair is None:
+        return None
+    # Arriving along the crossing stroke itself: carry on along it.
+    aligned = [k for k in pair if abs(inc[0] * dirs[k][0] + inc[1] * dirs[k][1]) > 0.75]
+    rest = [k for k in range(len(ways)) if k not in pair]
+    if aligned:
+        return ways[max(pair, key=lambda k: inc[0] * dirs[k][0] + inc[1] * dirs[k][1])]
+    if not rest:
+        return None
+    return ways[max(rest, key=lambda k: inc[0] * dirs[k][0] + inc[1] * dirs[k][1])]
+
+
 def upright_end(g, comp: set, e: tuple) -> bool:
     """Whether endpoint *e* is the free end of an upright that hangs at a
     fork: a run down from it more tall than wide for longer than a tooth,
@@ -645,7 +682,9 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False,
                         path.append(p)
             elif len(ways) > 1 and prev is not None:
                 dx, dy = p[0] - prev[0], p[1] - prev[1]
-                q = max(ways, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
+                q = crossing(ways, p, (dx, dy))
+                if q is None:
+                    q = max(ways, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
             elif (teeth and not joined and len(path) > TOOTH
                   and vertical_prefix(path) < len(path) - 5 and upright(ways[0], p)):
                 break   # a body is drawn (not just a stem so far) and only an upright is left: it is written on its own
@@ -864,6 +903,23 @@ def rtl_first(a, b, form: str, joined: bool):
     return max((a, b), key=lambda p: (p[0], -p[1]))               # rightmost, then higher
 
 
+def span(s: list) -> tuple[float, float]:
+    xs = [p[0] for p in s]; ys = [p[1] for p in s]
+    return max(xs) - min(xs), max(ys) - min(ys)
+
+
+def flat(s: list) -> bool:
+    """A bar: the whole path stays in a thin horizontal band."""
+    w, h = span(s)
+    return w > 3 * h and w > 0.04 * EM
+
+
+def upright(s: list) -> bool:
+    """A stem: the whole path stays in a thin vertical band."""
+    w, h = span(s)
+    return h > 3 * w and h > 0.04 * EM
+
+
 def orient(script: str, style: str, s: list, form: str = "isolated", joined: bool = False) -> list:
     a, b = s[0], s[-1]
     closed = math.hypot(a[0] - b[0], a[1] - b[1]) < 6 and len(s) > 20
@@ -877,11 +933,46 @@ def orient(script: str, style: str, s: list, form: str = "isolated", joined: boo
         return s
     if script in RTL:
         want_first = rtl_first(a, b, form, joined)
+    elif flat(s):
+        # A bar is written in the reading direction, always: the crossbar
+        # of f t A H, the arms of E Ξ ц ш. The old rule was "topmost end,
+        # ties to the left", and on a level bar a pixel of thinning noise
+        # decided it — which drew f's crossbar right to left (owner,
+        # 18 Sep). Judged on the whole path's box, not its two ends: the
+        # legs of A end level too, and that is not a bar.
+        want_first = min((a, b), key=lambda p: p[0])
+    elif upright(s):
+        want_first = min((a, b), key=lambda p: p[1])                # a stem goes down
     elif (script, style) in CURSIVE:
         want_first = min((a, b), key=lambda p: (p[0], p[1]))        # leftmost
     else:
         want_first = min((a, b), key=lambda p: (p[1], p[0]))        # topmost, then leftmost
     return s if want_first == a else s[::-1]
+
+
+def stroke_hint(script: str, style: str, s: list, kind: str, index: int) -> str:
+    """What to say about one stroke. Derived from the stroke itself, not
+    from its position in the list: "next stroke" told a learner nothing
+    about the crossbar of an f, and a hint that does not match the arrow
+    is worse than none."""
+    if kind == "mark":
+        return "the dots and marks last"
+    if kind == "headline":
+        return "the headline last, left to right — across the whole word"
+    a, b = s[0], s[-1]
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    w, h = span(s)
+    if math.hypot(dx, dy) < BOX * 0.12 and len(s) > 6 and w > BOX * 0.1:
+        return "round, back to where it started"
+    if w > 3 * h and w > BOX * 0.1:
+        return "across, right to left" if script in RTL else "across, left to right"
+    if h > 3 * w and h > BOX * 0.1:
+        return "straight down" if dy > 0 else "straight up"
+    if index == 0:
+        return {"arabic": "from the right, along the body",
+                "hebrew": "from the right"}.get(
+            script, "from the left, in one flow" if (script, style) in CURSIVE else "from the top")
+    return "down and " + ("left" if dx < 0 else "right") if dy > 0 else "up and " + ("left" if dx < 0 else "right")
 
 
 # ----------------------------------------------------------------------
@@ -1033,18 +1124,7 @@ def extract(font, script, style, glyph, form):
         joins["joins_next"] = True
         joins["entry"] = min(body, key=lambda p: (p[0], p[1]))
         joins["exit"] = max(bodypts, key=lambda p: (p[0], p[1]))
-    hints = []
-    for i, kind in enumerate(kinds):
-        if i == 0:
-            hints.append({"arabic": "from the right, along the body",
-                          "hebrew": "from the right"}.get(script,
-                         "from the left, in one flow" if (script, style) in CURSIVE else "from the top"))
-        elif kind == "headline":
-            hints.append("the headline last, left to right — across the whole word")
-        elif kind == "mark":
-            hints.append("the dots and marks last")
-        else:
-            hints.append("next stroke")
+    hints = [stroke_hint(script, style, out[i], kinds[i], i) for i in range(len(out))]
     return {"script": script, "glyph": glyph, "form": form, "style": style,
             "strokes": out, "joins": joins, "hints": hints,
             "source": "provisional", "reviewed": True}
