@@ -340,6 +340,31 @@ prompt for an Arabic speaker learning English and reads what comes out.
 corpus 98% MSA and was not wrong.** It measured the Arabic *course*, which
 was largely clean. The corpus and the complaint were two different corpora.
 
+## The gloss-precision complaint, measured (18 Sep 2026)
+
+The reviewer's third complaint — "(للأسف) means (unfortunately) but the app
+says (sadly)… more than 15 words are wrongly translated" — was never about
+register, and it is **bigger than the register work**. Full report:
+`docs/quality/en-sense-ar-gloss-2026-09-18.md`.
+
+Two defects, measured over 360 English rows stratified across six bands:
+
+| | rate | projected |
+|---|---:|---:|
+| English definitions giving a rare or wrong sense | 8.1% | ~853 of 9,031 |
+| Arabic glosses diverging from the sense the English names | **24.6%** | **~2,329 of 9,056** |
+
+His own example is the first class: `sadly` is defined "in an unfortunate
+way" and `للأسف` translates that **correctly**. The fault is the English
+definition, and the Arabic carried it faithfully into his language.
+
+The English defect peaks at 15–17% in ranks 2,001–6,000 — the middle band,
+not the tail, and exactly where he was reading. The Arabic rate is **flat
+across every band**, so it is systemic rather than a tail problem, and 23% of
+it is a noun glossing a verb or the reverse, which `translate.maker_system`
+explicitly forbids and which the `part_of_speech` column makes mechanically
+checkable.
+
 ## Every card surface read (17 Sep 2026)
 
 Readers reported dialect on cards "in the sentences, words, or explanations".

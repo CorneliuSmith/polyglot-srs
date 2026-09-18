@@ -1318,3 +1318,22 @@ exactly one entry. Any other language with a standard variety — Persian
 directions, as a course and as a support locale, and none has been measured.
 Rule 1 says a defect found in one language is a class; this one has been
 fixed for Arabic only.
+
+
+## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
+
+`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
+above it argues the case well: inside the first thousand every letter-name
+gloss is a function word wearing the wrong hat, and past it a word that names
+a letter usually is one. That reasoning is sound **for the letter-name and
+region-code patterns the rule actually matches**.
+
+It has since been read as though the rule covers wrong senses generally. It
+does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
+sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
+`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
+letter name, so the rule would not fire even if the band were lifted.
+
+Two separate pieces of work, then: widening the band, and a rule that can see
+this class at all. Neither is done. See
+`docs/quality/en-sense-ar-gloss-2026-09-18.md`.

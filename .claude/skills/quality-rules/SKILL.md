@@ -518,6 +518,20 @@ rate, say so — that result matters more than the phase closing quietly.
     Any pass that changes a headword's spelling must write the old form into
     `vocab_exclusions.tsv` in the SAME change, and the retire must run before
     or with the seed. CHECKS §12, from the third direction.
+74. **A faithful translation of a wrong definition looks like a translation
+    bug to the reader.** The beta reviewer reported Arabic glosses as wrong;
+    `sadly` is defined "in an unfortunate way" and `للأسف` renders that
+    correctly. The fault was the English sense, and it reached him through a
+    correct translation. When a support-locale complaint arrives, check the
+    SOURCE definition before the target gloss — and fix it upstream, where
+    one repair serves all nine locales.
+75. **A rule's band was chosen for the defect it was written for.**
+    `WRONG_SENSE_RANK_BAND = 1000` is well argued for letter-name glosses and
+    says nothing about wrong senses generally, yet it reads as though the
+    corpus is checked. 8.1% of English definitions give a rare or wrong sense,
+    peaking at 15–17% in ranks 2,001–6,000, and no rule looks there. Before
+    trusting a rule's coverage, read what its threshold was chosen to
+    separate.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
