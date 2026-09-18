@@ -26,7 +26,7 @@ from fastapi.testclient import TestClient
 from backend.main import create_app
 from backend.repositories import quality as repo
 from backend.services import quality_loop
-from backend.services.quality import audit_content, db_snapshot
+from backend.services.quality import audit_content, content_judge, db_snapshot
 from backend.services.seeder import reconcile
 from backend.tests.fakes import mock_conn
 
@@ -207,18 +207,26 @@ class TestLanguageTargets:
 
 
 class TestJudgeTokens:
-    async def test_sums_the_judge_rows_since_utc_midnight(self):
+    async def test_sums_the_judge_ledger_rows_since_utc_midnight(self):
+        # The ledger is quality_runs, not tutor_usage: that table's user_id
+        # is NOT NULL against auth.users and the judge has no user until
+        # owner decision #2 (the docstring says so).
         conn = mock_conn()
         conn.fetchval.return_value = Decimal("1234")
         assert await repo.judge_tokens_spent_today(conn) == 1234
         sql = conn.fetchval.await_args.args[0]
-        assert "tutor_usage" in sql and "kind = 'judge'" in sql and "'UTC'" in sql
+        assert "FROM quality_runs" in sql
+        assert "kind = 'judge'" in sql and "metric = 'tokens'" in sql
+        assert "SUM(value)" in sql
+        assert "tutor_usage" not in sql
+        # Both AT TIME ZONE casts: drop the zone to truncate, re-tag to compare.
+        assert sql.count("AT TIME ZONE 'UTC'") == 2
 
     async def test_degrades_to_zero(self):
         conn = mock_conn()
-        conn.fetchval.side_effect = _missing("tutor_usage")
+        conn.fetchval.side_effect = _missing("quality_runs")
         assert await repo.judge_tokens_spent_today(conn) == 0
-        conn.fetchval.side_effect = asyncpg.exceptions.UndefinedColumnError("kind")
+        conn.fetchval.side_effect = asyncpg.exceptions.UndefinedColumnError("metric")
         assert await repo.judge_tokens_spent_today(conn) == 0
 
 
@@ -267,12 +275,23 @@ async def _inbox(conn, *, include_empty=False, exclude=None) -> list[dict]:
              "counts": {"pending_drills": 2, "change_requests": 1}}]
 
 
+# The judge-coverage step's two counts, answered by SQL shape: the numerator
+# reads content_verdicts, the denominator counts the question's scope.
+JUDGED, SCOPE = 3, 40
+JUDGE_COVERAGE = {f"judge.{name}" for name in content_judge.QUESTIONS}
+
+
+async def _counts(sql, *args):
+    return JUDGED if "FROM content_verdicts" in sql else SCOPE
+
+
 @contextmanager
 def _faked(*, audit=None, survey=None, file_rows: int = 1500):
     """Every input to the cycle, faked. `audit` and `survey` are side_effects
     (a callable or an exception) for the two per-course steps."""
     with patch.object(audit_content, "audit_language",
                       side_effect=audit or _audit_report) as audit_mock, \
+         patch.object(content_judge, "calibrated_pairs", return_value={("register", "ru")}), \
          patch.object(reconcile, "survey", new=AsyncMock(side_effect=survey or _survey)), \
          patch.object(reconcile, "expected_rows",
                       side_effect=lambda code: {f"w{i}": {} for i in range(file_rows)}), \
@@ -287,6 +306,7 @@ def _conn(*languages: tuple[str, str]):
     conn = mock_conn()
     conn.fetch.return_value = [{"id": lang_id, "code": code} for code, lang_id in languages]
     conn.fetchrow.return_value = {"id": "row-id"}
+    conn.fetchval.side_effect = _counts
     return conn
 
 
@@ -335,10 +355,19 @@ class TestCycle:
                                                               "change_requests": 1}
 
         coverage = _by_metric(rows, "coverage")
-        assert set(coverage) == {"blankable_top_band"}
+        # Grew from one row to six per course when unit F added the judge
+        # coverage step: one judge.<question> row per question, written
+        # whether or not the judge is on, so the panel can show 0 of N.
+        assert set(coverage) == {"blankable_top_band"} | JUDGE_COVERAGE
         # 1,500-row file: the band is the file, not CARD_RULE_BAND.
         assert coverage["blankable_top_band"]["value"] == 1500 - 5
         assert coverage["blankable_top_band"]["population"] == 1500
+        for metric in JUDGE_COVERAGE:
+            assert coverage[metric]["value"] == JUDGED
+            assert coverage[metric]["population"] == SCOPE
+        # calibrated.json (faked) has register/ru and nothing else.
+        assert coverage["judge.register"]["meta"] == {"calibrated": True}
+        assert coverage["judge.sense"]["meta"] == {"calibrated": False}
 
         assert all(r["sha"] == "abc123" for r in rows)
         assert all(r["language_id"] == LANG_RU for r in rows)
@@ -389,10 +418,11 @@ class TestCycle:
         assert stats["languages"] == 2
         assert stats["failures"] == ["ar.audit: FileNotFoundError: data/grammar/ar.json"]
         assert "ar: no frequency file" in stats["skipped"]
-        # Arabic lost its audit (and the coverage row that needs it) and
-        # nothing else; Russian is complete.
+        # Arabic lost its audit (and the blankable coverage row that needs
+        # it) and nothing else; Russian is complete. The judge coverage rows
+        # are their own step and need no audit, so Arabic keeps those five.
         assert _by_metric(rows, "audit", LANG_AR) == {}
-        assert _by_metric(rows, "coverage", LANG_AR) == {}
+        assert set(_by_metric(rows, "coverage", LANG_AR)) == JUDGE_COVERAGE
         assert _by_metric(rows, "reconcile", LANG_AR) == {}
         assert set(_by_metric(rows, "snapshot", LANG_AR)) == set(SNAPSHOT_COUNTS)
         assert set(_by_metric(rows, "audit", LANG_RU)) == set(audit_content.ALL_RULES)

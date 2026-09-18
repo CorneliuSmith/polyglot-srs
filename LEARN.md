@@ -351,7 +351,7 @@ try/except, so a broken course costs one step's rows and not the cycle;
 "never ran", "ran and the table is missing" and "ran and every course
 failed" all look like "no new rows" from outside.
 
-The judge itself is not in the loop yet; its switch is. `quality_settings`
+The judge's switch was built before the judge. `quality_settings`
 (migration 20261029) is a singleton the admin panel edits — enabled, rows
 per cycle, a daily token cap, an optional model — and
 `get_quality_settings` **fails closed**: absent table, absent row, or any
@@ -364,6 +364,52 @@ about the judge is a config.py constant. `language_quality_targets` is
 the per-course half — judge opt-in and the red thresholds — and a course
 with no row reads as not judged, red at 15 percent bad cards and 5 percent
 judge flags.
+
+**The judge step** (`services/quality/judge_step.py`, 18 Sep 2026) is the
+one paid step, and `quality_loop()` runs it only after `run_quality_cycle`
+has written every mechanical row, inside its own try/except, so a judge
+that crashes or overspends cannot cost the free measurements — its failure
+is one line in the cycle's `failures`, and the heartbeat still says the
+cycle ran. Four gates, in this order, each failing closed: the master
+switch (nothing else is read when it is off); today's spend against the
+daily cap; the per-course opt-in in `language_quality_targets`; and
+`data/eval/calibrated.json`, the list of (question, course) pairs whose
+gold set has cleared the three §3.2 gates. The file is plan §7's phase E
+gate made a fact the loop can read: the switches decide whether money is
+spent, the file decides on what, and a pair not in it is listed in the
+stats as `not calibrated` and never sent to a model. Absent or malformed,
+it reads as empty — the same direction `get_quality_settings` degrades in.
+`judge_rows_per_cycle` is then split evenly across the surviving pairs,
+each pair runs under its own savepoint (`_step`'s shape: one broken pair
+costs one pair), and the cap is re-checked before every batch of
+`BATCH_SIZE` against today's spend plus the cycle's running total.
+
+Two things about where the rows go. **The spend ledger is `quality_runs`,
+not `tutor_usage`.** Every other model call logs to `tutor_usage`, whose
+`user_id` is NOT NULL against `auth.users`; the judge has no user, and
+giving it one is a service account — owner decision #2. So each pair
+writes ONE `quality_runs` row `kind='judge'`, `metric='tokens'` (value =
+input + output tokens, population = calls, the model and the full usage
+in `meta`), and `judge_tokens_spent_today` sums those since UTC midnight.
+The verdicts (`content_verdicts`, `repositories/verdicts.py`) carry that
+row's id as `run_id`, so the night's spend and what it bought are one
+join. A second row per pair, `metric='flagged.<question>'`, is the panel's
+rate — findings in the question's positive class at confidence >= 0.7,
+out of rows judged. And **coverage is written whether or not the judge is
+on**: `_judge_coverage_step` writes `kind='coverage'`,
+`metric='judge.<question>'` for every course and every question — rows
+with any verdict out of the question's scope, `calibrated` in the meta —
+because the owner's condition was that coverage is tracked from day one,
+and a course the judge has never read must show 0 of N, not nothing.
+
+Row selection (`verdicts.candidates`) is the plan's priority order as one
+ORDER BY: never judged for this question first, the top of the frequency
+band first within them, then the rows judged longest ago. A batch whose
+judge raised is NOT stored: `run_items` turns it into `unsure` rows so a
+CLI count cannot read a crash as clean, but stored, those rows would
+count as judged — the coverage numerator, and the back of the queue — on
+the strength of a timeout. The step keeps them out, counts the batch as
+a failure, and the rows come back the next night.
 
 The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
 on the configured chat model, its `*_checker` verifies one tier up

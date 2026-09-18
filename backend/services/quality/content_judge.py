@@ -27,13 +27,19 @@ and this module is its discipline made the shape every question takes:
 - **The spend is counted.** `run_items` returns the token usage summed across
   its batches beside the verdicts. The owner's condition for a nightly judge
   was that its cost be visible and capped from the admin panel; the judge
-  loop (a later unit) writes these numbers to `tutor_usage` as `kind='judge'`
-  so they appear in AI costs beside `summary`.
+  step (`judge_step.py`) writes these numbers to `quality_runs` as
+  `kind='judge'`, `metric='tokens'`, which is the ledger the cap is checked
+  against (`repositories/quality.judge_tokens_spent_today`).
+- **Calibrated before it runs on a schedule.** `calibrated_pairs()` reads
+  `data/eval/calibrated.json`, the list of (question, course) pairs whose
+  gold set has cleared the three gates. The judge step sends nothing else to
+  a model, whatever the admin switches say: the switches decide whether
+  money is spent, the file decides on what.
 
 Nothing here writes to a database or a data file. `register_pass` keeps its
 stores, its fix queue and its journal and imports the provider layer from
-here; the store passes for the other four questions arrive with the loop, and
-until then this CLI refuses to run anything but `--gold`.
+here; the nightly store passes live in `repositories/verdicts.py` and
+`judge_step.py`, and this CLI runs only `--gold`.
 
 Usage:
 
@@ -228,9 +234,10 @@ def _empty_usage() -> dict[str, int]:
 def _usage_of(usage: Any) -> dict[str, int]:
     """An Anthropic usage block as the loop's five counters, for one call.
 
-    Same field mapping as `tutor._add_usage`, so the judge's rows in
-    `tutor_usage` are priced the way every other kind is. A response that
-    reports no usage still counts as a call."""
+    Same field mapping as `tutor._add_usage`, so the judge's usage can be
+    priced the way every `tutor_usage` kind is once it has a row there
+    (owner decision #2, the service account). A response that reports no
+    usage still counts as a call."""
     return {
         "input_tokens": getattr(usage, "input_tokens", 0) or 0,
         "output_tokens": getattr(usage, "output_tokens", 0) or 0,
@@ -375,6 +382,44 @@ def judge_name(base_url: str | None, model: str | None, code: str | None = None)
         return model
     from backend.services.models import resolve_model
     return resolve_model("sentence_checker", code)
+
+
+# ---------------------------------------------------------------------------
+# The calibration gate: which (question, course) pairs the loop may judge
+# ---------------------------------------------------------------------------
+
+CALIBRATED_PATH = EVAL / "calibrated.json"
+
+
+def calibrated_pairs(path: Path | None = None) -> set[tuple[str, str]]:
+    """The (question name, course code) pairs that have cleared the three
+    §3.2 gates on their gold set, from `data/eval/calibrated.json`
+    (`data/eval/README.md` gives the file's shape and what an entry needs).
+
+    This is plan §7's phase E gate made a fact the loop can read: a pair not
+    in the file is never sent to a model, whatever `quality_settings` and
+    `language_quality_targets` say. Absent or malformed reads as EMPTY, with
+    a warning — the same direction `get_quality_settings` degrades in. A bad
+    edit to this file must switch the judge off, never on."""
+    path = path or CALIBRATED_PATH
+    try:
+        blob = json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError:
+        logger.warning("%s is absent: no (question, course) pair is calibrated", path.name)
+        return set()
+    except (OSError, ValueError) as exc:
+        logger.warning("%s is unreadable (%s): no pair is calibrated", path.name, exc)
+        return set()
+    if not isinstance(blob, dict):
+        logger.warning("%s is not an object: no pair is calibrated", path.name)
+        return set()
+    pairs: set[tuple[str, str]] = set()
+    for question, courses in blob.items():
+        if not isinstance(courses, dict):
+            logger.warning("%s: %r is not a course map, ignored", path.name, question)
+            continue
+        pairs.update((str(question), str(code)) for code in courses)
+    return pairs
 
 
 # ---------------------------------------------------------------------------
@@ -1097,8 +1142,8 @@ async def main(argv: Sequence[str] | None = None) -> int:
     args = ap.parse_args(argv)
     print(spend_notice(args.base_url))
     if not args.gold:
-        ap.error("only --gold runs here; the store passes arrive with the judge loop "
-                 "(register's are in register_pass).")
+        ap.error("only --gold runs here; the nightly store passes are judge_step.py's "
+                 "(register's hand-run ones are in register_pass).")
     logging.basicConfig(level=logging.INFO, format="%(name)s | %(message)s")
 
     question = QUESTIONS[args.question]
