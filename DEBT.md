@@ -1246,6 +1246,20 @@ is already done; what's missing is implementation, staged exactly as the doc
 lays out (Gym offline first — it's append-only and ungraded, so it proves the
 sync loop with nothing at stake).
 
+### Local / open-weights models
+
+`docs/local-models.md` (18 Sep 2026) is a survey and a staged plan, not a
+feature. No local model runs anywhere in this repo, `resolve_model()` still
+returns a bare Anthropic model name, and there is no provider abstraction —
+so do not go looking for MLflow, an Ollama client, or a `ModelRef` type.
+The doc exists for two reasons: the owner wants the skill, and two pieces of
+it are cheap wins that keep getting rediscovered (local embeddings for
+near-duplicate detection, and a local model behind `TUTOR_DEV_MOCK` instead
+of canned fixtures). It also records the standing verdict that checkers and
+learner-facing tasks never move to a local model, so that question stops
+being re-opened. If any of it is built, the `§9.1` sketch is the seam and
+this entry shrinks to whatever is still unbuilt.
+
 ### Native app store submission
 
 Both Capacitor shells (`frontend/android`, `frontend/ios`) build cleanly and
