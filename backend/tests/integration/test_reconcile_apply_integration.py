@@ -83,10 +83,13 @@ class TestEveryKindActuallyWrites:
             "unretire": [],
         }])
 
+        # `kept` and `rename_blocked` are bookkeeping, not writes (see
+        # test_reconcile_apply_batched): nothing here was curated or renamed.
         assert counts == {"gloss": 1, "pos": 1, "morphology": 1,
                           "added_translation": 1, "sentence_layers": 1,
                           "retired": 1, "unretired": 0,
-                          "points_retired": 0, "points_unretired": 0}
+                          "points_retired": 0, "points_unretired": 0,
+                          "kept": 0, "rename_blocked": {}}
         assert await conn.fetchval(
             "SELECT definition FROM translations WHERE vocabulary_id = $1 "
             "AND locale = 'en'", a["id"]) == "NEW GLOSS"
