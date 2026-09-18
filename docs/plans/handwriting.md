@@ -839,6 +839,19 @@ the animation, each a tap away. What a font cannot give is still the
 order and direction — those are heuristics, and the Workshop tracing is
 still the fix, one form at a time.
 
+**18 Sep:** two corrections from the owner's first session on it. The
+database's provisional rows (20261023's shapes) were beating the newer
+bundle, so `withProvisional` now lays the bundle's strokes over any
+server row whose source is `provisional`, keeping its id. And in a
+composed word the dots came between the letters; a hand writes the
+bodies in one flow and returns for the dots, so each form carries
+`joins.marks` (its trailing dot strokes) and both composers append all
+marks after all bodies (migration **20261026**, same guard). Third,
+the teeth of س ش and the toothed medial forms were three strokes
+because the skeleton walk saw a fork at every staircase pixel: forks
+are now grouped by adjacency, and for Arabic a short free-ended branch
+is a tooth run up and back within the stroke.
+
 ### 13.3 The cursive was not cursive
 
 Caveat is an upright hand. Russian cursive is a joined hand (propisi),

@@ -37,13 +37,28 @@ export function isProvisionalId(id: string): boolean {
   return id.startsWith('prov:')
 }
 
-/** Server glyphs first; bundled forms fill the gaps for this style. */
+/**
+ * Server glyphs first; bundled forms fill the gaps for this style.
+ *
+ * A server row that is itself provisional takes the bundle's strokes,
+ * joins and hints but keeps its id: the bundle is always the newest
+ * generation (the database's provisional rows are whichever migration
+ * the owner last pushed — 20261023's primitive-drawn shapes stayed on
+ * screen for a day after the font-derived library shipped, because
+ * "the server wins" meant the older shape won), and the id is what
+ * progress is recorded against. A speaker's row is never touched.
+ */
 export function withProvisional(script: string, style: string, glyphs: Glyph[]): Glyph[] {
   const bundle = BUNDLES[script]
   if (!bundle) return glyphs
+  const bundled = new Map(bundle.glyphs.filter((g) => g.style === style).map((g) => [`${g.glyph}|${g.form}`, g]))
   const have = new Set(glyphs.map((g) => `${g.glyph}|${g.form}`))
-  const extra = bundle.glyphs
-    .filter((g) => g.style === style && !have.has(`${g.glyph}|${g.form}`))
-    .map((g) => ({ ...g, id: `prov:${script}|${g.glyph}|${g.form}|${style}` } as Glyph))
-  return extra.length ? [...glyphs, ...extra] : glyphs
+  const own = glyphs.map((g) => {
+    const b = g.source === 'provisional' ? bundled.get(`${g.glyph}|${g.form}`) : undefined
+    return b ? { ...g, strokes: b.strokes, joins: b.joins, hints: b.hints } : g
+  })
+  const extra = [...bundled.entries()]
+    .filter(([key]) => !have.has(key))
+    .map(([, g]) => ({ ...g, id: `prov:${script}|${g.glyph}|${g.form}|${style}` } as Glyph))
+  return extra.length ? [...own, ...extra] : own
 }

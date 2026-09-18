@@ -25,7 +25,10 @@ export interface Glyph {
   form: string
   style: string
   strokes: GlyphStrokes
-  joins: { entry?: number[]; exit?: number[]; joins_next?: boolean }
+  /** Font-derived forms also carry `advance` (ink width in the em box)
+   * and `marks` (how many trailing strokes are dots and marks, which a
+   * composed word writes after every letter's body). */
+  joins: { entry?: number[]; exit?: number[]; joins_next?: boolean; advance?: number; marks?: number }
   hints: string[]
   source: string
   reviewed: boolean

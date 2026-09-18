@@ -159,6 +159,23 @@ describe('compose at the script scale (font-derived glyphs)', () => {
     expect(c.width).toBe(170)
   })
 
+  it('dots and marks of every letter come after every body, in letter order', () => {
+    // ب with its dot (joins.marks = 1), then ا: the word is body, body, dot.
+    const baDot = em('ب', 'initial', [[[120, 600], [60, 560], [0, 602]], [[55, 700], [65, 700]]],
+      { advance: 120, joins_next: true, exit: [0, 602], marks: 1 })
+    const c = compose('با', 'ar', 'naskh', [baDot, alifFinal, alif])
+    expect(c.strokes).toHaveLength(4)
+    expect(c.owners.map((o) => o[0])).toEqual([0, 1, 1, 0])
+    expect(c.strokes[3][0][1]).toBe(700)
+  })
+
+  it('cells do the same: the i-dot and the t-cross are written after the word', () => {
+    const i = { ...g('i', 'lower', [[[500, 300], [500, 900]], [[490, 150], [510, 150]]]), joins: { marks: 1 } }
+    const t = { ...g('t', 'lower', [[[500, 100], [500, 900]], [[300, 400], [700, 400]]]), joins: { marks: 1 } }
+    const c = compose('it', 'es', 'print', [i, t])
+    expect(c.owners.map((o) => o[0])).toEqual([0, 1, 0, 1])
+  })
+
   it('falls back to cells when any glyph lacks a scale', () => {
     const c = compose('lo', 'es', 'print', [g('l', 'lower', L), g('o', 'lower', O)])
     expect(c.letters[0].w).toBeGreaterThan(500) // the old fixed cell
