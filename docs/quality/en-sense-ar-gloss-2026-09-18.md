@@ -133,10 +133,23 @@ error and the fault is in the English.
    once.** ~600 rows in 2,001–6,000 carry a rare sense; repairing them fixes
    the card for English learners and removes the upstream cause for all nine
    support locales, including the reviewer's.
-2. **The wrong-part-of-speech class is mechanically detectable.** 23% of the
-   Arabic divergences are a noun glossing a verb or the reverse. The
-   vocabulary row already carries `part_of_speech`, so this does not need a
-   model — it needs a check.
+2. ~~**The wrong-part-of-speech class is mechanically detectable.**~~
+   **Built and measured.** `audit_locale_rows --verb-glosses` reports an
+   Arabic gloss that is nominal on a verb row. Measured against 120 flagged
+   rows judged one by one: **76% precision, 86% recall**, which is why it is
+   report-only rather than a gate.
+
+   Getting there cost two bugs worth recording. The first draft scanned the
+   whole gloss and so matched the object inside a verb phrase — `يُلقي نظرة`
+   ("throws a glance") tripped the ta-marbuta test on `نظرة`, which is the
+   noun the verb governs. That alone was **22 of 120 false alarms**, and
+   reading only the head word fixed it. The second is unfixed and now
+   recorded in the code: a form VIII verb whose hamzat wasl is written as a
+   bare alif (`اِلْتَهَمَ` → `التهم`) is the same five letters as `ال` plus a
+   noun, and no pattern separates them. That needs camel-tools, which is on
+   the server rather than here.
+
+   In the English course's first 3,000 verb rows it reports **68**.
 3. **Extend `wrong_sense` past rank 1,000.** Its band was chosen for the
    letter-name defect and has been carried unexamined into a rule that now
    demonstrably has work to do at rank 4,975.

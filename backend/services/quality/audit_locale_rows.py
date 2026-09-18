@@ -35,6 +35,7 @@ from __future__ import annotations
 import argparse
 import asyncio
 import os
+import unicodedata
 
 import asyncpg
 
@@ -199,12 +200,139 @@ async def scan_content(conn, code: str | None, limit: int) -> int:
     return total
 
 
+# ---------------------------------------------------------------------------
+# An Arabic gloss that is a noun where the card needs a verb
+# ---------------------------------------------------------------------------
+
+_AR_MARKS = set("\u064B\u064C\u064D\u064E\u064F\u0650\u0651\u0652\u0670\u0640")
+_TA_MARBUTA = "\u0629"
+# An English gerund is CORRECTLY glossed by an Arabic masdar, and so is a
+# Spanish or Turkish infinitive headword; those are not defects.
+_GERUND = ("ing",)
+
+
+def _ar_head(gloss: str) -> str:
+    """The first orthographic word of an Arabic gloss, bared of its marks.
+
+    The head is what carries the word class. Scanning the whole string
+    instead reads the object inside a verb phrase — `يُلقي نظرة` ("throws a
+    glance") tripped the ta-marbuta test on `نظرة`, which is the noun the
+    verb governs. That single mistake was 22 of 120 false alarms.
+    """
+    s = "".join(c for c in unicodedata.normalize("NFC", gloss or "")
+                if c not in _AR_MARKS).strip()
+    return s.split()[0] if s else ""
+
+
+def _en_definition_is_verbal(definition: str | None) -> bool:
+    """Does the row's own definition describe an action rather than a thing?
+
+    A row tagged `verb` whose definition opens "a broad-billed waterfowl"
+    is a mis-tagged part of speech, not a bad gloss — a different defect,
+    and not this scan's business to report.
+    """
+    words = (definition or "").strip().lower().split()
+    return bool(words) and words[0] not in {
+        "a", "an", "the", "someone", "something", "one", "any"}
+
+
+def nominal_gloss_on_a_verb(word: str, pos: str | None,
+                            definition: str | None, gloss: str) -> str | None:
+    """Why this Arabic gloss looks like a noun on a verb row, or None.
+
+    `translate.maker_system` asks the model for "the single word or short
+    phrase a native speaker would use for THAT specific sense … Match the
+    part of speech", so a noun on a verb row breaks the contract the gloss
+    was written under. Measured 18 Sep 2026 against 120 flagged rows judged
+    one by one: **76% precision, 86% recall** on the rows this keeps.
+
+    Report-only at that precision. The three exclusions below are each a
+    measured false-alarm class, not a guess:
+
+    * A head beginning with a WRITTEN hamza (أ إ آ) is a form IV verb —
+      `أَلْقَى`. Baring the marks turns it into `القى`, which reads as the
+      definite article and is not one.
+      This does **not** catch hamzat wasl, which is written as a bare alif:
+      `اِلْتَهَمَ` ("devoured") bares to `التهم` and is still reported. A
+      form VIII verb and `ال` + noun are the same five letters, and telling
+      them apart needs a morphological analyser rather than a pattern —
+      camel-tools is on the server, not here. It is counted in the 24% the
+      measurement already charges against this rule.
+    * An `-ing` headword is correctly glossed by a masdar.
+    * A definition that opens like a noun phrase means the part-of-speech
+      tag is wrong, not the gloss.
+
+    What still slips through: a participle glossing a participle
+    (`مُنْتَظِر` for "esperando"), which is the right answer in a language
+    whose participles are formally nouns; and the hamzat-wasl verbs above.
+    """
+    if (pos or "") != "verb":
+        return None
+    head = _ar_head(gloss)
+    if not head:
+        return None
+    if head[:1] in "أإآ":
+        return None
+    if word.endswith(_GERUND):
+        return None
+    if not _en_definition_is_verbal(definition):
+        return None
+    if head.startswith("ال"):
+        return "definite article on a verb row"
+    if head.endswith(_TA_MARBUTA):
+        return "ta marbuta on a verb row"
+    if head.startswith("م") and len(head) >= 4:
+        return "mim-initial noun on a verb row"
+    return None
+
+
+async def scan_verb_glosses(conn, code: str | None, limit: int) -> int:
+    """Verb rows whose Arabic gloss is nominal. Read-only."""
+    rows = await conn.fetch(
+        """
+        SELECT l.code AS course, v.word, v.frequency_rank AS rank,
+               v.part_of_speech AS pos, te.definition AS en_def,
+               ta.definition AS ar_def
+        FROM vocabulary v
+        JOIN languages l ON l.id = v.language_id
+        JOIN translations ta ON ta.vocabulary_id = v.id AND ta.locale = 'ar'
+        LEFT JOIN translations te ON te.vocabulary_id = v.id AND te.locale = 'en'
+        WHERE v.retired_at IS NULL AND COALESCE(ta.definition, '') <> ''
+          AND v.part_of_speech = 'verb'
+        """ + ("  AND l.code = $1" if code else "") + """
+        ORDER BY v.frequency_rank NULLS LAST
+        LIMIT """ + str(int(limit)),
+        *([code] if code else []),
+    )
+    hits = []
+    for r in rows:
+        why = nominal_gloss_on_a_verb(r["word"], r["pos"], r["en_def"],
+                                      r["ar_def"])
+        if why:
+            hits.append((r, why))
+    if hits:
+        print(f"\n=== Arabic glosses that are nouns on a verb row: {len(hits)} "
+              f"of {len(rows)} verb rows scanned ===")
+        print("    report-only: 76% precision measured 18 Sep 2026 "
+              "(docs/quality/en-sense-ar-gloss-2026-09-18.md)")
+        for r, why in hits[:15]:
+            print(f"  {r['course']} {r['word']} (rank {r['rank']}) — {why}")
+            print(f"    EN {(r['en_def'] or '')[:70]}")
+            print(f"    AR {r['ar_def'][:40]}")
+        if len(hits) > 15:
+            print(f"  … and {len(hits) - 15} more")
+    return len(hits)
+
+
 async def main() -> None:
     p = argparse.ArgumentParser(
         description="Find content stored under the wrong language label")
     p.add_argument("--user", metavar="EMAIL",
                    help="report one account's effective content locale")
     p.add_argument("--language", "-l", help="scan one course only")
+    p.add_argument("--verb-glosses", action="store_true",
+                   help="also scan for Arabic glosses that are nouns on a "
+                        "verb row (report-only, 76%% precision)")
     p.add_argument("--limit", type=int, default=5000,
                    help="rows per table per language (default 5000)")
     p.add_argument("--db-url", default=os.environ.get("DATABASE_URL"))
@@ -220,6 +348,10 @@ async def main() -> None:
             print()
         total = await scan_content(conn, args.language, args.limit)
         print(f"\nTOTAL rows in the wrong script: {total}")
+        if args.verb_glosses:
+            n = await scan_verb_glosses(conn, args.language, args.limit)
+            print(f"\nTOTAL nominal glosses on a verb row: {n} "
+                  "(report-only — about a quarter are false alarms)")
         if not total:
             print("Nothing is stored under the wrong label. If a learner "
                   "still sees another language, it is their profile's "
