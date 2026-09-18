@@ -470,18 +470,24 @@ reader of the plan would expect to find built, and will not:
   Script, Dancing Script and Noto Sans's), so the *shape* is what a
   learner sees in print, but the stroke order and direction are rules —
   rightmost end first for RTL scripts, leftmost for cursive, topmost
-  for print, bodies before dots — and a rule is wrong somewhere on
-  every sheet (a Devanagari headline drawn after the body, a loop
-  started at the bottom). Only a speaker's tracing in the Workshop
+  for print, bodies before dots, Arabic teeth run up and back inside
+  the stroke — and a rule is wrong somewhere on every sheet (a
+  Devanagari headline drawn after the body, a loop started at the
+  bottom, the vertical of ط as its own stroke). The tooth rule is
+  Arabic-only on purpose: on a print t or T the crossbar halves are
+  short free-ended branches too, and nobody writes a t as one
+  out-and-back stroke. Only a speaker's tracing in the Workshop
   fixes a form; saving replaces the row. Regenerate with
   `python3 scripts/strokes/gen_from_fonts.py --fonts <dir>` (system
   Python: it needs Pillow built with raqm, which the venv lacks; the
   font files are fetched from Google's and Noto's GitHub releases into
   the dir, none is checked in), then look at the contact sheets before
   trusting a change. Rows go out through a **new** migration each time
-  — 20261025's upsert is guarded on `source = 'provisional'`, so a
-  speaker's form is never overwritten, but 20261023 and 20261025 must
-  not be edited once pushed.
+  (`--migration <name>`; 20261023, 20261025, 20261026 so far) — the
+  upsert is guarded on `source = 'provisional'`, so a speaker's form is
+  never overwritten, but a migration must not be edited once pushed.
+  On the client the bundle overrides provisional rows anyway, so the
+  migration is for progress ids and the seeder, not for what is shown.
 - **Hebrew has a print library and no cursive one.** Israeli handwriting
   is a cursive alphabet unrelated to the print shapes, Google serves no
   face for it, and the generator only knows the fonts in its table. An
@@ -502,8 +508,11 @@ reader of the plan would expect to find built, and will not:
   cell composer's block layout is right for it. The provisional Hangul
   library is the jamo only.
 - **Before migration 20261025, provisional forms of six scripts record
-  nothing** — and Arabic's and Russian's record against 20261023's
-  older shapes until it lands. The bundled copy's ids are not rows, so
+  nothing.** (Arabic and Russian are fine: `withProvisional` lays the
+  bundle's strokes over any server row whose `source` is `provisional`,
+  keeping the row's id, so 20261023's older shapes are never shown once
+  the newer bundle ships — the day they were is why that rule exists.)
+  The bundled copy's ids are not rows, so
   `writing_progress` cannot take an attempt against them; the strip
   never fills and letter lessons on the path are finished with *Mark
   done* instead of by themselves. Push the migration and the same forms

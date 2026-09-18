@@ -22,7 +22,7 @@ skeleton points at the joining side) and `joins.advance` (ink width).
 Run (system python — it has Pillow with raqm; the venv does not):
   python3 scripts/strokes/gen_from_fonts.py --fonts <dir> [--only arabic]
 Outputs: data/strokes/{script}.json, the bundled frontend copy, and
-supabase/migrations/20261025000000_provisional_strokes_from_fonts.sql,
+supabase/migrations/<--migration> (a new file per push),
 which UPDATEs only rows still `source = 'provisional'` so a speaker's
 tracing is never overwritten.
 """
@@ -94,6 +94,7 @@ def alphabet_for(code: str) -> list[dict]:
 
 BOX = 1000
 EM = 300            # px per em when rendering
+TOOTH = EM // 4   # a side branch at most this long, ending free, is a tooth to run up and back
 CANVAS = 4 * EM     # px
 ZWJ = "‍"
 
@@ -253,30 +254,95 @@ def components(g):
     return comps
 
 
-def trace_component(g, comp: set, start: tuple) -> list[list[tuple]]:
+def branches(pts: list) -> list[list]:
+    """Group pixels that touch each other: two unvisited neighbours that
+    are themselves adjacent are one way on (a staircase), not a fork."""
+    groups: list[list] = []
+    for p in pts:
+        mine = [grp for grp in groups if any(abs(p[0] - q[0]) <= 1 and abs(p[1] - q[1]) <= 1 for q in grp)]
+        if not mine:
+            groups.append([p])
+        else:
+            mine[0].append(p)
+            for grp in mine[1:]:
+                mine[0].extend(grp)
+                grp.clear()
+    return [grp for grp in groups if grp]
+
+
+def trace_component(g, comp: set, start: tuple, teeth: bool = False) -> list[list[tuple]]:
     """Walk the component into strokes: from *start*, always take the
-    straightest unvisited continuation at a junction; a new stroke begins
-    at the next unvisited endpoint (or the topmost unvisited pixel)."""
+    straightest unvisited continuation at a fork; a new stroke begins at
+    the next unvisited endpoint (or the topmost unvisited pixel).
+
+    With *teeth* (Arabic), a short branch off a fork that ends free — the
+    teeth of س ش, the notches of ب ت in the middle of a word — is run up
+    and back down as part of the same stroke, the way the hand does it,
+    instead of being left for a stroke of its own."""
     visited = set()
     strokes = []
 
     def degree(p):
         return len([q for q in neighbours(g, *p) if q in comp])
 
+    def forks(p, prev):
+        nb = [q for q in neighbours(g, *p) if q in comp and q not in visited]
+        grps = branches(nb)
+        if prev is None:
+            return [grp[0] for grp in grps]
+        dx, dy = p[0] - prev[0], p[1] - prev[1]
+        return [max(grp, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy) for grp in grps]
+
+    def dead_end(r, frm):
+        """The pixels from *r* to a free end if the branch forks nowhere
+        and is at most TOOTH long; else None."""
+        path = [r]
+        seen = {frm, r}
+        prev, p = frm, r
+        while len(path) <= TOOTH:
+            nb = [q for q in neighbours(g, *p) if q in comp and q not in seen and q not in visited]
+            grps = branches(nb)
+            if not grps:
+                return path
+            if len(grps) > 1:
+                return None
+            dx, dy = p[0] - prev[0], p[1] - prev[1]
+            q = max(grps[0], key=lambda t: (t[0] - p[0]) * dx + (t[1] - p[1]) * dy)
+            seen.update(grps[0])
+            path.append(q)
+            prev, p = p, q
+        return None
+
     def walk(p):
         path = [p]
         visited.add(p)
         prev = None
         while True:
-            nb = [q for q in neighbours(g, *p) if q in comp and q not in visited]
-            if not nb:
+            ways = forks(p, prev)
+            if not ways:
                 break
-            if prev is None or len(nb) == 1:
-                q = nb[0]
-            else:
-                # straightest continuation
+            if len(ways) > 1 and teeth:
+                ends = {r: dead_end(r, p) for r in ways}
+                through = [r for r in ways if ends[r] is None]
+                # Continue on a branch that goes somewhere; if every branch
+                # ends free, on the straightest — the rest are teeth.
+                if through:
+                    q = through[0] if prev is None else max(
+                        through, key=lambda r: (r[0] - p[0]) * (p[0] - prev[0]) + (r[1] - p[1]) * (p[1] - prev[1]))
+                else:
+                    q = ways[0] if prev is None else max(
+                        ways, key=lambda r: (r[0] - p[0]) * (p[0] - prev[0]) + (r[1] - p[1]) * (p[1] - prev[1]))
+                for r in ways:
+                    if r != q and ends[r]:
+                        visited.update(ends[r])
+                        path.extend(ends[r])
+                        path.extend(reversed(ends[r][:-1]))
+                        path.append(p)
+            elif len(ways) > 1 and prev is not None:
                 dx, dy = p[0] - prev[0], p[1] - prev[1]
-                q = max(nb, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
+                q = max(ways, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
+            else:
+                q = ways[0]
             visited.add(q)
             path.append(q)
             prev, p = p, q
@@ -288,8 +354,6 @@ def trace_component(g, comp: set, start: tuple) -> list[list[tuple]]:
         if not left:
             break
         ends = [p for p in left if degree(p) == 1]
-        # Prefer an endpoint adjacent to what is already drawn (continuing
-        # the letter), else the topmost.
         cand = ends or left
         nxt = min(cand, key=lambda p: (p[1], p[0]))
         s = walk(nxt)
@@ -387,10 +451,15 @@ def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, 
     area = max(1, (x1 - x0) * (y1 - y0))
     bodies, marks = [], []
     skeleton_px = sum(len(c) for c, _, is_dot in comps_strokes if not is_dot)
+    biggest = max([len(c) for c, _, is_dot in comps_strokes if not is_dot] or [0])
     for comp, strokes, is_dot in comps_strokes:
         xs = [p[0] for p in comp]; ys = [p[1] for p in comp]
         cw, ch = max(xs) - min(xs) + 1, max(ys) - min(ys) + 1
-        small = is_dot or (cw * ch) < 0.06 * area or len(comp) < 0.04 * skeleton_px
+        # A mark is a dot, or a component much smaller than the largest
+        # one. The bbox test alone once made a lone thin stem (l, ㅢ, the
+        # bars of Ξ) a "mark", leaving a letter with no body at all.
+        small = is_dot or len(comp) < 0.04 * skeleton_px or (
+            len(comp) < 0.25 * biggest and (cw * ch) < 0.06 * area)
         (marks if small else bodies).append((comp, strokes, min(xs), max(xs), min(ys)))
     rtl = script in RTL
     key = (lambda c: -c[3]) if rtl else (lambda c: c[2])
@@ -461,7 +530,7 @@ def extract(font, script, style, glyph, form):
     for rc in dots:
         for x, y in rc:
             sk[y][x] = 0
-    prune_spurs(sk, min_len=max(6, EM // 14))
+    prune_spurs(sk, min_len=max(6, EM // 20))
     comps = components(sk)
     cs = []
     for comp in comps:
@@ -478,7 +547,7 @@ def extract(font, script, style, glyph, form):
                 start = min(ends, key=lambda p: (p[1], p[0]))
         else:
             start = min(comp, key=lambda p: (p[1], p[0]))
-        strokes = trace_component(sk, comp, start)
+        strokes = trace_component(sk, comp, start, teeth=script == "arabic")
         strokes = chain(strokes)
         longest = max(strokes, key=path_len)
         strokes = [t for t in strokes if path_len(t) >= EM / 8] or [longest]
@@ -519,7 +588,9 @@ def extract(font, script, style, glyph, form):
         return None
     allpts = [p for s in out for p in s]
     advance = max(p[0] for p in allpts)
-    joins = {"advance": advance}
+    # `marks` is how many trailing strokes are dots and marks: a composed
+    # word writes every letter's bodies first and comes back for these.
+    joins = {"advance": advance, "marks": len(out) - body_count}
     # Joins come from the bodies only: a dot under the first tooth of ب
     # must not become its exit.
     bodypts = [p for s in out[:body_count] for p in s] or allpts
@@ -556,6 +627,8 @@ def main():
     ap.add_argument("--fonts", required=True)
     ap.add_argument("--only", default=None, help="one script")
     ap.add_argument("--limit", type=int, default=0, help="glyphs per script (debug)")
+    ap.add_argument("--migration", default="20261026000000_provisional_strokes_marks.sql",
+                    help="file under supabase/migrations to write; a NEW name each time one is pushed")
     args = ap.parse_args()
     fdir = Path(args.fonts)
     all_glyphs: dict[str, list] = {}
@@ -602,15 +675,15 @@ def main():
                "-- Shapes are the typefaces' (Noto Naskh Arabic, Marck Script, Noto Sans, Dancing",
                "-- Script — all OFL); order and direction are heuristic and marked provisional.",
                "-- Coordinates are the em box, baseline shared per script, with entry/exit joins.",
-               "-- Replaces the primitive-drawn rows of 20261023 ONLY where nobody has traced over",
-               "-- them: the UPDATE is guarded on source = 'provisional'.",
+               "-- Replaces earlier provisional rows ONLY where nobody has traced over them:",
+               "-- the UPDATE is guarded on source = 'provisional'.",
                "",
                "INSERT INTO script_glyphs (script, glyph, form, style, strokes, joins, hints, source, reviewed) VALUES",
                ",\n".join(rows),
                "ON CONFLICT (script, glyph, form, style) DO UPDATE SET",
                "  strokes = EXCLUDED.strokes, joins = EXCLUDED.joins, hints = EXCLUDED.hints",
                "  WHERE script_glyphs.source = 'provisional';"]
-        (ROOT / "supabase" / "migrations" / "20261025000000_provisional_strokes_from_fonts.sql").write_text(
+        (ROOT / "supabase" / "migrations" / args.migration).write_text(
             "\n".join(sql) + "\n", encoding="utf-8")
     print("total", sum(len(v) for v in all_glyphs.values()))
 

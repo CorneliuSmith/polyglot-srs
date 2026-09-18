@@ -833,8 +833,15 @@ now renders each form with Pillow (raqm shaping, so Arabic's initial,
 medial and final are the real positional glyphs, requested with
 zero-width joiners), thins the ink to a one-pixel skeleton (Zhang–Suen),
 prunes the spurs thinning leaves, walks each connected component into
-strokes taking the straightest continuation at every junction, rejoins
-the fragments a junction splits, and simplifies the result. Dots and
+strokes taking the straightest continuation at every fork, rejoins
+the fragments a fork splits, and simplifies the result. A fork is a
+real one only when the unvisited neighbours are not touching each
+other — a thinned diagonal is a staircase whose every pixel looks like
+a junction otherwise, which is what once split the teeth of ش into
+three strokes. For Arabic the walk also knows a **tooth**: a short
+branch off a fork that ends free (the teeth of س ش, the notch of a
+medial ب) is run up and back down inside the same stroke, so the body
+of a toothed letter is one zigzag, as a hand writes it. Dots and
 small marks are found on the ink *before* thinning, because a filled
 disc thins to a point (size alone cannot tell the dot of ب from the body
 of medial ب — the dot is bigger); each becomes one short tick, drawn
@@ -856,9 +863,20 @@ rather than assembled: `composeEm` in `composer.ts` places each letter
 so its entry lands on the previous letter's exit (a gap of 0.05 box
 where two do not join, 0.3 for a space), walking leftwards for Arabic,
 so باب comes out as one connected word and a Cyrillic cursive word as a
-single flowing line. The old equal-cells placement remains the fallback
+single flowing line. Dots and marks come last: each form's
+`joins.marks` says how many of its trailing strokes are dots, and both
+composers hold those back and append them after every letter's body,
+in letter order — the bodies of a word in one flow, then back for the
+dots of ب, the cross of a t, the breve of й, which is how a hand does
+it. The old equal-cells placement remains the fallback
 whenever any letter in the word lacks an advance (a Workshop-authored
 form) and for Hangul, whose syllable blocks are a different layout.
+The bundle is also the authority over the database's *provisional*
+rows: `withProvisional` keeps a server row's id (progress records
+against it) but takes the bundled strokes, joins and hints when the
+row's source is `provisional`, so shipping a regenerated library shows
+it at once instead of after the owner's next migration push. A
+speaker's row is never overridden.
 Drawing a single letter still fits its ink to the canvas
 (`fromGlyphBoxFit`; `StrokePreview fit="ink"`), so a dot-sized ة and a
 tall ل are both legible on their own, and the composed frame uses the

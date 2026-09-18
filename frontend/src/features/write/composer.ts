@@ -200,9 +200,10 @@ export function compose(
   // Font-derived glyphs carry `joins.advance`: they already share the
   // script's em box, so they are placed at true scale, each letter's entry
   // on the previous letter's exit — a joined word actually joins.
-  if (script !== 'hangul' && placed.every((p) => (byKey.get(p.key)?.joins as { advance?: number } | undefined)?.advance)) {
+  if (script !== 'hangul' && placed.every((p) => byKey.get(p.key)?.joins?.advance)) {
     return composeEm(text, script, placed, byKey, missing)
   }
+  const deferred = new Deferred()
   let prevJoins = false
   placed.forEach((p, li) => {
     const g = byKey.get(p.key) ?? null
@@ -213,7 +214,8 @@ export function compose(
       return
     }
     const fitted = fit(g.strokes, p)
-    fitted.forEach((s, si) => {
+    const bodies = deferred.split(g, fitted, li)
+    bodies.forEach((s, si) => {
       if (si === 0 && prevJoins && strokes.length > 0 && joined) {
         // Run the previous letter's exit into this one's entry: one stroke.
         strokes[strokes.length - 1].push(...s)
@@ -224,9 +226,38 @@ export function compose(
       }
     })
     const adjacent = li + 1 < placed.length && Math.abs(placed[li + 1].x - (p.x + p.w)) < 1
-    prevJoins = joined && fitted.length > 0 && g.joins?.joins_next !== false && adjacent
+    prevJoins = joined && bodies.length > 0 && g.joins?.joins_next !== false && adjacent
   })
+  deferred.flush(strokes, owners)
   return { text, width, height: H, strokes, owners, letters, missing }
+}
+
+/**
+ * Dots and marks come last. A hand writes the bodies of a word in one
+ * flow and returns for the dots of ب, the cross of a t, the breve of й
+ * (owner: "when merged aren't the dots and lines the last step?").
+ * `joins.marks` says how many of a form's trailing strokes are marks;
+ * they are held back here and appended after every letter's body, in
+ * letter order.
+ */
+class Deferred {
+  private marks: { stroke: Pt[]; li: number }[] = []
+
+  /** Returns the body strokes; keeps the marks for `flush`. */
+  split(g: Glyph, strokes: Pt[][], li: number): Pt[][] {
+    const n = Math.min(g.joins?.marks ?? 0, strokes.length - 1)
+    if (n <= 0) return strokes
+    const cut = strokes.length - n
+    for (const stroke of strokes.slice(cut)) this.marks.push({ stroke, li })
+    return strokes.slice(0, cut)
+  }
+
+  flush(strokes: Pt[][], owners: number[][]): void {
+    for (const m of this.marks) {
+      strokes.push(m.stroke)
+      owners.push(m.stroke.map(() => m.li))
+    }
+  }
 }
 
 /** Placement at the script's own scale. Each glyph's strokes are in the em
@@ -247,6 +278,7 @@ function composeEm(
   const letters: ComposedLetter[] = []
   const strokes: Pt[][] = []
   const owners: number[][] = []
+  const deferred = new Deferred()
   // Spaces are not in `placed`; recover them from the cells to widen gaps.
   const cs = cells(text)
   let cursor = 0
@@ -262,7 +294,7 @@ function composeEm(
     }
     const p = placed[pi++]
     const g = byKey.get(p.key)!
-    const joins = (g.joins ?? {}) as { advance?: number; entry?: number[]; exit?: number[]; joins_next?: boolean }
+    const joins = g.joins ?? {}
     const adv = joins.advance ?? BOX * 0.5
     let ox: number
     if (prevExit && prevJoins && joins.entry) {
@@ -274,14 +306,16 @@ function composeEm(
     }
     const li = letters.length
     letters.push({ char: p.char, form: p.form, glyph: g, x: ox, y: 0, w: adv, h: BOX })
-    for (const s of g.strokes) {
-      strokes.push(s.map(([x, y]) => [x + ox, y]))
+    const shifted: Pt[][] = g.strokes.map((s) => s.map(([x, y]) => [x + ox, y]))
+    for (const s of deferred.split(g, shifted, li)) {
+      strokes.push(s)
       owners.push(s.map(() => li))
     }
     prevExit = joins.exit ? [joins.exit[0] + ox, joins.exit[1]] : null
     prevJoins = joins.joins_next === true && !!joins.exit
     cursor = rtl ? ox - gap : ox + adv + gap
   })
+  deferred.flush(strokes, owners)
   // Normalise so the leftmost ink starts at 0.
   const minX = Math.min(...letters.map((l) => l.x), 0)
   const maxX = Math.max(...letters.map((l) => l.x + l.w), 0)
