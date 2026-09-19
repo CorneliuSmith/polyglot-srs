@@ -342,3 +342,92 @@ class TestProvisionalLibrary:
         for letter in alphabet_for("ru"):
             for form in ("lower", "upper"):
                 assert (letter["glyph"], form) in have, (letter["glyph"], form)
+
+
+class TestAgainstTheSourcedRules:
+    """The library measured against the teaching sources, every letter,
+    every stroke — the owner's "use something to check each letter each
+    time", wired into the suite so a regeneration cannot quietly undo it.
+
+    `scripts/strokes/rules/{script}-{style}.jsonl` is one row per letter
+    written down from a named teaching source (Zaner-Bloser, propisi,
+    NCERT, deti-online...). `scripts/strokes/check_rules.py` scores our
+    letter against that row: does each stroke start where the source
+    says, end where it says, and run that way round.
+
+    The floors below are what the library scores TODAY. They are a
+    ratchet, not a target: a change that lifts a number should lift the
+    floor with it in the same pull request, and a change that drops one
+    is a regression to explain, not a floor to lower. The numbers are
+    low in absolute terms because the shapes are a typeface's, not a
+    hand's — a printed ก is not the looped one a Thai child is taught,
+    and no walk over the outline can add a stroke the glyph does not
+    contain. `docs/plans/letterform-quality.md` keeps that ledger.
+    """
+
+    # (script, style): (letters where EVERY stroke is right, strokes right)
+    FLOORS: dict[tuple[str, str], tuple[int, int]] = {
+        ("arabic", "naskh"): (37, 138),      # of 124 letters, 218 strokes
+        ("cyrillic", "cursive"): (9, 38),    # of 66, 105
+        ("cyrillic", "print"): (33, 131),    # of 66, 179
+        ("devanagari", "print"): (3, 94),    # of 43, 170
+        ("greek", "print"): (33, 75),        # of 48, 94
+        ("hangul", "print"): (17, 76),       # of 40, 118
+        ("hebrew", "print"): (12, 26),       # of 27, 47
+        ("latin", "cursive"): (19, 108),     # of 128, 237
+        ("latin", "print"): (47, 112),       # of 73, 138
+        ("thai", "print"): (17, 20),         # of 44, 49
+    }
+
+    # A sourced letter the library does not carry, and why. An entry here
+    # is a gap someone decided to live with, not one nobody noticed.
+    ALLOWED_ABSENT = {
+        ("latin", "print", "\u0130", "upper"): "Turkish casing: see DEBT.md",
+        ("latin", "cursive", "\u0130", "upper"): "Turkish casing: see DEBT.md",
+    }
+
+    @staticmethod
+    def _checker():
+        import importlib.util
+        from pathlib import Path
+
+        root = Path(__file__).resolve().parents[2]
+        path = root / "scripts" / "strokes" / "check_rules.py"
+        spec = importlib.util.spec_from_file_location("check_rules", path)
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+        return mod
+
+    @pytest.mark.parametrize("script,style", sorted(FLOORS))
+    def test_a_table_never_scores_below_its_floor(self, script, style):
+        whole, n, st, sa, _count = self._checker().run(script, style, quiet=True)
+        want_whole, want_strokes = self.FLOORS[(script, style)]
+        assert whole >= want_whole, (
+            f"{script}/{style}: {whole}/{n} letters fully right, floor {want_whole}. "
+            "Run scripts/strokes/check_rules.py for the per-letter disagreements."
+        )
+        assert st >= want_strokes, (
+            f"{script}/{style}: {st}/{sa} strokes right, floor {want_strokes}."
+        )
+
+    def test_every_sourced_letter_is_in_the_library(self):
+        """A rule with no letter behind it scores nothing and hides that
+        it scores nothing. Missing letters are named here instead."""
+        from pathlib import Path
+
+        cr = self._checker()
+        import json as _json
+
+        missing = []
+        for path in sorted((Path(cr.__file__).parent / "rules").glob("*.jsonl")):
+            script, style = path.stem.rsplit("-", 1)
+            data = _json.loads((cr.ROOT / "data" / "strokes" / f"{script}.json").read_text(encoding="utf-8"))
+            have = {(g["glyph"], g["form"]) for g in data["glyphs"] if g["style"] == style}
+            for line in path.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                r = _json.loads(line)
+                key = (script, style, r["glyph"], r["form"])
+                if (r["glyph"], r["form"]) not in have and key not in self.ALLOWED_ABSENT:
+                    missing.append(f"{script}/{style} {r['glyph']} {r['form']}")
+        assert not missing, "sourced letters absent from the library: " + ", ".join(missing)

@@ -18,40 +18,76 @@ buys the right *shape family* for nothing, and it is why Arabic now looks
 like Arabic. But five things separate a traced typeface from a letter a
 teacher would put on a board.
 
-0. **Measured, 19 Sep — all ten runs are in.** 661 letters across every
-   script the app teaches now have a sourced rule, and the generator is
-   scored against them by `check_rules.py`. Stroke count, before the
-   generator read the tables and after:
+0. **Measured every stroke, 19 Sep.** 659 letters across every script
+   the app teaches have a sourced rule, and `check_rules.py` scores the
+   generator against them. The first version of that checker scored
+   only the **first** stroke of each letter, with a tolerance that
+   allowed an adjacent zone — and the owner found three letters it
+   could not see: **B** drawn bowls-first (both orders start top-left,
+   so stroke 1 looked right), **a** ending mid-letter going up, and
+   **d** starting at the stem instead of the bowl. One stroke of N,
+   judged loosely, is not a check. It now scores every stroke — start
+   zone, end zone, and which way round it runs — and the headline is
+   **letters where every stroke is right**, the only figure that means
+   what it sounds like.
 
-   | table | letters | count | first stroke starts | ends |
-   |---|---|---|---|---|
-   | arabic naskh | 124 | 59 → **74** | 97 → 96 | 78 → 81 |
-   | latin cursive | 128 | 72 → **77** | 77 → 77 | 58 → 63 |
-   | latin print | 73 | 59 → **62** | 53 → 53 | 46 → 47 |
-   | cyrillic print | 66 | 59 → **61** | 46 → 46 | 35 → 35 |
-   | cyrillic cursive | 66 | 31 → **33** | 35 → 35 | 26 → 26 |
-   | greek print | 48 | 27 → **39** | 28 → 28 | 22 → 24 |
-   | thai print | 44 | 18 → **24** | 25 → 25 | 16 → 19 |
-   | devanagari print | 43 | 21 → **35** | 30 → 29 | 23 → 19 |
-   | hangul print | 40 | 30 → **39** | 32 → 32 | 16 → 19 |
-   | hebrew print | 27 | 17 → **21** | 16 → 16 | 13 → 14 |
-   | **total** | **659** | **393 → 465** | 439 → 437 | 333 → 347 |
+   That honest number was 133 of 659. Two operations took it to 227.
+   `fit_taught()` permutes and flips a letter's strokes into the order
+   and direction the source teaches; `start_ring_where_taught()` then
+   rotates a free-standing closed ring so the pen touches down where the
+   source starts it.
 
-   Every script improved on stroke count and none got worse. Where the
-   first stroke *starts* barely moves, as it must — splitting and
-   merging never move the first point — and the two it loses are
-   Devanagari, where it also loses four on the end. That is the one
-   script to look at on the contact sheet first.
+   | table | letters | every stroke right | strokes right |
+   |---|---|---|---|
+   | arabic naskh | 124 | 33 → **37** | 126 → **138** of 218 |
+   | latin cursive | 128 | 14 → **19** | 75 → **108** of 237 |
+   | latin print | 73 | 27 → **47** | 76 → **112** of 138 |
+   | cyrillic print | 66 | 10 → **33** | 74 → **131** of 179 |
+   | cyrillic cursive | 66 | 7 → **9** | 23 → **38** of 105 |
+   | greek print | 48 | 12 → **33** | 39 → **75** of 94 |
+   | thai print | 44 | 12 → **17** | 14 → **20** of 49 |
+   | devanagari print | 43 | 1 → **3** | 56 → **94** of 170 |
+   | hangul print | 40 | 9 → **17** | 43 → **76** of 118 |
+   | hebrew print | 27 | 8 → **12** | 20 → **26** of 47 |
+   | **total** | **659** | **133 → 227** | **545 → 818** of 1355 |
+
+   Every table improved and none got worse. The ring rotation is the
+   small half of that — five letters, o and о and ο and the letters
+   built on them — and it only touches a ring that stands alone: the
+   first version rotated any closed stroke and broke Р, whose bowl
+   closes against the stem, where it starts because of the join and not
+   by accident. Stroke *count* is unchanged at 465 of 659 — reordering does not add or remove strokes, and the
+   count is what `split_to`/`merge_to` moved in the previous pass
+   (393 → 465).
+
+   **What reordering cannot reach**, and the owner's B is the clearest
+   case: our B is drawn as *two bowls*, because that is how the
+   thinned outline separates, and the taught B is a stem and then the
+   bowls. No permutation of two bowls produces a stem. The same goes
+   for Devanagari's 3 of 43 — its letters hang from a headline our
+   walk draws as part of the body. These are **segmentation** defects,
+   not order defects, and they need the walk to cut differently (Tier
+   0/2), not the fitter to shuffle.
 
    The tables also answered which tier each script needs, and the
-   answers were not the same. **Cyrillic print** drew too FEW strokes
-   (21 of 32 letters), which is Tier 1 — a rule the walk can follow.
-   **Thai** draws too MANY (26 of 44, and none too few), which needed
-   the opposite operation. **Latin cursive** was neither: 40 of its 52
-   letters are one movement and ours managed 14, because Dancing Script
-   has no entry or exit sweeps in the outline at all — a Tier 2
-   source-face problem that no walk rule could reach. Guessing which
-   was which, rather than measuring, would have wasted weeks.
+   answers were not the same. **Cyrillic print** drew too FEW strokes,
+   which is Tier 1 — a rule the walk can follow. **Thai** draws too
+   MANY, which needed the opposite operation. **Latin cursive** was
+   neither: 40 of its 52 letters are one movement and ours managed 14,
+   because Dancing Script has no entry or exit sweeps in the outline at
+   all — a Tier 2 source-face problem that no walk rule could reach.
+   Guessing which was which, rather than measuring, would have wasted
+   weeks.
+
+   **The score is now a test.** `TestAgainstTheSourcedRules` in
+   `backend/tests/test_strokes.py` runs the checker over all ten tables
+   on every CI run and fails below the numbers above. It is a ratchet:
+   a change that lifts a score lifts the floor with it in the same pull
+   request; a change that drops one is a regression to explain, not a
+   floor to lower. That is the owner's "use something to check each
+   letter each time", and it is Tier 4 arriving through the back door
+   — the sourced rule turned out to be a sharper gate than any of the
+   geometric invariants Tier 4 originally listed.
 
 1. **A printing face is not a writing model.** A font draws the *result*
    of writing: overshoot on curves, tapered terminals, a serif where a
@@ -360,6 +396,16 @@ Run it in `backend/tests/test_strokes.py` against the checked-in data, so
 CI fails on a bad regeneration.
 
 *Done when:* a deliberately broken form fails CI.
+
+**Landed 19 Sep, by a different route than planned.** The geometric
+invariants above are still worth having, but the gate that shipped is
+`TestAgainstTheSourcedRules` in `backend/tests/test_strokes.py`: it
+scores every letter of all ten rules tables on every CI run, every
+stroke, and fails below a recorded floor per table. A sourced rule
+turned out to be a far sharper instrument than "stroke count within the
+script median ± 2" — it catches a letter drawn backwards, which no
+invariant about counts or closure can see. Raising a floor is part of
+the change that earns it; lowering one needs a sentence saying why.
 
 ---
 

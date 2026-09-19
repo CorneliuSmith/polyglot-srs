@@ -29,6 +29,7 @@ tracing is never overwritten.
 from __future__ import annotations
 
 import argparse
+import itertools
 import json
 import math
 import struct
@@ -992,8 +993,188 @@ def merge_to(strokes: list, target: int, cap: float) -> list:
     return out
 
 
+ZONES = {"top-left": (0, 0), "top": (1, 0), "top-right": (2, 0),
+         "left": (0, 1), "centre": (1, 1), "right": (2, 1),
+         "bottom-left": (0, 2), "bottom": (1, 2), "bottom-right": (2, 2),
+         "baseline-left": (0, 2), "baseline-right": (2, 2), "baseline": (1, 2)}
+
+
+def zone_at(p, box) -> tuple:
+    """Which ninth of the glyph's ink box a point falls in, as (col, row)."""
+    x0, y0, x1, y1 = box
+    w, h = max(1, x1 - x0), max(1, y1 - y0)
+    return (int(min(2, max(0, (p[0] - x0) * 3 // w))),
+            int(min(2, max(0, (p[1] - y0) * 3 // h))))
+
+
+def fit_taught(strokes: list, taught: list) -> list:
+    """Put the strokes in the taught order, each running the taught way.
+
+    The generator already splits and merges to the number of strokes a
+    letter is taught in. This settles the other two thirds of the
+    question: which stroke comes first, and which way round each one
+    runs. Both were heuristics, and the owner found three letters where
+    the heuristic lost — uppercase B drawn bowls-then-stem where it is
+    taught stem-then-bowls, lowercase a ending mid-letter going up where
+    it is taught ending at the baseline coming down, and d starting at
+    the stem where it is taught starting at the bowl.
+
+    Every stroke keeps its shape; only the order of the list and the
+    direction of each path change. It is an assignment problem — match
+    our strokes to the taught ones so the total distance between where
+    each starts and ends and where the source says it should is as small
+    as it can be — and with at most a handful of strokes per letter the
+    permutations can simply be enumerated.
+
+    Safe for the composer: `joins.entry` and `joins.exit` are the
+    leftmost and rightmost points of the ink, not the first and last
+    points of a stroke, so neither moves when a stroke is reversed."""
+    n = len(strokes)
+    if n == 0 or n > len(taught):
+        return strokes
+    pts = [p for s in strokes for p in s]
+    box = (min(p[0] for p in pts), min(p[1] for p in pts),
+           max(p[0] for p in pts), max(p[1] for p in pts))
+
+    def miss(p, name):
+        z = ZONES.get(name or "")
+        if z is None:
+            return 0.0
+        c, r = zone_at(p, box)
+        return abs(c - z[0]) + abs(r - z[1])
+
+    # cost[i][j] = (best cost of using our stroke j for taught stroke i, reversed?)
+    cost = []
+    for i in range(n):
+        want = taught[i]
+        row = []
+        for j in range(n):
+            s = strokes[j]
+            fwd = miss(s[0], want.get("from")) + miss(s[-1], want.get("to"))
+            rev = miss(s[-1], want.get("from")) + miss(s[0], want.get("to"))
+            row.append((fwd, False) if fwd <= rev else (rev, True))
+        cost.append(row)
+
+    best = None
+    if n <= 7:
+        for perm in itertools.permutations(range(n)):
+            total = sum(cost[i][perm[i]][0] for i in range(n))
+            if best is None or total < best[0]:
+                best = (total, perm)
+        perm = best[1]
+    else:                                   # rare; greedy is close enough
+        perm, used = [], set()
+        for i in range(n):
+            j = min((j for j in range(n) if j not in used), key=lambda j: cost[i][j][0])
+            perm.append(j)
+            used.add(j)
+    out = []
+    for i, j in enumerate(perm):
+        s = strokes[j]
+        out.append(list(reversed(s)) if cost[i][j][1] else list(s))
+    return out
+
+
+def zone_heading(a: str, b: str):
+    """The direction a taught stroke runs, read off its two zone names,
+    or None when they are the same zone and say nothing about it."""
+    za, zb = ZONES.get(a or ""), ZONES.get(b or "")
+    if za is None or zb is None or za == zb:
+        return None
+    dx, dy = zb[0] - za[0], zb[1] - za[1]
+    n = math.hypot(dx, dy) or 1.0
+    return dx / n, dy / n
+
+
+def runs_with(path: list, aim: tuple) -> bool:
+    """Whether *path* travels, end to end, the way *aim* points."""
+    dx, dy = path[-1][0] - path[0][0], path[-1][1] - path[0][1]
+    n = math.hypot(dx, dy)
+    return n < 1 or (dx / n) * aim[0] + (dy / n) * aim[1] > 0
+
+
+def start_ring_where_taught(strokes: list, taught: list) -> list:
+    """Move a closed stroke's first point to where the source starts it.
+
+    Where a stroke comes back to where it began, *where* it began is an
+    artifact of the walk — the trace had to enter the ring somewhere —
+    and not a fact about the letter. It is a fact about the letter to
+    the teacher, though: a Russian о is started at two o'clock and taken
+    anticlockwise, and a printed o in a Zaner-Bloser book the same. So
+    for a closed stroke, and only a closed one, rotate the point list to
+    start nearest the taught zone and run it whichever way agrees with
+    the taught direction.
+
+    `fit_taught` cannot do this. It chooses which stroke and which way
+    round, but a ring is the same ring from either end; only rotation
+    moves the pen's starting point around it. Seventeen letters across
+    six tables fail on a closed stroke and nothing else; this reaches
+    the five whose ring stands alone (o, о, ο and the letters built on
+    them). The other twelve — the bowls of ь and ы, م in two of its
+    forms — close against a neighbouring stroke, and there the starting
+    point is the join and is not ours to move."""
+    # Which JUNCTION-sized cells each stroke passes through, and the ring
+    # of cells around them: two strokes that share one are touching. Done
+    # on a grid rather than by comparing every pair of points, which is
+    # quadratic in the length of a traced outline.
+    def cellsof(t):
+        c = {(int(x // JUNCTION), int(y // JUNCTION)) for x, y in t}
+        return {(cx + dx, cy + dy) for cx, cy in c for dx in (-1, 0, 1) for dy in (-1, 0, 1)}
+
+    cells = [cellsof(t) for t in strokes]
+    out = []
+    for i, s in enumerate(strokes):
+        want = taught[i] if i < len(taught) else None
+        span = max(math.dist(a, b) for a in (s[0], s[-1]) for b in s) if len(s) > 1 else 0
+        shut = math.dist(s[0], s[-1])
+        if want is None or len(s) < 5 or shut > max(2.0, 0.02 * span):
+            out.append(s)                   # open stroke: its ends are real
+            continue
+        # A ring that touches another stroke is not free: Р's bowl starts
+        # where it meets the stem, and rotating it round to the taught
+        # zone moved a start that was already right. Only a ring that
+        # stands alone has an arbitrary starting point.
+        if any(j != i and cells[i] & cells[j] for j in range(len(strokes))):
+            out.append(s)
+            continue
+        ring = s[:-1] if shut < 1 else list(s)
+        pts = [p for t in strokes for p in t]
+        box = (min(p[0] for p in pts), min(p[1] for p in pts),
+               max(p[0] for p in pts), max(p[1] for p in pts))
+
+        def miss(p, name):
+            z = ZONES.get(name or "")
+            if z is None:
+                return 0.0
+            c, r = zone_at(p, box)
+            return abs(c - z[0]) + abs(r - z[1])
+
+        aim = zone_heading(want.get("from"), want.get("to"))
+        best = None
+        for back in (False, True):
+            loop = list(reversed(ring)) if back else ring
+            for k in range(len(loop)):
+                # NOT closed back onto loop[k]: rdp() simplifies against
+                # the line from the first point to the last, and a path
+                # whose ends are the same point has no such line — it
+                # collapses to two points and the letter is dropped as
+                # inkless. The walk leaves a ring open by one step too.
+                cand = loop[k:] + loop[:k]
+                cost = miss(cand[0], want.get("from")) + miss(cand[-1], want.get("to"))
+                # Zones alone leave a near-closed bowl free to run either
+                # way round — ь's bowl scored the same backwards. Half a
+                # zone of penalty breaks that tie the taught way without
+                # ever outvoting where the stroke starts.
+                if aim and not runs_with(cand, aim):
+                    cost += 0.5
+                if best is None or cost < best[0]:
+                    best = (cost, cand)
+        out.append(best[1])
+    return out
+
+
 def _taught() -> dict:
-    """How many strokes each sourced rule says a letter has, keyed by
+    """The strokes each sourced rule gives a letter, keyed by
     (script, style, glyph, form). The tables are written by
     scripts/strokes/ingest_rules.py from teaching sources; a letter with
     no row is absent and is left exactly as the walk drew it."""
@@ -1004,11 +1185,12 @@ def _taught() -> dict:
             if not line.strip():
                 continue
             r = json.loads(line)
-            out[(r["script"], r["style"], r["glyph"], r["form"])] = len(r["strokes"])
+            out[(r["script"], r["style"], r["glyph"], r["form"])] = r["strokes"]
     return out
 
 
-TAUGHT = _taught()
+TAUGHT_STROKES = _taught()
+TAUGHT = {k: len(v) for k, v in TAUGHT_STROKES.items()}
 
 
 def turn(path: list, i: int, span: int) -> float:
@@ -1419,6 +1601,8 @@ def extract(font, script, style, glyph, form):
         marks = len(ordered) - n_body
         body = split_to(ordered[:n_body], want - marks, span=max(3, EM // 30))
         body = merge_to(body, want - marks, cap=4 * JUNCTION)
+        body = fit_taught(body, TAUGHT_STROKES[(script, style, glyph, form)])
+        body = start_ring_where_taught(body, TAUGHT_STROKES[(script, style, glyph, form)])
         ordered, n_body = body + ordered[n_body:], len(body)
     # Pixel -> em box. y: 0 at the top of the em (ascender), 1000 at the
     # bottom (descender) — the same frame for every glyph of the script.

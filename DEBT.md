@@ -407,6 +407,52 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
+- **An exactly-closed path disappears from the stroke library.** `rdp()`
+  in `gen_from_fonts.py` simplifies a path against the straight line from
+  its first point to its last; when those are the same point there is no
+  line, every point measures zero from it, and the path collapses to two
+  points, which the dedupe then drops. `extract` sees no ink and returns
+  `None`, so the letter is **absent** rather than wrong — о and О
+  silently left the library for one regeneration this way, and the only
+  symptom was a denominator two smaller than it should have been. Any
+  code that closes a ring must leave it open by one step, as the walk
+  itself does. Fixing `rdp` to handle the degenerate case would be
+  better than remembering this, and nobody has.
+- **Uppercase B is drawn as two bowls, and no amount of reordering fixes
+  it.** The owner spotted it by eye: a taught B is a stem down, then the
+  two bowls; ours is the upper bowl and the lower bowl, with the stem
+  absorbed into whichever bowl the thinned skeleton attached it to.
+  `fit_taught` permutes and flips a letter's strokes to match the taught
+  order, which is why the letters around B improved, but a permutation
+  of two bowls can never produce a stem — this is a **segmentation**
+  defect, in `trace_component`/`chain`, not an ordering one. It is also
+  invisible to the zone check twice over, because both taught B strokes
+  run top-left → baseline-left, so even the right answer scores the same
+  as the wrong one. Fix: cut at the junction where the bowls meet the
+  stem rather than running through it, which is the reverse of what
+  `runs_on` was added to do — expect them to fight. Related: Devanagari
+  scores 3 of 43 letters fully right for the same reason, its headline
+  being walked as part of the body.
+- **The rules gate's floors are a ratchet, and a ratchet can seize.**
+  `TestAgainstTheSourcedRules` fails below the score the library gets
+  today. That is the point — a regeneration that loses ground turns CI
+  red — but it also means an experiment that trades three Greek letters
+  for ten Arabic ones fails CI on the Greek floor even though it is a
+  clear net win. The floors are per table on purpose so that trade is
+  *visible* rather than averaged away, but whoever hits it should move
+  the floor and say what was traded in the pull request, not delete the
+  assertion. Two floors are so low they are barely a gate (Devanagari 3
+  of 43, Thai 17 of 44 with 20 of 49 strokes); they still catch a
+  regeneration that breaks the script entirely.
+- **56 accented Latin *print* rules were lost and never re-requested.**
+  The second part of the first Gemini run — á à â ä ã å ç é è ê ë í ì î ï
+  ñ ó ò ô ö õ ú ù û ü ý ÿ and their capitals — was pasted into a session
+  that ran out of context before it was written to disk, so it is not in
+  `scripts/strokes/rules/latin-print.jsonl`. Every other script's table
+  is complete. Those letters are therefore ungated: the generator will
+  happily regress é without any test noticing. Fix: one more run of the
+  brief in `docs/quality/letterforms/gemini-brief.md` asking for exactly
+  that list, then `ingest_rules.py`.
 - **Turkish's dotted capital İ is not a library entry, and its i is wrong.**
   `LATIN_EXTRAS` gives Turkish its dotless ı, but the library keys a form
   on a *lowercase* glyph and derives the upper with `.upper()`, which is
@@ -1322,112 +1368,6 @@ app shell and static assets; there's no IndexedDB anywhere in
 is already done; what's missing is implementation, staged exactly as the doc
 lays out (Gym offline first — it's append-only and ungraded, so it proves the
 sync loop with nothing at stake).
-
-### Native app store submission
-
-Both Capacitor shells (`frontend/android`, `frontend/ios`) build cleanly and
-share the one web bundle, but neither has been compiled with its real
-toolchain (no Xcode/Android SDK in CI), and several submission blockers are
-still open: no app icons/splash generated from the PWA source assets, no
-signing (distribution cert, provisioning profile, Play keystore), missing
-usage-string entries (`NSMicrophoneUsageDescription` for the tutor's audio
-recording, `RECORD_AUDIO` in the Android manifest), and deep-link domain
-association files not yet served from the API host. Full list:
-`docs/native-apps.md`. None of this is surprising or hidden — it's just work
-that genuinely needs a macOS machine and developer accounts, not something
-an agent session can close out.
-
----
-
-## Naming / cosmetic
-
-### Product name
-
-`README.md` and the codebase call it PolyglotSRS throughout, including the
-committed bundle identifier `com.polyglotsrs.app` in both native projects.
-`docs/pricing-and-launch.md` argues for a rename before any app-store
-listing goes out (its case: "SRS" doesn't mean anything to the audience,
-"Polyglot" is the most crowded term in the category with no defensible
-trademark). Not urgent, but worth deciding before the native app work in the
-section above, since the bundle identifier is annoying to change after a
-store submission.
-
----
-
-## The Arabic register tripwire measures almost nothing (17 Sep 2026)
-
-`ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
-and it flags **one row** in the current 13,025-row `ar_sentences.tsv` — and
-that hit is in the `word` column, not the sentence: the headword `مش`, under
-a sentence that is ordinary MSA. Nothing in any sentence trips it.
-The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
-measured on the 14,671-row bank before the prune and with a wider list than
-the one in the code. Widening the code list to every tell in programme
-§1.1 raises it to 22 rows, of which 17 have only a documented *non-tell*
-(عم, دول, الحين) as their evidence.
-
-This is not a bug to fix by widening the tripwire — precision is already
-under 5% and the recall has never been measured. It is left as-is, on
-purpose, because it is cheap and it is not the instrument: the judge in
-`quality/register_pass.py` is. What is worth knowing is that **a green
-`ar_register` row in the audit is close to meaningless**, and nobody
-should read it as evidence the corpus is MSA. The audit rule stays so that
-an obvious regression (someone pasting Egyptian into the bank) still trips
-something.
-
-## The gold set's labels are not filled (17 Sep 2026)
-
-`data/eval/ar_register_gold.tsv` ships with `label`, `variety`, `evidence`
-and `note` blank by design — they are the reviewers' columns, and a
-pre-filled label is an anchor. Until two Arabic speakers fill them, the
-`--gold` gate in `register_pass.py` cannot report the §3.2 agreement figure
-against human labels, and it says so rather than inventing one.
-
-What exists in the meantime is `data/eval/ar_register_documented.tsv`: 56
-of the 614 items whose answer the programme document itself already
-asserts (the confirmed defects, the verified non-tells, the b-prefix rows,
-the MSA homograph entries). That is real ground truth and the judge is
-graded on it. It is not a substitute for the review — it contains no
-judgement call, which is exactly why it is safe and exactly why it is
-narrow.
-
-## The support locale is a register surface and was pinned late (17 Sep 2026)
-
-A learner's *support* locale — the language the app explains IN — is a
-register surface in its own right, and for most of this codebase's life
-nothing said so. Every call site pinned `register_line()` on the language
-being TAUGHT. For an Arabic speaker learning English that is English, which
-has no variety to pin, so the tutor's prompt carried no register rule at all
-while being told to "converse in Arabic".
-
-Fixed for `tutor.py` and `speak.py` (three sites). Already correct in
-`translate.py` and `define.py`, which pin the locale they write into.
-
-**What to watch:** `register_line` is keyed by language, and `REGISTER` has
-exactly one entry. Any other language with a standard variety — Persian
-(formal vs colloquial), Hindi, Greek, Tagalog — has the same hole in both
-directions, as a course and as a support locale, and none has been measured.
-Rule 1 says a defect found in one language is a class; this one has been
-fixed for Arabic only.
-
-
-## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
-
-`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
-above it argues the case well: inside the first thousand every letter-name
-gloss is a function word wearing the wrong hat, and past it a word that names
-a letter usually is one. That reasoning is sound **for the letter-name and
-region-code patterns the rule actually matches**.
-
-It has since been read as though the rule covers wrong senses generally. It
-does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
-sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
-`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
-letter name, so the rule would not fire even if the band were lifted.
-
-Two separate pieces of work, then: widening the band, and a rule that can see
-this class at all. Neither is done. See
-`docs/quality/en-sense-ar-gloss-2026-09-18.md`.
 
 ### Local / open-weights models
 
