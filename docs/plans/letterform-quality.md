@@ -211,6 +211,13 @@ form can be saved over. What is missing:
 *Done when:* the alphabet of at least one script is wholly speaker-traced,
 which also gives a yardstick to measure the generator against.
 
+**Begun 19 Sep:** the first table is in
+(`scripts/strokes/rules/latin-print.jsonl`, 57 of ~150 Latin print rows,
+Zaner-Bloser) and `scripts/strokes/check_rules.py` measures the library
+against it. It is a *report*, not yet an input to generation: the
+generator does not read the table, so a rule cannot yet force a split or
+a start. Making it an input is the rest of Tier 1.
+
 ### Tier 4 — Automatic quality gates (1 PR, after Tier 0)
 
 Turn the eye-check into a test, so this class of problem cannot ship

@@ -893,7 +893,11 @@ reading direction** (left to right for everything but Arabic and Hebrew)
 and a **stem always downward**, judged on the whole path's box rather
 than its two ends, because the legs of an A end level too and are not a
 bar. That rule was missing until 18 Sep, and a pixel of thinning noise
-decided which way an f's crossbar ran. Bodies before marks; and Devanagari's
+decided which way an f's crossbar ran. A stroke that is neither — a
+diagonal, a V — starts at the top, unless **both its ends sit at much
+the same height**, in which case it starts at the left: the same tie,
+one axis over, which had v w x y starting from their right-hand end.
+Bodies before marks; and Devanagari's
 headline (shirorekha) comes **after** the body — the walk starts at the
 top and would fuse it with the stem, so a body stroke's run along the
 top edge is cut off, the pieces run left to right, and they are counted
@@ -960,6 +964,20 @@ colour. `applyLanguageTheme` now caches the variables it set
 (`polyglot-lang-theme` in localStorage) and the inline script in
 `index.html` paints them before React mounts — the same trick the theme
 and the UI skin already used. Signing out clears the cache.
+
+**The library is now measured, not just looked at.** A *rules table* —
+one row per (script, style, glyph, form) from a teaching source, in
+`scripts/strokes/rules/{script}-{style}.jsonl` — says how many strokes a
+letter has and where the first one starts.
+`scripts/strokes/check_rules.py` compares the generated library against
+it and prints every disagreement. The first table (Latin print,
+Zaner-Bloser, 19 Sep) put the library at **29 of 57 letters with the
+taught stroke count and 41 of 57 starting in the taught place** — the
+first number for this that is not another guess. Stroke *count* is the
+hard half: where a school model teaches one continuous movement with a
+retrace (b g h m n p q r), the walk splits at the junction; where it
+teaches separate strokes (I J M N P Q upper), the walk runs them
+together.
 
 **Dots are judged on where they sit.** A mark stroke — the dots of ب,
 the i-dot, the breve of й — has no direction and no shape worth

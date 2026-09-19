@@ -945,6 +945,12 @@ def orient(script: str, style: str, s: list, form: str = "isolated", joined: boo
         want_first = min((a, b), key=lambda p: p[1])                # a stem goes down
     elif (script, style) in CURSIVE:
         want_first = min((a, b), key=lambda p: (p[0], p[1]))        # leftmost
+    elif abs(a[1] - b[1]) < 0.35 * max(1, span(s)[1]):
+        # Both ends at much the same height: the hand starts at the left
+        # one. The same tie the bar rule broke, one axis over — it was
+        # sending v w x y off their right-hand end (the Zaner-Bloser rules
+        # table, 19 Sep, disagreed with all four).
+        want_first = min((a, b), key=lambda p: p[0])
     else:
         want_first = min((a, b), key=lambda p: (p[1], p[0]))        # topmost, then leftmost
     return s if want_first == a else s[::-1]
