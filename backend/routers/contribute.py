@@ -222,7 +222,7 @@ from backend.services.generation_admin import (
 )
 from backend.services.models import LOW_RESOURCE_LANGUAGES, resolve_model
 from backend.services.quality.audit_content import load_baseline
-from backend.services.quality.content_judge import QUESTIONS
+from backend.services.quality.content_judge import QUESTIONS, calibrated_pairs
 from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import (
     ai_available,
@@ -959,6 +959,9 @@ async def _content_health_courses(conn) -> tuple[list[dict], dict, dict]:
         conn, content_health.question_positives(QUESTIONS), content_health.FLAG_CONFIDENCE,
     )
     baseline = load_baseline()
+    # The same gate the nightly judge reads, so the panel's "calibrated" label
+    # and the pair the judge actually spends on cannot disagree.
+    calibrated = calibrated_pairs()
     courses = []
     for lang in languages:
         derived = content_health.derive_course(
@@ -967,6 +970,8 @@ async def _content_health_courses(conn) -> tuple[list[dict], dict, dict]:
             content_health.baseline_for(baseline, lang["code"]),
             flagged.get(lang["id"], {}),
             QUESTIONS,
+            lang["code"],
+            calibrated,
         )
         courses.append({
             "code": lang["code"], "name": lang["name"], "language_id": lang["id"], **derived,

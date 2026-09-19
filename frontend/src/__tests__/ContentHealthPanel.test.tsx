@@ -25,12 +25,28 @@ const TARGETS = { judge_enabled: true, max_bad_card_pct: 15, max_judge_flag_pct:
 const JUDGE_CLEAN = {
   judged: 400, population: 2000, judged_pct: 20, flagged: 8, flag_pct: 2, calibrated: true,
 }
+// Nothing judged yet, which is what four of the five questions look like on
+// every course until a gold set is labelled.
+const JUDGE_NONE = {
+  judged: 0, population: 2000, judged_pct: null, flagged: 0, flag_pct: null, calibrated: false,
+}
+// The five questions content_judge.QUESTIONS holds. The server emits ONE
+// ENTRY PER QUESTION for every course, judged or not — a fixture with one key
+// hides both how dense the real cell is and the branches that render the
+// unjudged ones.
+const QUESTIONS = ['register', 'sense', 'gloss', 'scripture', 'card_shape'] as const
+function judgeBlock(over: Record<string, typeof JUDGE_CLEAN> = {}) {
+  return Object.fromEntries(
+    QUESTIONS.map((q) => [q, over[q] ?? JUDGE_NONE]),
+  ) as ContentHealthCourse['judge']
+}
 
 function course(over: Partial<ContentHealthCourse>): ContentHealthCourse {
   return {
     code: 'xx', name: 'Course', language_id: 'l-xx', status: 'green', targets: TARGETS,
     bad_card_pct: 10, top_band_covered_pct: 97, audit_fail_delta: 0, audit_fails: 3,
-    judge: { register: JUDGE_CLEAN }, queues: { pending_drills: 2, change_requests: 1 },
+    judge: judgeBlock({ register: JUDGE_CLEAN }),
+    queues: { pending_drills: 2, change_requests: 1 },
     reconcile: { gloss: 3, gone: 1, run_at: '2026-09-17T02:00:00Z' },
     last_audited: '2026-09-17T02:00:00Z', last_judged: '2026-09-17T02:00:00Z',
     ...over,
@@ -52,21 +68,22 @@ const HEALTH: ContentHealthResponse = {
   courses: [
     course({
       code: 'ar', name: 'Arabic', status: 'red', bad_card_pct: 22, audit_fail_delta: 3,
-      judge: { register: { ...JUDGE_CLEAN, flagged: 40, flag_pct: 10 } },
+      judge: judgeBlock({ register: { ...JUDGE_CLEAN, flagged: 40, flag_pct: 10 } }),
     }),
     course({
       code: 'ko', name: 'Korean', status: 'amber', top_band_covered_pct: 82,
       // Judged, but the sense question has no gold set yet.
-      judge: { sense: { ...JUDGE_CLEAN, calibrated: false } },
+      judge: judgeBlock({ sense: { ...JUDGE_CLEAN, calibrated: false } }),
     }),
     course({
       code: 'es', name: 'Spanish', status: 'green',
-      judge: { sense: { judged: 0, population: 2000, judged_pct: null, flagged: 0, flag_pct: null, calibrated: true } },
+      judge: judgeBlock({ sense: { ...JUDGE_NONE, calibrated: true } }),
     }),
     course({
       code: 'sw', name: 'Swahili', status: 'grey', bad_card_pct: null,
       top_band_covered_pct: null, audit_fail_delta: null, audit_fails: null,
-      judge: {}, queues: {}, reconcile: { run_at: null }, last_audited: null, last_judged: null,
+      judge: judgeBlock({}), queues: {}, reconcile: { run_at: null },
+      last_audited: null, last_judged: null,
     }),
   ],
 }
@@ -162,14 +179,25 @@ describe('ContentHealthPanel', () => {
     expect(screen.queryByText(/migration 20261029/)).toBeNull()
   })
 
-  it('labels an uncalibrated question and a question nothing has judged', async () => {
+  it('labels an uncalibrated question, and folds the ones nothing has judged', async () => {
     renderPanel()
     expect((await screen.findByTestId('judge-ko-sense')).textContent).toContain('not calibrated')
     expect(screen.getByTestId('judge-ko-sense').textContent).toContain('20% judged, 2% flagged')
-    expect(screen.getByTestId('judge-es-sense').textContent).toContain('0% judged')
-    expect(screen.getByTestId('judge-es-sense').textContent).not.toContain('flagged')
     // Calibrated and judged: no label.
     expect(screen.getByTestId('judge-ar-register').textContent).not.toContain('not calibrated')
+    // The server sends all five questions for every course. Four of them have
+    // no gold set, so on 27 courses that is four identical "0% judged" lines
+    // burying the one that carries a number: they fold into one, which still
+    // names them for anyone who looks.
+    const folded = screen.getByTestId('judge-es-unjudged')
+    expect(folded.textContent).toBe('5 never judged')
+    expect(folded.getAttribute('title')).toBe(
+      'Never judged: register, sense, gloss, scripture, card_shape',
+    )
+    // A course with one measured question folds only the other four.
+    expect(screen.getByTestId('judge-ko-unjudged').textContent).toBe('4 never judged')
+    // And a course nothing has ever touched folds all five, not an em dash.
+    expect(screen.getByTestId('judge-sw-unjudged').textContent).toBe('5 never judged')
   })
 
   it('expands a row into its drill-down: trend, audit rules and open verdicts', async () => {

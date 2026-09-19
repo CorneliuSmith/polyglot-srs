@@ -400,9 +400,15 @@ input + output tokens, population = calls, the model and the full usage
 in `meta`), and `judge_tokens_spent_today` sums those since UTC midnight.
 The verdicts (`content_verdicts`, `repositories/verdicts.py`) carry that
 row's id as `run_id`, so the night's spend and what it bought are one
-join. A second row per pair, `metric='flagged.<question>'`, is the panel's
-rate — findings in the question's positive class at confidence >= 0.7,
-out of rows judged. And **coverage is written whether or not the judge is
+join. A second row per pair, `metric='flagged.<question>'`, is that NIGHT's
+rate — findings in the question's positive class at confidence >= 0.7, out
+of the rows that night judged — and it is what the drill-down's sparkline
+plots. It is NOT the percentage on the course row above it: that one is
+open verdicts at the same threshold over the course's LIFETIME judged
+count, so it falls as an admin disposes verdicts while the sparkline, a
+record of what each night found, does not. Two honest numbers with one
+name is how a panel gets argued with; they are labelled "tonight" and
+"open" for that reason. And **coverage is written whether or not the judge is
 on**: `_judge_coverage_step` writes `kind='coverage'`,
 `metric='judge.<question>'` for every course and every question — rows
 with any verdict out of the question's scope, `calibrated` in the meta —

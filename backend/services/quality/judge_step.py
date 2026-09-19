@@ -184,6 +184,13 @@ async def _judge_pair(conn, stats: dict, sha: str | None, settings: dict, spent:
         conn, run_id, lang_id, question, items, results, name)
     if written is None:
         stats["dropped"] += judged
+    elif written < judged:
+        # `record_verdicts` counts the rows that actually landed: an
+        # ON CONFLICT collision (the pair already judged in this run) or a
+        # verdict whose id matched no item both come back short. The tokens
+        # were spent either way, so an uncounted shortfall is a pair that
+        # reads fully judged and is not.
+        stats["dropped"] += judged - written
 
 
 async def judge_step(conn, sha: str | None) -> dict:

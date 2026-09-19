@@ -237,17 +237,34 @@ async def scope_size(conn: asyncpg.Connection, question, language_id) -> int:
 
 
 async def judged_count(conn: asyncpg.Connection, question, language_id) -> int:
-    """Distinct rows with any verdict for the question: the coverage
-    numerator. A translation is one row per locale, so the locale is part
-    of the identity, folded the way the unique index folds it."""
+    """Distinct rows IN SCOPE with a verdict for the question: the coverage
+    numerator. A translation is one row per locale, so the locale is part of
+    the identity, folded the way the unique index folds it.
+
+    It joins `_scope` rather than counting `content_verdicts` alone, because
+    the denominator (`scope_size`) counts that scope and a numerator over a
+    different row set is not a percentage. `content_verdicts.entity_id` has
+    no foreign key, so a verdict outlives the row it judged: a word retired
+    since (the scopes exclude `retired_at IS NOT NULL`) or a sentence
+    deleted by a re-seed both leave a verdict counting toward a coverage it
+    is no longer part of. Measured on a three-row fixture, one verdict on a
+    retired word's sentence: 3 in scope, 4 "judged", 133% covered — and the
+    panel renders that number straight.
+    """
     try:
         async with savepoint(conn):
             total = await conn.fetchval(
-                """
-                SELECT count(DISTINCT (entity_type, entity_id, field, COALESCE(locale, '')))
-                  FROM content_verdicts
-                 WHERE language_id = $1::uuid
-                   AND question = $2
+                f"""
+                SELECT count(DISTINCT (s.entity_type, s.entity_id, s.field,
+                                       COALESCE(s.locale, '')))
+                  FROM ({await _scope(conn, question)}) s
+                  JOIN content_verdicts cv
+                    ON cv.entity_type = s.entity_type
+                   AND cv.entity_id = s.entity_id
+                   AND cv.field = s.field
+                   AND cv.locale IS NOT DISTINCT FROM s.locale
+                   AND cv.question = $2
+                 WHERE cv.language_id = $1::uuid
                 """,
                 str(language_id), question.name,
             )

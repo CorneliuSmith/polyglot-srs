@@ -71,7 +71,7 @@ async def table_flags(conn: asyncpg.Connection) -> dict[str, bool]:
 async def open_flag_counts(
     conn: asyncpg.Connection,
     positives: dict[str, frozenset[str] | set[str]],
-    min_confidence: float,
+    min_confidence: Decimal,
 ) -> dict[str, dict[str, int]]:
     """{language_id: {question: n}} — open verdicts whose verdict is one of
     that question's positive set, at or above the confidence floor.
@@ -79,7 +79,14 @@ async def open_flag_counts(
     The (question, verdict) pairs travel as two parallel arrays and are
     joined through unnest, so a verdict word one question uses for a
     finding (`rare`) can never count under a question that does not
-    (`register`) — `question = ANY(..) AND verdict = ANY(..)` would."""
+    (`register`) — `question = ANY(..) AND verdict = ANY(..)` would.
+
+    It counts DISTINCT ROWS OF CONTENT, not verdict rows, because it is the
+    numerator of a rate whose denominator (`verdicts.judged_count`) counts
+    the same identity — `(entity_type, entity_id, field, locale)`, folded the
+    way the unique index folds it. A row judged on two nights with both
+    verdicts still open is two verdict rows and one flagged card; counting
+    `*` here made the panel able to print a flag rate above 100%."""
     questions: list[str] = []
     verdicts: list[str] = []
     for question, words in sorted(positives.items()):
@@ -92,7 +99,9 @@ async def open_flag_counts(
         async with savepoint(conn):
             rows = await conn.fetch(
                 """
-                SELECT v.language_id, v.question, count(*) AS flagged
+                SELECT v.language_id, v.question,
+                       count(DISTINCT (v.entity_type, v.entity_id, v.field,
+                                       COALESCE(v.locale, ''))) AS flagged
                   FROM content_verdicts v
                   JOIN unnest($1::text[], $2::text[]) AS p(question, verdict)
                     ON p.question = v.question AND p.verdict = v.verdict

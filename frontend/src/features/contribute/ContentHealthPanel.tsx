@@ -311,7 +311,14 @@ function CourseRow({
   const bandLow =
     course.top_band_covered_pct != null && course.top_band_covered_pct < 95
   const delta = course.audit_fail_delta
+  // The server sends one entry per question for every course, judged or not
+  // (five today). Until a question has a labelled gold set that is four
+  // identical "0% judged - not calibrated" lines on all 27 rows, which buries
+  // the one line that carries a number. Show what has been judged; fold the
+  // rest into a single line that still names them.
   const questions = Object.entries(course.judge)
+  const measured = questions.filter(([, j]) => j.judged > 0)
+  const idle = questions.filter(([, j]) => j.judged === 0).map(([q]) => q)
 
   return (
     <>
@@ -354,11 +361,26 @@ function CourseRow({
           {questions.length === 0 ? (
             <span className="text-gray-400">—</span>
           ) : (
-            questions.map(([q, j]) => (
-              <div key={q} className="whitespace-nowrap" data-testid={`judge-${course.code}-${q}`}>
-                <span className="text-gray-500">{q}</span> {judgeLine(j)}
-              </div>
-            ))
+            <>
+              {measured.map(([q, j]) => (
+                <div
+                  key={q}
+                  className="whitespace-nowrap"
+                  data-testid={`judge-${course.code}-${q}`}
+                >
+                  <span className="text-gray-500">{q}</span> {judgeLine(j)}
+                </div>
+              ))}
+              {idle.length > 0 && (
+                <div
+                  className="whitespace-nowrap text-gray-400"
+                  data-testid={`judge-${course.code}-unjudged`}
+                  title={`Never judged: ${idle.join(', ')}`}
+                >
+                  {idle.length} never judged
+                </div>
+              )}
+            </>
           )}
         </td>
         <td className="py-1.5 pe-2 text-end tabular-nums" title={queueTitle || undefined}>

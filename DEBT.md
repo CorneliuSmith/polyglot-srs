@@ -1412,7 +1412,7 @@ purpose, each with what would turn it on:
   per queue key is the read; the rule ("depth up by more than N over the
   window") has no agreed N, and 27 courses × 18 queues is 486 trend reads
   a page load, so it wants one grouped query in `repositories/quality.py`
-  (unit F's file) before it goes on the hot path.
+  before it goes on the hot path.
 - **Agree / Disagree applies nothing to content.** `POST …/verdicts/{id}`
   writes `disposition`, `disposed_by`, `disposed_at` on the verdict row
   and nothing else; the judge's `expected` rewrite is shown, never
@@ -1421,24 +1421,33 @@ purpose, each with what would turn it on:
   a reviewer who agrees still fixes the card through the Workshop, which
   writes `content_change_log`. When it closes as "apply", the write goes
   through `edit_reviewed_card` from this route, not through a new path.
-- **`calibrated` is a constant, and empty.** `CALIBRATED_QUESTIONS` in
-  `services/content_health.py` names the questions whose gold set has
-  cleared the three §3.2 gates; no set is labelled (the two gold-set
-  entries in this file), so every question reads `calibrated: false`. The status
-  rule does not consult it — an uncalibrated flag rate above the target is
-  red, because the owner switches the judge on per course and sets that
-  target. A question joins the set by name when its
-  `docs/quality/<question>-<date>.md` record exists; reading calibration
-  from the record files at request time was not done because a file's
-  existence is not a passed gate.
-- **Support-locale rows do not feed the course row.** `latest_metrics`
-  keys a locale measurement `"<locale>:<metric>"`; `derive_course` reads
-  only the course's own (unmarked) rows, so a gloss judge writing
-  `judge.gloss` under `locale='ar'` for the English course shows as 0/0 on
-  the English row. Principle 6 says the support locale is its own corpus;
-  the honest shape is a per-locale breakdown in the drill-down, not a sum
-  into the course row. Nothing writes locale rows yet (unit F decides),
-  so this is a note, not a bug.
+- **The status rule does not consult `calibrated`.** The panel reads the
+  same gate the judge spends on — `data/eval/calibrated.json` through
+  `content_judge.calibrated_pairs()`, keyed on (question, course), because
+  a gold set is labelled in one course and `register` on Arabic says
+  nothing about Persian. But an uncalibrated flag rate above the target
+  still reads RED, because the owner switches the judge on per course and
+  sets that target themselves; `calibrated: false` is the label that says
+  how to read the number, not a filter on it. A pair joins the file when
+  its run clears the three §3.2 gates and gets a
+  `docs/quality/<question>-<date>.md` record.
+- **Every support locale folds into the one course row, and principle 6
+  says it should not.** Two different `locale` columns, and only one of
+  them separates anything. `quality_runs.locale` does: `latest_metrics`
+  keys such a row `"<locale>:<metric>"` and `derive_course` reads only the
+  course's own unmarked rows — but nothing writes a locale-tagged
+  `quality_runs` row yet, so that path is inert. `content_verdicts.locale`
+  does NOT: `_judge_coverage_step` writes one locale-NULL
+  `judge.<question>` row per course, and `judged_count` and
+  `open_flag_counts` carry no locale predicate, so a gloss judge run
+  across a course's support locales reports their sum. Measured on the
+  English course with Arabic and Spanish glosses judged: judged 2,
+  population 4, flagged 2, flag_pct 100 — one number for two corpora,
+  where the entry used to promise 0/0. Principle 6 ("the support locale is
+  a corpus of its own") wants a per-locale breakdown in the drill-down;
+  the change is a `locale` group-by in those two readers and a row per
+  locale in the drill-down's judge block. Left off because the panel has
+  no reader yet and the shape should follow the first real gloss run.
 - **Auth on `/api/health` and `/api/health/schema`** is in the plan's
   phase B row and is not built: decision #3 is open. The content-health
   routes themselves are behind `_require_admin`.
@@ -1714,3 +1723,40 @@ it on:
   is the same function, shared by the three new "last ran" lines; the
   old copy was left in place to keep that panel out of this change. Fold
   it in the next time that file is touched.
+
+## The judge's coverage numerator and its flag numerator each had to be taught what they were counting (19 Sep 2026)
+
+Two percentages the Content health panel prints could both exceed 100%, and
+neither was a rounding artefact. Both were a numerator counting one thing and a
+denominator counting another, and both were found by reading the two units
+against each other after they merged — each unit's own checker had passed its
+own diff.
+
+- **`judge.<question>` coverage.** `scope_size` counts the question's scope,
+  which excludes retired words; `judged_count` counted `content_verdicts` rows
+  for the course and question with no join to the content tables.
+  `content_verdicts.entity_id` has no foreign key, so a verdict outlives the row
+  it judged — a word retired since, a sentence a re-seed deleted. Reproduced on
+  a three-row fixture with one verdict on a retired word's sentence: scope 3,
+  "judged" 4, **133% covered**, and the panel renders it straight.
+  `judged_count` now counts distinct rows OF THE SCOPE joined to their
+  verdicts.
+- **`judge.<question>` flag rate.** `open_flag_counts` counted verdict rows
+  (`count(*)`); its denominator is that same `judged_count`, which counts
+  distinct rows of content. A card judged on two nights with both verdicts open
+  is two verdict rows and one flagged card, so the rate climbed every night a
+  row was re-judged — and `status_of` turns a course red on it. It now counts
+  the same identity, `(entity_type, entity_id, field, locale)`, folded the way
+  the unique index folds it.
+
+**The general rule, which is why this is here and not only in a commit
+message:** a rate's two halves are one decision, and a repository where they
+live in different functions will drift. Anything added to a scope (the
+`retired_at IS NULL` predicate was added to the denominator alone, one commit
+earlier) has to be added to both, and the cheap test is to assert the two SQL
+strings share the scope, not to assert a number.
+
+Neither could have been caught by a unit test that mocks the connection: both
+show up only when the same rows are counted twice. They were proven against a
+real Postgres 16 and are pinned by assertions on the SQL text, which is the
+best a mocked connection can do — the real guard is the shared `_scope` call.

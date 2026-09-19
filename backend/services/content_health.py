@@ -26,6 +26,7 @@ Two things worth knowing before changing a number:
 from __future__ import annotations
 
 from datetime import datetime
+from decimal import Decimal
 
 from backend.services.quality.audit_content import FAIL_RULES
 
@@ -33,7 +34,12 @@ from backend.services.quality.audit_content import FAIL_RULES
 # flagged, per question, confidence >= 0.7"). The same threshold J5 uses to
 # route a verdict into a queue, so the panel and the queue agree on what a
 # flag is.
-FLAG_CONFIDENCE = 0.7
+# A Decimal, not the float 0.7: asyncpg encodes a float bound to `numeric` as
+# Decimal(float), so `>= 0.7` would reach Postgres as 0.69999999999999995559…
+# `judge_step.FLAG_CONFIDENCE` is the same value for the same reason, and
+# test_content_health pins the two together — the panel's SQL and the ledger's
+# Python must call the same rows flagged.
+FLAG_CONFIDENCE = Decimal("0.7")
 
 # The metric the coverage step writes: value = words in the top band with a
 # blankable sentence, population = the band.
@@ -53,15 +59,19 @@ RECONCILE_FIELDS = (
     "retire", "unretire", "gp_retire", "no_translation",
 )
 
-# Questions whose gold set has cleared the three §3.2 gates, recorded in a
-# docs/quality/<question>-<date>.md the way ar-register-2026-09-17.md records
-# the register run. Empty today: no set is labelled (DEBT, "Four judge
-# questions have no gold set"). A question joins this set by name when its
-# record exists; the panel shows the flag as uncalibrated until then. The
-# status rule does NOT consult this set — an uncalibrated flag rate above
-# the target still reads red, because the owner switches the judge on per
-# course and sets that target themselves.
-CALIBRATED_QUESTIONS: frozenset[str] = frozenset()
+# "Calibrated" has exactly one definition, and it is the one the judge spends
+# on: `data/eval/calibrated.json`, read by `content_judge.calibrated_pairs()`,
+# which the nightly step gates every (question, course) pair against. The panel
+# must not have a second opinion — a constant here read `false` for
+# `register`/`ar`, the one pair being judged and billed, which is the worst
+# possible row to label "not calibrated".
+#
+# It is a PAIR, not a question: a gold set is labelled in one course, and
+# `register` being calibrated on Arabic says nothing about Persian. The status
+# rule still does NOT consult it — an uncalibrated flag rate above the target
+# reads red, because the owner switches the judge on per course and sets that
+# target themselves; `calibrated` is the label that tells them how to read the
+# number.
 
 
 def _iso(value) -> str | None:
@@ -114,6 +124,8 @@ def derive_course(
     baseline_for_course: dict[str, int],
     flagged_by_question: dict[str, int],
     questions: dict,
+    code: str = "",
+    calibrated: set[tuple[str, str]] | None = None,
 ) -> dict:
     """One course's row, minus its identity (the router adds code, name and
     language_id).
@@ -123,8 +135,12 @@ def derive_course(
     course's `language_quality_targets` row or the defaults.
     `flagged_by_question` is the open, confident, positive verdict count per
     question. `questions` is `content_judge.QUESTIONS`, so the judge block
-    always has one entry per question, judged or not.
+    always has one entry per question, judged or not. `code` and `calibrated`
+    are the course's code and `content_judge.calibrated_pairs()`; without them
+    every question reads uncalibrated, which is the safe direction for a label
+    that tells a reader how much to trust a rate.
     """
+    pairs = calibrated or set()
     own = _own(metrics)
     coverage = next(
         (m for m in own if m["kind"] == "coverage" and m["metric"] == COVERAGE_METRIC), None,
@@ -159,7 +175,7 @@ def derive_course(
             "judged_pct": pct(judged, population),
             "flagged": flagged,
             "flag_pct": pct(flagged, judged),
-            "calibrated": name in CALIBRATED_QUESTIONS,
+            "calibrated": (name, code) in pairs,
         }
 
     queues = {m["metric"]: int(m["value"]) for m in own if m["kind"] == "queues"}

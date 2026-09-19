@@ -89,7 +89,10 @@ class TestArithmetic:
     def test_derive_reads_every_field_from_the_latest_rows(self):
         baseline = {rule: 0 for rule in FAIL_RULES}
         baseline["leak_hard"] = 2
-        course = ch.derive_course(_metrics(), TARGETS, baseline, {"sense": 10}, QUESTIONS)
+        course = ch.derive_course(
+            _metrics(), TARGETS, baseline, {"sense": 10}, QUESTIONS,
+            "ar", {("register", "ar")},
+        )
         assert course["bad_card_pct"] == 10.0
         assert course["top_band_covered_pct"] == 90.0
         # fail-level rules only: gender_marking (report) is not a fail
@@ -98,17 +101,47 @@ class TestArithmetic:
         assert set(course["judge"]) == set(QUESTIONS)
         assert course["judge"]["sense"] == {
             "judged": 200, "population": 2000, "judged_pct": 10.0,
-            "flagged": 10, "flag_pct": 5.0, "calibrated": False,
+            "flagged": 10, "flag_pct": 5.0, "calibrated": False,  # no sense gold set
         }
+        # register/ar IS in data/eval/calibrated.json, and it is the one pair
+        # the judge spends on — the panel must not label it "not calibrated".
         assert course["judge"]["register"] == {
             "judged": 0, "population": 0, "judged_pct": None,
-            "flagged": 0, "flag_pct": None, "calibrated": False,
+            "flagged": 0, "flag_pct": None, "calibrated": True,
         }
         assert course["queues"] == {"pending_drills": 7}
         assert course["reconcile"] == {"gone": 2, "new": 4, "run_at": T1.isoformat()}
         assert course["last_audited"] == T1.isoformat()
         assert course["last_judged"] == T1.isoformat()
         assert course["targets"] == TARGETS
+
+    def test_calibration_is_per_pair_not_per_question(self):
+        """A gold set is labelled in ONE course. `register` clearing its
+        gates on Arabic says nothing about Persian, so the flag is keyed on
+        (question, course) — keying it on the question name alone was wrong
+        in both directions."""
+        pairs = {("register", "ar")}
+        ar = ch.derive_course({}, TARGET_DEFAULTS, {}, {}, QUESTIONS, "ar", pairs)
+        fa = ch.derive_course({}, TARGET_DEFAULTS, {}, {}, QUESTIONS, "fa", pairs)
+        assert ar["judge"]["register"]["calibrated"] is True
+        assert fa["judge"]["register"]["calibrated"] is False
+        assert ar["judge"]["sense"]["calibrated"] is False
+
+    def test_without_the_pair_set_every_question_reads_uncalibrated(self):
+        """The safe direction for a label that says how much to trust a rate."""
+        course = ch.derive_course({}, TARGET_DEFAULTS, {}, {}, QUESTIONS)
+        assert not any(q["calibrated"] for q in course["judge"].values())
+
+    def test_the_panel_and_the_ledger_share_one_flag_threshold(self):
+        """Three documents call these the same number, and they are compared
+        in two languages: the panel's SQL binds this constant to a numeric
+        column, the ledger's Python compares judge_step's. A float bound to
+        numeric encodes as Decimal(float), so the two must be the same
+        Decimal or they can disagree about which rows are flagged."""
+        from backend.services.quality import judge_step
+        assert ch.FLAG_CONFIDENCE == judge_step.FLAG_CONFIDENCE
+        assert isinstance(ch.FLAG_CONFIDENCE, Decimal)
+        assert isinstance(judge_step.FLAG_CONFIDENCE, Decimal)
 
     def test_an_unmeasured_course_has_nulls_not_zeros(self):
         course = ch.derive_course({}, TARGET_DEFAULTS, {}, {}, QUESTIONS)
@@ -258,14 +291,18 @@ class TestRepository:
         ]
         out = await repo.open_flag_counts(
             conn, {"sense": frozenset({"rare", "wrong"}), "register": frozenset({"dialect"})},
-            0.7,
+            ch.FLAG_CONFIDENCE,   # the real constant, a Decimal — not a literal
         )
         assert out == {LANG_AR: {"sense": 4}, LANG_KO: {"register": 1}}
         sql, questions, verdicts, floor = conn.fetch.await_args.args
         assert "disposition = 'open'" in sql and "unnest" in sql
+        # The numerator of a rate whose denominator counts distinct rows of
+        # content, so it must count those and not verdict rows: a card judged
+        # on two nights with both verdicts open is one flagged card.
+        assert "count(DISTINCT (v.entity_type, v.entity_id, v.field," in sql
         assert list(zip(questions, verdicts, strict=True)) == [
             ("register", "dialect"), ("sense", "rare"), ("sense", "wrong")]
-        assert floor == 0.7
+        assert floor == Decimal("0.7") and isinstance(floor, Decimal)
 
     async def test_open_flag_counts_degrade_to_empty(self):
         conn = mock_conn()
@@ -487,7 +524,8 @@ class TestOverview:
         assert ko["status"] == "grey" and ko["targets"] == TARGET_DEFAULTS
         r.mocks["open_flag_counts"].assert_awaited_once()
         _, positives, floor = r.mocks["open_flag_counts"].await_args.args
-        assert positives == ch.question_positives(QUESTIONS) and floor == 0.7
+        assert positives == ch.question_positives(QUESTIONS)
+        assert floor == Decimal("0.7") and isinstance(floor, Decimal)
 
     def test_every_table_absent_is_still_200(self, client):
         with _admin(), _Repo(table_flags=ABSENT, latest_quality_metrics={},

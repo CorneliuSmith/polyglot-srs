@@ -629,13 +629,22 @@ class TestCounts:
         assert "AND v.retired_at IS NULL" in sql  # retired words are not in the denominator
         assert args == [LANG_AR]
 
-    async def test_judged_count_is_distinct_entities_for_the_question(self):
+    async def test_judged_count_is_distinct_entities_of_the_scope(self):
+        """The numerator counts the rows the DENOMINATOR counts, not every
+        verdict ever written. `content_verdicts.entity_id` has no foreign
+        key, so a verdict outlives the row it judged — a word retired since
+        (the scopes exclude those) or a sentence a re-seed deleted. Counting
+        the table alone put 4 over a scope of 3: 133% covered, rendered
+        straight by the panel."""
         conn = mock_conn()
         conn.fetchval.return_value = 7
         assert await verdicts_repo.judged_count(conn, cj.SENSE, LANG_AR) == 7
         sql, *args = conn.fetchval.await_args.args
-        assert "count(DISTINCT (entity_type, entity_id, field, COALESCE(locale, '')))" in sql
-        assert "FROM content_verdicts" in sql
+        assert "count(DISTINCT (s.entity_type, s.entity_id, s.field," in sql
+        assert "JOIN content_verdicts cv" in sql
+        # the same scope the denominator counts, retired rows and all
+        assert "AND v.retired_at IS NULL" in sql
+        assert "cv.locale IS NOT DISTINCT FROM s.locale" in sql
         assert args == [LANG_AR, "sense"]
 
     async def test_both_degrade_to_zero(self):
@@ -749,7 +758,7 @@ class TestCoverage:
         async def counts(sql, *args):
             if "information_schema.columns" in sql:  # the retired_at probes
                 return True
-            return 3 if "FROM content_verdicts" in sql else 40
+            return 3 if "JOIN content_verdicts" in sql else 40
 
         conn.fetchval.side_effect = counts
         stats = quality_loop._new_stats()
@@ -771,7 +780,7 @@ class TestCoverage:
         async def counts(sql, *args):
             if "information_schema.columns" in sql:  # the retired_at probes
                 return True
-            if "FROM content_verdicts" in sql:
+            if "JOIN content_verdicts" in sql:
                 raise _missing()
             return 40
 

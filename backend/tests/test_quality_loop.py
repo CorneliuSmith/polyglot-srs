@@ -284,7 +284,7 @@ JUDGE_COVERAGE = {f"judge.{name}" for name in content_judge.QUESTIONS}
 async def _counts(sql, *args):
     if "information_schema.columns" in sql:  # verdicts._scope's retired_at probes
         return True
-    return JUDGED if "FROM content_verdicts" in sql else SCOPE
+    return JUDGED if "JOIN content_verdicts" in sql else SCOPE
 
 
 @contextmanager
