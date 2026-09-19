@@ -1329,6 +1329,45 @@ the print scripts with many multi-stroke letters: Cyrillic print 10→32,
 Greek 12→32, Latin print 27→45, Hangul 9→17. A third operation (below)
 took the total to **227 of 659** and 818 of 1355.
 
+**A sourced table can be faithful and still be the wrong yardstick.**
+The Latin print rules came from Zaner-Bloser, which teaches `a b d g h
+m n p q r` as one unbroken movement that **retraces** back up a line it
+has already drawn. Our `d` was one stroke, the checker passed it, and
+the owner looked at the screen and said it should be two. Both were
+right: the library agreed with its source, and the source was written
+for a different reader. The model had even said so on the row itself —
+*"taught as one continuous stroke in modern US curricula to prevent b/d
+reversal"* — a reason about five-year-olds writing their own language.
+
+Two lessons worth more than the letter. **A retrace cannot be
+animated**: the app draws a stroke as one path, so a retraced letter
+draws its stem twice in a single sweep and reads as neither one stroke
+nor two. Anything sourced for paper has to be re-asked for a screen.
+And **the fix was to re-source, not to override**: a second run of the
+brief, counted by pen lifts, from a curriculum (Handwriting Without
+Tears) that already teaches lifted forms, ingested over the top with
+`ingest_rules.py --force`. Hand-editing the table would have kept the
+number and lost the provenance; the table is the yardstick, so the
+yardstick has to stay something a source said. The one place the owner
+overruled every source — print `d` is stem-then-bowl — went into the
+brief as a house rule, and the model dutifully recorded the sources'
+own order in `disagreement`, so the departure is on the record rather
+than hidden in a diff.
+
+The cost is visible and small: `k` is three strokes in Zaner-Bloser and
+two in HWT, so the one letter where our walk used to agree with the
+table now disagrees. Changing source changes the target; that is not a
+regression, and the checker saying so is the checker working.
+
+The gain is not small. Latin print went from **47 of 73 letters with
+every stroke right to 105 of 133** — the denominator grew because the
+same brief's second run supplied the 43 accented letters whose rules
+had been lost weeks earlier, closing the last hole in any table — and
+from 112 of 138 strokes to **297 of 332**. One table now scores better
+than the other nine together, and the difference between them is not
+the generator: it is that this one table was counted the way the app
+draws.
+
 **A migration's name is its primary key.** Supabase records an applied
 migration by the digits before the first underscore, so
 `20261107000000_quality_telemetry.sql` and

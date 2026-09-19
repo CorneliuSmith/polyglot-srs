@@ -91,11 +91,48 @@ teacher would put on a board.
    drawn twice.
 
    That is a defect in the **yardstick**, and no amount of fitting
-   reaches it. The fix is a second Latin print run counted by pen
-   lifts, with a retrace counted as a lift:
-   `docs/quality/letterforms/gemini-brief-lifted-print.md`. It also
-   asks for the 56 accented letters that were lost from the first run,
-   so the last hole in the tables closes in the same pass.
+   reaches it. The fix was a second Latin print run counted by pen
+   lifts, with a retrace counted as a lift and a corner not:
+   `docs/quality/letterforms/gemini-brief-lifted-print.md`.
+
+   **Runs 1 and 2 landed on 19 Sep**, both from Handwriting Without
+   Tears, ingested over the Zaner-Bloser rows with `ingest_rules.py
+   --force`. Run 1 was a–z in both cases; run 2 was the 43 accented
+   letters, which closes the one hole left in any table — 56 accented
+   print rules had been lost before they reached disk weeks earlier
+   and were never re-requested. The Latin print table went from 74
+   rows to **138**.
+
+   `d` is now two strokes, stem then bowl (the owner's ruling; the
+   model recorded the sources' own bowl-first order in `disagreement`,
+   so the departure is on the record). `o` and uppercase `L` held at
+   one stroke, which is the check that the retrace rule was understood
+   and not applied to every corner.
+
+   | latin print | before | after |
+   |---|---|---|
+   | letters with a sourced rule | 73 | **133** |
+   | every stroke right | 47 | **105** |
+   | strokes right | 112 of 138 | **297 of 332** |
+   | stroke count agrees | 62 | **129** |
+
+   Across all ten tables: **285 of 719 letters** with every stroke
+   right, 1003 of 1549 strokes. Latin print alone is now better than
+   the other nine tables put together, which says plainly what the
+   others are waiting for: a table counted by pen lifts rather than by
+   whatever convention its source happened to use.
+
+   One letter changed target rather than improving: `k` is three
+   strokes in Zaner-Bloser and two in HWT, which the old table's own
+   `disagreement` note had already flagged. Our walk draws three, so it
+   now disagrees with the table where it used to agree. That is the
+   honest cost of changing source and it is one letter.
+
+   Five sourced letters are not in the library and are allow-listed in
+   the gate with a reason: Turkish `İ` (the casing bug in `DEBT.md`),
+   and `å`/`ý`, which no course teaches yet — the brief asked for every
+   accented letter a Latin course might want, which is a superset of
+   what the courses carry today.
 
    **The score is now a test.** `TestAgainstTheSourcedRules` in
    `backend/tests/test_strokes.py` runs the checker over all ten tables
