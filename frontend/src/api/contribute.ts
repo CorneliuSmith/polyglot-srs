@@ -1816,8 +1816,10 @@ export interface ContentHealthJudge {
   /** Open verdicts in the question's positive set at confidence ≥ 0.7. */
   flagged: number
   flag_pct: number | null
-  /** false until the question's gold set clears its three gates; its
-   *  flags are then a report, never a red. */
+  /** Whether THIS (question, course) pair is in data/eval/calibrated.json —
+   *  the same gate the nightly judge spends on. False is a label saying read
+   *  the rate as a report; it does NOT stop the rate turning the course red,
+   *  because the owner opts each course in and sets its own threshold. */
   calibrated: boolean
 }
 

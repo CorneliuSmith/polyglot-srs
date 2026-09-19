@@ -16,18 +16,19 @@ import {
   disposeVerdict,
   type ContentHealthCourse,
   type ContentHealthResponse,
+  type ContentHealthJudge,
 } from '../api/contribute'
 const mockHealth = getContentHealth as ReturnType<typeof vi.fn>
 const mockCourse = getContentHealthCourse as ReturnType<typeof vi.fn>
 const mockDispose = disposeVerdict as ReturnType<typeof vi.fn>
 
 const TARGETS = { judge_enabled: true, max_bad_card_pct: 15, max_judge_flag_pct: 5 }
-const JUDGE_CLEAN = {
+const JUDGE_CLEAN: ContentHealthJudge = {
   judged: 400, population: 2000, judged_pct: 20, flagged: 8, flag_pct: 2, calibrated: true,
 }
 // Nothing judged yet, which is what four of the five questions look like on
 // every course until a gold set is labelled.
-const JUDGE_NONE = {
+const JUDGE_NONE: ContentHealthJudge = {
   judged: 0, population: 2000, judged_pct: null, flagged: 0, flag_pct: null, calibrated: false,
 }
 // The five questions content_judge.QUESTIONS holds. The server emits ONE
@@ -35,7 +36,7 @@ const JUDGE_NONE = {
 // hides both how dense the real cell is and the branches that render the
 // unjudged ones.
 const QUESTIONS = ['register', 'sense', 'gloss', 'scripture', 'card_shape'] as const
-function judgeBlock(over: Record<string, typeof JUDGE_CLEAN> = {}) {
+function judgeBlock(over: Record<string, ContentHealthJudge> = {}) {
   return Object.fromEntries(
     QUESTIONS.map((q) => [q, over[q] ?? JUDGE_NONE]),
   ) as ContentHealthCourse['judge']
