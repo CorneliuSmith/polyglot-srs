@@ -129,10 +129,19 @@ error and the fault is in the English.
 
 ## 5. What follows
 
-1. **The English middle band is the cheaper fix and helps every locale at
-   once.** ~600 rows in 2,001–6,000 carry a rare sense; repairing them fixes
-   the card for English learners and removes the upstream cause for all nine
-   support locales, including the reviewer's.
+1. ~~**The English middle band is the cheaper fix and helps every locale at
+   once.**~~ **Done, 19 Sep 2026** (`en-sense-2026-09-19.md`). All 3,926 rows
+   in the band without an existing override were judged rather than sampled:
+   **512 findings (13.0%)**, inside this page's intervals but below its point
+   estimates, and **236 definitions repaired** after an independent checker
+   refused 11.7% of them and five mechanical gates refused eight more. 119
+   personal names and 3 non-words were counted and left for the owner's 25 Aug
+   rule.
+
+   The pass also found what this sample could not: **1,231 English cards
+   (12.4%) have no definition anywhere in production** — blank in the file and
+   unresolvable by WordNet — and none of them is in the top 2,000, which is why
+   every top-down pass has missed them. `CHECKS.md` §42.
 2. ~~**The wrong-part-of-speech class is mechanically detectable.**~~
    **Built and measured.** `audit_locale_rows --verb-glosses` reports an
    Arabic gloss that is nominal on a verb row. Measured against 120 flagged
@@ -171,3 +180,7 @@ error and the fault is in the English.
    question, not the letter-name predicate, and item 1 above is the pass that
    owns it.
 4. **Re-measure one more locale** before treating 24.6% as an Arabic number.
+   Still open. Turkish has 1,815 glosses under the same maker charter and is
+   the obvious second. Note that item 1 changes what a re-run would measure:
+   236 of the English definitions those glosses were translated FROM have been
+   repaired, so a re-measurement should follow a re-seed, not precede it.

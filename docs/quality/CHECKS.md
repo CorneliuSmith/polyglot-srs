@@ -2353,3 +2353,58 @@ until the override file has been checked for the same headword.**
 **Cost.** Three vocabulary rows retired across three courses, two override
 rows deleted. `reconcile` will report the three as departed with an exclusion
 already in place, which is the shape rule 73 requires.
+
+## §42 The card with no definition anywhere (19 Sep 2026)
+
+**What it measures.** Nothing yet — this is the finding, and the guard is the
+work it names. A vocabulary row whose committed definition is blank AND whose
+headword `wordnet_sense.best_synset` cannot resolve ships a card with an empty
+definition. English only, because English is the one course whose definitions
+are resolved at seed time rather than committed (`seed_english.py`: "WordNet
+still resolves anything the file leaves blank").
+
+**Measured on the rows production serves, 19 Sep 2026:**
+
+| | n |
+|---|---:|
+| English rows with a blank committed definition | 1,231 |
+| ...that `best_synset` also cannot fill | **1,231 (12.4% of the course)** |
+| tokenizer shrapnel (`comin`, `thinkin`, `argh`, 1–3 letters) | 231 |
+| a real headword WordNet does not carry — mostly given names | 1,000 |
+| in the top 2,000 | **0** |
+
+**Why every instrument was quiet.** `wrong_sense_gloss`, `circular_gloss` and
+`relation_only_gloss` all read the definition and skip a row whose definition
+is empty — the guard clause is `if not gloss: continue`, three times. A rule
+that inspects text cannot fire on the absence of text, so the emptiest cards in
+the corpus were the ones no rule could reach. `_audit_wrong_sense_glosses` even
+says English is out of scope "because its glosses are built at seed time",
+which is true of the *file* and not of the card.
+
+**Why it is all tail.** Zero in the top 2,000. Every pass this programme has
+run went top-down, so a defect that starts at rank 2,042 and runs to the end
+was never in a sampled band. Same shape as the relation-only class, which
+started at exactly rank 201 where Phase 2d stopped.
+
+**The treatment splits three ways and only one third is mechanical.**
+
+- **231 shrapnel rows** are a retirement: `comin`, `gettin`, `somethin`,
+  `thinkin`, `tryin` are one token each of a contraction the tokenizer split,
+  and `seed_english` already drops four of them by hand (`ain`, `isn`, `de`,
+  `mm`) — a list that should be a rule.
+- **~1,000 given names** are the owner's 25 Aug rule, whose criterion ("a name
+  with no English equivalent named, unanswerable from a definition") these meet
+  with room to spare: they have no definition at all. That rule was applied
+  once, to a table the owner read, and applying it to a thousand more rows is
+  their call, not a pass's.
+- **The residue** — `amongst`, `beside`, `toward`, `versus`, `whereas`,
+  `theirs`, `thee` — is a real gap: WordNet does not define function words, and
+  these are ordinary English a learner meets. 32 of them were given definitions
+  by the 19 Sep sense pass (`en-sense-2026-09-19.md` §5) and the rest need the
+  same treatment.
+
+**The guard to write first** (quality rule 17): an `empty_definition` count per
+course in `audit_content`, resolved through the same `best_synset` the seeder
+uses so it measures the card and not the file, report-level until the three
+treatments above have run and fail-level after. Writing it before the repair is
+the point — the repair is 1,200 rows and will take a decision.
