@@ -264,11 +264,16 @@ the verdicts it bought.
 
 ### 4. Two things measured and deliberately left for you
 
-- **~1,000 English cards are personal names with no definition at all**, and
-  another ~231 are tokenizer shrapnel (`comin`, `thinkin`, `argh`): 1,231 rows,
-  12.4% of the course, none in the top 2,000 (CHECKS §42). They meet your
-  25 Aug retirement criterion with room to spare, but that rule was applied
-  once to a table you read, and retiring a thousand more rows is your call.
+- **1,231 English headwords are absent from the course entirely** — nothing
+  can define them, so the seeder skips the row and the word never becomes a
+  card (0 of the 1,231 are in production; CHECKS §42). Classified: **948 are
+  proper nouns** (730 given names, 154 surnames, 51 other, 13 places), 100 are
+  tokenizer fragments, 58 unsure, and 125 were ordinary words — **90 of which
+  now have definitions and will appear as NEW cards at your next
+  `seeder.run -l en`** (`via`, `etc`, `café`, `coworker`, `whichever`…).
+  The 935 names meet your 25 Aug criterion; the decision is smaller than it
+  sounds, because none of them is a card today — it is whether to add
+  exclusions so they stop counting as a gap, not whether to delete content.
 - **The Arabic gloss divergence (24.6%) has not been re-measured.** Repairing
   the English definitions removes the upstream cause but does not rewrite the
   glosses; a re-run should follow a re-seed, not precede it.

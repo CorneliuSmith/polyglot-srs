@@ -1,4 +1,4 @@
-# The 1,231 English cards with no definition, classified (19 Sep 2026)
+# The 1,231 English headwords the course never taught, classified (19 Sep 2026)
 
 `CHECKS.md` §42 measured the class and named its three treatments without
 knowing their sizes — the split there was a regex guess. This is the
@@ -6,10 +6,19 @@ measurement, and the one treatment that needed no decision, applied.
 
 ## 1. What the rows are
 
-Every English row that ships a card with **no definition at all**: blank in the
-committed file, unresolvable by `wordnet_sense.best_synset`, minus
-`seed_english`'s own noise list. 1,231 rows, every one past rank 2,000, none of
-them carrying even a part of speech — the extractor gave up on these entirely.
+Every English frequency row that **nothing can define**: blank in the committed
+file, unresolvable by `wordnet_sense.best_synset`, minus `seed_english`'s own
+noise list. 1,231 rows, every one past rank 2,000, none carrying even a part of
+speech — the extractor gave up on these entirely.
+
+**They are not cards. They are absent.** This page first called them "cards
+with no definition"; checked against production afterwards, **0 of the 1,231
+are in `vocabulary`** (which holds 9,062 English rows). `seed_english` appends
+an unresolvable row to `unglossed` and `continue`s, so the word never reaches
+the course. A learner cannot meet `via`, `etc`, `café` or `coworker` at all —
+which makes the finding worse than stated and the repair cheaper, because the
+90 definitions below **add 90 cards** rather than fixing 90, and the proper
+nouns are rows to stop counting as a gap rather than cards to delete.
 
 Classified in session, maker–checker, **no API key spent**: 31 agents at 40
 rows each, then an independent checker on every row proposed as definable.
@@ -30,7 +39,7 @@ rows each, then an independent checker on every row proposed as definable.
 criterion. That is the number the owner's decision needs, and it is now
 measured rather than estimated.
 
-## 2. What was applied: 90 definitions
+## 2. What was applied: 90 words the course did not teach
 
 Of the 125 rows classified as ordinary words or interjections at confidence
 ≥ 0.7, **100 reached the checker and 90 survived it**; the checker judged 2
@@ -38,7 +47,8 @@ not definable after all and the rest fell below the confidence floor either
 side. Every one then passed the sense pass's mechanical gates
 (`scripts/apply_en_sense_fixes.py`).
 
-These are not obscure. A learner meets all of them:
+These are not obscure, and until this lands a learner cannot meet any of them
+in the English course:
 
 | | |
 |---|---|
@@ -54,7 +64,8 @@ These are not obscure. A learner meets all of them:
 | `heck`, `blimey`, `golly`, `oops`, `shhh`, `erm` | ordinary interjections a spoken corpus ranks high and no dictionary path reached |
 
 **The count the guard reports fell from 1,231 to 1,141**, which is the check
-that these landed: `empty_definition` reads the rows production serves.
+that these landed. It will show as 90 NEW rows the next time the owner runs
+`seeder.run -l en` — nothing changes in production until then.
 
 **Each row gained a part of speech as well as a definition**, because these
 rows had none. `seed_english` treats an override's `pos` as *pinned* — a
@@ -65,8 +76,12 @@ bare `via` would otherwise relabel it.
 
 - **The 948 proper nouns.** The 25 Aug rule retires a name "with no English
   equivalent named, unanswerable from a definition", and these have no
-  definition at all, so they meet it with room to spare. But that rule was
-  applied once, to a table the owner read, and 935 more rows is their decision.
+  definition at all, so they meet it with room to spare. The decision is
+  smaller than it first looked: none of them is a card, so this is not
+  deleting learner-facing content but adding exclusions so they stop being
+  counted as a gap — the treatment `seed_english`'s own comment recommends.
+  It is still the owner's, because the rule was applied once to a table they
+  read.
   **The 13 place names stay regardless** — the same rule keeps places "whatever
   the spelling", on the owner's reasoning that a learner needs to recognise the
   word is the same but said differently.

@@ -23,6 +23,12 @@ uv.lock
 .env
 .env.local
 .env.*.local
+# ...and any other .env the work makes. A copy of production's .env, taken to
+# run one read-only query, was committed on 19 Sep 2026 because the three
+# lines above do not match `.env.prod`. It never left this machine, and the
+# rule is now the whole family.
+.env.*
+!.env.example
 
 # Testing
 .pytest_cache/
