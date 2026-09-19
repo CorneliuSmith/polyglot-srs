@@ -1018,13 +1018,19 @@ SEEDER_NOISE = frozenset({"ain", "isn", "de", "mm"})
 
 
 def _audit_empty_definitions(code: str) -> list[str]:
-    """Rows that would ship a card with NO definition at all (CHECKS §42).
+    """Rows the seeder cannot teach, because nothing can define them (§42).
 
-    Report-level. Measured 19 Sep 2026: **1,231 rows, 12.4% of the English
-    course**, and zero in the other 26 — so its target is zero everywhere and
-    it is reported only because the English repair is ~1,200 rows and takes an
-    owner decision (the 25 Aug name rule), not because the number is
-    defensible.
+    NOT a blank card — there is no card. `seed_english` appends such a row to
+    `unglossed` and `continue`s, so the word never reaches `vocabulary` at
+    all: verified against production 19 Sep 2026, **0 of the 1,231 are there**.
+    The rule measures a HOLE IN THE COURSE, which is why it is worth a number:
+    `via`, `etc`, `café` and `coworker` are not badly taught, they are absent.
+
+    Report-level. 1,231 rows on English and zero on the other 26, because
+    English is the only course whose definitions are resolved at seed time
+    rather than committed. Its target is zero everywhere; it is reported and
+    not scored because most of the class is proper nouns whose treatment is an
+    owner decision (the 25 Aug rule), not because the number is defensible.
 
     Why nothing caught this before: `wrong_sense_gloss`, `circular_gloss` and
     `relation_only_gloss` each open with `if not gloss: continue`. A rule that
@@ -1056,7 +1062,7 @@ def _audit_empty_definitions(code: str) -> list[str]:
     fillable = _wordnet_fillable(blank) if code == "en" else None
     note = "" if fillable is None else f" ({fillable} of these WordNet can fill)"
     return [
-        f"rank {rank} '{word}' has no definition at all{note}"
+        f"rank {rank} '{word}' cannot be defined, so the seeder skips it{note}"
         for rank, word, _ in sorted(blank)
     ]
 

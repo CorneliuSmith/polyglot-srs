@@ -2354,21 +2354,42 @@ until the override file has been checked for the same headword.**
 rows deleted. `reconcile` will report the three as departed with an exclusion
 already in place, which is the shape rule 73 requires.
 
-## §42 The card with no definition anywhere (19 Sep 2026)
+## §42 The headword the course cannot teach, so does not (19 Sep 2026)
 
-**What it measures.** Nothing yet — this is the finding, and the guard is the
-work it names. A vocabulary row whose committed definition is blank AND whose
-headword `wordnet_sense.best_synset` cannot resolve ships a card with an empty
-definition. English only, because English is the one course whose definitions
-are resolved at seed time rather than committed (`seed_english.py`: "WordNet
-still resolves anything the file leaves blank").
+**What it measures.** A frequency row whose committed definition is blank AND
+whose headword `wordnet_sense.best_synset` cannot resolve. English only,
+because English is the one course whose definitions are resolved at seed time
+rather than committed (`seed_english.py`: "WordNet still resolves anything the
+file leaves blank").
+
+**It is a HOLE IN THE COURSE, not a blank card — corrected 19 Sep 2026 after
+checking production.** This section first said these rows "ship a card with no
+definition". They ship nothing: `seed_english` appends such a row to
+`unglossed` and `continue`s, so the word never reaches `vocabulary`. Verified
+against production: **0 of the 1,231 are there**, out of 9,062 English rows.
+`via`, `etc`, `café`, `coworker`, `whichever` are not badly taught — they are
+**absent from the English course**, and a learner cannot meet them at all.
+
+That correction cuts both ways and both directions matter. It makes the
+finding *worse*: a missing word is a bigger defect than a thin definition, and
+none of it was visible to a learner-facing report because there is no card to
+report. It makes the repair *cheaper*: the 90 definitions added on 19 Sep add
+90 new cards rather than fixing 90 bad ones, and the ~935 proper nouns are not
+cards to retire but rows to stop counting as a gap — a far smaller decision
+than deleting learner-facing content.
+
+The mistake is the one this programme has a rule for: it measured the file and
+called the result production (quality rule 29, and the `relation_only` work
+which says in as many words "measure in production, never the frequency
+file").
 
 **Measured on the rows production serves, 19 Sep 2026:**
 
 | | n |
 |---|---:|
 | English rows with a blank committed definition | 1,231 |
-| ...that `best_synset` also cannot fill | **1,231 (12.4% of the course)** |
+| ...that `best_synset` also cannot fill, so the seeder skips them | **1,231** |
+| ...of those, present in production | **0** (of 9,062 English rows) |
 | tokenizer shrapnel (`comin`, `thinkin`, `argh`, 1–3 letters) | 231 |
 | a real headword WordNet does not carry — mostly given names | 1,000 |
 | in the top 2,000 | **0** |

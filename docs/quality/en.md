@@ -203,13 +203,16 @@ five mechanical gates.
 
 The full record, both judges' reasoning per row, and the two classes the pass
 deliberately did not fix are in `en-sense-2026-09-19.md`. The larger of those:
-**1,231 English cards (12.4%) have no definition anywhere in production** —
+**1,231 English headwords are absent from the course** — nothing can define
+them, so the seeder skips them entirely (0 of the 1,231 are in production) —
 blank in the file and unresolvable by WordNet — none of them in the top 2,000.
 `CHECKS.md` §42.
 
-## The cards that had no definition at all (19 Sep 2026)
+## The headwords the course never taught (19 Sep 2026)
 
-All 1,231 classified maker–checker: **948 are proper nouns** (730 given names,
+Nothing can define these, so `seed_english` skips them and the word never
+reaches `vocabulary` — verified against production, 0 of 1,231 present. All
+1,231 classified maker–checker: **948 are proper nouns** (730 given names,
 154 surnames, 51 other, 13 places), 100 are tokenizer fragments or
 misspellings, 58 unsure — and **125 are ordinary English words or
 interjections that simply had no dictionary path**. 90 of those were defined

@@ -545,6 +545,14 @@ rate, say so — that result matters more than the phase closing quietly.
     climbed every night a row was re-judged. Anything added to a scope goes
     into both, and the cheap test asserts the two queries share the scope, not
     that a number looks right.
+78a. **A committed TSV is the seeder's INPUT, not what shipped. Query the
+    database before writing down what a learner sees.** 1,231 English rows
+    with no resolvable definition were written up in five places as "cards
+    with no definition"; production had none of them as cards at all — the
+    seeder `continue`s past a row it cannot define, so they are missing words,
+    not thin ones. Second time this class has shipped (see rule 29 and the
+    relation-only work's "measure in production, never the frequency file").
+    One read-only query is the whole cost.
 78. **A rule that inspects text cannot fire on the absence of text.** Three
     English definition rules guard with `if not gloss: continue`, so the 1,231
     cards (12.4%) with no definition at all were the ones no rule could reach.
