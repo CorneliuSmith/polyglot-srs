@@ -2373,35 +2373,53 @@ still resolves anything the file leaves blank").
 | a real headword WordNet does not carry — mostly given names | 1,000 |
 | in the top 2,000 | **0** |
 
-**Why every instrument was quiet.** `wrong_sense_gloss`, `circular_gloss` and
-`relation_only_gloss` all read the definition and skip a row whose definition
-is empty — the guard clause is `if not gloss: continue`, three times. A rule
-that inspects text cannot fire on the absence of text, so the emptiest cards in
-the corpus were the ones no rule could reach. `_audit_wrong_sense_glosses` even
-says English is out of scope "because its glosses are built at seed time",
-which is true of the *file* and not of the card.
+**This class was already known, and this is a re-measurement of it.**
+`seed_english` logs every headword WordNet cannot resolve, and DEBT.md has
+carried the count since that logging went in: **1,389 headwords, of which the
+125 inside the top 2,000 were fixed** (66 glossed by hand, 59 excluded as
+contraction debris, given names or abbreviations) **and the remaining 1,264
+were deferred** — "work them when a course reaches that depth". The 1,231
+measured here is that backlog today. Nothing was discovered; what is new is
+that the number is now produced by the audit instead of by reading a log, and
+that it is expressed as a share of the course.
+
+**Why no CHECK saw it, which is the part worth carrying.**
+`wrong_sense_gloss`, `circular_gloss` and `relation_only_gloss` all read the
+definition and skip a row whose definition is empty — the guard clause is
+`if not gloss: continue`, three times. A rule that inspects text cannot fire on
+the absence of text, so the emptiest cards in the corpus were the ones no rule
+could reach, and the only thing counting them was a seeder warning nobody reads
+after a seed run. `_audit_wrong_sense_glosses` even says English is out of
+scope "because its glosses are built at seed time", which is true of the *file*
+and not of the card.
 
 **Why it is all tail.** Zero in the top 2,000. Every pass this programme has
 run went top-down, so a defect that starts at rank 2,042 and runs to the end
 was never in a sampled band. Same shape as the relation-only class, which
 started at exactly rank 201 where Phase 2d stopped.
 
-**The treatment splits three ways and only one third is mechanical.**
+**The treatment splits three ways, and the split is now measured** rather than
+guessed from word shape (`en-blank-definitions-2026-09-19.md`, all 1,231 rows
+classified maker–checker):
 
-- **231 shrapnel rows** are a retirement: `comin`, `gettin`, `somethin`,
-  `thinkin`, `tryin` are one token each of a contraction the tokenizer split,
-  and `seed_english` already drops four of them by hand (`ain`, `isn`, `de`,
-  `mm`) — a list that should be a rule.
-- **~1,000 given names** are the owner's 25 Aug rule, whose criterion ("a name
-  with no English equivalent named, unanswerable from a definition") these meet
-  with room to spare: they have no definition at all. That rule was applied
-  once, to a table the owner read, and applying it to a thousand more rows is
-  their call, not a pass's.
-- **The residue** — `amongst`, `beside`, `toward`, `versus`, `whereas`,
-  `theirs`, `thee` — is a real gap: WordNet does not define function words, and
-  these are ordinary English a learner meets. 32 of them were given definitions
-  by the 19 Sep sense pass (`en-sense-2026-09-19.md` §5) and the rest need the
-  same treatment.
+| class | n | treatment |
+|---|---:|---|
+| given name, surname, other proper noun | 935 | the owner's 25 Aug rule |
+| place name | 13 | **kept** — that rule keeps places whatever the spelling |
+| ordinary word + interjection | 125 | **defined; 90 applied 19 Sep** |
+| fragment + misspelling | 100 | retirement candidate |
+| unsure | 58 | routed to a human |
+
+**77% of the class is proper nouns**, which is the number the owner's decision
+needs. The definable tenth was the part that needed nobody: `via`, `etc`,
+`aka`, `café`, `fiancé`, `coworker`, `whichever`, `thy`, `thine` and the
+ordinary interjections a spoken corpus ranks high and no dictionary path
+reaches. That took the count to **1,141**.
+
+The earlier estimate in this section — "231 shrapnel, ~1,000 names, a residue"
+— came from a regex over word shape and was wrong in both directions: the junk
+is 100, not 231, and the definable residue is 125, not a handful. A shape
+heuristic sorts `nothin` from `amongst` and cannot sort `stan` from `sarge`.
 
 **The guard, written before the repair** (quality rule 17).
 `empty_definition` in `audit_content`, report-level, reporting 1,231 on English
