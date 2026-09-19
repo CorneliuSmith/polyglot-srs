@@ -407,6 +407,52 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
+- **An exactly-closed path disappears from the stroke library.** `rdp()`
+  in `gen_from_fonts.py` simplifies a path against the straight line from
+  its first point to its last; when those are the same point there is no
+  line, every point measures zero from it, and the path collapses to two
+  points, which the dedupe then drops. `extract` sees no ink and returns
+  `None`, so the letter is **absent** rather than wrong — о and О
+  silently left the library for one regeneration this way, and the only
+  symptom was a denominator two smaller than it should have been. Any
+  code that closes a ring must leave it open by one step, as the walk
+  itself does. Fixing `rdp` to handle the degenerate case would be
+  better than remembering this, and nobody has.
+- **Uppercase B is drawn as two bowls, and no amount of reordering fixes
+  it.** The owner spotted it by eye: a taught B is a stem down, then the
+  two bowls; ours is the upper bowl and the lower bowl, with the stem
+  absorbed into whichever bowl the thinned skeleton attached it to.
+  `fit_taught` permutes and flips a letter's strokes to match the taught
+  order, which is why the letters around B improved, but a permutation
+  of two bowls can never produce a stem — this is a **segmentation**
+  defect, in `trace_component`/`chain`, not an ordering one. It is also
+  invisible to the zone check twice over, because both taught B strokes
+  run top-left → baseline-left, so even the right answer scores the same
+  as the wrong one. Fix: cut at the junction where the bowls meet the
+  stem rather than running through it, which is the reverse of what
+  `runs_on` was added to do — expect them to fight. Related: Devanagari
+  scores 3 of 43 letters fully right for the same reason, its headline
+  being walked as part of the body.
+- **The rules gate's floors are a ratchet, and a ratchet can seize.**
+  `TestAgainstTheSourcedRules` fails below the score the library gets
+  today. That is the point — a regeneration that loses ground turns CI
+  red — but it also means an experiment that trades three Greek letters
+  for ten Arabic ones fails CI on the Greek floor even though it is a
+  clear net win. The floors are per table on purpose so that trade is
+  *visible* rather than averaged away, but whoever hits it should move
+  the floor and say what was traded in the pull request, not delete the
+  assertion. Two floors are so low they are barely a gate (Devanagari 3
+  of 43, Thai 17 of 44 with 20 of 49 strokes); they still catch a
+  regeneration that breaks the script entirely.
+- **56 accented Latin *print* rules were lost and never re-requested.**
+  The second part of the first Gemini run — á à â ä ã å ç é è ê ë í ì î ï
+  ñ ó ò ô ö õ ú ù û ü ý ÿ and their capitals — was pasted into a session
+  that ran out of context before it was written to disk, so it is not in
+  `scripts/strokes/rules/latin-print.jsonl`. Every other script's table
+  is complete. Those letters are therefore ungated: the generator will
+  happily regress é without any test noticing. Fix: one more run of the
+  brief in `docs/quality/letterforms/gemini-brief.md` asking for exactly
+  that list, then `ingest_rules.py`.
 - **Turkish's dotted capital İ is not a library entry, and its i is wrong.**
   `LATIN_EXTRAS` gives Turkish its dotless ı, but the library keys a form
   on a *lowercase* glyph and derives the upper with `.upper()`, which is
@@ -1895,20 +1941,3 @@ of canned fixtures). It also records the standing verdict that checkers and
 learner-facing tasks never move to a local model, so that question stops
 being re-opened. If any of it is built, the `§9.1` sketch is the seam and
 this entry shrinks to whatever is still unbuilt.
-
-### Native app store submission
-
-Both Capacitor shells (`frontend/android`, `frontend/ios`) build cleanly and
-share the one web bundle, but neither has been compiled with its real
-toolchain (no Xcode/Android SDK in CI), and several submission blockers are
-still open: no app icons/splash generated from the PWA source assets, no
-signing (distribution cert, provisioning profile, Play keystore), missing
-usage-string entries (`NSMicrophoneUsageDescription` for the tutor's audio
-recording, `RECORD_AUDIO` in the Android manifest), and deep-link domain
-association files not yet served from the API host. Full list:
-`docs/native-apps.md`. None of this is surprising or hidden — it's just work
-that genuinely needs a macOS machine and developer accounts, not something
-an agent session can close out.
-
----
-

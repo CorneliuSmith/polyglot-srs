@@ -1175,12 +1175,15 @@ and the UI skin already used. Signing out clears the cache.
 **The library is now measured, not just looked at.** A *rules table* —
 one row per (script, style, glyph, form) from a teaching source, in
 `scripts/strokes/rules/{script}-{style}.jsonl` — says how many strokes a
-letter has and where the first one starts.
-`scripts/strokes/check_rules.py` compares the generated library against
-it and prints every disagreement. The first table (Latin print,
-Zaner-Bloser, 19 Sep) put the library at **29 of 57 letters with the
-taught stroke count and 41 of 57 starting in the taught place** — the
-first number for this that is not another guess. Stroke *count* is the
+letter has and, for **each** stroke, which ninth of the letter it starts
+and ends in. `scripts/strokes/check_rules.py` compares the generated
+library against it and prints every disagreement. The first table
+(Latin print, Zaner-Bloser, 19 Sep) put the library at **29 of 57
+letters with the taught stroke count and 41 of 57 starting in the taught
+place** — the first number for this that is not another guess. (Those
+two numbers are what the *first* checker measured; it scored only
+stroke 1, and the honest whole-letter figure came later — see the
+rewrite note further down.) Stroke *count* is the
 hard half: where a school model teaches one continuous movement with a
 retrace (b g h m n p q r), the walk splits at the junction; where it
 teaches separate strokes (I J M N P Q upper), the walk runs them
@@ -1301,10 +1304,88 @@ cut rather than bridging two parts a hand really does lift between.
 
 Across all ten sourced tables — 659 letters, every script the app
 teaches — stroke count goes from **393 to 465**, and no script gets
-worse. Where the first stroke *starts* is all but unchanged (439→437),
-as it must be: neither operation moves the first point. Where it *ends*
-improves (333→347). The two columns Devanagari loses are the ones to
-look at on the contact sheet first.
+worse. Neither operation moves a letter's first point, so neither can
+fix a letter drawn in the wrong order. That took a third one.
+
+**`fit_taught` is an assignment problem, not a heuristic.** Once a
+letter has the right number of strokes, the remaining question is which
+of our strokes is the source's stroke 1, which is stroke 2, and whether
+each runs the way the source draws it. `fit_taught(strokes, taught)`
+answers it by search: try every permutation of our strokes, and each
+one forwards and reversed, and keep the arrangement whose start and end
+zones mismatch the taught from→to the least. Exhaustive up to seven
+strokes (5,040 permutations × 2^7 flips is nothing), greedy above.
+
+Flipping a stroke is safe because nothing downstream depends on stroke
+order or direction for geometry: `joins.entry` and `joins.exit` are
+derived from the **ink** — the leftmost and rightmost skeleton points —
+not from which end the walk happened to start at. That is the property
+that makes a whole-letter re-arrangement a local change.
+
+It moved the honest score — letters where **every** stroke is right —
+from **133 of 659 to 222**, and strokes right from 545 to 813 of 1355,
+with every table improving and none regressing. The biggest movers are
+the print scripts with many multi-stroke letters: Cyrillic print 10→32,
+Greek 12→32, Latin print 27→45, Hangul 9→17. A third operation (below)
+took the total to **227 of 659** and 818 of 1355.
+
+**A ring's starting point needed a third operation.** `fit_taught`
+chooses which stroke goes first and which way each runs, but a closed
+ring is the same ring from either end — only *rotation* moves where the
+pen touches down on it. Where our walk touched down was wherever the
+trace happened to enter the loop, which is not a fact about the letter;
+where a teacher starts it (a Russian о at two o'clock, taken
+anticlockwise) is. `start_ring_where_taught` rotates a closed stroke's
+point list to begin nearest the taught zone, with half a zone of
+penalty for running the wrong way round, which is what stops a bowl
+being drawn backwards on a tie.
+
+It only touches a ring that **stands alone**. The first version rotated
+any closed stroke and immediately cost as much as it gained: Р's bowl
+closes against the stem, so where it starts is set by the join and was
+already right, and rotating it broke the letter. A ring that shares a
+JUNCTION-sized cell with another stroke is left exactly where it is.
+Net, across all ten tables, five more letters fully right — small, and
+the right five: o, о, ο and the letters built on them.
+
+Two traps are worth remembering, because both cost an hour. A rotated
+ring must be left **open by one step**, not closed back onto its first
+point: `rdp` simplifies a path against the line from its first point to
+its last, and when those are the same point there is no line — it
+collapses the path to two points, `extract` finds no ink, and the letter
+vanishes from the library entirely rather than looking wrong. And the
+"does this ring touch another stroke" test is quadratic in the length of
+a traced outline if written as a distance between every pair of points;
+it is a set intersection over a grid of cells instead.
+
+**What none of them can do is re-cut a letter.** The owner's B is the clearest
+case: ours is two bowls, because that is how the thinned outline
+separates, and the taught B is a stem and then the bowls. No
+permutation of two bowls yields a stem. Devanagari's 3 of 43 is the
+same shape of problem at scale — its letters hang from a headline our
+walk draws as part of the body. Those are segmentation defects; they
+need the walk to cut differently, not the fitter to shuffle.
+
+**The score is a ratchet in CI.** `TestAgainstTheSourcedRules` in
+`backend/tests/test_strokes.py` runs the checker over all ten tables on
+every run and fails below a per-table floor. Two things make it useful
+rather than decorative. The floors are the numbers the library scores
+**today**, so a regeneration that quietly loses ground turns CI red
+instead of merging. And a second test lists every sourced letter the
+library does not carry, against a named allow-list — an absent letter
+scores nothing and would otherwise hide that it scores nothing. There
+is exactly one entry in that list today (Turkish İ; `DEBT.md` says
+why).
+
+**The checker itself had to be rewritten before any of this was
+measurable**, and that is the lesson worth keeping. Its first version
+scored only each letter's **first** stroke, and allowed an adjacent
+zone as a match. It reported numbers that went up while three letters
+the owner could see with his eyes were plainly wrong: B drawn
+bowls-first (both orders start top-left, so stroke 1 passed), a ending
+mid-letter going up, d starting at the stem. A metric that measures one
+part of N, loosely, will report progress through a regression. Score
+the whole thing or do not claim to have scored it.
 
 **A face can be chosen by measurement.** `FONTS` holds one file per
 script and style, except Latin cursive, which holds a **chain** — each
