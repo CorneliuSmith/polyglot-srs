@@ -12,6 +12,7 @@ convention) gets switched off within a week, and then the real leaks go with it.
 """
 from __future__ import annotations
 
+from backend.services.quality import audit_content as ac
 from backend.services.quality.audit_content import (
     DATA,
     FAIL_RULES,
@@ -415,6 +416,107 @@ class TestWrongSenseGloss:
             report["code"]: report["findings"]["wrong_sense_gloss"]
             for report in audit_all(LANGUAGES)
             if report["findings"]["wrong_sense_gloss"]
+        }
+        assert not offenders, offenders
+
+
+class TestEmptyDefinition:
+    """A card with no definition at all — CHECKS §42.
+
+    The class every other definition rule is structurally unable to see:
+    `wrong_sense_gloss`, `circular_gloss` and `relation_only_gloss` each open
+    with `if not gloss: continue`, so the emptiest rows in the corpus were the
+    ones no rule could reach. Measured 19 Sep 2026: 1,231 English rows, 12.4%
+    of that course, none in the other 26, and not one inside the top 2,000 —
+    which is why every top-down pass missed them.
+    """
+
+    def _rows(self, monkeypatch, rows):
+        monkeypatch.setattr(ac, "_frequency_rows", lambda code: rows)
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: None)
+
+    def test_a_blank_definition_is_a_finding(self, monkeypatch):
+        self._rows(monkeypatch, [
+            {"rank": "2042", "word": "sean", "pos": "", "en": ""},
+            {"rank": "2043", "word": "house", "pos": "noun", "en": "a building"},
+        ])
+        found = ac._audit_empty_definitions("xx")
+        assert len(found) == 1 and "sean" in found[0]
+
+    def test_whitespace_is_blank(self, monkeypatch):
+        self._rows(monkeypatch, [{"rank": "1", "word": "w", "pos": "", "en": "   "}])
+        assert len(ac._audit_empty_definitions("xx")) == 1
+
+    def test_the_seeder_noise_list_is_not_a_card(self, monkeypatch):
+        """`seed_english` drops these four before they can become flashcards,
+        so counting them would report a defect nobody can meet. The lists have
+        to stay in step, which is why the constant names its source."""
+        self._rows(monkeypatch, [
+            {"rank": str(i), "word": w, "pos": "", "en": ""}
+            for i, w in enumerate(sorted(ac.SEEDER_NOISE), start=1)
+        ])
+        assert ac._audit_empty_definitions("en") == []
+
+    def test_findings_come_back_in_rank_order(self, monkeypatch):
+        self._rows(monkeypatch, [
+            {"rank": "900", "word": "later", "pos": "", "en": ""},
+            {"rank": "12", "word": "first", "pos": "", "en": ""},
+        ])
+        found = ac._audit_empty_definitions("xx")
+        assert "first" in found[0] and "later" in found[1]
+
+    def test_english_says_how_many_wordnet_could_fill(self, monkeypatch):
+        """For English a blank column is not automatically a blank card —
+        `seed_english` resolves one through WordNet at seed time. The note
+        says so; the COUNT is the committed blank either way, because a
+        number that moves with an optional corpus cannot be baselined."""
+        rows = [{"rank": "2042", "word": "sean", "pos": "", "en": ""},
+                {"rank": "2048", "word": "susan", "pos": "", "en": ""}]
+        monkeypatch.setattr(ac, "_frequency_rows", lambda code: rows)
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: 1)
+        found = ac._audit_empty_definitions("en")
+        assert len(found) == 2
+        assert all("(1 of these WordNet can fill)" in f for f in found)
+
+    def test_without_the_corpus_the_count_is_the_same(self, monkeypatch):
+        """Quality rule 16: CI often has no WordNet. The rule must report the
+        same NUMBER there as here, or a local run and a CI run disagree about
+        a rule nobody can then compare against a baseline."""
+        rows = [{"rank": "2042", "word": "sean", "pos": "", "en": ""}]
+        monkeypatch.setattr(ac, "_frequency_rows", lambda code: rows)
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: None)
+        without = ac._audit_empty_definitions("en")
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: 0)
+        with_corpus = ac._audit_empty_definitions("en")
+        assert len(without) == len(with_corpus) == 1
+        assert "WordNet" not in without[0] and "WordNet" in with_corpus[0]
+
+    def test_a_missing_corpus_never_raises(self, monkeypatch):
+        """It is a note on a line. An ImportError from an optional package
+        must not take the whole audit down with it."""
+        def boom(*_args, **_kwargs):
+            raise ImportError("no nltk here")
+        monkeypatch.setattr(
+            "backend.services.seeder.wordnet_sense.best_synset", boom, raising=False)
+        assert ac._wordnet_fillable([(1, "sean", "")]) in (None, 0)
+
+    def test_it_is_report_level_not_fail_level(self):
+        """Its target is zero, but the English repair is ~1,200 rows and needs
+        an owner decision (the 25 Aug name rule), so a threshold now would be
+        a number nobody could defend — the `gender_marking` argument."""
+        assert "empty_definition" in ac.REPORT_RULES
+        assert "empty_definition" not in FAIL_RULES
+        assert "empty_definition" in ac.ALL_RULES
+
+    def test_the_other_26_courses_are_clean(self):
+        """English is the only course whose definitions are resolved at seed
+        time rather than committed, and it is the only one with this defect.
+        This holds that line: a course that starts shipping blank definitions
+        shows up here rather than in a beta report."""
+        offenders = {
+            report["code"]: report["counts"]["empty_definition"]
+            for report in audit_all([c for c in LANGUAGES if c != "en"])
+            if report["counts"].get("empty_definition")
         }
         assert not offenders, offenders
 

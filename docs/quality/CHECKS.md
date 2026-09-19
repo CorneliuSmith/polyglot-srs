@@ -2403,8 +2403,22 @@ started at exactly rank 201 where Phase 2d stopped.
   by the 19 Sep sense pass (`en-sense-2026-09-19.md` §5) and the rest need the
   same treatment.
 
-**The guard to write first** (quality rule 17): an `empty_definition` count per
-course in `audit_content`, resolved through the same `best_synset` the seeder
-uses so it measures the card and not the file, report-level until the three
-treatments above have run and fail-level after. Writing it before the repair is
-the point — the repair is 1,200 rows and will take a decision.
+**The guard, written before the repair** (quality rule 17).
+`empty_definition` in `audit_content`, report-level, reporting 1,231 on English
+and 0 on the other 26. Two decisions in it are worth carrying:
+
+- **The count is the committed blank, not the resolved card.** For English a
+  blank is not automatically a blank card — the seeder resolves one through
+  WordNet — so the finding line says how many `best_synset` can fill (measured:
+  **none of the 1,231**) as a NOTE, never as part of the number. A rule whose
+  count moves with an optional corpus reports one thing here and another in CI,
+  and cannot be compared against a baseline (quality rule 16).
+- **It skips `seed_english`'s own noise list** (`ain`, `isn`, `de`, `mm`),
+  because a row the seeder never seeds is not a card and counting it would
+  report a defect nobody can meet. The two lists have to stay in step, which is
+  what `SEEDER_NOISE`'s comment says.
+
+Report-level rather than fail-level for the `gender_marking` reason: its target
+is zero, but the repair is ~1,200 rows and takes an owner decision, so a
+threshold set now would be a number nobody could defend. Promote it when
+English reaches zero.
