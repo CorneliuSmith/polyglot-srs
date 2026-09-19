@@ -1411,23 +1411,31 @@ Rule 1 says a defect found in one language is a class; this one has been
 fixed for Arabic only.
 
 
-## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
+## `wrong_sense` is a letter-name rule, and reads like a general one (19 Sep 2026)
 
-`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
-above it argues the case well: inside the first thousand every letter-name
-gloss is a function word wearing the wrong hat, and past it a word that names
-a letter usually is one. That reasoning is sound **for the letter-name and
-region-code patterns the rule actually matches**.
+**Both pieces of work this entry used to ask for are done; what remains is the
+misreading that caused it, which the name still invites.**
+`wrong_sense_gloss` matches two patterns — a letter name and a region code —
+and nothing else. It has repeatedly been read as though it covers wrong senses
+generally, including by a recommendation in this repo to lift its rank band
+(`en-sense-ar-gloss-2026-09-18.md` §5.3), which measurement then showed would
+have turned a fail-level rule red on five correct English rows (CHECKS §41).
 
-It has since been read as though the rule covers wrong senses generally. It
-does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
-sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
-`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
-letter name, so the rule would not fire even if the band were lifted.
+What closed each half:
 
-Two separate pieces of work, then: widening the band, and a rule that can see
-this class at all. Neither is done. See
-`docs/quality/en-sense-ar-gloss-2026-09-18.md`.
+- **The band.** Re-measured across every course at every rank: 8 hits, none
+  inside the band, five of them the protected class. The band is right. The
+  sub-class it hid — a headword that IS a letter — is now judged at any rank
+  (CHECKS §41).
+- **A rule that can see the general class.** `content_judge`'s `sense`
+  question, and ranks 2,001–6,000 of English judged in full on 19 Sep: 512
+  findings, 236 repaired (`en-sense-2026-09-19.md`).
+
+**What would remove this entry:** renaming the rule to what it matches
+(`letter_or_region_gloss`), which is a rename across `audit_content.py`,
+`data/quality/baseline.json`, `quality_loop.DRILL_RULES`, the panel's audit
+table and every doc that quotes the name — worth doing when something else is
+already touching that set, not on its own.
 
 ## The quality loop: what it does not do yet, and one shape to watch (18 Sep 2026)
 
@@ -1904,92 +1912,3 @@ an agent session can close out.
 
 ---
 
-## Naming / cosmetic
-
-### Product name
-
-`README.md` and the codebase call it PolyglotSRS throughout, including the
-committed bundle identifier `com.polyglotsrs.app` in both native projects.
-`docs/pricing-and-launch.md` argues for a rename before any app-store
-listing goes out (its case: "SRS" doesn't mean anything to the audience,
-"Polyglot" is the most crowded term in the category with no defensible
-trademark). Not urgent, but worth deciding before the native app work in the
-section above, since the bundle identifier is annoying to change after a
-store submission.
-
----
-
-## The Arabic register tripwire measures almost nothing (17 Sep 2026)
-
-`ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
-and it flags **one row** in the current 13,025-row `ar_sentences.tsv` — and
-that hit is in the `word` column, not the sentence: the headword `مش`, under
-a sentence that is ordinary MSA. Nothing in any sentence trips it.
-The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
-measured on the 14,671-row bank before the prune and with a wider list than
-the one in the code. Widening the code list to every tell in programme
-§1.1 raises it to 22 rows, of which 17 have only a documented *non-tell*
-(عم, دول, الحين) as their evidence.
-
-This is not a bug to fix by widening the tripwire — precision is already
-under 5% and the recall has never been measured. It is left as-is, on
-purpose, because it is cheap and it is not the instrument: the judge in
-`quality/register_pass.py` is. What is worth knowing is that **a green
-`ar_register` row in the audit is close to meaningless**, and nobody
-should read it as evidence the corpus is MSA. The audit rule stays so that
-an obvious regression (someone pasting Egyptian into the bank) still trips
-something.
-
-## The gold set's labels are not filled (17 Sep 2026)
-
-`data/eval/ar_register_gold.tsv` ships with `label`, `variety`, `evidence`
-and `note` blank by design — they are the reviewers' columns, and a
-pre-filled label is an anchor. Until two Arabic speakers fill them, the
-`--gold` gate in `register_pass.py` cannot report the §3.2 agreement figure
-against human labels, and it says so rather than inventing one.
-
-What exists in the meantime is `data/eval/ar_register_documented.tsv`: 56
-of the 614 items whose answer the programme document itself already
-asserts (the confirmed defects, the verified non-tells, the b-prefix rows,
-the MSA homograph entries). That is real ground truth and the judge is
-graded on it. It is not a substitute for the review — it contains no
-judgement call, which is exactly why it is safe and exactly why it is
-narrow.
-
-## The support locale is a register surface and was pinned late (17 Sep 2026)
-
-A learner's *support* locale — the language the app explains IN — is a
-register surface in its own right, and for most of this codebase's life
-nothing said so. Every call site pinned `register_line()` on the language
-being TAUGHT. For an Arabic speaker learning English that is English, which
-has no variety to pin, so the tutor's prompt carried no register rule at all
-while being told to "converse in Arabic".
-
-Fixed for `tutor.py` and `speak.py` (three sites). Already correct in
-`translate.py` and `define.py`, which pin the locale they write into.
-
-**What to watch:** `register_line` is keyed by language, and `REGISTER` has
-exactly one entry. Any other language with a standard variety — Persian
-(formal vs colloquial), Hindi, Greek, Tagalog — has the same hole in both
-directions, as a course and as a support locale, and none has been measured.
-Rule 1 says a defect found in one language is a class; this one has been
-fixed for Arabic only.
-
-
-## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
-
-`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
-above it argues the case well: inside the first thousand every letter-name
-gloss is a function word wearing the wrong hat, and past it a word that names
-a letter usually is one. That reasoning is sound **for the letter-name and
-region-code patterns the rule actually matches**.
-
-It has since been read as though the rule covers wrong senses generally. It
-does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
-sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
-`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
-letter name, so the rule would not fire even if the band were lifted.
-
-Two separate pieces of work, then: widening the band, and a rule that can see
-this class at all. Neither is done. See
-`docs/quality/en-sense-ar-gloss-2026-09-18.md`.
