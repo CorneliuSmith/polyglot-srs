@@ -2398,22 +2398,28 @@ run went top-down, so a defect that starts at rank 2,042 and runs to the end
 was never in a sampled band. Same shape as the relation-only class, which
 started at exactly rank 201 where Phase 2d stopped.
 
-**The treatment splits three ways and only one third is mechanical.**
+**The treatment splits three ways, and the split is now measured** rather than
+guessed from word shape (`en-blank-definitions-2026-09-19.md`, all 1,231 rows
+classified maker–checker):
 
-- **231 shrapnel rows** are a retirement: `comin`, `gettin`, `somethin`,
-  `thinkin`, `tryin` are one token each of a contraction the tokenizer split,
-  and `seed_english` already drops four of them by hand (`ain`, `isn`, `de`,
-  `mm`) — a list that should be a rule.
-- **~1,000 given names** are the owner's 25 Aug rule, whose criterion ("a name
-  with no English equivalent named, unanswerable from a definition") these meet
-  with room to spare: they have no definition at all. That rule was applied
-  once, to a table the owner read, and applying it to a thousand more rows is
-  their call, not a pass's.
-- **The residue** — `amongst`, `beside`, `toward`, `versus`, `whereas`,
-  `theirs`, `thee` — is a real gap: WordNet does not define function words, and
-  these are ordinary English a learner meets. 32 of them were given definitions
-  by the 19 Sep sense pass (`en-sense-2026-09-19.md` §5) and the rest need the
-  same treatment.
+| class | n | treatment |
+|---|---:|---|
+| given name, surname, other proper noun | 935 | the owner's 25 Aug rule |
+| place name | 13 | **kept** — that rule keeps places whatever the spelling |
+| ordinary word + interjection | 125 | **defined; 90 applied 19 Sep** |
+| fragment + misspelling | 100 | retirement candidate |
+| unsure | 58 | routed to a human |
+
+**77% of the class is proper nouns**, which is the number the owner's decision
+needs. The definable tenth was the part that needed nobody: `via`, `etc`,
+`aka`, `café`, `fiancé`, `coworker`, `whichever`, `thy`, `thine` and the
+ordinary interjections a spoken corpus ranks high and no dictionary path
+reaches. That took the count to **1,141**.
+
+The earlier estimate in this section — "231 shrapnel, ~1,000 names, a residue"
+— came from a regex over word shape and was wrong in both directions: the junk
+is 100, not 231, and the definable residue is 125, not a handful. A shape
+heuristic sorts `nothin` from `amongst` and cannot sort `stan` from `sarge`.
 
 **The guard, written before the repair** (quality rule 17).
 `empty_definition` in `audit_content`, report-level, reporting 1,231 on English
