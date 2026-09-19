@@ -86,12 +86,69 @@ quality is what the next band would need.
 but the pass could not confidently rewrite — mostly rows where the checker did
 not know the word and correctly said so rather than guessing.
 
-## 5. What this does not say
+## 5. Measured afterwards: 97.7%
 
-- **Not human review.** Maker–checker with mechanical gates. Every row's
+2,918 definitions shipped on two model opinions and a set of gates, with no
+human reading any of them. "Maker-checker" is not a precision figure, and rule
+30 says state verification honestly — so a **third** agent, shown the old and
+new definitions but neither earlier agent's reasoning, audited a 10% random
+sample (304 rows, every course, at least 12 each where they existed). It was
+told to expect errors and that a wrong "correct" is worse for the measurement
+than an honest "unsure".
+
+| verdict | n |
+|---|---:|
+| correct | 296 |
+| wrong inflected form | 4 |
+| shape | 2 |
+| wrong meaning | 1 |
+| unsure | 1 |
+
+**97.7% precision on the 303 rows it was willing to judge** (95% CI roughly
+95–99%). Projected over the pass: around 70 of the 2,918 carry a defect of some
+kind, and about 10 a wrong meaning.
+
+**All seven problems share one cause, and it is a rule this pass did not
+have.** The charter told the maker to make the meaning match the FORM. It did
+not tell it to leave the card's stored RELATION alone — so where the stored
+relation was ambiguous or wrong, the model helpfully re-analysed it, and
+sometimes re-analysed it into a different lexeme:
+
+- `es cree` / `creen` — the card records a present subjunctive, which for
+  *creer* would be `crea`/`crean`; `cree`/`creen` as subjunctives belong to
+  *crear* "to create". The repair read them as *creer*'s indicative and glossed
+  "he/she believes".
+- `el κινητό` — recorded as the accusative masculine of the adjective
+  *κινητός* "movable"; the repair led with the substantivised neuter noun,
+  "mobile phone".
+- `tr köpeği`, `kralı` — the repair widened the relation to "accusative or
+  3rd-person possessive" and glossed only the accusative, so a learner meeting
+  the possessive ("his/her dog") is misled.
+- `pt façam` — a subjunctive glossed with indicative English.
+- `it preoccupi` — a usage example smuggled into the parenthesis.
+
+**Four were corrected.** Three were not, and the reason is worth keeping: for
+`es cree`, `es creen` and `el κινητό` the card's stored relation and the sense
+a learner actually meets **genuinely disagree**. At rank 438 Spanish `cree` is
+overwhelmingly "he/she believes"; the stored relation says it is a subjunctive
+of *crear*. Restoring the stored reading would make the card correct about
+morphology and useless about meaning. Both readings are recorded in
+`data/eval/relation_only_audit_2026-09-19.jsonl`; this is a call for a human
+who can say which word the card is meant to teach.
+
+**The rule for next time** (now quality rule 81): a repair glosses the form the
+card names. It does not re-analyse the relation — and when the relation looks
+wrong, that is a finding to report, not a thing to quietly fix, because
+changing it changes which word the card teaches.
+
+## 6. What this does not say
+
+- **Not human review.** Maker–checker with mechanical gates, measured at
+  **97.7%** by an independent third pass over 10% of it (§5). Every row's
   rewrite, the checker's verdict and reasoning, and whether it was applied are
   in `data/eval/relation_only_repair_2026-09-19.jsonl` — 3,072 rows, one per
-  line (quality rule 30).
+  line — and the audit in `relation_only_audit_2026-09-19.jsonl` (quality
+  rule 30).
 - **Nothing is live.** These are `gloss_overrides.tsv` rows; they reach
   learners at the owner's next `reconcile --apply` / `seeder.run`.
 - **The meanings are a model's.** The confidence floor was 0.7 on both sides

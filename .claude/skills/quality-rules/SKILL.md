@@ -575,6 +575,21 @@ rate, say so — that result matters more than the phase closing quietly.
     row). Recall is cheap to buy and precision is what a report-level rule
     spends when nobody trusts it.
 
+81. **A repair glosses the form the card names; it does not re-analyse the
+    card.** All seven defects an independent audit found in 2,918 repaired
+    definitions had one cause: where the stored grammatical relation was
+    ambiguous or wrong, the model helpfully corrected it — sometimes into a
+    different lexeme (Spanish `cree` moved from a subjunctive of *crear* to an
+    indicative of *creer*). A wrong relation is a FINDING to report, not a
+    thing to fix in passing, because changing it changes which word the card
+    teaches.
+82. **Two models agreeing is not a precision figure.** 2,918 definitions
+    shipped on maker-checker; a third pass over a 10% sample put it at
+    **97.7%**, which is the number that belongs in the write-up and the one
+    that says ~70 rows still carry a defect. Sample your own output with an
+    agent that has seen neither earlier opinion, and tell it a wrong "correct"
+    costs more than an honest "unsure".
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
