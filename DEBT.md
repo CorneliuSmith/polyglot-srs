@@ -407,13 +407,23 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
-- **A Latin-script course's stroke library is a–z only.** `alphabet_for`
-  gives Spanish, Turkish, Yoruba and the rest the 26 base letters; their
-  own letters and marks (ñ ç ß ğ ş ı ă ș ț; Hausa ɓ ɗ ƙ; Yoruba ẹ ọ ṣ)
-  are not in the grid, so nobody can author them. The alphabet decks
-  cover only the non-Latin scripts, which is where the list came from.
-  Fix: a per-language extras table in `services/scripts.py`, or read the
-  letters the course's own sentences use, as the baseline coverage does.
+- **Turkish's dotted capital İ is not a library entry, and its i is wrong.**
+  `LATIN_EXTRAS` gives Turkish its dotless ı, but the library keys a form
+  on a *lowercase* glyph and derives the upper with `.upper()`, which is
+  language-blind: Turkish pairs i↔İ and ı↔I, everyone else i↔I. So a
+  Turkish learner drilling the upper form of i is shown I, not İ. This
+  predates the extras table — Turkish has always had a–z — and the extras
+  table does not fix it. Fix: a per-course uppercase override consulted by
+  `shaped_text` in the generator and by whatever draws the Learn panel, or
+  make İ its own row. Small and real; nobody has asked for it yet.
+- **Dancing Script has no Hausa hooked letters (ɓ ɗ ƙ ƴ) or ṣ.** The Latin
+  *cursive* bundle therefore has no provisional strokes for those five, and
+  Hausa and Yoruba learners see the font-guided fallback for them in
+  cursive while every other letter has a template. The generator prints a
+  `skip` line per missing glyph rather than rendering the face's .notdef
+  box — a box thins into a plausible four-stroke letter and would have
+  shipped silently. Fix: a cursive face with African Latin coverage, or
+  hand-authored strokes for the five in the Workshop.
 - **The matcher's tolerances are set by hand, not tuned on real ink.**
   Trace 0.16 and Write 0.10 of the box (`LettersMode.tsx`) came from the
   matcher's own tests on synthetic strokes; the plan's Phase 0 spike —
@@ -483,7 +493,7 @@ reader of the plan would expect to find built, and will not:
   font files are fetched from Google's and Noto's GitHub releases into
   the dir, none is checked in), then look at the contact sheets before
   trusting a change. Rows go out through a **new** migration each time
-  (`--migration <name>`; 20261023, 20261025, 20261026, 20261027, 20261028 so far) — the
+  (`--migration <name>`; 20261023 and 20261025–20261029 so far) — the
   upsert is guarded on `source = 'provisional'`, so a speaker's form is
   never overwritten, but a migration must not be edited once pushed.
   On the client the bundle overrides provisional rows anyway, so the
@@ -514,6 +524,85 @@ reader of the plan would expect to find built, and will not:
   `START_OVERRIDES` table per (script, glyph, form) — the walk already
   takes a forced start and first step (`second`), so it is data, not
   code.
+- **Half the Latin print library has the wrong stroke count.** Measured
+  against the first sourced rules table (`scripts/strokes/check_rules.py
+  latin print`): 29 of 57 letters agree on how many strokes, 41 of 57 on
+  where the first one starts. The two failure shapes are opposite — the
+  walk *splits* where a school model teaches one continuous movement
+  with a retrace (b g h m n p q r lower), and *runs together* where the
+  model lifts the pen (I J M N P Q upper). Neither is fixable by another
+  global rule; both need the rules table to state the split
+  (`docs/plans/letterform-quality.md`, Tier 1). The other nine runs of
+  the brief are not yet in, so every other script is still unmeasured.
+- **Russian cursive has no propisi face available, and the search is
+  done.** Against the 66-letter propisi table Marck Script agrees with
+  the taught stroke count on 28, starts in the taught place on 35, ends
+  there on 28, and writes 15 letters in one movement where the table
+  says 41. Five OFL Cyrillic handwriting faces were scored against it on
+  19 Sep (Caveat, Bad Script, Neucha, Pangolin and Marck itself) and
+  **none beat it** — the numbers are in
+  `docs/plans/letterform-quality.md`. Caveat and Neucha write more
+  letters in one stroke but agree on count less, so the columns
+  disagree and the library was left alone. Everything on Google Fonts
+  with Cyrillic handwriting is a display or casual script, not the
+  propisi a Russian child copies. Do not re-run this search on Google
+  Fonts; the next move is a face from outside that catalogue, or
+  drawing one.
+- **Latin cursive is drawn by two faces, and they do not share an
+  x-height.** Edu NSW ACT Foundation, an Australian state school
+  handwriting model, draws a-z and A-Z; it measures far better than the
+  Dancing Script it replaced (32/52 on stroke count against 19, and 31
+  letters in one stroke against 14, where the taught table says 40
+  should be). But it carries 126 code points and **no accented letters
+  at all**, so á ñ ü ç ß ș ğ still come from Dancing Script, whose
+  proportions differ. A French word in cursive therefore mixes two
+  hands. The alternative was accented letters having no cursive template
+  at all, which is worse; the fix is a teaching face with Latin Extended
+  coverage, or drawing the accents onto the Edu base ourselves. Scored
+  runners-up, all OFL, are in `docs/plans/letterform-quality.md`
+  (Tier 2) — Edu SA Beginner is the closest and wins on where the first
+  stroke ends.
+- **Cursive entry and exit sweeps are still not drawn.** A taught
+  cursive letter begins with a sweep up from the baseline and ends with
+  one out to the right, which is how the next letter is reached; 22 of
+  the 52 taught rows end the first stroke at `baseline-right` for that
+  reason. No display or classroom face puts those sweeps in the outline,
+  so no amount of walking finds them — they would have to be synthesised
+  from the `joins.entry`/`joins.exit` points the library already
+  carries. Not done, and it is the largest remaining gap between the
+  cursive library and the table.
+- **Two letters changed at a crossing with no sourced rule to judge them
+  by.** The 19 Sep junction fix (`arms`, `runs_on`) altered ж т у ф х,
+  φ ψ, ऐ ओ, and Latin æ and cursive b and H. Every one of them is a
+  crossing letter, which is the point, and the ones there are rules for
+  (f, t) now match them; φ and Ф went from a bare stem with no bowl at
+  all to a stem and a bowl, cursive b from two strokes to the one
+  movement a hand makes. But **æ went from two strokes to three and
+  nobody has a source saying which is right** — its row was in the part
+  of the handwriting run that never arrived. Re-measure æ, and the
+  Cyrillic and Greek letters, when runs 3-6 land; until then they are
+  changed on the generator's word alone.
+- **The generated letterforms are a traced typeface, and it shows.**
+  Counters do not quite close (a ring's two ends are pixels apart, which
+  is a gap at box scale), terminals are eaten by spur pruning, junctions
+  are fused, and nothing checks proportion between letters. The owner
+  asked for all eight scripts to "follow best standards for writing"
+  on 18 Sep 2026; `docs/plans/letterform-quality.md` is the plan, in
+  tiers, cheapest first, with the sources each tier needs.
+- **Quality control on the generated strokes is the contact sheet with
+  arrows, and it is read before a migration is written.** The owner
+  found an isolated alif drawn upward after two rounds had shipped
+  (18 Sep 2026); the rule was "start at the rightmost end", which on a
+  vertical stroke is a coin toss, and nothing in the check showed
+  direction. `sheet.py` in the generator's scratch flow now draws an
+  arrowhead per stroke, and the Arabic sheets are compared letter by
+  letter against the owner's chart (`docs/plans/handwriting.md` §13.2
+  lists the rules) before `--migration` is run. What is still not
+  checked by a source: ص ض come out as two strokes (loop, then bowl)
+  where the chart draws one; ـل and ـك draw the bowl or base from the
+  join and then the upright top-down as a second stroke; Persian
+  forms; and every non-Arabic script, whose sheets are only checked
+  for sanity.
 - **A Devanagari word's headline is deferred, not merged.** Each
   letter's headline is drawn after all the bodies, in letter order, so
   a word gets its headline last as the sources say — but as one segment
@@ -576,10 +665,12 @@ reader of the plan would expect to find built, and will not:
   most 14 letters — a two-line sentence's ink cannot be box-fitted to a
   one-line template. Multi-line composition (and a Trace that scrolls)
   is the fix.
-- **The word matcher's tolerances are hand-set too.** 0.18 tracing and
-  0.13 from memory, in `WordsMode.tsx`; 0.14 for the Free write row.
-  Same story as the letter matcher: chosen on synthetic strokes, to be
-  read off the first real session.
+- **The matcher's tolerances are hand-set.** 0.22 tracing and 0.16 from
+  memory for letters (`LettersMode.tsx`), 0.24 and 0.18 for words
+  (`WordsMode.tsx`), 0.14 for the Free write row. Raised on 18 Sep after
+  the owner's legible ب was failed; still chosen by eye, not read off a
+  session's worth of real ink. The number to watch is the false-fail
+  rate on `writing_progress` attempts.
 - **Entry and exit points are derived, not placed.** The generator and
   the Workshop (`frameGlyph`) both take the leftmost body point as an
   Arabic exit and the rightmost as its entry, the reverse for a joined
@@ -1783,3 +1874,122 @@ Fixed by ignoring the bare name as well. Two things to carry:
   checkout's packages is better served by running the command from the main
   checkout with the worktree's source, or by its own `npm ci`. The link is a
   loaded gun pointed at whatever it resolves to.
+### Local / open-weights models
+
+`docs/local-models.md` (18 Sep 2026) is a survey and a staged plan, not a
+feature. No local model runs anywhere in this repo, `resolve_model()` still
+returns a bare Anthropic model name, and there is no provider abstraction —
+so do not go looking for MLflow, an Ollama client, or a `ModelRef` type.
+The doc exists for two reasons: the owner wants the skill, and two pieces of
+it are cheap wins that keep getting rediscovered (local embeddings for
+near-duplicate detection, and a local model behind `TUTOR_DEV_MOCK` instead
+of canned fixtures). It also records the standing verdict that checkers and
+learner-facing tasks never move to a local model, so that question stops
+being re-opened. If any of it is built, the `§9.1` sketch is the seam and
+this entry shrinks to whatever is still unbuilt.
+
+### Native app store submission
+
+Both Capacitor shells (`frontend/android`, `frontend/ios`) build cleanly and
+share the one web bundle, but neither has been compiled with its real
+toolchain (no Xcode/Android SDK in CI), and several submission blockers are
+still open: no app icons/splash generated from the PWA source assets, no
+signing (distribution cert, provisioning profile, Play keystore), missing
+usage-string entries (`NSMicrophoneUsageDescription` for the tutor's audio
+recording, `RECORD_AUDIO` in the Android manifest), and deep-link domain
+association files not yet served from the API host. Full list:
+`docs/native-apps.md`. None of this is surprising or hidden — it's just work
+that genuinely needs a macOS machine and developer accounts, not something
+an agent session can close out.
+
+---
+
+## Naming / cosmetic
+
+### Product name
+
+`README.md` and the codebase call it PolyglotSRS throughout, including the
+committed bundle identifier `com.polyglotsrs.app` in both native projects.
+`docs/pricing-and-launch.md` argues for a rename before any app-store
+listing goes out (its case: "SRS" doesn't mean anything to the audience,
+"Polyglot" is the most crowded term in the category with no defensible
+trademark). Not urgent, but worth deciding before the native app work in the
+section above, since the bundle identifier is annoying to change after a
+store submission.
+
+---
+
+## The Arabic register tripwire measures almost nothing (17 Sep 2026)
+
+`ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
+and it flags **one row** in the current 13,025-row `ar_sentences.tsv` — and
+that hit is in the `word` column, not the sentence: the headword `مش`, under
+a sentence that is ordinary MSA. Nothing in any sentence trips it.
+The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
+measured on the 14,671-row bank before the prune and with a wider list than
+the one in the code. Widening the code list to every tell in programme
+§1.1 raises it to 22 rows, of which 17 have only a documented *non-tell*
+(عم, دول, الحين) as their evidence.
+
+This is not a bug to fix by widening the tripwire — precision is already
+under 5% and the recall has never been measured. It is left as-is, on
+purpose, because it is cheap and it is not the instrument: the judge in
+`quality/register_pass.py` is. What is worth knowing is that **a green
+`ar_register` row in the audit is close to meaningless**, and nobody
+should read it as evidence the corpus is MSA. The audit rule stays so that
+an obvious regression (someone pasting Egyptian into the bank) still trips
+something.
+
+## The gold set's labels are not filled (17 Sep 2026)
+
+`data/eval/ar_register_gold.tsv` ships with `label`, `variety`, `evidence`
+and `note` blank by design — they are the reviewers' columns, and a
+pre-filled label is an anchor. Until two Arabic speakers fill them, the
+`--gold` gate in `register_pass.py` cannot report the §3.2 agreement figure
+against human labels, and it says so rather than inventing one.
+
+What exists in the meantime is `data/eval/ar_register_documented.tsv`: 56
+of the 614 items whose answer the programme document itself already
+asserts (the confirmed defects, the verified non-tells, the b-prefix rows,
+the MSA homograph entries). That is real ground truth and the judge is
+graded on it. It is not a substitute for the review — it contains no
+judgement call, which is exactly why it is safe and exactly why it is
+narrow.
+
+## The support locale is a register surface and was pinned late (17 Sep 2026)
+
+A learner's *support* locale — the language the app explains IN — is a
+register surface in its own right, and for most of this codebase's life
+nothing said so. Every call site pinned `register_line()` on the language
+being TAUGHT. For an Arabic speaker learning English that is English, which
+has no variety to pin, so the tutor's prompt carried no register rule at all
+while being told to "converse in Arabic".
+
+Fixed for `tutor.py` and `speak.py` (three sites). Already correct in
+`translate.py` and `define.py`, which pin the locale they write into.
+
+**What to watch:** `register_line` is keyed by language, and `REGISTER` has
+exactly one entry. Any other language with a standard variety — Persian
+(formal vs colloquial), Hindi, Greek, Tagalog — has the same hole in both
+directions, as a course and as a support locale, and none has been measured.
+Rule 1 says a defect found in one language is a class; this one has been
+fixed for Arabic only.
+
+
+## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
+
+`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
+above it argues the case well: inside the first thousand every letter-name
+gloss is a function word wearing the wrong hat, and past it a word that names
+a letter usually is one. That reasoning is sound **for the letter-name and
+region-code patterns the rule actually matches**.
+
+It has since been read as though the rule covers wrong senses generally. It
+does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
+sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
+`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
+letter name, so the rule would not fire even if the band were lifted.
+
+Two separate pieces of work, then: widening the band, and a rule that can see
+this class at all. Neither is done. See
+`docs/quality/en-sense-ar-gloss-2026-09-18.md`.

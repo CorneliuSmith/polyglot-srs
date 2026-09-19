@@ -17,8 +17,9 @@ import type { ComposedMatch, LetterReason } from './matcher'
 import { isProvisionalId } from './strokes/provisional'
 
 const CANVAS = 220
-const TRACE_TOLERANCE = 0.18
-const WRITE_TOLERANCE = 0.13
+// See LettersMode: raised 18 Sep, a legible hand was being failed.
+const TRACE_TOLERANCE = 0.24
+const WRITE_TOLERANCE = 0.18
 
 type Step = 'learn' | 'trace' | 'write'
 type Source = 'word' | 'sentence'

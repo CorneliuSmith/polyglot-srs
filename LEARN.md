@@ -35,6 +35,11 @@ revisiting.
   Useful as "why does this feature have this shape" once it exists, or as
   "here's a fully-thought-through spec" for something that doesn't yet
   (`offline.md`'s companion, `docs/plans/*`, are the un-built ones).
+- **`docs/local-models.md`** — a survey of running open-weights models
+  locally on Apple Silicon (runtimes, LLMs vs SLMs, Hugging Face, LoRA
+  fine-tuning, evaluation, MLflow, agents-vs-workflows), and a task-by-task
+  verdict on which of this app's AI calls could ever move off a frontier API.
+  Nothing in it is built; it is a map, and `DEBT.md` records that.
 - **This file (`LEARN.md`)** — the technology layer underneath all of the
   above: why FastAPI and not Django, why raw SQL and not an ORM, why FSRS,
   why Capacitor, and so on.
@@ -1064,11 +1069,42 @@ the generator finds the head as the smallest enclosed hole in the ink,
 takes the ring of skeleton around it, starts where the ring meets the
 body, circles it clockwise and carries on into the body; ก ญ ธ, whose
 heads are not rings, fall back to the print rule. Order and direction
-elsewhere are heuristics per script: right-to-left scripts start each
-stroke at its rightmost end and write bodies right to left; cursive
+elsewhere are heuristics per script. Arabic's, checked against the
+Ibnulyemen chart the owner supplied: a joined form (medial, final)
+starts at the join — the rightmost end at the baseline — and whatever
+hangs at that first fork (the hook of ـد, the tooth of ـبـ) is retraced
+up and back before the pen goes on toward the exit, so a joined alif
+runs *up* from ب; an unjoined form starts where the pen comes down —
+the top of a stroke more tall than wide (an isolated alif goes down,
+the upright of ط ك too), otherwise its rightmost end (the tip of ب, the
+head of ج); an upright hanging off a bowl is its own stroke, top down,
+after the bowl; a piece wholly above or below the main body (hamza,
+madda) is a mark and comes last; a loop closes before the pen moves on
+(ص: join, loop, then the bowl). The skeleton walk that feeds all this
+had to learn four things on the way: Zhang–Suen's skeleton is not one
+pixel wide — it leaves two-pixel steps on diagonals and two parallel
+tracks where a stroke was thick — so a `minimal()` pass first deletes
+every pixel whose neighbours stay connected without it; a stroke tip
+on a diagonal is a two-pixel step, not a fork; junctions are small
+clusters a walk can pass *beside*, so ways on are looked for two pixels
+out; and a way whose far part only shadows what is already drawn is a
+leftover, swallowed rather than followed (following one drew ـد
+backwards, base first and up the hook). Arabic skips `chain()`, the
+re-joiner the cursive scripts use, because its walk settles its own
+continuity and chaining glued the stem of ط back onto its bowl. Hebrew
+keeps the rightmost-end rule; cursive
 starts at the leftmost (russianlessons.net: м from the bottom, and т
 top-down once past its entry hook — both hold in Marck Script's
-tracing); print starts at the top; bodies before marks; and Devanagari's
+tracing); print starts at the top — except that a **bar is always written in the
+reading direction** (left to right for everything but Arabic and Hebrew)
+and a **stem always downward**, judged on the whole path's box rather
+than its two ends, because the legs of an A end level too and are not a
+bar. That rule was missing until 18 Sep, and a pixel of thinning noise
+decided which way an f's crossbar ran. A stroke that is neither — a
+diagonal, a V — starts at the top, unless **both its ends sit at much
+the same height**, in which case it starts at the left: the same tie,
+one axis over, which had v w x y starting from their right-hand end.
+Bodies before marks; and Devanagari's
 headline (shirorekha) comes **after** the body — the walk starts at the
 top and would fuse it with the stem, so a body stroke's run along the
 top edge is cut off, the pieces run left to right, and they are counted
@@ -1136,9 +1172,33 @@ colour. `applyLanguageTheme` now caches the variables it set
 `index.html` paints them before React mounts — the same trick the theme
 and the UI skin already used. Signing out clears the cache.
 
+**The library is now measured, not just looked at.** A *rules table* —
+one row per (script, style, glyph, form) from a teaching source, in
+`scripts/strokes/rules/{script}-{style}.jsonl` — says how many strokes a
+letter has and where the first one starts.
+`scripts/strokes/check_rules.py` compares the generated library against
+it and prints every disagreement. The first table (Latin print,
+Zaner-Bloser, 19 Sep) put the library at **29 of 57 letters with the
+taught stroke count and 41 of 57 starting in the taught place** — the
+first number for this that is not another guess. Stroke *count* is the
+hard half: where a school model teaches one continuous movement with a
+retrace (b g h m n p q r), the walk splits at the junction; where it
+teaches separate strokes (I J M N P Q upper), the walk runs them
+together.
+
+**Dots are judged on where they sit.** A mark stroke — the dots of ب,
+the i-dot, the breve of й — has no direction and no shape worth
+matching, so `matcher.ts` judges it by the distance between its centre
+and the template's, with a generous radius, and never as "not quite the
+shape". It gets no arrowhead either. In a *word* the marks come after
+every letter's body, so an open-ended trace stops before them: a
+letter's mark points no longer count toward whether it was covered,
+which is why the ب of با now registers when the bodies are traced.
+
 **Teaching before the strokes exist.** Letters and Trace are always on
 Write, not only once a speaker has traced the script. Every form of every
-letter is a step (the alphabet decks' list; Latin a–z), and a form
+letter is a step (the alphabet decks' list; Latin a–z plus the course's
+own letters, `LATIN_EXTRAS`), and a form
 without authored strokes is *font-guided*: Learn shows the letter large
 in the script's handwriting face with its sound, Trace draws it faintly
 on the canvas to trace over, Write is blank with a Show/Hide toggle —
@@ -1147,6 +1207,135 @@ against. The strip draws these forms dashed. A traced word whose letters
 are not all authored is the same: the word in the hand font, traced over,
 no verdict. The moment a form is reviewed, its strokes replace the font
 for that letter and the verdicts switch on.
+
+**Where a bar crosses a stem** (`gen_from_fonts.py`: `arms`, `crossing`,
+`runs_on`). A hand writes the f's hook and stem as one movement and the
+crossbar as another; the generator used to walk the hook, turn left along
+the bar, and leave the stem as a second stroke. The rule for it,
+`crossing()`, had been in the file for weeks and had never once fired,
+and the reason is worth keeping because it will come up again with any
+skeleton: **thinning turns a junction into a cluster two or three pixels
+across**, so the first pixel of the bar's left arm, the first of its
+right arm and the first of the stem all touch each other, and anything
+that groups touching pixels reports two ways out where there are three.
+
+The answer is not to look harder next to the junction but to look around
+it. `arms()` draws a small circle (4 px) about the point: a circle cuts
+each limb exactly once, so on it the limbs are plainly separate. It then
+measures each limb's *direction* over a long run (16 px) instead, because
+close to a cluster every limb points much the same way. One distance
+cannot do both jobs — with a single radius, 4 px split the f correctly
+and left the t turning along its crossbar, and 12 px did the reverse.
+The pen's own incoming direction needed the same treatment: read over one
+pixel it pointed down-*left* on the f's still-curving hook, enough for
+`crossing()` to decide the pen was already on the bar.
+
+The second half is the repair. Once a stroke has been drawn *through* a
+junction, the pixels just past it touch that stroke, the walk rejects
+them as one of thinning's parallel tracks, and the rest of the limb
+becomes a stroke of its own — the Cyrillic ж lost its stem that way.
+`chain()` keeps its old 3.5 px no-questions-asked join and gains a wider
+one, allowed only when the pen is still heading the same way across the
+gap (`runs_on`). The wide reach is three times the junction ring, which
+is what the crossbar of a cursive H needs: its halves are walked head-on
+from the two stems, so one must be reversed before it reads as a
+continuation, and the two far ends sit further apart than the cut.
+Widening it beyond that changes nothing, which is how you can tell it is
+measuring a gap rather than fitting one.
+
+**Which letters a Latin course writes** (`services/scripts.py`). The
+non-Latin scripts get their letter list from the alphabet decks the
+seeder already ships, so Russian is 33 letters because the Russian deck
+has 33 cards. There is no Latin deck — nobody needs a card teaching an
+English speaker what *b* is — so Latin courses used to fall back to a–z
+and stop there, which left a Spanish learner with no ñ, a German one with
+no ß, and a Hausa one with no ɓ ɗ ƙ ƴ. `LATIN_EXTRAS` is the missing
+half: a course code to the letters it writes *beyond* a–z, in its own
+alphabet's order, appended after the base. A course absent from the table
+(en, id, jam, sw, xh) writes a–z and nothing else. Only letters go in it
+— Catalan's interpunct in `l·l` and Hausa's apostrophe in `'y` are marks
+beside a letter, not glyphs the Workshop can hold one stroke set for.
+
+Two things follow from it that are worth copying. First, `forms_for`
+gained a `CASELESS` list: a cased script normally gives every letter a
+lower and an upper form, but German ß has no uppercase any hand is taught
+(Unicode's ẞ exists; no copybook uses it), so it gets one form and the
+progress denominator is honest. Second, the stroke generator now reads
+its glyph list *and* `CASELESS` out of this file by parsing it — no
+import, so it needs none of the backend's dependencies — which is why
+both tables are plain literals and not `frozenset(...)` calls.
+
+**The generator reads the rules table.** `TAUGHT` in
+`gen_from_fonts.py` loads every `scripts/strokes/rules/*.jsonl` at
+import, and `split_to` cuts a letter at its sharpest turns until it has
+the number of strokes its sourced row says. This is the first thing in
+the pipeline that is driven by a teaching source rather than by a rule
+someone guessed.
+
+What forced it was Cyrillic print, whose gap had exactly one shape: we
+drew **fewer** strokes than taught for 21 of 32 letters and more for
+only two, and sixteen of ours were a single stroke where the taught
+model uses five. и is a stem, a diagonal and a stem; thinning joins them
+into one connected skeleton and the walk runs straight through. No face
+swap could fix that — Noto Sans has the right shapes — and no further
+global rule could either, because the number of times a hand lifts is
+not a property of the outline.
+
+Three guards, and they are the whole reason it is safe to run over eight
+scripts at once. It only ever **adds** strokes. It only runs for a letter
+that **has a sourced row**, so Arabic, Hebrew, Devanagari, Thai and
+Hangul are untouched until someone sources them. And it **stops short of
+cutting a smooth curve** to reach a number — о stays one stroke, and a
+letter that runs out of corners keeps what it has and shows up in the
+checker as a disagreement, which is the honest outcome rather than a
+flattering one.
+
+`merge_to` is the same idea from the other side, and Thai is why it
+exists: **39 of its 44 taught letters are one movement and ours managed
+18**, drawing MORE strokes than taught for 26 letters and fewer for
+none — the exact mirror of Cyrillic print. A Thai consonant is one
+continuous line from its head loop, but the skeleton forks where the
+line crosses itself and the walk stops at each fork. It joins the
+closest ends first and only within a cap, so it re-joins a line the walk
+cut rather than bridging two parts a hand really does lift between.
+
+Across all ten sourced tables — 659 letters, every script the app
+teaches — stroke count goes from **393 to 465**, and no script gets
+worse. Where the first stroke *starts* is all but unchanged (439→437),
+as it must be: neither operation moves the first point. Where it *ends*
+improves (333→347). The two columns Devanagari loses are the ones to
+look at on the contact sheet first.
+
+**A face can be chosen by measurement.** `FONTS` holds one file per
+script and style, except Latin cursive, which holds a **chain** — each
+glyph is drawn by the first face in the list that has it. That exists
+because the sourced rules table turned "which face teaches better?" from
+a matter of taste into an arithmetic question: render seven candidates,
+walk them, score each against the table. Dancing Script, a display face,
+agreed with the taught stroke count on 19 of 52 letters and wrote 14 of
+them in one movement where the table says 40. Edu NSW ACT Foundation —
+an Australian state school handwriting model, which is literally what a
+teacher hands out — scores 32 and 31. The numbers for all seven are in
+`docs/plans/letterform-quality.md`.
+
+The chain exists because the good face is small: the Edu faces carry 126
+code points, so they have a-z and A-Z and no accented letters at all,
+while Dancing Script has 559. Rather than let French and Spanish lose
+their cursive templates, a-z comes from the teaching hand and á ñ ü ç
+falls through to Dancing Script. Eighty of the 133 cursive forms fall
+through, the generator prints which ones, and the two faces' proportions
+do not match — a real seam, recorded in `DEBT.md` rather than hidden.
+
+**A source face may not have the letter.** The generator renders each
+glyph with PIL and thins the bitmap, and PIL will cheerfully draw the
+face's `.notdef` box for a code point the font does not map. A box thins
+into a tidy four-stroke rectangle that looks exactly like a letterform,
+so it ships silently. `covered()` in `gen_from_fonts.py` reads the face's
+own cmap (formats 4 and 12, about fifty lines of `struct`) and every
+glyph is checked against it before rendering; a miss prints a `skip` line
+and is left out of the bundle, where the font-guided fallback covers it.
+This found a real gap the moment it went in: Dancing Script, the Latin
+cursive face, has no ɓ ɗ ƙ ƴ ṣ.
 
 **Guided Letters** (Phase 3; `features/write/LettersMode.tsx`,
 `matcher.ts`, migration 20261021). Write grows a *Letters* kind the

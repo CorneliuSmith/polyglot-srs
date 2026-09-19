@@ -63,7 +63,7 @@ describe('LettersMode', () => {
     mockAlphabet.mockResolvedValue({
       code: 'ru', script: 'cyrillic', styles: ['cursive', 'print'],
       letters: [
-        { glyph: 'т', romanization: 't', sound: '', forms: ['lower', 'upper'] },
+        { glyph: 'т', romanization: 't', sound: 'as in top', forms: ['lower', 'upper'] },
         { glyph: 'о', romanization: 'o', sound: '', forms: ['lower', 'upper'] },
       ],
     })
@@ -80,6 +80,12 @@ describe('LettersMode', () => {
     })
     mockProgress.mockResolvedValue([{ glyph_id: 'g-o', attempts: 3, passes: 3, best_score: 1, known: true }])
     mockRecord.mockResolvedValue({ glyph_id: 'g-t', attempts: 1, passes: 1, best_score: 1, known: false })
+  })
+
+  it('names the letter and how it sounds, with a speaker button', async () => {
+    renderMode()
+    expect(await screen.findByTestId('letter-sound')).toHaveTextContent('t · as in top')
+    expect(screen.getAllByRole('button', { name: /listen|speak|play/i }).length).toBeGreaterThan(0)
   })
 
   it('shows the strip in alphabet order with known letters marked, and the hints', async () => {

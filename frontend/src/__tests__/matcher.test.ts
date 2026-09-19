@@ -49,3 +49,27 @@ describe('matcher', () => {
     expect(matchStrokes(wobbly, T, { tolerance: 0.3 }).strokes[0].ok).toBe(true)
   })
 })
+
+describe('dots and marks', () => {
+  // A ب: the body, then the dot under it.
+  const body = [[900, 400], [500, 600], [100, 450]]
+  const dot = [[480, 750], [520, 750]]
+
+  it('a dot in the right place passes however it was drawn', () => {
+    const drawn = [body, [[512, 742], [494, 762]]]   // a scribbled blob
+    const res = matchStrokes(drawn, [body, dot], { tolerance: 0.12 })
+    expect(res.strokes[1].ok).toBe(true)
+    expect(res.ok).toBe(true)
+  })
+
+  it('a dot in the wrong place still fails', () => {
+    const res = matchStrokes([body, [[480, 150], [520, 150]]], [body, dot], { tolerance: 0.12 })
+    expect(res.strokes[1].ok).toBe(false)
+  })
+
+  it('a body stroke is still judged on its shape', () => {
+    const wrong = [[900, 400], [500, 120], [100, 450]]
+    const res = matchStrokes([wrong, dot], [body, dot], { tolerance: 0.12 })
+    expect(res.strokes[0].ok).toBe(false)
+  })
+})

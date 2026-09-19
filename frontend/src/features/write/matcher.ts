@@ -111,6 +111,29 @@ export function normaliseBox(strokes: Pt[][]): Pt[][] {
   return strokes.map((s) => s.map(([x, y]) => [ox + (x - minX) * scale, oy + (y - minY) * scale]))
 }
 
+/** Total length of a stroke, in box units. */
+function pathLen(s: Pt[]): number {
+  let n = 0
+  for (let i = 1; i < s.length; i++) n += Math.hypot(s[i][0] - s[i - 1][0], s[i][1] - s[i - 1][1])
+  return n
+}
+
+/**
+ * A template stroke this short is a dot or a small mark — the dots of ب,
+ * the i-dot, the breve of й. Its shape and direction carry no information
+ * (a dot has no direction), so judging it like a body stroke failed a
+ * perfectly good letter on "stroke 2: not quite the shape". Marks are
+ * judged on where they sit instead, generously.
+ */
+export function isMark(stroke: Pt[]): boolean {
+  return pathLen(stroke) < BOX * 0.08
+}
+
+function centre(s: Pt[]): Pt {
+  const n = Math.max(1, s.length)
+  return [s.reduce((a, p) => a + p[0], 0) / n, s.reduce((a, p) => a + p[1], 0) / n]
+}
+
 function compare(learner: Pt[], template: Pt[], tol: number, points: number): { score: number; reason?: Reason } {
   const a = resample(learner, points)
   const b = resample(template, points)
@@ -147,12 +170,24 @@ export function matchStrokes(
       verdicts.push({ index: i, ok: false, reason: 'extra', score: 0 })
       continue
     }
+    if (isMark(tmpl[i])) {
+      // Only the place matters, within a generous radius.
+      const c = centre(learner[i])
+      const d = centre(tmpl[i])
+      const away = Math.hypot(c[0] - d[0], c[1] - d[1])
+      const room = tolerance * BOX * 2.5
+      verdicts.push({
+        index: i, ok: away <= room, score: Math.max(0, 1 - away / room),
+        reason: away <= room ? undefined : 'shape',
+      })
+      continue
+    }
     const own = compare(learner[i], tmpl[i], tolerance, points)
     // Order: does this stroke fit some other template stroke clearly better?
     let best = own.score
     let bestJ = i
     tmpl.forEach((t, j) => {
-      if (j === i) return
+      if (j === i || isMark(t)) return
       const alt = compare(learner[i], t, tolerance, points)
       if (!alt.reason && alt.score > best * 1.25 + 0.05) {
         best = alt.score
@@ -305,10 +340,17 @@ export function matchComposed(
   for (const s of ink) A.push(...resampleTagged(s, s.map(() => 0), step).pts)
   const B: Pt[] = []
   const owner: number[] = []
+  // Which template points are dots and marks. They come last in a word
+  // (every letter's body first, then back for the dots), so an open-ended
+  // trace stops before them — and a letter whose dot was not reached must
+  // still count as covered, or the first letter of با never registers.
+  const isMarkPt: boolean[] = []
   composed.strokes.forEach((s, si) => {
     const r = resampleTagged(s, composed.owners[si], step)
     B.push(...r.pts)
     owner.push(...r.tags)
+    const mark = composed.marks?.[si] ?? false
+    for (let k = 0; k < r.pts.length; k++) isMarkPt.push(mark)
   })
   const n = A.length
   const m = B.length
@@ -368,9 +410,9 @@ export function matchComposed(
   for (let k = 0; k < m; k++) {
     const l = perLetter[owner[k]]
     if (!l) continue
-    l.total += 1
+    if (!isMarkPt[k]) l.total += 1
     if (k < endJ) {
-      l.reached += 1
+      if (!isMarkPt[k]) l.reached += 1
       if (cnt[k] > 0) {
         l.sum += sum[k] / cnt[k]
         l.cnt += 1

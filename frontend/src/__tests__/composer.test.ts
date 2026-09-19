@@ -184,6 +184,20 @@ describe('compose at the script scale (font-derived glyphs)', () => {
     expect(c.strokes[2][0][1]).toBe(700)
   })
 
+  it('an open-ended trace that stops before the dots still covers the first letter', () => {
+    // با: ب's body runs into ا, then back for ب's dot. A learner tracing
+    // the bodies has finished both letters — the dot must not hold ب open
+    // (owner: "the b is not picked up").
+    const baDot = em('ب', 'initial', [[[120, 600], [60, 560], [0, 602]], [[55, 700], [65, 700]]],
+      { advance: 120, joins_next: true, exit: [0, 602], marks: 1 })
+    const c = compose('با', 'ar', 'naskh', [baDot, alifFinal, alif])
+    expect(c.marks).toEqual([false, false, true])
+    const bodies = c.strokes.slice(0, 2).map((st) => st.map(([x, y]) => ({ x, y })))
+    const r = matchComposed(bodies, c, { tolerance: 0.12, openEnd: true })
+    expect(r.letters[0].ok).toBe(true)
+    expect(r.letters[1].ok).toBe(true)
+  })
+
   it('cells do the same: the i-dot and the t-cross are written after the word', () => {
     const i = { ...g('i', 'lower', [[[500, 300], [500, 900]], [[490, 150], [510, 150]]]), joins: { marks: 1 } }
     const t = { ...g('t', 'lower', [[[500, 100], [500, 900]], [[300, 400], [700, 400]]]), joins: { marks: 1 } }

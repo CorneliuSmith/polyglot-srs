@@ -5,8 +5,8 @@ The first library (gen_provisional.py) drew letters from primitives, and
 the owner's verdict was the right one: "not reflective of much of the
 writing I see". A typeface is what people see. So each form is now
 rendered with a standard face — Noto Naskh Arabic for naskh, Marck
-Script for Russian cursive (propisi), Noto Sans for print scripts,
-Dancing Script for Latin cursive — thinned to its centreline, traced
+Script for Russian cursive (propisi), Noto Sans for print scripts, a
+school handwriting model for Latin cursive — thinned to its centreline, traced
 into polylines, and ordered by the script's writing rules. The SHAPE is
 the font's; the ORDER and DIRECTION are heuristic and marked
 provisional, exactly as before.
@@ -31,6 +31,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import struct
 import sys
 import unicodedata
 from pathlib import Path
@@ -65,8 +66,13 @@ _alpha = _load_assignments(
     ROOT / "backend" / "services" / "seeder" / "seed_alphabet.py",
     {"RUSSIAN", "GREEK", "ARABIC", "HINDI", "THAI", "HANGUL", "HEBREW", "PERSIAN"},
 )
-_scripts = _load_assignments(ROOT / "backend" / "services" / "scripts.py", {"STYLES"})
+_scripts = _load_assignments(
+    ROOT / "backend" / "services" / "scripts.py",
+    {"STYLES", "LATIN_EXTRAS", "CASELESS"},
+)
 STYLES = _scripts["STYLES"]
+LATIN_EXTRAS = _scripts["LATIN_EXTRAS"]
+CASELESS = _scripts["CASELESS"]
 LATIN_BASE = [chr(c) for c in range(ord("a"), ord("z") + 1)]
 ALPHABETS = {"ru": _alpha["RUSSIAN"], "el": _alpha["GREEK"], "ar": _alpha["ARABIC"],
              "hi": _alpha["HINDI"], "th": _alpha["THAI"], "ko": _alpha["HANGUL"],
@@ -82,14 +88,14 @@ def forms_for(script: str, glyph: str) -> list[str]:
             forms += ["initial", "medial"]
         return forms
     if script in CASED:
-        return ["lower", "upper"]
+        return ["lower"] if glyph in CASELESS else ["lower", "upper"]
     return ["letter"]
 
 
 def alphabet_for(code: str) -> list[dict]:
     rows = ALPHABETS.get(code, [])
     if not rows:
-        rows = [(ch, ch, "") for ch in LATIN_BASE]
+        rows = [(ch, ch, "") for ch in LATIN_BASE + LATIN_EXTRAS.get(code, [])]
     return [{"glyph": g} for g, *_ in rows]
 
 BOX = 1000
@@ -107,7 +113,26 @@ FONTS = {
     "devanagari": {"print": "NotoSansDevanagari.ttf"},
     "thai":       {"print": "NotoSansThaiLooped.ttf"},   # looped: the heads Thai handwriting is taught with
     "hangul":     {"print": "NotoSansKR.ttf"},
-    "latin":      {"print": "NotoSans.ttf", "cursive": "DancingScript.ttf"},
+    # Latin cursive is a CHAIN, tried in order per glyph: the first face
+    # that has the letter draws it. Edu NSW ACT Foundation is an
+    # Australian state school handwriting model — a teaching hand, which
+    # is what the brief asks a source to be — and it measures far better
+    # than Dancing Script against the sourced Zaner-Bloser table (32/52
+    # on stroke count against 19, and 31 letters written in ONE stroke
+    # against 14, where the table says 40 should be). But it carries 126
+    # code points: a-z, A-Z and punctuation, no accented letters at all.
+    # Dancing Script is worse as a model and has 559. So a-z come from
+    # the teaching hand and á ñ ü ç come from Dancing Script, rather than
+    # French and Spanish losing their cursive templates entirely. The
+    # seam is real — the two faces do not share an x-height — and is a
+    # DEBT entry, not a secret.
+    # Also scored, all OFL, all worse: Edu SA Beginner (32/22/27, 29 in
+    # one stroke — ties on count, wins on where the stroke ends, loses on
+    # the one that matters), Caveat (31/21/26), Edu QLD Beginner
+    # (29/25/19), Edu AU VIC WA NT Pre (28/21/24), Edu TAS and Edu VIC
+    # (27 each).
+    "latin":      {"print": "NotoSans.ttf",
+                   "cursive": ["EduNSWACTFoundation.ttf", "DancingScript.ttf"]},
 }
 RTL = {"arabic", "hebrew"}
 CURSIVE = {("cyrillic", "cursive"), ("latin", "cursive")}
@@ -115,7 +140,11 @@ CURSIVE = {("cyrillic", "cursive"), ("latin", "cursive")}
 # four letters to the Arabic set, so arabic takes both.
 COURSES = {
     "arabic": ["ar", "fa"], "cyrillic": ["ru"], "greek": ["el"], "hebrew": ["he"],
-    "devanagari": ["hi"], "thai": ["th"], "hangul": ["ko"], "latin": ["es"],
+    "devanagari": ["hi"], "thai": ["th"], "hangul": ["ko"],
+    # Latin takes every course that adds letters: the bundle is shared, so a
+    # French learner and a Yoruba one read the same a-z and each finds their
+    # own extras in it. es leads so a-z keeps the front of the list.
+    "latin": ["es"] + sorted(LATIN_EXTRAS),
 }
 
 
@@ -134,6 +163,56 @@ def shaped_text(script: str, glyph: str, form: str) -> str:
     if form == "upper":
         return glyph.upper()
     return glyph
+
+
+def covered(path: Path) -> set[int]:
+    """The code points a face actually maps, read out of its cmap (formats
+    4 and 12). PIL will happily draw a .notdef box for a missing glyph and
+    the thinner will turn that box into a plausible-looking four-stroke
+    letter, so every glyph is checked against this before it is rendered.
+    Dancing Script, the Latin cursive face, has no Hausa hooked letters and
+    no s-with-dot-below; without this they would ship as rectangles."""
+    b = path.read_bytes()
+    off = None
+    for i in range(struct.unpack(">H", b[4:6])[0]):
+        tag, _, o, _ = struct.unpack(">4sIII", b[12 + 16 * i:28 + 16 * i])
+        if tag == b"cmap":
+            off = o
+    if off is None:
+        return set()
+    cps: set[int] = set()
+    for i in range(struct.unpack(">H", b[off + 2:off + 4])[0]):
+        _, _, so = struct.unpack(">HHI", b[off + 4 + 8 * i:off + 12 + 8 * i])
+        t = off + so
+        fmt = struct.unpack(">H", b[t:t + 2])[0]
+        if fmt == 4:
+            segx2 = struct.unpack(">H", b[t + 6:t + 8])[0]
+            seg = segx2 // 2
+            ends = struct.unpack(">%dH" % seg, b[t + 14:t + 14 + segx2])
+            sp = t + 16 + segx2
+            starts = struct.unpack(">%dH" % seg, b[sp:sp + segx2])
+            dp = sp + segx2
+            deltas = struct.unpack(">%dh" % seg, b[dp:dp + segx2])
+            rp = dp + segx2
+            ranges = struct.unpack(">%dH" % seg, b[rp:rp + segx2])
+            for k in range(seg):
+                for c in range(starts[k], min(ends[k], 0xFFFE) + 1):
+                    if ranges[k] == 0:
+                        g = (c + deltas[k]) & 0xFFFF
+                    else:
+                        gp = rp + 2 * k + ranges[k] + 2 * (c - starts[k])
+                        if gp + 2 > len(b):
+                            continue
+                        g = struct.unpack(">H", b[gp:gp + 2])[0]
+                        if g:
+                            g = (g + deltas[k]) & 0xFFFF
+                    if g:
+                        cps.add(c)
+        elif fmt == 12:
+            for j in range(struct.unpack(">I", b[t + 12:t + 16])[0]):
+                a, e, _ = struct.unpack(">III", b[t + 16 + 12 * j:t + 28 + 12 * j])
+                cps.update(range(a, min(e, a + 0x10000) + 1))
+    return cps
 
 
 def render(font: ImageFont.FreeTypeFont, text: str) -> tuple[list[list[int]], int, int, int]:
@@ -197,6 +276,30 @@ def neighbours(g, x, y):
                 out.append((x + dx, y + dy))
     return out
 
+
+def minimal(g: list[list[int]]) -> None:
+    """Thin the skeleton to one pixel: delete any pixel with two or more
+    neighbours that stay connected to each other without it. Zhang–Suen
+    leaves two-pixel steps on diagonals and two parallel tracks where a
+    stroke was thick, and every walk over those needs a special case —
+    a tip that looks like a fork, a leftover that leads the pen back the
+    way it came. Removing the redundancy first is cheaper than reasoning
+    around it. Endpoints (one neighbour) and true junctions (neighbours
+    in separate groups) stay."""
+    h, w = len(g), len(g[0])
+    changed = True
+    while changed:
+        changed = False
+        for y in range(1, h - 1):
+            for x in range(1, w - 1):
+                if not g[y][x]:
+                    continue
+                nb = [(x + i, y + j) for i in (-1, 0, 1) for j in (-1, 0, 1) if (i or j) and g[y + j][x + i]]
+                if len(nb) < 2:
+                    continue
+                if len(branches(nb)) == 1:
+                    g[y][x] = 0
+                    changed = True
 
 def prune_spurs(g: list[list[int]], min_len: int) -> None:
     """Remove endpoint branches shorter than *min_len* pixels — thinning
@@ -339,8 +442,192 @@ def head_ring(ink: list[list[int]], sk: list[list[int]], comp: set) -> tuple[lis
     return sorted(ring), (cx, cy)
 
 
+def is_tip(g, comp: set, p: tuple) -> bool:
+    """A stroke end on the skeleton: one neighbour, or two that both lie
+    ahead (a thinned diagonal ends in a two-pixel step). Two neighbours on
+    opposite sides is the inside of a line."""
+    nb = [q for q in neighbours(g, *p) if q in comp]
+    if len(nb) == 1:
+        return True
+    if len(nb) == 2:
+        (a, b) = nb
+        return (a[0] - p[0]) * (b[0] - p[0]) + (a[1] - p[1]) * (b[1] - p[1]) > 0
+    return False
+
+
+def vertical_prefix(path: list) -> int:
+    """How many pixels from the start of *path* run more tall than wide
+    before it turns — the length of a stem, whatever hangs off its foot."""
+    a = path[0]
+    best = 0
+    for i, p in enumerate(path):
+        dx, dy = abs(p[0] - a[0]), abs(p[1] - a[1])
+        if dy >= 2 * dx:
+            best = i
+        elif i > 4:
+            break
+    return best
+
+
+def run_from(g, comp: set, e: tuple, avoid: set, cap: int) -> list:
+    """The pixels from *e* following the skeleton while it does not fork,
+    at most *cap* long."""
+    path = [e]
+    seen = set(avoid) | {e}
+    p = e
+    while len(path) <= cap:
+        nb = [q for q in neighbours(g, *p) if q in comp and q not in seen]
+        grps = branches(nb)
+        if len(grps) != 1:
+            break
+        p = grps[0][0]
+        seen.update(grps[0])
+        path.append(p)
+    return path
+
+
+def unit(frm, to):
+    dx, dy = to[0] - frm[0], to[1] - frm[1]
+    n = math.hypot(dx, dy) or 1.0
+    return dx / n, dy / n
+
+
+JUNCTION = 4        # px: the ring a junction's limbs are told apart on
+REACH = 16          # px: how far along each limb its direction is measured
+
+
+def arms(g, comp: set, p: tuple, blocked: set,
+         radius: int = JUNCTION, reach: int = REACH) -> list[list]:
+    """The distinct limbs of the letter leaving *p*, each as the path from
+    *p* out along it, up to *reach* pixels.
+
+    This exists because thinning leaves a junction as a cluster two or
+    three pixels across, so the first pixel of the crossbar's left arm,
+    the first of its right arm and the first of the stem all touch one
+    another — `branches` groups pixels that touch, so it calls them two
+    ways on, not three, and the stem is absorbed into whichever group
+    claims it. That is why `crossing` never fired: walking down the f's
+    hook it was offered "left" and "right" and never saw the stem, so it
+    turned along the crossbar and the stem became a second stroke.
+
+    Two distances, because one cannot do both jobs. *radius* is small, a
+    circle close enough in that each limb still crosses it exactly once —
+    that is what tells the limbs apart. *reach* is long, so a limb's
+    direction is the direction of its run and not of the two pixels
+    nearest the cluster, which all point much the same way. Tried with a
+    single radius first: 4 split the f correctly and left the t turning
+    along its crossbar, 12 did the reverse.
+
+    A limb shorter than *radius* never crosses the circle and is left out;
+    that is wanted, since a stub is not an arm of a crossing."""
+    parent = {p: None}
+    depth = {p: 0}
+    ring: list = []
+    frontier = [p]
+    for step in range(1, reach + 1):
+        nxt = []
+        for q in frontier:
+            for r in neighbours(g, *q):
+                if r in parent or r not in comp or r in blocked:
+                    continue
+                parent[r], depth[r] = q, step
+                nxt.append(r)
+                if step == radius:
+                    ring.append(r)
+        frontier = nxt
+        if not frontier:
+            break
+    if not ring:
+        return []
+    group_of = {}
+    for i, grp in enumerate(branches(ring)):
+        for q in grp:
+            group_of[q] = i
+    # Each pixel past the ring belongs to the limb it grew from; the
+    # farthest one in a limb gives that limb its direction.
+    far: dict[int, tuple] = {}
+    for q, d in depth.items():
+        if d <= radius:
+            continue
+        a = q
+        while depth[a] > radius:
+            a = parent[a]
+        i = group_of.get(a)
+        if i is None:
+            continue
+        if i not in far or d > depth[far[i]]:
+            far[i] = q
+    out = []
+    for i in sorted(set(group_of.values())):
+        end = far.get(i)
+        if end is None:
+            end = next(q for q in ring if group_of[q] == i)
+        path = []
+        q = end
+        while q is not None and q != p:
+            path.append(q)
+            q = parent[q]
+        if path:
+            out.append(list(reversed(path)))
+    return out
+
+
+def crossing(ways: list, p: tuple, incoming: tuple):
+    """Where a bar crosses a stem (f t A E ж х ф), the two arms of the bar
+    are one stroke and the stem is another. Two of the ways out lie nearly
+    opposite each other — that pair is the crossing stroke — so a walk
+    arriving on neither of them carries on through the junction on the
+    remaining way, leaving the pair to be drawn as its own stroke.
+    Returns the way to take, or None when this is not a crossing."""
+    if len(ways) < 3:
+        return None
+    n = math.hypot(*incoming) or 1.0
+    inc = (incoming[0] / n, incoming[1] / n)
+    dirs = [unit(p, r) for r in ways]
+    pair = None
+    best = -0.75
+    for i in range(len(ways)):
+        for j in range(i + 1, len(ways)):
+            d = dirs[i][0] * dirs[j][0] + dirs[i][1] * dirs[j][1]
+            if d < best:
+                best, pair = d, (i, j)
+    if pair is None:
+        return None
+    # Arriving along the crossing stroke itself: carry on along it.
+    aligned = [k for k in pair if abs(inc[0] * dirs[k][0] + inc[1] * dirs[k][1]) > 0.75]
+    rest = [k for k in range(len(ways)) if k not in pair]
+    if aligned:
+        return ways[max(pair, key=lambda k: inc[0] * dirs[k][0] + inc[1] * dirs[k][1])]
+    if not rest:
+        return None
+    return ways[max(rest, key=lambda k: inc[0] * dirs[k][0] + inc[1] * dirs[k][1])]
+
+
+def upright_end(g, comp: set, e: tuple) -> bool:
+    """Whether endpoint *e* is the free end of an upright that hangs at a
+    fork: a run down from it more tall than wide for longer than a tooth,
+    whose foot meets the letter in two directions (the stem of ط on its
+    loop). A stem that simply turns into the base (ك) is the start of one
+    stroke, and an alif is vertical all the way: neither is a stem."""
+    path = run_from(g, comp, e, set(), 3 * TOOTH)
+    v = vertical_prefix(path)
+    if v <= TOOTH:
+        return False
+    foot = path[v]
+    stem = set(path[: v + 1])
+    around = [q for q in comp if q not in stem and max(abs(q[0] - foot[0]), abs(q[1] - foot[1])) <= 2]
+    if len(branches(around)) >= 2:
+        return True
+    # Or the letter goes on to the RIGHT after the foot — back under the
+    # body, into a loop (initial ط): a stem hung on a bowl. A stem whose
+    # base runs on leftwards (ك) is the start of one stroke.
+    ahead = path[min(v + 10, len(path) - 1)]
+    return ahead[0] > foot[0] + 4
+
+
 def trace_component(g, comp: set, start: tuple, teeth: bool = False,
-                    second: tuple | None = None, loop: set | None = None) -> list[list[tuple]]:
+                    second: tuple | None = None, loop: set | None = None,
+                    joined: bool = False) -> list[list[tuple]]:
     """Walk the component into strokes: from *start*, always take the
     straightest unvisited continuation at a fork; a new stroke begins at
     the next unvisited endpoint (or the topmost unvisited pixel).
@@ -354,27 +641,91 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False,
     with *loop*, a walk that dead-ends next to its own start hops back to
     the start and carries on — a head circled fully, then the body."""
     visited = set()
+    swallowed = set()   # leftover parallel tracks: out of play, but not "drawn"
     strokes = []
+    forks_seen = 0
 
     def degree(p):
-        return len([q for q in neighbours(g, *p) if q in comp])
+        return 1 if is_tip(g, comp, p) else 2
+
+    def at_fork(p):
+        # Three or more ways out counting visited ones: a real junction of
+        # the skeleton, where an upright may hang off. Checked before the
+        # costly upright() walk, which must not run at every pixel.
+        return len(branches([q for q in neighbours(g, *p) if q in comp])) >= 3
+
+    def near(p, d=2):
+        return [(p[0] + i, p[1] + j) for i in range(-d, d + 1) for j in range(-d, d + 1) if (i or j)]
+
+    recent: list = []   # the last few pixels of the current walk
 
     def forks(p, prev):
-        nb = [q for q in neighbours(g, *p) if q in comp and q not in visited]
-        grps = branches(nb)
-        if prev is None:
-            return [grp[0] for grp in grps]
-        dx, dy = p[0] - prev[0], p[1] - prev[1]
-        return [max(grp, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy) for grp in grps]
+        """The ways on from *p*: unvisited pixels within two of it, grouped
+        by adjacency. Two pixels out, not one, because thinning leaves the
+        junctions as small clusters that a walk can pass beside — the tooth
+        of ـبـ hangs off a pixel next to the path, not on it."""
+        # A way on touches only the last few pixels of the walk (a tight
+        # turn touches three or four); a pixel that also touches older
+        # drawn pixels is a leftover parallel track of the thinning, and
+        # following it walks the letter backwards.
+        tail = set(recent[-5:]) | {p, prev}
 
-    def dead_end(r, frm):
+        def fresh(q):
+            return not any(v in visited and v not in tail for v in neighbours(g, *q))
+        nb = [q for q in near(p) if q in comp and q not in visited and q not in swallowed and fresh(q)]
+        grps = branches(nb)
+        # Each group's representative: the member nearest p, then the straightest.
+        out = []
+        for grp in grps:
+            dmin = min(max(abs(r[0] - p[0]), abs(r[1] - p[1])) for r in grp)
+            close = [r for r in grp if max(abs(r[0] - p[0]), abs(r[1] - p[1])) == dmin]
+            if prev is None:
+                rep = close[0]
+            else:
+                dx, dy = p[0] - prev[0], p[1] - prev[1]
+                rep = max(close, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
+            if shadow_branch(rep, p):
+                continue            # a leftover track beside what is drawn, not a way on
+            out.append(rep)
+        return out
+
+    def shadow_branch(r, frm):
+        """Follow the branch from *r* for up to a tooth's length: if every
+        pixel of it lies within two of something already drawn, it only
+        shadows the path (thinning left the base two pixels thick) and
+        walking it would draw the letter backwards."""
+        path = [r]
+        seen = {frm, r}
+        p = r
+        while len(path) <= TOOTH:
+            nb = [q for q in neighbours(g, *p) if q in comp and q not in seen and q not in visited and q not in swallowed]
+            grps = branches(nb)
+            if len(grps) != 1:
+                break
+            p = grps[0][0]
+            seen.update(grps[0])
+            path.append(p)
+        # The first pixels of any branch sit next to the path it leaves;
+        # only the far part tells a leftover track from a real way on.
+        far = path[3:]
+        if len(far) < 3:
+            return False
+        return all(any(v in visited for v in near(q)) for q in far)
+
+    def shadows(path):
+        # Every pixel within two of something already drawn: a leftover
+        # parallel track of the thinning, not a branch of the letter.
+        return all(any(v in visited for v in near(q)) for q in path)
+
+    def dead_end(r, frm, cap=None):
         """The pixels from *r* to a free end if the branch forks nowhere
-        and is at most TOOTH long; else None."""
+        and is at most *cap* (a tooth) long; else None."""
+        cap = TOOTH if cap is None else cap
         path = [r]
         seen = {frm, r}
         prev, p = frm, r
-        while len(path) <= TOOTH:
-            nb = [q for q in neighbours(g, *p) if q in comp and q not in seen and q not in visited]
+        while len(path) <= cap:
+            nb = [q for q in neighbours(g, *p) if q in comp and q not in seen and q not in visited and q not in swallowed]
             grps = branches(nb)
             if not grps:
                 return path
@@ -387,9 +738,34 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False,
             prev, p = p, q
         return None
 
+    def returns(r, frm):
+        """Whether the branch from *r* closes back onto what is already
+        drawn — the far side of a loop (ص, ه). The hand finishes the loop
+        before it moves on to the bowl."""
+        path = run_from(g, comp, r, visited | swallowed | {frm}, 3 * TOOTH)
+        end = path[-1]
+        return len(path) > 8 and any(v in visited and v != frm for v in near(end))
+
+    def upright(r, frm):
+        """True if the branch from *r* is an upright: a run more tall than
+        wide for longer than a tooth, ending free — the stem of ط ظ ك. The
+        hand writes it as a stroke of its own, top down, after the bowl,
+        so the walk must not run on into it."""
+        path = run_from(g, comp, r, visited | swallowed | {frm}, 3 * TOOTH)
+        if len(path) > 3 * TOOTH:
+            return False
+        nb = [q for q in neighbours(g, *path[-1]) if q in comp and q not in visited and q not in swallowed and q not in path]
+        if branches(nb):
+            return False          # it goes on into something: not a free-ended stem
+        v = vertical_prefix(path)
+        return v > TOOTH and v >= 0.8 * len(path)   # a stem, not a stem that turns into a base
+
     def walk(p):
+        nonlocal forks_seen
         path = [p]
         visited.add(p)
+        recent.clear()
+        recent.append(p)
         first = p
         prev = None
         while True:
@@ -404,13 +780,56 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False,
             if prev is None and second in ways:
                 q = second
             elif len(ways) > 1 and teeth:
-                ends = {r: dead_end(r, p) for r in ways}
-                through = [r for r in ways if ends[r] is None]
+                # At the first fork after a join the hand retraces what
+                # hangs there — the hook of ـد, the tooth of ـبـ — up and
+                # back, however long within reason, before going on.
+                cap = 3 * TOOTH if (joined and forks_seen == 0) else None
+                forks_seen += 1
+                ends = {r: dead_end(r, p, cap) for r in ways}
+                for r, e in list(ends.items()):
+                    if e and shadows(e):
+                        swallowed.update(e)    # a parallel leftover: out of play, not drawn
+                        ways = [w for w in ways if w != r]
+                        del ends[r]
+                if not ways:
+                    break
+                if len(ways) == 1:
+                    q = ways[0]
+                    visited.add(q)
+                    path.append(q)
+                    recent.append(q)
+                    prev, p = p, q
+                    continue
+                through = [r for r in ways if ends[r] is None and not upright(r, p)]
+                if not through:
+                    ups = [r for r in ways if ends[r] is None]   # what goes on is only uprights
+                    if ups and (not joined or forks_seen > 1) and len(path) > 5:
+                        # Teeth here are still retraced; then the walk ends —
+                        # the upright is written on its own, top down.
+                        for r in ways:
+                            if ends[r]:
+                                visited.update(ends[r])
+                                path.extend(ends[r])
+                                path.extend(reversed(ends[r][:-1]))
+                                path.append(p)
+                        break
+                    through = ups
                 # Continue on a branch that goes somewhere; if every branch
                 # ends free, on the straightest — the rest are teeth.
+                if len(through) > 1:
+                    # A way that comes back round to this fork is a loop of
+                    # the letter (ص, ه): the hand draws it before moving on.
+                    loops = [r for r in through if returns(r, p)]
+                    if loops:
+                        through = loops
                 if through:
                     q = through[0] if prev is None else max(
                         through, key=lambda r: (r[0] - p[0]) * (p[0] - prev[0]) + (r[1] - p[1]) * (p[1] - prev[1]))
+                elif joined and forks_seen == 1:
+                    # Everything at the join's fork ends free (the hook and
+                    # the base of ـد): the way on is the one that ends
+                    # nearest the exit, leftmost; the rest are retraced.
+                    q = min(ways, key=lambda r: ends[r][-1][0])
                 else:
                     q = ways[0] if prev is None else max(
                         ways, key=lambda r: (r[0] - p[0]) * (p[0] - prev[0]) + (r[1] - p[1]) * (p[1] - prev[1]))
@@ -422,17 +841,50 @@ def trace_component(g, comp: set, start: tuple, teeth: bool = False,
                         path.append(p)
             elif len(ways) > 1 and prev is not None:
                 dx, dy = p[0] - prev[0], p[1] - prev[1]
-                q = max(ways, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
+                q = None
+                # Ask the ring first: at a crossing the ways next to the
+                # walk under-count the limbs (see arms), and the whole
+                # point of crossing() is to carry the pen through.
+                limbs = arms(g, comp, p, visited | swallowed)
+                if len(limbs) >= 3:
+                    # Over a run, not a pixel: the limbs' directions are
+                    # measured over REACH, and an incoming measured over
+                    # one step is not comparable with them. The f arrives
+                    # at its crossbar on a hook that is still curving, and
+                    # a one-pixel reading of it points down-LEFT — enough
+                    # for crossing() to call it "already on the bar" and
+                    # turn the pen along the bar, which is the whole fault
+                    # being fixed here.
+                    back = recent[-(REACH + 1)] if len(recent) > REACH else recent[0]
+                    reps = [lm[-1] for lm in limbs]
+                    pick = crossing(reps, p, (p[0] - back[0], p[1] - back[1]))
+                    if pick is not None:
+                        lm = limbs[reps.index(pick)]
+                        for r in lm[:-1]:       # across the junction cluster
+                            visited.add(r)
+                            path.append(r)
+                            recent.append(r)
+                        if len(lm) > 1:
+                            p = lm[-2]
+                        q = pick
+                if q is None:
+                    q = crossing(ways, p, (dx, dy))
+                if q is None:
+                    q = max(ways, key=lambda r: (r[0] - p[0]) * dx + (r[1] - p[1]) * dy)
+            elif (teeth and not joined and len(path) > TOOTH
+                  and vertical_prefix(path) < len(path) - 5 and upright(ways[0], p)):
+                break   # a body is drawn (not just a stem so far) and only an upright is left: it is written on its own
             else:
                 q = ways[0]
             visited.add(q)
             path.append(q)
+            recent.append(q)
             prev, p = p, q
         return path
 
     strokes.append(walk(start))
     while True:
-        left = [p for p in comp if p not in visited]
+        left = [p for p in comp if p not in visited and p not in swallowed]
         if not left:
             break
         ends = [p for p in left if degree(p) == 1]
@@ -498,7 +950,157 @@ def path_len(path) -> float:
     return sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(path, path[1:]))
 
 
-def chain(strokes: list[list], tol: float = 3.5) -> list[list]:
+def merge_to(strokes: list, target: int, cap: float) -> list:
+    """Join strokes at their nearest ends until there are *target*.
+
+    The mirror of `split_to`, and needed for the same reason from the
+    other side. Thai measured 18/44 on stroke count, and its gap is the
+    opposite shape to Cyrillic print's: **39 of the 44 taught letters are
+    a single movement and ours managed 18, drawing MORE strokes than
+    taught for 26 letters and fewer for none.** A Thai consonant is one
+    continuous line from its head loop, but the skeleton forks where the
+    line crosses itself and the walk stops at each fork. `split_to` can
+    do nothing there — it only adds.
+
+    Joins the closest pair of ends first, trying both orientations, and
+    only when they lie within *cap*. A letter whose pieces are genuinely
+    far apart keeps them and shows up in the checker as a disagreement,
+    which is the honest outcome: this is for re-joining a line the walk
+    cut, not for drawing a bridge between two parts of a letter that a
+    hand really does lift between. Like `split_to` it only runs for a
+    letter with a sourced row."""
+    out = [list(t) for t in strokes]
+    while len(out) > target and len(out) > 1:
+        best = None
+        for i in range(len(out)):
+            for j in range(len(out)):
+                if i == j:
+                    continue
+                for rev in (False, True):
+                    b = out[j][::-1] if rev else out[j]
+                    d = math.hypot(b[0][0] - out[i][-1][0], b[0][1] - out[i][-1][1])
+                    if best is None or d < best[0]:
+                        best = (d, i, j, rev)
+        if best is None or best[0] > cap:
+            break
+        _, i, j, rev = best
+        b = out[j][::-1] if rev else out[j]
+        joined = out[i] + b
+        keep = min(i, j)
+        out = [t for k, t in enumerate(out) if k not in (i, j)]
+        out.insert(keep, joined)
+    return out
+
+
+def _taught() -> dict:
+    """How many strokes each sourced rule says a letter has, keyed by
+    (script, style, glyph, form). The tables are written by
+    scripts/strokes/ingest_rules.py from teaching sources; a letter with
+    no row is absent and is left exactly as the walk drew it."""
+    out: dict = {}
+    d = ROOT / "scripts" / "strokes" / "rules"
+    for f in sorted(d.glob("*.jsonl")) if d.is_dir() else []:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            out[(r["script"], r["style"], r["glyph"], r["form"])] = len(r["strokes"])
+    return out
+
+
+TAUGHT = _taught()
+
+
+def turn(path: list, i: int, span: int) -> float:
+    """How sharply *path* turns at index *i*, as 1 - cos(angle), measured
+    over *span* pixels either side so a single jagged pixel cannot pass
+    for a corner. 0 is straight on, 1 is a right angle, 2 is a reversal."""
+    a, b, c = path[max(0, i - span)], path[i], path[min(len(path) - 1, i + span)]
+    u, v = unit(a, b), unit(b, c)
+    return 1.0 - (u[0] * v[0] + u[1] * v[1])
+
+
+def split_to(strokes: list, target: int, span: int, floor: float = 0.30) -> list:
+    """Cut strokes at their sharpest turns until there are *target*.
+
+    A print letter is built from separate strokes meeting at corners —
+    Cyrillic и is a stem, a diagonal and a stem — but thinning joins them
+    into one connected skeleton, so the walk runs straight through and
+    draws the whole letter in one movement. Measured against the sourced
+    propisi table, the generated library drew FEWER strokes than taught
+    for 21 of 32 Cyrillic print letters and more for only two: sixteen of
+    ours were a single stroke where the taught model uses five. That is
+    not a font's fault — Noto Sans has the right shapes — it is the walk
+    not lifting where a hand lifts.
+
+    Where a rule says how many strokes a letter has, the corners are
+    where the pen lifts, so the sharpest turn is cut first and the next
+    sharpest after it. *floor* stops it short of cutting a smooth curve
+    just to reach a number: a letter that runs out of corners keeps the
+    strokes it has and shows up in the checker as a disagreement, which
+    is the honest outcome. This only ever ADDS strokes, and only for a
+    letter with a sourced row."""
+    out = [list(s) for s in strokes]
+    while len(out) < target:
+        best = None
+        for i, s in enumerate(out):
+            if len(s) < 2 * span + 3:
+                continue
+            for j in range(span + 1, len(s) - span - 1):
+                t = turn(s, j, span)
+                if best is None or t > best[0]:
+                    best = (t, i, j)
+        if best is None or best[0] < floor:
+            break
+        _, i, j = best
+        s = out.pop(i)
+        out[i:i] = [s[:j + 1], s[j:]]
+    return out
+
+
+def heading(path: list, at_end: bool, span: int = REACH) -> tuple:
+    """Which way the pen is travelling at one end of *path*, measured over
+    a run so one pixel's jitter cannot decide it. Both ends point the way
+    the path is drawn, so a tail and the head that continues it agree."""
+    if len(path) < 2:
+        return (0.0, 0.0)
+    if at_end:
+        return unit(path[max(0, len(path) - 1 - span)], path[-1])
+    return unit(path[0], path[min(len(path) - 1, span)])
+
+
+def runs_on(before: list, after: list, tol: float, far: float) -> bool:
+    """Whether *after* carries on from *before*: ends close enough to be
+    the same movement, and going the same way.
+
+    Two tolerances, because there are two cases. Ends that all but touch
+    (*tol*) are a walk the fork split and need no further argument. A
+    wider gap (*far*) is only a continuation if the pen is still heading
+    the same way across it — which is what a junction another stroke has
+    already been drawn through leaves behind: the pixels just past the
+    junction touch that stroke, the walk rejects them as a thinning
+    artefact and stops, and the rest of the stem becomes a second stroke.
+    The Cyrillic ж lost its stem that way, cut in two at the crossing the
+    upper diagonals are drawn through.
+
+    *far* is three times the junction ring, which is what it takes to
+    close the widest of these cuts — the crossbar of a cursive H, whose
+    halves are walked head-on towards each other from the two stems, so
+    one of them has to be reversed before it reads as a continuation and
+    the two ends are further apart than the cut itself. Wider than that
+    changes nothing, which is the sign it is measuring a real gap and not
+    a tuned one."""
+    gap = math.hypot(after[0][0] - before[-1][0], after[0][1] - before[-1][1])
+    if gap <= tol:
+        return True
+    if gap > far:
+        return False
+    a, b = heading(before, True), heading(after, False)
+    return a[0] * b[0] + a[1] * b[1] > 0.9
+
+
+def chain(strokes: list[list], tol: float = 3.5, keep_start: bool = False,
+          far: float = 3 * JUNCTION) -> list[list]:
     """Re-join walks that a junction split: a stroke whose start (or end)
     sits on the end of an earlier stroke continues it. The loop-closing
     fragments of cursive letters (the tail of an а, the bowl of в) come back
@@ -509,17 +1111,18 @@ def chain(strokes: list[list], tol: float = 3.5) -> list[list]:
             out.append(list(s))
             continue
         placed = False
+        rev = list(reversed(s))
         for t in out:
-            e = t[-1]
-            if math.hypot(s[0][0] - e[0], s[0][1] - e[1]) <= tol:
+            if runs_on(t, s, tol, far):
                 t.extend(s[1:]); placed = True; break
-            if math.hypot(s[-1][0] - e[0], s[-1][1] - e[1]) <= tol:
-                t.extend(list(reversed(s))[1:]); placed = True; break
-            b = t[0]
-            if math.hypot(s[-1][0] - b[0], s[-1][1] - b[1]) <= tol:
+            if runs_on(t, rev, tol, far):
+                t.extend(rev[1:]); placed = True; break
+            if keep_start and t is out[0]:
+                continue
+            if runs_on(s, t, tol, far):
                 t[:0] = s[:-1]; placed = True; break
-            if math.hypot(s[0][0] - b[0], s[0][1] - b[1]) <= tol:
-                t[:0] = list(reversed(s))[:-1]; placed = True; break
+            if runs_on(rev, t, tol, far):
+                t[:0] = rev[:-1]; placed = True; break
         if not placed:
             out.append(list(s))
     return out
@@ -572,7 +1175,7 @@ def rdp(pts, eps):
 # ----------------------------------------------------------------------
 # Ordering rules
 # ----------------------------------------------------------------------
-def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, bool, tuple | None]], bbox) -> tuple[list[list], int]:
+def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, bool, tuple | None]], bbox, form: str = "isolated") -> tuple[list[list], int]:
     """Bodies before marks; bodies in writing order; each stroke oriented
     the way a hand starts it — except a stroke pinned to start at a Thai
     head. Returns the strokes and how many lead ones are bodies (the rest
@@ -581,15 +1184,21 @@ def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, 
     area = max(1, (x1 - x0) * (y1 - y0))
     bodies, marks = [], []
     skeleton_px = sum(len(c) for c, _, is_dot, _p in comps_strokes if not is_dot)
-    biggest = max([len(c) for c, _, is_dot, _p in comps_strokes if not is_dot] or [0])
+    bodies_only = [c for c, _, is_dot, _p in comps_strokes if not is_dot]
+    biggest = max([len(c) for c in bodies_only] or [0])
+    main = max(bodies_only, key=len) if bodies_only else set()
+    main_y = (min(p[1] for p in main), max(p[1] for p in main)) if main else (0, 0)
     for comp, strokes, is_dot, pinned in comps_strokes:
         xs = [p[0] for p in comp]; ys = [p[1] for p in comp]
         cw, ch = max(xs) - min(xs) + 1, max(ys) - min(ys) + 1
         # A mark is a dot, or a component much smaller than the largest
         # one. The bbox test alone once made a lone thin stem (l, ㅢ, the
-        # bars of Ξ) a "mark", leaving a letter with no body at all.
+        # bars of Ξ) a "mark", leaving a letter with no body at all. In
+        # Arabic a piece wholly above or below the main body — the hamza
+        # of أ إ, the madda of آ — is a mark too, written after it.
         small = is_dot or len(comp) < 0.04 * skeleton_px or (
-            len(comp) < 0.25 * biggest and (cw * ch) < 0.06 * area)
+            len(comp) < 0.25 * biggest and (cw * ch) < 0.06 * area) or (
+            script == "arabic" and comp is not main and (max(ys) < main_y[0] or min(ys) > main_y[1]))
         (marks if small else bodies).append((comp, strokes, min(xs), max(xs), min(ys), pinned))
     rtl = script in RTL
     key = (lambda c: -c[3]) if rtl else (lambda c: c[2])
@@ -598,15 +1207,55 @@ def order_strokes(script: str, style: str, comps_strokes: list[tuple[set, list, 
     out = []
     for _comp, strokes, *_rest, pinned in bodies:
         for s in strokes:
-            out.append(s if pinned is not None and s[0] == pinned else orient(script, style, s))
+            # Only the very first body stroke of a medial/final form is
+            # entered from the join; the rest start where the pen comes down.
+            joined = not out
+            out.append(s if pinned is not None and s[0] == pinned else orient(script, style, s, form, joined))
     n_body = len(out)
     for _comp, strokes, *_ in marks:
         for s in strokes:
-            out.append(orient(script, style, s))
+            out.append(orient(script, style, s, form, False))
     return out, n_body
 
 
-def orient(script: str, style: str, s: list) -> list:
+def rtl_first(a, b, form: str, joined: bool):
+    """Which end an Arabic (or Hebrew) stroke starts at.
+
+    A form that is entered from a join (medial, final) starts at the
+    join: the rightmost end, at the baseline — so a final alif runs UP
+    from ب. Anything else starts where the pen comes down: the TOP end of
+    a stroke that is more tall than wide (an isolated alif goes down, the
+    upright of ط and ك too), otherwise the rightmost end (the tip of ب,
+    the head of ج, the first tooth of س), higher if tied. From the
+    Ibnulyemen chart the owner supplied and the Write it in Arabic
+    convention: isolated letters start top-right; joins start at the
+    join."""
+    if joined and form in ("medial", "final"):
+        return max((a, b), key=lambda p: (p[0], p[1]))            # rightmost, then LOWER (the baseline join)
+    dx, dy = abs(a[0] - b[0]), abs(a[1] - b[1])
+    if dy > dx * 1.2:
+        return min((a, b), key=lambda p: (p[1], -p[0]))           # top, then rightmost
+    return max((a, b), key=lambda p: (p[0], -p[1]))               # rightmost, then higher
+
+
+def span(s: list) -> tuple[float, float]:
+    xs = [p[0] for p in s]; ys = [p[1] for p in s]
+    return max(xs) - min(xs), max(ys) - min(ys)
+
+
+def flat(s: list) -> bool:
+    """A bar: the whole path stays in a thin horizontal band."""
+    w, h = span(s)
+    return w > 3 * h and w > 0.04 * EM
+
+
+def upright(s: list) -> bool:
+    """A stem: the whole path stays in a thin vertical band."""
+    w, h = span(s)
+    return h > 3 * w and h > 0.04 * EM
+
+
+def orient(script: str, style: str, s: list, form: str = "isolated", joined: bool = False) -> list:
     a, b = s[0], s[-1]
     closed = math.hypot(a[0] - b[0], a[1] - b[1]) < 6 and len(s) > 20
     if closed:
@@ -618,12 +1267,53 @@ def orient(script: str, style: str, s: list) -> list:
             s = [s[0]] + s[1:][::-1]
         return s
     if script in RTL:
-        want_first = max((a, b), key=lambda p: (p[0], -p[1]))       # rightmost, then higher
+        want_first = rtl_first(a, b, form, joined)
+    elif flat(s):
+        # A bar is written in the reading direction, always: the crossbar
+        # of f t A H, the arms of E Ξ ц ш. The old rule was "topmost end,
+        # ties to the left", and on a level bar a pixel of thinning noise
+        # decided it — which drew f's crossbar right to left (owner,
+        # 18 Sep). Judged on the whole path's box, not its two ends: the
+        # legs of A end level too, and that is not a bar.
+        want_first = min((a, b), key=lambda p: p[0])
+    elif upright(s):
+        want_first = min((a, b), key=lambda p: p[1])                # a stem goes down
     elif (script, style) in CURSIVE:
         want_first = min((a, b), key=lambda p: (p[0], p[1]))        # leftmost
+    elif abs(a[1] - b[1]) < 0.35 * max(1, span(s)[1]):
+        # Both ends at much the same height: the hand starts at the left
+        # one. The same tie the bar rule broke, one axis over — it was
+        # sending v w x y off their right-hand end (the Zaner-Bloser rules
+        # table, 19 Sep, disagreed with all four).
+        want_first = min((a, b), key=lambda p: p[0])
     else:
         want_first = min((a, b), key=lambda p: (p[1], p[0]))        # topmost, then leftmost
     return s if want_first == a else s[::-1]
+
+
+def stroke_hint(script: str, style: str, s: list, kind: str, index: int) -> str:
+    """What to say about one stroke. Derived from the stroke itself, not
+    from its position in the list: "next stroke" told a learner nothing
+    about the crossbar of an f, and a hint that does not match the arrow
+    is worse than none."""
+    if kind == "mark":
+        return "the dots and marks last"
+    if kind == "headline":
+        return "the headline last, left to right — across the whole word"
+    a, b = s[0], s[-1]
+    dx, dy = b[0] - a[0], b[1] - a[1]
+    w, h = span(s)
+    if math.hypot(dx, dy) < BOX * 0.12 and len(s) > 6 and w > BOX * 0.1:
+        return "round, back to where it started"
+    if w > 3 * h and w > BOX * 0.1:
+        return "across, right to left" if script in RTL else "across, left to right"
+    if h > 3 * w and h > BOX * 0.1:
+        return "straight down" if dy > 0 else "straight up"
+    if index == 0:
+        return {"arabic": "from the right, along the body",
+                "hebrew": "from the right"}.get(
+            script, "from the left, in one flow" if (script, style) in CURSIVE else "from the top")
+    return "down and " + ("left" if dx < 0 else "right") if dy > 0 else "up and " + ("left" if dx < 0 else "right")
 
 
 # ----------------------------------------------------------------------
@@ -661,12 +1351,13 @@ def extract(font, script, style, glyph, form):
         for x, y in rc:
             sk[y][x] = 0
     prune_spurs(sk, min_len=max(6, EM // 20))
+    minimal(sk)
     comps = components(sk)
     cs = []
     for comp in comps:
         if len(comp) < 3:
             continue
-        ends = [p for p in comp if len([q for q in neighbours(sk, *p) if q in comp]) == 1]
+        ends = [p for p in comp if is_tip(sk, comp, p)]
         # Start rule per script (see orient); the walk just needs a start.
         second = None
         head = head_ring(sub, sk, comp) if script == "thai" else None
@@ -687,16 +1378,33 @@ def extract(font, script, style, glyph, form):
                 second = max(around, key=lambda q: (start[0] - cx) * (q[1] - start[1]) - (start[1] - cy) * (q[0] - start[0]))
         elif ends:
             if script in RTL:
-                start = max(ends, key=lambda p: (p[0], -p[1]))
+                # The walk begins at the join for a joined form, else at the
+                # rightmost tip (the bowl of ط before its upright, which then
+                # becomes its own top-down stroke); each stroke's direction
+                # is settled afterwards by orient().
+                if form in ("medial", "final"):
+                    start = max(ends, key=lambda p: (p[0], p[1]))
+                else:
+                    # Not at the top of an upright (ط's stem is written after
+                    # its bowl): an endpoint whose branch runs tall to a fork
+                    # is left for a later stroke.
+                    cand = [e for e in ends if not upright_end(sk, comp, e)] or ends
+                    start = max(cand, key=lambda p: (p[0], -p[1]))
             elif (script, style) in CURSIVE:
                 start = min(ends, key=lambda p: (p[0], p[1]))
             else:
                 start = min(ends, key=lambda p: (p[1], p[0]))
         else:
             start = min(comp, key=lambda p: (p[1], p[0]))
+        joined_form = script == "arabic" and form in ("medial", "final")
         strokes = trace_component(sk, comp, start, teeth=script == "arabic",
-                                  second=second, loop=set(loop) if loop else None)
-        strokes = chain(strokes)
+                                  second=second, loop=set(loop) if loop else None,
+                                  joined=joined_form)
+        # Arabic's walk settles its own continuity (teeth, retraces,
+        # uprights kept apart); chaining would glue the stem of ط back onto
+        # its bowl. Elsewhere chain() re-joins what a fork split.
+        if script != "arabic":
+            strokes = chain(strokes)
         longest = max(strokes, key=path_len)
         strokes = [t for t in strokes if path_len(t) >= EM / 8] or [longest]
         cs.append((comp, strokes, False, start if loop else None))
@@ -705,7 +1413,13 @@ def extract(font, script, style, glyph, form):
         cy = sum(p[1] for p in rc) / len(rc)
         r = max(3, EM // 40)
         cs.append((rc, [[(cx - r, cy), (cx + r, cy)]], True, None))
-    ordered, n_body = order_strokes(script, style, cs, (0, 0, x1 - x0 + 2 * m, y1 - y0 + 2 * m))
+    ordered, n_body = order_strokes(script, style, cs, (0, 0, x1 - x0 + 2 * m, y1 - y0 + 2 * m), form)
+    want = TAUGHT.get((script, style, glyph, form))
+    if want is not None:
+        marks = len(ordered) - n_body
+        body = split_to(ordered[:n_body], want - marks, span=max(3, EM // 30))
+        body = merge_to(body, want - marks, cap=4 * JUNCTION)
+        ordered, n_body = body + ordered[n_body:], len(body)
     # Pixel -> em box. y: 0 at the top of the em (ascender), 1000 at the
     # bottom (descender) — the same frame for every glyph of the script.
     em_top = baseline - ascent
@@ -757,18 +1471,7 @@ def extract(font, script, style, glyph, form):
         joins["joins_next"] = True
         joins["entry"] = min(body, key=lambda p: (p[0], p[1]))
         joins["exit"] = max(bodypts, key=lambda p: (p[0], p[1]))
-    hints = []
-    for i, kind in enumerate(kinds):
-        if i == 0:
-            hints.append({"arabic": "from the right, along the body",
-                          "hebrew": "from the right"}.get(script,
-                         "from the left, in one flow" if (script, style) in CURSIVE else "from the top"))
-        elif kind == "headline":
-            hints.append("the headline last, left to right — across the whole word")
-        elif kind == "mark":
-            hints.append("the dots and marks last")
-        else:
-            hints.append("next stroke")
+    hints = [stroke_hint(script, style, out[i], kinds[i], i) for i in range(len(out))]
     return {"script": script, "glyph": glyph, "form": form, "style": style,
             "strokes": out, "joins": joins, "hints": hints,
             "source": "provisional", "reviewed": True}
@@ -800,10 +1503,25 @@ def main():
         for style, fname in styles.items():
             if style not in STYLES.get(script, ["print"]):
                 continue
-            font = ImageFont.truetype(str(fdir / fname), EM)
+            chain = [fname] if isinstance(fname, str) else list(fname)
+            fonts = [(f, ImageFont.truetype(str(fdir / f), EM), covered(fdir / f))
+                     for f in chain]
             for glyph in letters:
                 for form in forms_for(script, glyph):
-                    g = extract(font, script, style, glyph, form)
+                    text = shaped_text(script, glyph, form)
+                    need = [c for c in text if c != ZWJ]
+                    pick = next((t for t in fonts
+                                 if all(ord(c) in t[2] for c in need)), None)
+                    if pick is None:
+                        absent = "".join(c for c in need
+                                         if not any(ord(c) in t[2] for t in fonts))
+                        print("  skip %s %s: no face has %s"
+                              % (glyph, form, absent), file=sys.stderr)
+                        continue
+                    if pick[0] != chain[0]:
+                        print("  %s %s from %s (%s has it not)"
+                              % (glyph, form, pick[0], chain[0]), file=sys.stderr)
+                    g = extract(pick[1], script, style, glyph, form)
                     if g:
                         all_glyphs.setdefault(script, []).append(g)
                     else:
@@ -823,7 +1541,10 @@ def main():
                 return "'" + json.dumps(v, ensure_ascii=False, separators=(",", ":")).replace("'", "''") + "'"
             rows.append(f"  ('{script}', '{g['glyph']}', '{g['form']}', '{g['style']}', {q(g['strokes'])}::jsonb, "
                         f"{q(g['joins'])}::jsonb, {q(g['hints'])}::jsonb, 'provisional', true)")
-    if not args.only and not args.limit:
+    # --limit renders a debug subset of each alphabet, so its rows would upsert
+    # a partial library over a whole one. --only is a whole script and its rows
+    # upsert only that script, so it writes a migration like any other run.
+    if not args.limit:
         sql = ["-- PROVISIONAL stroke library, derived from fonts (scripts/strokes/gen_from_fonts.py).",
                "-- Shapes are the typefaces' (Noto Naskh Arabic, Marck Script, Noto Sans, Dancing",
                "-- Script — all OFL); order and direction are heuristic and marked provisional.",

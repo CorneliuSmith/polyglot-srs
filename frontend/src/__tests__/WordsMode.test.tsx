@@ -104,8 +104,10 @@ describe('WordsMode', () => {
     const canvas = document.querySelector('canvas')!
     const frame = fitComposed(compose('lo', 'es', 'print', glyphs), 600, 220)
     draw(canvas as HTMLElement, frame.strokes[0])
-    // The o as a zigzag instead of a loop.
-    draw(canvas as HTMLElement, frame.strokes[1].map((p, i) => ({ x: p.x + (i % 2 ? 45 : -45), y: p.y + 35 })))
+    // The o as a wild zigzag instead of a loop. Bigger than it was: the
+    // tolerances were raised on 18 Sep, and a 45px wobble is now a hand,
+    // not a failure.
+    draw(canvas as HTMLElement, frame.strokes[1].map((p, i) => ({ x: p.x + (i % 2 ? 120 : -120), y: p.y + 70 })))
     fireEvent.click(screen.getByTestId('trace-check'))
     await waitFor(() => expect(screen.getByTestId('trace-verdict')).toHaveTextContent('Not every letter yet'))
     expect(screen.getByTestId('letter-0')).toHaveAttribute('data-state', 'ok')
