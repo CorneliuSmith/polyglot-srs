@@ -208,6 +208,25 @@ written. The generator takes the table as data — the walk already accepts
 a forced start and first step — so filling it needs no code per letter,
 and a letter with no row keeps today's behaviour.
 
+**Tier 1 is begun (19 Sep): the generator reads the table.** `split_to`
+in `gen_from_fonts.py` cuts a letter at its sharpest turns until it has
+the number of strokes its sourced row says, and `TAUGHT` loads every
+`rules/*.jsonl` at import. What forced it was Cyrillic print, which
+measured 9/32 on stroke count — the worst of any script — and whose gap
+had only one shape: **we drew fewer strokes than taught for 21 of the 32
+letters and more for only two.** Sixteen of ours were a single stroke
+where the taught model uses five. и is a stem, a diagonal and a stem;
+thinning joins them into one connected skeleton and the walk runs
+straight through. That is not a font's fault, so no face swap could have
+fixed it.
+
+Three guards keep it honest. It only ever **adds** strokes, never
+merges. It only runs for a letter that **has a sourced row** — everything
+else is drawn exactly as before. And it **stops short of cutting a smooth
+curve** to reach a number: о stays one stroke, and a letter that runs out
+of corners keeps what it has and shows up in the checker as a
+disagreement, which is the truthful answer rather than a flattering one.
+
 ### Tier 2 — Better source faces (1 PR per script, needs a font choice)
 
 Where a face is wrong for teaching, swap it. Each entry is a candidate
