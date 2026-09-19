@@ -1760,3 +1760,26 @@ Neither could have been caught by a unit test that mocks the connection: both
 show up only when the same rows are counted twice. They were proven against a
 real Postgres 16 and are pinned by assertions on the SQL text, which is the
 best a mocked connection can do — the real guard is the shared `_scope` call.
+
+## A node_modules SYMLINK is not covered by the node_modules/ ignore rule (19 Sep 2026)
+
+A git worktree that borrows the main checkout's packages gets them as a
+symlink (`ln -s ../../frontend/node_modules`). `frontend/.gitignore` said
+`node_modules/`, and a trailing slash matches a DIRECTORY only, so the link was
+not ignored, a `git add -A` in that worktree committed it, and merging that
+branch into the checkout it pointed at replaced the real directory with a
+symlink to itself. Every package was gone. The build after that merge exited 0
+having compiled nothing, and `npx vitest run` cheerfully downloaded a different
+major version of vitest and reported on it — a green frontend run that proved
+nothing at all, which is quality rule 14 wearing a different hat.
+
+Fixed by ignoring the bare name as well. Two things to carry:
+
+- **Check what a green run actually ran.** The tell was one line of npm noise
+  ("The following package was not found and will be installed: vitest@5.0.1")
+  above an exit code of 0. A test run that installs its own runner is not
+  running the project's.
+- **Symlink the other way, or not at all.** A worktree wanting the main
+  checkout's packages is better served by running the command from the main
+  checkout with the worktree's source, or by its own `npm ci`. The link is a
+  loaded gun pointed at whatever it resolves to.
