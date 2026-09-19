@@ -336,10 +336,55 @@ class TestWrongSenseGloss:
         ):
             assert wrong_sense_kind(rank, gloss) is None, gloss
 
-    def test_the_band_is_the_discriminator(self):
+    def test_the_band_is_the_discriminator_for_a_spelled_out_headword(self):
         gloss = "The name of the Latin script letter T/t."
         assert wrong_sense_kind(WRONG_SENSE_RANK_BAND, gloss) == "letter name"
         assert wrong_sense_kind(WRONG_SENSE_RANK_BAND + 1, gloss) is None
+        # Same two ranks, same gloss, a spelled-out headword: still the band.
+        assert wrong_sense_kind(WRONG_SENSE_RANK_BAND + 1, gloss, "herufi") is None
+
+    def test_a_headword_that_is_itself_a_letter_is_flagged_at_any_rank(self):
+        """The sub-class the band hid, measured 19 Sep 2026: `nl` rank 1036
+        `a`, `ca` 2734 `y`, `yo` 1148 `gb` — the course's own alphabet sitting
+        in its word list, past the band and so invisible to every instrument.
+        A word that NAMES a letter is spelled out; a letter IS one or two
+        characters, and that is what separates `alpha` from `a`.
+        """
+        assert wrong_sense_kind(
+            1036, "the first letter of the Dutch alphabet", "a"
+        ) == "letter name"
+        assert wrong_sense_kind(
+            2734, "The twenty-fifth letter of the Catalan alphabet", "y"
+        ) == "letter name"
+        assert wrong_sense_kind(
+            1148, 'alternative letter-case form of Gb ("The eighth letter'
+                  ' of the Yoruba alphabet")', "gb"
+        ) == "letter name"
+
+    def test_an_english_word_naming_a_greek_letter_is_still_safe(self):
+        """The five rows that made lifting the band the wrong fix. English
+        `beth`, `alpha`, `beta`, `gamma` and `theta` are real English nouns
+        whose meaning IS a foreign letter's name, at ranks 2872 to 9356.
+        `wrong_sense_gloss` is fail-level, so flagging them would put the
+        audit permanently red on content that is correct.
+        """
+        for rank, word, gloss in (
+            (2872, "beth", "the 2nd letter of the Hebrew alphabet"),
+            (3180, "alpha", "the 1st letter of the Greek alphabet"),
+            (7693, "beta", "the 2nd letter of the Greek alphabet"),
+            (7698, "gamma", "the 3rd letter of the Greek alphabet"),
+            (9356, "theta", "the 8th letter of the Greek alphabet"),
+        ):
+            assert wrong_sense_kind(rank, gloss, word) is None, word
+
+    def test_the_word_is_optional_so_a_gloss_only_caller_is_unchanged(self):
+        """Every caller before 19 Sep passed two arguments. Without a headword
+        the rule is the band-limited one it always was — otherwise this change
+        would silently widen a fail-level rule for anyone who did not update."""
+        gloss = "the first letter of the Dutch alphabet"
+        assert wrong_sense_kind(1036, gloss) is None
+        assert wrong_sense_kind(1036, gloss, "") is None
+        assert wrong_sense_kind(1036, gloss, "   ") is None
 
     def test_only_the_leading_sense_counts(self):
         """A gloss that leads with the sense a learner wants is doing its job,
@@ -360,6 +405,11 @@ class TestWrongSenseGloss:
         letters. The parser now ranks word senses above glyph entries and the
         remainder are authored in data/gloss_overrides.tsv, so the whole corpus
         reads clean — this holds that line rather than the old debt.
+
+        Since 19 Sep it also covers every rank, not just the band: the three
+        alphabet rows the wider predicate found are excluded in
+        data/vocab_exclusions.tsv and removed from their frequency files, so
+        `audit_all` reading the committed corpora must find nothing.
         """
         offenders = {
             report["code"]: report["findings"]["wrong_sense_gloss"]
