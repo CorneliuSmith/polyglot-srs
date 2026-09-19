@@ -514,6 +514,16 @@ reader of the plan would expect to find built, and will not:
   `START_OVERRIDES` table per (script, glyph, form) — the walk already
   takes a forced start and first step (`second`), so it is data, not
   code.
+- **Half the Latin print library has the wrong stroke count.** Measured
+  against the first sourced rules table (`scripts/strokes/check_rules.py
+  latin print`): 29 of 57 letters agree on how many strokes, 41 of 57 on
+  where the first one starts. The two failure shapes are opposite — the
+  walk *splits* where a school model teaches one continuous movement
+  with a retrace (b g h m n p q r lower), and *runs together* where the
+  model lifts the pen (I J M N P Q upper). Neither is fixable by another
+  global rule; both need the rules table to state the split
+  (`docs/plans/letterform-quality.md`, Tier 1). The other nine runs of
+  the brief are not yet in, so every other script is still unmeasured.
 - **A bar crossing a stem is not split into two strokes.** f t A E ж х ф:
   the hand writes the stem, then the bar. The walk follows the straightest
   branch at the junction instead, so f's crossbar comes out as part of its
