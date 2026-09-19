@@ -1058,6 +1058,39 @@ its glyph list *and* `CASELESS` out of this file by parsing it — no
 import, so it needs none of the backend's dependencies — which is why
 both tables are plain literals and not `frozenset(...)` calls.
 
+**The generator reads the rules table.** `TAUGHT` in
+`gen_from_fonts.py` loads every `scripts/strokes/rules/*.jsonl` at
+import, and `split_to` cuts a letter at its sharpest turns until it has
+the number of strokes its sourced row says. This is the first thing in
+the pipeline that is driven by a teaching source rather than by a rule
+someone guessed.
+
+What forced it was Cyrillic print, whose gap had exactly one shape: we
+drew **fewer** strokes than taught for 21 of 32 letters and more for
+only two, and sixteen of ours were a single stroke where the taught
+model uses five. и is a stem, a diagonal and a stem; thinning joins them
+into one connected skeleton and the walk runs straight through. No face
+swap could fix that — Noto Sans has the right shapes — and no further
+global rule could either, because the number of times a hand lifts is
+not a property of the outline.
+
+Three guards, and they are the whole reason it is safe to run over eight
+scripts at once. It only ever **adds** strokes. It only runs for a letter
+that **has a sourced row**, so Arabic, Hebrew, Devanagari, Thai and
+Hangul are untouched until someone sources them. And it **stops short of
+cutting a smooth curve** to reach a number — о stays one stroke, and a
+letter that runs out of corners keeps what it has and shows up in the
+checker as a disagreement, which is the honest outcome rather than a
+flattering one.
+
+Stroke count against the sourced tables, before and after: Latin print
+44→59 of 73, Latin cursive 63→72 of 128, **Cyrillic print 21→59 of 66**,
+Cyrillic cursive 28→31 of 66. Where the first stroke *starts* is
+unchanged everywhere, as it must be — splitting never moves the first
+point. Where it *ends* improves for print (43→46, 27→35) and slips by
+two for cursive, because a cursive letter taught in two strokes now ends
+its first one mid-letter where before one long stroke ran past.
+
 **A face can be chosen by measurement.** `FONTS` holds one file per
 script and style, except Latin cursive, which holds a **chain** — each
 glyph is drawn by the first face in the list that has it. That exists

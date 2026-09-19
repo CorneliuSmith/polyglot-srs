@@ -950,6 +950,72 @@ def path_len(path) -> float:
     return sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(path, path[1:]))
 
 
+def _taught() -> dict:
+    """How many strokes each sourced rule says a letter has, keyed by
+    (script, style, glyph, form). The tables are written by
+    scripts/strokes/ingest_rules.py from teaching sources; a letter with
+    no row is absent and is left exactly as the walk drew it."""
+    out: dict = {}
+    d = ROOT / "scripts" / "strokes" / "rules"
+    for f in sorted(d.glob("*.jsonl")) if d.is_dir() else []:
+        for line in f.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            out[(r["script"], r["style"], r["glyph"], r["form"])] = len(r["strokes"])
+    return out
+
+
+TAUGHT = _taught()
+
+
+def turn(path: list, i: int, span: int) -> float:
+    """How sharply *path* turns at index *i*, as 1 - cos(angle), measured
+    over *span* pixels either side so a single jagged pixel cannot pass
+    for a corner. 0 is straight on, 1 is a right angle, 2 is a reversal."""
+    a, b, c = path[max(0, i - span)], path[i], path[min(len(path) - 1, i + span)]
+    u, v = unit(a, b), unit(b, c)
+    return 1.0 - (u[0] * v[0] + u[1] * v[1])
+
+
+def split_to(strokes: list, target: int, span: int, floor: float = 0.30) -> list:
+    """Cut strokes at their sharpest turns until there are *target*.
+
+    A print letter is built from separate strokes meeting at corners —
+    Cyrillic и is a stem, a diagonal and a stem — but thinning joins them
+    into one connected skeleton, so the walk runs straight through and
+    draws the whole letter in one movement. Measured against the sourced
+    propisi table, the generated library drew FEWER strokes than taught
+    for 21 of 32 Cyrillic print letters and more for only two: sixteen of
+    ours were a single stroke where the taught model uses five. That is
+    not a font's fault — Noto Sans has the right shapes — it is the walk
+    not lifting where a hand lifts.
+
+    Where a rule says how many strokes a letter has, the corners are
+    where the pen lifts, so the sharpest turn is cut first and the next
+    sharpest after it. *floor* stops it short of cutting a smooth curve
+    just to reach a number: a letter that runs out of corners keeps the
+    strokes it has and shows up in the checker as a disagreement, which
+    is the honest outcome. This only ever ADDS strokes, and only for a
+    letter with a sourced row."""
+    out = [list(s) for s in strokes]
+    while len(out) < target:
+        best = None
+        for i, s in enumerate(out):
+            if len(s) < 2 * span + 3:
+                continue
+            for j in range(span + 1, len(s) - span - 1):
+                t = turn(s, j, span)
+                if best is None or t > best[0]:
+                    best = (t, i, j)
+        if best is None or best[0] < floor:
+            break
+        _, i, j = best
+        s = out.pop(i)
+        out[i:i] = [s[:j + 1], s[j:]]
+    return out
+
+
 def heading(path: list, at_end: bool, span: int = REACH) -> tuple:
     """Which way the pen is travelling at one end of *path*, measured over
     a run so one pixel's jitter cannot decide it. Both ends point the way
@@ -1306,6 +1372,11 @@ def extract(font, script, style, glyph, form):
         r = max(3, EM // 40)
         cs.append((rc, [[(cx - r, cy), (cx + r, cy)]], True, None))
     ordered, n_body = order_strokes(script, style, cs, (0, 0, x1 - x0 + 2 * m, y1 - y0 + 2 * m), form)
+    want = TAUGHT.get((script, style, glyph, form))
+    if want is not None:
+        body = split_to(ordered[:n_body], want - (len(ordered) - n_body),
+                        span=max(3, EM // 30))
+        ordered, n_body = body + ordered[n_body:], len(body)
     # Pixel -> em box. y: 0 at the top of the em (ascender), 1000 at the
     # bottom (descender) — the same frame for every glyph of the script.
     em_top = baseline - ascent
