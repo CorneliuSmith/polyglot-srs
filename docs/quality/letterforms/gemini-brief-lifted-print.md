@@ -75,6 +75,8 @@ You are compiling a handwriting reference for an app that teaches **adults** to 
 
 **THE TASK — AND HOW IT DIFFERS FROM THE USUAL ONE.** For every letter listed, state how it is formed by hand, counted **by pen lifts**: a new stroke begins every time the pen leaves the paper.
 
+**WHO THIS IS FOR, AND WHY IT CHANGES THE ANSWER.** The reader is an adult who already writes fluently in another script and is learning this one. They are not a child learning to write for the first time. That distinction decides this whole job, because the dominant US print curricula teach the continuous, retraced forms of `a b d g h m n p q r` for a reason that is specific to children: it prevents b/d mirror-reversal in five- and six-year-olds writing their own language. An adult learning Latin script as a foreigner has no such problem, gains nothing from the retrace, and is actively confused by it — the app animates one stroke as one continuous path, so a retraced letter draws its stem twice in a single sweep. **So when a source's reasoning is about young children's motor learning or reversal errors, say so in `disagreement` and give me the lifted form instead.** When a source's reasoning is about the shape of the letter itself, follow it.
+
 **A RETRACE IS A LIFT, FOR THIS JOB.** Many US print curricula teach `a b d g h m n p q r` as one unbroken movement in which the pen runs back up a line it has already drawn — "curve around, push up, then straight down". Count that as **two strokes**, split at the moment the pen doubles back. The reason is practical: the app animates each stroke as one path, so a retraced movement draws the same line twice and teaches nothing. If a source teaches a letter as continuous *without* doubling back — a genuine corner, like the down-and-across of uppercase L, or a closed ring like `o` — that stays **one** stroke. Corners are not lifts. Only retraces are.
 
 **PREFER SOURCES THAT ALREADY TEACH LIFTED FORMS.** Handwriting Without Tears, UK models (Nelson, Letter-join), Australian Foundation, New Zealand, Irish and Canadian primary models, and older US models all teach separate circle-and-stem forms. Use them in preference to Zaner-Bloser and D'Nealian, which are the continuous ones. Where you use a continuous source anyway, split the retrace yourself and say so in `note`.
@@ -88,7 +90,7 @@ You are compiling a handwriting reference for an app that teaches **adults** to 
 - **Never guess.** A missing row is fine; an invented one is not. List anything you could not source under `unknown` in the summary line.
 
 **JUDGEMENT RULES.**
-- Describe the **standard taught model**, not a personal or adult shorthand.
+- Describe a **standard taught model** — a form some curriculum actually teaches — not someone's personal shorthand or a fast adult scrawl. "Written for adults" changes *which* taught model I want, not whether it is a taught model at all.
 - If sources disagree, give the most commonly taught version, set `"confidence": "medium"`, and describe the disagreement in `"disagreement"`.
 - **Marks are separate strokes.** The i-dot, every accent, the Turkish ğ breve, the macron: each is its own stroke, and say whether it is written immediately after the letter's body or after the whole word.
 - Emit a row for **both** `lower` and `upper` of every letter, even when they are written identically.
