@@ -1411,24 +1411,477 @@ Rule 1 says a defect found in one language is a class; this one has been
 fixed for Arabic only.
 
 
-## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
+## `wrong_sense` is a letter-name rule, and reads like a general one (19 Sep 2026)
 
-`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
-above it argues the case well: inside the first thousand every letter-name
-gloss is a function word wearing the wrong hat, and past it a word that names
-a letter usually is one. That reasoning is sound **for the letter-name and
-region-code patterns the rule actually matches**.
+**Both pieces of work this entry used to ask for are done; what remains is the
+misreading that caused it, which the name still invites.**
+`wrong_sense_gloss` matches two patterns — a letter name and a region code —
+and nothing else. It has repeatedly been read as though it covers wrong senses
+generally, including by a recommendation in this repo to lift its rank band
+(`en-sense-ar-gloss-2026-09-18.md` §5.3), which measurement then showed would
+have turned a fail-level rule red on five correct English rows (CHECKS §41).
 
-It has since been read as though the rule covers wrong senses generally. It
-does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
-sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
-`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
-letter name, so the rule would not fire even if the band were lifted.
+What closed each half:
 
-Two separate pieces of work, then: widening the band, and a rule that can see
-this class at all. Neither is done. See
-`docs/quality/en-sense-ar-gloss-2026-09-18.md`.
+- **The band.** Re-measured across every course at every rank: 8 hits, none
+  inside the band, five of them the protected class. The band is right. The
+  sub-class it hid — a headword that IS a letter — is now judged at any rank
+  (CHECKS §41).
+- **A rule that can see the general class.** `content_judge`'s `sense`
+  question, and ranks 2,001–6,000 of English judged in full on 19 Sep: 512
+  findings, 236 repaired (`en-sense-2026-09-19.md`).
 
+**What would remove this entry:** renaming the rule to what it matches
+(`letter_or_region_gloss`), which is a rename across `audit_content.py`,
+`data/quality/baseline.json`, `quality_loop.DRILL_RULES`, the panel's audit
+table and every doc that quotes the name — worth doing when something else is
+already touching that set, not on its own.
+
+## The quality loop: what it does not do yet, and one shape to watch (18 Sep 2026)
+
+`services/quality_loop.py` writes `quality_runs` once a day. These gaps
+are deliberate, each with what closes it.
+
+- **The reader is the Content health panel; `quality_heartbeat()` still
+  is not read anywhere.** `ContentHealthPanel` (Admin → Content),
+  `QualitySettingsPanel` (Admin → Costs) and the Deployment panel's
+  Content section read the admin content-health and quality-settings
+  endpoints (plan phase B). The heartbeat is on neither `/api/health`
+  nor the panel, so "did the loop run" is still the server log line
+  `quality cycle: N courses, N rows ...` — or a course that stops being
+  grey. One thing to read correctly from the panel: its "needs migration
+  20261029" copy is driven by the endpoint's `available` flags, i.e. a
+  missing *table*; a build whose API predates the routes gives the panel
+  a 404 and the plain "Couldn't load" line instead. Not the same fault —
+  the first is the owner's `supabase db push`, the second is a deploy
+  that has not caught up.
+- **The judge step is built and gated, and judges one pair.**
+  `quality/judge_step.py` runs after the mechanical steps behind the
+  switch, the cap, the per-course opt-in and `data/eval/calibrated.json`,
+  which names `register`/`ar` and nothing else — so with every switch on,
+  the other four questions judge nothing (see "The judge's spend is not in
+  the AI-costs table" below for what is left off and why).
+- **`reconcile.survey` parses the frequency file on the event loop.** The
+  audit runs in a thread; the survey cannot, because it takes the
+  connection and calls `expected_rows` (up to 200k rows for English)
+  inside the same coroutine. Once a day, for a second or two per large
+  course, requests wait. Fixing it means splitting `survey` so its file
+  read can be `to_thread`-ed — a change to `seeder/reconcile.py`, not to
+  the loop — and the loop's `_reconcile_step` is where the thread call
+  would go. Reading the same file a second time for the coverage band IS
+  threaded; the duplicate parse is the price of not touching `survey`.
+- **A cycle runs 120 s after every boot, then every 24 h.** There is no
+  fixed hour: a day with four deploys writes four sets of rows. Harmless
+  for the readers (`latest_metrics` is DISTINCT ON the newest; `trend`
+  simply shows more points), and it means the audit's file parsing lands
+  in the minutes after each deploy. If that ever shows up as slow first
+  requests, the fix is a fixed-hour schedule, not a shorter delay.
+- **The whole cycle is one privileged transaction**, the same shape as
+  the other lifespan loops. Rows commit when the cycle ends, and while the
+  audit runs in its thread the transaction sits idle. That is fine on a
+  direct connection; on a pooler with an idle-in-transaction timeout a
+  slow cycle could be cut off, which would surface as one warning per
+  cycle in the heartbeat's `last_error` and no rows at all. The judge
+  makes this longer: `judge_step` runs in the same transaction, after the
+  mechanical rows, with a model round trip per batch — at 200 rows a
+  night that is ten calls of tens of seconds each during which the
+  transaction is idle. A connection cut there loses the mechanical rows
+  too, because nothing has committed yet. Per-course connections would be
+  the fix, and `run_quality_cycle(conn)` would need to become a loop over
+  `privileged_connection()`, with the judge on a connection of its own.
+## Content Health, phase B: what the endpoints leave out (18 Sep 2026)
+
+The `/api/contribute/admin/content-health*` family (`routers/contribute.py`,
+`services/content_health.py`, `repositories/content_health.py`) is the
+plan's §6 panel read from the backend side. Six things it does not do, on
+purpose, each with what would turn it on:
+
+- **No Quality section in the staff bell** (plan §6, "The bell"). The bell
+  (`review_inbox_by_language`, `fold_counts`) counts queues; nothing in it
+  reads `quality_runs` or `content_verdicts`, so a course crossing its
+  flag target is visible only to an admin who opens the panel. Turning it
+  on is a `quality` key in the bell payload fed by
+  `content_health.derive_course` over `latest_metrics`, once the panel's
+  colours have been read for a few weeks and the owner has said which
+  transitions deserve a bell — the plan's own principle 4 ("a false alarm
+  has cost this programme more than a miss") argues for reading first.
+- **No 7-day queue-growth amber** (plan §6, "growth over 7 days amber").
+  `status_of` reads the LATEST rows only; the `queues` block is a depth,
+  not a slope. `repositories/quality.trend(conn, lang, metric, days=7)`
+  per queue key is the read; the rule ("depth up by more than N over the
+  window") has no agreed N, and 27 courses × 18 queues is 486 trend reads
+  a page load, so it wants one grouped query in `repositories/quality.py`
+  before it goes on the hot path.
+- **Agree / Disagree applies nothing to content.** `POST …/verdicts/{id}`
+  writes `disposition`, `disposed_by`, `disposed_at` on the verdict row
+  and nothing else; the judge's `expected` rewrite is shown, never
+  written. Decision #5 ("Accept applies the suggestion, or is renamed
+  Agree") is open; until it closes the UI labels are Agree / Disagree and
+  a reviewer who agrees still fixes the card through the Workshop, which
+  writes `content_change_log`. When it closes as "apply", the write goes
+  through `edit_reviewed_card` from this route, not through a new path.
+- **The status rule does not consult `calibrated`.** The panel reads the
+  same gate the judge spends on — `data/eval/calibrated.json` through
+  `content_judge.calibrated_pairs()`, keyed on (question, course), because
+  a gold set is labelled in one course and `register` on Arabic says
+  nothing about Persian. But an uncalibrated flag rate above the target
+  still reads RED, because the owner switches the judge on per course and
+  sets that target themselves; `calibrated: false` is the label that says
+  how to read the number, not a filter on it. A pair joins the file when
+  its run clears the three §3.2 gates and gets a
+  `docs/quality/<question>-<date>.md` record.
+- **Every support locale folds into the one course row, and principle 6
+  says it should not.** Two different `locale` columns, and only one of
+  them separates anything. `quality_runs.locale` does: `latest_metrics`
+  keys such a row `"<locale>:<metric>"` and `derive_course` reads only the
+  course's own unmarked rows — but nothing writes a locale-tagged
+  `quality_runs` row yet, so that path is inert. `content_verdicts.locale`
+  does NOT: `_judge_coverage_step` writes one locale-NULL
+  `judge.<question>` row per course, and `judged_count` and
+  `open_flag_counts` carry no locale predicate, so a gloss judge run
+  across a course's support locales reports their sum. Measured on the
+  English course with Arabic and Spanish glosses judged: judged 2,
+  population 4, flagged 2, flag_pct 100 — one number for two corpora,
+  where the entry used to promise 0/0. Principle 6 ("the support locale is
+  a corpus of its own") wants a per-locale breakdown in the drill-down;
+  the change is a `locale` group-by in those two readers and a row per
+  locale in the drill-down's judge block. Left off because the panel has
+  no reader yet and the shape should follow the first real gloss run.
+- **Auth on `/api/health` and `/api/health/schema`** is in the plan's
+  phase B row and is not built: decision #3 is open. The content-health
+  routes themselves are behind `_require_admin`.
+
+One shape to know: `GET …/content-health/{code}` computes every course
+(the same `_content_health_courses` the overview uses, so the two can never
+disagree about a number) and then reads one coverage trend, one flag
+trend per question and the open verdicts for that course — seven reads of
+`quality_runs` and two of `content_verdicts` per page. Fine for an admin
+page; if the drill-down is ever polled, compute one course.
+
+## Four judge questions have no gold set, so their gates cannot pass (18 Sep 2026)
+
+`backend/services/quality/content_judge.py` asks five questions of a row —
+`register`, `sense`, `gloss`, `scripture`, `card_shape` — and grades each
+against a reviewer-labelled gold set with the register programme's three
+gates (§3.2) before its verdicts may do anything but report. Only `register`
+has a set (`data/eval/ar_register_gold.tsv`, itself still unlabelled — see
+the entry above). The other four have a specification in
+`data/eval/README.md` and no file; `--gold` for any of them exits with the
+path it expected and the README to build it from.
+
+This is deliberate. The sets need people: the sense and gloss sets need a
+reviewer per locale, the scripture set needs rows from more than one course,
+and the card-shape set needs the one-character WORDS as hard negatives so
+the judge is measured on the failure it is likeliest to produce. Writing
+them from the machine opinions already in `data/eval/*.jsonl` would anchor
+the reviewers to the judge they are meant to grade (the same reason the
+register set ships with `label` blank).
+
+**What is true until they exist:** the nightly judge does not run them at
+all. `data/eval/calibrated.json` lists `register`/`ar` only, and
+`judge_step` skips every other (question, course) pair as `not calibrated`
+whatever `quality_settings` and `language_quality_targets` say — the
+switches decide whether money is spent, the file decides on what. Their
+coverage rows (`judge.sense` etc.) are still written every night, at 0 of
+N with `calibrated: false` in the meta, so the panel can show the gap
+rather than hide it. The register question is the only one whose precision
+has been measured at all, and that on 56 documented answers, not human
+labels; its entry in the file says `provisional` for that reason.
+
+The panel does show their flag rate and does colour a course red on it if
+one ever arrives by another route — that is the contract's status rule
+(`services/content_health.status_of`) and the owner sets each course's
+`max_judge_flag_pct` themselves; `calibrated: false` is the panel's label
+for "read this as a report, not a finding" (`CALIBRATED_QUESTIONS` in
+`services/content_health.py`, empty until a record exists).
+
+**What turns each on:** a filled set to the README's columns, run through
+`content_judge --question <name> --gold`, all three gates green, the run's
+`out/judge-<name>-<stamp>.jsonl` recorded in a `docs/quality/<name>-<date>.md`
+the way `ar-register-2026-09-17.md` records the register calibration — and
+then the entry in `calibrated.json` with those files named
+(`data/eval/README.md`, last section).
+## The judge's spend is not in the AI-costs table, and four other things the judge step leaves off (18 Sep 2026)
+
+`quality/judge_step.py` is the nightly judge (plan §4.3 J1–J2, phase E).
+Each of these is deliberate; each says what turns it on.
+
+- **The spend is not in the AI-costs feature table.** The plan (J2) said
+  judge calls log to `tutor_usage` as `kind='judge'` so they price beside
+  `summary`. They cannot: `tutor_usage.user_id` is NOT NULL with a foreign
+  key to `auth.users` (migration 20260710000000), and the judge has no
+  user. Giving it one is a service account — owner decision #2 in the
+  plan's §9 — so the ledger is `quality_runs` (`kind='judge'`,
+  `metric='tokens'`, one row per (question, course) per night) and
+  `judge_tokens_spent_today` sums that. The number is visible in the admin
+  Content health / Quality settings panel as `spent_today` and NOT in the
+  AI-costs table. Once the account exists: write the same usage to
+  `tutor_usage` beside the `quality_runs` row (`_usage_of` already maps the
+  fields the way `tutor._add_usage` does), and leave `judge_tokens_spent_today`
+  on `quality_runs`, which is the ledger the cap is enforced against.
+  Until then, migration 20261029's comment on `judge_daily_token_cap`
+  ("the loop reads tutor_usage kind='judge'") is drift — left in the file
+  because it is owner-applied and not yet in production; correct it the
+  next time the migration is touched.
+- **Only `register`/`ar` is calibrated, so the other four questions judge
+  nothing yet**, and the Arabic entry is provisional (56/56 on the
+  documented subset; the 614-row gold set is unlabelled). See "Four judge
+  questions have no gold set" above for what turns each on.
+- **J5 routing is not built.** A `dialect` verdict at confidence >= 0.7 is
+  a `content_verdicts` row with `disposition='open'` and nothing more; no
+  `card_change_requests` row is created, because `author_id` is NOT NULL
+  against `auth.users` and that is the same service account, decision #2.
+  Until then the verdicts are read from the table (the Content health
+  panel's drill-down, plan §6) and disposed there.
+- **Retired grammar points' drills are in scope until migration 20261017
+  lands; retired words are out; unreviewed and flagged rows are in on
+  purpose.** The five scopes in `verdicts._SCOPE` filter
+  `vocabulary.retired_at IS NULL` (migration 20261016, applied by the owner
+  7 Sep 2026) and register's drill branch filters `grammar_points.retired_at
+  IS NULL` (20261017, still owed on 18 Sep), each behind a `column_present`
+  probe the way `cards._retired_clause` does it — probed, not assumed,
+  because a predicate on an absent column fails the whole scope under its
+  savepoint, and the judge would read NOTHING for the course (coverage 0 of
+  0) rather than a few retired rows too. So until 20261017 is applied the
+  judge can spend on a retired point's drills and register's coverage
+  denominator counts them; applying the migration is the whole fix, no code
+  change. Still in scope, and a product call rather than a defect: example
+  sentences and drills with `reviewed = false` or `flagged = true`
+  (migrations 20260814, 20260817, 20260821, 20260826). Learners do not see
+  them, but they are exactly the rows a reviewer is about to look at, and a
+  verdict on one is what J5 would hand that reviewer. If the owner wants
+  the judge to read only what learners see, it is one predicate per scope
+  and the coverage denominators shrink with it.
+- **A pair that spends and then fails to write loses its spend from the
+  ledger.** Tokens a pair used are added to the cycle's running total
+  before its rows are written, so the cap holds within the cycle; but if
+  the `quality_runs` INSERT itself fails (anything but an absent table),
+  the pair's savepoint rolls back and tomorrow's `judge_tokens_spent_today`
+  is short by that pair. The step accepts a night's under-count over the
+  alternative — writing the ledger row before the judge runs and updating
+  it after, two statements that can disagree. If it ever matters, write
+  the tokens row per batch instead of per pair; the shape is the same.
+
+## Human ownership of a card is one boolean that only some write paths set (18 Sep 2026)
+
+`vocabulary.curated` and `grammar_points.curated` are what stand between a
+reviewer's Workshop edit and the next content push. `reconcile --apply`
+reports a curated definition that differs from the file under `kept` and
+never writes it (before 18 Sep it wrote the file's wording back over every
+such fix — silently, with a rollback line nobody would look for);
+`seed_grammar` finds a curated point under its current title and every
+former title `content_change_log` holds for it, so a retitled point is not
+re-inserted from the file beside itself. Both protections are only as good
+as the flag.
+
+**What sets it:** `approve_suggestion` (both kinds), `save_explanation`,
+`_edit_vocab_card` on a DEFINITION change, `_edit_grammar_card` on a TITLE
+change. **What does not:** a reading-only edit (`hint`), which owns nothing
+the seeder or reconcile would touch; any future Workshop write path that
+someone adds without copying the `UPDATE ... SET curated = true` line — the
+next reconcile will revert its work and say `gloss`, not `kept`. The test
+that would catch a new path is not mechanical; read `contributor.py` for
+`curated` before adding one.
+
+**The former-title index reads the audit log, not the row.** A retitle done
+by ad-hoc SQL, or on a database behind migration 20260823, leaves no
+`field = 'title'` row, and the seeder duplicates the point exactly as
+before. `curated_points_by_title` degrades to current titles only when the
+table is absent. If the file's title and the live title disagree with no
+log row between them, the fix is to retitle the file to match production.
+
+## The rename detector pairs by rank alone (18 Sep 2026)
+
+`reconcile.detect_renames` calls a `gone` word and a `new` word at the same
+frequency rank one headword respelled, and `--apply` skips the course until
+the old spelling is in `vocab_exclusions.tsv` (rule 73). The rank is the one
+field a respelling keeps; it is also the one field a **re-ranked list**
+changes for every word, so a course whose frequency file was rebuilt from a
+new corpus can show pairs that are two unrelated words. Deliberately kept:
+the action the false pair asks for is still the right one — the departed
+word IS an orphan in production whatever took its rank, and excluding it is
+how it stops being drawn. A rank shared by two words on either side is not
+paired at all, so a badly re-ranked file under-reports rather than
+mis-directs. `cards` on each pair says how many learners hold the old
+spelling, which is the number that decides urgency. Not built: a detector
+for a rename that also moves rank (the 874 Yoruba repairs kept theirs).
+
+## The part-of-speech gate is Arabic, verbs, and a dropped row (18 Sep 2026)
+
+`translate_checks.pos_mismatch` withholds an Arabic gloss whose head is
+nominal on a verb row (`nominal_gloss_on_a_verb`, 76% precision / 86% recall
+on 120 judged rows). Three choices to know about:
+
+- **Only `ar`, only `verb`** (`_POS_CHECKED_LOCALES`). Persian shares the
+  script and none of the measurement; a heuristic measured on one language
+  and applied to nine is the class of guard this program has paid for once
+  (rule 1). Adding a locale means its own 200-row gold set first.
+- **Withhold by leaving the item out of `maker_check_batch`'s results**, not
+  by a `reject` verdict. Every caller files a reject in
+  `translation_reviews`, `ON CONFLICT DO NOTHING`, and `_pending_words`
+  skips a row that has one — so a reject is permanent until a human clears
+  it, and 24 in 100 would be false. A missing item is the shape callers
+  already handle for a maker that returned nothing: not stored, not queued,
+  retried by the attempt ledger. The cost is the retry itself — a second
+  maker+checker call for every withheld row, false alarms included — and
+  the hamzat-wasl form VIII verbs (`اِلْتَهَمَ` bares to `التهم`) are a
+  known false-alarm class that will be withheld every time until a
+  morphological analyser replaces the pattern. Watch `withheld ar gloss` in
+  the logs; if a row is withheld on every attempt, the ledger's backoff is
+  what stops it costing money for ever.
+- **The sentence and label lanes are untouched.** `gate` gained `pos` and
+  `word`, but `generate_sentence_translations` / `generate_text_translations`
+  carry neither and are not judged; the plan's line numbers for the "call
+  sites" pointed at those lanes, and the vocabulary lane
+  (`maker_check_batch`) had never called `gate` at all. It still does not
+  call the FULL gate: `is_identity` would refuse a cognate gloss (`radio` →
+  `radio`), a behaviour change nobody has measured.
+
+## The telemetry columns are wired before the data that fills them (18 Sep 2026)
+
+Migration 20261030 (owner-applied) added `tutor_usage.outcome` /
+`latency_ms`, `card_feedback.field` / `drill_id` / `locale` /
+`support_locale` and `card_change_requests.locale`
+(`docs/plans/quality-guardrails-telemetry.md` §5, phase C). Every writer
+degrades on `UndefinedColumnError` — savepoint plus a two-shape INSERT, the
+`app_feedback.variants` pattern — so nothing here waits on the migration.
+Four things a reader of those columns should know before drawing a chart:
+
+- **`card_feedback.drill_id` is NULL on every row for now.** The review
+  session's grammar cards come from `get_due_cards`, whose drill aggregate
+  (`repositories/cards.py`, the `array_agg(ds.sentence …)` block near line
+  330) carries sentences, answers, hints and translations but not `ds.id`,
+  so `_grammar_card` has no id to serve; `DueCard.drill_id` is populated
+  only on the cram/Gym path, where `CardFeedback` is not rendered. The
+  client already passes `card.drill_id` when present. One more
+  `array_agg(ds.id …)` in that query and a `drill_id` key in
+  `_grammar_card`'s return turns the column on. Left undone because
+  `cards.py` was outside the unit that shipped the rest.
+- **`tutor_usage.outcome` is only ever `'ok'`, from three sites** — tutor
+  `/chat`, the Speak opener, the Reader write. Every error path raises
+  before `log_tutor_usage` runs, so no `'error'` row is written anywhere
+  yet; `schema_reject` / `checker_reject` / `fallback` are for the judge
+  loop and the local-model plan to write. The other eleven callers pass
+  neither value and keep the eight-column INSERT, so they never pay a
+  failed statement on a database that has not migrated.
+- **`latency_ms` is timed in the router around the service call**, not
+  around each `messages.create`. The turn is the cost unit (a tool loop is
+  several calls), the learner waits for all of it, and putting the number
+  into the usage dict would have changed a return value `test_tutor.py`
+  asserts by strict equality. For the Reader it includes the contract
+  grader and any rewrite — the wait the poll actually covers.
+- **`support_locale` and `locale` spell English out as `'en'`**, against the
+  None-means-English convention of `effective_support_locale`. In a
+  telemetry column NULL has to mean "not recorded", or a pre-migration row
+  and an English-support learner's row would be the same row in every
+  per-locale breakdown.
+
+## The Content health panel reads the contract and nothing beside it (18 Sep 2026)
+
+Plan §6 describes more than phase B's API contract carries, and the
+panels (`frontend/src/features/contribute/ContentHealthPanel.tsx`,
+`QualitySettingsPanel.tsx`, the Content section of
+`features/settings/DeploymentPanel.tsx`) were built to the contract so
+the two halves could be built in parallel. Left off, each with what turns
+it on:
+
+- **No links from a course's drill-down into the review queues.** §6
+  wanted "links into `ChangeRequestsPanel` / `TranslationReviewsPanel` /
+  `FeedbackPanel` pre-filtered". The Workspace already takes
+  `?tab=review&queue=<key>`, but its queues are scoped by the admin's
+  *active* language, and the course row carries a `language_id`, not a
+  way to switch that language — switching the admin's own study language
+  as a side effect of a link is the move `LanguageVisibilityPanel` asks
+  about before making. Turn on: a `?language=<id>` parameter on the
+  Workspace that sets the scope for the visit, then one `Link` per queue
+  key from the drill-down.
+- **Queues have no 7-day trend and "last judged > 7 days" is not grey.**
+  §6's amber-on-growth and grey-on-staleness are not in the contract's
+  status rules (grey = no rows at all; red/amber from bad cards, judge
+  flags, the audit delta and coverage), so the panel shows the queue
+  total with each queue in the cell's title, and a relative time. Turn
+  on: the endpoint adds the delta and the rule to `status`; the client
+  then colours what the server decided and never applies a rule of its
+  own — a server-side status exists so there is one definition of red.
+- **The verdict list is the server's first 200, newest first, unpaged.**
+  Enough for a course under a nightly cap of a few hundred rows; a
+  backlog past that is invisible from the panel until the first 200 are
+  disposed. Turn on: an `offset` or `before` parameter on
+  `/content-health/{code}` and a "more" button under the list.
+- **Course names on the Costs table come from the languages catalog**
+  (`getLanguages`, the query every page caches), because
+  `/quality-settings` is keyed by code alone; a code the catalog does not
+  return shows as its code. Harmless while the targets map is built from
+  `languages`; worth knowing if a course is ever dropped from the
+  catalog response.
+- **The staff bell's Quality section (§6) is not built.** It would read
+  the same summary filtered to courses whose status changed since the
+  previous run, which needs the previous run's status stored or
+  recomputed — neither is in the contract.
+- **`TranslationStatusPanel` keeps its own private `ago`.** `lib/ago.ts`
+  is the same function, shared by the three new "last ran" lines; the
+  old copy was left in place to keep that panel out of this change. Fold
+  it in the next time that file is touched.
+
+## The judge's coverage numerator and its flag numerator each had to be taught what they were counting (19 Sep 2026)
+
+Two percentages the Content health panel prints could both exceed 100%, and
+neither was a rounding artefact. Both were a numerator counting one thing and a
+denominator counting another, and both were found by reading the two units
+against each other after they merged — each unit's own checker had passed its
+own diff.
+
+- **`judge.<question>` coverage.** `scope_size` counts the question's scope,
+  which excludes retired words; `judged_count` counted `content_verdicts` rows
+  for the course and question with no join to the content tables.
+  `content_verdicts.entity_id` has no foreign key, so a verdict outlives the row
+  it judged — a word retired since, a sentence a re-seed deleted. Reproduced on
+  a three-row fixture with one verdict on a retired word's sentence: scope 3,
+  "judged" 4, **133% covered**, and the panel renders it straight.
+  `judged_count` now counts distinct rows OF THE SCOPE joined to their
+  verdicts.
+- **`judge.<question>` flag rate.** `open_flag_counts` counted verdict rows
+  (`count(*)`); its denominator is that same `judged_count`, which counts
+  distinct rows of content. A card judged on two nights with both verdicts open
+  is two verdict rows and one flagged card, so the rate climbed every night a
+  row was re-judged — and `status_of` turns a course red on it. It now counts
+  the same identity, `(entity_type, entity_id, field, locale)`, folded the way
+  the unique index folds it.
+
+**The general rule, which is why this is here and not only in a commit
+message:** a rate's two halves are one decision, and a repository where they
+live in different functions will drift. Anything added to a scope (the
+`retired_at IS NULL` predicate was added to the denominator alone, one commit
+earlier) has to be added to both, and the cheap test is to assert the two SQL
+strings share the scope, not to assert a number.
+
+Neither could have been caught by a unit test that mocks the connection: both
+show up only when the same rows are counted twice. They were proven against a
+real Postgres 16 and are pinned by assertions on the SQL text, which is the
+best a mocked connection can do — the real guard is the shared `_scope` call.
+
+## A node_modules SYMLINK is not covered by the node_modules/ ignore rule (19 Sep 2026)
+
+A git worktree that borrows the main checkout's packages gets them as a
+symlink (`ln -s ../../frontend/node_modules`). `frontend/.gitignore` said
+`node_modules/`, and a trailing slash matches a DIRECTORY only, so the link was
+not ignored, a `git add -A` in that worktree committed it, and merging that
+branch into the checkout it pointed at replaced the real directory with a
+symlink to itself. Every package was gone. The build after that merge exited 0
+having compiled nothing, and `npx vitest run` cheerfully downloaded a different
+major version of vitest and reported on it — a green frontend run that proved
+nothing at all, which is quality rule 14 wearing a different hat.
+
+Fixed by ignoring the bare name as well. Two things to carry:
+
+- **Check what a green run actually ran.** The tell was one line of npm noise
+  ("The following package was not found and will be installed: vitest@5.0.1")
+  above an exit code of 0. A test run that installs its own runner is not
+  running the project's.
+- **Symlink the other way, or not at all.** A worktree wanting the main
+  checkout's packages is better served by running the command from the main
+  checkout with the worktree's source, or by its own `npm ci`. The link is a
+  loaded gun pointed at whatever it resolves to.
 ### Local / open-weights models
 
 `docs/local-models.md` (18 Sep 2026) is a survey and a staged plan, not a
@@ -1459,92 +1912,3 @@ an agent session can close out.
 
 ---
 
-## Naming / cosmetic
-
-### Product name
-
-`README.md` and the codebase call it PolyglotSRS throughout, including the
-committed bundle identifier `com.polyglotsrs.app` in both native projects.
-`docs/pricing-and-launch.md` argues for a rename before any app-store
-listing goes out (its case: "SRS" doesn't mean anything to the audience,
-"Polyglot" is the most crowded term in the category with no defensible
-trademark). Not urgent, but worth deciding before the native app work in the
-section above, since the bundle identifier is annoying to change after a
-store submission.
-
----
-
-## The Arabic register tripwire measures almost nothing (17 Sep 2026)
-
-`ARABIC_DIALECT_MARKERS` in `quality/audit_content.py` is 29 whole words,
-and it flags **one row** in the current 13,025-row `ar_sentences.tsv` — and
-that hit is in the `word` column, not the sentence: the headword `مش`, under
-a sentence that is ordinary MSA. Nothing in any sentence trips it.
-The 424 word hits `docs/quality/ar-register-programme.md` §2 records were
-measured on the 14,671-row bank before the prune and with a wider list than
-the one in the code. Widening the code list to every tell in programme
-§1.1 raises it to 22 rows, of which 17 have only a documented *non-tell*
-(عم, دول, الحين) as their evidence.
-
-This is not a bug to fix by widening the tripwire — precision is already
-under 5% and the recall has never been measured. It is left as-is, on
-purpose, because it is cheap and it is not the instrument: the judge in
-`quality/register_pass.py` is. What is worth knowing is that **a green
-`ar_register` row in the audit is close to meaningless**, and nobody
-should read it as evidence the corpus is MSA. The audit rule stays so that
-an obvious regression (someone pasting Egyptian into the bank) still trips
-something.
-
-## The gold set's labels are not filled (17 Sep 2026)
-
-`data/eval/ar_register_gold.tsv` ships with `label`, `variety`, `evidence`
-and `note` blank by design — they are the reviewers' columns, and a
-pre-filled label is an anchor. Until two Arabic speakers fill them, the
-`--gold` gate in `register_pass.py` cannot report the §3.2 agreement figure
-against human labels, and it says so rather than inventing one.
-
-What exists in the meantime is `data/eval/ar_register_documented.tsv`: 56
-of the 614 items whose answer the programme document itself already
-asserts (the confirmed defects, the verified non-tells, the b-prefix rows,
-the MSA homograph entries). That is real ground truth and the judge is
-graded on it. It is not a substitute for the review — it contains no
-judgement call, which is exactly why it is safe and exactly why it is
-narrow.
-
-## The support locale is a register surface and was pinned late (17 Sep 2026)
-
-A learner's *support* locale — the language the app explains IN — is a
-register surface in its own right, and for most of this codebase's life
-nothing said so. Every call site pinned `register_line()` on the language
-being TAUGHT. For an Arabic speaker learning English that is English, which
-has no variety to pin, so the tutor's prompt carried no register rule at all
-while being told to "converse in Arabic".
-
-Fixed for `tutor.py` and `speak.py` (three sites). Already correct in
-`translate.py` and `define.py`, which pin the locale they write into.
-
-**What to watch:** `register_line` is keyed by language, and `REGISTER` has
-exactly one entry. Any other language with a standard variety — Persian
-(formal vs colloquial), Hindi, Greek, Tagalog — has the same hole in both
-directions, as a course and as a support locale, and none has been measured.
-Rule 1 says a defect found in one language is a class; this one has been
-fixed for Arabic only.
-
-
-## `wrong_sense` stops at rank 1,000 and the defect does not (18 Sep 2026)
-
-`WRONG_SENSE_RANK_BAND = 1000` in `quality/audit_content.py`, and the comment
-above it argues the case well: inside the first thousand every letter-name
-gloss is a function word wearing the wrong hat, and past it a word that names
-a letter usually is one. That reasoning is sound **for the letter-name and
-region-code patterns the rule actually matches**.
-
-It has since been read as though the rule covers wrong senses generally. It
-does not. Measured 18 Sep: **8.1% of English definitions give a rare or wrong
-sense, peaking at 15–17% in ranks 2,001–6,000** — `runner` as a smuggler,
-`cub` as an awkward youth, `sadly` as "in an unfortunate way". None of it is a
-letter name, so the rule would not fire even if the band were lifted.
-
-Two separate pieces of work, then: widening the band, and a rule that can see
-this class at all. Neither is done. See
-`docs/quality/en-sense-ar-gloss-2026-09-18.md`.

@@ -78,15 +78,19 @@ class TestOneStatementPerChunk:
         statements = [c for c in conn.calls if c[0] not in ("BEGIN", "COMMIT")]
         # 9 kinds, 2 chunks each — sentence layers write two columns
         assert len(statements) == 20
+        # `kept` and `rename_blocked` are bookkeeping, not writes: how many
+        # curated definitions were left alone and which courses were held
+        # back for an unexcluded rename. Neither sends a statement.
         assert counts == {"gloss": n, "pos": n, "morphology": n,
                           "added_translation": n, "sentence_layers": n,
                           "retired": n, "unretired": n,
-                          "points_retired": n, "points_unretired": n}
+                          "points_retired": n, "points_unretired": n,
+                          "kept": 0, "rename_blocked": {}}
 
     def test_nothing_to_do_sends_nothing(self):
         conn, counts = _run([_report()])
         assert [c[0] for c in conn.calls] == ["BEGIN", "COMMIT"]
-        assert set(counts.values()) == {0}
+        assert all(not v for v in counts.values()), counts
 
     def test_it_all_happens_in_one_transaction(self):
         conn, _ = _run([_report(retire=[{"id": "a"}])])

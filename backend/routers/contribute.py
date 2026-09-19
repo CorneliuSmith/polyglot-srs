@@ -15,6 +15,7 @@ import re
 import secrets
 import uuid
 from datetime import UTC, datetime, timedelta
+from typing import Literal
 
 import asyncpg
 from fastapi import APIRouter, Depends, HTTPException, status
@@ -34,6 +35,15 @@ from backend.repositories.change_requests import (
     list_requests,
     load_cards,
     resolve_request,
+)
+from backend.repositories.content_health import (
+    TABLE_ABSENT,
+    dispose_verdict,
+    latest_reconcile,
+    list_languages,
+    open_flag_counts,
+    open_verdicts,
+    table_flags,
 )
 from backend.repositories.contributor import (
     CARD_EDIT_FIELDS,
@@ -152,6 +162,17 @@ from backend.repositories.languages import (
     set_language_visibility,
 )
 from backend.repositories.pool import privileged_connection, rls_connection
+from backend.repositories.quality import (
+    ROWS_PER_CYCLE_MAX,
+    TARGET_DEFAULTS,
+    get_language_targets,
+    get_quality_settings,
+    judge_tokens_spent_today,
+    set_language_target,
+    update_quality_settings,
+)
+from backend.repositories.quality import latest_metrics as latest_quality_metrics
+from backend.repositories.quality import trend as quality_trend
 from backend.repositories.recordings import (
     get_recording_audio,
     list_recordings,
@@ -179,7 +200,9 @@ from backend.repositories.tutor import (
     set_plan_message_limit,
     set_tutor_access,
 )
+from backend.services import content_health
 from backend.services.allowance import effective_plan_limits
+from backend.services.build_info import build_info
 from backend.services.drills import validate_drill
 from backend.services.email import send_email
 from backend.services.generate import generation_available
@@ -198,6 +221,8 @@ from backend.services.generation_admin import (
     run_overlap_audit,
 )
 from backend.services.models import LOW_RESOURCE_LANGUAGES, resolve_model
+from backend.services.quality.audit_content import load_baseline
+from backend.services.quality.content_judge import QUESTIONS, calibrated_pairs
 from backend.services.rate_limit import ai_review_limiter
 from backend.services.semantic_check import (
     ai_available,
@@ -898,6 +923,245 @@ async def review_recording_endpoint(
             conn, recording_id, user["id"], approve=body.approve
         )
     return {"status": new_status}
+
+
+# ---------------------------------------------------------------------------
+# Content health (plan §6, phase B; admin-only): the quality loop's rows as
+# one row per course, worst first, with the judge's switch and spend beside
+# them. Two conventions, both from the plan-limits routes above: every GET
+# degrades to `available: false` before migration 20261029 lands and never
+# 503s, because the panel has to be able to explain an empty page; every
+# PUT/POST 503s naming the migration, because an admin's save failing
+# silently is worse than a read degrading. Nothing here writes content —
+# a verdict's disposition records what a person thought of it and applies
+# nothing (decision #5 is open), and the UI labels it Agree / Disagree.
+# ---------------------------------------------------------------------------
+
+
+def _quality_503(what: str) -> HTTPException:
+    return HTTPException(
+        status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+        detail=(
+            f"{what} needs migration 20261029 applied — "
+            "run `supabase db push` (check /api/health/schema)"
+        ),
+    )
+
+
+async def _content_health_courses(conn) -> tuple[list[dict], dict, dict]:
+    """Every course's row, sorted worst first, plus the raw metrics and the
+    baseline the drill-down reuses — one reader, so the list and the
+    per-course page can never disagree about a number."""
+    languages = await list_languages(conn)
+    targets = await get_language_targets(conn)
+    metrics = await latest_quality_metrics(conn)
+    flagged = await open_flag_counts(
+        conn, content_health.question_positives(QUESTIONS), content_health.FLAG_CONFIDENCE,
+    )
+    baseline = load_baseline()
+    # The same gate the nightly judge reads, so the panel's "calibrated" label
+    # and the pair the judge actually spends on cannot disagree.
+    calibrated = calibrated_pairs()
+    courses = []
+    for lang in languages:
+        derived = content_health.derive_course(
+            metrics.get(lang["id"], {}),
+            targets.get(lang["id"], TARGET_DEFAULTS),
+            content_health.baseline_for(baseline, lang["code"]),
+            flagged.get(lang["id"], {}),
+            QUESTIONS,
+            lang["code"],
+            calibrated,
+        )
+        courses.append({
+            "code": lang["code"], "name": lang["name"], "language_id": lang["id"], **derived,
+        })
+    courses.sort(key=content_health.sort_key)
+    return courses, metrics, baseline
+
+
+@router.get("/admin/content-health")
+async def content_health_overview(user: dict = Depends(get_current_user)):
+    """One row per course, worst first (admin-only): bad-card share against
+    its target, audit fails against the baseline, the judge's flag rate per
+    question, queue depths and the last reconcile survey — all from the
+    latest `quality_runs` rows. A course with no rows is grey, not green.
+    `available` says which of the four telemetry tables exist, so the
+    panel can name the migration instead of showing 27 grey rows."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        available = await table_flags(conn)
+        settings = await get_quality_settings(conn)
+        spent = await judge_tokens_spent_today(conn)
+        courses, _, _ = await _content_health_courses(conn)
+    return {
+        "generated_at": datetime.now(UTC).isoformat(),
+        "available": available,
+        "settings": settings,
+        "spent_today": spent,
+        "courses": courses,
+    }
+
+
+@router.get("/admin/content-health/deploy")
+async def content_health_deploy(user: dict = Depends(get_current_user)):
+    """Files versus database since the last deploy (admin-only): the last
+    reconcile survey per course — words gone from the file, rows the file
+    has that production lacks, glosses drifted — with the build it ran
+    against. The content answer to the deployment panel's schema question.
+    Only courses with a survey appear. Declared before `/{code}` so the
+    word "deploy" is never read as a course code."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        available = await table_flags(conn)
+        languages = await list_languages(conn)
+        latest = await latest_reconcile(conn)
+    return {
+        "build_sha": build_info().get("sha"),
+        "available": available["quality_runs"],
+        "courses": [
+            content_health.deploy_row(lang, latest[lang["id"]])
+            for lang in languages if lang["id"] in latest
+        ],
+    }
+
+
+@router.get("/admin/content-health/{code}")
+async def content_health_course(code: str, user: dict = Depends(get_current_user)):
+    """One course in full (admin-only): its row from the overview, 30-day
+    trends of the bad-card share and each question's flag rate, every audit
+    rule against its baseline, and the open verdicts newest first (200 at
+    most — a list to work through, not an export)."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        courses, metrics, baseline = await _content_health_courses(conn)
+        course = next((c for c in courses if c["code"] == code), None)
+        if course is None:
+            raise HTTPException(status_code=404, detail=f"No course with code {code!r}")
+        lang_id = course["language_id"]
+        coverage = await quality_trend(conn, lang_id, content_health.COVERAGE_METRIC)
+        flags = {
+            name: content_health.flag_trend(await quality_trend(conn, lang_id, f"flagged.{name}"))
+            for name in QUESTIONS
+        }
+        verdicts = await open_verdicts(conn, lang_id)
+    return {
+        **course,
+        "trends": {
+            "bad_card_pct": content_health.bad_card_trend(coverage),
+            "judge_flag_pct": flags,
+        },
+        "audit": content_health.audit_rows(
+            metrics.get(lang_id, {}), content_health.baseline_for(baseline, code),
+        ),
+        "verdicts": verdicts,
+    }
+
+
+class VerdictDisposition(BaseModel):
+    disposition: Literal["accepted", "rejected"]
+
+
+@router.post("/admin/content-health/verdicts/{verdict_id}")
+async def dispose_content_verdict(
+    verdict_id: uuid.UUID,
+    body: VerdictDisposition,
+    user: dict = Depends(get_current_user),
+):
+    """Agree or disagree with one open verdict (admin-only). Records who and
+    when on the verdict row and nothing else: whether "accept" applies the
+    judge's rewrite is decision #5, still open, so the UI says Agree /
+    Disagree. 404 when the row is not open — a second click, or somebody
+    else got there first."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        result = await dispose_verdict(conn, str(verdict_id), body.disposition, user["id"])
+    if result is TABLE_ABSENT:
+        raise _quality_503("Verdict dispositions")
+    if result is None:
+        raise HTTPException(status_code=404, detail="No open verdict with that id")
+    return result
+
+
+class QualitySettingsUpdate(BaseModel):
+    # Every field optional: the panel sends what changed. The ranges are the
+    # table's CHECK constraints, so a bad value is a 422 here and never a
+    # constraint error that reads as a broken panel.
+    judge_enabled: bool | None = None
+    judge_rows_per_cycle: int | None = Field(default=None, ge=0, le=ROWS_PER_CYCLE_MAX)
+    judge_daily_token_cap: int | None = Field(default=None, ge=0, le=1_000_000_000)
+    judge_model: str | None = Field(default=None, max_length=100)
+
+
+async def _quality_settings_state(conn) -> dict:
+    available = await table_flags(conn)
+    languages = await list_languages(conn)
+    targets = await get_language_targets(conn)
+    return {
+        "available": available["quality_settings"],
+        "settings": await get_quality_settings(conn),
+        "spent_today": await judge_tokens_spent_today(conn),
+        "targets": {
+            lang["code"]: targets.get(lang["id"], dict(TARGET_DEFAULTS)) for lang in languages
+        },
+    }
+
+
+@router.get("/admin/quality-settings")
+async def quality_settings_state(user: dict = Depends(get_current_user)):
+    """The judge's switch, budget and model, what it has spent today, and
+    every course's opt-in and red thresholds (admin-only). Before the
+    migration the settings read OFF with a zero budget — the same answer
+    the loop gets, so the panel shows what the judge will actually do."""
+    await _require_admin(user["id"])
+    async with privileged_connection() as conn:
+        return await _quality_settings_state(conn)
+
+
+@router.put("/admin/quality-settings")
+async def put_quality_settings(
+    body: QualitySettingsUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """Change any subset of the judge's controls (admin-only). This is the
+    owner's cost control — the cap is set here, in the app, never in
+    config.py — so a save that could not land is a 503, not a silent OFF."""
+    await _require_admin(user["id"])
+    # exclude_unset, not exclude_none: a model the admin cleared is sent as
+    # null and must clear the column; a field they did not touch stays.
+    fields = body.model_dump(exclude_unset=True)
+    async with privileged_connection() as conn:
+        stored = await update_quality_settings(conn, updated_by=user["id"], **fields)
+        if stored is None:
+            raise _quality_503("Judge settings")
+        return await _quality_settings_state(conn)
+
+
+class QualityTargetsUpdate(BaseModel):
+    judge_enabled: bool | None = None
+    max_bad_card_pct: float | None = Field(default=None, ge=0, le=100)
+    max_judge_flag_pct: float | None = Field(default=None, ge=0, le=100)
+
+
+@router.put("/admin/quality-targets/{code}")
+async def put_quality_targets(
+    code: str,
+    body: QualityTargetsUpdate,
+    user: dict = Depends(get_current_user),
+):
+    """One course's judge opt-in and red thresholds (admin-only). A field
+    left out keeps its stored value, so switching the judge on for Korean
+    does not reset Korean's thresholds to the defaults."""
+    await _require_admin(user["id"])
+    fields = body.model_dump(exclude_unset=True)
+    async with privileged_connection() as conn:
+        lang = next((r for r in await list_languages(conn) if r["code"] == code), None)
+        if lang is None:
+            raise HTTPException(status_code=404, detail=f"No course with code {code!r}")
+        stored = await set_language_target(conn, lang["id"], updated_by=user["id"], **fields)
+    if stored is None:
+        raise _quality_503("Quality targets")
+    return {"code": code, "targets": stored}
 
 
 # ---------------------------------------------------------------------------
@@ -2656,6 +2920,11 @@ class NewChangeRequest(BaseModel):
     # Review Mode: the span the reviewer selected, plus where it sat.
     quote: str | None = Field(default=None, max_length=2000)
     quote_context: dict | None = None
+    # The locale overlay the reviewer was reading (migration 20261030).
+    # cards.py serves locale-specific hints and translations, and the board
+    # could not tell a complaint about the French hint from one about the
+    # sentence. Client-supplied: which overlay rendered is a client fact.
+    locale: str | None = Field(default=None, max_length=16)
 
 
 class VoteBody(BaseModel):
@@ -2699,6 +2968,7 @@ async def create_change_request(
             (body.suggestion or "").strip() or None,
             quote=body.quote,
             quote_context=body.quote_context,
+            locale=body.locale,
         )
     return {"id": req_id}
 

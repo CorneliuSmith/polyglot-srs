@@ -12,6 +12,7 @@ convention) gets switched off within a week, and then the real leaks go with it.
 """
 from __future__ import annotations
 
+from backend.services.quality import audit_content as ac
 from backend.services.quality.audit_content import (
     DATA,
     FAIL_RULES,
@@ -336,10 +337,55 @@ class TestWrongSenseGloss:
         ):
             assert wrong_sense_kind(rank, gloss) is None, gloss
 
-    def test_the_band_is_the_discriminator(self):
+    def test_the_band_is_the_discriminator_for_a_spelled_out_headword(self):
         gloss = "The name of the Latin script letter T/t."
         assert wrong_sense_kind(WRONG_SENSE_RANK_BAND, gloss) == "letter name"
         assert wrong_sense_kind(WRONG_SENSE_RANK_BAND + 1, gloss) is None
+        # Same two ranks, same gloss, a spelled-out headword: still the band.
+        assert wrong_sense_kind(WRONG_SENSE_RANK_BAND + 1, gloss, "herufi") is None
+
+    def test_a_headword_that_is_itself_a_letter_is_flagged_at_any_rank(self):
+        """The sub-class the band hid, measured 19 Sep 2026: `nl` rank 1036
+        `a`, `ca` 2734 `y`, `yo` 1148 `gb` — the course's own alphabet sitting
+        in its word list, past the band and so invisible to every instrument.
+        A word that NAMES a letter is spelled out; a letter IS one or two
+        characters, and that is what separates `alpha` from `a`.
+        """
+        assert wrong_sense_kind(
+            1036, "the first letter of the Dutch alphabet", "a"
+        ) == "letter name"
+        assert wrong_sense_kind(
+            2734, "The twenty-fifth letter of the Catalan alphabet", "y"
+        ) == "letter name"
+        assert wrong_sense_kind(
+            1148, 'alternative letter-case form of Gb ("The eighth letter'
+                  ' of the Yoruba alphabet")', "gb"
+        ) == "letter name"
+
+    def test_an_english_word_naming_a_greek_letter_is_still_safe(self):
+        """The five rows that made lifting the band the wrong fix. English
+        `beth`, `alpha`, `beta`, `gamma` and `theta` are real English nouns
+        whose meaning IS a foreign letter's name, at ranks 2872 to 9356.
+        `wrong_sense_gloss` is fail-level, so flagging them would put the
+        audit permanently red on content that is correct.
+        """
+        for rank, word, gloss in (
+            (2872, "beth", "the 2nd letter of the Hebrew alphabet"),
+            (3180, "alpha", "the 1st letter of the Greek alphabet"),
+            (7693, "beta", "the 2nd letter of the Greek alphabet"),
+            (7698, "gamma", "the 3rd letter of the Greek alphabet"),
+            (9356, "theta", "the 8th letter of the Greek alphabet"),
+        ):
+            assert wrong_sense_kind(rank, gloss, word) is None, word
+
+    def test_the_word_is_optional_so_a_gloss_only_caller_is_unchanged(self):
+        """Every caller before 19 Sep passed two arguments. Without a headword
+        the rule is the band-limited one it always was — otherwise this change
+        would silently widen a fail-level rule for anyone who did not update."""
+        gloss = "the first letter of the Dutch alphabet"
+        assert wrong_sense_kind(1036, gloss) is None
+        assert wrong_sense_kind(1036, gloss, "") is None
+        assert wrong_sense_kind(1036, gloss, "   ") is None
 
     def test_only_the_leading_sense_counts(self):
         """A gloss that leads with the sense a learner wants is doing its job,
@@ -360,11 +406,117 @@ class TestWrongSenseGloss:
         letters. The parser now ranks word senses above glyph entries and the
         remainder are authored in data/gloss_overrides.tsv, so the whole corpus
         reads clean — this holds that line rather than the old debt.
+
+        Since 19 Sep it also covers every rank, not just the band: the three
+        alphabet rows the wider predicate found are excluded in
+        data/vocab_exclusions.tsv and removed from their frequency files, so
+        `audit_all` reading the committed corpora must find nothing.
         """
         offenders = {
             report["code"]: report["findings"]["wrong_sense_gloss"]
             for report in audit_all(LANGUAGES)
             if report["findings"]["wrong_sense_gloss"]
+        }
+        assert not offenders, offenders
+
+
+class TestEmptyDefinition:
+    """A card with no definition at all — CHECKS §42.
+
+    The class every other definition rule is structurally unable to see:
+    `wrong_sense_gloss`, `circular_gloss` and `relation_only_gloss` each open
+    with `if not gloss: continue`, so the emptiest rows in the corpus were the
+    ones no rule could reach. Measured 19 Sep 2026: 1,231 English rows, 12.4%
+    of that course, none in the other 26, and not one inside the top 2,000 —
+    which is why every top-down pass missed them.
+    """
+
+    def _rows(self, monkeypatch, rows):
+        monkeypatch.setattr(ac, "_frequency_rows", lambda code: rows)
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: None)
+
+    def test_a_blank_definition_is_a_finding(self, monkeypatch):
+        self._rows(monkeypatch, [
+            {"rank": "2042", "word": "sean", "pos": "", "en": ""},
+            {"rank": "2043", "word": "house", "pos": "noun", "en": "a building"},
+        ])
+        found = ac._audit_empty_definitions("xx")
+        assert len(found) == 1 and "sean" in found[0]
+
+    def test_whitespace_is_blank(self, monkeypatch):
+        self._rows(monkeypatch, [{"rank": "1", "word": "w", "pos": "", "en": "   "}])
+        assert len(ac._audit_empty_definitions("xx")) == 1
+
+    def test_the_seeder_noise_list_is_not_a_card(self, monkeypatch):
+        """`seed_english` drops these four before they can become flashcards,
+        so counting them would report a defect nobody can meet. The lists have
+        to stay in step, which is why the constant names its source."""
+        self._rows(monkeypatch, [
+            {"rank": str(i), "word": w, "pos": "", "en": ""}
+            for i, w in enumerate(sorted(ac.SEEDER_NOISE), start=1)
+        ])
+        assert ac._audit_empty_definitions("en") == []
+
+    def test_findings_come_back_in_rank_order(self, monkeypatch):
+        self._rows(monkeypatch, [
+            {"rank": "900", "word": "later", "pos": "", "en": ""},
+            {"rank": "12", "word": "first", "pos": "", "en": ""},
+        ])
+        found = ac._audit_empty_definitions("xx")
+        assert "first" in found[0] and "later" in found[1]
+
+    def test_english_says_how_many_wordnet_could_fill(self, monkeypatch):
+        """For English a blank column is not automatically a blank card —
+        `seed_english` resolves one through WordNet at seed time. The note
+        says so; the COUNT is the committed blank either way, because a
+        number that moves with an optional corpus cannot be baselined."""
+        rows = [{"rank": "2042", "word": "sean", "pos": "", "en": ""},
+                {"rank": "2048", "word": "susan", "pos": "", "en": ""}]
+        monkeypatch.setattr(ac, "_frequency_rows", lambda code: rows)
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: 1)
+        found = ac._audit_empty_definitions("en")
+        assert len(found) == 2
+        assert all("(1 of these WordNet can fill)" in f for f in found)
+
+    def test_without_the_corpus_the_count_is_the_same(self, monkeypatch):
+        """Quality rule 16: CI often has no WordNet. The rule must report the
+        same NUMBER there as here, or a local run and a CI run disagree about
+        a rule nobody can then compare against a baseline."""
+        rows = [{"rank": "2042", "word": "sean", "pos": "", "en": ""}]
+        monkeypatch.setattr(ac, "_frequency_rows", lambda code: rows)
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: None)
+        without = ac._audit_empty_definitions("en")
+        monkeypatch.setattr(ac, "_wordnet_fillable", lambda rows: 0)
+        with_corpus = ac._audit_empty_definitions("en")
+        assert len(without) == len(with_corpus) == 1
+        assert "WordNet" not in without[0] and "WordNet" in with_corpus[0]
+
+    def test_a_missing_corpus_never_raises(self, monkeypatch):
+        """It is a note on a line. An ImportError from an optional package
+        must not take the whole audit down with it."""
+        def boom(*_args, **_kwargs):
+            raise ImportError("no nltk here")
+        monkeypatch.setattr(
+            "backend.services.seeder.wordnet_sense.best_synset", boom, raising=False)
+        assert ac._wordnet_fillable([(1, "sean", "")]) in (None, 0)
+
+    def test_it_is_report_level_not_fail_level(self):
+        """Its target is zero, but the English repair is ~1,200 rows and needs
+        an owner decision (the 25 Aug name rule), so a threshold now would be
+        a number nobody could defend — the `gender_marking` argument."""
+        assert "empty_definition" in ac.REPORT_RULES
+        assert "empty_definition" not in FAIL_RULES
+        assert "empty_definition" in ac.ALL_RULES
+
+    def test_the_other_26_courses_are_clean(self):
+        """English is the only course whose definitions are resolved at seed
+        time rather than committed, and it is the only one with this defect.
+        This holds that line: a course that starts shipping blank definitions
+        shows up here rather than in a beta report."""
+        offenders = {
+            report["code"]: report["counts"]["empty_definition"]
+            for report in audit_all([c for c in LANGUAGES if c != "en"])
+            if report["counts"].get("empty_definition")
         }
         assert not offenders, offenders
 

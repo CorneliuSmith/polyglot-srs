@@ -976,6 +976,10 @@ export interface NewChangeRequest {
   suggestion?: string | null
   quote?: string | null
   quote_context?: Record<string, unknown>
+  /** The locale overlay the reviewer was reading (migration 20261030), so
+   * the board can tell a complaint about the French hint from one about
+   * the sentence. */
+  locale?: string | null
 }
 
 export async function createChangeRequest(body: NewChangeRequest): Promise<{ id: string }> {
@@ -1777,6 +1781,218 @@ export async function setPlanLimit(
     monthly_messages: monthlyMessages,
   })
   return response.data.limits
+}
+
+// ── Content health (admin) ─────────────────────────────────────────────────
+// The quality loop's rows read back per course, worst first — Generation
+// measures whether a row exists, this measures whether it is right (plan
+// docs/plans/quality-guardrails-telemetry.md §6). Every table here is from
+// migration 20261029, which the owner applies after the code deploys, so the
+// GETs answer with `available` flags instead of failing and only the writes
+// 503, naming the migration.
+
+export type ContentHealthStatus = 'red' | 'amber' | 'green' | 'grey'
+
+/** The judge's spend controls — a singleton row, OFF when absent. */
+export interface QualitySettings {
+  judge_enabled: boolean
+  judge_rows_per_cycle: number
+  judge_daily_token_cap: number
+  /** null = the checker tier for the course. */
+  judge_model: string | null
+}
+
+/** Per-course: is this course judged, and what makes it red. */
+export interface QualityTargets {
+  judge_enabled: boolean
+  max_bad_card_pct: number
+  max_judge_flag_pct: number
+}
+
+export interface ContentHealthJudge {
+  judged: number
+  population: number
+  judged_pct: number | null
+  /** Open verdicts in the question's positive set at confidence ≥ 0.7. */
+  flagged: number
+  flag_pct: number | null
+  /** Whether THIS (question, course) pair is in data/eval/calibrated.json —
+   *  the same gate the nightly judge spends on. False is a label saying read
+   *  the rate as a report; it does NOT stop the rate turning the course red,
+   *  because the owner opts each course in and sets its own threshold. */
+  calibrated: boolean
+}
+
+/** The latest reconcile survey's counts, plus when it ran. */
+export interface ContentHealthReconcile {
+  run_at: string | null
+  [metric: string]: number | string | null
+}
+
+export interface ContentHealthCourse {
+  code: string
+  name: string
+  language_id: string
+  status: ContentHealthStatus
+  targets: QualityTargets
+  /** Top-band words with no blankable sentence, as a share of the band. */
+  bad_card_pct: number | null
+  top_band_covered_pct: number | null
+  /** Audit fails above data/quality/baseline.json, summed over rules. */
+  audit_fail_delta: number | null
+  audit_fails: number | null
+  /** One entry per judge question (content_judge.QUESTIONS). */
+  judge: Record<string, ContentHealthJudge>
+  queues: Record<string, number>
+  reconcile: ContentHealthReconcile
+  last_audited: string | null
+  last_judged: string | null
+}
+
+export interface ContentHealthResponse {
+  generated_at: string
+  available: {
+    quality_runs: boolean
+    content_verdicts: boolean
+    quality_settings: boolean
+    language_quality_targets: boolean
+  }
+  settings: QualitySettings
+  spent_today: number
+  courses: ContentHealthCourse[]
+}
+
+export interface TrendPoint {
+  run_at: string
+  value: number
+}
+
+export interface ContentHealthAuditRule {
+  rule: string
+  value: number
+  baseline: number | null
+  delta: number | null
+  population: number | null
+}
+
+export interface ContentHealthVerdict {
+  id: string
+  judged_at: string
+  entity_type: string
+  entity_id: string
+  field: string
+  question: string
+  verdict: string
+  category: string | null
+  evidence: string[]
+  confidence: number
+  expected: string | null
+  note: string | null
+  judge: string
+  disposition: string
+  locale: string | null
+}
+
+export interface ContentHealthDetail extends ContentHealthCourse {
+  trends: {
+    bad_card_pct: TrendPoint[]
+    judge_flag_pct: Record<string, TrendPoint[]>
+  }
+  audit: ContentHealthAuditRule[]
+  /** Open verdicts, newest first, at most 200. */
+  verdicts: ContentHealthVerdict[]
+}
+
+export interface ContentDeployCourse {
+  code: string
+  name: string
+  run_at: string
+  build_sha: string | null
+  gone: number
+  gone_with_cards: number
+  new: number
+  gloss: number
+  pos: number
+  retire: number
+  unretire: number
+  gp_retire: number
+  no_translation: number
+}
+
+export interface ContentDeployResponse {
+  build_sha: string | null
+  available: boolean
+  courses: ContentDeployCourse[]
+}
+
+export interface QualitySettingsResponse {
+  available: boolean
+  settings: QualitySettings
+  spent_today: number
+  targets: Record<string, QualityTargets>
+}
+
+/** Agree / Disagree. Neither touches content — owner decision #5 ("Accept
+ *  applies the suggestion") is open, so a disposition is a recorded
+ *  opinion and nothing else. */
+export type VerdictDisposition = 'accepted' | 'rejected'
+
+export async function getContentHealth(): Promise<ContentHealthResponse> {
+  const response = await apiClient.get('/api/contribute/admin/content-health')
+  return response.data
+}
+
+export async function getContentHealthCourse(
+  code: string,
+): Promise<ContentHealthDetail> {
+  const response = await apiClient.get(
+    `/api/contribute/admin/content-health/${code}`,
+  )
+  return response.data
+}
+
+export async function disposeVerdict(
+  verdictId: string,
+  disposition: VerdictDisposition,
+): Promise<{ id: string; disposition: string; disposed_at: string }> {
+  const response = await apiClient.post(
+    `/api/contribute/admin/content-health/verdicts/${verdictId}`,
+    { disposition },
+  )
+  return response.data
+}
+
+export async function getContentDeploy(): Promise<ContentDeployResponse> {
+  const response = await apiClient.get(
+    '/api/contribute/admin/content-health/deploy',
+  )
+  return response.data
+}
+
+export async function getQualitySettings(): Promise<QualitySettingsResponse> {
+  const response = await apiClient.get('/api/contribute/admin/quality-settings')
+  return response.data
+}
+
+export async function updateQualitySettings(
+  partial: Partial<QualitySettings>,
+): Promise<QualitySettingsResponse> {
+  const response = await apiClient.put(
+    '/api/contribute/admin/quality-settings',
+    partial,
+  )
+  return response.data
+}
+
+export async function updateQualityTarget(
+  code: string,
+  partial: Partial<QualityTargets>,
+): Promise<{ code: string; targets: QualityTargets }> {
+  const response = await apiClient.put(
+    `/api/contribute/admin/quality-targets/${code}`,
+    partial,
+  )
+  return response.data
 }
 
 // ── Contributor recordings (human audio for voiceless languages) ───────────

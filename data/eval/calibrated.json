@@ -1,0 +1,11 @@
+{
+  "register": {
+    "ar": {
+      "date": "2026-09-17",
+      "gold": "ar_register_gold.tsv",
+      "documented": "ar_register_documented.tsv",
+      "calibration": "ar_register_calibration_2026-09-17.jsonl",
+      "agreement": "56/56 documented, 99.5% provisional vs the reference panel"
+    }
+  }
+}

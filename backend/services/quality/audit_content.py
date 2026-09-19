@@ -80,7 +80,7 @@ WARN_RULES = ("construction_quote", "vague_translation", "hint_language", "struc
 # Measured and printed, never scored: "how often do noun hints mark gender" is
 # a number to drive editorial work, not a threshold anyone can set honestly.
 REPORT_RULES = ("gender_marking", "unclozable_rows", "frame_collision",
-                "stem_in_hint", "relation_only_gloss")
+                "stem_in_hint", "relation_only_gloss", "empty_definition")
 
 # The top band a learner actually reaches in the first months. Both card
 # rules below are scoped to it: a defect on rank 8,000 is real and nobody
@@ -654,7 +654,26 @@ _REGION_CODE_RE = re.compile(r"\bISO\s*\d", re.IGNORECASE)
 # words wearing a letter's gloss — Yoruba `ti`, `ni`, `si`, `bi`, `mi` and
 # Turkish `ve` ("and"). So the band IS the discriminator, and 1000 is where the
 # two populations separate cleanly with nothing on the wrong side of the line.
+#
+# Re-measured 19 Sep 2026 on the rows production serves, every course, every
+# rank: 8 hits, none inside the band. Five are the protected class doing
+# exactly what the paragraph above predicts — English `beth`, `alpha`, `beta`,
+# `gamma`, `theta`, real English nouns that name Greek and Hebrew letters, at
+# ranks 2872 to 9356. So `en-sense-ar-gloss-2026-09-18.md` was wrong to call
+# the band unexamined and wrong to propose lifting it: lifting it turns a
+# fail-level rule red on five rows that are not defects.
 WRONG_SENSE_RANK_BAND = 1000
+
+# The three that are NOT the protected class, and the sub-class the band hid.
+# `nl` rank 1036 `a`, `ca` 2734 `y`, `yo` 1148 `gb`: the headword is itself a
+# letter of the course's own alphabet, and the card teaches the alphabet at a
+# vocabulary rank — which is the alphabet deck's job (`seed_alphabet`, §37).
+# A word that NAMES a letter is spelled out; a letter IS one or two characters.
+# That, and not the rank, separates `alpha` from `a`, so this predicate runs at
+# every rank while the band keeps its job for the rest. All three rows are now
+# excluded, so it flags nothing today and fires the next time an extraction
+# brings one back (quality rule 17: the guard goes in before the content).
+LETTER_HEADWORD_MAX_CHARS = 2
 
 
 def _frequency_rows(code: str) -> list[dict]:
@@ -697,15 +716,24 @@ def _frequency_rows(code: str) -> list[dict]:
     return rows
 
 
-def wrong_sense_kind(rank: int, gloss: str) -> str | None:
+def wrong_sense_kind(rank: int, gloss: str, word: str = "") -> str | None:
     """"letter name" / "region code" / None for one frequency row.
 
     Only the first sense is tested: `fedha` glossing as "silver (chemical
     element); money; finance" leads with the sense the learner wants, whereas a
     row that OPENS with "The name of the Latin script letter T/t" has nothing
     else to offer.
+
+    *word* is the headword, and it lifts the rank band for one shape only: a
+    headword of one or two characters glossed as a letter is the alphabet
+    itself sitting in the word list, and that is a defect at any rank (see
+    LETTER_HEADWORD_MAX_CHARS). It defaults to "" so a caller that has only the
+    gloss gets the band-limited rule it always got.
     """
-    if not 0 < rank <= WRONG_SENSE_RANK_BAND:
+    if rank <= 0:
+        return None
+    letter_headword = 0 < len(word.strip()) <= LETTER_HEADWORD_MAX_CHARS
+    if rank > WRONG_SENSE_RANK_BAND and not letter_headword:
         return None
     first_sense = (gloss or "").split(";")[0]
     if _LETTER_NAME_RE.search(first_sense):
@@ -732,7 +760,7 @@ def _audit_wrong_sense_glosses(code: str) -> list[str]:
             rank = int(row.get("rank") or 0)
         except ValueError:
             continue
-        kind = wrong_sense_kind(rank, gloss)
+        kind = wrong_sense_kind(rank, gloss, row.get("word") or "")
         if kind is None:
             continue
         problems.append(
@@ -983,6 +1011,76 @@ def _audit_sentence_cards(code: str) -> tuple[list[str], list[str]]:
     return sorted(unclozable), sorted(collisions, reverse=True)
 
 
+# Tokens the English seeder drops by hand before they can become flashcards
+# (`seed_english.transform`). Kept in step with it: a row it never seeds is
+# not a card, and counting it here would report a defect nobody can meet.
+SEEDER_NOISE = frozenset({"ain", "isn", "de", "mm"})
+
+
+def _audit_empty_definitions(code: str) -> list[str]:
+    """Rows that would ship a card with NO definition at all (CHECKS §42).
+
+    Report-level. Measured 19 Sep 2026: **1,231 rows, 12.4% of the English
+    course**, and zero in the other 26 — so its target is zero everywhere and
+    it is reported only because the English repair is ~1,200 rows and takes an
+    owner decision (the 25 Aug name rule), not because the number is
+    defensible.
+
+    Why nothing caught this before: `wrong_sense_gloss`, `circular_gloss` and
+    `relation_only_gloss` each open with `if not gloss: continue`. A rule that
+    inspects text cannot fire on the absence of text, so the emptiest cards in
+    the corpus were the ones no rule could reach (quality rule 78).
+
+    The count is the COMMITTED blank, which is deterministic and the same in
+    CI as here. For English that is not automatically the card — `seed_english`
+    resolves a blank through WordNet at seed time — so when the corpus is
+    installed the finding also says how many WordNet could fill. Measured with
+    it installed: none of the 1,231. That clause is a note on a line, never
+    part of the count, because a rule whose number moves with an optional
+    corpus cannot be compared against a baseline (quality rule 16).
+    """
+    blank = []
+    for row in _frequency_rows(code):
+        if (row.get("en") or "").strip():
+            continue
+        word = (row.get("word") or "").strip()
+        if not word or word.lower() in SEEDER_NOISE:
+            continue
+        try:
+            rank = int(row.get("rank") or 0)
+        except ValueError:
+            rank = 0
+        blank.append((rank, word, (row.get("pos") or "").strip()))
+    if not blank:
+        return []
+    fillable = _wordnet_fillable(blank) if code == "en" else None
+    note = "" if fillable is None else f" ({fillable} of these WordNet can fill)"
+    return [
+        f"rank {rank} '{word}' has no definition at all{note}"
+        for rank, word, _ in sorted(blank)
+    ]
+
+
+def _wordnet_fillable(rows: list[tuple[int, str, str]]) -> int | None:
+    """How many blank English rows `seed_english` could fill from WordNet, or
+    None when the corpus is not installed. Never raises: this is a note."""
+    try:
+        from backend.services.seeder.wordnet_sense import (  # noqa: PLC0415
+            best_synset,
+        )
+    except Exception:  # noqa: BLE001 — an optional corpus, not a failure
+        return None
+    filled = 0
+    for _rank, word, pos in rows:
+        try:
+            synset = best_synset(word, pos)
+        except Exception:  # noqa: BLE001 — one word must not stop the audit
+            return None
+        if synset is not None and synset.definition():
+            filled += 1
+    return filled
+
+
 def audit_language(code: str) -> dict:
     """Every rule for one language. Returns findings, counts and notes."""
     points = load_grammar(code)
@@ -993,6 +1091,7 @@ def audit_language(code: str) -> dict:
     findings["wrong_sense_gloss"] = _audit_wrong_sense_glosses(code)
     findings["circular_gloss"] = _audit_circular_glosses(code)
     findings["relation_only_gloss"] = _audit_relation_only_glosses(code)
+    findings["empty_definition"] = _audit_empty_definitions(code)
     findings["unclozable_rows"], findings["frame_collision"] = (
         _audit_sentence_cards(code)
     )

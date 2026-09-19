@@ -62,6 +62,13 @@ class Settings(BaseSettings):
     auto_translate_loop_enabled: bool = True
     # Daily prune of tutor_sessions / tutor_usage (services/retention.py).
     retention_sweep_enabled: bool = True
+    # Nightly content-quality telemetry (services/quality_loop.py): the
+    # audit, reconcile-drift, snapshot and review-queue counts, written to
+    # quality_runs so the Content Health panel has a trend. The loop's
+    # mechanical steps spend nothing, which is why this master flag stays
+    # on; the judge step is separately gated by the quality_settings table
+    # the admin panel edits (OFF by default, and off when it cannot be read).
+    quality_loop_enabled: bool = True
     auto_translate_words_per_cycle: int = 50
     # Optional Apertium-APy server (public https://apertium.org/apy or self-
     # hosted). When set, the generation checker uses it to verify that a

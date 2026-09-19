@@ -1,4 +1,10 @@
 node_modules/
+# ...and node_modules as a SYMLINK, which the line above does not match: a
+# trailing slash matches a directory only, and a worktree that borrows the
+# main checkout's packages (`ln -s ../../frontend/node_modules`) makes a link.
+# One got committed that way on 19 Sep 2026, by a `git add -A` in such a
+# worktree.
+node_modules
 dist/
 coverage/
 *.local

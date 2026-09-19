@@ -186,3 +186,23 @@ Rules this pass added, all 27 courses: CHECKS §24a (the prune reaches thin
 rows whatever their source), §26 (the card rotates — a fragment's exposure is
 its share of the pool), §28 (definition plus sentence must determine one
 string), §29 (a sentence the card cannot blank is not coverage).
+
+## The middle band's senses, judged in full (19 Sep 2026)
+
+**236 definitions repaired** in ranks 2,001–6,000 — the band the 18 Sep sample
+named as the damaged one. All 3,926 rows without an existing override were
+judged, not sampled: 512 findings (13.0%), 366 confirmed by an independent
+checker that refused 11.7% of the maker's findings outright, 236 shipped after
+five mechanical gates.
+
+- `despite` was "lack of respect accompanied by a feeling of intense dislike" →
+  "in spite of; without being stopped or affected by something"
+- `auction` was "a variety of bridge … superseded by contract bridge" → "a
+  public sale where goods are sold to the person who offers the most money"
+- `fang` was "a Bantu language spoken in Cameroon" → "a long, sharp tooth"
+
+The full record, both judges' reasoning per row, and the two classes the pass
+deliberately did not fix are in `en-sense-2026-09-19.md`. The larger of those:
+**1,231 English cards (12.4%) have no definition anywhere in production** —
+blank in the file and unresolvable by WordNet — none of them in the top 2,000.
+`CHECKS.md` §42.

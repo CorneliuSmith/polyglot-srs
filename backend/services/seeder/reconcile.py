@@ -19,6 +19,17 @@ that would be affected, and left for a human to decide.
 The rollback is plain SQL restoring every prior value, and can be replayed with
 psql or `--rollback`. The whole apply runs in one transaction.
 
+**What it will not overwrite.** A definition a human edited in the Workshop
+(`vocabulary.curated`) is reported under `kept`, never corrected: "database
+differs from the file" is the definition of a correction here, and until
+18 Sep 2026 that reverted every reviewer's fix on the owner's next apply.
+
+**What it refuses.** A word that left the file and a word new to it at the
+same frequency rank are one headword respelled (`rename`). The database has
+no rename — the new spelling is an INSERT and the old one an orphan (quality
+rule 73) — so `--apply` skips that course until the old spelling is in
+`vocab_exclusions.tsv`, and says so.
+
 Usage:
     python -m backend.services.seeder.reconcile                    # report only
     python -m backend.services.seeder.reconcile --language mi
@@ -303,6 +314,101 @@ async def survey_retirements(conn, code: str, lang_id) -> dict:
     return {"retire": retire, "unretire": unretire, "retire_skipped": None}
 
 
+async def _vocabulary_rows(conn, lang_id) -> list:
+    """Every vocabulary row for the course with its English definition and
+    its `curated` flag.
+
+    `curated` landed in migration 20260827 and has been in production since
+    the 30 Aug push, but the file's own rule is that a reader of a column
+    degrades when the column is not there (`survey_retirements`, above):
+    without it every row reads as machine-owned, which is exactly what this
+    tool assumed until 18 Sep 2026, so the fallback is the old behaviour,
+    not a new one.
+    """
+    with_curated = """
+        SELECT v.id, v.word, v.part_of_speech, v.morphology, v.curated,
+               t.definition
+        FROM vocabulary v
+        LEFT JOIN translations t
+               ON t.vocabulary_id = v.id AND t.locale = 'en'
+        WHERE v.language_id = $1
+        """
+    try:
+        return await conn.fetch(with_curated, lang_id)
+    except asyncpg.exceptions.UndefinedColumnError:
+        return await conn.fetch(
+            with_curated.replace("v.curated,", "false AS curated,"), lang_id)
+
+
+def _rank(value) -> int | None:
+    """A frequency rank as an int, from the file's text column or the
+    database's integer one; None when there is no usable rank."""
+    try:
+        return int(str(value).strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def detect_renames(departed: list[dict], absent: list[str], tsv: dict,
+                   excluded: set[str]) -> list[dict]:
+    """Pair a word that LEFT the file with a word that is NEW to it by
+    frequency rank — the shape a headword respelling leaves behind.
+
+    Quality rule 73: the database has no rename. A tone repair that turns
+    `ati` into `àti` is, to the seeder, an INSERT of `àti`, and to this tool
+    the old `ati` is merely "in no committed source" — reported in `gone`,
+    never deleted — so the course teaches the word twice until someone reads
+    the `gone` column and writes the old spelling into `vocab_exclusions.tsv`.
+    The 874 Yoruba tone repairs would have shipped every one of them twice.
+    Nothing detected it; the owner did, by reading a list.
+
+    The rank is the one field a respelling does not change: the row keeps
+    its place in the list under its new spelling. So a departed word and an
+    absent word at the SAME rank are one word, and the pair is a rename.
+    Only a rank that names exactly one word on each side is paired — a
+    re-ranked list can put two unrelated words at one rank, and a guess
+    there would send the operator to exclude the wrong word. A false pair
+    from a re-ranked list still asks for the right action: the departed
+    word IS an orphan whatever replaced it, and excluding it retires it.
+
+    Each pair carries `excluded`: whether the old spelling is already in the
+    exclusions file for this course. `--apply` refuses a course with a pair
+    that is not (`rename_blockers`), because seeding the new spelling before
+    the old one is retired is the exact order rule 73 forbids.
+    """
+    by_rank_old: dict[int, list[dict]] = {}
+    for d in departed:
+        rank = _rank(d.get("rank"))
+        if rank is not None:
+            by_rank_old.setdefault(rank, []).append(d)
+    by_rank_new: dict[int, list[str]] = {}
+    for word in absent:
+        rank = _rank((tsv.get(word) or {}).get("rank"))
+        if rank is not None:
+            by_rank_new.setdefault(rank, []).append(word)
+    renames = []
+    for rank in sorted(set(by_rank_old) & set(by_rank_new)):
+        olds, news = by_rank_old[rank], by_rank_new[rank]
+        if len(olds) != 1 or len(news) != 1:
+            continue
+        renames.append({"from": olds[0]["word"], "to": news[0], "rank": rank,
+                        "cards": olds[0].get("cards") or 0,
+                        "excluded": olds[0]["word"] in excluded})
+    return renames
+
+
+def rename_blockers(rep: dict) -> list[dict]:
+    """The renames in one course report whose old spelling is NOT yet in
+    `vocab_exclusions.tsv` — each one a reason `--apply` must skip the
+    course until the exclusion line exists."""
+    return [r for r in rep.get("renames", []) if not r.get("excluded")]
+
+
+RENAME_RULE = ("A rename in a file is an add plus an orphan in production "
+               "(quality rule 73): add the old spelling to vocab_exclusions.tsv "
+               "before seeding")
+
+
 async def survey(conn, code: str) -> dict:
     """Compare one language's committed file against the database."""
     tsv = expected_rows(code)
@@ -313,19 +419,10 @@ async def survey(conn, code: str) -> dict:
     if lang_id is None:
         return {"code": code, "skipped": "language not in the database"}
 
-    db_rows = await conn.fetch(
-        """
-        SELECT v.id, v.word, v.part_of_speech, v.morphology, t.definition
-        FROM vocabulary v
-        LEFT JOIN translations t
-               ON t.vocabulary_id = v.id AND t.locale = 'en'
-        WHERE v.language_id = $1
-        """,
-        lang_id,
-    )
+    db_rows = await _vocabulary_rows(conn, lang_id)
 
     gloss_changes, pos_changes, missing_translation = [], [], []
-    morphology_changes = []
+    morphology_changes, curated_differs = [], []
     for row in db_rows:
         want = tsv.get(row["word"])
         if want is None:
@@ -336,8 +433,17 @@ async def survey(conn, code: str) -> dict:
             missing_translation.append({"id": row["id"], "word": row["word"],
                                         "new": new_gloss})
         elif new_gloss and row["definition"] != new_gloss:
-            gloss_changes.append({"id": row["id"], "word": row["word"],
-                                  "old": row["definition"], "new": new_gloss})
+            change = {"id": row["id"], "word": row["word"],
+                      "old": row["definition"], "new": new_gloss}
+            # A human edited this definition in the Workshop (`curated`,
+            # set by `_edit_vocab_card` and the suggestion path). The file
+            # is not the truth for it any more: report it, never write it.
+            # Until 18 Sep 2026 these were gloss_changes, and every
+            # reviewer's fix was reverted on the owner's next --apply.
+            if row.get("curated"):
+                curated_differs.append(change)
+            else:
+                gloss_changes.append(change)
         if new_pos and (row["part_of_speech"] or "") != new_pos:
             pos_changes.append({"id": row["id"], "word": row["word"],
                                 "old": row["part_of_speech"], "new": new_pos})
@@ -372,7 +478,7 @@ async def survey(conn, code: str) -> dict:
     if departed:
         rows = await conn.fetch(
             """
-            SELECT v.id, v.word,
+            SELECT v.id, v.word, v.frequency_rank,
                    (SELECT count(*) FROM user_cards uc
                      WHERE uc.card_type = 'vocabulary' AND uc.card_id = v.id) AS cards
             FROM vocabulary v
@@ -380,23 +486,29 @@ async def survey(conn, code: str) -> dict:
             """,
             lang_id, departed,
         )
-        departed_detail = [{"id": r["id"], "word": r["word"], "cards": r["cards"]}
+        departed_detail = [{"id": r["id"], "word": r["word"], "cards": r["cards"],
+                            "rank": r.get("frequency_rank")}
                            for r in rows]
+
+    # Only rows that carry a gloss: every seeder skips a word it cannot
+    # define (English warns and drops 1,267 WordNet-less words), so
+    # counting those as "new" told the operator the seeder would add
+    # 1,267 rows when it would add 66.
+    absent_from_db = sorted(
+        w for w in set(tsv) - db_words if (tsv[w].get("en") or "").strip()
+    )
 
     return {
         "code": code, "db_rows": len(db_rows), "tsv_rows": len(tsv),
         "gloss_changes": gloss_changes, "pos_changes": pos_changes,
+        "curated_differs": curated_differs,
         "morphology_changes": morphology_changes,
         "sentence_layers": await survey_sentence_layers(conn, code, lang_id),
         "missing_translation": missing_translation, "departed": departed_detail,
         "owned_elsewhere": elsewhere,
-        # Only rows that carry a gloss: every seeder skips a word it cannot
-        # define (English warns and drops 1,267 WordNet-less words), so
-        # counting those as "new" told the operator the seeder would add
-        # 1,267 rows when it would add 66.
-        "absent_from_db": sorted(
-            w for w in set(tsv) - db_words if (tsv[w].get("en") or "").strip()
-        ),
+        "absent_from_db": absent_from_db,
+        "renames": detect_renames(departed_detail, absent_from_db, tsv,
+                                  excluded_words(code)),
         **await survey_retirements(conn, code, lang_id),
         **await survey_point_retirements(conn, code, lang_id),
     }
@@ -496,7 +608,8 @@ async def apply(conn, reports: list[dict], progress=None) -> dict:
     """
     counts = {"gloss": 0, "pos": 0, "morphology": 0, "added_translation": 0,
                "sentence_layers": 0, "retired": 0, "unretired": 0,
-               "points_retired": 0, "points_unretired": 0}
+               "points_retired": 0, "points_unretired": 0, "kept": 0,
+               "rename_blocked": {}}
 
     def note(kind: str, n: int) -> None:
         if n and progress is not None:
@@ -505,6 +618,18 @@ async def apply(conn, reports: list[dict], progress=None) -> dict:
     async with conn.transaction():
         for rep in reports:
             code = rep.get("code", "?")
+            # A course with a rename nobody has excluded yet is not written
+            # at all — not even its glosses. Writing the rest and leaving
+            # the rename would tell the operator the course was reconciled
+            # while the double card was still on its way (rule 73). `main`
+            # prints the pairs; this is the guard for any other caller.
+            blockers = rename_blockers(rep)
+            if blockers:
+                counts["rename_blocked"][code] = blockers
+                continue
+            # `curated_differs` is deliberately not a write: it is the count
+            # of human-edited definitions this run LEFT ALONE.
+            counts["kept"] += len(rep.get("curated_differs", []))
             n = await _apply_batched(
                 conn,
                 "UPDATE translations SET definition = u.definition "
@@ -601,19 +726,24 @@ async def apply(conn, reports: list[dict], progress=None) -> dict:
     return counts
 
 
+_RULE = "-" * 103
+
+
 def print_report(reports: list[dict], detail: bool) -> None:
-    print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'pos':>6}{'no-tr':>7}"
-          f"{'gone':>6}{'other':>7}{'new':>6}{'s-layer':>8}{'retire':>8}{'unret':>6}"
-          f"{'gp-ret':>8}")
-    print("-" * 89)
-    tot = {"gloss": 0, "pos": 0, "tr": 0, "gone": 0, "new": 0, "sl": 0,
-           "re": 0, "un": 0, "oe": 0}
+    print(f"{'lang':<6}{'db':>7}{'tsv':>7}{'gloss':>7}{'kept':>6}{'pos':>6}"
+          f"{'no-tr':>7}{'gone':>6}{'rename':>8}{'other':>7}{'new':>6}"
+          f"{'s-layer':>8}{'retire':>8}{'unret':>6}{'gp-ret':>8}")
+    print(_RULE)
+    tot = {"gloss": 0, "kept": 0, "pos": 0, "tr": 0, "gone": 0, "rn": 0,
+           "new": 0, "sl": 0, "re": 0, "un": 0, "oe": 0}
     for rep in reports:
         if rep.get("skipped"):
             continue
         g, p = len(rep["gloss_changes"]), len(rep["pos_changes"])
+        k = len(rep.get("curated_differs", []))
         t, d = len(rep["missing_translation"]), len(rep["departed"])
         n = len(rep["absent_from_db"])
+        rn = len(rep.get("renames", []))
         # Retirements were surveyed, applied and rolled back, and never
         # printed — the operator was told to "read the retire count" of a
         # dry run that had no such column (7 Sep 2026).
@@ -632,26 +762,37 @@ def print_report(reports: list[dict], detail: bool) -> None:
         # the only thing that fills those layers.
         sl = len(rep.get("sentence_layers", []))
         tot["gloss"] += g
+        tot["kept"] += k
         tot["pos"] += p
         tot["tr"] += t
         tot["gone"] += d
+        tot["rn"] += rn
         tot["new"] += n
         tot["sl"] += sl
         tot["re"] += re_
         tot["un"] += un
         tot["oe"] += oe
         print(f"{rep['code']:<6}{rep['db_rows']:>7}{rep['tsv_rows']:>7}"
-              f"{g:>7}{p:>6}{t:>7}{d:>6}{oe:>7}{n:>6}{sl:>8}{re_col}{gp_col}")
-    print("-" * 89)
-    print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['pos']:>6}{tot['tr']:>7}"
-          f"{tot['gone']:>6}{tot['oe']:>7}{tot['new']:>6}{tot['sl']:>8}"
+              f"{g:>7}{k:>6}{p:>6}{t:>7}{d:>6}{rn:>8}{oe:>7}{n:>6}{sl:>8}"
+              f"{re_col}{gp_col}")
+    print(_RULE)
+    print(f"{'all':<6}{'':>14}{tot['gloss']:>7}{tot['kept']:>6}{tot['pos']:>6}"
+          f"{tot['tr']:>7}{tot['gone']:>6}{tot['rn']:>8}{tot['oe']:>7}"
+          f"{tot['new']:>6}{tot['sl']:>8}"
           f"{tot['re']:>8}{tot['un']:>6}{tot.get('gp', 0):>8}")
     print("\ngloss  definitions this would CORRECT — the file's column with "
           "gloss_overrides.tsv laid over it")
+    print("kept   human-edited definitions (vocabulary.curated, set by a Workshop")
+    print("       edit) that differ from the file and are LEFT ALONE — the file is")
+    print("       not the truth for these; re-key the override if the file is right")
     print("pos    parts of speech this would correct (a word leaving the nominal set")
     print("       also loses its Gender/Plural chips — counted in the apply summary)")
     print("no-tr  rows with no English translation row at all — would be inserted")
     print("gone   in the database and in NO committed source — REPORTED ONLY, never deleted")
+    print("rename a gone word and a new word at the SAME frequency rank: one headword")
+    print("       respelled in the file. An add plus an orphan in production (rule 73)")
+    print("       until the old spelling is in vocab_exclusions.tsv; --apply refuses")
+    print("       the course while one is not")
     print("other  in the database from a source that is not the frequency file: an")
     print("       alphabet-deck letter (seed_alphabet) or a curated starter file.")
     print("       Governed, just not by the list — never a retire candidate.")
@@ -675,6 +816,15 @@ def print_report(reports: list[dict], detail: bool) -> None:
                 print(f"  {'':<16}-> {c['new'][:60]!r}")
             if len(rep["gloss_changes"]) > 20:
                 print(f"  … {len(rep['gloss_changes']) - 20} more")
+        for rep in reports:
+            if rep.get("skipped") or not rep.get("curated_differs"):
+                continue
+            print(f"\n{rep['code']} — human-edited definitions kept (file differs)")
+            for c in rep["curated_differs"][:20]:
+                print(f"  {c['word']:<16}{str(c['old'])[:34]!r}")
+                print(f"  {'':<16}file: {c['new'][:60]!r}")
+            if len(rep["curated_differs"]) > 20:
+                print(f"  … {len(rep['curated_differs']) - 20} more")
     for rep in reports:
         if rep.get("skipped") or not rep["departed"]:
             continue
@@ -684,6 +834,24 @@ def print_report(reports: list[dict], detail: bool) -> None:
         for d in rep["departed"][:10]:
             flag = f"  ** {d['cards']} learner card(s)" if d["cards"] else ""
             print(f"  {d['word']}{flag}")
+    for rep in reports:
+        if rep.get("skipped") or not rep.get("renames"):
+            continue
+        print_renames(rep)
+
+
+def print_renames(rep: dict) -> None:
+    """One course's rename pairs, and the rule they answer to when any old
+    spelling is still unexcluded."""
+    blockers = rename_blockers(rep)
+    print(f"\n{rep['code']} — {len(rep['renames'])} rename(s) by rank; "
+          f"{len(blockers)} not yet in vocab_exclusions.tsv")
+    for r in rep["renames"]:
+        state = "excluded" if r.get("excluded") else "NOT EXCLUDED"
+        cards = f", {r['cards']} learner card(s)" if r.get("cards") else ""
+        print(f"  rank {r['rank']:>6}: {r['from']} -> {r['to']}  ({state}{cards})")
+    if blockers:
+        print(f"  {RENAME_RULE}")
 
 
 async def main() -> int:
@@ -717,19 +885,36 @@ async def main() -> int:
             print("\nDRY RUN — nothing written. Re-run with --apply to write.")
             return 0
 
+        # A course with a rename whose old spelling is not excluded is not
+        # applied — and not put in the rollback file either, so the file
+        # never lists writes that were never made. `apply` refuses it too;
+        # this is where the operator is told which courses and why.
+        blocked = [rep for rep in reports
+                   if not rep.get("skipped") and rename_blockers(rep)]
+        writable = [rep for rep in reports if rep not in blocked]
+        for rep in blocked:
+            print(f"\nSKIPPING {rep['code']} — {RENAME_RULE}:")
+            for r in rename_blockers(rep):
+                print(f"  {rep['code']}\t{r['from']}\t(rank {r['rank']}, "
+                      f"now spelled {r['to']})")
+        if blocked and not writable:
+            print("\nnothing applied — every course was skipped")
+            return 1
+
         from datetime import datetime
         stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
-        path = write_rollback(reports, stamp)
+        path = write_rollback(writable, stamp)
         print(f"\nrollback written first: {path}")
         counts = await apply(
-            conn, reports,
+            conn, writable,
             progress=lambda kind, n: print(f"  {kind}: {n:,}", flush=True))
         # sentence_layers was tallied and never printed — the same omission
         # the report column had. On the 30 Aug production apply the summary
         # read "532 glosses, 0 translations, 3409 parts of speech" while
         # 5,541 interlinear glosses and transliterations landed unmentioned,
         # and those are the ones nothing else can ever write.
-        print(f"applied — {counts['gloss']} glosses corrected, "
+        print(f"applied — {counts['gloss']} glosses corrected "
+              f"({counts['kept']} human-edited definitions kept), "
               f"{counts['added_translation']} translations inserted, "
               f"{counts['pos']} parts of speech corrected "
               f"({counts['morphology']} with nominal chips stripped), "

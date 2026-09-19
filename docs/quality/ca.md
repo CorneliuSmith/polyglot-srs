@@ -253,3 +253,16 @@ what remains in this course.
 **Band 1001–2000, same day: 340 more.**
 - `anirem` was "first-person plural future indicative of anar" → "we will go, we are going to go (first-person plural future of anar)"
 - `maneres` was "plural of manera" → "ways of doing something, methods; manners (f. plural of manera)"
+
+## A Spanish letter wearing a Catalan card (19 Sep 2026)
+
+Rank 2,734 `y`, tagged `conj`, defined as "The twenty-fifth letter of the
+Catalan alphabet, called i grega". Two defects in one row: the card teaches the
+alphabet at a vocabulary rank (the alphabet deck's job, CHECKS §37), and the
+part of speech belongs to *Spanish* `y` ("and") — modern Catalan writes that
+conjunction `i` and uses `y` only inside the digraph `ny`. Excluded in
+`data/vocab_exclusions.tsv` and removed from `ca_frequency.tsv`.
+
+Found by CHECKS §41, which judges a one- or two-character headword glossed as a
+letter at any rank; this one sat 1,734 ranks past the band that was looking for
+it.

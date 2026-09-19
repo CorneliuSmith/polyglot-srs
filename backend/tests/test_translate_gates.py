@@ -6,7 +6,7 @@ maker-checker grades meaning; these gates catch what a semantic grader has
 already been caught missing — and they run in mock mode, so this file proves
 them without a model (quality rule 15).
 """
-from unittest.mock import patch
+from unittest.mock import AsyncMock, patch
 
 import pytest
 
@@ -17,6 +17,7 @@ from backend.services.translate_checks import (
     is_identity,
     leaks_answer,
     locale_punctuation_ok,
+    pos_mismatch,
     safe_row,
 )
 
@@ -134,6 +135,88 @@ class TestGatesRunInsideThePipeline:
         row = next(r for r in res if r["i"] == 1)
         assert row["translation"] == "[Spanish] The dog barks."
         assert row["verdict"] == "ok"
+
+
+class TestPartOfSpeechGate:
+    """The maker charter asks for a gloss in the row's part of speech and the
+    checker is meant to hold it there; 23% of the Arabic divergences the beta
+    reviewer reported were a noun on a verb row. `nominal_gloss_on_a_verb`
+    is the measured predicate (76% precision, 18 Sep 2026) — so the gate
+    judges only what was measured, Arabic verb rows, and WITHHOLDS."""
+
+    def test_a_nominal_head_on_an_arabic_verb_row_is_withheld(self):
+        reason = "noun where the row needs a verb"
+        # definite article: the bare noun, not a verb form
+        assert pos_mismatch("examine", "verb", "look at closely", "الفحص",
+                            locale="ar") == reason
+        # ta marbuta: a masdar where the row needs the verb
+        assert pos_mismatch("watch", "verb", "look at attentively", "مُشَاهَدَة",
+                            locale="ar") == reason
+        assert gate("look at closely", "الفحص", locale="ar", pos="verb",
+                    word="examine") == reason
+
+    def test_an_arabic_verb_form_passes(self):
+        assert pos_mismatch("examine", "verb", "look at closely", "يَفْحَص",
+                            locale="ar") is None
+        assert gate("look at closely", "يفحص", locale="ar", pos="verb",
+                    word="examine") is None
+
+    def test_noun_rows_are_not_judged(self):
+        assert pos_mismatch("examination", "noun", "a close look", "الفحص",
+                            locale="ar") is None
+        assert gate("a close look", "الفحص", locale="ar", pos="noun",
+                    word="examination") is None
+        # no part of speech at all — a sentence or a label — is not judged
+        assert gate("look at closely", "الفحص", locale="ar") is None
+
+    def test_other_locales_are_not_judged(self):
+        # Persian shares the script and none of the measurement (rule 1:
+        # a class, not an Arabic quirk — but the instrument is per language)
+        assert pos_mismatch("examine", "verb", "look at closely", "الفحص",
+                            locale="fa") is None
+        assert pos_mismatch("examine", "verb", "look at closely", "el examen",
+                            locale="es") is None
+
+    def test_the_predicate_s_measured_exclusions_hold_here_too(self):
+        # an -ing headword is correctly glossed by a masdar
+        assert pos_mismatch("running", "verb", "move fast on foot", "الجري",
+                            locale="ar") is None
+        # a definition that opens like a noun phrase is a mis-tagged POS,
+        # a different defect, not this gate's business
+        assert pos_mismatch("duck", "verb", "a broad-billed waterfowl", "البطة",
+                            locale="ar") is None
+
+    @pytest.mark.asyncio
+    async def test_the_gloss_lane_withholds_rather_than_rejects(self):
+        """Every caller files a `reject` into translation_reviews — a queue a
+        human must clear and one the pending query then skips for ever. At
+        76% precision the row is left OUT of the results instead: not
+        applied, not queued, retried by the attempt ledger."""
+        items = [{"i": 0, "word": "examine", "pos": "verb",
+                  "definition": "look at closely"},
+                 {"i": 1, "word": "house", "pos": "noun",
+                  "definition": "a building to live in"},
+                 {"i": 2, "word": "watch", "pos": "verb",
+                  "definition": "look at attentively"}]
+        made = {0: "الفحص", 1: "البيت", 2: "يراقب"}
+        ok = {"verdict": "ok", "final": "", "note": ""}
+        # the checker's own correction is judged too: `store` is the final
+        verdicts = {0: ok, 1: ok, 2: {"verdict": "fixed", "final": "مشاهدة", "note": "x"}}
+        with patch.object(tr, "make_glosses", new=AsyncMock(return_value=made)), \
+             patch.object(tr, "check_glosses", new=AsyncMock(return_value=verdicts)):
+            res = await tr.maker_check_batch("Arabic", items, locale="ar")
+        assert [r["i"] for r in res] == [1]
+        assert res[0]["gloss"] == "البيت" and res[0]["verdict"] == "ok"
+
+    @pytest.mark.asyncio
+    async def test_without_a_locale_the_lane_is_unchanged(self):
+        items = [{"i": 0, "word": "examine", "pos": "verb",
+                  "definition": "look at closely"}]
+        ok = {"verdict": "ok", "final": "", "note": ""}
+        with patch.object(tr, "make_glosses", new=AsyncMock(return_value={0: "الفحص"})), \
+             patch.object(tr, "check_glosses", new=AsyncMock(return_value={0: ok})):
+            res = await tr.maker_check_batch("Arabic", items)
+        assert [(r["i"], r["gloss"]) for r in res] == [(0, "الفحص")]
 
 
 def test_sentences_are_graded_by_their_own_charter():
