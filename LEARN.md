@@ -1083,13 +1083,21 @@ letter that runs out of corners keeps what it has and shows up in the
 checker as a disagreement, which is the honest outcome rather than a
 flattering one.
 
-Stroke count against the sourced tables, before and after: Latin print
-44→59 of 73, Latin cursive 63→72 of 128, **Cyrillic print 21→59 of 66**,
-Cyrillic cursive 28→31 of 66. Where the first stroke *starts* is
-unchanged everywhere, as it must be — splitting never moves the first
-point. Where it *ends* improves for print (43→46, 27→35) and slips by
-two for cursive, because a cursive letter taught in two strokes now ends
-its first one mid-letter where before one long stroke ran past.
+`merge_to` is the same idea from the other side, and Thai is why it
+exists: **39 of its 44 taught letters are one movement and ours managed
+18**, drawing MORE strokes than taught for 26 letters and fewer for
+none — the exact mirror of Cyrillic print. A Thai consonant is one
+continuous line from its head loop, but the skeleton forks where the
+line crosses itself and the walk stops at each fork. It joins the
+closest ends first and only within a cap, so it re-joins a line the walk
+cut rather than bridging two parts a hand really does lift between.
+
+Across all ten sourced tables — 659 letters, every script the app
+teaches — stroke count goes from **393 to 465**, and no script gets
+worse. Where the first stroke *starts* is all but unchanged (439→437),
+as it must be: neither operation moves the first point. Where it *ends*
+improves (333→347). The two columns Devanagari loses are the ones to
+look at on the contact sheet first.
 
 **A face can be chosen by measurement.** `FONTS` holds one file per
 script and style, except Latin cursive, which holds a **chain** — each
