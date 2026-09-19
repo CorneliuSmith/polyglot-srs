@@ -950,6 +950,48 @@ def path_len(path) -> float:
     return sum(math.hypot(b[0] - a[0], b[1] - a[1]) for a, b in zip(path, path[1:]))
 
 
+def merge_to(strokes: list, target: int, cap: float) -> list:
+    """Join strokes at their nearest ends until there are *target*.
+
+    The mirror of `split_to`, and needed for the same reason from the
+    other side. Thai measured 18/44 on stroke count, and its gap is the
+    opposite shape to Cyrillic print's: **39 of the 44 taught letters are
+    a single movement and ours managed 18, drawing MORE strokes than
+    taught for 26 letters and fewer for none.** A Thai consonant is one
+    continuous line from its head loop, but the skeleton forks where the
+    line crosses itself and the walk stops at each fork. `split_to` can
+    do nothing there — it only adds.
+
+    Joins the closest pair of ends first, trying both orientations, and
+    only when they lie within *cap*. A letter whose pieces are genuinely
+    far apart keeps them and shows up in the checker as a disagreement,
+    which is the honest outcome: this is for re-joining a line the walk
+    cut, not for drawing a bridge between two parts of a letter that a
+    hand really does lift between. Like `split_to` it only runs for a
+    letter with a sourced row."""
+    out = [list(t) for t in strokes]
+    while len(out) > target and len(out) > 1:
+        best = None
+        for i in range(len(out)):
+            for j in range(len(out)):
+                if i == j:
+                    continue
+                for rev in (False, True):
+                    b = out[j][::-1] if rev else out[j]
+                    d = math.hypot(b[0][0] - out[i][-1][0], b[0][1] - out[i][-1][1])
+                    if best is None or d < best[0]:
+                        best = (d, i, j, rev)
+        if best is None or best[0] > cap:
+            break
+        _, i, j, rev = best
+        b = out[j][::-1] if rev else out[j]
+        joined = out[i] + b
+        keep = min(i, j)
+        out = [t for k, t in enumerate(out) if k not in (i, j)]
+        out.insert(keep, joined)
+    return out
+
+
 def _taught() -> dict:
     """How many strokes each sourced rule says a letter has, keyed by
     (script, style, glyph, form). The tables are written by
@@ -1374,8 +1416,9 @@ def extract(font, script, style, glyph, form):
     ordered, n_body = order_strokes(script, style, cs, (0, 0, x1 - x0 + 2 * m, y1 - y0 + 2 * m), form)
     want = TAUGHT.get((script, style, glyph, form))
     if want is not None:
-        body = split_to(ordered[:n_body], want - (len(ordered) - n_body),
-                        span=max(3, EM // 30))
+        marks = len(ordered) - n_body
+        body = split_to(ordered[:n_body], want - marks, span=max(3, EM // 30))
+        body = merge_to(body, want - marks, cap=4 * JUNCTION)
         ordered, n_body = body + ordered[n_body:], len(body)
     # Pixel -> em box. y: 0 at the top of the em (ascender), 1000 at the
     # bottom (descender) — the same frame for every glyph of the script.

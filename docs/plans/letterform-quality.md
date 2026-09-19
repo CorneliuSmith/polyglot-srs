@@ -18,17 +18,40 @@ buys the right *shape family* for nothing, and it is why Arabic now looks
 like Arabic. But five things separate a traced typeface from a letter a
 teacher would put on a board.
 
-0. **Measured, 19 Sep.** Against the sourced tables: Latin **print** is
-   43/74 on stroke count, 53/74 on where the first stroke starts, 43/74
-   on where it ends. Latin **cursive** is 19/52, 26/52, 20/52 — and the
-   shape of that gap is the answer to which tier matters. Forty of the
-   52 taught cursive letters are one stroke and ours manages fourteen;
-   22 of the taught rows end the first stroke at `baseline-right`, the
-   exit sweep into the next letter. Dancing Script has no entry or exit
-   sweeps to find. **Cursive is a Tier 2 problem (source face), not a
-   Tier 1 one (rules the walk can follow)** — which is the opposite of
-   what print needs, and worth knowing before spending a week on the
-   walk.
+0. **Measured, 19 Sep — all ten runs are in.** 661 letters across every
+   script the app teaches now have a sourced rule, and the generator is
+   scored against them by `check_rules.py`. Stroke count, before the
+   generator read the tables and after:
+
+   | table | letters | count | first stroke starts | ends |
+   |---|---|---|---|---|
+   | arabic naskh | 124 | 59 → **74** | 97 → 96 | 78 → 81 |
+   | latin cursive | 128 | 72 → **77** | 77 → 77 | 58 → 63 |
+   | latin print | 73 | 59 → **62** | 53 → 53 | 46 → 47 |
+   | cyrillic print | 66 | 59 → **61** | 46 → 46 | 35 → 35 |
+   | cyrillic cursive | 66 | 31 → **33** | 35 → 35 | 26 → 26 |
+   | greek print | 48 | 27 → **39** | 28 → 28 | 22 → 24 |
+   | thai print | 44 | 18 → **24** | 25 → 25 | 16 → 19 |
+   | devanagari print | 43 | 21 → **35** | 30 → 29 | 23 → 19 |
+   | hangul print | 40 | 30 → **39** | 32 → 32 | 16 → 19 |
+   | hebrew print | 27 | 17 → **21** | 16 → 16 | 13 → 14 |
+   | **total** | **659** | **393 → 465** | 439 → 437 | 333 → 347 |
+
+   Every script improved on stroke count and none got worse. Where the
+   first stroke *starts* barely moves, as it must — splitting and
+   merging never move the first point — and the two it loses are
+   Devanagari, where it also loses four on the end. That is the one
+   script to look at on the contact sheet first.
+
+   The tables also answered which tier each script needs, and the
+   answers were not the same. **Cyrillic print** drew too FEW strokes
+   (21 of 32 letters), which is Tier 1 — a rule the walk can follow.
+   **Thai** draws too MANY (26 of 44, and none too few), which needed
+   the opposite operation. **Latin cursive** was neither: 40 of its 52
+   letters are one movement and ours managed 14, because Dancing Script
+   has no entry or exit sweeps in the outline at all — a Tier 2
+   source-face problem that no walk rule could reach. Guessing which
+   was which, rather than measuring, would have wasted weeks.
 
 1. **A printing face is not a writing model.** A font draws the *result*
    of writing: overshoot on curves, tapered terminals, a serif where a
