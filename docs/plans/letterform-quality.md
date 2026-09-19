@@ -79,6 +79,24 @@ teacher would put on a board.
    Guessing which was which, rather than measuring, would have wasted
    weeks.
 
+   **A high score is agreement with the table, not with the reader.**
+   The owner looked at lowercase print `d`, which the checker passes,
+   and said it should be two strokes. He is right and the checker is
+   right: the sourced row says one, because Zaner-Bloser teaches the
+   bowl, a push back up the stem, and the stem down, all without
+   lifting. The model's own note on that row says why — *"to prevent
+   b/d reversal"* — which is a reason about five-year-olds writing
+   their own language, not about adults learning a foreign one. And a
+   retrace cannot be animated: one stroke is one path, so the stem is
+   drawn twice.
+
+   That is a defect in the **yardstick**, and no amount of fitting
+   reaches it. The fix is a second Latin print run counted by pen
+   lifts, with a retrace counted as a lift:
+   `docs/quality/letterforms/gemini-brief-lifted-print.md`. It also
+   asks for the 56 accented letters that were lost from the first run,
+   so the last hole in the tables closes in the same pass.
+
    **The score is now a test.** `TestAgainstTheSourcedRules` in
    `backend/tests/test_strokes.py` runs the checker over all ten tables
    on every CI run and fails below the numbers above. It is a ratchet:
