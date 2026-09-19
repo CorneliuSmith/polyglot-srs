@@ -5,8 +5,14 @@ The library is a typeface's centreline with order and direction guessed by
 rule (`docs/plans/letterform-quality.md`). A rules table — one row per
 (script, style, glyph, form), sourced from a teaching model — is the first
 yardstick that is not another guess. This prints, per letter, where the
-two disagree on the two things a rule can settle: how many strokes, and
-where the first one starts.
+two disagree on the three things a rule can settle: how many strokes,
+where the first one starts, and where it ends.
+
+The end matters as much as the start, and for a while it was not checked.
+A broken f had the taught number of strokes (2) and the taught starting
+place (top-right) and was still wrong, because the pen turned along the
+crossbar instead of running down the stem: right count, right start,
+wrong movement. The end zone is what tells those apart.
 
     python3 scripts/strokes/check_rules.py latin print
 """
@@ -63,14 +69,14 @@ def main() -> int:
     data = json.loads((ROOT / "data" / "strokes" / f"{script}.json").read_text(encoding="utf-8"))
     have = {(g["glyph"], g["form"], g["style"]): g for g in data["glyphs"]}
 
-    count_ok = start_ok = missing = 0
+    count_ok = start_ok = end_ok = missing = 0
     rows = []
     for r in rules:
         key = (r["glyph"], r["form"], style)
         g = have.get(key)
         if not g:
             missing += 1
-            rows.append((r["glyph"], r["form"], "—", len(r["strokes"]), "not in the library", ""))
+            rows.append((r["glyph"], r["form"], ["not in the library"]))
             continue
         want_n = len(r["strokes"])
         got_n = len(g["strokes"])
@@ -79,25 +85,35 @@ def main() -> int:
                max(p[0] for p in pts), max(p[1] for p in pts))
         got_zone = zone_of(g["strokes"][0][0], box)
         want_zone = r["strokes"][0]["from"]
+        got_end = zone_of(g["strokes"][0][-1], box)
+        want_end = r["strokes"][0].get("to")
         n_ok = want_n == got_n
         z_ok = near(want_zone, got_zone)
+        e_ok = want_end is None or near(want_end, got_end)
         count_ok += n_ok
         start_ok += z_ok
-        if not (n_ok and z_ok):
-            rows.append((r["glyph"], r["form"], got_n, want_n,
-                         "" if n_ok else f"strokes {got_n} vs {want_n} taught",
-                         "" if z_ok else f"starts {got_zone}, taught {want_zone}"))
+        end_ok += e_ok
+        if not (n_ok and z_ok and e_ok):
+            notes = []
+            if not n_ok:
+                notes.append(f"strokes {got_n} vs {want_n} taught")
+            if not z_ok:
+                notes.append(f"starts {got_zone}, taught {want_zone}")
+            if not e_ok:
+                notes.append(f"first stroke ends {got_end}, taught {want_end}")
+            rows.append((r["glyph"], r["form"], notes))
 
     total = len(rules)
     print(f"{script}/{style}: {total} letters with a sourced rule\n")
     print(f"  stroke count agrees : {count_ok}/{total}")
     print(f"  first stroke starts in the taught place : {start_ok}/{total}")
+    print(f"  first stroke ends in the taught place : {end_ok}/{total}")
     if missing:
         print(f"  not in the library at all : {missing}")
     if rows:
         print("\n  disagreements:")
-        for glyph, form, got, want, a, b in rows:
-            print(f"    {glyph} {form:<6} {a}{'; ' if a and b else ''}{b}")
+        for glyph, form, notes in rows:
+            print(f"    {glyph} {form:<6} {'; '.join(notes)}")
     return 0
 
 

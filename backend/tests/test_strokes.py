@@ -66,10 +66,28 @@ class TestScriptModel:
         ru = alphabet_for("ru")
         assert len(ru) == 33 and ru[0]["glyph"] == "а" and ru[0]["forms"] == ["lower", "upper"]
         es = alphabet_for("es")
-        assert [x["glyph"] for x in es][:3] == ["a", "b", "c"] and len(es) == 26
+        assert [x["glyph"] for x in es][:3] == ["a", "b", "c"]
         assert expected_forms("ru") == 66
         ar = expected_forms("ar")
         assert ar > 2 * len(alphabet_for("ar"))
+
+    def test_a_latin_course_gets_a_to_z_and_then_its_own_letters(self):
+        # English adds nothing; Spanish and French write their own on top,
+        # in the alphabet's order, after the base.
+        en = [x["glyph"] for x in alphabet_for("en")]
+        assert en == [chr(c) for c in range(ord("a"), ord("z") + 1)]
+        es = [x["glyph"] for x in alphabet_for("es")]
+        assert es[:26] == en and "ñ" in es[26:] and "é" in es[26:]
+        fr = [x["glyph"] for x in alphabet_for("fr")]
+        assert "œ" in fr and "ñ" not in fr
+        assert expected_forms("es") > expected_forms("en") == 52
+
+    def test_ss_is_written_lower_only(self):
+        # German ß has a capital in Unicode, but no copybook teaches one, so
+        # the library holds one form for it and two for every other letter.
+        de = {x["glyph"]: x["forms"] for x in alphabet_for("de")}
+        assert de["ß"] == ["lower"]
+        assert de["ä"] == ["lower", "upper"]
 
 
 class TestCleanStrokes:

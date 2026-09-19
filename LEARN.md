@@ -990,7 +990,8 @@ which is why the ب of با now registers when the bodies are traced.
 
 **Teaching before the strokes exist.** Letters and Trace are always on
 Write, not only once a speaker has traced the script. Every form of every
-letter is a step (the alphabet decks' list; Latin a–z), and a form
+letter is a step (the alphabet decks' list; Latin a–z plus the course's
+own letters, `LATIN_EXTRAS`), and a form
 without authored strokes is *font-guided*: Learn shows the letter large
 in the script's handwriting face with its sound, Trace draws it faintly
 on the canvas to trace over, Write is blank with a Show/Hide toggle —
@@ -999,6 +1000,74 @@ against. The strip draws these forms dashed. A traced word whose letters
 are not all authored is the same: the word in the hand font, traced over,
 no verdict. The moment a form is reviewed, its strokes replace the font
 for that letter and the verdicts switch on.
+
+**Where a bar crosses a stem** (`gen_from_fonts.py`: `arms`, `crossing`,
+`runs_on`). A hand writes the f's hook and stem as one movement and the
+crossbar as another; the generator used to walk the hook, turn left along
+the bar, and leave the stem as a second stroke. The rule for it,
+`crossing()`, had been in the file for weeks and had never once fired,
+and the reason is worth keeping because it will come up again with any
+skeleton: **thinning turns a junction into a cluster two or three pixels
+across**, so the first pixel of the bar's left arm, the first of its
+right arm and the first of the stem all touch each other, and anything
+that groups touching pixels reports two ways out where there are three.
+
+The answer is not to look harder next to the junction but to look around
+it. `arms()` draws a small circle (4 px) about the point: a circle cuts
+each limb exactly once, so on it the limbs are plainly separate. It then
+measures each limb's *direction* over a long run (16 px) instead, because
+close to a cluster every limb points much the same way. One distance
+cannot do both jobs — with a single radius, 4 px split the f correctly
+and left the t turning along its crossbar, and 12 px did the reverse.
+The pen's own incoming direction needed the same treatment: read over one
+pixel it pointed down-*left* on the f's still-curving hook, enough for
+`crossing()` to decide the pen was already on the bar.
+
+The second half is the repair. Once a stroke has been drawn *through* a
+junction, the pixels just past it touch that stroke, the walk rejects
+them as one of thinning's parallel tracks, and the rest of the limb
+becomes a stroke of its own — the Cyrillic ж lost its stem that way.
+`chain()` keeps its old 3.5 px no-questions-asked join and gains a wider
+one, allowed only when the pen is still heading the same way across the
+gap (`runs_on`). The wide reach is three times the junction ring, which
+is what the crossbar of a cursive H needs: its halves are walked head-on
+from the two stems, so one must be reversed before it reads as a
+continuation, and the two far ends sit further apart than the cut.
+Widening it beyond that changes nothing, which is how you can tell it is
+measuring a gap rather than fitting one.
+
+**Which letters a Latin course writes** (`services/scripts.py`). The
+non-Latin scripts get their letter list from the alphabet decks the
+seeder already ships, so Russian is 33 letters because the Russian deck
+has 33 cards. There is no Latin deck — nobody needs a card teaching an
+English speaker what *b* is — so Latin courses used to fall back to a–z
+and stop there, which left a Spanish learner with no ñ, a German one with
+no ß, and a Hausa one with no ɓ ɗ ƙ ƴ. `LATIN_EXTRAS` is the missing
+half: a course code to the letters it writes *beyond* a–z, in its own
+alphabet's order, appended after the base. A course absent from the table
+(en, id, jam, sw, xh) writes a–z and nothing else. Only letters go in it
+— Catalan's interpunct in `l·l` and Hausa's apostrophe in `'y` are marks
+beside a letter, not glyphs the Workshop can hold one stroke set for.
+
+Two things follow from it that are worth copying. First, `forms_for`
+gained a `CASELESS` list: a cased script normally gives every letter a
+lower and an upper form, but German ß has no uppercase any hand is taught
+(Unicode's ẞ exists; no copybook uses it), so it gets one form and the
+progress denominator is honest. Second, the stroke generator now reads
+its glyph list *and* `CASELESS` out of this file by parsing it — no
+import, so it needs none of the backend's dependencies — which is why
+both tables are plain literals and not `frozenset(...)` calls.
+
+**A source face may not have the letter.** The generator renders each
+glyph with PIL and thins the bitmap, and PIL will cheerfully draw the
+face's `.notdef` box for a code point the font does not map. A box thins
+into a tidy four-stroke rectangle that looks exactly like a letterform,
+so it ships silently. `covered()` in `gen_from_fonts.py` reads the face's
+own cmap (formats 4 and 12, about fifty lines of `struct`) and every
+glyph is checked against it before rendering; a miss prints a `skip` line
+and is left out of the bundle, where the font-guided fallback covers it.
+This found a real gap the moment it went in: Dancing Script, the Latin
+cursive face, has no ɓ ɗ ƙ ƴ ṣ.
 
 **Guided Letters** (Phase 3; `features/write/LettersMode.tsx`,
 `matcher.ts`, migration 20261021). Write grows a *Letters* kind the

@@ -87,6 +87,71 @@ You are compiling a handwriting reference for an app that teaches adults to writ
 
 ---
 
+## What happens to a run once you paste it
+
+Each run is ingested, measured and acted on the same way, so the runs can
+arrive in any order and none of it is hand work:
+
+1. `python3 scripts/strokes/ingest_rules.py <paste>` merges the rows into
+   `scripts/strokes/rules/{script}-{style}.jsonl`. It renames `letter` to
+   `glyph`, unwraps the Google-redirect sources, files an uppercase row
+   under its lowercase glyph, drops any row with no source or no strokes,
+   and reports what it dropped. It is idempotent: pasting the same run
+   twice changes nothing.
+
+   It refuses one thing rather than guessing. A row that would overwrite
+   an existing one **from a different source** is held back and named,
+   because that is how the table silently lost a letter once: the Turkish
+   row for "I" is the capital of *dotless* ı — Turkish pairs i-İ and ı-I,
+   everyone else i-I — and filing it under i/upper replaced the row for
+   the letter every other Latin course writes. Pass `--force` only after
+   deciding the new row really is about the same letter.
+
+2. `python3 scripts/strokes/check_rules.py <script> <style>` measures the
+   generated library against the table on three things: how many strokes,
+   where the first one starts, and where it ends. The end column exists
+   because a broken f had the taught count *and* the taught start and was
+   still wrong.
+
+3. The disagreements are the work list, and they are read as claims about
+   the generator, not as errors to paper over. The f's row said the hook
+   and the stem are one movement; the generator was splitting them; the
+   fix was in the generator.
+
+## What run 1 got wrong — paste this before run 2
+
+Run 1 came back usable but off-schema in four ways, every one of them
+already stated above. The model does not reread the brief between runs, so
+paste this correction at the top of the next run's message. It is written
+to be sent as-is.
+
+> Four corrections before you continue, all of them in the brief you already
+> have:
+>
+> 1. The key is `glyph`, not `letter`. I have to rename every row by hand.
+> 2. `pen_lifts` is required on every row, and it is strokes minus one.
+>    You omitted it entirely.
+> 3. **Sources.** You gave about fifty rows one generic marketing URL for a
+>    worksheet publisher, and wrapped several in a Google redirect with a
+>    tracking parameter. A URL that does not show the letter being written
+>    is not a source. Give me the page or the video that shows *that letter*,
+>    with a timestamp if it is a video, unwrapped. If you cannot find one,
+>    leave the row out and put the letter in `unknown` — I mean that, and a
+>    short `unknown` list is a better run than a long one with invented
+>    sources.
+> 4. End with the `{"summary": {...}}` object the brief specifies, not
+>    `{"run_complete": ...}`. I need `unsettled` and `sources`.
+
+Two things run 1 got *right* and should keep doing: splitting a run across
+messages when it is too long (say which letters remain), and putting the
+African Latin letters — `ɓ ɗ ƙ ƴ ẹ ọ ṣ` and their capitals — in `unknown`
+rather than inventing them. That result is a finding, not a failure: no
+teaching source for them surfaced, and the cursive face we render from has
+no glyph for five of them either, so those letters need a human who writes
+Hausa or Yoruba, not another run.
+
+---
+
 **THE RUNS**
 
 **Run 1 — script `latin`, style `print`.** Forms: `lower`, `upper`.

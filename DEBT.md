@@ -407,13 +407,23 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
-- **A Latin-script course's stroke library is a–z only.** `alphabet_for`
-  gives Spanish, Turkish, Yoruba and the rest the 26 base letters; their
-  own letters and marks (ñ ç ß ğ ş ı ă ș ț; Hausa ɓ ɗ ƙ; Yoruba ẹ ọ ṣ)
-  are not in the grid, so nobody can author them. The alphabet decks
-  cover only the non-Latin scripts, which is where the list came from.
-  Fix: a per-language extras table in `services/scripts.py`, or read the
-  letters the course's own sentences use, as the baseline coverage does.
+- **Turkish's dotted capital İ is not a library entry, and its i is wrong.**
+  `LATIN_EXTRAS` gives Turkish its dotless ı, but the library keys a form
+  on a *lowercase* glyph and derives the upper with `.upper()`, which is
+  language-blind: Turkish pairs i↔İ and ı↔I, everyone else i↔I. So a
+  Turkish learner drilling the upper form of i is shown I, not İ. This
+  predates the extras table — Turkish has always had a–z — and the extras
+  table does not fix it. Fix: a per-course uppercase override consulted by
+  `shaped_text` in the generator and by whatever draws the Learn panel, or
+  make İ its own row. Small and real; nobody has asked for it yet.
+- **Dancing Script has no Hausa hooked letters (ɓ ɗ ƙ ƴ) or ṣ.** The Latin
+  *cursive* bundle therefore has no provisional strokes for those five, and
+  Hausa and Yoruba learners see the font-guided fallback for them in
+  cursive while every other letter has a template. The generator prints a
+  `skip` line per missing glyph rather than rendering the face's .notdef
+  box — a box thins into a plausible four-stroke letter and would have
+  shipped silently. Fix: a cursive face with African Latin coverage, or
+  hand-authored strokes for the five in the Workshop.
 - **The matcher's tolerances are set by hand, not tuned on real ink.**
   Trace 0.16 and Write 0.10 of the box (`LettersMode.tsx`) came from the
   matcher's own tests on synthetic strokes; the plan's Phase 0 spike —
@@ -524,16 +534,32 @@ reader of the plan would expect to find built, and will not:
   global rule; both need the rules table to state the split
   (`docs/plans/letterform-quality.md`, Tier 1). The other nine runs of
   the brief are not yet in, so every other script is still unmeasured.
-- **A bar crossing a stem is not split into two strokes.** f t A E ж х ф:
-  the hand writes the stem, then the bar. The walk follows the straightest
-  branch at the junction instead, so f's crossbar comes out as part of its
-  hook. The *direction* is right (bars run left to right since 18 Sep);
-  the split is not. Thinning leaves the junction as a 2×2 cluster, so the
-  walk never sees all four ways at one pixel — `crossing()` in the
-  generator is written and correct but never fires there. Fix by
-  collapsing junction clusters to a point before the walk
-  (`docs/plans/letterform-quality.md`, Tier 0) or by stating the split
-  per letter (Tier 1).
+- **The Latin cursive library is measurably the wrong source face, and no
+  walk rule can fix it.** Against the sourced cursive table (52 letters,
+  Zaner-Bloser, 19 Sep): stroke count agrees on 19, the first stroke
+  starts in the taught place on 26, ends there on 20 — against 43/53/43
+  for print on 74 letters. The shape of the gap says why. **Forty of the
+  52 taught letters are a single stroke; ours manages 14**, and 22 of the
+  taught rows have that stroke ending at `baseline-right` — the exit
+  sweep a cursive hand leaves for the next letter. Dancing Script is a
+  display face: its letters carry no entry sweep and no exit sweep, so
+  those strokes are not in the outline to be found. A generator can join
+  what a font draws; it cannot draw what the font omits. Fix: a source
+  face modelled on a copybook hand (Zaner-Bloser or D'Nealian shapes),
+  or synthesise the entry and exit sweeps from the `joins` entry/exit
+  points the library already carries. Until then cursive should be read
+  as provisional in a stronger sense than print is.
+- **Two letters changed at a crossing with no sourced rule to judge them
+  by.** The 19 Sep junction fix (`arms`, `runs_on`) altered ж т у ф х,
+  φ ψ, ऐ ओ, and Latin æ and cursive b and H. Every one of them is a
+  crossing letter, which is the point, and the ones there are rules for
+  (f, t) now match them; φ and Ф went from a bare stem with no bowl at
+  all to a stem and a bowl, cursive b from two strokes to the one
+  movement a hand makes. But **æ went from two strokes to three and
+  nobody has a source saying which is right** — its row was in the part
+  of the handwriting run that never arrived. Re-measure æ, and the
+  Cyrillic and Greek letters, when runs 3-6 land; until then they are
+  changed on the generator's word alone.
 - **The generated letterforms are a traced typeface, and it shows.**
   Counters do not quite close (a ring's two ends are pixels apart, which
   is a gap at box scale), terminals are eaten by spur pruning, junctions
