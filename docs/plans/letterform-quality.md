@@ -217,12 +217,37 @@ compare sheets side by side.
 | Script | Today | Candidate | Why |
 |---|---|---|---|
 | Thai | Noto Sans Thai **Looped** | — | done (18 Sep); loopless heads were unwritable |
-| Russian cursive | Marck Script | a propisi face | Marck is a display script; propisi is what children are taught |
+| Russian cursive | Marck Script | **none found** | measured 19 Sep; no OFL candidate beat it — see below |
 | Hebrew | Noto Sans Hebrew (print) | an OFL cursive Hebrew | Israeli handwriting is a different alphabet; **none chosen** |
 | Greek | Noto Sans | a Greek handwriting face | handwritten θ ζ ξ differ from print |
 | Latin cursive | **Edu NSW ACT Foundation**, Dancing Script for the accented letters | — | done (19 Sep); chosen by measurement, see below |
 | Devanagari | Noto Sans Devanagari | — | acceptable; the headline was the issue |
 | Hangul | Noto Sans KR | — | acceptable; jamo are geometric |
+
+**Why Russian cursive was NOT reswapped (19 Sep).** The same exercise,
+against the 66-letter propisi table, and it came back the other way:
+
+| face | count | start | end | in one stroke |
+|---|---|---|---|---|
+| **Marck Script (kept)** | **28/66** | 35/66 | **28/66** | 15 |
+| Caveat | 26/66 | 32/66 | 24/66 | **24** |
+| Bad Script | 25/66 | 35/66 | 21/66 | 13 |
+| Neucha | 23/66 | 35/66 | 26/66 | 24 |
+| Pangolin | 20/66 | **38/66** | 28/66 | 21 |
+
+Nothing beat the incumbent. Caveat and Neucha write more letters in one
+movement (24 against Marck's 15, where the table says 41), but agree
+with the taught stroke count *less* often overall — they over-merge the
+letters that genuinely do lift. Pangolin starts in the right place most
+often and is worst on count. The columns disagree, which is exactly what
+Latin's did not do: there, one face won every column at once (19→32 on
+count and 14→31 on one-stroke), and that is what made the swap obvious.
+
+So the library keeps Marck Script, and the entry in this table changes
+from "swap it" to "nothing on Google Fonts is a propisi model". They are
+all display or casual scripts. The remedy is a face from outside that
+catalogue, or drawing one; it is in `DEBT.md`. **Ambiguous evidence is a
+reason not to churn a library, not a reason to pick the nearest thing.**
 
 **How the Latin cursive face was chosen (19 Sep).** Not by eye: seven
 OFL candidates were rendered, walked and scored against the sourced

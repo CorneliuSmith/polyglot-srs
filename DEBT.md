@@ -534,6 +534,20 @@ reader of the plan would expect to find built, and will not:
   global rule; both need the rules table to state the split
   (`docs/plans/letterform-quality.md`, Tier 1). The other nine runs of
   the brief are not yet in, so every other script is still unmeasured.
+- **Russian cursive has no propisi face available, and the search is
+  done.** Against the 66-letter propisi table Marck Script agrees with
+  the taught stroke count on 28, starts in the taught place on 35, ends
+  there on 28, and writes 15 letters in one movement where the table
+  says 41. Five OFL Cyrillic handwriting faces were scored against it on
+  19 Sep (Caveat, Bad Script, Neucha, Pangolin and Marck itself) and
+  **none beat it** — the numbers are in
+  `docs/plans/letterform-quality.md`. Caveat and Neucha write more
+  letters in one stroke but agree on count less, so the columns
+  disagree and the library was left alone. Everything on Google Fonts
+  with Cyrillic handwriting is a display or casual script, not the
+  propisi a Russian child copies. Do not re-run this search on Google
+  Fonts; the next move is a face from outside that catalogue, or
+  drawing one.
 - **Latin cursive is drawn by two faces, and they do not share an
   x-height.** Edu NSW ACT Foundation, an Australian state school
   handwriting model, draws a-z and A-Z; it measures far better than the
