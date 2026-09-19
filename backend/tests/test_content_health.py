@@ -9,7 +9,7 @@ repository (`repositories/content_health.py`) gets its SQL shape and its
 degrade path on `mock_conn()`. The router gets the plan-limits treatment:
 403 for every non-admin, 200 shapes with the repository patched, 200 with
 `available: false` when every telemetry table is absent, and 503 naming
-migration 20261029 from every writer — never a 500, never a silent save.
+migration 20261107000000 from every writer — never a 500, never a silent save.
 """
 from __future__ import annotations
 
@@ -643,7 +643,7 @@ class TestVerdicts:
             resp = client.post(f"/api/contribute/admin/content-health/verdicts/{VERDICT}",
                                json={"disposition": "rejected"}, headers=_auth_headers())
         assert resp.status_code == 503
-        assert "20261029" in resp.json()["detail"]
+        assert "20261107000000" in resp.json()["detail"]
 
 
 class TestQualitySettings:
@@ -693,7 +693,7 @@ class TestQualitySettings:
             resp = client.put("/api/contribute/admin/quality-settings",
                               json={"judge_enabled": True}, headers=_auth_headers())
         assert resp.status_code == 503
-        assert "20261029" in resp.json()["detail"]
+        assert "20261107000000" in resp.json()["detail"]
         r.mocks["update_quality_settings"].assert_awaited_once()
 
 
@@ -731,5 +731,5 @@ class TestQualityTargets:
             resp = client.put("/api/contribute/admin/quality-targets/ar",
                               json={"judge_enabled": True}, headers=_auth_headers())
         assert resp.status_code == 503
-        assert "20261029" in resp.json()["detail"]
+        assert "20261107000000" in resp.json()["detail"]
         r.mocks["set_language_target"].assert_awaited_once()

@@ -929,7 +929,7 @@ async def review_recording_endpoint(
 # Content health (plan §6, phase B; admin-only): the quality loop's rows as
 # one row per course, worst first, with the judge's switch and spend beside
 # them. Two conventions, both from the plan-limits routes above: every GET
-# degrades to `available: false` before migration 20261029 lands and never
+# degrades to `available: false` before migration 20261107000000 lands and never
 # 503s, because the panel has to be able to explain an empty page; every
 # PUT/POST 503s naming the migration, because an admin's save failing
 # silently is worse than a read degrading. Nothing here writes content —
@@ -942,7 +942,7 @@ def _quality_503(what: str) -> HTTPException:
     return HTTPException(
         status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
         detail=(
-            f"{what} needs migration 20261029 applied — "
+            f"{what} needs migration 20261107000000 applied — "
             "run `supabase db push` (check /api/health/schema)"
         ),
     )
@@ -2920,7 +2920,7 @@ class NewChangeRequest(BaseModel):
     # Review Mode: the span the reviewer selected, plus where it sat.
     quote: str | None = Field(default=None, max_length=2000)
     quote_context: dict | None = None
-    # The locale overlay the reviewer was reading (migration 20261030).
+    # The locale overlay the reviewer was reading (migration 20261107000001).
     # cards.py serves locale-specific hints and translations, and the board
     # could not tell a complaint about the French hint from one about the
     # sentence. Client-supplied: which overlay rendered is a client fact.

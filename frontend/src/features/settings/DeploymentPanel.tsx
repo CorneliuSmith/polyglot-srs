@@ -151,7 +151,7 @@ function ContentSurvey({
   if (!content.available)
     return (
       <p className="mt-1 text-xs text-amber-700">
-        The content survey needs migration 20261029 applied — the loop has
+        The content survey needs migration 20261107000000 applied — the loop has
         nowhere to write it yet.
       </p>
     )

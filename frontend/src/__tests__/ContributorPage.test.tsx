@@ -117,7 +117,7 @@ vi.mock('../api/contribute', () => ({
   ),
   // Content health (Admin → Content), the judge's spend controls (Costs)
   // and the Deployment panel's Content section: a deploy ahead of the
-  // owner's migration 20261029 answers "not available", never an error.
+  // owner's migration 20261107000000 answers "not available", never an error.
   getContentHealth: vi.fn(() =>
     Promise.resolve({
       generated_at: new Date().toISOString(),

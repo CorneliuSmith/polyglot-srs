@@ -18,7 +18,7 @@ const LANG = 'lang-es'
 const REVIEWER = { roles: [{ language_id: LANG, role: 'reviewer' }], is_admin: false }
 
 /**
- * Migration 20261030 gave card_change_requests a locale column, because the
+ * Migration 20261107000001 gave card_change_requests a locale column, because the
  * board could not tell a complaint about the French hint from one about the
  * sentence. Neither staff form has a locale prop and neither fetches one:
  * both read the profile the app already holds under ['profile'], so these

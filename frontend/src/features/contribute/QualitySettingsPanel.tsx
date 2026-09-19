@@ -17,13 +17,13 @@ import {
  * Sits under Costs, not Content, because that is what it is: the switch
  * and the cap decide what the API key spends every night, and the quality
  * numbers it produces are read on the Content health panel. Nothing here is
- * a config.py constant; `quality_settings` (migration 20261029) is a
+ * a config.py constant; `quality_settings` (migration 20261107000000) is a
  * singleton row, and the loop reads it before every batch, so a change
  * lands on the next cycle without a redeploy.
  */
 
 const MIGRATION_NOTE =
-  'Quality settings need migration 20261029 applied — see Rollouts → Deployment.'
+  'Quality settings need migration 20261107000000 applied — see Rollouts → Deployment.'
 
 /** Same idiom as RolesPanel: surface the server's detail when there is one —
  * here that's the 503 naming the not-yet-applied migration. */

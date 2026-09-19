@@ -293,7 +293,7 @@ async def run_quality_cycle(conn) -> dict:
     await _step(conn, stats, "*", "queues", _queues_step, sha)
     if stats["dropped"] and not stats["rows"]:
         logger.warning(
-            "quality cycle: quality_runs is absent (migration 20261029 not applied); "
+            "quality cycle: quality_runs is absent (migration 20261107000000 not applied); "
             "%d measurements dropped", stats["dropped"],
         )
     return stats

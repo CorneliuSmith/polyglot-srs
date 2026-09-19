@@ -286,7 +286,7 @@ function CourseDetail({ code }: { code: string }) {
         {dispose.isError && (
           <p className="text-xs text-red-600" role="alert">
             That didn’t save — the verdict may already be closed, or this
-            deploy predates migration 20261029.
+            deploy predates migration 20261107000000.
           </p>
         )}
       </div>
@@ -441,7 +441,7 @@ export default function ContentHealthPanel() {
 
       {data && !data.available.quality_runs && (
         <p className="rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-800" role="status">
-          Content health needs migration 20261029 applied — see Rollouts → Deployment.
+          Content health needs migration 20261107000000 applied — see Rollouts → Deployment.
         </p>
       )}
       {data && data.available.quality_runs && noRows && (

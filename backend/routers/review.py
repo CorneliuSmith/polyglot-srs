@@ -138,7 +138,7 @@ class LearnRequest(BaseModel):
 
 
 # The layer a learner's report is about. Mirrors the CHECK migration
-# 20261030 put on card_feedback.field: a value the column would refuse is a
+# 20261107000001 put on card_feedback.field: a value the column would refuse is a
 # 422 here, not a CheckViolationError inside the learner's transaction.
 FEEDBACK_FIELDS = (
     "sentence", "hint", "translation", "answer", "explanation", "definition",
@@ -881,7 +881,7 @@ async def submit_card_feedback(
 ):
     """Let a learner flag a problem with a card they're reviewing.
 
-    Since migration 20261030 the row also says WHICH layer, which drill and
+    Since migration 20261107000001 the row also says WHICH layer, which drill and
     which locale. The beta reviewer's "the Arabic is Egyptian" could never
     have been a row here because nothing recorded the language they were
     reading in (plan §2.4). The support locale is resolved server-side, the
