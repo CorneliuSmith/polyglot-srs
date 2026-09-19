@@ -102,7 +102,7 @@ export async function submitReview(
   return response.data
 }
 
-/** Which layer of the card a report is about — migration 20261030's CHECK
+/** Which layer of the card a report is about — migration 20261107000001's CHECK
  * on card_feedback.field. 'answer' is in the column and not in the chips: a
  * learner who thinks the answer is wrong says so in words. */
 export type CardFeedbackField =

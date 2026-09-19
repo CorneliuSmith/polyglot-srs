@@ -1,5 +1,5 @@
 """Content-quality telemetry: the rows the nightly loop writes, the switches
-the judge reads (migration 20261029).
+the judge reads (migration 20261107000000).
 
 Why this exists: nothing in the repo stored a quality number with a date on
 it. `data/quality/baseline.json` is a current-state ratchet, `reconcile`'s
@@ -14,7 +14,7 @@ Two rules shape every function here:
 
 * **Every reader degrades on an absent table.** Migrations are the owner's
   to apply and the code deploys first (CLAUDE.md), so a deploy ahead of
-  20261029 must write nothing and read empty, not 500 — and must do it under
+  20261107000000 must write nothing and read empty, not 500 — and must do it under
   a savepoint, because the loop runs inside one privileged transaction and
   a failed statement there poisons every statement after it (LEARN.md,
   "try/except a SQL error inside a transaction is a no-op").
@@ -94,7 +94,7 @@ async def record_run(
 ) -> str | None:
     """One measurement. Returns the row id, or None when quality_runs is not
     there yet — the caller counts those so the heartbeat can say "ran, wrote
-    nothing, migration 20261029 missing" instead of looking healthy."""
+    nothing, migration 20261107000000 missing" instead of looking healthy."""
     try:
         async with savepoint(conn):
             row = await conn.fetchrow(

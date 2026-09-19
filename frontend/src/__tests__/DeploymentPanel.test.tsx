@@ -144,7 +144,7 @@ describe('DeploymentPanel', () => {
     mockDeploy.mockResolvedValue({ build_sha: null, available: false, courses: [] })
     renderPanel()
     const content = await screen.findByTestId('deployment-content')
-    await waitFor(() => expect(content.textContent).toContain('migration 20261029'))
+    await waitFor(() => expect(content.textContent).toContain('migration 20261107000000'))
     expect(content.querySelector('table')).toBeNull()
     expect(content.textContent).not.toContain('no reconcile survey yet')
   })

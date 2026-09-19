@@ -1,4 +1,4 @@
-"""Migration 20261030's telemetry columns, written by code that deploys
+"""Migration 20261107000001's telemetry columns, written by code that deploys
 before the migration lands (docs/plans/quality-guardrails-telemetry.md §5,
 phase C).
 

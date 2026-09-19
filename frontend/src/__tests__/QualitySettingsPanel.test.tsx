@@ -131,7 +131,7 @@ describe('QualitySettingsPanel', () => {
   it('with the table absent every control is disabled and the migration is named', async () => {
     mockGet.mockResolvedValue({ ...SETTINGS, available: false })
     renderPanel()
-    expect(await screen.findByText(/migration 20261029/)).toBeDefined()
+    expect(await screen.findByText(/migration 20261107000000/)).toBeDefined()
     expect(screen.getByText(/Rollouts → Deployment/)).toBeDefined()
     expect(screen.getByRole('switch', { name: 'Judge master switch' })).toBeDisabled()
     expect(screen.getByLabelText('Judge rows per cycle')).toBeDisabled()
@@ -170,7 +170,7 @@ describe('QualitySettingsPanel', () => {
     mockUpdate.mockRejectedValue({
       response: {
         status: 503,
-        data: { detail: 'Quality settings need migration 20261029 applied — check /api/health/schema' },
+        data: { detail: 'Quality settings need migration 20261107000000 applied — check /api/health/schema' },
       },
     })
     renderPanel()

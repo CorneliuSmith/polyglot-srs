@@ -408,7 +408,7 @@ reader of the plan would expect to find built, and will not:
   eight confirmed readings give the readout a fair denominator from the
   start.
 - **Two migrations shared a version, and the error blamed the wrong
-  thing.** `20261029000000_quality_telemetry.sql` and
+  thing.** `20261107000000_quality_telemetry.sql` and
   `20261029000000_provisional_strokes_arabic_direction.sql` were written
   in different branches on the same nominal date; same for the pair at
   `20261030000000`. Supabase keys `supabase_migrations.schema_migrations`
@@ -1714,7 +1714,7 @@ Each of these is deliberate; each says what turns it on.
   `tutor_usage` beside the `quality_runs` row (`_usage_of` already maps the
   fields the way `tutor._add_usage` does), and leave `judge_tokens_spent_today`
   on `quality_runs`, which is the ledger the cap is enforced against.
-  Until then, migration 20261029's comment on `judge_daily_token_cap`
+  Until then, migration 20261107000000's comment on `judge_daily_token_cap`
   ("the loop reads tutor_usage kind='judge'") is drift — left in the file
   because it is owner-applied and not yet in production; correct it the
   next time the migration is touched.
@@ -1834,7 +1834,7 @@ on 120 judged rows). Three choices to know about:
 
 ## The telemetry columns are wired before the data that fills them (18 Sep 2026)
 
-Migration 20261030 (owner-applied) added `tutor_usage.outcome` /
+Migration 20261107000001 (owner-applied) added `tutor_usage.outcome` /
 `latency_ms`, `card_feedback.field` / `drill_id` / `locale` /
 `support_locale` and `card_change_requests.locale`
 (`docs/plans/quality-guardrails-telemetry.md` §5, phase C). Every writer
@@ -1990,3 +1990,38 @@ of canned fixtures). It also records the standing verdict that checkers and
 learner-facing tasks never move to a local model, so that question stops
 being re-opened. If any of it is built, the `§9.1` sketch is the seam and
 this entry shrinks to whatever is still unbuilt.
+
+## A migration's version is not stable, and 26 places had memorised one (19 Sep 2026)
+
+Supabase keys `supabase_migrations.schema_migrations` on a migration's
+timestamp digits, so two branches that pick the same stamp collide. It
+happened: `20261029000000_quality_telemetry.sql` and
+`20261029000000_provisional_strokes_arabic_direction.sql`, and the push
+refused with *"Found local migration files to be inserted before the last
+migration on remote database"* — which reads like an ordering problem and is
+really a taken version. The telemetry pair was re-stamped to `20261107000000`
+and `20261107000001`.
+
+**What the rename left behind is the entry.** Twenty-six places still named
+the old stamps: the API's 503 body, the Quality settings panel's
+disabled-state message, the Deployment panel's content line, the nightly
+loop's log line, a dozen comments and four test assertions. Every one told the
+owner to apply a migration they did not need, at the exact moment they were
+deciding what to apply.
+
+**And the obvious guard does not work.** `20261029` and `20261030` were not
+freed by the rename — the stroke migrations still hold them. So "does this
+stamp exist" passes on a reference that has come to name a completely
+different migration, which is worse than a dangling one: it is confidently
+wrong. `backend/tests/test_migration_references.py` therefore resolves
+`quality_runs` to the migration whose text CREATES it and requires every
+owner-facing instruction to name that one; the two cheaper tests beside it
+catch a stamp that exists nowhere.
+
+Two things to carry:
+
+- **Name the whole 14-digit stamp in anything an owner reads.** An eight-digit
+  shorthand cannot be checked against a filename, and it is the form that went
+  stale here.
+- **A re-stamp is a rename with references**, not a file move. Grep for both
+  the full stamp and the shorthand before merging one.

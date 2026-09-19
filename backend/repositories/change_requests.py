@@ -43,7 +43,7 @@ async def create_request(
     which tutor message. Both are snapshots: a tutor reply is never stored,
     and a card's quote has to outlive the edit it is asking for.
 
-    *locale* is the overlay the reviewer was reading (migration 20261030):
+    *locale* is the overlay the reviewer was reading (migration 20261107000001):
     cards.py serves locale-specific hints and translations, and until this
     column a complaint about the French hint and one about the sentence
     were the same row. Migrations are owner-applied and the code deploys

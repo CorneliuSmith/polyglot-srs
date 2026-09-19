@@ -18,7 +18,7 @@ const FIELDS: { value: CardFeedbackField; key: string }[] = [
  * Lets a learner flag a problem with the card they just answered. Collapsed by
  * default; the feedback is routed to contributors for that language.
  *
- * The field chips (migration 20261030, plan A6) are the reviewer form's
+ * The field chips (migration 20261107000001, plan A6) are the reviewer form's
  * "what needs fixing?" brought to the learner: a report that names the layer
  * can be routed to the check that owns it, and one that does not is a
  * sentence someone has to read first. Choosing one is optional — the message

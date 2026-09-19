@@ -1,5 +1,5 @@
 """Content verdicts: the rows the nightly judge reads next and the rows it
-writes back (migration 20261029, `content_verdicts`).
+writes back (migration 20261107000000, `content_verdicts`).
 
 Why a second repository beside `quality.py`: `quality_runs` is a ledger of
 numbers and this table is a ledger of judgements — one row per judged

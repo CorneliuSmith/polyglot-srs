@@ -79,7 +79,7 @@ async def add_card_feedback(
     can act on it. Returns False if the card isn't the user's.
 
     *field*, *drill_id*, *locale* and *support_locale* are migration
-    20261030's columns (docs/plans/quality-guardrails-telemetry.md §5, A6):
+    20261107000001's columns (docs/plans/quality-guardrails-telemetry.md §5, A6):
     a report on a grammar card recorded the POINT and not the drill the
     learner saw, so the sentence was unrecoverable, and no learner channel
     recorded the locale they were reading in. The migration is owner-applied
