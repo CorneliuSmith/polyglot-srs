@@ -124,8 +124,8 @@ rules out of a model with video access, in a shape the generator can read.
 | 2 | cyrillic | cursive | lower, upper | 66 |
 | 3 | cyrillic | print | lower, upper | 66 |
 | 4 | greek | print | lower, upper | 48 |
-| 5 | latin | print | lower, upper | 52 |
-| 6 | latin | cursive | lower, upper | 52 |
+| 5 | latin | print | lower, upper | 52 base + the extras below |
+| 6 | latin | cursive | lower, upper | 52 base + the extras below |
 | 7 | devanagari | print | letter | 43 |
 | 8 | thai | print | letter | 44 |
 | 9 | hebrew | print | letter | 27 |
@@ -136,7 +136,16 @@ rules out of a model with video access, in a shape the generator can read.
 - **arabic** — آ ا ب ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ي پ چ ژ ک گ ی
 - **cyrillic** — а б в г д е ж з и й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я ё
 - **greek** — α β γ δ ε ζ η θ ι κ λ μ ν ξ ο π ρ σ τ υ φ χ ψ ω
-- **latin** — a–z
+- **latin** — a–z, **plus the letters the Latin-script courses actually
+  use** (19 of the 27 courses are Latin-script). Ask for these in the
+  same run, lower and upper:
+  - Spanish `ñ á é í ó ú ü` · French `à â ç é è ê ë î ï ô ù û ü ÿ œ æ` ·
+    Italian `à è é ì ò ó ù` · Portuguese `ã õ á â é ê í ó ô ú ç à` ·
+    Catalan `à è é í ï ò ó ú ü ç` · German `ä ö ü ß` ·
+    Romanian `ă â î ș ț` · Turkish `ç ğ ı İ ö ş ü` · Māori `ā ē ī ō ū` ·
+    Dutch `é ë ï` · Hausa `ɓ ɗ ƙ ƴ` · Yoruba `ẹ ọ ṣ`
+  - English, Indonesian, Swahili, Tagalog, Latin and Jamaican Patois add
+    nothing beyond a–z.
 - **devanagari** — अ आ इ ई उ ऊ ए ऐ ओ औ क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल व श ष स ह
 - **thai** — ก ข ฃ ค ฅ ฆ ง จ ฉ ช ซ ฌ ญ ฎ ฏ ฐ ฑ ฒ ณ ด ต ถ ท ธ น บ ป ผ ฝ พ ฟ ภ ม ย ร ล ว ศ ษ ส ห ฬ อ ฮ
 - **hebrew** — א ב ג ד ה ו ז ח ט י ך כ ל ם מ ן נ ס ע ף פ ץ צ ק ר ש ת
@@ -170,6 +179,23 @@ rules out of a model with video access, in a shape the generator can read.
 - Is t stem then crossbar? Is the crossbar always left to right?
 - Is k three strokes or two?
 
+**Latin — accents and extra letters** (ask in both the print and the
+cursive run):
+- **When is a diacritic written** — immediately after its own letter, or
+  after the whole word is finished, like the i-dot? Does the answer
+  differ by country or school model?
+- Which of these are **a base letter plus a mark** (so the base letter's
+  strokes are unchanged and only the mark is new): á à â ä ã é è ê ë í ì
+  î ï ó ò ô ö õ ú ù û ü ÿ ñ ç ş ğ ă ș ț ā ē ī ō ū ẹ ọ ṣ?
+- Which need **full rows because the shape itself differs**: ß, ı and İ
+  (Turkish dotless and dotted i — say how both are formed and when the
+  dot is added), ø, æ, œ, ɓ ɗ ƙ ƴ?
+- Are **uppercase accents** written at all in handwriting (French often
+  drops them), and if so is the mark the same stroke as on lowercase?
+- Is the Turkish **ı** written exactly like a dotless i, and does the
+  learner ever add a dot to it by mistake — is that called out in
+  teaching?
+
 **Latin cursive:**
 - Which school model is being taught (D'Nealian, Zaner-Bloser, Palmer, or a national model)? Name it.
 - Where does each letter start and end on the line, for joining?
@@ -195,6 +221,16 @@ rules out of a model with video access, in a shape the generator can read.
 - For ㄹ and ㅂ, how many strokes and in what order?
 
 ---
+
+## Before the Latin runs land: the library is a–z
+
+`alphabet_for()` gives every Latin-script course exactly the 26 base
+letters (`backend/services/scripts.py`; DEBT, "A Latin-script course's
+stroke library is a–z only"). So ñ é ß ğ ı ş have **no row to attach a
+rule to**, no Learn step, no Trace, and a word containing one cannot be
+composed — it reports the letter missing. A per-language extras table in
+`scripts.py` is the fix and is half a day; the rules and the table can be
+built in either order, but neither is useful alone.
 
 ## What happens to the output
 
