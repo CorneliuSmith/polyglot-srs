@@ -102,6 +102,26 @@ class TestExpectedObjects:
     def test_missing_directory_is_not_an_error(self, tmp_path):
         assert expected_objects(tmp_path / "nope") == []
 
+    def test_no_two_migrations_share_a_version(self):
+        """Supabase keys `schema_migrations` on the digits before the first
+        underscore, so two files with the same prefix are one version as far
+        as the CLI is concerned. When that happened — a quality migration and
+        a stroke migration both stamped 20261029000000 — `supabase db push`
+        stopped with "Found local migration files to be inserted before the
+        last migration on remote database" and listed files that were not
+        actually out of order, which reads like a problem with the wrong
+        file. Cheap to assert, and it has bitten twice."""
+        from collections import defaultdict
+
+        root = Path(__file__).resolve().parents[2] / "supabase" / "migrations"
+        by_version = defaultdict(list)
+        for f in sorted(root.glob("*.sql")):
+            by_version[f.name.split("_", 1)[0]].append(f.name)
+        clashes = {v: names for v, names in by_version.items() if len(names) > 1}
+        assert not clashes, "migrations sharing a version: " + "; ".join(
+            f"{v}: {', '.join(names)}" for v, names in sorted(clashes.items())
+        )
+
     def test_real_migrations_include_the_incident_column(self):
         # The actual repo: the column whose absence caused the Gym 500 must
         # be part of the expectation set.

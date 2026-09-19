@@ -49,7 +49,7 @@ def _usage(n: int) -> dict:
 class TestQuestions:
     def test_the_five_the_plan_and_the_table_name(self):
         """`content_verdicts.question` is documented as exactly this set
-        (migration 20261029000000); a sixth here would be a row the panel
+        (migration 20261107000000); a sixth here would be a row the panel
         cannot group."""
         assert set(cj.QUESTIONS) == {"register", "sense", "gloss", "scripture", "card_shape"}
         for name, q in cj.QUESTIONS.items():

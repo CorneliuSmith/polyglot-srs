@@ -407,6 +407,26 @@ reader of the plan would expect to find built, and will not:
   until the writer presses *No* on misreads — or runs the baseline, whose
   eight confirmed readings give the readout a fair denominator from the
   start.
+- **Two migrations shared a version, and the error blamed the wrong
+  thing.** `20261029000000_quality_telemetry.sql` and
+  `20261029000000_provisional_strokes_arabic_direction.sql` were written
+  in different branches on the same nominal date; same for the pair at
+  `20261030000000`. Supabase keys `supabase_migrations.schema_migrations`
+  on the digits before the first underscore, so those are *one* version
+  each as far as the CLI is concerned. `supabase db push` then stopped
+  with "Found local migration files to be inserted before the last
+  migration on remote database" and named the two telemetry files —
+  which reads as "these are out of order", when the truth is "their
+  version numbers are taken". The owner ran it twice and got the same
+  wall. Renaming the telemetry pair to `20261107000000` and
+  `20261107000001` fixed it (both are `IF NOT EXISTS` throughout, so a
+  rename cannot double-apply anything), and
+  `test_no_two_migrations_share_a_version` now fails CI on a repeat.
+  **`--include-all` is the wrong reflex here**: it would try to insert a
+  version row that already exists. This is the second time a duplicate
+  prefix has cost an hour — three stale `20261105000000` files from
+  intermediate regenerations were the first — and the cause both times
+  was a generator or a branch choosing a date rather than a clock.
 - **An exactly-closed path disappears from the stroke library.** `rdp()`
   in `gen_from_fonts.py` simplifies a path against the straight line from
   its first point to its last; when those are the same point there is no
