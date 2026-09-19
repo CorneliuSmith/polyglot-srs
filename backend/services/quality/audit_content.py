@@ -1111,6 +1111,49 @@ def _wordnet_fillable(rows: list[tuple[int, str, str]]) -> int | None:
     return filled
 
 
+# Which corpus file each rule reads. A rule whose file is absent does not
+# score zero — it has no opinion, and `audit_language` reports it as ABSENT so
+# the nightly loop can decline to write a number for it.
+#
+# This exists because the loop wrote 10,395 rows in production against an image
+# that shipped no `data/grammar` and no sentence banks: every drill rule read
+# 0, `unclozable_rows` read 0, and the Content Health panel therefore showed
+# **100% top-band coverage for all 27 courses**. Nothing errored. A missing
+# input read as a clean bill of health, which is quality rule 14 with the
+# instrument pointed at the corpus instead of at a test (CHECKS §44).
+RULE_INPUTS: dict[str, str] = {
+    **{rule: "grammar" for rule in (
+        "leak_hard", "self_answering", "giveaway_by_gloss", "agreement_feature",
+        "duplicate_hint", "empty", "ar_register", "construction_quote",
+        "vague_translation", "hint_language", "stem_in_hint", "gender_marking",
+    )},
+    "unclozable_rows": "sentences",
+    "frame_collision": "sentences",
+    "wrong_sense_gloss": "frequency",
+    "circular_gloss": "frequency",
+    "relation_only_gloss": "frequency",
+    "empty_definition": "frequency",
+}
+
+
+def missing_inputs(code: str) -> set[str]:
+    """The named corpora this course's audit cannot read.
+
+    `structural` is deliberately absent from the map: it exists to REPORT a
+    missing file, so it is the one rule whose answer is meaningful when the
+    file is not there.
+    """
+    gone = set()
+    if not (GRAMMAR_DIR / f"{code}_grammar.json").exists():
+        gone.add("grammar")
+    if not ((DATA / f"{code}_sentences.tsv").exists()
+            or (DATA / "sentences" / f"{code}_sentences.tsv").exists()):
+        gone.add("sentences")
+    if not (DATA / f"{code}_frequency.tsv").exists():
+        gone.add("frequency")
+    return gone
+
+
 def audit_language(code: str) -> dict:
     """Every rule for one language. Returns findings, counts and notes."""
     points = load_grammar(code)
@@ -1122,6 +1165,10 @@ def audit_language(code: str) -> dict:
     findings["circular_gloss"] = _audit_circular_glosses(code)
     findings["relation_only_gloss"] = _audit_relation_only_glosses(code)
     findings["empty_definition"] = _audit_empty_definitions(code)
+    # Not a count: the names of the rules that had nothing to read. The loop
+    # writes no row for these, so an absent corpus leaves a GAP in the trend
+    # rather than a zero in it.
+    findings["_absent_inputs"] = sorted(missing_inputs(code))
     findings["unclozable_rows"], findings["frame_collision"] = (
         _audit_sentence_cards(code)
     )

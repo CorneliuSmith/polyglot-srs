@@ -34,6 +34,18 @@ data/*
 #                      false. Only the json; the gold TSVs beside it are the
 #                      calibration's evidence, read by hand, not by the API.
 !data/eval/calibrated.json
+# The nightly quality loop audits the corpus IN PRODUCTION, so the corpus has
+# to be in the image. It was not, and the loop wrote 10,395 confident rows
+# about files it could not see: every drill rule read 0 because data/grammar
+# was absent, unclozable_rows read 0 because the sentence banks were, and the
+# panel therefore showed 100% top-band coverage for all 27 courses. See
+# CHECKS.md §44. ~41 MB, against an image that already carries 8.6 MB of
+# frequency lists.
+!data/grammar
+!data/*_sentences.tsv
+!data/sentences
+!data/gloss_overrides.tsv
+!data/quality
 docs
 scripts
 # The migration FILES ship; nothing else under supabase/ does. They are not

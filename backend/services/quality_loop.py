@@ -154,13 +154,29 @@ async def _audit_step(conn, stats: dict, code: str, lang_id: str, sha: str | Non
     # loop that is seconds during which no request is served.
     report = await asyncio.to_thread(audit_content.audit_language, code)
     meta = {"drills": report["drills"], "points": report["points"]}
+    # A rule whose corpus this build cannot read has NO OPINION, and writing
+    # its zero is worse than writing nothing: the image shipped no
+    # `data/grammar` and no sentence banks, so every drill rule read 0,
+    # `unclozable_rows` read 0, and the panel showed 100% top-band coverage
+    # for all 27 courses on 19 Sep. A gap in a trend asks a question; a zero
+    # answers one that was never measured (CHECKS §44).
+    absent = set(report["findings"].get("_absent_inputs") or ())
+    skipped = 0
     for rule in audit_content.ALL_RULES:
+        if audit_content.RULE_INPUTS.get(rule) in absent:
+            skipped += 1
+            continue
         await _write(
             conn, stats, sha,
             kind="audit", language_id=lang_id, metric=rule,
             value=report["counts"].get(rule, 0),
             population=report["drills"] if rule in DRILL_RULES else None,
             meta=meta,
+        )
+    if absent:
+        stats["skipped"].append(
+            f"{code}: {skipped} audit rules have no corpus in this build "
+            f"({', '.join(sorted(absent))})"
         )
     return report
 
@@ -215,6 +231,12 @@ async def _coverage_step(
     """
     if report is None:
         return  # the audit failed; there is no count to complement
+    # Same rule as the audit step: coverage is the complement of
+    # `unclozable_rows`, so without a sentence bank it is not 100%, it is
+    # unknown. Writing 100% is how every course read perfect on 19 Sep.
+    if "sentences" in set(report["findings"].get("_absent_inputs") or ()):
+        stats["skipped"].append(f"{code}: no sentence bank in this build, no coverage")
+        return
     rows = await asyncio.to_thread(reconcile.expected_rows, code)
     band = min(audit_content.CARD_RULE_BAND, len(rows))
     if band <= 0:
