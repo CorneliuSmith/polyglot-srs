@@ -46,6 +46,29 @@ RUNTIME_DATA = [
         "data/eval/calibrated.json",
         "the nightly judge silently judges nothing and every coverage row says calibrated: false",
     ),
+    # The corpus the nightly quality loop audits IN PRODUCTION. Absent, the
+    # audit does not fail — it finds nothing, which reads as a clean bill of
+    # health. Measured 19 Sep 2026 against the live database: 10,395 rows
+    # written, every drill rule 0, `unclozable_rows` 0, and the Content Health
+    # panel showing 100% top-band coverage for all 27 courses (CHECKS §44).
+    ("data/grammar/es_grammar.json",
+     "every drill rule reads 0 and the panel calls all 27 courses clean"),
+    ("data/grammar/ru_grammar.json",
+     "every drill rule reads 0 and the panel calls all 27 courses clean"),
+    ("data/es_sentences.tsv",
+     "unclozable_rows reads 0 and top-band coverage reports 100% for every course"),
+    ("data/ru_sentences.tsv",
+     "unclozable_rows reads 0 and top-band coverage reports 100% for every course"),
+    # The audit grades the definitions production SERVES, which is the
+    # frequency column with these laid over it. Without the file it grades
+    # text nobody is shown, and every gloss rule reports a number for a corpus
+    # that does not exist.
+    ("data/gloss_overrides.tsv",
+     "every gloss rule grades the raw frequency column instead of what ships"),
+    # The baseline the fail-level rules are scored against, and the panel's
+    # audit-delta column.
+    ("data/quality/baseline.json",
+     "the audit has nothing to score against and the panel's delta is null"),
     # The schema-drift diagnostic derives its expectations FROM these files.
     # With none in the image it has nothing to expect, so /api/health/schema
     # answers `ok: true` against any database at all — including one that

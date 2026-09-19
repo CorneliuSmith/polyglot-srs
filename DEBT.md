@@ -2025,3 +2025,35 @@ Two things to carry:
   stale here.
 - **A re-stamp is a rename with references**, not a file move. Grep for both
   the full stamp and the shorthand before merging one.
+
+## `data/*_morphology.json` is still out of the image (19 Sep 2026)
+
+CHECKS §44 put the corpus the nightly audit reads into the image — grammar,
+sentence banks, `gloss_overrides.tsv`, `baseline.json`, about 41 MB. The
+morphology files are 17 MB more and feed exactly one WARN rule
+(`structural`, "the course has no morphology chips"), so they were left out
+and `structural` is skipped in production rather than reported.
+
+**What would turn it on:** deciding the 17 MB is worth one warn-level rule, or
+the rule learning to distinguish "this course has no morphology file" from
+"this build does not carry it" — which it cannot today, because both look like
+`Path.exists() is False`. The second is the better fix and is small: the
+loop already knows, through `missing_inputs()`, which corpora this build
+carries.
+
+## `build_sha` is null on every quality_runs row (19 Sep 2026)
+
+Measured on the live database: all 10,395 rows from the first production cycle
+carry `build_sha = NULL`. `build_info()` reads `BUILD_SHA`, `SOURCE_COMMIT`,
+`RENDER_GIT_COMMIT` and `GIT_SHA`, and DigitalOcean's Docker build passes none
+of them — which `build_info`'s own docstring says, so this is working as
+designed rather than broken.
+
+It costs one thing: the Content Health drill-down's "since last deploy" column
+and the Deployment panel's "measured on an older build" note both key on it,
+and with a null they cannot distinguish deploys. `built_at` is populated and is
+the identifying fact today.
+
+**What would turn it on:** a `BUILD_SHA` build arg in the DigitalOcean app
+spec, which the Dockerfile already accepts. One line in the platform config,
+not a code change.

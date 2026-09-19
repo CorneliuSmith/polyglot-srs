@@ -2515,3 +2515,58 @@ into the house shape, maker-checker, across 22 courses. That repair is also
 the argument for taking the band question seriously — the band the rule does
 cover went from 3,072 to 154, and 19,169 rows in 2,001-6,000 are the same
 defect at the same density, still invisible.
+
+## §44 The nightly loop audited an image with no corpus in it (19 Sep 2026)
+
+**How it was found.** The owner applied the two telemetry migrations and the
+loop ran its first production cycle: **10,395 rows across all 27 courses**.
+Reading them back is what this section is about.
+
+| what the panel would have shown | what it means |
+|---|---|
+| top-band coverage **100.0% for all 27 courses**, including `jam` (483 rows) and `la` (559) | `unclozable_rows` read 0 |
+| `leak_hard`, `circular_gloss`, `wrong_sense_gloss` **0 in every course** | their corpora were not there |
+| `relation_only_gloss` 738 on `ca`, where the repo measures 122 | the override overlay was not there |
+| `build_sha` null on all 10,395 rows | DigitalOcean passes no commit; known, and `built_at` is the identifying fact |
+
+**The image ships four things from `data/`** — `gym`, `*_frequency.tsv`,
+`*_readings.tsv` and `eval/calibrated.json`. The audit reads six more:
+`data/grammar/*_grammar.json` (every drill rule), `data/*_sentences.tsv` and
+`data/sentences/` (`unclozable_rows`, `frame_collision`, and therefore
+coverage), `data/quality/baseline.json` (what the fail rules are scored
+against), `data/gloss_overrides.tsv` (the definitions production actually
+serves) and `data/*_morphology.json` (`structural`).
+
+**A missing input read as a clean bill of health.** Nothing errored, nothing
+was skipped, and the loop wrote a confident zero for every rule whose file was
+absent — which is quality rule 14 with the instrument pointed at the corpus
+instead of at a test. The single most visible consequence: the metric the owner
+asked to have tracked, top-band card coverage, reported **perfect for every
+course in the product**, which is the one answer that guarantees nobody looks
+again.
+
+**Both halves are fixed, and the second is the durable one.**
+
+1. **The image ships the corpus** (`Dockerfile`, `.dockerignore`): grammar,
+   sentence banks, `gloss_overrides.tsv` and `baseline.json`. About 41 MB
+   against the 8.6 MB of frequency lists already there. `data/*_morphology.json`
+   (17 MB, one warn rule) is deliberately still out — see DEBT.
+2. **The loop writes no row for a rule whose corpus it could not read.**
+   `audit_content.RULE_INPUTS` maps each rule to the corpus it needs and
+   `missing_inputs()` reports what is absent; `_audit_step` skips those rules
+   and records `"ru: 12 audit rules have no corpus in this build (grammar)"`
+   in the cycle's `skipped` list, and `_coverage_step` writes nothing at all
+   without a sentence bank. **A gap in a trend asks a question; a zero answers
+   one that was never asked.**
+
+`structural` is deliberately outside the map: it exists to REPORT a missing
+file, so it is the one rule whose answer means something when the file is gone.
+
+**Pinned** by `test_runtime_data_ships.py` (six new entries, each naming what
+goes dark) and by `TestARuleWithNoCorpusWritesNothing` /
+`TestCoverageIsNotOneHundredPercentWhenUnmeasured` in `test_quality_loop.py`.
+
+**The 10,395 rows already in production are wrong** and will be superseded by
+the next cycle after a deploy; `latest_metrics` is DISTINCT ON the newest, so
+the panel self-corrects without anyone deleting anything. The old rows stay as
+the trend's first point, which is honest — that IS what the build measured.

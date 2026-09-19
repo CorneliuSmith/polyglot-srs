@@ -50,6 +50,20 @@ COPY data/eval/calibrated.json ./data/eval/
 #    expects against what the database has. Not applied from here (owner
 #    applies them); read-only diagnostics. Without them the check has no
 #    expectations and reports ok:true unconditionally — see .dockerignore.
+#  - The corpus the nightly quality loop audits. It runs audit_content
+#    against these files once a day IN PRODUCTION, so a file it cannot see
+#    is not a missing input, it is a clean bill of health: every drill rule
+#    read 0 without data/grammar, unclozable_rows read 0 without the
+#    sentence banks, and the Content Health panel showed 100% coverage for
+#    all 27 courses. gloss_overrides is here for a subtler reason — the
+#    audit reads the definitions production SERVES, which is the frequency
+#    column with the overrides laid over it, so without the file it grades
+#    text nobody is shown. See .dockerignore and CHECKS.md §44.
+COPY data/grammar ./data/grammar
+COPY data/*_sentences.tsv ./data/
+COPY data/sentences ./data/sentences
+COPY data/gloss_overrides.tsv ./data/
+COPY data/quality ./data/quality
 COPY supabase/migrations ./supabase/migrations
 RUN pip install --no-cache-dir .
 

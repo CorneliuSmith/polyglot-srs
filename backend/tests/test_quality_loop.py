@@ -520,3 +520,70 @@ def test_lifespan_starts_the_loop_when_the_flag_is_on():
         with TestClient(app):
             pass
     assert started == [True]
+
+
+class TestARuleWithNoCorpusWritesNothing:
+    """A rule whose corpus this build cannot read has NO OPINION.
+
+    Measured against the live database on 19 Sep 2026: the image shipped no
+    `data/grammar` and no sentence banks, the nightly loop wrote 10,395 rows
+    anyway, every drill rule read 0, `unclozable_rows` read 0, and the Content
+    Health panel reported **100% top-band coverage for all 27 courses**.
+    Nothing errored. A missing input read as a clean bill of health — quality
+    rule 14 with the instrument pointed at the corpus instead of at a test.
+
+    A gap in a trend asks a question. A zero answers one that was never asked.
+    """
+
+    async def _rows_for(self, absent: list[str]) -> list[dict]:
+        conn = mock_conn()
+        conn.fetchrow.return_value = {"id": "row"}
+        report = {
+            "counts": {r: 0 for r in audit_content.ALL_RULES},
+            "drills": 10, "points": 2,
+            "findings": {"_absent_inputs": absent},
+        }
+        stats = quality_loop._new_stats()
+        with patch.object(audit_content, "audit_language", return_value=report):
+            await quality_loop._audit_step(conn, stats, "ru", LANG_RU, "sha")
+        return [r["metric"] for r in _written(conn)], stats
+
+    async def test_with_the_whole_corpus_every_rule_is_written(self):
+        metrics, stats = await self._rows_for([])
+        assert set(metrics) == set(audit_content.ALL_RULES)
+        assert not stats["skipped"]
+
+    async def test_without_the_grammar_no_drill_rule_is_written(self):
+        metrics, stats = await self._rows_for(["grammar"])
+        drill = {r for r, src in audit_content.RULE_INPUTS.items() if src == "grammar"}
+        assert drill, "the map lost its grammar rules"
+        assert not (drill & set(metrics)), "a drill rule reported a number with no drills"
+        # ...and the rules that read other files still do.
+        assert "relation_only_gloss" in metrics
+        assert stats["skipped"] and "grammar" in stats["skipped"][0]
+
+    async def test_without_the_sentence_bank_the_card_rules_are_not_written(self):
+        metrics, _ = await self._rows_for(["sentences"])
+        assert "unclozable_rows" not in metrics
+        assert "frame_collision" not in metrics
+
+    async def test_structural_is_written_even_when_everything_is_absent(self):
+        """The one rule whose answer means something without the files: it
+        exists to REPORT that a file is missing."""
+        metrics, _ = await self._rows_for(["grammar", "sentences", "frequency"])
+        assert "structural" in metrics
+
+
+class TestCoverageIsNotOneHundredPercentWhenUnmeasured:
+    async def test_no_sentence_bank_means_no_coverage_row(self):
+        """Coverage is the complement of `unclozable_rows`. Without a sentence
+        bank that complement is not 100%, it is unknown — and 100% is exactly
+        what all 27 courses reported in production."""
+        conn = mock_conn()
+        conn.fetchrow.return_value = {"id": "row"}
+        stats = quality_loop._new_stats()
+        report = {"counts": {"unclozable_rows": 0},
+                  "findings": {"_absent_inputs": ["sentences"]}}
+        await quality_loop._coverage_step(conn, stats, "ru", LANG_RU, "sha", report)
+        assert not _written(conn), "wrote a coverage number it could not measure"
+        assert stats["skipped"] and "sentence bank" in stats["skipped"][0]

@@ -590,6 +590,15 @@ rate, say so — that result matters more than the phase closing quietly.
     agent that has seen neither earlier opinion, and tell it a wrong "correct"
     costs more than an honest "unsure".
 
+83. **A checker that runs where its corpus does not is a checker that reports
+    a clean bill of health.** The nightly loop audited production against an
+    image shipping four of the ten `data/` inputs it reads: every drill rule
+    wrote 0, and top-band coverage reported **100% for all 27 courses** — the
+    one answer that guarantees nobody looks again. Before trusting a
+    production measurement, ask what the image actually carries; and make the
+    instrument write NOTHING for an input it could not read, because a gap in
+    a trend asks a question and a zero answers one that was never asked.
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
