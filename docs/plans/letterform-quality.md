@@ -220,9 +220,40 @@ compare sheets side by side.
 | Russian cursive | Marck Script | a propisi face | Marck is a display script; propisi is what children are taught |
 | Hebrew | Noto Sans Hebrew (print) | an OFL cursive Hebrew | Israeli handwriting is a different alphabet; **none chosen** |
 | Greek | Noto Sans | a Greek handwriting face | handwritten θ ζ ξ differ from print |
-| Latin cursive | Dancing Script | a school-model face (D'Nealian-like) | Dancing Script is decorative, not a teaching model |
+| Latin cursive | **Edu NSW ACT Foundation**, Dancing Script for the accented letters | — | done (19 Sep); chosen by measurement, see below |
 | Devanagari | Noto Sans Devanagari | — | acceptable; the headline was the issue |
 | Hangul | Noto Sans KR | — | acceptable; jamo are geometric |
+
+**How the Latin cursive face was chosen (19 Sep).** Not by eye: seven
+OFL candidates were rendered, walked and scored against the sourced
+Zaner-Bloser table, which is what the rules table makes possible.
+
+| face | count | start | end | in one stroke |
+|---|---|---|---|---|
+| **Edu NSW ACT Foundation** | **32/52** | **27/52** | 23/52 | **31** |
+| Edu SA Beginner | 32/52 | 22/52 | **27/52** | 29 |
+| Caveat | 31/52 | 21/52 | 26/52 | 26 |
+| Edu QLD Beginner | 29/52 | 25/52 | 19/52 | 25 |
+| Edu AU VIC WA NT Pre | 28/52 | 21/52 | 24/52 | 26 |
+| Edu TAS Beginner | 27/52 | 24/52 | 23/52 | 24 |
+| Edu VIC WA NT Beginner | 27/52 | 20/52 | 23/52 | 24 |
+| *Dancing Script (was)* | *19/52* | *26/52* | *20/52* | *14* |
+
+The Edu faces are Australian state school handwriting models — literally
+what a teacher hands out, which is what the brief asks a source to be.
+Edu NSW ACT Foundation and Edu SA Beginner tie on stroke count; NSW wins
+the column that matters, since the taught table says **40 of the 52
+letters are one stroke** and NSW writes 31 of them that way against SA's
+29 and Dancing Script's 14. SA wins on where the first stroke ends,
+which is the reason to keep it in mind if NSW disappoints on the sheet.
+
+The cost is coverage: the Edu faces carry 126 code points — a-z, A-Z and
+punctuation, no accented letters at all — against Dancing Script's 559.
+So `FONTS` now holds a **chain** for Latin cursive and each glyph is
+drawn by the first face that has it: a-z from the teaching hand, á ñ ü ç
+from Dancing Script, rather than French and Spanish losing their cursive
+templates. The two faces do not share an x-height, so the seam is real;
+it is in `DEBT.md`.
 
 *Done when:* each script's face is one a teacher would hand out.
 *Effort:* an hour per script once the face is chosen; choosing is the work.

@@ -5,8 +5,8 @@ The first library (gen_provisional.py) drew letters from primitives, and
 the owner's verdict was the right one: "not reflective of much of the
 writing I see". A typeface is what people see. So each form is now
 rendered with a standard face — Noto Naskh Arabic for naskh, Marck
-Script for Russian cursive (propisi), Noto Sans for print scripts,
-Dancing Script for Latin cursive — thinned to its centreline, traced
+Script for Russian cursive (propisi), Noto Sans for print scripts, a
+school handwriting model for Latin cursive — thinned to its centreline, traced
 into polylines, and ordered by the script's writing rules. The SHAPE is
 the font's; the ORDER and DIRECTION are heuristic and marked
 provisional, exactly as before.
@@ -113,7 +113,26 @@ FONTS = {
     "devanagari": {"print": "NotoSansDevanagari.ttf"},
     "thai":       {"print": "NotoSansThaiLooped.ttf"},   # looped: the heads Thai handwriting is taught with
     "hangul":     {"print": "NotoSansKR.ttf"},
-    "latin":      {"print": "NotoSans.ttf", "cursive": "DancingScript.ttf"},
+    # Latin cursive is a CHAIN, tried in order per glyph: the first face
+    # that has the letter draws it. Edu NSW ACT Foundation is an
+    # Australian state school handwriting model — a teaching hand, which
+    # is what the brief asks a source to be — and it measures far better
+    # than Dancing Script against the sourced Zaner-Bloser table (32/52
+    # on stroke count against 19, and 31 letters written in ONE stroke
+    # against 14, where the table says 40 should be). But it carries 126
+    # code points: a-z, A-Z and punctuation, no accented letters at all.
+    # Dancing Script is worse as a model and has 559. So a-z come from
+    # the teaching hand and á ñ ü ç come from Dancing Script, rather than
+    # French and Spanish losing their cursive templates entirely. The
+    # seam is real — the two faces do not share an x-height — and is a
+    # DEBT entry, not a secret.
+    # Also scored, all OFL, all worse: Edu SA Beginner (32/22/27, 29 in
+    # one stroke — ties on count, wins on where the stroke ends, loses on
+    # the one that matters), Caveat (31/21/26), Edu QLD Beginner
+    # (29/25/19), Edu AU VIC WA NT Pre (28/21/24), Edu TAS and Edu VIC
+    # (27 each).
+    "latin":      {"print": "NotoSans.ttf",
+                   "cursive": ["EduNSWACTFoundation.ttf", "DancingScript.ttf"]},
 }
 RTL = {"arabic", "hebrew"}
 CURSIVE = {("cyrillic", "cursive"), ("latin", "cursive")}
@@ -1370,17 +1389,25 @@ def main():
         for style, fname in styles.items():
             if style not in STYLES.get(script, ["print"]):
                 continue
-            font = ImageFont.truetype(str(fdir / fname), EM)
-            have = covered(fdir / fname)
+            chain = [fname] if isinstance(fname, str) else list(fname)
+            fonts = [(f, ImageFont.truetype(str(fdir / f), EM), covered(fdir / f))
+                     for f in chain]
             for glyph in letters:
                 for form in forms_for(script, glyph):
                     text = shaped_text(script, glyph, form)
-                    absent = [c for c in text if c != ZWJ and ord(c) not in have]
-                    if absent:
-                        print("  skip %s %s: %s has no %s"
-                              % (glyph, form, fname, "".join(absent)), file=sys.stderr)
+                    need = [c for c in text if c != ZWJ]
+                    pick = next((t for t in fonts
+                                 if all(ord(c) in t[2] for c in need)), None)
+                    if pick is None:
+                        absent = "".join(c for c in need
+                                         if not any(ord(c) in t[2] for t in fonts))
+                        print("  skip %s %s: no face has %s"
+                              % (glyph, form, absent), file=sys.stderr)
                         continue
-                    g = extract(font, script, style, glyph, form)
+                    if pick[0] != chain[0]:
+                        print("  %s %s from %s (%s has it not)"
+                              % (glyph, form, pick[0], chain[0]), file=sys.stderr)
+                    g = extract(pick[1], script, style, glyph, form)
                     if g:
                         all_glyphs.setdefault(script, []).append(g)
                     else:
