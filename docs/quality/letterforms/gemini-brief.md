@@ -87,6 +87,37 @@ You are compiling a handwriting reference for an app that teaches adults to writ
 
 ---
 
+## What happens to a run once you paste it
+
+Each run is ingested, measured and acted on the same way, so the runs can
+arrive in any order and none of it is hand work:
+
+1. `python3 scripts/strokes/ingest_rules.py <paste>` merges the rows into
+   `scripts/strokes/rules/{script}-{style}.jsonl`. It renames `letter` to
+   `glyph`, unwraps the Google-redirect sources, files an uppercase row
+   under its lowercase glyph, drops any row with no source or no strokes,
+   and reports what it dropped. It is idempotent: pasting the same run
+   twice changes nothing.
+
+   It refuses one thing rather than guessing. A row that would overwrite
+   an existing one **from a different source** is held back and named,
+   because that is how the table silently lost a letter once: the Turkish
+   row for "I" is the capital of *dotless* ı — Turkish pairs i-İ and ı-I,
+   everyone else i-I — and filing it under i/upper replaced the row for
+   the letter every other Latin course writes. Pass `--force` only after
+   deciding the new row really is about the same letter.
+
+2. `python3 scripts/strokes/check_rules.py <script> <style>` measures the
+   generated library against the table on three things: how many strokes,
+   where the first one starts, and where it ends. The end column exists
+   because a broken f had the taught count *and* the taught start and was
+   still wrong.
+
+3. The disagreements are the work list, and they are read as claims about
+   the generator, not as errors to paper over. The f's row said the hook
+   and the stem are one movement; the generator was splitting them; the
+   fix was in the generator.
+
 ## What run 1 got wrong — paste this before run 2
 
 Run 1 came back usable but off-schema in four ways, every one of them

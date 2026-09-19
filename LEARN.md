@@ -1001,6 +1001,41 @@ are not all authored is the same: the word in the hand font, traced over,
 no verdict. The moment a form is reviewed, its strokes replace the font
 for that letter and the verdicts switch on.
 
+**Where a bar crosses a stem** (`gen_from_fonts.py`: `arms`, `crossing`,
+`runs_on`). A hand writes the f's hook and stem as one movement and the
+crossbar as another; the generator used to walk the hook, turn left along
+the bar, and leave the stem as a second stroke. The rule for it,
+`crossing()`, had been in the file for weeks and had never once fired,
+and the reason is worth keeping because it will come up again with any
+skeleton: **thinning turns a junction into a cluster two or three pixels
+across**, so the first pixel of the bar's left arm, the first of its
+right arm and the first of the stem all touch each other, and anything
+that groups touching pixels reports two ways out where there are three.
+
+The answer is not to look harder next to the junction but to look around
+it. `arms()` draws a small circle (4 px) about the point: a circle cuts
+each limb exactly once, so on it the limbs are plainly separate. It then
+measures each limb's *direction* over a long run (16 px) instead, because
+close to a cluster every limb points much the same way. One distance
+cannot do both jobs — with a single radius, 4 px split the f correctly
+and left the t turning along its crossbar, and 12 px did the reverse.
+The pen's own incoming direction needed the same treatment: read over one
+pixel it pointed down-*left* on the f's still-curving hook, enough for
+`crossing()` to decide the pen was already on the bar.
+
+The second half is the repair. Once a stroke has been drawn *through* a
+junction, the pixels just past it touch that stroke, the walk rejects
+them as one of thinning's parallel tracks, and the rest of the limb
+becomes a stroke of its own — the Cyrillic ж lost its stem that way.
+`chain()` keeps its old 3.5 px no-questions-asked join and gains a wider
+one, allowed only when the pen is still heading the same way across the
+gap (`runs_on`). The wide reach is three times the junction ring, which
+is what the crossbar of a cursive H needs: its halves are walked head-on
+from the two stems, so one must be reversed before it reads as a
+continuation, and the two far ends sit further apart than the cut.
+Widening it beyond that changes nothing, which is how you can tell it is
+measuring a gap rather than fitting one.
+
 **Which letters a Latin course writes** (`services/scripts.py`). The
 non-Latin scripts get their letter list from the alphabet decks the
 seeder already ships, so Russian is 33 letters because the Russian deck

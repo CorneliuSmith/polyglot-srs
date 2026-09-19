@@ -18,6 +18,18 @@ buys the right *shape family* for nothing, and it is why Arabic now looks
 like Arabic. But five things separate a traced typeface from a letter a
 teacher would put on a board.
 
+0. **Measured, 19 Sep.** Against the sourced tables: Latin **print** is
+   43/74 on stroke count, 53/74 on where the first stroke starts, 43/74
+   on where it ends. Latin **cursive** is 19/52, 26/52, 20/52 — and the
+   shape of that gap is the answer to which tier matters. Forty of the
+   52 taught cursive letters are one stroke and ours manages fourteen;
+   22 of the taught rows end the first stroke at `baseline-right`, the
+   exit sweep into the next letter. Dancing Script has no entry or exit
+   sweeps to find. **Cursive is a Tier 2 problem (source face), not a
+   Tier 1 one (rules the walk can follow)** — which is the opposite of
+   what print needs, and worth knowing before spending a week on the
+   walk.
+
 1. **A printing face is not a writing model.** A font draws the *result*
    of writing: overshoot on curves, tapered terminals, a serif where a
    pen would lift. Even the handwriting faces in the table (Marck Script,
@@ -38,9 +50,27 @@ teacher would put on a board.
    another. The walk follows whichever branch is straightest at the
    junction instead, so an f's crossbar comes out as part of its hook.
    Thinning leaves the junction as a 2×2 cluster, so the walk never sees
-   the four ways at one pixel and cannot pair the opposite arms:
-   resolving it needs the cluster collapsed to a point (Tier 0) or the
-   split stated (Tier 1). **This is the f the owner found on 18 Sep.**
+   the four ways at one pixel and cannot pair the opposite arms.
+   **This is the f the owner found on 18 Sep. Fixed 19 Sep**, and not by
+   collapsing the cluster: `arms()` counts the limbs on a small ring drawn
+   *around* the junction, where a circle cuts each limb exactly once, and
+   measures each limb's direction over a long run rather than over the two
+   pixels nearest the cluster. One distance could not do both jobs — with
+   a single radius, 4 px split the f correctly and left the t turning
+   along its crossbar, and 12 px did the reverse. The incoming direction
+   needed the same treatment: read over one pixel it pointed down-*left*
+   on the f's still-curving hook, which was enough for `crossing()` to
+   conclude the pen was already on the bar.
+
+   Two things fell out of it that were worse than the f and had been
+   shipping unnoticed. Greek φ and Cyrillic Ф came out as **one stroke —
+   the bare stem, with the bowl not drawn at all**; they are now the stem
+   and the bowl. And a stroke crossed by an earlier one was cut in two,
+   because the pixels just past the junction touch that stroke and the
+   walk rejects them as a thinning artefact — the ж lost its stem that
+   way. `runs_on()` re-joins those: `chain()` keeps its 3.5 px
+   no-questions-asked tolerance and gains a wider one, allowed only when
+   the pen is still heading the same way across the gap.
 5. **Junctions are fused.** Where two parts of a letter touch, the
    skeleton has one pixel where the hand has two passes. The tooth logic
    and the upright logic exist to undo this case by case; every script

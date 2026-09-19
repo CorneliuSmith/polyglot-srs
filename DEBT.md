@@ -534,16 +534,32 @@ reader of the plan would expect to find built, and will not:
   global rule; both need the rules table to state the split
   (`docs/plans/letterform-quality.md`, Tier 1). The other nine runs of
   the brief are not yet in, so every other script is still unmeasured.
-- **A bar crossing a stem is not split into two strokes.** f t A E ж х ф:
-  the hand writes the stem, then the bar. The walk follows the straightest
-  branch at the junction instead, so f's crossbar comes out as part of its
-  hook. The *direction* is right (bars run left to right since 18 Sep);
-  the split is not. Thinning leaves the junction as a 2×2 cluster, so the
-  walk never sees all four ways at one pixel — `crossing()` in the
-  generator is written and correct but never fires there. Fix by
-  collapsing junction clusters to a point before the walk
-  (`docs/plans/letterform-quality.md`, Tier 0) or by stating the split
-  per letter (Tier 1).
+- **The Latin cursive library is measurably the wrong source face, and no
+  walk rule can fix it.** Against the sourced cursive table (52 letters,
+  Zaner-Bloser, 19 Sep): stroke count agrees on 19, the first stroke
+  starts in the taught place on 26, ends there on 20 — against 43/53/43
+  for print on 74 letters. The shape of the gap says why. **Forty of the
+  52 taught letters are a single stroke; ours manages 14**, and 22 of the
+  taught rows have that stroke ending at `baseline-right` — the exit
+  sweep a cursive hand leaves for the next letter. Dancing Script is a
+  display face: its letters carry no entry sweep and no exit sweep, so
+  those strokes are not in the outline to be found. A generator can join
+  what a font draws; it cannot draw what the font omits. Fix: a source
+  face modelled on a copybook hand (Zaner-Bloser or D'Nealian shapes),
+  or synthesise the entry and exit sweeps from the `joins` entry/exit
+  points the library already carries. Until then cursive should be read
+  as provisional in a stronger sense than print is.
+- **Two letters changed at a crossing with no sourced rule to judge them
+  by.** The 19 Sep junction fix (`arms`, `runs_on`) altered ж т у ф х,
+  φ ψ, ऐ ओ, and Latin æ and cursive b and H. Every one of them is a
+  crossing letter, which is the point, and the ones there are rules for
+  (f, t) now match them; φ and Ф went from a bare stem with no bowl at
+  all to a stem and a bowl, cursive b from two strokes to the one
+  movement a hand makes. But **æ went from two strokes to three and
+  nobody has a source saying which is right** — its row was in the part
+  of the handwriting run that never arrived. Re-measure æ, and the
+  Cyrillic and Greek letters, when runs 3-6 land; until then they are
+  changed on the generator's word alone.
 - **The generated letterforms are a traced typeface, and it shows.**
   Counters do not quite close (a ring's two ends are pixels apart, which
   is a gap at box scale), terminals are eaten by spur pruning, junctions
