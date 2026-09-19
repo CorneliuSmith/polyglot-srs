@@ -1,6 +1,6 @@
 """What the Content Health endpoints read that `repositories/quality.py` does
 not: the table probes, the open verdicts and their counts, the disposition
-write, and the last reconcile survey per course (migration 20261029).
+write, and the last reconcile survey per course (migration 20261107000000).
 
 The same two rules as quality.py: every reader degrades on an absent table
 under a savepoint, because the router holds one privileged transaction and
@@ -23,7 +23,7 @@ from backend.repositories.pool import savepoint
 
 _MISSING = (asyncpg.exceptions.UndefinedTableError, asyncpg.exceptions.UndefinedColumnError)
 
-# The four tables of migration 20261029, in the order the panel's
+# The four tables of migration 20261107000000, in the order the panel's
 # `available` block names them.
 TABLES = ("quality_runs", "content_verdicts", "quality_settings", "language_quality_targets")
 

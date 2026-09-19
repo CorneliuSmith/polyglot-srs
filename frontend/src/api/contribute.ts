@@ -976,7 +976,7 @@ export interface NewChangeRequest {
   suggestion?: string | null
   quote?: string | null
   quote_context?: Record<string, unknown>
-  /** The locale overlay the reviewer was reading (migration 20261030), so
+  /** The locale overlay the reviewer was reading (migration 20261107000001), so
    * the board can tell a complaint about the French hint from one about
    * the sentence. */
   locale?: string | null
@@ -1787,7 +1787,7 @@ export async function setPlanLimit(
 // The quality loop's rows read back per course, worst first — Generation
 // measures whether a row exists, this measures whether it is right (plan
 // docs/plans/quality-guardrails-telemetry.md §6). Every table here is from
-// migration 20261029, which the owner applies after the code deploys, so the
+// migration 20261107000000, which the owner applies after the code deploys, so the
 // GETs answer with `available` flags instead of failing and only the writes
 // 503, naming the migration.
 

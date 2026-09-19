@@ -279,7 +279,17 @@ the verdicts it bought.
 | 236 English definitions repaired (`en-sense-2026-09-19.md`) | en | `reconcile -l en --apply` (they are gloss overrides, so reconcile carries them) |
 | 3 alphabet rows retired, 2 overrides deleted (CHECKS §41) | nl, ca, yo | `reconcile -l nl --apply`, same for ca and yo — each reports one departed row with its exclusion already in place |
 | 874 Yoruba bare forms retired (17 Sep tone repair) | yo | still owed from the last handover: `reconcile -l yo --apply` |
+| **2,918 relation-only definitions repaired** in the top 2,000 (`relation-only-repair-2026-09-19.md`) | ru, el, nl, de, es, fr, ca, he, hi, pt, it, ro, ar, fa, tr, ko, sw, ha, th, yo, tl | `reconcile -l <code> --apply` per course — they are gloss overrides, so reconcile carries them |
+| **90 English words the course does not teach at all**, now defined (`en-blank-definitions-2026-09-19.md`) | en | **`seeder.run -l en`** — NOT reconcile; see the note below |
 | topic files for 9 courses | en, ru, jam, la, mi, ha, xh, yo, tr | `seeder.generate_content -l <code> -k topics --topics-file data/topics/<code>.json --max 3000` |
+
+**`reconcile --apply` does not add rows.** It corrects, retires and unretires
+what is already there; its `new` column *counts* the headwords the files have
+and the database does not, and then does nothing about them — there is no
+insert in `apply()`. Adding a headword is `seeder.run -l <code>`. That matters
+for exactly one line above: `via`, `etc`, `café`, `coworker` and the other 86
+are not thin cards to correct, they are **absent**, so a reconcile would report
+90 in `new`, write nothing, and look like it had succeeded.
 
 ### 4. Two things measured and deliberately left for you
 

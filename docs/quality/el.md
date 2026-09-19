@@ -241,3 +241,14 @@ what remains in this course.
 **Band 1001–2000, same day: 7 more.**
 - `πιθανότατα` was "nominative/accusative/vocative neuter plural of πιθανότατος" → "most probably, very likely, in all likelihood - the everyday adverb; as an adjective it is most probable, of neuter plural nouns (from πιθανότατος)"
 - `κουνήσου` was "second-person singular perfective imperative of κουνιέμαι" → "move!, get moving, shift yourself - an order to one person you address informally (imperative of κουνιέμαι, to stir oneself)"
+
+## Relation-only definitions in the top band, repaired (19 Sep 2026)
+
+**714 definitions rewritten** into the house shape - meaning first, relation in
+parentheses - from rows that gave a grammatical relation and no English
+meaning at all. Greek was second only to Russian, for the same reason: a definition ending in a romanisation.
+
+The predicate that finds them was corrected the same day (`CHECKS.md` §43); it
+had been reporting a fraction of the real count. Across all 22 affected
+courses the class fell from 3,072 rows in the top 2,000 to 154. Full record
+and every row's reasoning: `relation-only-repair-2026-09-19.md`.

@@ -611,7 +611,7 @@ class TestTutorChatEndpoint:
         assert mock_log.await_args.kwargs["usage"] == _SOME_USAGE
 
     def test_records_how_the_turn_went_and_how_long_it_took(self, client):
-        """Migration 20261030: tutor_usage says how the call went and how
+        """Migration 20261107000001: tutor_usage says how the call went and how
         long the learner waited — the whole turn, timed in the router
         around tutor_chat, not one messages.create inside it."""
         p1, p2, p3 = _patch_chat_repos()

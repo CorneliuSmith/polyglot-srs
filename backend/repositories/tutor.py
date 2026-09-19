@@ -99,7 +99,7 @@ async def count_tutor_messages(
     return int(n or 0)
 
 
-# How a model call went, as migration 20261030 lets a caller record it.
+# How a model call went, as migration 20261107000001 lets a caller record it.
 # Mirrors the column's CHECK so a misspelt outcome is dropped here with a
 # log line rather than surfacing as a CheckViolationError inside a learner's
 # transaction after the model has already been paid for.
@@ -134,7 +134,7 @@ async def log_tutor_usage(
     stay NULL when capture wasn't possible. kind='summary' rows track
     summarizer cost and never count against allowances.
 
-    *outcome* and *latency_ms* are the two columns migration 20261030 added
+    *outcome* and *latency_ms* are the two columns migration 20261107000001 added
     (docs/plans/quality-guardrails-telemetry.md §5): tutor_usage recorded
     tokens and nothing about how the call went, so "how slow is the tutor"
     and "how often is a batch rejected" had no data behind them.

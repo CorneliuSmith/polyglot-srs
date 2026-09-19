@@ -162,7 +162,7 @@ describe('ContentHealthPanel', () => {
       courses: HEALTH.courses.map((c) => ({ ...c, status: 'grey' as const })),
     })
     renderPanel()
-    expect(await screen.findByText(/migration 20261029/)).toBeDefined()
+    expect(await screen.findByText(/migration 20261107000000/)).toBeDefined()
     expect(screen.getByText(/Rollouts → Deployment/)).toBeDefined()
     expect(screen.getAllByTestId('content-health-row')).toHaveLength(4)
     // The migration banner explains the grey; the "not written yet" line
@@ -177,7 +177,7 @@ describe('ContentHealthPanel', () => {
     })
     renderPanel()
     expect(await screen.findByText(/nightly cycle has not written anything yet/)).toBeDefined()
-    expect(screen.queryByText(/migration 20261029/)).toBeNull()
+    expect(screen.queryByText(/migration 20261107000000/)).toBeNull()
   })
 
   it('labels an uncalibrated question, and folds the ones nothing has judged', async () => {

@@ -357,7 +357,7 @@ try/except, so a broken course costs one step's rows and not the cycle;
 failed" all look like "no new rows" from outside.
 
 The judge's switch was built before the judge. `quality_settings`
-(migration 20261029) is a singleton the admin panel edits — enabled, rows
+(migration 20261107000000) is a singleton the admin panel edits — enabled, rows
 per cycle, a daily token cap, an optional model — and
 `get_quality_settings` **fails closed**: absent table, absent row, or any
 database error reads as `{judge_enabled: False, rows: 0, cap: 0}`. It
@@ -482,7 +482,7 @@ English-only like every other admin surface, all reading the
   `build_sha` is not the one serving.
 
 All three degrade the plan-limits way: a GET on a database without
-migration 20261029 answers `available: false`, and the panel names the
+migration 20261107000000 answers `available: false`, and the panel names the
 migration and where to look (Rollouts → Deployment) with every control
 disabled; only a PUT/POST 503s, and the panel shows the server's detail.
 `lib/ago.ts` is the shared "4 min ago" behind the three "last ran" lines.
@@ -539,7 +539,7 @@ green for a course nobody has measured is the false comfort the panel
 exists to remove.
 
 **GETs degrade to `available: false`; writers 503.** The four tables are
-migration 20261029, owner-applied, and the code deploys first, so the
+migration 20261107000000, owner-applied, and the code deploys first, so the
 overview carries `available: {quality_runs, content_verdicts,
 quality_settings, language_quality_targets}` and answers 200 with 27 grey
 rows and the judge settings OFF rather than 503 — a panel that cannot load
@@ -1370,7 +1370,7 @@ draws.
 
 **A migration's name is its primary key.** Supabase records an applied
 migration by the digits before the first underscore, so
-`20261029000000_quality_telemetry.sql` and
+`20261107000000_quality_telemetry.sql` and
 `20261029000000_provisional_strokes_arabic_direction.sql` are one
 version, not two. Nothing in the repo noticed; `supabase db push` did,
 weeks later, with an error about migrations being "inserted before the
