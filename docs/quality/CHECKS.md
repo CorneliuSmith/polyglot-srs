@@ -2341,6 +2341,15 @@ backlog. `word` defaults to `""`, so a caller with only a gloss gets the
 band-limited rule it always got — widening a fail-level rule under callers that
 did not ask is how a guard turns into an outage.
 
-**Cost.** Three vocabulary rows retired across three courses. `reconcile`
-will report them as departed with an exclusion already in place, which is the
-shape rule 73 requires.
+**The definitions were AUTHORED, not inherited.** `ca y` and `nl a` each had
+a row in `gloss_overrides.tsv` carrying the same letter-name text as the
+frequency column — an override that repeated the defect rather than fixing it.
+Removing the headwords orphaned them, `TestNoDormantOverrides` fired on the
+next full run, and both override rows went with the exclusions. That guard has
+now caught this class three times, always from a pass that excluded a word and
+forgot what else names it (quality rule 51): **an exclusion is not finished
+until the override file has been checked for the same headword.**
+
+**Cost.** Three vocabulary rows retired across three courses, two override
+rows deleted. `reconcile` will report the three as departed with an exclusion
+already in place, which is the shape rule 73 requires.
