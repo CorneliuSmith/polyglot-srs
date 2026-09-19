@@ -2508,3 +2508,10 @@ learners reach, and that is stated with its number rather than acted on —
 `CARD_RULE_BAND` is a product decision about what a learner meets, and §41 is
 the fresh reminder of what happens when a band moves without its own argument.
 Widening to 6,000 would take the reported figure from 3,072 to 22,241.
+
+**The 3,072 in the band were repaired the same day** and the count is now
+**154** (`relation-only-repair-2026-09-19.md`): 2,918 definitions rewritten
+into the house shape, maker-checker, across 22 courses. That repair is also
+the argument for taking the band question seriously — the band the rule does
+cover went from 3,072 to 154, and 19,169 rows in 2,001-6,000 are the same
+defect at the same density, still invisible.

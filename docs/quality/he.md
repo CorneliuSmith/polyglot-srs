@@ -237,3 +237,14 @@ grammatical relation to another word in this language and no English meaning
 **Band 1001–2000, same day: 34 more.**
 - `ילדים` was "plural indefinite form of יֶלֶד" → "children, kids; boys (m. pl. of ילד, a child)"
 - `שמו` was "singular form of שֵׁם" → "his name; also its name, of a masculine thing (the noun שם, a name (m.), with the ending -ו, his)"
+
+## Relation-only definitions in the top band, repaired (19 Sep 2026)
+
+**119 definitions rewritten** into the house shape - meaning first, relation in
+parentheses - from rows that gave a grammatical relation and no English
+meaning at all. Hebrew definitions end in a romanisation of the lemma, so the predicate's tail anchor never matched and the whole class was invisible here.
+
+The predicate that finds them was corrected the same day (`CHECKS.md` §43); it
+had been reporting a fraction of the real count. Across all 22 affected
+courses the class fell from 3,072 rows in the top 2,000 to 154. Full record
+and every row's reasoning: `relation-only-repair-2026-09-19.md`.

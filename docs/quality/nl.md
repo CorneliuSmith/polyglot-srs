@@ -250,3 +250,14 @@ alphabet is the alphabet deck's job (CHECKS §37), so the row is excluded in
 Found by widening `wrong_sense_gloss` to judge a one- or two-character headword
 at any rank rather than only inside the top 1,000 (CHECKS §41). It was 36 ranks
 past the band.
+
+## Relation-only definitions in the top band, repaired (19 Sep 2026)
+
+**180 definitions rewritten** into the house shape - meaning first, relation in
+parentheses - from rows that gave a grammatical relation and no English
+meaning at all. This follows the 81 and 126 definitions repaired on 10 Sep in ranks 201-2000; those were the ones the predicate could see.
+
+The predicate that finds them was corrected the same day (`CHECKS.md` §43); it
+had been reporting a fraction of the real count. Across all 22 affected
+courses the class fell from 3,072 rows in the top 2,000 to 154. Full record
+and every row's reasoning: `relation-only-repair-2026-09-19.md`.
