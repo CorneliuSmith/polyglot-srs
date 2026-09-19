@@ -357,28 +357,41 @@ async def set_language_target(
 
 
 # ---------------------------------------------------------------------------
-# tutor_usage — what the judge has already spent today
+# quality_runs, kind='judge' — what the judge has already spent today
 # ---------------------------------------------------------------------------
 
 
 async def judge_tokens_spent_today(conn: asyncpg.Connection) -> int:
-    """Tokens the judge has burned since UTC midnight, from the cost ledger
-    every model call writes (tutor_usage, kind='judge'). The loop reads
-    this before every batch and stops at judge_daily_token_cap. The day
-    boundary is UTC in both directions: `now() AT TIME ZONE 'UTC'` drops
-    the zone, so the truncated midnight has to be re-tagged as UTC before
-    it can be compared with a timestamptz — otherwise the comparison
+    """Tokens the judge has burned since UTC midnight: the sum of the
+    `quality_runs` rows the judge step writes per (question, course) with
+    `kind='judge'`, `metric='tokens'` (value = input + output tokens). The
+    step reads this once at the top of a cycle and adds its own running
+    total before every batch, stopping at judge_daily_token_cap.
+
+    Why this ledger is `quality_runs` and not `tutor_usage`, the table every
+    other model call writes: `tutor_usage.user_id` is NOT NULL with a
+    foreign key to `auth.users` (migration 20260710000000), and the judge
+    has no user. Giving it one is a service account — owner decision #2 in
+    `docs/plans/quality-guardrails-telemetry.md` §9 — and until that
+    decision exists the judge's spend is visible in the admin Content
+    health / Quality settings panel (`spent_today`) and NOT in the
+    AI-costs feature table (DEBT.md).
+
+    The day boundary is UTC in both directions: `now() AT TIME ZONE 'UTC'`
+    drops the zone, so the truncated midnight has to be re-tagged as UTC
+    before it can be compared with a timestamptz — otherwise the comparison
     silently adopts the session's time zone. Degrades to 0: no ledger, no
     spend recorded, and the cap check is the judge's problem to fail on."""
     try:
         async with savepoint(conn):
             total = await conn.fetchval(
                 """
-                SELECT COALESCE(SUM(COALESCE(input_tokens, 0) + COALESCE(output_tokens, 0)), 0)
-                  FROM tutor_usage
+                SELECT COALESCE(SUM(value), 0)
+                  FROM quality_runs
                  WHERE kind = 'judge'
-                   AND created_at >= (date_trunc('day', now() AT TIME ZONE 'UTC')
-                                      AT TIME ZONE 'UTC')
+                   AND metric = 'tokens'
+                   AND run_at >= (date_trunc('day', now() AT TIME ZONE 'UTC')
+                                  AT TIME ZONE 'UTC')
                 """
             )
     except (asyncpg.exceptions.UndefinedTableError, asyncpg.exceptions.UndefinedColumnError):

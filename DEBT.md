@@ -1354,13 +1354,12 @@ are deliberate, each with what closes it.
   `"loop": quality_heartbeat()` to the overview GET is the change; left
   out because the contract the frontend was built against does not carry
   it.
-- **The judge step is a comment.** `quality_loop()` carries the extension
-  point with the gating order spelled out: settings, then today's spend
-  from `judge_tokens_spent_today`, then the per-course opt-in, then rows
-  per cycle. Unit F fills it. `get_quality_settings` already fails
-  closed, so wiring the judge behind it cannot switch spending on by
-  accident; the two panel writers return None on an absent table so the
-  router can 503 rather than pretend a save happened.
+- **The judge step is built and gated, and judges one pair.**
+  `quality/judge_step.py` runs after the mechanical steps behind the
+  switch, the cap, the per-course opt-in and `data/eval/calibrated.json`,
+  which names `register`/`ar` and nothing else — so with every switch on,
+  the other four questions judge nothing (see "The judge's spend is not in
+  the AI-costs table" below for what is left off and why).
 - **`reconcile.survey` parses the frequency file on the event loop.** The
   audit runs in a thread; the survey cannot, because it takes the
   connection and calls `expected_rows` (up to 200k rows for English)
@@ -1381,9 +1380,14 @@ are deliberate, each with what closes it.
   audit runs in its thread the transaction sits idle. That is fine on a
   direct connection; on a pooler with an idle-in-transaction timeout a
   slow cycle could be cut off, which would surface as one warning per
-  cycle in the heartbeat's `last_error` and no rows at all. Per-course
-  connections would be the fix, and `run_quality_cycle(conn)` would need
-  to become a loop over `privileged_connection()`.
+  cycle in the heartbeat's `last_error` and no rows at all. The judge
+  makes this longer: `judge_step` runs in the same transaction, after the
+  mechanical rows, with a model round trip per batch — at 200 rows a
+  night that is ten calls of tens of seconds each during which the
+  transaction is idle. A connection cut there loses the mechanical rows
+  too, because nothing has committed yet. Per-course connections would be
+  the fix, and `run_quality_cycle(conn)` would need to become a loop over
+  `privileged_connection()`, with the judge on a connection of its own.
 ## Content Health, phase B: what the endpoints leave out (18 Sep 2026)
 
 The `/api/contribute/admin/content-health*` family (`routers/contribute.py`,
@@ -1463,27 +1467,91 @@ them from the machine opinions already in `data/eval/*.jsonl` would anchor
 the reviewers to the judge they are meant to grade (the same reason the
 register set ships with `label` blank).
 
-**What is true until they exist:** the judge loop may run these questions in
-`report` mode only; nothing they say can route to a queue (plan §4.3 J5).
-The Content Health panel does show their flag rate and does colour a course
-red on it — that is the contract's status rule (`services/content_health.
-status_of`), and the owner opts a course into the judge and sets its
-`max_judge_flag_pct` themselves; each question's `calibrated: false` is the
-panel's label for "read this as a report, not a finding"
-(`CALIBRATED_QUESTIONS`, empty until a record exists). The register
-question is the only one whose precision has been measured at all, and
-that on 56 documented answers, not human labels.
+**What is true until they exist:** the nightly judge does not run them at
+all. `data/eval/calibrated.json` lists `register`/`ar` only, and
+`judge_step` skips every other (question, course) pair as `not calibrated`
+whatever `quality_settings` and `language_quality_targets` say — the
+switches decide whether money is spent, the file decides on what. Their
+coverage rows (`judge.sense` etc.) are still written every night, at 0 of
+N with `calibrated: false` in the meta, so the panel can show the gap
+rather than hide it. The register question is the only one whose precision
+has been measured at all, and that on 56 documented answers, not human
+labels; its entry in the file says `provisional` for that reason.
+
+The panel does show their flag rate and does colour a course red on it if
+one ever arrives by another route — that is the contract's status rule
+(`services/content_health.status_of`) and the owner sets each course's
+`max_judge_flag_pct` themselves; `calibrated: false` is the panel's label
+for "read this as a report, not a finding" (`CALIBRATED_QUESTIONS` in
+`services/content_health.py`, empty until a record exists).
 
 **What turns each on:** a filled set to the README's columns, run through
-`content_judge --question <name> --gold`, all three gates green, and the
-run's `out/judge-<name>-<stamp>.jsonl` recorded in a
-`docs/quality/<name>-<date>.md` the way `ar-register-2026-09-17.md` records
-the register calibration.
+`content_judge --question <name> --gold`, all three gates green, the run's
+`out/judge-<name>-<stamp>.jsonl` recorded in a `docs/quality/<name>-<date>.md`
+the way `ar-register-2026-09-17.md` records the register calibration — and
+then the entry in `calibrated.json` with those files named
+(`data/eval/README.md`, last section).
+## The judge's spend is not in the AI-costs table, and four other things the judge step leaves off (18 Sep 2026)
 
-**Doc drift to fix with it:** `LEARN.md` § "Two providers behind one schema"
-still points at `quality/register_pass.py`; the providers, the schema
-builder and the gates now live in `content_judge.py`, and `register_pass` is
-the register question's stores and fix queue over them.
+`quality/judge_step.py` is the nightly judge (plan §4.3 J1–J2, phase E).
+Each of these is deliberate; each says what turns it on.
+
+- **The spend is not in the AI-costs feature table.** The plan (J2) said
+  judge calls log to `tutor_usage` as `kind='judge'` so they price beside
+  `summary`. They cannot: `tutor_usage.user_id` is NOT NULL with a foreign
+  key to `auth.users` (migration 20260710000000), and the judge has no
+  user. Giving it one is a service account — owner decision #2 in the
+  plan's §9 — so the ledger is `quality_runs` (`kind='judge'`,
+  `metric='tokens'`, one row per (question, course) per night) and
+  `judge_tokens_spent_today` sums that. The number is visible in the admin
+  Content health / Quality settings panel as `spent_today` and NOT in the
+  AI-costs table. Once the account exists: write the same usage to
+  `tutor_usage` beside the `quality_runs` row (`_usage_of` already maps the
+  fields the way `tutor._add_usage` does), and leave `judge_tokens_spent_today`
+  on `quality_runs`, which is the ledger the cap is enforced against.
+  Until then, migration 20261029's comment on `judge_daily_token_cap`
+  ("the loop reads tutor_usage kind='judge'") is drift — left in the file
+  because it is owner-applied and not yet in production; correct it the
+  next time the migration is touched.
+- **Only `register`/`ar` is calibrated, so the other four questions judge
+  nothing yet**, and the Arabic entry is provisional (56/56 on the
+  documented subset; the 614-row gold set is unlabelled). See "Four judge
+  questions have no gold set" above for what turns each on.
+- **J5 routing is not built.** A `dialect` verdict at confidence >= 0.7 is
+  a `content_verdicts` row with `disposition='open'` and nothing more; no
+  `card_change_requests` row is created, because `author_id` is NOT NULL
+  against `auth.users` and that is the same service account, decision #2.
+  Until then the verdicts are read from the table (the Content health
+  panel's drill-down, plan §6) and disposed there.
+- **Retired grammar points' drills are in scope until migration 20261017
+  lands; retired words are out; unreviewed and flagged rows are in on
+  purpose.** The five scopes in `verdicts._SCOPE` filter
+  `vocabulary.retired_at IS NULL` (migration 20261016, applied by the owner
+  7 Sep 2026) and register's drill branch filters `grammar_points.retired_at
+  IS NULL` (20261017, still owed on 18 Sep), each behind a `column_present`
+  probe the way `cards._retired_clause` does it — probed, not assumed,
+  because a predicate on an absent column fails the whole scope under its
+  savepoint, and the judge would read NOTHING for the course (coverage 0 of
+  0) rather than a few retired rows too. So until 20261017 is applied the
+  judge can spend on a retired point's drills and register's coverage
+  denominator counts them; applying the migration is the whole fix, no code
+  change. Still in scope, and a product call rather than a defect: example
+  sentences and drills with `reviewed = false` or `flagged = true`
+  (migrations 20260814, 20260817, 20260821, 20260826). Learners do not see
+  them, but they are exactly the rows a reviewer is about to look at, and a
+  verdict on one is what J5 would hand that reviewer. If the owner wants
+  the judge to read only what learners see, it is one predicate per scope
+  and the coverage denominators shrink with it.
+- **A pair that spends and then fails to write loses its spend from the
+  ledger.** Tokens a pair used are added to the cycle's running total
+  before its rows are written, so the cap holds within the cycle; but if
+  the `quality_runs` INSERT itself fails (anything but an absent table),
+  the pair's savepoint rolls back and tomorrow's `judge_tokens_spent_today`
+  is short by that pair. The step accepts a night's under-count over the
+  alternative — writing the ledger row before the judge runs and updating
+  it after, two statements that can disagree. If it ever matters, write
+  the tokens row per batch instead of per pair; the shape is the same.
+
 ## Human ownership of a card is one boolean that only some write paths set (18 Sep 2026)
 
 `vocabulary.curated` and `grammar_points.curated` are what stand between a

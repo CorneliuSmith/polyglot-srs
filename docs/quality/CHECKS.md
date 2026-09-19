@@ -2220,3 +2220,65 @@ it never writes to the database.
   same blank-ability gate `apply_authored_sentences.py` uses, and routes it
   to the authored-replacement queue instead. **A register fix and a
   card-integrity fix are different fixes and the second is not optional.**
+
+## §40 Nightly judge — a model reads the row, on a budget, and its coverage is a row (18 Sep 2026)
+
+**What it measures.** Whether a row is *right*, which no mechanical check
+here asks: `content_judge`'s five questions (`register`, `sense`, `gloss`,
+`scripture`, `card_shape`) applied to live rows by
+`backend/services/quality/judge_step.py` once a night, inside the quality
+loop, after every free measurement has been written. Per (question,
+course) it writes one `quality_runs` row `kind='judge' metric='tokens'`
+(the spend ledger: value = input + output tokens, population = calls,
+model and full usage in `meta`), one `metric='flagged.<question>'`
+(findings in the question's positive class at confidence >= 0.7, out of
+rows judged — the panel's rate against `max_judge_flag_pct`), and the
+verdicts themselves in `content_verdicts`, each carrying the tokens row's
+id as `run_id`. Separately, and whether or not the judge is on, the loop
+writes `kind='coverage' metric='judge.<question>'` for **every course and
+every question** — rows with any verdict, out of the question's scope,
+with `calibrated` in the meta — so the panel can show 0 of N for a course
+the judge has never read rather than nothing.
+
+**What gates it, in order, each failing closed.** `quality_settings.judge_enabled`
+(off when the row is unreadable; nothing else is read when it is off);
+today's spend from the ledger against `judge_daily_token_cap`, re-checked
+before every batch of `BATCH_SIZE`; `language_quality_targets.judge_enabled`
+per course; and `data/eval/calibrated.json`, which names the (question,
+course) pairs whose gold set has cleared the three §3.2 gates — the
+switches decide whether money is spent, the file decides on what. A pair
+not in it is listed in the cycle's stats as `not calibrated` and never
+sent. The file ships in the API image by name (`Dockerfile` `COPY`, the
+`.dockerignore` negation, both pinned by `test_runtime_data_ships.py`):
+absent, it reads as empty, which is the judge silently off with the switch
+on. `judge_rows_per_cycle` is split evenly across the surviving pairs.
+Nothing about any of this is a `config.py` constant: the owner sets the
+cap in the admin panel because it can be a lot of money.
+
+**Which rows, in what order.** `repositories/verdicts.candidates`: never
+judged for this question first, the top of the frequency band first
+within them, then the rows judged longest ago. Register reads example
+sentences and drills (the `{{answer}}` marker filled) in the item shape
+its calibration used — text, translation, headword, and no rank, because
+its rules treat a ranked item as a frequency-list entry. Sense and
+card_shape read `vocabulary` with its `en` definition; gloss reads every
+non-`en` translation beside the `en` definition; scripture reads example
+sentences. Retired words are out of every scope (`vocabulary.retired_at`,
+20261016) and retired points' drills out of register's (20261017), each
+behind a `column_present` probe so a database without the column widens
+the scope by those rows instead of emptying it; unreviewed and flagged
+rows stay in (DEBT.md, the judge entry). A verdict's confidence is stored
+as the four-place Decimal the flagged count compared, not the float's
+binary expansion, so `confidence >= 0.7` in SQL and the ledger agree.
+
+**Status: all 27 for coverage; scoped to `register`/`ar` for judging, and
+that provisionally.** The coverage rows are written for every course from
+the first night. The judge itself runs only where `calibrated.json` says
+so, and today that is Arabic register on 56 documented answers with the
+614-row gold set still unlabelled. The other four questions have a
+specification and no set (`data/eval/README.md`); until a set clears the
+gates they judge nothing and their coverage rows say `calibrated: false`.
+A verdict routes nowhere (plan J5) until owner decision #2 gives the judge
+a service account, and its spend is in `quality_runs`, not `tutor_usage`,
+for the same reason (DEBT.md, "The judge's spend is not in the AI-costs
+table").

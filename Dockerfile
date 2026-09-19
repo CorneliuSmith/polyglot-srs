@@ -39,6 +39,13 @@ COPY data/*_frequency.tsv ./data/
 #    One glob for every course: th, ar, he and fa today, and whatever comes
 #    next without needing this line edited again.
 COPY data/*_readings.tsv ./data/
+#  - The nightly judge's gate. content_judge.calibrated_pairs() reads it
+#    once a cycle; absent, it reads as EMPTY (a bad file must switch the
+#    judge off, never on), so every (question, course) pair is "not
+#    calibrated", nothing is sent, and every coverage row says calibrated:
+#    false — with the admin switch on. Only the json: the gold sets beside
+#    it are not read by the API. See .dockerignore.
+COPY data/eval/calibrated.json ./data/eval/
 #  - Migration files, so /api/health/schema can diff what this build
 #    expects against what the database has. Not applied from here (owner
 #    applies them); read-only diagnostics. Without them the check has no

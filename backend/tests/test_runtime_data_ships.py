@@ -36,6 +36,16 @@ RUNTIME_DATA = [
     ("data/ar_readings.tsv", "every Arabic reading is silently empty"),
     ("data/he_readings.tsv", "every Hebrew reading is silently empty"),
     ("data/fa_readings.tsv", "every Persian reading is silently empty"),
+    # The nightly judge's gate: which (question, course) pairs may be sent
+    # to a model. `content_judge.calibrated_pairs()` reads an absent file as
+    # EMPTY on purpose — a bad file must switch the judge off, never on — so
+    # with the admin switch on, the judge listed every pair "not
+    # calibrated", sent nothing, and every coverage row said calibrated:
+    # false. Nothing errored; the panel showed a judge that never read.
+    (
+        "data/eval/calibrated.json",
+        "the nightly judge silently judges nothing and every coverage row says calibrated: false",
+    ),
     # The schema-drift diagnostic derives its expectations FROM these files.
     # With none in the image it has nothing to expect, so /api/health/schema
     # answers `ok: true` against any database at all — including one that

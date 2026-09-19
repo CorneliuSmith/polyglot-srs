@@ -173,3 +173,58 @@ like a finding and is not — one-character WORDS such as Italian `e`, Russian
 `no_sentence`/`letter` by rule (CHECKS §37) — include a few so the judge is
 seen to honour it, and include single-character words with another `pos` so
 it is seen not to over-apply it.
+
+---
+
+## `calibrated.json` — which (question, course) pairs the nightly judge may read
+
+The plan's phase E gate is "each question clears the three gates on its
+gold set before it can write anything but report"
+(`docs/plans/quality-guardrails-telemetry.md` §7). This file is how the
+loop knows. `backend/services/quality/judge_step.py` reads it once a cycle
+through `content_judge.calibrated_pairs()`, and a (question, course) pair
+that is not in it is listed in the cycle's stats as `not calibrated` and
+never sent to a model, whatever the admin switches say. The switches decide
+whether money is spent; this file decides on what.
+
+Shape: question name → course code → the evidence.
+
+```json
+{
+  "register": {
+    "ar": {
+      "date": "2026-09-17",
+      "gold": "ar_register_gold.tsv",
+      "documented": "ar_register_documented.tsv",
+      "calibration": "ar_register_calibration_2026-09-17.jsonl",
+      "agreement": "56/56 documented, 99.5% provisional vs the reference panel"
+    }
+  }
+}
+```
+
+| key | what it is |
+|---|---|
+| `date` | the day the gates were run |
+| `gold` | the reviewer set in this directory the question is graded against |
+| `documented` | the machine-written subset whose answers the programme asserts (register only; omit elsewhere) |
+| `calibration` | the jsonl of what the judge said on that run, in this directory |
+| `agreement` | the gate figures, as the results page reports them |
+
+Adding a pair means: a filled gold set, `content_judge --question <name>
+--gold` with all three gates green, the run's jsonl copied here, a
+`docs/quality/<name>-<date>.md` recording it, and then the entry. An entry
+without those is a judge running uncalibrated, which is the thing the gate
+exists to stop — so the evidence fields are not optional decoration.
+`register`/`ar` is provisional: 56/56 on the documented subset, and the
+614-row gold set is still unlabelled (see above); it is in the file because
+the owner's decision was to run it at report level while the reviewers
+label. A malformed file reads as empty, with a warning in the server log,
+so a bad edit switches the judge off rather than on.
+
+For the same reason the file ships in the API image by name: `.dockerignore`
+excludes `data/*`, and an absent file reads as *off*, so without the
+negation and the `Dockerfile` `COPY` the deploy would have shown the switch
+on and a judge that never read. `backend/tests/test_runtime_data_ships.py`
+fails if either drifts. Only the json ships — the gold TSVs and calibration
+jsonls beside it are the evidence, read by hand, not by the API.

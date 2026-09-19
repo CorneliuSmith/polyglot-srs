@@ -22,10 +22,16 @@ of once); the snapshot counts (what production actually serves); and the
 sentence-layer coverage of the top band. Then, once, the review-queue depths
 for every language.
 
-What it does NOT do: judge anything, spend anything, or write to any table
-but `quality_runs`. The judge step (plan §4.3 J1–J2) plugs in below, after
-the mechanical steps and behind `get_quality_settings()['judge_enabled']`,
-which fails closed.
+Then, still free, how much of each judge question's scope has a verdict —
+the coverage the owner asked to see tracked before any judge runs, written
+for every course whether or not the judge is on.
+
+The judge itself is `quality/judge_step.py`: the one paid step, run by
+`quality_loop()` after `run_quality_cycle` has written every mechanical
+row, behind `get_quality_settings()['judge_enabled']` (fails closed), the
+daily token cap, the per-course opt-in and `data/eval/calibrated.json`.
+Its stats land under `stats["judge"]`; its failure is one line in the
+cycle's failures, never a lost cycle.
 
 Failure shape. Each step runs under its own savepoint and its own
 try/except, so one broken course — a missing grammar file, a survey that
@@ -42,10 +48,12 @@ import logging
 from datetime import UTC, datetime
 
 from backend.repositories import quality as quality_repo
+from backend.repositories import verdicts as verdicts_repo
 from backend.repositories.contributor import review_inbox_by_language
 from backend.repositories.pool import savepoint
 from backend.services.build_info import build_info
-from backend.services.quality import audit_content, db_snapshot
+from backend.services.quality import audit_content, content_judge, db_snapshot
+from backend.services.quality.judge_step import judge_step
 from backend.services.seeder import reconcile
 
 logger = logging.getLogger(__name__)
@@ -221,6 +229,30 @@ async def _coverage_step(
     )
 
 
+async def _judge_coverage_step(
+    conn, stats: dict, code: str, lang_id: str, sha: str | None, calibrated: set
+) -> None:
+    """How much of each judge question's scope has ever had a verdict.
+
+    Written for every course and every question whether or not the judge
+    is on — it costs two counts and a catalog probe — because the owner's
+    condition for running a paid judge was that its coverage is tracked from day one,
+    and a course the judge has never read must show 0 of N, not nothing.
+    `calibrated` in the meta says whether the pair could be judged at all
+    (`data/eval/calibrated.json`), so the panel can tell "not yet read"
+    from "cannot be read yet".
+    """
+    for question in content_judge.QUESTIONS.values():
+        judged = await verdicts_repo.judged_count(conn, question, lang_id)
+        scope = await verdicts_repo.scope_size(conn, question, lang_id)
+        await _write(
+            conn, stats, sha,
+            kind="coverage", language_id=lang_id, metric=f"judge.{question.name}",
+            value=judged, population=scope,
+            meta={"calibrated": (question.name, code) in calibrated},
+        )
+
+
 async def _queues_step(conn, stats: dict, sha: str | None) -> None:
     # One query for every language (the inbox's own roll-up), not one per
     # course: it probes for every table it needs and folds the queues the
@@ -245,6 +277,7 @@ async def run_quality_cycle(conn) -> dict:
     stats = _new_stats()
     sha = build_info().get("sha")
     ids = await _language_ids(conn)
+    calibrated = content_judge.calibrated_pairs()
     for code in db_snapshot.LANGUAGES:
         lang_id = ids.get(code)
         if lang_id is None:
@@ -254,6 +287,8 @@ async def run_quality_cycle(conn) -> dict:
         await _step(conn, stats, code, "reconcile", _reconcile_step, code, lang_id, sha)
         await _step(conn, stats, code, "snapshot", _snapshot_step, code, lang_id, sha)
         await _step(conn, stats, code, "coverage", _coverage_step, code, lang_id, sha, report)
+        await _step(conn, stats, code, "judge_coverage", _judge_coverage_step,
+                    code, lang_id, sha, calibrated)
         stats["languages"] += 1
     await _step(conn, stats, "*", "queues", _queues_step, sha)
     if stats["dropped"] and not stats["rows"]:
@@ -265,11 +300,23 @@ async def run_quality_cycle(conn) -> dict:
 
 
 def _summary(stats: dict) -> str:
-    return (
+    line = (
         f"{stats.get('languages', 0)} courses, {stats.get('rows', 0)} rows"
         f", {stats.get('dropped', 0)} dropped, {len(stats.get('skipped', ()))} skipped"
         f", {len(stats.get('failures', ()))} failures"
     )
+    judge = stats.get("judge")
+    if judge is None:
+        return line
+    if not judge.get("enabled"):
+        return line + "; judge off"
+    line += (
+        f"; judge: {judge.get('judged', 0)} judged, {judge.get('flagged', 0)} flagged"
+        f", {judge.get('tokens', 0)} tokens over {judge.get('calls', 0)} calls"
+    )
+    if judge.get("cap_reached"):
+        line += ", cap reached"
+    return line
 
 
 async def quality_loop() -> None:
@@ -284,27 +331,18 @@ async def quality_loop() -> None:
         try:
             async with privileged_connection() as conn:
                 stats = await run_quality_cycle(conn)
-                # ---------------------------------------------------------
-                # EXTENSION POINT — the judge (plan §4.3 J1–J2; unit F).
-                #
-                # Runs HERE, after every mechanical step has written its
-                # rows, so a judge that crashes or overspends can never
-                # cost the free measurements. It must be gated, in this
-                # order, on:
-                #   settings = await quality_repo.get_quality_settings(conn)
-                #   if settings["judge_enabled"]:            # fails closed
-                #       spent = await quality_repo.judge_tokens_spent_today(conn)
-                #       ... judge at most settings["judge_rows_per_cycle"]
-                #       ... rows, stop when spent reaches
-                #       ... settings["judge_daily_token_cap"], only for
-                #       ... courses whose get_language_targets() row has
-                #       ... judge_enabled, on settings["judge_model"] or
-                #       ... the checker tier, and record its stats under
-                #       ... stats["judge"].
-                # Nothing about the judge is a config.py constant: the
-                # owner sets the cap in the admin panel because it can be
-                # a lot of money. Not implemented in this unit.
-                # ---------------------------------------------------------
+                # The judge (quality/judge_step.py) runs after every
+                # mechanical row is written, so a judge that crashes or
+                # overspends cannot cost the free measurements; its gates
+                # are its own and fail closed. Its failure is one line in
+                # the stats: the heartbeat still says the cycle ran.
+                try:
+                    stats["judge"] = await judge_step(conn, build_info().get("sha"))
+                except Exception as exc:  # noqa: BLE001 — never costs the cycle
+                    logger.warning("quality cycle: judge failed: %s", exc)
+                    stats["judge"] = None
+                    stats.setdefault("failures", []).append(
+                        f"*.judge: {type(exc).__name__}: {exc}")
             logger.info("quality cycle: %s", _summary(stats))
             if stats.get("failures"):
                 logger.warning("quality cycle failures: %s", stats["failures"])
