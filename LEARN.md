@@ -1058,6 +1058,26 @@ its glyph list *and* `CASELESS` out of this file by parsing it — no
 import, so it needs none of the backend's dependencies — which is why
 both tables are plain literals and not `frozenset(...)` calls.
 
+**A face can be chosen by measurement.** `FONTS` holds one file per
+script and style, except Latin cursive, which holds a **chain** — each
+glyph is drawn by the first face in the list that has it. That exists
+because the sourced rules table turned "which face teaches better?" from
+a matter of taste into an arithmetic question: render seven candidates,
+walk them, score each against the table. Dancing Script, a display face,
+agreed with the taught stroke count on 19 of 52 letters and wrote 14 of
+them in one movement where the table says 40. Edu NSW ACT Foundation —
+an Australian state school handwriting model, which is literally what a
+teacher hands out — scores 32 and 31. The numbers for all seven are in
+`docs/plans/letterform-quality.md`.
+
+The chain exists because the good face is small: the Edu faces carry 126
+code points, so they have a-z and A-Z and no accented letters at all,
+while Dancing Script has 559. Rather than let French and Spanish lose
+their cursive templates, a-z comes from the teaching hand and á ñ ü ç
+falls through to Dancing Script. Eighty of the 133 cursive forms fall
+through, the generator prints which ones, and the two faces' proportions
+do not match — a real seam, recorded in `DEBT.md` rather than hidden.
+
 **A source face may not have the letter.** The generator renders each
 glyph with PIL and thins the bitmap, and PIL will cheerfully draw the
 face's `.notdef` box for a code point the font does not map. A box thins

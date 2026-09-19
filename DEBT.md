@@ -534,21 +534,43 @@ reader of the plan would expect to find built, and will not:
   global rule; both need the rules table to state the split
   (`docs/plans/letterform-quality.md`, Tier 1). The other nine runs of
   the brief are not yet in, so every other script is still unmeasured.
-- **The Latin cursive library is measurably the wrong source face, and no
-  walk rule can fix it.** Against the sourced cursive table (52 letters,
-  Zaner-Bloser, 19 Sep): stroke count agrees on 19, the first stroke
-  starts in the taught place on 26, ends there on 20 — against 43/53/43
-  for print on 74 letters. The shape of the gap says why. **Forty of the
-  52 taught letters are a single stroke; ours manages 14**, and 22 of the
-  taught rows have that stroke ending at `baseline-right` — the exit
-  sweep a cursive hand leaves for the next letter. Dancing Script is a
-  display face: its letters carry no entry sweep and no exit sweep, so
-  those strokes are not in the outline to be found. A generator can join
-  what a font draws; it cannot draw what the font omits. Fix: a source
-  face modelled on a copybook hand (Zaner-Bloser or D'Nealian shapes),
-  or synthesise the entry and exit sweeps from the `joins` entry/exit
-  points the library already carries. Until then cursive should be read
-  as provisional in a stronger sense than print is.
+- **Russian cursive has no propisi face available, and the search is
+  done.** Against the 66-letter propisi table Marck Script agrees with
+  the taught stroke count on 28, starts in the taught place on 35, ends
+  there on 28, and writes 15 letters in one movement where the table
+  says 41. Five OFL Cyrillic handwriting faces were scored against it on
+  19 Sep (Caveat, Bad Script, Neucha, Pangolin and Marck itself) and
+  **none beat it** — the numbers are in
+  `docs/plans/letterform-quality.md`. Caveat and Neucha write more
+  letters in one stroke but agree on count less, so the columns
+  disagree and the library was left alone. Everything on Google Fonts
+  with Cyrillic handwriting is a display or casual script, not the
+  propisi a Russian child copies. Do not re-run this search on Google
+  Fonts; the next move is a face from outside that catalogue, or
+  drawing one.
+- **Latin cursive is drawn by two faces, and they do not share an
+  x-height.** Edu NSW ACT Foundation, an Australian state school
+  handwriting model, draws a-z and A-Z; it measures far better than the
+  Dancing Script it replaced (32/52 on stroke count against 19, and 31
+  letters in one stroke against 14, where the taught table says 40
+  should be). But it carries 126 code points and **no accented letters
+  at all**, so á ñ ü ç ß ș ğ still come from Dancing Script, whose
+  proportions differ. A French word in cursive therefore mixes two
+  hands. The alternative was accented letters having no cursive template
+  at all, which is worse; the fix is a teaching face with Latin Extended
+  coverage, or drawing the accents onto the Edu base ourselves. Scored
+  runners-up, all OFL, are in `docs/plans/letterform-quality.md`
+  (Tier 2) — Edu SA Beginner is the closest and wins on where the first
+  stroke ends.
+- **Cursive entry and exit sweeps are still not drawn.** A taught
+  cursive letter begins with a sweep up from the baseline and ends with
+  one out to the right, which is how the next letter is reached; 22 of
+  the 52 taught rows end the first stroke at `baseline-right` for that
+  reason. No display or classroom face puts those sweeps in the outline,
+  so no amount of walking finds them — they would have to be synthesised
+  from the `joins.entry`/`joins.exit` points the library already
+  carries. Not done, and it is the largest remaining gap between the
+  cursive library and the table.
 - **Two letters changed at a crossing with no sourced rule to judge them
   by.** The 19 Sep junction fix (`arms`, `runs_on`) altered ж т у ф х,
   φ ψ, ऐ ओ, and Latin æ and cursive b and H. Every one of them is a
