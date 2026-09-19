@@ -2282,3 +2282,65 @@ A verdict routes nowhere (plan J5) until owner decision #2 gives the judge
 a service account, and its spend is in `quality_runs`, not `tutor_usage`,
 for the same reason (DEBT.md, "The judge's spend is not in the AI-costs
 table").
+
+## §41 The alphabet in the word list, past the band that was looking for it (19 Sep 2026)
+
+**What it measures.** `wrong_sense_kind` in `audit_content.py`, the
+`wrong_sense_gloss` rule, now takes the headword as well as the rank and the
+gloss. A gloss whose FIRST sense describes a letter is a finding inside
+`WRONG_SENSE_RANK_BAND` (1,000) as before — and, at **any** rank, when the
+headword is itself one or two characters. Fail-level, all 27 courses.
+
+**Why the second predicate exists.** `en-sense-ar-gloss-2026-09-18.md` §5
+recommended lifting the band, on the reading that 1,000 "was chosen for the
+letter-name defect and has been carried unexamined". Re-measured on the rows
+production serves (`_frequency_rows`, so with `gloss_overrides.tsv` laid over
+the file) across every course at every rank: **8 hits, none inside the band.**
+Five are the class the band's own comment protects, doing exactly what it
+predicts —
+
+| course | rank | word | first sense |
+|---|---:|---|---|
+| en | 2,872 | `beth` | the 2nd letter of the Hebrew alphabet |
+| en | 3,180 | `alpha` | the 1st letter of the Greek alphabet |
+| en | 7,693 | `beta` | the 2nd letter of the Greek alphabet |
+| en | 7,698 | `gamma` | the 3rd letter of the Greek alphabet |
+| en | 9,356 | `theta` | the 8th letter of the Greek alphabet |
+
+— real English nouns whose meaning IS a foreign letter's name. **The
+recommendation was wrong and the band is right**: lifting it would have put a
+fail-level rule permanently red on five rows that are not defects. The
+correction is recorded in the 18 Sep document itself.
+
+**What the re-measurement did find** is a different sub-class, invisible to
+every instrument because it sits just past the band:
+
+| course | rank | word | pos | what the card taught |
+|---|---:|---|---|---|
+| nl | 1,036 | `a` | noun | "the first letter of the Dutch alphabet" |
+| yo | 1,148 | `gb` | character | "alternative letter-case form of Gb" — the 8th letter |
+| ca | 2,734 | `y` | conj | "The twenty-fifth letter of the Catalan alphabet" |
+
+The course's own alphabet, sitting in its word list at a vocabulary rank. That
+is the alphabet deck's job (`seed_alphabet`, §37), and two of the three carry a
+second defect on top: Catalan `y` is tagged `conj`, the part of speech of
+*Spanish* `y` ("and") — modern Catalan writes that conjunction `i` — and Dutch
+`a` earns rank 1,036 by being counted as a token, not as a word.
+
+**The discriminator is the headword's length, not its rank.** A word that
+*names* a letter is spelled out (`alpha`, `herufi`, `χι`, `fi`); a letter *is*
+one or two characters. That separates all five protected rows from all three
+defects with nothing on the wrong side of the line, which is the same test the
+rank band had to pass to become fail-level.
+
+**What was done.** The three rows are removed from their frequency files and
+excluded in `data/vocab_exclusions.tsv` with the reason, so a re-generation
+cannot bring them back (quality rule 27). The rule then flags **0 of 27
+courses**, which is the point: it is a tripwire for the next extraction, not a
+backlog. `word` defaults to `""`, so a caller with only a gloss gets the
+band-limited rule it always got — widening a fail-level rule under callers that
+did not ask is how a guard turns into an outage.
+
+**Cost.** Three vocabulary rows retired across three courses. `reconcile`
+will report them as departed with an exclusion already in place, which is the
+shape rule 73 requires.

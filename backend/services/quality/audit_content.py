@@ -654,7 +654,26 @@ _REGION_CODE_RE = re.compile(r"\bISO\s*\d", re.IGNORECASE)
 # words wearing a letter's gloss — Yoruba `ti`, `ni`, `si`, `bi`, `mi` and
 # Turkish `ve` ("and"). So the band IS the discriminator, and 1000 is where the
 # two populations separate cleanly with nothing on the wrong side of the line.
+#
+# Re-measured 19 Sep 2026 on the rows production serves, every course, every
+# rank: 8 hits, none inside the band. Five are the protected class doing
+# exactly what the paragraph above predicts — English `beth`, `alpha`, `beta`,
+# `gamma`, `theta`, real English nouns that name Greek and Hebrew letters, at
+# ranks 2872 to 9356. So `en-sense-ar-gloss-2026-09-18.md` was wrong to call
+# the band unexamined and wrong to propose lifting it: lifting it turns a
+# fail-level rule red on five rows that are not defects.
 WRONG_SENSE_RANK_BAND = 1000
+
+# The three that are NOT the protected class, and the sub-class the band hid.
+# `nl` rank 1036 `a`, `ca` 2734 `y`, `yo` 1148 `gb`: the headword is itself a
+# letter of the course's own alphabet, and the card teaches the alphabet at a
+# vocabulary rank — which is the alphabet deck's job (`seed_alphabet`, §37).
+# A word that NAMES a letter is spelled out; a letter IS one or two characters.
+# That, and not the rank, separates `alpha` from `a`, so this predicate runs at
+# every rank while the band keeps its job for the rest. All three rows are now
+# excluded, so it flags nothing today and fires the next time an extraction
+# brings one back (quality rule 17: the guard goes in before the content).
+LETTER_HEADWORD_MAX_CHARS = 2
 
 
 def _frequency_rows(code: str) -> list[dict]:
@@ -697,15 +716,24 @@ def _frequency_rows(code: str) -> list[dict]:
     return rows
 
 
-def wrong_sense_kind(rank: int, gloss: str) -> str | None:
+def wrong_sense_kind(rank: int, gloss: str, word: str = "") -> str | None:
     """"letter name" / "region code" / None for one frequency row.
 
     Only the first sense is tested: `fedha` glossing as "silver (chemical
     element); money; finance" leads with the sense the learner wants, whereas a
     row that OPENS with "The name of the Latin script letter T/t" has nothing
     else to offer.
+
+    *word* is the headword, and it lifts the rank band for one shape only: a
+    headword of one or two characters glossed as a letter is the alphabet
+    itself sitting in the word list, and that is a defect at any rank (see
+    LETTER_HEADWORD_MAX_CHARS). It defaults to "" so a caller that has only the
+    gloss gets the band-limited rule it always got.
     """
-    if not 0 < rank <= WRONG_SENSE_RANK_BAND:
+    if rank <= 0:
+        return None
+    letter_headword = 0 < len(word.strip()) <= LETTER_HEADWORD_MAX_CHARS
+    if rank > WRONG_SENSE_RANK_BAND and not letter_headword:
         return None
     first_sense = (gloss or "").split(";")[0]
     if _LETTER_NAME_RE.search(first_sense):
@@ -732,7 +760,7 @@ def _audit_wrong_sense_glosses(code: str) -> list[str]:
             rank = int(row.get("rank") or 0)
         except ValueError:
             continue
-        kind = wrong_sense_kind(rank, gloss)
+        kind = wrong_sense_kind(rank, gloss, row.get("word") or "")
         if kind is None:
             continue
         problems.append(

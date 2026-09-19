@@ -150,7 +150,24 @@ error and the fault is in the English.
    the server rather than here.
 
    In the English course's first 3,000 verb rows it reports **68**.
-3. **Extend `wrong_sense` past rank 1,000.** Its band was chosen for the
-   letter-name defect and has been carried unexamined into a rule that now
-   demonstrably has work to do at rank 4,975.
+3. ~~**Extend `wrong_sense` past rank 1,000.**~~ **Measured, and this
+   recommendation was wrong (19 Sep 2026).** The band was not "carried
+   unexamined" — the constant's own comment records the measurement that set
+   it, and re-running that measurement on the rows production serves, every
+   course and every rank, backs it: 8 hits, none inside the band, and five of
+   them are English `beth`, `alpha`, `beta`, `gamma`, `theta`, real English
+   nouns whose meaning IS a foreign letter's name. `wrong_sense_gloss` is
+   fail-level, so lifting the band would have put the audit permanently red on
+   five correct rows. Two lessons, both already rules: read the constant's
+   comment before calling it unexamined (rule 29 — re-measure before acting),
+   and verify every hit before it becomes a number (rule 19).
+
+   The re-measurement did find a different sub-class the band hides: a headword
+   that IS a letter of the course's own alphabet, at any rank — `nl` 1,036 `a`,
+   `yo` 1,148 `gb`, `ca` 2,734 `y`. `wrong_sense_kind` now takes the headword
+   and judges those at every rank; the three rows are excluded. CHECKS §41.
+
+   What this item was reaching for — the defect at rank 4,975 — is the *sense*
+   question, not the letter-name predicate, and item 1 above is the pass that
+   owns it.
 4. **Re-measure one more locale** before treating 24.6% as an Arabic number.
