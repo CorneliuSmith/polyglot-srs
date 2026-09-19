@@ -375,7 +375,7 @@ class TestAgainstTheSourcedRules:
         ("hangul", "print"): (17, 76),       # of 40, 118
         ("hebrew", "print"): (12, 26),       # of 27, 47
         ("latin", "cursive"): (19, 108),     # of 128, 237
-        ("latin", "print"): (47, 112),       # of 73, 138
+        ("latin", "print"): (105, 297),      # of 133, 332
         ("thai", "print"): (17, 20),         # of 44, 49
     }
 
@@ -384,6 +384,16 @@ class TestAgainstTheSourcedRules:
     ALLOWED_ABSENT = {
         ("latin", "print", "\u0130", "upper"): "Turkish casing: see DEBT.md",
         ("latin", "cursive", "\u0130", "upper"): "Turkish casing: see DEBT.md",
+        # The lifted-print run was asked for every accented letter a Latin
+        # course might want, which is a superset of what the courses teach
+        # today: no course carries Swedish/Danish a-ring or Czech/Icelandic
+        # y-acute, so `alphabet_for` never asks for them and the generator
+        # never draws them. The rules are good and cost nothing to keep —
+        # the day one of those courses exists the letters arrive sourced.
+        ("latin", "print", "\u00e5", "lower"): "no course teaches a-ring yet",
+        ("latin", "print", "\u00e5", "upper"): "no course teaches a-ring yet",
+        ("latin", "print", "\u00fd", "lower"): "no course teaches y-acute yet",
+        ("latin", "print", "\u00fd", "upper"): "no course teaches y-acute yet",
     }
 
     @staticmethod

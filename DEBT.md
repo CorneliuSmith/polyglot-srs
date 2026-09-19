@@ -427,81 +427,34 @@ reader of the plan would expect to find built, and will not:
   prefix has cost an hour — three stale `20261105000000` files from
   intermediate regenerations were the first — and the cause both times
   was a generator or a branch choosing a date rather than a clock.
-- **The library follows continuous-movement teaching models, and the
-  owner does not write that way.** Lowercase print `d` ships as ONE
-  stroke because the sourced row says one: *"curve around left to close,
-  push straight up to the top, then straight down"* — the pen retraces
-  the stem without lifting. 31 of 73 Latin print letters are one stroke
-  for the same reason (a b d g h m n o p q r…). It is faithful to
-  Zaner-Bloser and wrong for this app twice over: our reader is an adult
-  learning a foreign script, not a child being taught to avoid b/d
-  reversal, which is the reason the model gives; and the screen animates
-  a stroke as one path, so a retrace draws the stem twice and reads as
-  neither one stroke nor two. The fix is a second sourced run counted by
-  **pen lifts** — `docs/quality/letterforms/gemini-brief-lifted-print.md`
-  is written and waiting for the owner to run it — ingested over the top
-  with `ingest_rules.py --force`. Until then every retrace letter looks
-  wrong in Learn, and the CI gate happily passes them, because the gate
-  measures agreement with the table and the table is the thing that is
-  off. The owner has ruled that print `d` is stem-then-bowl whatever the
-  sources say; that is in the brief as a house rule.
-- **216 of the 661 rules rows carry a `disagreement` note that nothing
-  read.** The model was asked to record where teaching models differ and
-  it did, on a third of the rows — including the `d` row, whose note says
-  in so many words that it is drawn continuously "to prevent b/d
-  reversal". Nobody read them for three weeks, and the letter the owner
-  queried was one whose footnote had already explained it.
-  `check_rules.py --disagreements` now prints them, grouped by table,
-  with the low-confidence rows counted beside. It is a report, not a
-  gate: read it before trusting a number a table produced. Latin cursive
-  is the striking one — **80 of its 129 rows** are flagged, which says
-  the cursive table is a weaker yardstick than its score suggests.
-- **An exactly-closed path disappears from the stroke library.** `rdp()`
-  in `gen_from_fonts.py` simplifies a path against the straight line from
-  its first point to its last; when those are the same point there is no
-  line, every point measures zero from it, and the path collapses to two
-  points, which the dedupe then drops. `extract` sees no ink and returns
-  `None`, so the letter is **absent** rather than wrong — о and О
-  silently left the library for one regeneration this way, and the only
-  symptom was a denominator two smaller than it should have been. Any
-  code that closes a ring must leave it open by one step, as the walk
-  itself does. Fixing `rdp` to handle the degenerate case would be
-  better than remembering this, and nobody has.
-- **Uppercase B is drawn as two bowls, and no amount of reordering fixes
-  it.** The owner spotted it by eye: a taught B is a stem down, then the
-  two bowls; ours is the upper bowl and the lower bowl, with the stem
-  absorbed into whichever bowl the thinned skeleton attached it to.
-  `fit_taught` permutes and flips a letter's strokes to match the taught
-  order, which is why the letters around B improved, but a permutation
-  of two bowls can never produce a stem — this is a **segmentation**
-  defect, in `trace_component`/`chain`, not an ordering one. It is also
-  invisible to the zone check twice over, because both taught B strokes
-  run top-left → baseline-left, so even the right answer scores the same
-  as the wrong one. Fix: cut at the junction where the bowls meet the
-  stem rather than running through it, which is the reverse of what
-  `runs_on` was added to do — expect them to fight. Related: Devanagari
-  scores 3 of 43 letters fully right for the same reason, its headline
-  being walked as part of the body.
-- **The rules gate's floors are a ratchet, and a ratchet can seize.**
-  `TestAgainstTheSourcedRules` fails below the score the library gets
-  today. That is the point — a regeneration that loses ground turns CI
-  red — but it also means an experiment that trades three Greek letters
-  for ten Arabic ones fails CI on the Greek floor even though it is a
-  clear net win. The floors are per table on purpose so that trade is
-  *visible* rather than averaged away, but whoever hits it should move
-  the floor and say what was traded in the pull request, not delete the
-  assertion. Two floors are so low they are barely a gate (Devanagari 3
-  of 43, Thai 17 of 44 with 20 of 49 strokes); they still catch a
-  regeneration that breaks the script entirely.
-- **56 accented Latin *print* rules were lost and never re-requested.**
-  The second part of the first Gemini run — á à â ä ã å ç é è ê ë í ì î ï
-  ñ ó ò ô ö õ ú ù û ü ý ÿ and their capitals — was pasted into a session
-  that ran out of context before it was written to disk, so it is not in
-  `scripts/strokes/rules/latin-print.jsonl`. Every other script's table
-  is complete. Those letters are therefore ungated: the generator will
-  happily regress é without any test noticing. Fix: one more run of the
-  brief in `docs/quality/letterforms/gemini-brief.md` asking for exactly
-  that list, then `ingest_rules.py`.
+- **Latin print is now sourced from a different curriculum to the rest
+  of the Latin tables, on purpose.** a-z come from Handwriting Without
+  Tears (lifted strokes), because Zaner-Bloser teaches `a b d g h m n p
+  q r` as one movement that retraces back up a line already drawn — to
+  stop b/d reversal in five-year-olds, which is not our reader's
+  problem, and which the screen cannot animate (one stroke is one path,
+  so the stem is drawn twice). Two things follow that will look odd
+  later. **`k` disagrees with its table where it used to agree**: HWT
+  teaches two strokes, Zaner-Bloser three, our walk draws three. And
+  **137 of its 138 rows cite one URL** (only `ß` comes from elsewhere),
+  so the table is only as good as that one curriculum; the ingest prints
+  a thin-sourcing warning for exactly this and it was accepted
+  knowingly. `docs/quality/letterforms/latin-print-contested.md` names
+  the eight letters where a second source would most likely disagree —
+  `t` is the one to watch, because the UK model's curved baseline hook
+  is a different letter from the US straight stem, not a different way
+  of drawing the same one, and the app teaches British English. The old
+  rows are in git if the decision is ever revisited. Latin *cursive* is untouched and still
+  Zaner-Bloser, where a continuous stroke is the point of the hand.
+- **Five sourced Latin print letters are not in the library**, and the
+  CI gate allow-lists them with a reason rather than hiding them.
+  Turkish `İ` is the casing bug below. `å` and `ý` are simply ahead of
+  the courses: the lifted-print brief asked for every accented letter a
+  Latin course might plausibly want, which is a superset of
+  `LATIN_EXTRAS`, so no course asks for Swedish/Danish a-ring or
+  Czech/Icelandic y-acute and the generator never draws them. The rules
+  cost nothing to keep and the letters arrive sourced the day such a
+  course exists.
 - **Turkish's dotted capital İ is not a library entry, and its i is wrong.**
   `LATIN_EXTRAS` gives Turkish its dotless ı, but the library keys a form
   on a *lowercase* glyph and derives the upper with `.upper()`, which is
