@@ -160,8 +160,29 @@ def run(script: str, style: str, quiet: bool = False) -> tuple:
     return (whole, n, st_ok, st_all, count_ok)
 
 
+def disagreements() -> int:
+    """Print every row where the source itself said the teaching models
+    disagree. 216 of the 661 rows carry one and nothing read them until
+    the owner queried a letter the note had already explained: d's row
+    says, in the model's own words, that it is taught as one continuous
+    stroke "to prevent b/d reversal". A rule with a footnote is a rule
+    to look at before trusting the number it produced."""
+    for f in sorted(RULES.glob("*.jsonl")):
+        rows = [json.loads(row) for row in f.read_text(encoding="utf-8").splitlines() if row.strip()]
+        flagged = [r for r in rows if (r.get("disagreement") or "").strip()]
+        low = [r for r in rows if r.get("confidence") not in ("high", None)]
+        print(f"\n{f.stem}: {len(flagged)} of {len(rows)} rows carry a "
+              f"disagreement, {len(low)} are not high confidence")
+        for r in flagged:
+            mark = "" if r.get("confidence") in ("high", None) else f" [{r['confidence']}]"
+            print(f"  {r['glyph']} {r['form']:<9}{mark} {r['disagreement']}")
+    return 0
+
+
 def main() -> int:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    if "--disagreements" in sys.argv[1:]:
+        return disagreements()
     if "--all" in sys.argv[1:]:
         tw = tn = ts = tsa = tc = 0
 

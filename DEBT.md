@@ -427,6 +427,35 @@ reader of the plan would expect to find built, and will not:
   prefix has cost an hour — three stale `20261105000000` files from
   intermediate regenerations were the first — and the cause both times
   was a generator or a branch choosing a date rather than a clock.
+- **The library follows continuous-movement teaching models, and the
+  owner does not write that way.** Lowercase print `d` ships as ONE
+  stroke because the sourced row says one: *"curve around left to close,
+  push straight up to the top, then straight down"* — the pen retraces
+  the stem without lifting. 31 of 73 Latin print letters are one stroke
+  for the same reason (a b d g h m n o p q r…). It is faithful to
+  Zaner-Bloser and wrong for this app twice over: our reader is an adult
+  learning a foreign script, not a child being taught to avoid b/d
+  reversal, which is the reason the model gives; and the screen animates
+  a stroke as one path, so a retrace draws the stem twice and reads as
+  neither one stroke nor two. The fix is a second sourced run counted by
+  **pen lifts** — `docs/quality/letterforms/gemini-brief-lifted-print.md`
+  is written and waiting for the owner to run it — ingested over the top
+  with `ingest_rules.py --force`. Until then every retrace letter looks
+  wrong in Learn, and the CI gate happily passes them, because the gate
+  measures agreement with the table and the table is the thing that is
+  off. The owner has ruled that print `d` is stem-then-bowl whatever the
+  sources say; that is in the brief as a house rule.
+- **216 of the 661 rules rows carry a `disagreement` note that nothing
+  read.** The model was asked to record where teaching models differ and
+  it did, on a third of the rows — including the `d` row, whose note says
+  in so many words that it is drawn continuously "to prevent b/d
+  reversal". Nobody read them for three weeks, and the letter the owner
+  queried was one whose footnote had already explained it.
+  `check_rules.py --disagreements` now prints them, grouped by table,
+  with the low-confidence rows counted beside. It is a report, not a
+  gate: read it before trusting a number a table produced. Latin cursive
+  is the striking one — **80 of its 129 rows** are flagged, which says
+  the cursive table is a weaker yardstick than its score suggests.
 - **An exactly-closed path disappears from the stroke library.** `rdp()`
   in `gen_from_fonts.py` simplifies a path against the straight line from
   its first point to its last; when those are the same point there is no
