@@ -435,6 +435,47 @@ that same value, so the Python count and any SQL reader at the threshold
 name the same rows. The rule generalises to every `numeric` write: the
 value the code compared is the value the table must hold.
 
+**Where it is read** (18 Sep 2026). Two admin panels and one section,
+English-only like every other admin surface, all reading the
+`/api/contribute/admin/content-health*` and `quality-settings` endpoints:
+
+- **Admin → Content → `ContentHealthPanel`**, after the Generation panel
+  it complements: Generation asks whether a row exists, this asks whether
+  it is right. One row per course, worst first — the server orders (red,
+  amber, green, grey, then code) and the client never re-sorts, so there
+  is one definition of "worst" — with a status pill, bad cards against
+  the course's own target, top-band coverage, the audit delta against
+  `data/quality/baseline.json`, one judge line per question ("not
+  calibrated" while a question's gold set has not cleared its gates,
+  "0% judged" before its first run), the queue total, and when the audit
+  and the judge last ran. A row expands into the course's drill-down
+  (`/content-health/{code}`): two plain-SVG sparklines — no chart library
+  for a 30-day line, the shape `AnalyticsPanel` already draws — the audit
+  rules, the reconcile survey, and the open verdicts with **Agree /
+  Disagree**. Those labels are deliberate: "Accept" on a change request
+  applies nothing today and reviewers act as if it did (plan §2.2), so
+  until owner decision #5 lands the button says what it does — records
+  that a person agreed with the judge — and touches no card.
+- **Admin → Costs → `QualitySettingsPanel`**, after the plan limits.
+  Under Costs and not Content because that is what it is: the master
+  switch and the daily token cap decide what the API key spends every
+  night, and the numbers they buy are read on the Content panel. The
+  same form pattern as `PlanLimitsPanel` — a Save per field, enabled
+  only when the field holds a valid value that differs from what is
+  stored, sending only that field — plus the per-course table (judge
+  opt-in, the two red thresholds) saving through `quality-targets/{code}`.
+- **Admin → Rollouts → Deployment → Content**: reconcile's survey per
+  course (gone, new, drift, retire, run date) from the loop's latest
+  `kind=reconcile` rows — the content answer to the panel's schema
+  question — with "measured on an older build" on a row whose
+  `build_sha` is not the one serving.
+
+All three degrade the plan-limits way: a GET on a database without
+migration 20261029 answers `available: false`, and the panel names the
+migration and where to look (Rollouts → Deployment) with every control
+disabled; only a PUT/POST 503s, and the panel shows the server's detail.
+`lib/ago.ts` is the shared "4 min ago" behind the three "last ran" lines.
+
 The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
 on the configured chat model, its `*_checker` verifies one tier up
 (`tutor_model_low_resource`), and `resolve_model` refuses per-language
@@ -1457,11 +1498,15 @@ diff against the live database (it used to report `ok: true`
 unconditionally because `.dockerignore` excluded them; it now returns an
 error when it has no expectations, rather than a hollow ok).
 
-The same three facts plus the schema diff are in the app: **Settings →
-Admin → Deployment** (`DeploymentPanel.tsx`). When "I don't see the
-setting" comes up, read that panel first — it distinguishes "not deployed
-yet" from "deployed, migration not applied" from "a real bug" without a
-terminal.
+The same three facts plus the schema diff are in the app: **Workspace →
+Admin → Rollouts → Deployment** (`DeploymentPanel.tsx`; it moved there
+with the one-staff-console change, and this paragraph said Settings until
+18 Sep 2026). When "I don't see the setting" comes up, read that panel
+first — it distinguishes "not deployed yet" from "deployed, migration not
+applied" from "a real bug" without a terminal. Its **Content** section
+answers the same question for data: files versus database per course,
+from the nightly loop's reconcile survey, so "did the owner's last push
+land" is read there too.
 
 See `docs/database.md` for exactly how portable this all is if you ever
 wanted to leave Supabase — short version: the schema and RLS are portable
