@@ -2373,13 +2373,25 @@ still resolves anything the file leaves blank").
 | a real headword WordNet does not carry — mostly given names | 1,000 |
 | in the top 2,000 | **0** |
 
-**Why every instrument was quiet.** `wrong_sense_gloss`, `circular_gloss` and
-`relation_only_gloss` all read the definition and skip a row whose definition
-is empty — the guard clause is `if not gloss: continue`, three times. A rule
-that inspects text cannot fire on the absence of text, so the emptiest cards in
-the corpus were the ones no rule could reach. `_audit_wrong_sense_glosses` even
-says English is out of scope "because its glosses are built at seed time",
-which is true of the *file* and not of the card.
+**This class was already known, and this is a re-measurement of it.**
+`seed_english` logs every headword WordNet cannot resolve, and DEBT.md has
+carried the count since that logging went in: **1,389 headwords, of which the
+125 inside the top 2,000 were fixed** (66 glossed by hand, 59 excluded as
+contraction debris, given names or abbreviations) **and the remaining 1,264
+were deferred** — "work them when a course reaches that depth". The 1,231
+measured here is that backlog today. Nothing was discovered; what is new is
+that the number is now produced by the audit instead of by reading a log, and
+that it is expressed as a share of the course.
+
+**Why no CHECK saw it, which is the part worth carrying.**
+`wrong_sense_gloss`, `circular_gloss` and `relation_only_gloss` all read the
+definition and skip a row whose definition is empty — the guard clause is
+`if not gloss: continue`, three times. A rule that inspects text cannot fire on
+the absence of text, so the emptiest cards in the corpus were the ones no rule
+could reach, and the only thing counting them was a seeder warning nobody reads
+after a seed run. `_audit_wrong_sense_glosses` even says English is out of
+scope "because its glosses are built at seed time", which is true of the *file*
+and not of the card.
 
 **Why it is all tail.** Zero in the top 2,000. Every pass this programme has
 run went top-down, so a defect that starts at rank 2,042 and runs to the end

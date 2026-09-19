@@ -15,7 +15,14 @@ Two things it deliberately does NOT do:
   them and writes them to a separate report for the write-up, so the decision
   is taken with a number rather than in passing.
 
-Usage: apply_en_sense.py <confirmed.json> [--apply]
+It takes the output of either English definition pass, which differ in one
+way that matters: the SENSE pass repairs a definition that exists and the row
+already has a part of speech, while the BLANK pass writes the first definition
+a row has ever had and must supply the part of speech too (those rows carry
+none — the extractor gave up on them entirely). A row carrying `definition`
+is read as the second shape, `checker_replacement` as the first.
+
+Usage: apply_en_sense_fixes.py <confirmed.json> [--apply]
 """
 from __future__ import annotations
 
@@ -163,8 +170,13 @@ def main(argv: list[str]) -> int:
             report["skipped_not_in_frequency_file"] += 1
             refused.append({**fix, "refused": "word is not in en_frequency.tsv"})
             continue
-        pos = (entry.get("pos") or "").strip()
-        replacement = (fix.get("checker_replacement") or "").strip()
+        # The blank pass supplies the part of speech, because the rows it
+        # writes have none; the sense pass repairs a row that already has one,
+        # and must never overwrite it from a judge's opinion.
+        supplied_pos = (fix.get("pos") or "").strip()
+        pos = (entry.get("pos") or "").strip() or supplied_pos
+        replacement = (fix.get("checker_replacement")
+                       or fix.get("definition") or "").strip()
         why = validate(word, pos, replacement)
         if why:
             report[f"refused: {why}"] += 1
