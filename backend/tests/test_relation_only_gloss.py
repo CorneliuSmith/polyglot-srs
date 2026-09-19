@@ -45,9 +45,47 @@ class TestWhatItCatches:
         "first-person singular possessive singular of el",
         "masculine equivalent of tūī",
         "The plural of dólar.",
+        # A ROMANISATION after the target word. The tail used to be "of
+        # <one token>" and stop, so every non-Latin script escaped: the rule
+        # read 0.1% on Russian and 37% on Spanish, which is not a difference
+        # between the corpora but between what the regex could reach
+        # (measured 19 Sep 2026 against a 20-course judged sample, CHECKS §43).
+        "third-person singular present indicative imperfective of нужда́ться (nuždátʹsja)",
+        "nominative/accusative/vocative plural of ανησυχία (anisychía)",
+        "feminine plural indefinite form of יְהוּדִי (yehudí)",
+        "genitive singular of ανθρωπότητα (anthropótita)",
+        "active nonfinite form of λύνω (lýno)",
+        # ...and the same defect naming no target at all.
+        "nominative/accusative plural",
+        "third-person plural present subjunctive",
+        "first/second-person singular present indicative",
+        "third-person singular simple past",
+        # The Spanish and French clitic shape.
+        "infinitive of encontrar combined with lo",
     ])
     def test_a_relation_with_no_meaning_is_reported(self, gloss):
         assert is_relation_only(gloss)
+
+    def test_a_parenthetical_that_gives_the_meaning_is_not_a_finding(self):
+        """The line the widened tail had to be taught. A romanisation after
+        the target leaves the row teaching nothing; a translation does not.
+        This exact row was the one false positive the first widening produced,
+        and the quote marks are what separates the two cases."""
+        assert not is_relation_only(
+            'nominative/accusative/genitive plural of Geschenk ("gift, present")')
+        assert not is_relation_only(
+            "nominative plural of Geschenk (\u201cgift, present\u201d)")
+        assert is_relation_only("nominative/accusative/genitive plural of Geschenk")
+
+    def test_the_no_target_form_stops_at_relation_words(self):
+        """Bounded on purpose: the alternative that needs no "of" matches only
+        a string that is ONLY relation words and separators. A definition that
+        goes on to give a meaning has a word the list does not contain, and
+        that is what keeps `third, after the second` out of the report."""
+        assert is_relation_only("third-person singular present indicative")
+        assert not is_relation_only("third, after the second")
+        assert not is_relation_only("present, as a gift")
+        assert not is_relation_only("past, the time before now")
 
 
 class TestWhatItLeavesAlone:

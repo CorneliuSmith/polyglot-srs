@@ -2461,3 +2461,50 @@ Report-level rather than fail-level for the `gender_marking` reason: its target
 is zero, but the repair is ~1,200 rows and takes an owner decision, so a
 threshold set now would be a number nobody could defend. Promote it when
 English reaches zero.
+
+## §43 The rule that could not see its own class (19 Sep 2026)
+
+**What changed.** `is_relation_only`'s tail anchor. It read `of <one token>`
+and then end-of-string; for a non-Latin script the extractor appends a
+romanisation — `of нужда́ться (nuždátʹsja)` — which is two tokens, so the row
+never matched. Also added: a relation naming no target
+(`third-person plural present subjunctive`) and the Romance clitic shape
+(`infinitive of encontrar combined with lo`).
+
+**What it was costing.** The rule reported **16 rows across all 27 courses**
+inside its own band. The corrected predicate finds **3,072** in that same band,
+and **19,169** more in ranks 2,001–6,000 where the rule does not look.
+
+| | old | corrected |
+|---|---:|---:|
+| ru | 5 | 792 in band, 1,941 in 2,001–6,000 |
+| el | 0 | 755 / 1,858 |
+| de | 1 | 174 / 1,275 |
+| nl | 0 | 182 / 1,050 |
+| he | 0 | 128 / 126 |
+| hi | 0 | 112 / 254 |
+| ca | 0 | 122 / 1,937 |
+
+**The tell was in the shape of the numbers, not in any single row.** Before the
+fix the rule read 0.1% on Russian and 37% on Spanish. Nobody looks at that and
+thinks "Spanish is 370 times worse"; the honest reading is that the instrument
+behaves differently on the two, and it did — Latin-script courses have no
+romanisation to append, so their rows ended where the anchor expected. **A
+measurement that splits cleanly along writing system is measuring the writing
+system.**
+
+**How the correction was checked**, because widening a predicate is how a
+report turns into noise: against 1,092 rows judged by an independent
+maker–checker sweep of 20 courses (`sense-sweep-2026-09-19.md`), with that
+judge's `relation_only` verdicts as positives and every row it called
+`primary` as negatives — **87.9% recall, 100% precision, 0 false positives in
+737 negatives.** One case decides the hard line and is pinned by its own test:
+a trailing parenthetical is allowed only when it carries no meaning, so
+`of нужда́ться (nuždátʹsja)` is a finding and
+`of Geschenk ("gift, present")` is not.
+
+**What is not changed:** the rule's band. 19,169 rows sit past it in a band
+learners reach, and that is stated with its number rather than acted on —
+`CARD_RULE_BAND` is a product decision about what a learner meets, and §41 is
+the fresh reminder of what happens when a band moves without its own argument.
+Widening to 6,000 would take the reported figure from 3,072 to 22,241.
