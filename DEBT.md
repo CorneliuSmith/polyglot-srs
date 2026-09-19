@@ -1343,15 +1343,17 @@ this class at all. Neither is done. See
 `services/quality_loop.py` writes `quality_runs` once a day. These gaps
 are deliberate, each with what closes it.
 
-- **No reader yet.** Nothing in the app reads `quality_runs`,
-  `quality_settings` or `language_quality_targets`. The repository
-  functions are ready for the Content Health panel and its admin
-  endpoints (`latest_metrics`, `trend`, `get_quality_settings`,
-  `update_quality_settings`, `get_language_targets`,
-  `set_language_target` in `repositories/quality.py`; plan phase B).
-  Until they land, `quality_heartbeat()` is the loop's only report and it
-  is not on `/api/health` — so "did it run" is answered by the server
-  log line `quality cycle: N courses, N rows ...`.
+- **The heartbeat has no endpoint.** The admin endpoints now read
+  `quality_runs`, `quality_settings` and `language_quality_targets`
+  (`/api/contribute/admin/content-health*`, `/admin/quality-settings`,
+  `/admin/quality-targets/{code}`; phase B, 18 Sep), but
+  `quality_heartbeat()` is still not on `/api/health` or in the panel's
+  payload — so "did it run last night" is answered by the server log line
+  `quality cycle: N courses, N rows ...`, and a course whose loop stopped
+  shows its last numbers with an old `last_audited`, not a warning. Adding
+  `"loop": quality_heartbeat()` to the overview GET is the change; left
+  out because the contract the frontend was built against does not carry
+  it.
 - **The judge step is a comment.** `quality_loop()` carries the extension
   point with the gating order spelled out: settings, then today's spend
   from `judge_tokens_spent_today`, then the per-course opt-in, then rows
@@ -1382,6 +1384,66 @@ are deliberate, each with what closes it.
   cycle in the heartbeat's `last_error` and no rows at all. Per-course
   connections would be the fix, and `run_quality_cycle(conn)` would need
   to become a loop over `privileged_connection()`.
+## Content Health, phase B: what the endpoints leave out (18 Sep 2026)
+
+The `/api/contribute/admin/content-health*` family (`routers/contribute.py`,
+`services/content_health.py`, `repositories/content_health.py`) is the
+plan's §6 panel read from the backend side. Six things it does not do, on
+purpose, each with what would turn it on:
+
+- **No Quality section in the staff bell** (plan §6, "The bell"). The bell
+  (`review_inbox_by_language`, `fold_counts`) counts queues; nothing in it
+  reads `quality_runs` or `content_verdicts`, so a course crossing its
+  flag target is visible only to an admin who opens the panel. Turning it
+  on is a `quality` key in the bell payload fed by
+  `content_health.derive_course` over `latest_metrics`, once the panel's
+  colours have been read for a few weeks and the owner has said which
+  transitions deserve a bell — the plan's own principle 4 ("a false alarm
+  has cost this programme more than a miss") argues for reading first.
+- **No 7-day queue-growth amber** (plan §6, "growth over 7 days amber").
+  `status_of` reads the LATEST rows only; the `queues` block is a depth,
+  not a slope. `repositories/quality.trend(conn, lang, metric, days=7)`
+  per queue key is the read; the rule ("depth up by more than N over the
+  window") has no agreed N, and 27 courses × 18 queues is 486 trend reads
+  a page load, so it wants one grouped query in `repositories/quality.py`
+  (unit F's file) before it goes on the hot path.
+- **Agree / Disagree applies nothing to content.** `POST …/verdicts/{id}`
+  writes `disposition`, `disposed_by`, `disposed_at` on the verdict row
+  and nothing else; the judge's `expected` rewrite is shown, never
+  written. Decision #5 ("Accept applies the suggestion, or is renamed
+  Agree") is open; until it closes the UI labels are Agree / Disagree and
+  a reviewer who agrees still fixes the card through the Workshop, which
+  writes `content_change_log`. When it closes as "apply", the write goes
+  through `edit_reviewed_card` from this route, not through a new path.
+- **`calibrated` is a constant, and empty.** `CALIBRATED_QUESTIONS` in
+  `services/content_health.py` names the questions whose gold set has
+  cleared the three §3.2 gates; no set is labelled (the two gold-set
+  entries in this file), so every question reads `calibrated: false`. The status
+  rule does not consult it — an uncalibrated flag rate above the target is
+  red, because the owner switches the judge on per course and sets that
+  target. A question joins the set by name when its
+  `docs/quality/<question>-<date>.md` record exists; reading calibration
+  from the record files at request time was not done because a file's
+  existence is not a passed gate.
+- **Support-locale rows do not feed the course row.** `latest_metrics`
+  keys a locale measurement `"<locale>:<metric>"`; `derive_course` reads
+  only the course's own (unmarked) rows, so a gloss judge writing
+  `judge.gloss` under `locale='ar'` for the English course shows as 0/0 on
+  the English row. Principle 6 says the support locale is its own corpus;
+  the honest shape is a per-locale breakdown in the drill-down, not a sum
+  into the course row. Nothing writes locale rows yet (unit F decides),
+  so this is a note, not a bug.
+- **Auth on `/api/health` and `/api/health/schema`** is in the plan's
+  phase B row and is not built: decision #3 is open. The content-health
+  routes themselves are behind `_require_admin`.
+
+One shape to know: `GET …/content-health/{code}` computes every course
+(the same `_content_health_courses` the overview uses, so the two can never
+disagree about a number) and then reads one coverage trend, one flag
+trend per question and the open verdicts for that course — seven reads of
+`quality_runs` and two of `content_verdicts` per page. Fine for an admin
+page; if the drill-down is ever polled, compute one course.
+
 ## Four judge questions have no gold set, so their gates cannot pass (18 Sep 2026)
 
 `backend/services/quality/content_judge.py` asks five questions of a row —
@@ -1402,10 +1464,15 @@ the reviewers to the judge they are meant to grade (the same reason the
 register set ships with `label` blank).
 
 **What is true until they exist:** the judge loop may run these questions in
-`report` mode only; nothing they say can route to a queue (plan §4.3 J5) or
-count against a course's `max_judge_flag_pct`. The register question is the
-only one whose precision has been measured at all, and that on 56 documented
-answers, not human labels.
+`report` mode only; nothing they say can route to a queue (plan §4.3 J5).
+The Content Health panel does show their flag rate and does colour a course
+red on it — that is the contract's status rule (`services/content_health.
+status_of`), and the owner opts a course into the judge and sets its
+`max_judge_flag_pct` themselves; each question's `calibrated: false` is the
+panel's label for "read this as a report, not a finding"
+(`CALIBRATED_QUESTIONS`, empty until a record exists). The register
+question is the only one whose precision has been measured at all, and
+that on 56 documented answers, not human labels.
 
 **What turns each on:** a filled set to the README's columns, run through
 `content_judge --question <name> --gold`, all three gates green, and the

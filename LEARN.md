@@ -389,6 +389,47 @@ English fallback until a later sweep tries again. The writers probe for
 the table and skip the queue without it, so a deploy ahead of the owner's
 migration behaves exactly as it did before.
 
+### Content Health: the endpoints that read the telemetry
+
+The nightly loop's rows are read by one admin-only family in
+`routers/contribute.py` (plan §6, phase B, 18 Sep 2026):
+`GET /api/contribute/admin/content-health` (one row per course, worst
+first), `GET …/content-health/{code}` (the row plus 30-day trends, every
+audit rule against its baseline, and the open verdicts),
+`GET …/content-health/deploy` (the last reconcile survey per course, the
+content answer to the deployment panel's schema question),
+`POST …/content-health/verdicts/{id}` (agree / disagree with a verdict),
+and `GET`/`PUT …/quality-settings` and `PUT …/quality-targets/{code}` for
+the judge's switch, budget and per-course thresholds.
+
+The split is the three-layer rule with one extra seam. `repositories/
+content_health.py` holds the reads `repositories/quality.py` does not
+(table probes, open-verdict counts and lists, the disposition write, the
+last survey); `services/content_health.py` is **pure** — `derive_course`,
+`status_of`, `sort_key` and the trend transforms take dicts and return
+dicts — so the status rules (grey never measured; red over the bad-card
+target, over any question's flag target, or audit fails above baseline;
+amber under 95 percent of the top band covered; else green) are tested one
+branch at a time without a client, and the router only fetches and hands
+over. Every percentage there is `None` when its population is missing or
+zero, and every comparison tests for `None` first: a `0 > 15` reading as
+green for a course nobody has measured is the false comfort the panel
+exists to remove.
+
+**GETs degrade to `available: false`; writers 503.** The four tables are
+migration 20261029, owner-applied, and the code deploys first, so the
+overview carries `available: {quality_runs, content_verdicts,
+quality_settings, language_quality_targets}` and answers 200 with 27 grey
+rows and the judge settings OFF rather than 503 — a panel that cannot load
+cannot say *why* it is empty, and "the migration is not applied" is the
+one thing it must be able to say. `PUT quality-settings`, `PUT
+quality-targets/{code}` and `POST verdicts/{id}` instead 503 naming the
+migration, because an admin's save failing silently is worse than a read
+degrading (the plan-limits precedent, and `repositories/flags.py`). The
+repository writers make that possible by returning `None` (or
+`TABLE_ABSENT`, where `None` already means "no such open row") instead of
+raising through.
+
 ### SRS: FSRS, not SM-2
 
 The scheduler is **FSRS** (Free Spaced Repetition Scheduler) —
