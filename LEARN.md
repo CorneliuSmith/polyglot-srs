@@ -1329,6 +1329,18 @@ the print scripts with many multi-stroke letters: Cyrillic print 10→32,
 Greek 12→32, Latin print 27→45, Hangul 9→17. A third operation (below)
 took the total to **227 of 659** and 818 of 1355.
 
+**A migration's name is its primary key.** Supabase records an applied
+migration by the digits before the first underscore, so
+`20261029000000_quality_telemetry.sql` and
+`20261029000000_provisional_strokes_arabic_direction.sql` are one
+version, not two. Nothing in the repo noticed; `supabase db push` did,
+weeks later, with an error about migrations being "inserted before the
+last migration on remote database" that named the newer file as though
+*it* were out of order. Two guards now: the generator refuses a
+`--migration` name whose version is taken, and
+`test_no_two_migrations_share_a_version` fails CI on any pair. Pick the
+version from a clock, not from today's date, when writing one by hand.
+
 **A ring's starting point needed a third operation.** `fit_taught`
 chooses which stroke goes first and which way each runs, but a closed
 ring is the same ring from either end — only *rotation* moves where the

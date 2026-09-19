@@ -236,11 +236,30 @@ judge on yourself.**
 
 | file | what it adds | what is broken until then |
 |---|---|---|
-| `20261029000000_quality_telemetry.sql` | `quality_runs`, `content_verdicts`, `quality_settings`, `language_quality_targets` | Nothing *breaks*. Admin → Content → Content health says which migration is missing and points at Rollouts → Deployment; the nightly loop logs that it wrote nothing rather than looking healthy; the judge cannot be switched on. |
-| `20261030000000_telemetry_columns.sql` | `tutor_usage.outcome/latency_ms`; `card_feedback.field/drill_id/locale/support_locale`; `card_change_requests.locale` | Learner reports still arrive; they just cannot say which card layer or which locale. |
+| `20261107000000_quality_telemetry.sql` | `quality_runs`, `content_verdicts`, `quality_settings`, `language_quality_targets` | Nothing *breaks*. Admin → Content → Content health says which migration is missing and points at Rollouts → Deployment; the nightly loop logs that it wrote nothing rather than looking healthy; the judge cannot be switched on. |
+| `20261107000001_telemetry_columns.sql` | `tutor_usage.outcome/latency_ms`; `card_feedback.field/drill_id/locale/support_locale`; `card_change_requests.locale` | Learner reports still arrive; they just cannot say which card layer or which locale. |
 
 Check afterwards at Admin → Rollouts → Deployment, which lists any migration
 the database is still missing.
+
+These two were stamped `20261029000000` and `20261030000000` when they were
+written, which two already-applied stroke migrations were also stamped.
+Supabase keys its `schema_migrations` table on those digits, so the push
+refused with *"Found local migration files to be inserted before the last
+migration on remote database"* and named these two — which sounds like they
+are out of order, when in fact the version was taken. They have been renamed
+to the timestamps above; nothing in them changed, and both are written with
+`IF NOT EXISTS` throughout, so applying them is safe whatever the database
+already has. **Do not reach for `--include-all`** if a push ever says this:
+it would try to record a version row that already exists. Check for the real
+cause first:
+
+```bash
+ls supabase/migrations | cut -d_ -f1 | uniq -d     # any version used twice
+```
+
+`backend/tests/test_schema_check.py::test_no_two_migrations_share_a_version`
+now fails CI on it, so it should not reach you again.
 
 ### 2. The judge is OFF, and turning it on is a decision about money
 

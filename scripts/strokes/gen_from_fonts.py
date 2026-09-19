@@ -1741,8 +1741,18 @@ def main():
                "ON CONFLICT (script, glyph, form, style) DO UPDATE SET",
                "  strokes = EXCLUDED.strokes, joins = EXCLUDED.joins, hints = EXCLUDED.hints",
                "  WHERE script_glyphs.source = 'provisional';"]
-        (ROOT / "supabase" / "migrations" / args.migration).write_text(
-            "\n".join(sql) + "\n", encoding="utf-8")
+        # Supabase keys schema_migrations on the digits before the first
+        # underscore, so a name that reuses a version another migration
+        # already has is invisible here and stops `db push` later, with
+        # an error that names the wrong file (DEBT.md). Refuse it now.
+        out = ROOT / "supabase" / "migrations" / args.migration
+        version = out.name.split("_", 1)[0]
+        clash = [f.name for f in out.parent.glob(f"{version}_*.sql")
+                 if f.name != out.name]
+        if clash:
+            raise SystemExit(f"--migration {out.name}: version {version} is "
+                             f"already taken by {', '.join(clash)}")
+        out.write_text("\n".join(sql) + "\n", encoding="utf-8")
     print("total", sum(len(v) for v in all_glyphs.values()))
 
 
