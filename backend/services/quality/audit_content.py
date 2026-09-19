@@ -891,7 +891,31 @@ _RELATION_ONLY_RE = re.compile(
     r"|definite|indefinite|construct|possessive|attributive|predicative"
     r"|inflection|form|variant|alternative\s+form|obsolete\s+form|archaic\s+form"
     r"|abbreviation|contraction|romanization|romanisation"
-    r")\b[^.;]*\bof\b\s+\S+\s*\.?\s*$",
+    # The tail used to be `of <one token>` and end there. For a non-Latin
+    # script the extractor appends a romanisation — "of нужда́ться
+    # (nuždátʹsja)" — which is two tokens, so every such row escaped. That is
+    # why the rule read 0.1% on Russian and 37% on Spanish: not a difference
+    # in the corpora, a difference in what the regex could reach (measured
+    # 19 Sep 2026 against a 20-course judged sample; see CHECKS §43).
+    # A trailing parenthetical is allowed ONLY when it carries no meaning. A
+    # romanisation leaves the row teaching nothing; a translation does not, and
+    # `nominative/accusative/genitive plural of Geschenk ("gift, present")` is
+    # a GOOD row. The quote marks are the discriminator, and that difference is
+    # the one false positive this widening produced before it was added.
+    # `combined with lo` is the Spanish/French clitic shape of the same defect.
+    r")\b[^.;]*\bof\b\s+\S+(?:\s+combined\s+with\s+\S+)?"
+    r"(?:\s*\((?![^)]*[\"“”])[^)]*\))?[\s.,;]*$"
+    # ...and the same head with no target at all: "third-person singular
+    # present indicative" names a relation and stops, naming no word to relate
+    # to. Bounded to a string that is ONLY relation words and separators, so a
+    # definition that goes on to give a meaning cannot match.
+    r"|^\s*(?:(?:nominative|genitive|dative|accusative|ablative|vocative|locative"
+    r"|instrumental|plural|singular|dual|feminine|masculine|neuter|definite"
+    r"|indefinite|past|present|future|participle|infinitive|imperative"
+    r"|subjunctive|indicative|conditional|perfective|imperfective|aorist"
+    r"|preterite|simple|active|passive|reflexive|to-infinitive"
+    r"|(?:first|second|third)(?:/(?:first|second|third))*[- ]person)"
+    r"[\s/,-]*)+[\s.]*$",
     re.IGNORECASE,
 )
 

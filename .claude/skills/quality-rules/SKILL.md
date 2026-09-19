@@ -559,6 +559,22 @@ rate, say so — that result matters more than the phase closing quietly.
     When a check reads a field, ask what it does when the field is empty — and
     whether anything else counts that.
 
+79. **A measurement that splits cleanly along writing system is measuring the
+    writing system.** `relation_only_gloss` read 0.1% on Russian and 37% on
+    Spanish; the difference was its tail anchor (`of <one token>`) against a
+    romanisation the extractor appends for non-Latin scripts, so it was blind
+    on exactly the languages whose morphology produces the defect. 16 rows
+    reported, 3,072 real, in its own band. When a rule's output correlates
+    with script, alphabet size or word length rather than with the defect,
+    suspect the instrument before the corpus.
+80. **Widening a predicate needs a negative set, not just examples.** The fix
+    above was measured against 1,092 judged rows — the findings as positives
+    and every row judged clean as negatives — and the first attempt scored one
+    false positive that named the rule's whole distinction: a trailing
+    parenthetical is a romanisation (still a defect) or a translation (a good
+    row). Recall is cheap to buy and precision is what a report-level rule
+    spends when nobody trusts it.
+
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
 This is a living document. When new work teaches a rule, **add it here in one
