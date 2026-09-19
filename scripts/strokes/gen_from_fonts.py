@@ -31,6 +31,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import struct
 import sys
 import unicodedata
 from pathlib import Path
@@ -65,8 +66,13 @@ _alpha = _load_assignments(
     ROOT / "backend" / "services" / "seeder" / "seed_alphabet.py",
     {"RUSSIAN", "GREEK", "ARABIC", "HINDI", "THAI", "HANGUL", "HEBREW", "PERSIAN"},
 )
-_scripts = _load_assignments(ROOT / "backend" / "services" / "scripts.py", {"STYLES"})
+_scripts = _load_assignments(
+    ROOT / "backend" / "services" / "scripts.py",
+    {"STYLES", "LATIN_EXTRAS", "CASELESS"},
+)
 STYLES = _scripts["STYLES"]
+LATIN_EXTRAS = _scripts["LATIN_EXTRAS"]
+CASELESS = _scripts["CASELESS"]
 LATIN_BASE = [chr(c) for c in range(ord("a"), ord("z") + 1)]
 ALPHABETS = {"ru": _alpha["RUSSIAN"], "el": _alpha["GREEK"], "ar": _alpha["ARABIC"],
              "hi": _alpha["HINDI"], "th": _alpha["THAI"], "ko": _alpha["HANGUL"],
@@ -82,14 +88,14 @@ def forms_for(script: str, glyph: str) -> list[str]:
             forms += ["initial", "medial"]
         return forms
     if script in CASED:
-        return ["lower", "upper"]
+        return ["lower"] if glyph in CASELESS else ["lower", "upper"]
     return ["letter"]
 
 
 def alphabet_for(code: str) -> list[dict]:
     rows = ALPHABETS.get(code, [])
     if not rows:
-        rows = [(ch, ch, "") for ch in LATIN_BASE]
+        rows = [(ch, ch, "") for ch in LATIN_BASE + LATIN_EXTRAS.get(code, [])]
     return [{"glyph": g} for g, *_ in rows]
 
 BOX = 1000
@@ -115,7 +121,11 @@ CURSIVE = {("cyrillic", "cursive"), ("latin", "cursive")}
 # four letters to the Arabic set, so arabic takes both.
 COURSES = {
     "arabic": ["ar", "fa"], "cyrillic": ["ru"], "greek": ["el"], "hebrew": ["he"],
-    "devanagari": ["hi"], "thai": ["th"], "hangul": ["ko"], "latin": ["es"],
+    "devanagari": ["hi"], "thai": ["th"], "hangul": ["ko"],
+    # Latin takes every course that adds letters: the bundle is shared, so a
+    # French learner and a Yoruba one read the same a-z and each finds their
+    # own extras in it. es leads so a-z keeps the front of the list.
+    "latin": ["es"] + sorted(LATIN_EXTRAS),
 }
 
 
@@ -134,6 +144,56 @@ def shaped_text(script: str, glyph: str, form: str) -> str:
     if form == "upper":
         return glyph.upper()
     return glyph
+
+
+def covered(path: Path) -> set[int]:
+    """The code points a face actually maps, read out of its cmap (formats
+    4 and 12). PIL will happily draw a .notdef box for a missing glyph and
+    the thinner will turn that box into a plausible-looking four-stroke
+    letter, so every glyph is checked against this before it is rendered.
+    Dancing Script, the Latin cursive face, has no Hausa hooked letters and
+    no s-with-dot-below; without this they would ship as rectangles."""
+    b = path.read_bytes()
+    off = None
+    for i in range(struct.unpack(">H", b[4:6])[0]):
+        tag, _, o, _ = struct.unpack(">4sIII", b[12 + 16 * i:28 + 16 * i])
+        if tag == b"cmap":
+            off = o
+    if off is None:
+        return set()
+    cps: set[int] = set()
+    for i in range(struct.unpack(">H", b[off + 2:off + 4])[0]):
+        _, _, so = struct.unpack(">HHI", b[off + 4 + 8 * i:off + 12 + 8 * i])
+        t = off + so
+        fmt = struct.unpack(">H", b[t:t + 2])[0]
+        if fmt == 4:
+            segx2 = struct.unpack(">H", b[t + 6:t + 8])[0]
+            seg = segx2 // 2
+            ends = struct.unpack(">%dH" % seg, b[t + 14:t + 14 + segx2])
+            sp = t + 16 + segx2
+            starts = struct.unpack(">%dH" % seg, b[sp:sp + segx2])
+            dp = sp + segx2
+            deltas = struct.unpack(">%dh" % seg, b[dp:dp + segx2])
+            rp = dp + segx2
+            ranges = struct.unpack(">%dH" % seg, b[rp:rp + segx2])
+            for k in range(seg):
+                for c in range(starts[k], min(ends[k], 0xFFFE) + 1):
+                    if ranges[k] == 0:
+                        g = (c + deltas[k]) & 0xFFFF
+                    else:
+                        gp = rp + 2 * k + ranges[k] + 2 * (c - starts[k])
+                        if gp + 2 > len(b):
+                            continue
+                        g = struct.unpack(">H", b[gp:gp + 2])[0]
+                        if g:
+                            g = (g + deltas[k]) & 0xFFFF
+                    if g:
+                        cps.add(c)
+        elif fmt == 12:
+            for j in range(struct.unpack(">I", b[t + 12:t + 16])[0]):
+                a, e, _ = struct.unpack(">III", b[t + 16 + 12 * j:t + 28 + 12 * j])
+                cps.update(range(a, min(e, a + 0x10000) + 1))
+    return cps
 
 
 def render(font: ImageFont.FreeTypeFont, text: str) -> tuple[list[list[int]], int, int, int]:
@@ -1163,8 +1223,15 @@ def main():
             if style not in STYLES.get(script, ["print"]):
                 continue
             font = ImageFont.truetype(str(fdir / fname), EM)
+            have = covered(fdir / fname)
             for glyph in letters:
                 for form in forms_for(script, glyph):
+                    text = shaped_text(script, glyph, form)
+                    absent = [c for c in text if c != ZWJ and ord(c) not in have]
+                    if absent:
+                        print("  skip %s %s: %s has no %s"
+                              % (glyph, form, fname, "".join(absent)), file=sys.stderr)
+                        continue
                     g = extract(font, script, style, glyph, form)
                     if g:
                         all_glyphs.setdefault(script, []).append(g)
@@ -1185,7 +1252,10 @@ def main():
                 return "'" + json.dumps(v, ensure_ascii=False, separators=(",", ":")).replace("'", "''") + "'"
             rows.append(f"  ('{script}', '{g['glyph']}', '{g['form']}', '{g['style']}', {q(g['strokes'])}::jsonb, "
                         f"{q(g['joins'])}::jsonb, {q(g['hints'])}::jsonb, 'provisional', true)")
-    if not args.only and not args.limit:
+    # --limit renders a debug subset of each alphabet, so its rows would upsert
+    # a partial library over a whole one. --only is a whole script and its rows
+    # upsert only that script, so it writes a migration like any other run.
+    if not args.limit:
         sql = ["-- PROVISIONAL stroke library, derived from fonts (scripts/strokes/gen_from_fonts.py).",
                "-- Shapes are the typefaces' (Noto Naskh Arabic, Marck Script, Noto Sans, Dancing",
                "-- Script — all OFL); order and direction are heuristic and marked provisional.",
