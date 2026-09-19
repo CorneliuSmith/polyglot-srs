@@ -38,6 +38,14 @@ different, and each is a rule this programme has already paid for once:
   let a full pass run without it having been done: `--store` prints where the
   calibration lives and what it said.
 
+The judge itself — the rules, the schema, the two providers, the batching and
+the three gates — is `content_judge.py`'s `register` question, since the
+same discipline now serves four more questions (`docs/plans/
+quality-guardrails-telemetry.md` §4.3 J1). This module is the register
+question's stores, its fix queue and its journal; the names its tests and
+reviewers use (`VERDICT_SCHEMA`, `_judge_anthropic`, `grade_gold`, …) are
+kept here as the register-bound forms of the general ones.
+
 Usage:
 
     python -m backend.services.quality.register_pass --gold
@@ -61,6 +69,15 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlsplit
+
+from backend.services.quality import content_judge
+from backend.services.quality.content_judge import (  # noqa: F401 — re-exported for the tests
+    REGISTER,
+    REGISTER_RULES,
+    _parse,
+    _text_of,
+    system_prompt_for,
+)
 
 REPO = Path(__file__).resolve().parents[3]
 DATA = REPO / "data"
@@ -99,131 +116,15 @@ STORES = ("sentences", "vocab", "grammar", "readings",
 SUPPORT_STORES = ("db-locale", "db-hints", "db-explanations", "db-titles")
 
 # ---------------------------------------------------------------------------
-# The verdict schema — programme §3.1, exactly.
+# The verdict schema (programme §3.1) and the rules (§1) — the register
+# question's, rendered by content_judge. `_RULES` is the text the judge was
+# calibrated on (56/56 on the documented set); it lives with the other
+# questions now and is the same string.
 # ---------------------------------------------------------------------------
 
-VERDICT_SCHEMA: dict[str, Any] = {
-    "type": "object",
-    "properties": {
-        "i": {"type": "integer", "description": "The item's index in this batch."},
-        "verdict": {"type": "string", "enum": ["dialect", "classical", "msa", "unsure"]},
-        "variety": {
-            "type": ["string", "null"],
-            "enum": ["egyptian", "levantine", "gulf", "iraqi", "maghrebi", "mixed", None],
-        },
-        "evidence": {
-            "type": "array", "items": {"type": "string"},
-            "description": "The exact words that carry the verdict. Empty for msa.",
-        },
-        "kind": {
-            "type": ["string", "null"],
-            "enum": ["lexeme", "morphology", "orthography_only", "archaic", None],
-        },
-        "msa": {
-            "type": ["string", "null"],
-            "description": "The minimal MSA rewrite, keeping meaning, headword and level. Null if none is needed or none is possible.",
-        },
-        "meaning_kept": {"type": "boolean"},
-        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
-        "note": {"type": "string"},
-    },
-    "required": ["i", "verdict", "variety", "evidence", "kind", "msa",
-                 "meaning_kept", "confidence", "note"],
-    "additionalProperties": False,
-}
-
-BATCH_SCHEMA: dict[str, Any] = {
-    "type": "object",
-    "properties": {"verdicts": {"type": "array", "items": VERDICT_SCHEMA}},
-    "required": ["verdicts"],
-    "additionalProperties": False,
-}
-
-# ---------------------------------------------------------------------------
-# The judge's rules — programme §1, rendered.
-# ---------------------------------------------------------------------------
-
-_RULES = """\
-You are an Arabic register judge. For each item you answer one question: is \
-this Modern Standard Arabic (الفصحى), the register of news and textbooks?
-
-WHAT COUNTS AS NOT-MSA
-
-1. Dialect lexemes — words MSA does not have.
-   Egyptian: عايز/عاوز, مش, فين, إيه, إزاي, إزيك, دلوقتي, كده, علشان/عشان, \
-ده/دي/دول (as demonstratives), بتاع, برضو, لسه, أوي, يلا, بكرة (as "tomorrow"), \
-ماشي, خلاص (as "OK").
-   Levantine: بدي/بدك, شو, ليش, وين, هيك, هاد/هاي/هدول, منيح, كتير, هلق, لسا, \
-عم (as progressive marker), كمان (as "also"), معلش, كيفك.
-   Gulf/Iraqi: شلون, وش/وشو, شنو, ماكو/أكو, مو, الحين, توه, زين (as "good"), \
-عيل, هسه, دحين.
-   Maghrebi: واش, بزاف, غادي, كاين, علاش, دابا.
-
-2. Dialect morphology — MSA words in dialect grammar. The b-imperfect \
-(بيكتب, بتروح) and the ha-/h- future (هيروح, حيروح); negation with مش or ما…ش \
-(ما عرفتش); a demonstrative AFTER its noun (الكتاب ده); a question word at the \
-end (رايح فين؟); عم/قاعد/بـ progressives; pronunciation spelled out (ث→ت, \
-ذ→د/ز, ق→ء/ك/g).
-
-3. Classical or archaic — forms MSA no longer uses productively: energic and \
-jussive-with-ن forms, Qurʾanic vocabulary in an everyday sentence, حرف نداء \
-archaisms. Verdict "classical", kind "archaic". The fix is plain MSA press \
-register, never a more colloquial one.
-
-WHAT IS NOT A TELL — these have all been verified in this corpus as ordinary \
-MSA, and false alarms here have cost more than misses:
-   هو (he), عم (paternal uncle, and "from what?"), عمال (workers), دول \
-(states, and "to internationalize"), بدون, شكرًا, تمام, مين (harbours), كمان \
-(violin), زي (a verbal noun), زين (to adorn), خلاص (deliverance), بكرة (a ball, \
-and "early morning" — بكرة القدم is football), الحين inside بين الحين والآخر, \
-الموظفين (contains فين), خلّص (form II, to rescue), أوي (verbal noun of أوى).
-   A word is a tell only AS A WHOLE WORD IN ITS DIALECT SENSE. بـ followed by \
-a NOUN is the preposition, never the b-imperfect: بالسيارة, بنفسك, بالنسبة, \
-بيتها are all MSA. Judge the sentence, not the substring.
-
-ORTHOGRAPHY IS NOT REGISTER. Word-final ى vs ي, ة vs ه, hamza seats (أ/إ/ا), \
-the presence or absence of tashkeel, and Arabic-Indic digits are spelling, and \
-the grader already folds them. Never return "dialect" for one of these. If the \
-only oddity is spelling, return verdict "msa" with kind "orthography_only" and \
-name the spelling in the note, so the spelling pass can have it.
-
-ALLOWED MSA VARIATION. Pan-Arab MSA has regional lexical preferences that are \
-all MSA and must not be "fixed": سيارة everywhere; هاتف/جوال/موبايل (prefer \
-هاتف as the most widely understood, accept the others); مدرِّس/معلِّم; \
-الآن/حاليًا. Loanwords MSA press uses (إنترنت, كمبيوتر, تلفزيون) are fine.
-
-VOCABULARY ENTRIES ARE A DIFFERENT QUESTION. An item with a "rank" is a \
-headword from a frequency list, and the question is not only "is this string \
-MSA?" but "does this ENTRY exist because of an MSA word?". The rank is a count \
-over a real corpus, and a corpus of written Arabic contains dialect. So when \
-the headword is also a dialect word, ask whether the GLOSS's sense could \
-plausibly be that frequent:
-  - If the gloss names a common MSA word, the rank is earned and the entry is \
-MSA. كمان at rank ~4200 glossed "violin" is a real word at a believable rank. \
-So are دول "states / to internationalize", زين "to adorn", عم "from what?", \
-خلاص "deliverance", بكرة "ball, early morning".
-  - If the gloss names something vanishingly rare — an obscure plant, a \
-technical botanical or anatomical sense, a verb no newspaper has printed in a \
-century — then that sense cannot have earned a rank in the low thousands, and \
-the count belongs to the dialect homograph. The entry is a dialect word wearing \
-an MSA gloss. Return "dialect", name the dialect word in the evidence, and say \
-in the note which sense the rank actually belongs to. Set "msa" to null: there \
-is nothing to rewrite, the entry should be retired.
-This is the same shape as a misspelling that outranks the word it is a \
-misspelling of — the frequency is real, and it belongs to something other than \
-the entry it is filed under. Judge the rank, not only the string.
-
-THE REWRITE. Rewrite the minimum: keep every MSA word, replace only the \
-evidence, keep the meaning, keep the headword's surface form where one is \
-given, and keep the level. If the meaning exists only in dialect (a greeting \
-formula, a proverb), set "msa" to null and say so in the note — inventing an \
-MSA sentence nobody says is worse than retiring the row.
-
-"unsure" IS A LEGAL ANSWER and routes to a human. Use it rather than guessing. \
-Set "confidence" honestly: below 0.7 means you want a reviewer.
-
-Answer with one verdict object per item, in the schema given, using the item's \
-own "i". Return every item exactly once."""
+VERDICT_SCHEMA: dict[str, Any] = content_judge.schema_for(REGISTER)
+BATCH_SCHEMA: dict[str, Any] = content_judge.batch_schema_for(REGISTER)
+_RULES = REGISTER_RULES
 
 
 def system_prompt() -> str:
@@ -232,118 +133,39 @@ def system_prompt() -> str:
     The pin is the same string every maker and checker in `backend/services`
     carries since PR #473, so the judge and the makers hold one standard
     rather than two that merely agree today."""
-    from backend.services.quality_rules import register_line
-
-    return _RULES + "\n" + register_line(CODE).strip()
+    return system_prompt_for(REGISTER, CODE)
 
 
 # ---------------------------------------------------------------------------
-# The two providers
+# The two providers, bound to the register question.
+#
+# `content_judge` returns `(verdicts, usage)` because the judge loop logs the
+# spend; this CLI reports to a person, so these keep the verdict-only contract
+# its tests and callers were written to. The token count is the loop's, not
+# the reviewer's.
 # ---------------------------------------------------------------------------
 
 
 async def _judge_anthropic(items: list[dict], model: str | None) -> list[dict]:
-    """Ask Claude, with the schema enforced by output_config."""
-    from anthropic import AsyncAnthropic
-
-    from backend.config import get_settings
-    from backend.services.models import resolve_model
-
-    settings = get_settings()
-    client = AsyncAnthropic(api_key=settings.anthropic_api_key)
-    response = await client.messages.create(
-        model=model or resolve_model("sentence_checker", CODE),
-        max_tokens=8192,
-        system=system_prompt(),
-        messages=[{"role": "user", "content": json.dumps(items, ensure_ascii=False)}],
-        output_config={"format": {"type": "json_schema", "schema": BATCH_SCHEMA}},
-    )
-    return _parse(_text_of(response))
+    """Ask Claude at the checker tier, schema enforced by output_config."""
+    verdicts, _usage = await content_judge._judge_anthropic(REGISTER, items, model, CODE)
+    return verdicts
 
 
 async def _judge_openai(items: list[dict], base_url: str, model: str) -> list[dict]:
-    """Ask an OpenAI-compatible endpoint, with vLLM guided JSON.
-
-    vLLM, Ollama and llama.cpp all speak this; `response_format.json_schema`
-    is what makes the local judge hold the same shape as the Anthropic one
-    instead of returning prose we would have to regex."""
-    import httpx
-
-    payload = {
-        "model": model,
-        "temperature": 0,
-        "messages": [
-            {"role": "system", "content": system_prompt()},
-            {"role": "user", "content": json.dumps(items, ensure_ascii=False)},
-        ],
-        "response_format": {
-            "type": "json_schema",
-            "json_schema": {"name": "register_verdicts", "schema": BATCH_SCHEMA,
-                            "strict": True},
-        },
-    }
-    url = base_url.rstrip("/") + "/chat/completions"
-    async with httpx.AsyncClient(timeout=180) as http:
-        response = await http.post(url, json=payload)
-        response.raise_for_status()
-        body = response.json()
-    return _parse(body["choices"][0]["message"]["content"])
-
-
-def _text_of(response: Any) -> str:
-    parts = []
-    for block in getattr(response, "content", None) or []:
-        text = getattr(block, "text", None)
-        if text:
-            parts.append(text)
-    return "".join(parts)
-
-
-def _parse(text: str) -> list[dict]:
-    """The verdict list out of a model's reply, or an explicit failure.
-
-    A schema-constrained call should never need the brace scan; it is here
-    because a local server whose guided decoding is misconfigured returns
-    prose that parses as nothing, and silently returning [] would read as
-    "every row is MSA" — the worst possible failure for this script."""
-    if not (text or "").strip():
-        raise ValueError("judge returned an empty response")
-    try:
-        blob = json.loads(text)
-    except json.JSONDecodeError:
-        start, end = text.find("{"), text.rfind("}")
-        if start < 0 or end <= start:
-            raise ValueError(f"judge returned no JSON object: {text[:200]!r}") from None
-        blob = json.loads(text[start:end + 1])
-    verdicts = blob.get("verdicts") if isinstance(blob, dict) else blob
-    if not isinstance(verdicts, list):
-        raise ValueError(f"judge returned no verdict list: {str(blob)[:200]!r}")
+    """Ask an OpenAI-compatible endpoint (vLLM guided JSON)."""
+    verdicts, _usage = await content_judge._judge_openai(REGISTER, items, base_url, model,
+                                                         CODE)
     return verdicts
 
 
 def judge_for(base_url: str | None, model: str | None) -> Callable:
-    """The judge callable for this run, and the name to record it under."""
-    if base_url:
-        if not model:
-            raise SystemExit("--base-url needs --model (the endpoint's model id).")
-
-        async def local(items: list[dict]) -> list[dict]:
-            return await _judge_openai(items, base_url, model)
-        return local
-
-    async def anthropic(items: list[dict]) -> list[dict]:
-        return await _judge_anthropic(items, model)
-    return anthropic
+    """The judge callable for this run."""
+    return content_judge.judge_for(REGISTER, base_url, model, CODE)
 
 
 def judge_name(base_url: str | None, model: str | None) -> str:
-    if base_url:
-        host = urlsplit(base_url).hostname or "local"
-        return f"local:{model}@{host}"
-    if model:
-        return model
-    from backend.services.models import resolve_model
-    return resolve_model("sentence_checker", CODE)
+    return content_judge.judge_name(base_url, model, CODE)
 
 
 # ---------------------------------------------------------------------------
@@ -358,39 +180,8 @@ async def run_items(items: list[dict], judge: Callable, *, batch_size: int,
     A batch that fails is reported as `unsure` for each of its items rather
     than dropped: a missing row and an MSA row look identical in a count, and
     this programme has shipped that mistake before (quality rule 14)."""
-    batches = [items[i:i + batch_size] for i in range(0, len(items), batch_size)]
-    sem = asyncio.Semaphore(concurrency)
-
-    async def one(batch: list[dict]) -> list[dict]:
-        payload = [{"i": n, **{k: v for k, v in item.items() if k != "id"}}
-                   for n, item in enumerate(batch)]
-        async with sem:
-            try:
-                verdicts = await judge(payload)
-            except Exception as exc:                       # noqa: BLE001
-                logger.warning("batch failed (%s) — %d items to unsure",
-                               exc.__class__.__name__, len(batch))
-                return [{**item, "verdict": "unsure", "variety": None,
-                         "evidence": [], "kind": None, "msa": None,
-                         "meaning_kept": False, "confidence": 0.0,
-                         "note": f"judge error: {exc}"} for item in batch]
-        by_i = {v.get("i"): v for v in verdicts if isinstance(v, dict)}
-        out = []
-        for n, item in enumerate(batch):
-            v = by_i.get(n)
-            if v is None:
-                out.append({**item, "verdict": "unsure", "variety": None,
-                            "evidence": [], "kind": None, "msa": None,
-                            "meaning_kept": False, "confidence": 0.0,
-                            "note": "judge returned no verdict for this item"})
-            else:
-                out.append({**item, **{k: v.get(k) for k in VERDICT_SCHEMA["properties"]
-                                       if k != "i"}})
-        return out
-
-    results: list[dict] = []
-    for chunk in await asyncio.gather(*(one(b) for b in batches)):
-        results.extend(chunk)
+    results, _usage = await content_judge.run_items(
+        REGISTER, items, judge, batch_size=batch_size, concurrency=concurrency)
     return results
 
 
@@ -711,11 +502,8 @@ def summarise(results: list[dict]) -> dict:
 # The gold set's `label` column, mapped onto the judge's verdict vocabulary.
 # A reviewer writing `orthography_only` is saying "MSA, with a spelling note",
 # which is verdict `msa` — filing it as dialect is the specific failure §3.2
-# gates on, so the two must be comparable.
-_LABEL_TO_VERDICT = {
-    "dialect": "dialect", "classical": "classical", "msa": "msa",
-    "orthography_only": "msa", "unsure": "unsure", "broken": "broken",
-}
+# gates on, so the two must be comparable. The map is the question's.
+_LABEL_TO_VERDICT = REGISTER.label_map
 
 
 def load_gold() -> list[dict]:
@@ -726,96 +514,23 @@ def load_gold() -> list[dict]:
 
 
 def grade_gold(labelled: list[dict], results: list[dict]) -> dict:
-    """Agreement per §3.2, per category, plus the two hard gates."""
-    by_id = {r["id"]: r for r in results}
-    rows = []
-    for item in labelled:
-        label = (item.get("label") or "").strip().lower()
-        if not label:
-            continue
-        expected = _LABEL_TO_VERDICT.get(label, label)
-        got = by_id.get(item["id"])
-        if got is None:
-            continue
-        rows.append({
-            "id": item["id"], "store": item.get("store", ""),
-            "stratum": (item.get("stratum") or "").split(":")[0],
-            "expected": expected, "got": got.get("verdict"),
-            "label_kind": label, "got_kind": got.get("kind"),
-        })
-    if not rows:
-        return {"labelled": 0, "note": "no labelled rows — reviewers have not filled the set"}
+    """Agreement per §3.2, per category, plus the three gates.
 
-    # Gate 1: agreement on dialect vs msa, over the rows where the reviewer
-    # said one or the other.
-    binary = [r for r in rows if r["expected"] in ("dialect", "msa")]
-    agree = sum(1 for r in binary
-                if (r["got"] == "dialect") == (r["expected"] == "dialect"))
-    # Gate 2: recall on the labelled dialect rows — all of them, §3.2.
-    positives = [r for r in rows if r["expected"] == "dialect"]
-    caught = [r for r in positives if r["got"] == "dialect"]
-    # Gate 3: an orthography-only row must never be filed as dialect.
-    orth = [r for r in rows if r["label_kind"] == "orthography_only"]
-    misfiled = [r for r in orth if r["got"] == "dialect"]
-
-    per_stratum: dict[str, dict] = {}
-    for r in binary:
-        bucket = per_stratum.setdefault(r["stratum"], {"n": 0, "agree": 0})
-        bucket["n"] += 1
-        bucket["agree"] += int((r["got"] == "dialect") == (r["expected"] == "dialect"))
-    per_store: dict[str, dict] = {}
-    for r in binary:
-        bucket = per_store.setdefault(r["store"], {"n": 0, "agree": 0})
-        bucket["n"] += 1
-        bucket["agree"] += int((r["got"] == "dialect") == (r["expected"] == "dialect"))
-
-    return {
-        "labelled": len(rows),
-        "binary_n": len(binary), "binary_agree": agree,
-        "agreement": (agree / len(binary)) if binary else None,
-        "positives": len(positives), "caught": len(caught),
-        "recall": (len(caught) / len(positives)) if positives else None,
-        "orthography_n": len(orth), "orthography_misfiled": len(misfiled),
-        "per_stratum": per_stratum, "per_store": per_store,
-        "misses": [r for r in positives if r["got"] != "dialect"],
-        "false_alarms": [r for r in binary
-                         if r["expected"] == "msa" and r["got"] == "dialect"],
-        "gate_agreement": bool(binary) and agree / len(binary) >= 0.95,
-        "gate_recall": bool(positives) and len(caught) == len(positives),
-        "gate_orthography": not misfiled,
-    }
+    The general grader calls the third gate's class the *guard*; here it is
+    `orthography_only`, and the report carries both names so the programme
+    document, the reviewers' write-up and the tests keep reading
+    `orthography_misfiled`."""
+    report = content_judge.grade_gold(REGISTER, labelled, results)
+    if report.get("labelled"):
+        report["orthography_n"] = report["guard_n"]
+        report["orthography_misfiled"] = report["guard_misfiled"]
+        report["gate_orthography"] = report["gate_guard"]
+    return report
 
 
 def print_gold_report(report: dict) -> bool:
     """Print the §3.2 report. Returns True when all three gates pass."""
-    if not report.get("labelled"):
-        print("\nGOLD SET NOT LABELLED — nothing to grade against.")
-        print(report.get("note", ""))
-        print("Reviewers fill the `label` column of "
-              f"{GOLD.relative_to(REPO)} using programme §1 and §6.")
-        return False
-    pct = f"{report['agreement']:.1%}" if report["agreement"] is not None else "n/a"
-    rec = f"{report['recall']:.1%}" if report["recall"] is not None else "n/a"
-    print(f"\nCALIBRATION — {report['labelled']} labelled items")
-    print(f"  dialect vs msa agreement : {pct} "
-          f"({report['binary_agree']}/{report['binary_n']})   "
-          f"gate >= 95%  {'PASS' if report['gate_agreement'] else 'FAIL'}")
-    print(f"  recall on labelled dialect: {rec} "
-          f"({report['caught']}/{report['positives']})   "
-          f"gate = 100%  {'PASS' if report['gate_recall'] else 'FAIL'}")
-    print(f"  orthography-only misfiled : {report['orthography_misfiled']}"
-          f"/{report['orthography_n']}   gate = 0  "
-          f"{'PASS' if report['gate_orthography'] else 'FAIL'}")
-    if report["per_stratum"]:
-        print("  by stratum:")
-        for name, b in sorted(report["per_stratum"].items(), key=lambda t: -t[1]["n"]):
-            print(f"     {name:18s} {b['agree']}/{b['n']}")
-    for miss in report["misses"][:10]:
-        print(f"  MISS  {miss['id']} expected dialect, got {miss['got']}")
-    for fa in report["false_alarms"][:10]:
-        print(f"  FALSE ALARM  {fa['id']} expected msa, got dialect")
-    return all((report["gate_agreement"], report["gate_recall"],
-                report["gate_orthography"]))
+    return content_judge.print_gold_report(REGISTER, report)
 
 
 # ---------------------------------------------------------------------------
@@ -871,15 +586,9 @@ async def main(argv: Sequence[str] | None = None) -> int:
 
     if args.gold:
         labelled = load_gold()
-        items = []
-        for r in labelled:
-            item = {"id": r["id"], "field": r["field"], "text": r["text"],
-                    "translation": r.get("translation") or ""}
-            # A vocabulary item's rank is the question, not decoration —
-            # see VOCABULARY ENTRIES in the rules.
-            if r["id"].startswith("ar-vocab-"):
-                item["rank"] = int(r["id"].rsplit("-", 1)[-1])
-            items.append(item)
+        # A vocabulary item's rank is the question, not decoration — see
+        # VOCABULARY ENTRIES in the rules; gold_items reads it from the id.
+        items = content_judge.gold_items(REGISTER, labelled)
         if args.limit:
             items = items[:args.limit]
         results = await run_items(items, judge, batch_size=args.batch_size,

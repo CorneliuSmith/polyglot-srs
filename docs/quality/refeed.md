@@ -50,6 +50,17 @@ supabase db push
    transaction. `--detail` lists every gloss change. Never deletes a
    vocabulary row.
 
+   Two columns added 18 Sep 2026 change what `--apply` will do. `kept` is
+   a definition a reviewer edited in the Workshop (`vocabulary.curated`)
+   that differs from the file: it is LEFT ALONE, because the file is not
+   the truth for it — before this, the apply reverted every such fix. If
+   the file is right and the edit wrong, fix the row in the Workshop, not
+   the file. `rename` is a word that left the file and a new word at the
+   same frequency rank — one headword respelled. `--apply` SKIPS that
+   course and prints the pairs until the old spelling is in
+   `data/vocab_exclusions.tsv` (rule 73: the seeder adds the new spelling,
+   nothing removes the old one, and the course teaches the word twice).
+
    Since migration 20261016 it also **retires** words listed in
    `data/vocab_exclusions.tsv` — 858 of them: alphabet letters glossed as
    vocabulary, Arabic punctuation, English words WordNet matched to a
@@ -214,6 +225,53 @@ delete it. The path is printed at the end of every `--apply`.
   (`review_translations`, `review_hints`, gym top-up, example diversity) are
   owner decisions, listed in `docs/plans/quality-parity.md` Phase 6, and
   not part of this sequence.
+
+## Since your last run — what changed and what it needs (19 Sep 2026)
+
+Two migrations and four content changes are waiting. **Nothing below breaks if
+you do it in a different order, and nothing costs money unless you switch the
+judge on yourself.**
+
+### 1. Two migrations (`supabase db push`)
+
+| file | what it adds | what is broken until then |
+|---|---|---|
+| `20261029000000_quality_telemetry.sql` | `quality_runs`, `content_verdicts`, `quality_settings`, `language_quality_targets` | Nothing *breaks*. Admin → Content → Content health says which migration is missing and points at Rollouts → Deployment; the nightly loop logs that it wrote nothing rather than looking healthy; the judge cannot be switched on. |
+| `20261030000000_telemetry_columns.sql` | `tutor_usage.outcome/latency_ms`; `card_feedback.field/drill_id/locale/support_locale`; `card_change_requests.locale` | Learner reports still arrive; they just cannot say which card layer or which locale. |
+
+Check afterwards at Admin → Rollouts → Deployment, which lists any migration
+the database is still missing.
+
+### 2. The judge is OFF, and turning it on is a decision about money
+
+Admin → Costs → **Quality settings**. Four controls: the master switch, rows
+per cycle, a daily token cap, and the model. With everything on, only
+`register` on Arabic is judged — it is the one pair in
+`data/eval/calibrated.json`, and the other four questions send nothing
+whatever the switches say. Coverage is written for every course and question
+either way, so the panel shows the gap before you spend anything. Spend is on
+that same panel as `spent today N of cap`, and each night's cost row carries
+the verdicts it bought.
+
+### 3. Content changes since the last push
+
+| change | courses | command |
+|---|---|---|
+| 236 English definitions repaired (`en-sense-2026-09-19.md`) | en | `reconcile -l en --apply` (they are gloss overrides, so reconcile carries them) |
+| 3 alphabet rows retired, 2 overrides deleted (CHECKS §41) | nl, ca, yo | `reconcile -l nl --apply`, same for ca and yo — each reports one departed row with its exclusion already in place |
+| 874 Yoruba bare forms retired (17 Sep tone repair) | yo | still owed from the last handover: `reconcile -l yo --apply` |
+| topic files for 9 courses | en, ru, jam, la, mi, ha, xh, yo, tr | `seeder.generate_content -l <code> -k topics --topics-file data/topics/<code>.json --max 3000` |
+
+### 4. Two things measured and deliberately left for you
+
+- **~1,000 English cards are personal names with no definition at all**, and
+  another ~231 are tokenizer shrapnel (`comin`, `thinkin`, `argh`): 1,231 rows,
+  12.4% of the course, none in the top 2,000 (CHECKS §42). They meet your
+  25 Aug retirement criterion with room to spare, but that rule was applied
+  once to a table you read, and retiring a thousand more rows is your call.
+- **The Arabic gloss divergence (24.6%) has not been re-measured.** Repairing
+  the English definitions removes the upstream cause but does not rewrite the
+  glosses; a re-run should follow a re-seed, not precede it.
 
 ## History
 

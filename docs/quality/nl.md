@@ -237,3 +237,16 @@ what remains in this course.
 **Band 1001–2000, same day: 126 more.**
 - `tijdje` was "diminutive of tijd" → "a little while, a short time (het; diminutive of tijd)"
 - `schoenen` was "plural of schoen" → "shoes, footwear (plural of schoen)"
+
+## The alphabet in the word list (19 Sep 2026)
+
+Rank 1,036 `a` was a vocabulary card whose definition read "the first letter of
+the Dutch alphabet". The rank is the letter being counted as a token: modern
+Dutch has no everyday word *a* — the indefinite article is `een`, and the only
+lexical sense the row offered was `de a`, a small stream in place names. The
+alphabet is the alphabet deck's job (CHECKS §37), so the row is excluded in
+`data/vocab_exclusions.tsv` and removed from `nl_frequency.tsv`.
+
+Found by widening `wrong_sense_gloss` to judge a one- or two-character headword
+at any rank rather than only inside the top 1,000 (CHECKS §41). It was 36 ranks
+past the band.

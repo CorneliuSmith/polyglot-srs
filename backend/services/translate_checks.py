@@ -25,6 +25,13 @@ in this program:
   enforce it: a rendering must carry the same blanks its source did.
 * Locale punctuation a grader shrugs at: a Spanish question without its
   opening question mark. Wrong in every schoolbook the learner owns.
+* A gloss in the wrong PART OF SPEECH. The maker charter asks for a rendering
+  that matches the row's part of speech and the checker is meant to hold it
+  to that; measured on 18 Sep 2026, 23% of the Arabic divergences a reviewer
+  reported were a noun standing on a verb row. Only Arabic, only verbs:
+  that is the one class with a measured predicate (`nominal_gloss_on_a_verb`,
+  76% precision), and at 76% the gate WITHHOLDS the rendering for another
+  attempt rather than filing a rejection a human has to clear.
 
 All pure functions — no client, no settings — so the tests exercise them
 without touching a model (quality rule 15).
@@ -114,10 +121,45 @@ def safe_row(rows: list, i) -> object | None:
     return None
 
 
+# Where the part-of-speech predicate has been MEASURED. A locale is added
+# here after its own 200-row gold set, the way `ar` got one (quality rule 1:
+# a class, not an Arabic quirk — but the instrument is per language).
+_POS_CHECKED_LOCALES = {"ar"}
+
+
+def pos_mismatch(word: str, pos: str | None, definition: str | None,
+                 rendering: str, *, locale: str = "") -> str | None:
+    """Why *rendering* is in the wrong part of speech for its row, or None.
+
+    Arabic verb rows only: `nominal_gloss_on_a_verb` is the predicate the
+    18 Sep 2026 measurement stands behind (76% precision, 86% recall on 120
+    judged rows), and it is imported lazily so this module stays free of
+    the audit script's database imports. *word* is the course headword — the
+    predicate needs it to spare an English `-ing` word, which a masdar
+    glosses correctly. Any other locale or part of speech is not judged:
+    a heuristic that was measured on one language and applied to nine is
+    the kind of guard this program has already paid for once.
+    """
+    if (locale or "").split("-")[0] not in _POS_CHECKED_LOCALES:
+        return None
+    if (pos or "").strip() != "verb":
+        return None
+    from backend.services.quality.audit_locale_rows import (  # noqa: PLC0415
+        nominal_gloss_on_a_verb,
+    )
+    if nominal_gloss_on_a_verb(word or "", pos, definition, rendering or ""):
+        return "noun where the row needs a verb"
+    return None
+
+
 def gate(source: str, rendering: str, *, locale: str = "",
-         answer: str = "") -> str | None:
+         answer: str = "", pos: str = "", word: str = "") -> str | None:
     """The reason to withhold *rendering*, or None when it may be stored.
-    Order is severity: a leak is worse than an echo is worse than a mark."""
+    Order is severity: a leak is worse than an echo is worse than a mark.
+
+    *pos* and *word* are the row's part of speech and headword, for a
+    vocabulary gloss; a sentence or a label has neither and is not judged
+    for part of speech (`pos_mismatch`)."""
     if not (rendering or "").strip():
         return "empty"
     if answer and leaks_answer(rendering, answer):
@@ -128,4 +170,4 @@ def gate(source: str, rendering: str, *, locale: str = "",
         return "identical to the source"
     if not locale_punctuation_ok(locale, rendering):
         return "missing inverted punctuation"
-    return None
+    return pos_mismatch(word, pos, source, rendering, locale=locale)

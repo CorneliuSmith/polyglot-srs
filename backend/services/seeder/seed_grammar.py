@@ -9,7 +9,10 @@ diff-synced by (sentence, answer) — matched rows keep their ids so learners'
 gym_progress survives, and human-touched drills are never deleted). A point a
 human has curated (approved/edited in the app) is never overwritten: its text
 diffs go to the content_suggestions review queue and its new drills land
-reviewed=false in the pending-drills queue.
+reviewed=false in the pending-drills queue. A curated point is found by its
+current title OR any former title the audit log holds for it
+(`curated_points_by_title`), so a point retitled in the Workshop is not
+re-inserted from the file under its old name beside the retitled one.
 
 Curriculum file shape:
     {
@@ -127,6 +130,64 @@ def _clean_prerequisites(raw) -> list[str]:
             seen.add(title)
             out.append(title)
     return out
+
+
+async def curated_points_by_title(conn, language_id) -> dict[str, dict]:
+    """The course's human-owned points, indexed by every title they have
+    carried — the current one and each former one the audit log remembers.
+
+    The seeder finds a curated point by its title, and the upsert below is
+    `ON CONFLICT (language_id, title)`. Both are right until a reviewer
+    retitles the point in the Workshop: the file still carries the OLD title,
+    no curated row has it any more, so the file's point looks new and the
+    upsert inserts it — the original, explanation and drills included — as a
+    second point beside the one the reviewer just fixed. Nothing in the run
+    reports it; the course simply teaches the point twice.
+
+    `_edit_grammar_card` writes every retitle to `content_change_log` as
+    `field = 'title'` with the prior title in `before`. Indexing a curated
+    point under those former titles too is what lets the file's stale title
+    find the live row, so the re-seed takes the protected path (diffs to the
+    suggestion queue, drills pending) instead of inserting. A current title
+    always wins over a former one: two points may legitimately have swapped
+    names, and the row that carries a title now is the one the file means.
+
+    The log table landed in migration 20260823; without it there is no
+    history and the index is what it always was.
+    """
+    rows = await conn.fetch(
+        "SELECT id, title, function_note, explanation, culture_note "
+        "FROM grammar_points WHERE language_id = $1 AND curated = true",
+        language_id,
+    )
+    by_title: dict[str, dict] = {r["title"]: r for r in rows}
+    if not rows:
+        return by_title
+    by_id = {str(r["id"]): r for r in rows}
+    try:
+        history = await conn.fetch(
+            "SELECT entity_id, before FROM content_change_log "
+            "WHERE entity_type = 'grammar_point' AND field = 'title' "
+            "AND language_id = $1",
+            language_id,
+        )
+    except asyncpg.exceptions.UndefinedTableError:
+        return by_title
+    for h in history:
+        cur = by_id.get(str(h["entity_id"]))
+        if cur is None:
+            continue
+        before = h["before"]
+        if isinstance(before, str):
+            try:
+                before = json.loads(before)
+            except ValueError:
+                continue
+        former = ((before or {}).get("title") or "").strip() if isinstance(
+            before, dict) else ""
+        if former and former not in by_title:
+            by_title[former] = cur
+    return by_title
 
 
 class GrammarSeeder:
@@ -348,12 +409,7 @@ class GrammarSeeder:
                 reseed_grammar_proposal,
             )
 
-            curated_rows = await conn.fetch(
-                "SELECT id, title, function_note, explanation, culture_note "
-                "FROM grammar_points WHERE language_id = $1 AND curated = true",
-                language_id,
-            )
-            curated_by_title = {r["title"]: r for r in curated_rows}
+            curated_by_title = await curated_points_by_title(conn, language_id)
 
             count = 0
             hint_rows = 0

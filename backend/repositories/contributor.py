@@ -4442,10 +4442,21 @@ async def _edit_vocab_card(
     leaves the next locale to inherit the same wrong sentence. The locale
     renderings are not touched — the translator re-derives them, and the
     stale ones are what the AI-translations queue exists to catch.
+
+    A definition edit also marks the row `curated`. Until 18 Sep 2026 it did
+    not, and `reconcile --apply` computes its gloss corrections as "database
+    differs from the file" — so every definition a reviewer fixed in the
+    Workshop was written back to the file's wording on the owner's next
+    reconcile, silently, with a rollback line nobody would think to look
+    for. Grammar had the protection already (`approve_suggestion` sets
+    `curated` on both kinds); this is the write path that did not. The flag
+    travels in the same audit row as the definition so the History view
+    shows the two together, and `reconcile` reports the row under `kept`
+    instead of correcting it.
     """
     prev = await conn.fetchrow(
         """
-        SELECT v.language_id, v.reading,
+        SELECT v.language_id, v.reading, v.curated,
                (SELECT definition FROM translations t
                  WHERE t.vocabulary_id = v.id AND t.locale = 'en' LIMIT 1)
                    AS definition
@@ -4483,12 +4494,19 @@ async def _edit_vocab_card(
                 """,
                 vocabulary_id, definition,
             )
+            # Same statement the suggestion path runs: a human-owned card is
+            # what the seeder and the reconcile both check before writing.
+            await conn.execute(
+                "UPDATE vocabulary SET curated = true WHERE id = $1",
+                vocabulary_id,
+            )
             await log_change(
                 conn, entity_type="vocabulary", entity_id=vocabulary_id,
                 actor_id=editor_id, action="edited", field="definition",
                 language_id=language_id,
-                before={"definition": prev["definition"]},
-                after={"definition": definition},
+                before={"definition": prev["definition"],
+                        "curated": bool(prev["curated"])},
+                after={"definition": definition, "curated": True},
             )
     return "ok"
 
@@ -4498,11 +4516,22 @@ async def _edit_grammar_card(
 ) -> str:
     """A point's title and/or explanation. The explanation goes through
     `save_explanation`, so it re-enters the review pool exactly as an edit
-    from the grammar editor does; the title is a straight update (nothing
-    downstream keys on it) with its own audit row."""
+    from the grammar editor does; the title is a straight update with its
+    own audit row.
+
+    "Nothing downstream keys on the title" was wrong: `seed_grammar` upserts
+    `ON CONFLICT (language_id, title)` and finds human-owned points by title.
+    A retitle therefore has to do two things a plain UPDATE did not (18 Sep
+    2026). It marks the row `curated`, as `save_explanation` already does
+    for the body — a retitled point that was never otherwise edited was the
+    one the seeder could still overwrite. And its audit row must carry the
+    former title in `before`, because that row is how the seeder learns the
+    file's stale title means this point (`curated_points_by_title`) rather
+    than a new one to insert beside it.
+    """
     prev = await conn.fetchrow(
-        "SELECT language_id, title, explanation, culture_note, reference_links "
-        "FROM grammar_points WHERE id = $1",
+        "SELECT language_id, title, explanation, culture_note, reference_links, "
+        "curated FROM grammar_points WHERE id = $1",
         point_id,
     )
     if prev is None:
@@ -4512,14 +4541,15 @@ async def _edit_grammar_card(
         title = (fields["sentence"] or "").strip()
         if title and title != prev["title"]:
             await conn.execute(
-                "UPDATE grammar_points SET title = $2 WHERE id = $1",
+                "UPDATE grammar_points SET title = $2, curated = true WHERE id = $1",
                 point_id, title,
             )
             await log_change(
                 conn, entity_type="grammar_point", entity_id=point_id,
                 actor_id=editor_id, action="edited", field="title",
                 language_id=str(prev["language_id"]),
-                before={"title": prev["title"]}, after={"title": title},
+                before={"title": prev["title"], "curated": bool(prev["curated"])},
+                after={"title": title, "curated": True},
             )
 
     if "translation" in fields:

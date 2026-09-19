@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import asyncio
 import logging
+import time
 from uuid import UUID
 
 import anthropic
@@ -114,6 +115,7 @@ async def _write_reading(
     it — a task nobody awaits otherwise fails silently."""
     key = str(user_id)
     try:
+        started = time.perf_counter()
         reading, usage = await generate_reading(
             body.language_code, body.topic.strip(), learner,
             gloss_locale=gloss_locale, model=model,
@@ -123,10 +125,14 @@ async def _write_reading(
                 "complexity": body.complexity,
             },
         )
+        # The write plus its contract grader and at most one rewrite — the
+        # wait the learner's poll actually covers, not one model call.
+        latency_ms = int((time.perf_counter() - started) * 1000)
         async with rls_connection(user_id) as conn:
             await log_tutor_usage(
                 conn, user_id, body.language_id, model,
                 usage=usage, kind="reader",
+                outcome="ok", latency_ms=latency_ms,
             )
             reading_id = await save_reading(
                 conn, user_id, body.language_id, body.topic.strip(),

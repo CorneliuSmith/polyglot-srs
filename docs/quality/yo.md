@@ -432,3 +432,16 @@ leaves both live until the next reconcile.
 - **212 with nothing in the dictionary**, and 60 with no IPA.
 - **Phase 8 authoring is now unblocked** — 701 of the top-1000 still have no
   blankable sentence.
+
+## The digraph in the word list (19 Sep 2026)
+
+Rank 1,148 `gb`, tagged `character`, defined as "alternative letter-case form
+of Gb (\"The eighth letter of the Yoruba alphabet\")". A letter of the Yoruba
+alphabet — a digraph — sitting in the vocabulary list, which the alphabet deck
+already teaches (CHECKS §37). Excluded in `data/vocab_exclusions.tsv` and
+removed from `yo_frequency.tsv`.
+
+Found by CHECKS §41. Yoruba was the course that made `wrong_sense_gloss`
+fail-level in the first place — its five commonest grammar words were once
+glossed as names of Latin letters — and this row survived that sweep by sitting
+148 ranks past the band.

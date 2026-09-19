@@ -2220,3 +2220,205 @@ it never writes to the database.
   same blank-ability gate `apply_authored_sentences.py` uses, and routes it
   to the authored-replacement queue instead. **A register fix and a
   card-integrity fix are different fixes and the second is not optional.**
+
+## §40 Nightly judge — a model reads the row, on a budget, and its coverage is a row (18 Sep 2026)
+
+**What it measures.** Whether a row is *right*, which no mechanical check
+here asks: `content_judge`'s five questions (`register`, `sense`, `gloss`,
+`scripture`, `card_shape`) applied to live rows by
+`backend/services/quality/judge_step.py` once a night, inside the quality
+loop, after every free measurement has been written. Per (question,
+course) it writes one `quality_runs` row `kind='judge' metric='tokens'`
+(the spend ledger: value = input + output tokens, population = calls,
+model and full usage in `meta`), one `metric='flagged.<question>'`
+(findings in the question's positive class at confidence >= 0.7, out of
+rows judged — the panel's rate against `max_judge_flag_pct`), and the
+verdicts themselves in `content_verdicts`, each carrying the tokens row's
+id as `run_id`. Separately, and whether or not the judge is on, the loop
+writes `kind='coverage' metric='judge.<question>'` for **every course and
+every question** — rows with any verdict, out of the question's scope,
+with `calibrated` in the meta — so the panel can show 0 of N for a course
+the judge has never read rather than nothing.
+
+**What gates it, in order, each failing closed.** `quality_settings.judge_enabled`
+(off when the row is unreadable; nothing else is read when it is off);
+today's spend from the ledger against `judge_daily_token_cap`, re-checked
+before every batch of `BATCH_SIZE`; `language_quality_targets.judge_enabled`
+per course; and `data/eval/calibrated.json`, which names the (question,
+course) pairs whose gold set has cleared the three §3.2 gates — the
+switches decide whether money is spent, the file decides on what. A pair
+not in it is listed in the cycle's stats as `not calibrated` and never
+sent. The file ships in the API image by name (`Dockerfile` `COPY`, the
+`.dockerignore` negation, both pinned by `test_runtime_data_ships.py`):
+absent, it reads as empty, which is the judge silently off with the switch
+on. `judge_rows_per_cycle` is split evenly across the surviving pairs.
+Nothing about any of this is a `config.py` constant: the owner sets the
+cap in the admin panel because it can be a lot of money.
+
+**Which rows, in what order.** `repositories/verdicts.candidates`: never
+judged for this question first, the top of the frequency band first
+within them, then the rows judged longest ago. Register reads example
+sentences and drills (the `{{answer}}` marker filled) in the item shape
+its calibration used — text, translation, headword, and no rank, because
+its rules treat a ranked item as a frequency-list entry. Sense and
+card_shape read `vocabulary` with its `en` definition; gloss reads every
+non-`en` translation beside the `en` definition; scripture reads example
+sentences. Retired words are out of every scope (`vocabulary.retired_at`,
+20261016) and retired points' drills out of register's (20261017), each
+behind a `column_present` probe so a database without the column widens
+the scope by those rows instead of emptying it; unreviewed and flagged
+rows stay in (DEBT.md, the judge entry). A verdict's confidence is stored
+as the four-place Decimal the flagged count compared, not the float's
+binary expansion, so `confidence >= 0.7` in SQL and the ledger agree.
+
+**Status: all 27 for coverage; scoped to `register`/`ar` for judging, and
+that provisionally.** The coverage rows are written for every course from
+the first night. The judge itself runs only where `calibrated.json` says
+so, and today that is Arabic register on 56 documented answers with the
+614-row gold set still unlabelled. The other four questions have a
+specification and no set (`data/eval/README.md`); until a set clears the
+gates they judge nothing and their coverage rows say `calibrated: false`.
+A verdict routes nowhere (plan J5) until owner decision #2 gives the judge
+a service account, and its spend is in `quality_runs`, not `tutor_usage`,
+for the same reason (DEBT.md, "The judge's spend is not in the AI-costs
+table").
+
+## §41 The alphabet in the word list, past the band that was looking for it (19 Sep 2026)
+
+**What it measures.** `wrong_sense_kind` in `audit_content.py`, the
+`wrong_sense_gloss` rule, now takes the headword as well as the rank and the
+gloss. A gloss whose FIRST sense describes a letter is a finding inside
+`WRONG_SENSE_RANK_BAND` (1,000) as before — and, at **any** rank, when the
+headword is itself one or two characters. Fail-level, all 27 courses.
+
+**Why the second predicate exists.** `en-sense-ar-gloss-2026-09-18.md` §5
+recommended lifting the band, on the reading that 1,000 "was chosen for the
+letter-name defect and has been carried unexamined". Re-measured on the rows
+production serves (`_frequency_rows`, so with `gloss_overrides.tsv` laid over
+the file) across every course at every rank: **8 hits, none inside the band.**
+Five are the class the band's own comment protects, doing exactly what it
+predicts —
+
+| course | rank | word | first sense |
+|---|---:|---|---|
+| en | 2,872 | `beth` | the 2nd letter of the Hebrew alphabet |
+| en | 3,180 | `alpha` | the 1st letter of the Greek alphabet |
+| en | 7,693 | `beta` | the 2nd letter of the Greek alphabet |
+| en | 7,698 | `gamma` | the 3rd letter of the Greek alphabet |
+| en | 9,356 | `theta` | the 8th letter of the Greek alphabet |
+
+— real English nouns whose meaning IS a foreign letter's name. **The
+recommendation was wrong and the band is right**: lifting it would have put a
+fail-level rule permanently red on five rows that are not defects. The
+correction is recorded in the 18 Sep document itself.
+
+**What the re-measurement did find** is a different sub-class, invisible to
+every instrument because it sits just past the band:
+
+| course | rank | word | pos | what the card taught |
+|---|---:|---|---|---|
+| nl | 1,036 | `a` | noun | "the first letter of the Dutch alphabet" |
+| yo | 1,148 | `gb` | character | "alternative letter-case form of Gb" — the 8th letter |
+| ca | 2,734 | `y` | conj | "The twenty-fifth letter of the Catalan alphabet" |
+
+The course's own alphabet, sitting in its word list at a vocabulary rank. That
+is the alphabet deck's job (`seed_alphabet`, §37), and two of the three carry a
+second defect on top: Catalan `y` is tagged `conj`, the part of speech of
+*Spanish* `y` ("and") — modern Catalan writes that conjunction `i` — and Dutch
+`a` earns rank 1,036 by being counted as a token, not as a word.
+
+**The discriminator is the headword's length, not its rank.** A word that
+*names* a letter is spelled out (`alpha`, `herufi`, `χι`, `fi`); a letter *is*
+one or two characters. That separates all five protected rows from all three
+defects with nothing on the wrong side of the line, which is the same test the
+rank band had to pass to become fail-level.
+
+**What was done.** The three rows are removed from their frequency files and
+excluded in `data/vocab_exclusions.tsv` with the reason, so a re-generation
+cannot bring them back (quality rule 27). The rule then flags **0 of 27
+courses**, which is the point: it is a tripwire for the next extraction, not a
+backlog. `word` defaults to `""`, so a caller with only a gloss gets the
+band-limited rule it always got — widening a fail-level rule under callers that
+did not ask is how a guard turns into an outage.
+
+**The definitions were AUTHORED, not inherited.** `ca y` and `nl a` each had
+a row in `gloss_overrides.tsv` carrying the same letter-name text as the
+frequency column — an override that repeated the defect rather than fixing it.
+Removing the headwords orphaned them, `TestNoDormantOverrides` fired on the
+next full run, and both override rows went with the exclusions. That guard has
+now caught this class three times, always from a pass that excluded a word and
+forgot what else names it (quality rule 51): **an exclusion is not finished
+until the override file has been checked for the same headword.**
+
+**Cost.** Three vocabulary rows retired across three courses, two override
+rows deleted. `reconcile` will report the three as departed with an exclusion
+already in place, which is the shape rule 73 requires.
+
+## §42 The card with no definition anywhere (19 Sep 2026)
+
+**What it measures.** Nothing yet — this is the finding, and the guard is the
+work it names. A vocabulary row whose committed definition is blank AND whose
+headword `wordnet_sense.best_synset` cannot resolve ships a card with an empty
+definition. English only, because English is the one course whose definitions
+are resolved at seed time rather than committed (`seed_english.py`: "WordNet
+still resolves anything the file leaves blank").
+
+**Measured on the rows production serves, 19 Sep 2026:**
+
+| | n |
+|---|---:|
+| English rows with a blank committed definition | 1,231 |
+| ...that `best_synset` also cannot fill | **1,231 (12.4% of the course)** |
+| tokenizer shrapnel (`comin`, `thinkin`, `argh`, 1–3 letters) | 231 |
+| a real headword WordNet does not carry — mostly given names | 1,000 |
+| in the top 2,000 | **0** |
+
+**Why every instrument was quiet.** `wrong_sense_gloss`, `circular_gloss` and
+`relation_only_gloss` all read the definition and skip a row whose definition
+is empty — the guard clause is `if not gloss: continue`, three times. A rule
+that inspects text cannot fire on the absence of text, so the emptiest cards in
+the corpus were the ones no rule could reach. `_audit_wrong_sense_glosses` even
+says English is out of scope "because its glosses are built at seed time",
+which is true of the *file* and not of the card.
+
+**Why it is all tail.** Zero in the top 2,000. Every pass this programme has
+run went top-down, so a defect that starts at rank 2,042 and runs to the end
+was never in a sampled band. Same shape as the relation-only class, which
+started at exactly rank 201 where Phase 2d stopped.
+
+**The treatment splits three ways and only one third is mechanical.**
+
+- **231 shrapnel rows** are a retirement: `comin`, `gettin`, `somethin`,
+  `thinkin`, `tryin` are one token each of a contraction the tokenizer split,
+  and `seed_english` already drops four of them by hand (`ain`, `isn`, `de`,
+  `mm`) — a list that should be a rule.
+- **~1,000 given names** are the owner's 25 Aug rule, whose criterion ("a name
+  with no English equivalent named, unanswerable from a definition") these meet
+  with room to spare: they have no definition at all. That rule was applied
+  once, to a table the owner read, and applying it to a thousand more rows is
+  their call, not a pass's.
+- **The residue** — `amongst`, `beside`, `toward`, `versus`, `whereas`,
+  `theirs`, `thee` — is a real gap: WordNet does not define function words, and
+  these are ordinary English a learner meets. 32 of them were given definitions
+  by the 19 Sep sense pass (`en-sense-2026-09-19.md` §5) and the rest need the
+  same treatment.
+
+**The guard, written before the repair** (quality rule 17).
+`empty_definition` in `audit_content`, report-level, reporting 1,231 on English
+and 0 on the other 26. Two decisions in it are worth carrying:
+
+- **The count is the committed blank, not the resolved card.** For English a
+  blank is not automatically a blank card — the seeder resolves one through
+  WordNet — so the finding line says how many `best_synset` can fill (measured:
+  **none of the 1,231**) as a NOTE, never as part of the number. A rule whose
+  count moves with an optional corpus reports one thing here and another in CI,
+  and cannot be compared against a baseline (quality rule 16).
+- **It skips `seed_english`'s own noise list** (`ain`, `isn`, `de`, `mm`),
+  because a row the seeder never seeds is not a card and counting it would
+  report a defect nobody can meet. The two lists have to stay in step, which is
+  what `SEEDER_NOISE`'s comment says.
+
+Report-level rather than fail-level for the `gender_marking` reason: its target
+is zero, but the repair is ~1,200 rows and takes an owner decision, so a
+threshold set now would be a number nobody could defend. Promote it when
+English reaches zero.

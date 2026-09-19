@@ -1431,7 +1431,13 @@ function ReviewSessionInner({
               </div>
               {!cram && (
                 <div className="text-center">
-                  <CardFeedback cardId={card.id} />
+                  <CardFeedback
+                    cardId={card.id}
+                    // What this card actually rendered in: the server's
+                    // answer when it differs from what the learner asked for.
+                    locale={card.translation_locale ?? supportLocale}
+                    drillId={card.drill_id ?? null}
+                  />
                 </div>
               )}
             </div>

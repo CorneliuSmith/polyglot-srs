@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { getBuildInfo, getSchemaHealth } from '../../api/health'
+import { getContentDeploy, type ContentDeployResponse } from '../../api/contribute'
+import { ago } from '../../lib/ago'
 
 /**
  * What is deployed, and is the database keeping up with it.
@@ -24,6 +26,13 @@ export default function DeploymentPanel() {
   const { data: schema, isLoading: schemaLoading } = useQuery({
     queryKey: ['schema-health'],
     queryFn: getSchemaHealth,
+    retry: false,
+    staleTime: 60_000,
+  })
+
+  const { data: content, isLoading: contentLoading, isError: contentError } = useQuery({
+    queryKey: ['content-deploy'],
+    queryFn: getContentDeploy,
     retry: false,
     staleTime: 60_000,
   })
@@ -106,6 +115,108 @@ export default function DeploymentPanel() {
           </div>
         )}
       </div>
+
+      {/* The content answer to the schema question above: reconcile's
+          survey of the committed files against the database, persisted by
+          the nightly loop (plan §6). What the owner would see by running
+          `reconcile --report` per course, without running it. */}
+      <div className="mt-4 border-t border-gray-100 pt-3" data-testid="deployment-content">
+        <h3 className="text-xs font-semibold text-gray-800">Content</h3>
+        <p className="text-xs text-gray-500">Files versus database, since the last deploy</p>
+        <ContentSurvey
+          content={content}
+          loading={contentLoading}
+          error={contentError}
+          buildSha={build?.sha ?? null}
+        />
+      </div>
     </section>
+  )
+}
+
+function ContentSurvey({
+  content,
+  loading,
+  error,
+  buildSha,
+}: {
+  content: ContentDeployResponse | undefined
+  loading: boolean
+  error: boolean
+  buildSha: string | null
+}) {
+  if (loading) return <p className="mt-1 text-xs text-gray-500">Reading the survey…</p>
+  if (error || content == null)
+    return <p className="mt-1 text-xs text-gray-500">The content survey did not answer.</p>
+  if (!content.available)
+    return (
+      <p className="mt-1 text-xs text-amber-700">
+        The content survey needs migration 20261029 applied — the loop has
+        nowhere to write it yet.
+      </p>
+    )
+  if (content.courses.length === 0)
+    return <p className="mt-1 text-xs text-gray-500">no reconcile survey yet</p>
+
+  // The server's own sha wins; the health probe's is the fallback for a
+  // response built before the loop stamped one.
+  const currentSha = content.build_sha ?? buildSha
+  const newest = content.courses.reduce<string | null>(
+    (best, c) => (best == null || c.run_at > best ? c.run_at : best),
+    null,
+  )
+  const stale = content.courses.filter(
+    (c) => c.build_sha != null && currentSha != null && c.build_sha !== currentSha,
+  )
+
+  return (
+    <div className="mt-1">
+      <div className="overflow-x-auto">
+        <table className="w-full text-xs">
+          <thead>
+            <tr className="text-start text-gray-500">
+              <th className="py-0.5 font-medium">Course</th>
+              <th className="py-0.5 font-medium text-end" title="in the database, not in the files">Gone</th>
+              <th className="py-0.5 font-medium text-end" title="in the files, not in the database">New</th>
+              <th className="py-0.5 font-medium text-end" title="gloss + part-of-speech changes">Drift</th>
+              <th className="py-0.5 font-medium text-end">Retire</th>
+              <th className="py-0.5 font-medium text-end">Run</th>
+            </tr>
+          </thead>
+          <tbody>
+            {content.courses.map((c) => (
+              <tr
+                key={c.code}
+                className="border-t border-gray-50 text-gray-700"
+                data-testid={`deployment-content-${c.code}`}
+              >
+                <td className="py-0.5">
+                  {c.name}
+                  {c.build_sha != null && currentSha != null && c.build_sha !== currentSha && (
+                    <span className="ms-1 text-[10px] text-amber-700">measured on an older build</span>
+                  )}
+                </td>
+                <td className="py-0.5 text-end tabular-nums">
+                  {c.gone}
+                  {c.gone_with_cards > 0 && (
+                    <span className="text-gray-500"> ({c.gone_with_cards} with cards)</span>
+                  )}
+                </td>
+                <td className="py-0.5 text-end tabular-nums">{c.new}</td>
+                <td className="py-0.5 text-end tabular-nums">{c.gloss + c.pos}</td>
+                <td className="py-0.5 text-end tabular-nums">{c.retire}</td>
+                <td className="py-0.5 text-end tabular-nums whitespace-nowrap">
+                  {new Date(c.run_at).toLocaleDateString()}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="mt-1 text-xs text-gray-500" data-testid="deployment-content-footer">
+        Reconcile last ran {ago(newest)}
+        {stale.length > 0 && ` · ${stale.length} course${stale.length === 1 ? '' : 's'} measured on an older build`}
+      </p>
+    </div>
   )
 }

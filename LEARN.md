@@ -279,6 +279,19 @@ digest in `.claude/skills/quality-rules/` is deliberately NOT read at
 runtime: it governs the sessions that clean data; rules move from it into
 `quality_rules.py` one at a time, as short mechanical statements.
 
+Behind the checker sits a third, mechanical layer: `services/translate_checks.py`.
+The checker grades MEANING; the gates catch the classes a semantic grader
+has been caught missing — a hint that quotes its own answer, an echo of the
+source, a lost cloze blank, a Spanish question without its `¿`, and, since
+18 Sep 2026, a gloss in the wrong part of speech. The last one is narrow on
+purpose: it judges Arabic verb rows only, because that is the one class
+with a measured predicate (`nominal_gloss_on_a_verb`, 76% precision on 120
+judged rows), and it **withholds** rather than rejects — the item is left
+out of `maker_check_batch`'s results, so the caller neither stores it nor
+files it in `translation_reviews` (a queue a human must clear), and the
+attempt ledger retries it. Widening it to another locale means a gold set
+for that locale first (`_POS_CHECKED_LOCALES`), not a longer list.
+
 The tutor's per-language knowledge is a skill bundle,
 `tutor_skills/<code>/`: `SKILL.md` rides in every prompt (kept under 2,500
 chars by test), `REFERENCE.md` and `ERRORS.md` load on demand through the
@@ -321,6 +334,159 @@ The append-only AI tables are pruned daily by `services/retention.py`
 every window a reader uses), a lifespan task like the reminder and digest
 loops, switched by `retention_sweep_enabled`.
 
+### Content-quality telemetry: the nightly loop, and a switch that fails closed
+
+Nothing in the repo stored a quality number with a date on it: the audit
+gated CI on a ratchet file, `reconcile --report` printed drift and exited,
+`db_snapshot` overwrote one JSON file. So "is Korean's sentence coverage
+better than before the authoring pass" had no answer, and the owner's
+condition for ever running a paid judge was that coverage is *tracked*
+first. `services/quality_loop.py` is that tracking: a daily lifespan task
+(`quality_loop_enabled`, the retention loop's shape) that runs the checks
+the repo already had — `audit_content.audit_language` in a worker thread,
+because it parses the frequency and sentence files and would stall every
+request if it ran on the event loop; `reconcile.survey` for drift between
+the committed files and production; `db_snapshot.snapshot_language` with
+`samples=0`, counts only; and the review inbox's queue depths — and writes
+one `quality_runs` row per (language, metric) through
+`repositories/quality.py`, stamped with the build sha so "since the last
+deploy" is a query. Each step runs under its own savepoint and its own
+try/except, so a broken course costs one step's rows and not the cycle;
+`QUALITY_HEARTBEAT` / `quality_heartbeat()` is the proof of life, because
+"never ran", "ran and the table is missing" and "ran and every course
+failed" all look like "no new rows" from outside.
+
+The judge's switch was built before the judge. `quality_settings`
+(migration 20261029) is a singleton the admin panel edits — enabled, rows
+per cycle, a daily token cap, an optional model — and
+`get_quality_settings` **fails closed**: absent table, absent row, or any
+database error reads as `{judge_enabled: False, rows: 0, cap: 0}`. It
+catches wider than the other readers in that file on purpose. This is the
+owner's cost control ("it can be a lot of money"), so the one direction
+the degrade must never take is "unreadable, therefore on".
+`quality_loop_enabled` gates only the free, mechanical steps; nothing
+about the judge is a config.py constant. `language_quality_targets` is
+the per-course half — judge opt-in and the red thresholds — and a course
+with no row reads as not judged, red at 15 percent bad cards and 5 percent
+judge flags.
+
+**The judge step** (`services/quality/judge_step.py`, 18 Sep 2026) is the
+one paid step, and `quality_loop()` runs it only after `run_quality_cycle`
+has written every mechanical row, inside its own try/except, so a judge
+that crashes or overspends cannot cost the free measurements — its failure
+is one line in the cycle's `failures`, and the heartbeat still says the
+cycle ran. Four gates, in this order, each failing closed: the master
+switch (nothing else is read when it is off); today's spend against the
+daily cap; the per-course opt-in in `language_quality_targets`; and
+`data/eval/calibrated.json`, the list of (question, course) pairs whose
+gold set has cleared the three §3.2 gates. The file is plan §7's phase E
+gate made a fact the loop can read: the switches decide whether money is
+spent, the file decides on what, and a pair not in it is listed in the
+stats as `not calibrated` and never sent to a model. Absent or malformed,
+it reads as empty — the same direction `get_quality_settings` degrades in.
+That direction is also why the file ships in the API image by name:
+`.dockerignore` excludes `data/*`, and a gate that reads as *off* when its
+file is absent is exactly what an exclusion silently removes — the first
+build after the step landed would have shown the switch on and a judge
+that never read. The negation and the Dockerfile `COPY` are pinned by
+`test_runtime_data_ships.py`, beside the Gym manifests and the frequency
+lists that taught the same lesson.
+`judge_rows_per_cycle` is then split evenly across the surviving pairs,
+each pair runs under its own savepoint (`_step`'s shape: one broken pair
+costs one pair), and the cap is re-checked before every batch of
+`BATCH_SIZE` against today's spend plus the cycle's running total.
+
+Two things about where the rows go. **The spend ledger is `quality_runs`,
+not `tutor_usage`.** Every other model call logs to `tutor_usage`, whose
+`user_id` is NOT NULL against `auth.users`; the judge has no user, and
+giving it one is a service account — owner decision #2. So each pair
+writes ONE `quality_runs` row `kind='judge'`, `metric='tokens'` (value =
+input + output tokens, population = calls, the model and the full usage
+in `meta`), and `judge_tokens_spent_today` sums those since UTC midnight.
+The verdicts (`content_verdicts`, `repositories/verdicts.py`) carry that
+row's id as `run_id`, so the night's spend and what it bought are one
+join. A second row per pair, `metric='flagged.<question>'`, is that NIGHT's
+rate — findings in the question's positive class at confidence >= 0.7, out
+of the rows that night judged — and it is what the drill-down's sparkline
+plots. It is NOT the percentage on the course row above it: that one is
+open verdicts at the same threshold over the course's LIFETIME judged
+count, so it falls as an admin disposes verdicts while the sparkline, a
+record of what each night found, does not. Two honest numbers with one
+name is how a panel gets argued with; they are labelled "tonight" and
+"open" for that reason. And **coverage is written whether or not the judge is
+on**: `_judge_coverage_step` writes `kind='coverage'`,
+`metric='judge.<question>'` for every course and every question — rows
+with any verdict out of the question's scope, `calibrated` in the meta —
+because the owner's condition was that coverage is tracked from day one,
+and a course the judge has never read must show 0 of N, not nothing.
+
+Row selection (`verdicts.candidates`) is the plan's priority order as one
+ORDER BY: never judged for this question first, the top of the frequency
+band first within them, then the rows judged longest ago. A batch whose
+judge raised is NOT stored: `run_items` turns it into `unsure` rows so a
+CLI count cannot read a crash as clean, but stored, those rows would
+count as judged — the coverage numerator, and the back of the queue — on
+the strength of a timeout. The step keeps them out, counts the batch as
+a failure, and the rows come back the next night. Retired words are out
+of every scope and retired points' drills out of register's, each
+`retired_at IS NULL` behind a `column_present` probe (`cards._retired_clause`'s
+pattern, migrations 20261016 and 20261017): the scopes run under a
+savepoint, so a predicate on an absent column would not poison the
+transaction — it would empty the scope, and a judge that reads nothing for
+a course is worse than one that reads a few retired rows.
+
+**Bind a `Decimal`, never a float, to a `numeric` column.** asyncpg encodes
+a float bound to `numeric` as `Decimal(float)`, the full binary expansion:
+a model's `0.7` reached Postgres as `0.69999999999999995559…`, and
+`WHERE confidence >= 0.7` on the table found none of the rows the
+`flagged.<question>` ledger row had counted in Python at exactly the
+threshold. `verdicts.stored_confidence` rounds to four places and builds
+the Decimal from the short string, and `judge_step.is_flagged` compares
+that same value, so the Python count and any SQL reader at the threshold
+name the same rows. The rule generalises to every `numeric` write: the
+value the code compared is the value the table must hold.
+
+**Where it is read** (18 Sep 2026). Two admin panels and one section,
+English-only like every other admin surface, all reading the
+`/api/contribute/admin/content-health*` and `quality-settings` endpoints:
+
+- **Admin → Content → `ContentHealthPanel`**, after the Generation panel
+  it complements: Generation asks whether a row exists, this asks whether
+  it is right. One row per course, worst first — the server orders (red,
+  amber, green, grey, then code) and the client never re-sorts, so there
+  is one definition of "worst" — with a status pill, bad cards against
+  the course's own target, top-band coverage, the audit delta against
+  `data/quality/baseline.json`, one judge line per question ("not
+  calibrated" while a question's gold set has not cleared its gates,
+  "0% judged" before its first run), the queue total, and when the audit
+  and the judge last ran. A row expands into the course's drill-down
+  (`/content-health/{code}`): two plain-SVG sparklines — no chart library
+  for a 30-day line, the shape `AnalyticsPanel` already draws — the audit
+  rules, the reconcile survey, and the open verdicts with **Agree /
+  Disagree**. Those labels are deliberate: "Accept" on a change request
+  applies nothing today and reviewers act as if it did (plan §2.2), so
+  until owner decision #5 lands the button says what it does — records
+  that a person agreed with the judge — and touches no card.
+- **Admin → Costs → `QualitySettingsPanel`**, after the plan limits.
+  Under Costs and not Content because that is what it is: the master
+  switch and the daily token cap decide what the API key spends every
+  night, and the numbers they buy are read on the Content panel. The
+  same form pattern as `PlanLimitsPanel` — a Save per field, enabled
+  only when the field holds a valid value that differs from what is
+  stored, sending only that field — plus the per-course table (judge
+  opt-in, the two red thresholds) saving through `quality-targets/{code}`.
+- **Admin → Rollouts → Deployment → Content**: reconcile's survey per
+  course (gone, new, drift, retire, run date) from the loop's latest
+  `kind=reconcile` rows — the content answer to the panel's schema
+  question — with "measured on an older build" on a row whose
+  `build_sha` is not the one serving.
+
+All three degrade the plan-limits way: a GET on a database without
+migration 20261029 answers `available: false`, and the panel names the
+migration and where to look (Rollouts → Deployment) with every control
+disabled; only a PUT/POST 503s, and the panel shows the server's detail.
+`lib/ago.ts` is the shared "4 min ago" behind the three "last ran" lines.
+
 The tier rule is in `services/models.py`'s `TASK_MODELS`: a `*_maker` drafts
 on the configured chat model, its `*_checker` verifies one tier up
 (`tutor_model_low_resource`), and `resolve_model` refuses per-language
@@ -344,6 +510,47 @@ with `reviewed = true`; rejecting clears the row and the layer keeps its
 English fallback until a later sweep tries again. The writers probe for
 the table and skip the queue without it, so a deploy ahead of the owner's
 migration behaves exactly as it did before.
+
+### Content Health: the endpoints that read the telemetry
+
+The nightly loop's rows are read by one admin-only family in
+`routers/contribute.py` (plan §6, phase B, 18 Sep 2026):
+`GET /api/contribute/admin/content-health` (one row per course, worst
+first), `GET …/content-health/{code}` (the row plus 30-day trends, every
+audit rule against its baseline, and the open verdicts),
+`GET …/content-health/deploy` (the last reconcile survey per course, the
+content answer to the deployment panel's schema question),
+`POST …/content-health/verdicts/{id}` (agree / disagree with a verdict),
+and `GET`/`PUT …/quality-settings` and `PUT …/quality-targets/{code}` for
+the judge's switch, budget and per-course thresholds.
+
+The split is the three-layer rule with one extra seam. `repositories/
+content_health.py` holds the reads `repositories/quality.py` does not
+(table probes, open-verdict counts and lists, the disposition write, the
+last survey); `services/content_health.py` is **pure** — `derive_course`,
+`status_of`, `sort_key` and the trend transforms take dicts and return
+dicts — so the status rules (grey never measured; red over the bad-card
+target, over any question's flag target, or audit fails above baseline;
+amber under 95 percent of the top band covered; else green) are tested one
+branch at a time without a client, and the router only fetches and hands
+over. Every percentage there is `None` when its population is missing or
+zero, and every comparison tests for `None` first: a `0 > 15` reading as
+green for a course nobody has measured is the false comfort the panel
+exists to remove.
+
+**GETs degrade to `available: false`; writers 503.** The four tables are
+migration 20261029, owner-applied, and the code deploys first, so the
+overview carries `available: {quality_runs, content_verdicts,
+quality_settings, language_quality_targets}` and answers 200 with 27 grey
+rows and the judge settings OFF rather than 503 — a panel that cannot load
+cannot say *why* it is empty, and "the migration is not applied" is the
+one thing it must be able to say. `PUT quality-settings`, `PUT
+quality-targets/{code}` and `POST verdicts/{id}` instead 503 naming the
+migration, because an admin's save failing silently is worse than a read
+degrading (the plan-limits precedent, and `repositories/flags.py`). The
+repository writers make that possible by returning `None` (or
+`TABLE_ABSENT`, where `None` already means "no such open row") instead of
+raising through.
 
 ### SRS: FSRS, not SM-2
 
@@ -1296,7 +1503,13 @@ still in production** until a tool that deletes is run on purpose:
   headword. A bulk DELETE, so the owner runs it (CHECKS §18).
 - `reconcile -l <code>` — corrections (glosses, parts of speech, sentence
   layers) with the same rollback-first shape. Never deletes a vocabulary
-  row.
+  row. Since 18 Sep 2026 it also never overwrites one a human edited: a
+  `vocabulary.curated` row whose definition differs from the file is
+  reported as `kept`, not corrected (before that, every Workshop fix was
+  reverted on the next `--apply`). And it refuses a course with a headword
+  **rename** — a `gone` word and a `new` word at the same frequency rank —
+  until the old spelling is in `vocab_exclusions.tsv`, because the seeder
+  would add the new spelling and nothing would remove the old (rule 73).
 - `data/vocab_exclusions.tsv` — durable deletions at the FILE layer
   (`source_data.apply_vocab_exclusions`), because a TSV-only deletion is
   undone by the next regeneration. It has no production counterpart yet
@@ -1540,6 +1753,8 @@ Background loops run in-process from `backend/main.py`'s app lifespan (all
 never-raise, all cancelled cleanly on shutdown): `reminder_loop` (15 min,
 review reminders), `digest_loop` (1 hour, weekly digest + admin ops digest),
 `auto_translate_loop` (15 min, fills missing support-locale text),
+`retention_loop` (daily, prunes the AI usage tables), `quality_loop`
+(daily, writes the content-quality telemetry — see the Backend section),
 `_check_schema` (once at boot — logs loudly if the code is ahead of the
 applied migrations, which is your early warning that a `supabase db push` is
 overdue).
@@ -1559,11 +1774,15 @@ diff against the live database (it used to report `ok: true`
 unconditionally because `.dockerignore` excluded them; it now returns an
 error when it has no expectations, rather than a hollow ok).
 
-The same three facts plus the schema diff are in the app: **Settings →
-Admin → Deployment** (`DeploymentPanel.tsx`). When "I don't see the
-setting" comes up, read that panel first — it distinguishes "not deployed
-yet" from "deployed, migration not applied" from "a real bug" without a
-terminal.
+The same three facts plus the schema diff are in the app: **Workspace →
+Admin → Rollouts → Deployment** (`DeploymentPanel.tsx`; it moved there
+with the one-staff-console change, and this paragraph said Settings until
+18 Sep 2026). When "I don't see the setting" comes up, read that panel
+first — it distinguishes "not deployed yet" from "deployed, migration not
+applied" from "a real bug" without a terminal. Its **Content** section
+answers the same question for data: files versus database per course,
+from the nightly loop's reconcile survey, so "did the owner's last push
+land" is read there too.
 
 See `docs/database.md` for exactly how portable this all is if you ever
 wanted to leave Supabase — short version: the schema and RLS are portable
@@ -1586,7 +1805,7 @@ the brief; two are exempt on purpose (media recommendations, where
 dialect films are the right answer, and the English-only skill digest).
 
 
-**Two providers behind one schema** (`quality/register_pass.py`, 17 Sep
+**Two providers behind one schema** (`quality/content_judge.py`, home of the provider layer since 18 Sep; first built in `register_pass.py` on 17 Sep
 2026). The Arabic register judge has to read tens of thousands of rows, so
 it will eventually run on a local Arabic-native model rather than on
 Claude (`docs/plans/arabic-msa-local-llm.md`). Rather than wait for the

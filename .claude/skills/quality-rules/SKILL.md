@@ -525,13 +525,31 @@ rate, say so — that result matters more than the phase closing quietly.
     correct translation. When a support-locale complaint arrives, check the
     SOURCE definition before the target gloss — and fix it upstream, where
     one repair serves all nine locales.
-75. **A rule's band was chosen for the defect it was written for.**
-    `WRONG_SENSE_RANK_BAND = 1000` is well argued for letter-name glosses and
-    says nothing about wrong senses generally, yet it reads as though the
-    corpus is checked. 8.1% of English definitions give a rare or wrong sense,
-    peaking at 15–17% in ranks 2,001–6,000, and no rule looks there. Before
-    trusting a rule's coverage, read what its threshold was chosen to
-    separate.
+75. **A rule's band was chosen for the defect it was written for** — and the
+    comment above it usually says which. `WRONG_SENSE_RANK_BAND = 1000` is
+    well argued for letter-name glosses and says nothing about wrong senses
+    generally, yet it reads as though the corpus is checked. Read what a
+    threshold was chosen to separate before trusting its coverage — and before
+    proposing to change it: a recommendation to lift this band, written
+    without reading the constant's own comment, would have turned a fail-level
+    rule red on five correct rows (CHECKS §41).
+76. **Ask a model for a field and it may answer about the row instead.**
+    Asked for a definition, three judges wrote "not an English word — a corpus
+    artefact … the card should be retired" into the field a learner reads.
+    Each is a correct observation and a catastrophic definition. Any field a
+    model fills needs a mechanical predicate for "the model answered a
+    different question", beside the predicates for a bad answer.
+77. **A rate's two halves are one decision.** A numerator and denominator that
+    live in different functions drift: judged-rows over a scope that excluded
+    retired words read 133%, and flagged verdict ROWS over distinct CARDS
+    climbed every night a row was re-judged. Anything added to a scope goes
+    into both, and the cheap test asserts the two queries share the scope, not
+    that a number looks right.
+78. **A rule that inspects text cannot fire on the absence of text.** Three
+    English definition rules guard with `if not gloss: continue`, so the 1,231
+    cards (12.4%) with no definition at all were the ones no rule could reach.
+    When a check reads a field, ask what it does when the field is empty — and
+    whether anything else counts that.
 
 ## Maintaining this skill (owner directive, 19 Aug 2026)
 
