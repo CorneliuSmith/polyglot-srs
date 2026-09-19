@@ -44,9 +44,26 @@ def detune_quotes(text: str) -> str:
     for bad, good in SMART.items():
         text = text.replace(bad, good)
     return text
-# The house shape keeps the relation as a parenthetical. A repair with no
-# parenthesis at all is not wrong, but one that is ONLY a parenthesis is.
-ONLY_PAREN = re.compile(r"^\s*\(")
+PARENS = re.compile(r"\([^)]*\)")
+
+
+def meaning_of(text: str) -> str:
+    """The definition with every parenthetical removed: the part that must
+    carry the meaning.
+
+    Two of the gates below run on THIS and not on the whole line, because the
+    house shape puts the relation in parentheses and the relation is ALLOWED
+    to name the lemma. Measured on this pass's first run: testing the whole
+    line refused 248 good repairs out of 251 refusals.
+
+    `debe` -> "he/she/it must, ought to; owes (third-person singular present
+    of deber)" is not circular: `deber` sits in the parenthesis, which is
+    where the learner needs it. And `сына` -> "(of) a son, a son's" does not
+    lead with the relation — it leads with a parenthesised optional English
+    word, which is how a genitive is glossed. Both are the shape the
+    programme asked for (quality rule 19: verify every hit).
+    """
+    return " ".join(PARENS.sub(" ", text or "").split())
 
 
 def read_tsv(path: Path) -> list[dict]:
@@ -78,13 +95,14 @@ def validate(word: str, pos: str, before: str, after: str) -> str | None:
         return "carries a tab or newline"
     if BANNED.search(text):
         return "carries a citation or see-also"
-    if ONLY_PAREN.match(text):
-        return "starts with the parenthesis: the meaning has to come first"
+    meaning = meaning_of(text)
+    if len(meaning) < 3:
+        return "nothing outside the parentheses: the meaning has to be there"
     # THE gate. The whole point of the repair is that this stops being true.
     if is_relation_only(text):
         return "still gives only the relation: not repaired"
-    if is_circular(word, pos, text):
-        return "circular: uses the headword"
+    if is_circular(word, pos, meaning):
+        return "circular: the meaning uses the headword"
     if text.strip() == (before or "").strip():
         return "unchanged"
     return None

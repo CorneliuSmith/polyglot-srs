@@ -263,3 +263,14 @@ what remains in this course.
 **Band 1001–2000, same day: 226 more.**
 - `geschrieben` was "past participle of schreiben" → "written; wrote, in the perfect (past participle of schreiben)"
 - `erledigt` was "past participle of erledigen" → "done, finished, taken care of (past participle of erledigen); also he/she/it deals with, sees to; colloquially, worn out or done for"
+
+## Relation-only definitions in the top band, repaired (19 Sep 2026)
+
+**160 definitions rewritten** into the house shape - meaning first, relation in
+parentheses - from rows that gave a grammatical relation and no English
+meaning at all. Many of the German rows named no target word at all - `sagt` was simply "third-person singular present" - which is the shape the old predicate was completely blind to.
+
+The predicate that finds them was corrected the same day (`CHECKS.md` §43); it
+had been reporting a fraction of the real count. Across all 22 affected
+courses the class fell from 3,072 rows in the top 2,000 to 154. Full record
+and every row's reasoning: `relation-only-repair-2026-09-19.md`.

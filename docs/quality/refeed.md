@@ -279,6 +279,7 @@ the verdicts it bought.
 | 236 English definitions repaired (`en-sense-2026-09-19.md`) | en | `reconcile -l en --apply` (they are gloss overrides, so reconcile carries them) |
 | 3 alphabet rows retired, 2 overrides deleted (CHECKS §41) | nl, ca, yo | `reconcile -l nl --apply`, same for ca and yo — each reports one departed row with its exclusion already in place |
 | 874 Yoruba bare forms retired (17 Sep tone repair) | yo | still owed from the last handover: `reconcile -l yo --apply` |
+| **2,918 relation-only definitions repaired** in the top 2,000 (`relation-only-repair-2026-09-19.md`) | ru, el, nl, de, es, fr, ca, he, hi, pt, it, ro, ar, fa, tr, ko, sw, ha, th, yo, tl | `reconcile -l <code> --apply` per course — they are gloss overrides, so reconcile carries them |
 | topic files for 9 courses | en, ru, jam, la, mi, ha, xh, yo, tr | `seeder.generate_content -l <code> -k topics --topics-file data/topics/<code>.json --max 3000` |
 
 ### 4. Two things measured and deliberately left for you

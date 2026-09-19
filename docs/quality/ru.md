@@ -236,3 +236,14 @@ match the FORM rather than the lemma. Written by a maker and judged by an
 adversarial checker; across all 19 courses 23 of 1,826 were refused, most for
 hiding a person the form genuinely has. `relation_only_gloss` now measures
 what remains in this course.
+
+## Relation-only definitions in the top band, repaired (19 Sep 2026)
+
+**750 definitions rewritten** into the house shape - meaning first, relation in
+parentheses - from rows that gave a grammatical relation and no English
+meaning at all. Russian was the worst-affected course: 792 of its top-2,000 rows read as a bare relation and nothing could see them, because the definitions end in a romanisation the predicate's tail anchor could not pass.
+
+The predicate that finds them was corrected the same day (`CHECKS.md` §43); it
+had been reporting a fraction of the real count. Across all 22 affected
+courses the class fell from 3,072 rows in the top 2,000 to 154. Full record
+and every row's reasoning: `relation-only-repair-2026-09-19.md`.
